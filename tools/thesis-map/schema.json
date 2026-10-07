@@ -1,0 +1,1346 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:thesis-map:2.0.0",
+  "title": "Thesis map 2.0.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "2.0.0"
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "degree": {
+          "type": "string"
+        },
+        "source_pdf": {
+          "type": "string"
+        },
+        "pdf_pages": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "extraction": {
+          "type": "object",
+          "properties": {
+            "tool": {
+              "type": "string"
+            },
+            "ocr_used": {
+              "type": "boolean"
+            },
+            "dpi": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "language": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "versions": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "pdf_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "text_layer": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "tool",
+            "ocr_used",
+            "dpi",
+            "language",
+            "versions",
+            "pdf_sha256",
+            "text_layer"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "title",
+        "author",
+        "degree",
+        "source_pdf",
+        "pdf_pages",
+        "extraction"
+      ],
+      "additionalProperties": true
+    },
+    "pagemap": {
+      "type": "object",
+      "properties": {
+        "rule": {
+          "type": "string"
+        },
+        "pages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "pdf_index": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "label": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "enum": [
+                  "printed",
+                  "counted",
+                  "unnumbered"
+                ]
+              },
+              "alternate_labels": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "source": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "source"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "pdf_index",
+              "label",
+              "status",
+              "alternate_labels"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "verification": {
+          "type": [
+            "string",
+            "integer",
+            "null"
+          ]
+        },
+        "exceptions": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "required": [
+        "rule",
+        "pages",
+        "verification",
+        "exceptions"
+      ],
+      "additionalProperties": false
+    },
+    "journey": {
+      "type": "object",
+      "properties": {
+        "arc": {
+          "type": "string"
+        },
+        "caveat": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "order_note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "stages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/stage"
+          }
+        },
+        "contributions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "stage": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "nodes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              },
+              "source_pages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              },
+              "basis": {
+                "enum": [
+                  "stated",
+                  "inferred"
+                ]
+              },
+              "confidence": {
+                "enum": [
+                  "low",
+                  "medium",
+                  "high"
+                ]
+              },
+              "summary_basis": {
+                "type": "string"
+              },
+              "type_basis": {
+                "enum": [
+                  "stated",
+                  "inferred"
+                ]
+              },
+              "parent_basis": {
+                "enum": [
+                  "stated",
+                  "inferred"
+                ]
+              },
+              "outcome_basis": {
+                "enum": [
+                  "stated",
+                  "inferred"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "text",
+              "stage",
+              "nodes",
+              "source_pages",
+              "basis"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "negative_results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "stage": {
+                "type": "string"
+              },
+              "node": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "evidence_nodes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              },
+              "source_pages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              },
+              "basis": {
+                "enum": [
+                  "stated",
+                  "inferred"
+                ]
+              },
+              "confidence": {
+                "enum": [
+                  "low",
+                  "medium",
+                  "high"
+                ]
+              },
+              "summary_basis": {
+                "type": "string"
+              },
+              "type_basis": {
+                "enum": [
+                  "stated",
+                  "inferred"
+                ]
+              },
+              "parent_basis": {
+                "enum": [
+                  "stated",
+                  "inferred"
+                ]
+              },
+              "outcome_basis": {
+                "enum": [
+                  "stated",
+                  "inferred"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "stage",
+              "node",
+              "kind",
+              "text",
+              "evidence_nodes",
+              "source_pages",
+              "basis"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "transitions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "from_stage": {
+                "type": "string"
+              },
+              "to_stage": {
+                "type": "string"
+              },
+              "why": {
+                "type": "string"
+              },
+              "source_pages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              },
+              "basis": {
+                "enum": [
+                  "stated",
+                  "inferred"
+                ]
+              },
+              "confidence": {
+                "enum": [
+                  "low",
+                  "medium",
+                  "high"
+                ]
+              },
+              "summary_basis": {
+                "type": "string"
+              },
+              "type_basis": {
+                "enum": [
+                  "stated",
+                  "inferred"
+                ]
+              },
+              "parent_basis": {
+                "enum": [
+                  "stated",
+                  "inferred"
+                ]
+              },
+              "outcome_basis": {
+                "enum": [
+                  "stated",
+                  "inferred"
+                ]
+              }
+            },
+            "required": [
+              "from_stage",
+              "to_stage",
+              "why",
+              "source_pages",
+              "basis"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "arc",
+        "caveat",
+        "order_note",
+        "stages",
+        "contributions",
+        "negative_results",
+        "transitions"
+      ],
+      "additionalProperties": false
+    },
+    "structure": {
+      "type": "object",
+      "properties": {
+        "roots": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "nodes": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/node"
+          }
+        },
+        "note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "roots",
+        "nodes",
+        "note"
+      ],
+      "additionalProperties": false
+    },
+    "links": {
+      "type": "object",
+      "properties": {
+        "edges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/edge"
+          }
+        },
+        "entities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/entity"
+          }
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/claim"
+          }
+        },
+        "edge_types": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "family": {
+                "enum": [
+                  "ref",
+                  "flow",
+                  "reuse"
+                ]
+              }
+            },
+            "required": [
+              "label",
+              "family"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "edges",
+        "entities",
+        "claims",
+        "edge_types"
+      ],
+      "additionalProperties": false
+    },
+    "quality": {
+      "type": "object",
+      "properties": {
+        "observations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/observation"
+          }
+        },
+        "coverage": {
+          "type": "object"
+        },
+        "validation": {
+          "type": "object",
+          "properties": {
+            "failures": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "warnings": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "failures",
+            "warnings"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "observations",
+        "coverage",
+        "validation"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "meta",
+    "pagemap",
+    "journey",
+    "structure",
+    "links",
+    "quality"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "span": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "string"
+        },
+        "end": {
+          "type": "string"
+        },
+        "pdf_start": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "pdf_end": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "pdf_start",
+        "pdf_end"
+      ],
+      "additionalProperties": false
+    },
+    "quote": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "page": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "text",
+        "page"
+      ],
+      "additionalProperties": false
+    },
+    "node": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "number": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "front",
+            "back",
+            "part",
+            "chapter",
+            "appendix",
+            "section",
+            "run-in",
+            "figure",
+            "table"
+          ]
+        },
+        "type": {
+          "enum": [
+            "front-matter",
+            "references",
+            "background",
+            "method",
+            "result",
+            "discussion",
+            "appendix"
+          ]
+        },
+        "parent": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "level": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "pages": {
+          "$ref": "#/$defs/span"
+        },
+        "own_pages": {
+          "$ref": "#/$defs/span"
+        },
+        "approx_words": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "approx_words_own": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "n_figures": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "n_tables": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "figures": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "tables": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "summary": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "quote": {
+          "$ref": "#/$defs/quote"
+        },
+        "template": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "publication_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "publication": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "collaboration": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "journal_pages": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_pages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "annotations": {
+          "type": "object"
+        },
+        "basis": {
+          "enum": [
+            "stated",
+            "inferred"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "summary_basis": {
+          "type": "string"
+        },
+        "type_basis": {
+          "enum": [
+            "stated",
+            "inferred"
+          ]
+        },
+        "parent_basis": {
+          "enum": [
+            "stated",
+            "inferred"
+          ]
+        },
+        "outcome_basis": {
+          "enum": [
+            "stated",
+            "inferred"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "number",
+        "title",
+        "kind",
+        "type",
+        "parent",
+        "children",
+        "level",
+        "pages",
+        "own_pages",
+        "approx_words",
+        "approx_words_own",
+        "n_figures",
+        "n_tables",
+        "figures",
+        "tables",
+        "summary",
+        "quote",
+        "template",
+        "publication_status",
+        "publication",
+        "collaboration",
+        "journal_pages",
+        "source_pages",
+        "annotations",
+        "basis"
+      ],
+      "additionalProperties": false
+    },
+    "stage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "origin",
+            "research",
+            "destination"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "question": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "approach": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "outcome": {
+          "enum": [
+            "worked",
+            "partial",
+            "failed",
+            "pivot",
+            null
+          ]
+        },
+        "outcome_note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "why_next": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "next": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "chapters": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "node": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "pages": {
+                "$ref": "#/$defs/span"
+              }
+            },
+            "required": [
+              "node",
+              "pages"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "source_pages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "quote": {
+          "$ref": "#/$defs/quote"
+        },
+        "negative_result": {
+          "type": "boolean"
+        },
+        "negative_results": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "basis": {
+          "enum": [
+            "stated",
+            "inferred"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "summary_basis": {
+          "type": "string"
+        },
+        "type_basis": {
+          "enum": [
+            "stated",
+            "inferred"
+          ]
+        },
+        "parent_basis": {
+          "enum": [
+            "stated",
+            "inferred"
+          ]
+        },
+        "outcome_basis": {
+          "enum": [
+            "stated",
+            "inferred"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "role",
+        "title",
+        "question",
+        "approach",
+        "outcome",
+        "outcome_note",
+        "why_next",
+        "next",
+        "chapters",
+        "nodes",
+        "evidence",
+        "source_pages",
+        "quote",
+        "negative_result",
+        "negative_results",
+        "basis"
+      ],
+      "additionalProperties": false
+    },
+    "claim": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "node": {
+          "type": "string"
+        },
+        "stage": {
+          "type": "string"
+        },
+        "source_pages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "evidence_nodes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "evidence": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "quote": {
+          "$ref": "#/$defs/quote"
+        },
+        "evidence_checked": {
+          "type": "boolean"
+        },
+        "basis": {
+          "enum": [
+            "stated",
+            "inferred"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "summary_basis": {
+          "type": "string"
+        },
+        "type_basis": {
+          "enum": [
+            "stated",
+            "inferred"
+          ]
+        },
+        "parent_basis": {
+          "enum": [
+            "stated",
+            "inferred"
+          ]
+        },
+        "outcome_basis": {
+          "enum": [
+            "stated",
+            "inferred"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "node",
+        "stage",
+        "source_pages",
+        "evidence_nodes",
+        "evidence",
+        "quote",
+        "basis"
+      ],
+      "additionalProperties": false
+    },
+    "edge": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "explicit",
+            "semantic"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        },
+        "source_pages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "occurrences": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "page": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "page",
+              "label",
+              "text"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "basis": {
+          "enum": [
+            "stated",
+            "inferred"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "summary_basis": {
+          "type": "string"
+        },
+        "type_basis": {
+          "enum": [
+            "stated",
+            "inferred"
+          ]
+        },
+        "parent_basis": {
+          "enum": [
+            "stated",
+            "inferred"
+          ]
+        },
+        "outcome_basis": {
+          "enum": [
+            "stated",
+            "inferred"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "source",
+        "target",
+        "type",
+        "kind",
+        "reason",
+        "source_pages",
+        "count",
+        "references",
+        "occurrences",
+        "basis"
+      ],
+      "additionalProperties": false
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "category": {
+          "enum": [
+            "method",
+            "dataset",
+            "software",
+            "term",
+            "assay"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "total_mentions": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "chapters": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "pages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "count",
+              "pages"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "sections": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "first_node": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_pages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "basis": {
+          "enum": [
+            "stated",
+            "inferred"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "summary_basis": {
+          "type": "string"
+        },
+        "type_basis": {
+          "enum": [
+            "stated",
+            "inferred"
+          ]
+        },
+        "parent_basis": {
+          "enum": [
+            "stated",
+            "inferred"
+          ]
+        },
+        "outcome_basis": {
+          "enum": [
+            "stated",
+            "inferred"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "category",
+        "description",
+        "total_mentions",
+        "chapters",
+        "sections",
+        "first_node",
+        "source_pages",
+        "basis"
+      ],
+      "additionalProperties": false
+    },
+    "observation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "where": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_pages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "text",
+        "where",
+        "source_pages"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

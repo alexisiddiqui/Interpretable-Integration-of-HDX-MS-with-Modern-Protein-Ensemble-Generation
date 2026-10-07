@@ -1,0 +1,13 @@
+{
+  "name": "thesis-map-interface-tests",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node ui_smoke.cjs",
+    "test:browser": "node browser_smoke.cjs"
+  },
+  "devDependencies": {
+    "jsdom": "29.1.1",
+    "@playwright/test": "1.63.0"
+  }
+}

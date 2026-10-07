@@ -1,0 +1,3813 @@
+{
+  "crook": {
+    "node_ids": [
+      "fm-title",
+      "fm-dedication",
+      "fm-declaration",
+      "fm-summary",
+      "fm-ack",
+      "fm-preface",
+      "fm-toc",
+      "fm-lof",
+      "fm-lot",
+      "fm-abbrev",
+      "ch1",
+      "s1.1",
+      "s1.2",
+      "s1.3",
+      "s1.4",
+      "s1.5",
+      "s1.5.1",
+      "s1.5.2",
+      "s1.5.3",
+      "s1.6",
+      "s1.7",
+      "ch2",
+      "s2.1",
+      "s2.1.1",
+      "s2.2",
+      "s2.3",
+      "s2.3.1",
+      "u2.3.1/kernel-machines",
+      "u2.3.1/k-nearest-neighbours",
+      "u2.3.1/mixture-models-for-clustering",
+      "u2.3.1/robust-mixture-models",
+      "u2.3.1/bayesian-mixture-models",
+      "s2.3.2",
+      "s2.3.3",
+      "s2.3.4",
+      "u2.3.4/maximum-a-posteriori-prediction",
+      "u2.3.4/uncertainty-in-the-posterior-localisation-probabilities",
+      "s2.4",
+      "s2.5",
+      "s2.6",
+      "ch3",
+      "s3.1",
+      "s3.1.1",
+      "s3.2",
+      "s3.3",
+      "s3.4",
+      "s3.4.1",
+      "s3.4.2",
+      "s3.4.3",
+      "s3.5",
+      "s3.6",
+      "s3.6.1",
+      "u3.6.1/applying-the-gelman-diagnostic",
+      "u3.6.1/applying-the-geweke-diagnostic",
+      "s3.6.2",
+      "s3.6.3",
+      "s3.6.4",
+      "u3.6.4/visualising-global-uncertainty",
+      "u3.6.4/uncertainty-in-mean-of-organelle-localisation",
+      "u3.6.4/spatial-variation-of-localisation-probabilities",
+      "s3.7",
+      "ch4",
+      "s4.1",
+      "s4.1.1",
+      "s4.2",
+      "s4.3",
+      "s4.3.1",
+      "s4.3.2",
+      "s4.3.3",
+      "s4.4",
+      "s4.4.1",
+      "s4.4.2",
+      "s4.4.3",
+      "s4.5",
+      "ch5",
+      "s5.1",
+      "s5.1.1",
+      "s5.2",
+      "s5.3",
+      "s5.3.1",
+      "u5.3.1/frequentist-approaches",
+      "u5.3.1/bayesian-approaches",
+      "u5.3.1/bayesian-non-parametric-approaches",
+      "s5.3.2",
+      "s5.3.3",
+      "s5.3.4",
+      "s5.4",
+      "s5.4.1",
+      "s5.4.2",
+      "s5.4.3",
+      "s5.5",
+      "s5.6",
+      "s5.7",
+      "ch6",
+      "s6.1",
+      "s6.1.1",
+      "s6.2",
+      "s6.2.1",
+      "s6.2.2",
+      "s6.3",
+      "s6.3.1",
+      "u6.3.1/gaussian-processes",
+      "u6.3.1/prediction-with-gaussian-processes",
+      "u6.3.1/covariance-functions",
+      "s6.3.2",
+      "s6.3.3",
+      "s6.3.4",
+      "s6.3.5",
+      "s6.3.6",
+      "s6.3.7",
+      "s6.4",
+      "s6.4.1",
+      "s6.4.2",
+      "s6.4.3",
+      "s6.5",
+      "ch7",
+      "s7.1",
+      "s7.1.1",
+      "s7.2",
+      "s7.3",
+      "s7.3.1",
+      "u7.3.1/the-movement-reproducibility-method",
+      "u7.3.1/integrative-mixture-models",
+      "u7.3/a-model-for-differential-localisation",
+      "u7.3/likelihood-model",
+      "u7.3/penalised-complexity-priors",
+      "u7.3/modelling-outliers-and-hyperparameter-inference",
+      "u7.3/calibration-of-dirichlet-prior",
+      "u7.3/differential-localisation-probability",
+      "s7.4",
+      "s7.4.1",
+      "s7.4.2",
+      "s7.4.3",
+      "s7.4.4",
+      "s7.5",
+      "ch8",
+      "s8.1",
+      "s8.2",
+      "s8.2.1",
+      "s8.2.2",
+      "s8.2.3",
+      "s8.2.4",
+      "s8.2.5",
+      "s8.2.6",
+      "s8.2.7",
+      "s8.2.8",
+      "s8.2.9",
+      "s8.2.10",
+      "s8.2.11",
+      "s8.2.12",
+      "refs",
+      "appA",
+      "sA.1",
+      "sA.2",
+      "sA.3",
+      "sA.4",
+      "sA.5",
+      "sA.6",
+      "sA.7",
+      "appB",
+      "sB.1",
+      "sB.2",
+      "sB.3",
+      "sB.4",
+      "sB.5",
+      "sB.6",
+      "sB.7",
+      "appC",
+      "sC.1",
+      "sC.2",
+      "sC.3",
+      "sC.4",
+      "sC.5",
+      "sC.6",
+      "sC.7",
+      "sC.8",
+      "sC.9",
+      "sC.10",
+      "sC.11",
+      "sC.12",
+      "sC.13",
+      "sC.14",
+      "sC.15",
+      "sC.15.1",
+      "sC.15.2",
+      "sC.15.3",
+      "sC.15.4",
+      "sC.15.5",
+      "sC.15.6",
+      "sC.15.7",
+      "fig:1.1",
+      "fig:2.1",
+      "fig:2.2",
+      "fig:2.3",
+      "fig:2.4",
+      "fig:2.5",
+      "fig:2.6",
+      "fig:2.7",
+      "fig:2.8",
+      "fig:2.9",
+      "fig:2.10",
+      "fig:2.11",
+      "fig:2.12",
+      "fig:2.13",
+      "fig:3.1",
+      "fig:3.2",
+      "fig:3.3",
+      "fig:3.4",
+      "fig:3.5",
+      "fig:3.6",
+      "fig:3.7",
+      "fig:3.8",
+      "fig:3.9",
+      "fig:3.10",
+      "fig:3.11",
+      "fig:3.12",
+      "fig:3.13",
+      "fig:3.14",
+      "fig:4.1",
+      "fig:4.2",
+      "fig:4.3",
+      "fig:4.4",
+      "fig:4.5",
+      "fig:4.6",
+      "fig:4.7",
+      "fig:4.8",
+      "fig:4.9",
+      "fig:4.10",
+      "fig:4.11",
+      "fig:4.12",
+      "fig:4.13",
+      "fig:4.14",
+      "fig:4.15",
+      "fig:4.16",
+      "fig:4.17",
+      "fig:5.1",
+      "fig:5.2",
+      "fig:5.3",
+      "fig:5.4",
+      "fig:5.5",
+      "fig:5.6",
+      "fig:5.7",
+      "fig:5.8",
+      "fig:5.9",
+      "fig:6.1",
+      "fig:6.2",
+      "fig:6.3",
+      "fig:6.4",
+      "fig:6.5",
+      "fig:6.6",
+      "fig:6.7",
+      "fig:6.8",
+      "fig:6.9",
+      "fig:6.10",
+      "fig:6.11",
+      "fig:7.1",
+      "fig:7.2",
+      "fig:7.3",
+      "fig:7.4",
+      "fig:7.5",
+      "fig:7.6",
+      "fig:7.7",
+      "fig:A.1",
+      "fig:A.2",
+      "fig:A.3",
+      "fig:B.1",
+      "fig:B.2",
+      "fig:B.3",
+      "fig:B.4",
+      "fig:B.5",
+      "fig:B.6",
+      "fig:B.7",
+      "fig:B.8",
+      "fig:B.9",
+      "fig:B.10",
+      "fig:B.11",
+      "fig:B.12",
+      "fig:C.1",
+      "fig:C.2",
+      "fig:C.3",
+      "fig:C.4",
+      "fig:C.5",
+      "fig:C.6",
+      "fig:C.7",
+      "fig:C.8",
+      "fig:C.9",
+      "fig:C.10",
+      "fig:C.11",
+      "fig:C.12",
+      "fig:C.13",
+      "fig:C.14",
+      "fig:C.15",
+      "fig:C.16",
+      "fig:C.17",
+      "fig:C.18",
+      "fig:C.19",
+      "fig:C.20",
+      "fig:C.21",
+      "fig:C.22",
+      "fig:C.23",
+      "fig:C.24",
+      "fig:C.25",
+      "fig:C.26",
+      "fig:C.27",
+      "fig:C.28",
+      "fig:C.29",
+      "fig:C.30",
+      "fig:C.31",
+      "fig:C.32",
+      "fig:C.33",
+      "tab:2.1",
+      "tab:5.1",
+      "tab:A.1",
+      "tab:A.2",
+      "tab:A.3",
+      "tab:A.4",
+      "tab:A.5",
+      "tab:A.6",
+      "tab:A.7",
+      "tab:A.8",
+      "tab:A.9",
+      "tab:A.10",
+      "tab:A.11",
+      "tab:A.12",
+      "tab:A.13",
+      "tab:A.14",
+      "tab:A.15",
+      "tab:A.16",
+      "tab:A.17",
+      "tab:A.18",
+      "tab:A.19",
+      "tab:A.20",
+      "tab:A.21",
+      "tab:A.22",
+      "tab:A.23",
+      "tab:A.24",
+      "tab:A.25",
+      "tab:A.26",
+      "tab:A.27",
+      "tab:A.28",
+      "tab:A.29",
+      "tab:A.30",
+      "tab:A.31",
+      "tab:A.32",
+      "tab:A.33",
+      "tab:A.34",
+      "tab:A.35",
+      "tab:A.36",
+      "tab:A.37",
+      "tab:A.38",
+      "tab:B.1",
+      "tab:B.2",
+      "tab:B.3",
+      "tab:B.4",
+      "tab:B.5",
+      "tab:B.6",
+      "tab:B.7",
+      "tab:B.8",
+      "tab:B.9"
+    ],
+    "claims": {
+      "c01": "Up to half of proteins cannot be robustly assigned to one sub-cellular location, so assignment is uncertain.",
+      "c02": "TAGM models each known niche as a multivariate Gaussian and adds a multivariate-t outlier component (kappa = 4; M = global mean; V = half the global variance).",
+      "c03": "Inference is by EM (MAP) or by MCMC with a collapsed Gibbs sampler; MCMC gives Monte-Carlo averages and 95% equi-tailed intervals of localisation probabilities.",
+      "c04": "On macro-F1, no single classifier (SVM, KNN, TAGM-MAP, TAGM-MCMC) consistently outperforms the others across datasets.",
+      "c05": "TAGM-MCMC achieves the lowest quadratic loss versus SVM and KNN in 16 of 19 datasets (all except the three HeLa Hirst datasets).",
+      "c06": "When TAGM-MCMC is wrong it is usually less confident than the other classifiers, and when it is right it is more confident.",
+      "c07": "On unlabelled mESC proteins TAGM-MCMC and the SVM agree strongly, with some disagreement for lysosome vs plasma membrane, cytosol vs proteasome and 40S vs 60S ribosome.",
+      "c08": "For TRIP12 (G5E870) the SVM assigned no location; TAGM-MCMC places it most probably in nucleus non-chromatin with some 40S ribosome probability.",
+      "c09": "The 1,111 proteins allocated to known components with probability below 0.95 are enriched for cytoskeleton and cell-division terms, supporting the outlier component.",
+      "c10": "Posterior uncertainty is highest where organelle assignments overlap (secretory pathway, cytosol/proteasome boundary); mitochondria are well resolved.",
+      "c11": "From about 1,000 markers and 4,000 unknowns, the SVM and TAGM-MCMC give rigorous localisation for roughly 2,000 proteins, and uncertainty-aware TAGM adds about 1,000 more.",
+      "c12": "The robustness (breakdown) properties of the TAGM model are not characterised, and the model relies on marker annotation.",
+      "c13": "TAGM-MCMC is computationally intensive; running overnight on a desktop is usually enough but a few hours should not be expected.",
+      "c14": "In the worked example 6 chains were run for 20,000 iterations (10,000 burn-in, thin 20); after convergence checks 3 chains were discarded and the rest pooled.",
+      "c15": "Default priors are empirical-Bayes: prior mean = data mean, lambda0 = 0.01, nu0 = number of fractions + 2.",
+      "c16": "Uptake of Bayesian analysis among cell biologists is low because of computational and practical barriers.",
+      "c17": "hyperLOPIT was adapted to T. gondii tachyzoites using nitrogen cavitation because the cell pellicle resists hypotonic lysis.",
+      "c18": "Three experiments quantified about 4,100 proteins each; 3,832 proteins were common to all three, giving 30-fraction profiles.",
+      "c19": "656 literature markers resolve 23 compartments; 62 proteins tagged by gene editing all showed localisation concordant with hyperLOPIT, and were added to give 718 markers.",
+      "c20": "TAGM-MAP (probability above 0.99) allocated 1,916 previously unlocalised proteins to 26 niches; roughly 30% of proteins were not assigned to any single location.",
+      "c21": "Plasma membrane, Golgi and endomembrane vesicles share probability while rhoptries, micronemes and dense granules have well-defined single localisations.",
+      "c22": "Of the 1,916 newly allocated proteins, 795 were annotated only as hypothetical before.",
+      "c23": "CRISPR-screen data show plasma membrane, dense granules, micronemes, rhoptries and IMC biased toward dispensable proteins, while the apicoplast is depleted of dispensable proteins (p < 0.01).",
+      "c24": "dN/dS is positively skewed in the plasma membrane, rhoptries (soluble) and dense granules, which the author reads as pressure to outpace the host.",
+      "c25": "TAGM cannot model niches without annotation or with too few proteins to supply markers.",
+      "c26": "Novelty TAGM uses an overfitted mixture with K_novelty = 10 extra components and beta_j = 0.5; unsupported components stay empty.",
+      "c27": "Label switching among new phenotypes is handled with posterior similarity matrices summarised by PEAR; discovery probability gives the chance a protein belongs to a new phenotype.",
+      "c28": "With chromatin, nuclear and ribosomal annotations removed, Novelty TAGM recovers chromatin-associated phenotypes: 9 putative phenotypes in U-2 OS and 8 in mESC.",
+      "c29": "In yeast hyperLOPIT a 20-protein group with COPII/COPI roles suggests a novel ER-to-early-Golgi trafficking niche (11 of 20 are COPII components).",
+      "c30": "In HCMV-infected fibroblasts (24 hpi) Novelty TAGM separates the large and small ribosomal subunits, which the original analysis overlooked.",
+      "c31": "In mouse primary neurons 10 phenotypes were found but 8 have no enriched GO annotation, attributed to technical variability.",
+      "c32": "On HEK-293 data phenoDisco and Novelty TAGM both find 8 phenotypes; 4 (phenoDisco) vs 5 (Novelty TAGM) have significant GO terms.",
+      "c33": "All 7 proteins with uncertain assignment to the new U-2 OS endosome class are known endosome-related proteins; for KIF16B the HPA gives mitochondrion, which the author says contradicts the results and the literature (suspecting antibody specificity).",
+      "c34": "Novelty TAGM reveals additional annotation in all 10 spatial proteomics datasets analysed.",
+      "c35": "The GP covariance has tensor structure so extended Trench and Durbin algorithms reduce inversion cost; the code is released as an R package.",
+      "c36": "Using unlabelled as well as labelled data shifts and shrinks the posterior of the noise parameters in the Drosophila data.",
+      "c37": "Predictive performance shows only minor sensitivity to the choice of hyper-prior (KS test, threshold 0.01).",
+      "c38": "GP models beat TAGM on quadratic loss in 4 of 5 datasets, by roughly 16 to 80 points (8 to 40 proteins), with TAGM better on HeLa (Itzhak).",
+      "c39": "Empirical Bayes matches or beats the fully Bayesian GP in three datasets by at most 6 points (about 3 proteins).",
+      "c40": "HMC hyperparameter updates can be up to an order of magnitude more efficient than Metropolis-Hastings.",
+      "c41": "The MR method relies on a multivariate outlier test and reproducibility score, whose thresholds are hard to interpret, and can allow false discovery rates up to 23%.",
+      "c42": "For the MR statistic a gamma fit beats the chi-squared fit and p-value histograms deviate from uniform; cubing p-values makes Benjamini-Hochberg meaningless.",
+      "c43": "BANDLE has higher AUC than MR in all five simulated scenarios (t-test p < 0.01), including batch effects and fraction permutation.",
+      "c44": "With the Dirichlet prior BANDLE discovers around twice as many true re-localising proteins as MR.",
+      "c45": "In the EGF data MR flags 7 proteins (including SHC1, GRB2, EGFR); BANDLE ranks proteins by differential localisation probability and shows those three shifting.",
+      "c46": "BANDLE ranks correlate more with phospho-proteomic change than MR ranks (Spearman 0.68 vs 0.40, top 10), but the BANDLE interval (0.02, 0.98) is wide.",
+      "c47": "In the AP-4 knockout data SERINC1 and SERINC3 have differential localisation probability above 0.95, and TMEM199 is implicated as AP-4-dependent.",
+      "c48": "In HCMV-infected cells at 24 hpi hundreds of proteins differentially localise; enriched terms reflect early infection (translation, transport, viral and immune processes).",
+      "c49": "Differentially localised proteins are not more likely to be degraded or more abundant, and are not enriched for acetylation increases (Skp1 aside).",
+      "c50": "Most host interactors of a viral bait share its localisation: UL8 interactors in plasma membrane/cytosol, UL70 interactors in cytosol.",
+      "c51": "The author concludes Bayesian modelling will form a key part of the process as spatial proteomics grows more complex.",
+      "c52": "Listed limitations include missing values, hierarchical models, PTM-level localisation, multiple/temporal perturbations and covariates."
+    },
+    "edges": {
+      "e1": [
+        "fm-preface",
+        "ch2",
+        "stated"
+      ],
+      "e2": [
+        "fm-preface",
+        "ch3",
+        "stated"
+      ],
+      "e3": [
+        "fm-preface",
+        "ch4",
+        "stated"
+      ],
+      "e4": [
+        "fm-preface",
+        "ch5",
+        "stated"
+      ],
+      "e5": [
+        "fm-preface",
+        "ch6",
+        "stated"
+      ],
+      "e6": [
+        "fm-preface",
+        "ch7",
+        "stated"
+      ],
+      "e7": [
+        "s1.5.3",
+        "fig:1.1",
+        "stated"
+      ],
+      "e8": [
+        "s1.7",
+        "ch3",
+        "stated"
+      ],
+      "e9": [
+        "s1.7",
+        "ch2",
+        "stated"
+      ],
+      "e10": [
+        "s1.7",
+        "ch4",
+        "stated"
+      ],
+      "e11": [
+        "s1.7",
+        "ch5",
+        "stated"
+      ],
+      "e12": [
+        "s1.7",
+        "ch6",
+        "stated"
+      ],
+      "e13": [
+        "s1.7",
+        "ch7",
+        "stated"
+      ],
+      "e14": [
+        "s2.2",
+        "ch3",
+        "stated"
+      ],
+      "e15": [
+        "s2.3.3",
+        "fig:2.1",
+        "stated"
+      ],
+      "e16": [
+        "s2.3.4",
+        "sA.1",
+        "stated"
+      ],
+      "e17": [
+        "u2.3.4/maximum-a-posteriori-prediction",
+        "sA.1",
+        "stated"
+      ],
+      "e18": [
+        "u2.3.4/uncertainty-in-the-posterior-localisation-probabilities",
+        "sA.2",
+        "stated"
+      ],
+      "e19": [
+        "s2.4",
+        "tab:2.1",
+        "stated"
+      ],
+      "e20": [
+        "s2.4",
+        "fig:2.2",
+        "stated"
+      ],
+      "e21": [
+        "s2.4",
+        "sA.5",
+        "stated"
+      ],
+      "e22": [
+        "s2.4",
+        "fig:2.3",
+        "stated"
+      ],
+      "e23": [
+        "s2.4",
+        "fig:2.4",
+        "stated"
+      ],
+      "e24": [
+        "s2.5",
+        "s2.3.2",
+        "stated"
+      ],
+      "e25": [
+        "s2.5",
+        "sA.3",
+        "stated"
+      ],
+      "e26": [
+        "s2.5",
+        "fig:2.6",
+        "stated"
+      ],
+      "e27": [
+        "s2.5",
+        "fig:2.7",
+        "stated"
+      ],
+      "e28": [
+        "s2.5",
+        "sA.4",
+        "stated"
+      ],
+      "e29": [
+        "s2.5",
+        "fig:2.8",
+        "stated"
+      ],
+      "e30": [
+        "s2.5",
+        "fig:A.3",
+        "stated"
+      ],
+      "e31": [
+        "s2.5",
+        "fig:2.9",
+        "stated"
+      ],
+      "e32": [
+        "s2.5",
+        "fig:2.10",
+        "stated"
+      ],
+      "e33": [
+        "s2.5",
+        "fig:2.11",
+        "stated"
+      ],
+      "e34": [
+        "s2.5",
+        "fig:2.12",
+        "stated"
+      ],
+      "e35": [
+        "s2.6",
+        "fig:2.13",
+        "stated"
+      ],
+      "e36": [
+        "s3.2",
+        "ch2",
+        "stated"
+      ],
+      "e37": [
+        "s3.3",
+        "fig:3.1",
+        "stated"
+      ],
+      "e38": [
+        "s3.4.2",
+        "fig:3.2",
+        "stated"
+      ],
+      "e39": [
+        "s3.4.3",
+        "fig:3.3",
+        "stated"
+      ],
+      "e40": [
+        "s3.4.3",
+        "fig:3.4",
+        "stated"
+      ],
+      "e41": [
+        "s3.5",
+        "fig:3.5",
+        "stated"
+      ],
+      "e42": [
+        "s3.6.1",
+        "fig:3.6",
+        "stated"
+      ],
+      "e43": [
+        "u3.6.1/applying-the-gelman-diagnostic",
+        "fig:3.6",
+        "stated"
+      ],
+      "e44": [
+        "u3.6.1/applying-the-gelman-diagnostic",
+        "fig:3.7",
+        "stated"
+      ],
+      "e45": [
+        "s3.6.4",
+        "fig:3.10",
+        "stated"
+      ],
+      "e46": [
+        "u3.6.4/spatial-variation-of-localisation-probabilities",
+        "fig:3.12",
+        "stated"
+      ],
+      "e47": [
+        "u3.6.4/spatial-variation-of-localisation-probabilities",
+        "fig:3.14",
+        "stated"
+      ],
+      "e48": [
+        "s4.2",
+        "fig:4.1",
+        "stated"
+      ],
+      "e49": [
+        "s4.2",
+        "fig:4.2",
+        "stated"
+      ],
+      "e50": [
+        "s4.2",
+        "fig:4.3",
+        "stated"
+      ],
+      "e51": [
+        "s4.2",
+        "fig:4.4",
+        "stated"
+      ],
+      "e52": [
+        "s4.2",
+        "fig:4.5",
+        "stated"
+      ],
+      "e53": [
+        "s4.3.1",
+        "fig:4.6",
+        "stated"
+      ],
+      "e54": [
+        "s4.4.1",
+        "fig:4.7",
+        "stated"
+      ],
+      "e55": [
+        "s4.4.1",
+        "fig:4.8",
+        "stated"
+      ],
+      "e56": [
+        "s4.4.1",
+        "fig:4.9",
+        "stated"
+      ],
+      "e57": [
+        "s4.4.1",
+        "fig:4.13",
+        "stated"
+      ],
+      "e58": [
+        "s4.4.1",
+        "fig:4.14",
+        "stated"
+      ],
+      "e59": [
+        "s4.4.1",
+        "fig:4.15",
+        "stated"
+      ],
+      "e60": [
+        "s4.4.1",
+        "fig:4.16",
+        "stated"
+      ],
+      "e61": [
+        "s4.4.3",
+        "fig:4.17",
+        "stated"
+      ],
+      "e62": [
+        "s4.4.3",
+        "s4.3.2",
+        "stated"
+      ],
+      "e63": [
+        "s5.2",
+        "ch2",
+        "stated"
+      ],
+      "e64": [
+        "s5.2",
+        "ch3",
+        "stated"
+      ],
+      "e65": [
+        "s5.2",
+        "ch4",
+        "stated"
+      ],
+      "e66": [
+        "s5.2",
+        "tab:5.1",
+        "stated"
+      ],
+      "e67": [
+        "u5.3.1/frequentist-approaches",
+        "ch2",
+        "stated"
+      ],
+      "e68": [
+        "s5.3.2",
+        "fig:5.1",
+        "stated"
+      ],
+      "e69": [
+        "s5.3.2",
+        "ch2",
+        "stated"
+      ],
+      "e70": [
+        "s5.3.2",
+        "ch3",
+        "stated"
+      ],
+      "e71": [
+        "s5.4.1",
+        "fig:5.2",
+        "stated"
+      ],
+      "e72": [
+        "s5.4.1",
+        "fig:5.3",
+        "stated"
+      ],
+      "e73": [
+        "s5.4.2",
+        "fig:5.4",
+        "stated"
+      ],
+      "e74": [
+        "s5.4.2",
+        "s5.4.1",
+        "stated"
+      ],
+      "e75": [
+        "s5.4.2",
+        "fig:5.5",
+        "stated"
+      ],
+      "e76": [
+        "s5.4.3",
+        "fig:5.6",
+        "stated"
+      ],
+      "e77": [
+        "s5.5",
+        "fig:5.8",
+        "stated"
+      ],
+      "e78": [
+        "s5.6",
+        "fig:5.9",
+        "stated"
+      ],
+      "e79": [
+        "s6.2",
+        "fig:6.1",
+        "stated"
+      ],
+      "e80": [
+        "s6.2.1",
+        "fig:6.1",
+        "stated"
+      ],
+      "e81": [
+        "s6.2.1",
+        "s6.3.6",
+        "stated"
+      ],
+      "e82": [
+        "u6.3.1/prediction-with-gaussian-processes",
+        "ch2",
+        "stated"
+      ],
+      "e83": [
+        "s6.3.3",
+        "ch2",
+        "stated"
+      ],
+      "e84": [
+        "s6.3.4",
+        "appB",
+        "inferred"
+      ],
+      "e85": [
+        "s6.3.6",
+        "appB",
+        "inferred"
+      ],
+      "e86": [
+        "s6.4.1",
+        "fig:6.2",
+        "stated"
+      ],
+      "e87": [
+        "s6.4.1",
+        "fig:6.3",
+        "stated"
+      ],
+      "e88": [
+        "s6.4.1",
+        "fig:6.4",
+        "stated"
+      ],
+      "e89": [
+        "s6.4.1",
+        "fig:6.5",
+        "stated"
+      ],
+      "e90": [
+        "s6.4.1",
+        "fig:6.6",
+        "stated"
+      ],
+      "e91": [
+        "s6.4.2",
+        "fig:6.7",
+        "stated"
+      ],
+      "e92": [
+        "s6.4.2",
+        "appB",
+        "inferred"
+      ],
+      "e93": [
+        "s6.4.2",
+        "fig:6.8",
+        "stated"
+      ],
+      "e94": [
+        "s6.4.2",
+        "fig:6.9",
+        "stated"
+      ],
+      "e95": [
+        "s6.4.2",
+        "fig:6.10",
+        "stated"
+      ],
+      "e96": [
+        "s6.4.3",
+        "fig:6.11",
+        "stated"
+      ],
+      "e97": [
+        "s6.4.3",
+        "ch5",
+        "stated"
+      ],
+      "e98": [
+        "u7.3/modelling-outliers-and-hyperparameter-inference",
+        "ch6",
+        "stated"
+      ],
+      "e99": [
+        "u7.3/differential-localisation-probability",
+        "appC",
+        "inferred"
+      ],
+      "e100": [
+        "s7.4.1",
+        "fig:7.1",
+        "stated"
+      ],
+      "e101": [
+        "s7.4.1",
+        "appC",
+        "inferred"
+      ],
+      "e102": [
+        "s7.4.2",
+        "appC",
+        "inferred"
+      ],
+      "e103": [
+        "s7.4.2",
+        "fig:7.3",
+        "stated"
+      ],
+      "e104": [
+        "s7.4.3",
+        "appC",
+        "inferred"
+      ],
+      "e105": [
+        "s7.4.3",
+        "fig:7.4",
+        "stated"
+      ],
+      "e106": [
+        "s7.4.3",
+        "fig:7.5",
+        "stated"
+      ],
+      "e107": [
+        "s7.4.4",
+        "fig:7.6",
+        "stated"
+      ],
+      "e108": [
+        "s7.4.4",
+        "appC",
+        "inferred"
+      ],
+      "e109": [
+        "s7.4.4",
+        "fig:7.7",
+        "stated"
+      ],
+      "e110": [
+        "s8.1",
+        "ch2",
+        "stated"
+      ],
+      "e111": [
+        "s8.1",
+        "ch3",
+        "stated"
+      ],
+      "e112": [
+        "s8.1",
+        "ch4",
+        "stated"
+      ],
+      "e113": [
+        "s8.1",
+        "ch5",
+        "stated"
+      ],
+      "e114": [
+        "s8.1",
+        "ch6",
+        "stated"
+      ],
+      "e115": [
+        "s8.1",
+        "ch7",
+        "stated"
+      ],
+      "e116": [
+        "appA",
+        "ch2",
+        "stated"
+      ],
+      "e117": [
+        "sA.1",
+        "ch2",
+        "stated"
+      ],
+      "e118": [
+        "sA.1",
+        "ch2",
+        "stated"
+      ],
+      "e119": [
+        "sA.2",
+        "ch2",
+        "stated"
+      ],
+      "e120": [
+        "sA.3",
+        "ch2",
+        "stated"
+      ],
+      "e121": [
+        "sA.5",
+        "ch2",
+        "stated"
+      ],
+      "e122": [
+        "sA.6",
+        "ch2",
+        "stated"
+      ],
+      "e123": [
+        "appB",
+        "ch6",
+        "stated"
+      ],
+      "e124": [
+        "sB.1",
+        "ch6",
+        "stated"
+      ],
+      "e125": [
+        "sB.3",
+        "ch6",
+        "stated"
+      ],
+      "e126": [
+        "sB.4",
+        "fig:B.1",
+        "stated"
+      ],
+      "e127": [
+        "sB.4",
+        "fig:B.2",
+        "stated"
+      ],
+      "e128": [
+        "sB.4",
+        "fig:B.3",
+        "stated"
+      ],
+      "e129": [
+        "sB.4",
+        "tab:B.1",
+        "stated"
+      ],
+      "e130": [
+        "sB.4",
+        "ch6",
+        "stated"
+      ],
+      "e131": [
+        "sB.4",
+        "fig:B.4",
+        "stated"
+      ],
+      "e132": [
+        "sB.4",
+        "fig:B.5",
+        "stated"
+      ],
+      "e133": [
+        "sB.4",
+        "fig:B.8",
+        "stated"
+      ],
+      "e134": [
+        "sB.4",
+        "fig:B.9",
+        "stated"
+      ],
+      "e135": [
+        "sB.4",
+        "tab:B.5",
+        "stated"
+      ],
+      "e136": [
+        "sB.5",
+        "fig:B.10",
+        "stated"
+      ],
+      "e137": [
+        "sB.5",
+        "fig:B.11",
+        "stated"
+      ],
+      "e138": [
+        "sB.5",
+        "tab:B.6",
+        "stated"
+      ],
+      "e139": [
+        "sB.5",
+        "ch6",
+        "stated"
+      ],
+      "e140": [
+        "appC",
+        "ch7",
+        "stated"
+      ],
+      "e141": [
+        "sC.1",
+        "ch7",
+        "stated"
+      ],
+      "e142": [
+        "sC.2",
+        "ch7",
+        "stated"
+      ],
+      "e143": [
+        "sC.4",
+        "ch7",
+        "stated"
+      ],
+      "e144": [
+        "sC.5",
+        "ch7",
+        "stated"
+      ],
+      "e145": [
+        "sC.6",
+        "s7.4.2",
+        "stated"
+      ],
+      "e146": [
+        "sC.7",
+        "fig:C.14",
+        "stated"
+      ],
+      "e147": [
+        "sC.7",
+        "ch7",
+        "stated"
+      ],
+      "e148": [
+        "sC.8",
+        "ch7",
+        "stated"
+      ],
+      "e149": [
+        "sC.10",
+        "ch7",
+        "stated"
+      ],
+      "e150": [
+        "sC.11",
+        "ch7",
+        "stated"
+      ],
+      "e151": [
+        "sC.12",
+        "ch7",
+        "stated"
+      ],
+      "e152": [
+        "sC.14",
+        "ch7",
+        "stated"
+      ],
+      "e153": [
+        "sC.15.2",
+        "ch7",
+        "stated"
+      ],
+      "e154": [
+        "sC.15.4",
+        "ch7",
+        "stated"
+      ],
+      "e155": [
+        "sC.15.6",
+        "ch7",
+        "stated"
+      ],
+      "e156": [
+        "sC.15.7",
+        "ch7",
+        "stated"
+      ],
+      "e157": [
+        "ch3",
+        "ch2",
+        "stated"
+      ],
+      "e158": [
+        "ch4",
+        "ch2",
+        "stated"
+      ],
+      "e159": [
+        "ch4",
+        "ch3",
+        "stated"
+      ],
+      "e160": [
+        "ch5",
+        "ch2",
+        "stated"
+      ],
+      "e161": [
+        "s4.5",
+        "ch5",
+        "stated"
+      ],
+      "e162": [
+        "s2.6",
+        "ch5",
+        "stated"
+      ],
+      "e163": [
+        "s2.5",
+        "ch5",
+        "inferred"
+      ],
+      "e164": [
+        "s5.7",
+        "ch6",
+        "stated"
+      ],
+      "e165": [
+        "ch6",
+        "ch2",
+        "stated"
+      ],
+      "e166": [
+        "s6.4.3",
+        "s2.4",
+        "stated"
+      ],
+      "e167": [
+        "ch6",
+        "ch5",
+        "stated"
+      ],
+      "e168": [
+        "ch7",
+        "ch6",
+        "stated"
+      ],
+      "e169": [
+        "ch7",
+        "ch2",
+        "stated"
+      ],
+      "e170": [
+        "s5.3.2",
+        "s3.6.3",
+        "stated"
+      ],
+      "e171": [
+        "s7.2",
+        "s6.5",
+        "stated"
+      ],
+      "e172": [
+        "s7.4.4",
+        "s2.4",
+        "stated"
+      ],
+      "e173": [
+        "s7.4.4",
+        "s5.4.2",
+        "stated"
+      ],
+      "e174": [
+        "s6.4.1",
+        "s2.4",
+        "stated"
+      ],
+      "e175": [
+        "s7.4.2",
+        "s6.4.1",
+        "stated"
+      ],
+      "e176": [
+        "s5.4.1",
+        "s2.5",
+        "stated"
+      ],
+      "e177": [
+        "s5.4.3",
+        "s2.4",
+        "stated"
+      ],
+      "e178": [
+        "s7.4.3",
+        "s2.4",
+        "inferred"
+      ],
+      "e179": [
+        "s7.4.4",
+        "s7.4.3",
+        "inferred"
+      ],
+      "e180": [
+        "ch4",
+        "ch5",
+        "stated"
+      ],
+      "e181": [
+        "ch8",
+        "ch1",
+        "inferred"
+      ],
+      "e182": [
+        "fm-summary",
+        "ch2",
+        "inferred"
+      ],
+      "e183": [
+        "fm-summary",
+        "ch3",
+        "inferred"
+      ],
+      "e184": [
+        "fm-summary",
+        "ch4",
+        "inferred"
+      ],
+      "e185": [
+        "fm-summary",
+        "ch5",
+        "inferred"
+      ],
+      "e186": [
+        "fm-summary",
+        "ch6",
+        "inferred"
+      ],
+      "e187": [
+        "fm-summary",
+        "ch7",
+        "inferred"
+      ]
+    },
+    "entities": {
+      "ent:tagm": "TAGM (T-augmented Gaussian mixture)",
+      "ent:tagm-map": "TAGM-MAP / EM",
+      "ent:tagm-mcmc": "TAGM-MCMC",
+      "ent:mcmc": "MCMC / Gibbs sampling",
+      "ent:svm": "Support vector machine",
+      "ent:knn": "k-nearest neighbours",
+      "ent:novelty-tagm": "Novelty TAGM",
+      "ent:overfitted": "Overfitted mixtures",
+      "ent:psm": "Posterior similarity matrix",
+      "ent:gp": "Gaussian process regression",
+      "ent:hmc": "Hamiltonian Monte Carlo",
+      "ent:toeplitz": "Toeplitz / Trench-Durbin algorithms",
+      "ent:bandle": "BANDLE",
+      "ent:mr": "Movement-reproducibility (MR) method",
+      "ent:polya": "Pólya-Gamma augmentation",
+      "ent:matdir": "Matrix Dirichlet prior",
+      "ent:pcprior": "Penalised-complexity priors",
+      "ent:niw": "Normal-inverse-Wishart prior",
+      "ent:entropy": "Shannon entropy",
+      "ent:brier": "Quadratic loss (Brier score)",
+      "ent:f1": "Macro-F1",
+      "ent:gelman": "Gelman-Rubin diagnostic",
+      "ent:phenodisco": "phenoDisco",
+      "ent:labelswitch": "Label switching",
+      "ent:priorpred": "Prior predictive checks",
+      "ent:eb": "Empirical Bayes",
+      "ent:hyperlopit": "hyperLOPIT",
+      "ent:lopitdc": "LOPIT-DC",
+      "ent:dom": "Dynamic Organellar Maps (DOM)",
+      "ent:tmt": "TMT labelling",
+      "ent:silac": "SILAC",
+      "ent:crispr": "CRISPR-Cas9",
+      "ent:pca": "PCA / t-SNE visualisation",
+      "ent:go": "GO enrichment",
+      "ent:hpa": "Human Protein Atlas",
+      "ent:mesc": "Mouse embryonic stem cells (E14TG2a)",
+      "ent:drosophila": "Drosophila embryos",
+      "ent:chicken": "Chicken DT40",
+      "ent:u2os": "U-2 OS cells",
+      "ent:hela": "HeLa cells",
+      "ent:hcmv": "HCMV-infected fibroblasts",
+      "ent:toxo": "Toxoplasma gondii",
+      "ent:yeast": "Saccharomyces cerevisiae",
+      "ent:neuron": "Mouse primary neurons",
+      "ent:hek": "HEK-293 cells",
+      "ent:egf": "EGF stimulation (HeLa)",
+      "ent:ap4": "AP-4 knockout",
+      "ent:ap5": "AP-5 knockouts (Hirst)",
+      "ent:proloc": "pRoloc / pRolocdata",
+      "ent:msnbase": "MSnbase",
+      "ent:bioc": "Bioconductor",
+      "ent:markers": "Marker proteins",
+      "ent:outlier": "Outlier component",
+      "ent:multiloc": "Multi-localisation",
+      "ent:moonlight": "Moonlighting proteins",
+      "ent:diffloc": "Differential localisation",
+      "ent:uq": "Uncertainty quantification",
+      "ent:semisup": "Semi-supervised learning",
+      "ent:noveltydet": "Novelty detection",
+      "ent:deduve": "De Duve's fractionation principle"
+    },
+    "stages": {
+      "s1": "Reframing the problem: from labels to uncertainty",
+      "s2": "TAGM: a Bayesian mixture with an outlier component",
+      "s3": "Making it usable: a Bioconductor workflow",
+      "s4": "Stress test: a subcellular atlas of Toxoplasma gondii",
+      "s5": "Novelty TAGM: discovering niches without markers",
+      "s6": "Non-parametric Bayes: Gaussian-process mixtures",
+      "s7": "Pivot: from allocation to differential localisation",
+      "s8": "BANDLE: model and simulation study",
+      "s9": "BANDLE on real data: EGF, AP-4 knockout, cytomegalovirus",
+      "s10": "Synthesis and open problems"
+    },
+    "observations": {},
+    "summaries": {
+      "fm-title": "Title page: Bayesian methods for spatial proteomics, Oliver McKenzie Crook, Darwin College, University of Cambridge, September 2020.",
+      "fm-dedication": "Dedication.",
+      "fm-declaration": "Original-work declaration; word and figure limits.",
+      "fm-summary": "Thesis abstract: proteins and why location matters, De Duve's fractionation principle, the limits of classifiers, and a one-paragraph tour of the six research chapters.",
+      "fm-ack": "Thanks to supervisors (Gatto, Kirk, Lilley), the Cambridge Centre for Proteomics and MRC Biostatistics Unit, and collaborators on the Toxoplasma project.",
+      "fm-preface": "Publication status of chapters 2-7 (published, in press, in review, in preparation).",
+      "fm-toc": "Table of contents: source for every structure node in this map.",
+      "fm-lof": "List of figures (120 entries: 1, 13, 14, 17, 9, 11, 7 in chapters 1-7; 3, 12, 33 in appendices A-C).",
+      "fm-lot": "List of tables (49 entries: 1 in ch. 2, 1 in ch. 5, 38 in appendix A, 9 in appendix B). Page headers on the abbreviations pages also read 'List of tables'.",
+      "fm-abbrev": "Abbreviations list (pp. xxvii-xxix).",
+      "ch1": "Sets the scene: post-genomic proteomics, mass-spectrometry workflows, three kinds of spatial proteomics, why Bayesian inference, and the outline of the thesis.",
+      "s1.1": "The genome-to-function gap: proteoforms outnumber genes, and proteomes vary across cells and time.",
+      "s1.2": "Proteomics as system-wide study of proteins, and why mass spectrometry became the driving technology.",
+      "s1.3": "How electrospray ionisation, quadrupole and Orbitrap measurements produce a mass spectrum.",
+      "s1.4": "Digest-to-peptide workflows and quantification by label-free, TMT and SILAC.",
+      "s1.5": "Three families of spatial proteomics: microscopy, proximity labelling and fractionation coupled to MS; the thesis focuses on the last.",
+      "s1.5.3": "De Duve's centrifugation principle recast as density-gradient or differential-centrifugation MS; powerful but needs heavy analysis and marker proteins.",
+      "s1.6": "Why a Bayesian paradigm: uncertainty, many latent variables, generative models for criticism and simulation.",
+      "s1.7": "Chapter-by-chapter outline: Bayesian model (2-3), Toxoplasma application (4), novelty detection (5), non-parametric model (6), differential localisation (7).",
+      "ch2": "Introduces the T-augmented Gaussian mixture model (TAGM) for MS spatial proteomics, benchmarks it on 19 datasets against SVM and kNN, and shows what uncertainty quantification adds in a mouse stem-cell case study.",
+      "s2.1": "Abstract of the published paper: classifiers lack uncertainty; a Bayesian generative classifier gives probabilistic assignment.",
+      "s2.2": "Why localisation matters, how LOPIT/hyperLOPIT work, existing classifiers, and the aims and layout of the chapter.",
+      "s2.3": "Background on kernel machines, kNN, mixture and Bayesian mixture models, then the TAGM model, its fitting and prediction.",
+      "s2.3.1": "Review of SVMs/kernels, kNN, Gaussian mixtures, robust mixtures and Bayesian mixture models that TAGM builds on.",
+      "s2.3.2": "Gaussian component per known niche plus a multivariate-t outlier component with indicator phi; fixed kappa = 4; proper density unlike earlier pseudo-models.",
+      "s2.3.3": "Conjugate Dirichlet, normal-inverse-Wishart and Beta priors; labelled proteins update parameters analytically.",
+      "s2.3.4": "Predicting unlabelled proteins by EM (MAP) or Monte-Carlo averages of a collapsed Gibbs sampler.",
+      "s2.4": "Benchmark on 19 datasets with macro-F1 and quadratic loss: no consistent F1 winner, TAGM-MCMC lowest quadratic loss in 16 of 19.",
+      "s2.5": "mESC hyperLOPIT case study: MAP and MCMC results, proteins the SVM left unassigned (TRIP12, Exportin 5, DOCK6), outlier component enrichment and whole-proteome entropy maps.",
+      "s2.6": "Summary of uncertainty benefits, roughly 1000 extra informative proteins, and limits: no data integration or explicit multi-localisation, marker reliance, robustness theory not characterised.",
+      "ch3": "A step-by-step Bioconductor workflow (pRoloc) for TAGM-MAP and TAGM-MCMC, including convergence checks, chain processing, priors and visualisation.",
+      "s3.1": "Abstract of the F1000 workflow paper.",
+      "s3.2": "Why a Bayesian workflow for biologists, a reminder of TAGM, and an R/S4/Bioconductor primer.",
+      "s3.3": "Installing pRoloc, MSnbase and pRolocdata; loading the E14TG2a mouse stem-cell LOPIT data.",
+      "s3.4": "TAGM-MAP by EM: tagmMapTrain, model visualisation with ellipses, convergence of the log-posterior.",
+      "s3.5": "Overview of MCMC (burn-in, thinning), tagmMcmcTrain / tagmMcmcProcess / tagmPredict outputs.",
+      "s3.6": "Detailed analysis of a 6-chain run: diagnostics, discarding chains, priors, global and per-protein uncertainty views.",
+      "s3.6.3": "Empirical-Bayes default priors (prior mean = data mean, lambda0 = 0.01, nu0 = fractions + 2) and Dirichlet prior on weights.",
+      "s3.7": "Workflow summary; Bayesian uptake among cell biologists is still low; possible future additions (prior/posterior predictive checks).",
+      "ch4": "hyperLOPIT applied to Toxoplasma gondii and analysed with TAGM: 1,916 proteins allocated to 26 niches, validated by gene tagging, then mapped against CRISPR-screen and evolutionary data.",
+      "s4.1": "Abstract: hyperLOPIT can serve as a discovery tool in poorly annotated organisms; uncertainty quantification suits missing annotations.",
+      "s4.2": "Apicomplexan biology, Toxoplasma life cycle and organelles (apical complex, rhoptries, micronemes, dense granules, IMC, apicoplast).",
+      "s4.3": "Adapted protocol, genomic features (SNP density, dN/dS, CRISPR screen) and validation by endogenous tagging.",
+      "s4.3.1": "Nitrogen-cavitation lysis, iodixanol density barriers and gradient, TMT10plex fractions.",
+      "s4.3.2": "62 isolates for SNP/dN/dS data; genome-wide CRISPR-Cas9 phenotype scores.",
+      "s4.3.3": "CRISPR-Cas9 C-terminal endogenous tagging for immunofluorescence validation (details in ref. 21).",
+      "s4.4": "Three experiments, 656 then 718 markers, TAGM-MAP and MCMC, niche resolution, and mapping of CRISPR-screen and selection-pressure features onto the spatial atlas.",
+      "s4.4.1": "t-SNE and HDBSCAN structure; 23 known compartments; 62 tagged proteins all concordant; 1,916 proteins assigned to 26 niches at p > 0.99; MCMC with 9 chains.",
+      "s4.4.2": "Resolution of 26 compartments and sub-compartments, including sub-organellar splits (mitochondrion, ER, plasma membrane) and two apical clusters.",
+      "s4.4.3": "Knowledge expansion (795 of the 1,916 were annotated only as hypothetical) and CRISPR-screen / dN/dS / SNP-density patterns by niche.",
+      "s4.5": "First comprehensive apicomplexan spatial proteome; limits: unassigned proteins, low-abundance quantitation, steady-state view; points to novelty detection next.",
+      "ch5": "Novelty TAGM: a semi-supervised Bayesian model using overfitted mixtures to find unannotated sub-cellular niches with uncertainty, applied to 10 datasets and compared with phenoDisco.",
+      "s5.1": "Motivation (marker reliance) and abstract of the published paper.",
+      "s5.2": "Why novelty detection helps (validate design, find hidden niches, non-model organisms) and a table of existing methods.",
+      "s5.3": "Choosing the number of clusters, extending TAGM with up to K_novelty extra components, PSM/PEAR summaries, validation strategy and datasets.",
+      "s5.3.1": "Frequentist (BIC, AIC), Bayesian and non-parametric ways to choose the number of mixture components.",
+      "s5.3.2": "Overfitted mixture with K_novelty = 10 and beta_j = 0.5; modified collapsed Gibbs sampler; label switching handled by posterior similarity matrices; discovery probability.",
+      "s5.3.3": "Validation by masking annotations, Human Protein Atlas, GO enrichment with Benjamini-Hochberg control and cross-dataset agreement.",
+      "s5.3.4": "Ten datasets: hyperLOPIT (mESC, U-2 OS, yeast), LOPIT-DC (U-2 OS), HCMV fibroblast maps, HeLa and neuron DOM data, HEK-293 for phenoDisco.",
+      "s5.4": "Recovers masked chromatin annotation, finds extra niches in multiple datasets, refines annotations in organelle maps.",
+      "s5.4.1": "Chromatin enrichment validated: U-2 OS yields 9 and mESC 8 putative phenotypes including chromatin and nucleolus.",
+      "s5.4.2": "LOPIT-DC U-2 OS (10 phenotypes, endosome, chromatin), yeast (ER-to-early-Golgi group) and HCMV/mock fibroblasts (ribosomal subunits separated).",
+      "s5.4.3": "Dynamic Organellar Maps data: HeLa (3 phenotypes), mouse neurons (10, mostly unenriched), HeLa Hirst (7, 3 singletons).",
+      "s5.5": "phenoDisco vs Novelty TAGM on HEK-293: both find 8 phenotypes, 4 vs 5 with GO enrichment; Novelty TAGM adds uncertainty.",
+      "s5.6": "Re-annotating endosomes in U-2 OS hyperLOPIT; 7 of 240 uncertain proteins all have endosome roles; the HPA agrees or is consistent for 3 of the 4 proteins with annotation.",
+      "s5.7": "Additional annotation in every dataset; limits: sub-compartment structure and multi-dataset integration remain open.",
+      "ch6": "A mixture of Gaussian-process regression models with fast Toeplitz-based computation and HMC, compared with TAGM on five datasets.",
+      "s6.1": "Motivation and abstract of the arXiv/AoAS paper.",
+      "s6.2": "Data-generating process along the density gradient, functional data analysis literature, GP approach.",
+      "s6.3": "GP regression, marginalising the unknown function, tensor decomposition for fast inversion, HMC hyperparameter inference.",
+      "s6.3.4": "Covariance has tensor structure; extended Trench and Durbin algorithms speed up inversion.",
+      "s6.3.6": "Empirical-Bayes or fully Bayesian GP hyperparameters; HMC within Gibbs to handle correlated hyperparameters.",
+      "s6.4": "Drosophila (labelled vs semi-supervised noise estimates, prior sensitivity), mouse stem cells, and a 5-dataset predictive comparison.",
+      "s6.4.1": "Semi-supervised hyperparameters shift and shrink noise posteriors relative to labelled-only; hyper-prior sensitivity is minor.",
+      "s6.4.2": "mESC data fit with GP per niche; MCMC with HMC; entropy and allocation maps.",
+      "s6.4.3": "GP models beat TAGM in 4 of 5 datasets on quadratic loss; empirical Bayes ties or beats fully Bayesian; TAGM wins on HeLa (Itzhak).",
+      "s6.5": "Summary, speed-ups (HMC up to 10x more efficient than MH), and pointer to differential localisation.",
+      "ch7": "Defines differential localisation, builds BANDLE, shows by simulation it beats the MR method and applies it to EGF stimulation, AP-4 knockout and HCMV infection.",
+      "s7.1": "Shift from the allocation problem to the dynamic question; abstract.",
+      "s7.2": "Dynamic experiments, limits of the MR method and a classification pipeline, and the BANDLE idea.",
+      "s7.3": "MR method, integrative mixture models, BANDLE likelihood, priors, outliers, prior calibration and the differential localisation probability.",
+      "s7.3.1": "Interpretation of the movement-reproducibility method and review of integrative mixture models.",
+      "s7.4": "BANDLE workflow, simulations versus MR, EGF and AP-4 applications and a cytomegalovirus case study.",
+      "s7.4.1": "Workflow: calibrate prior by prior predictive checks, MCMC, convergence checks, rank plots, interpretation against other assays.",
+      "s7.4.2": "Five simulated scenarios: higher AUC, about twice as many correct re-localisations; MR's chi-squared and p-value assumptions criticised.",
+      "s7.4.3": "EGF stimulation (MR: 7 hits; BANDLE correlates better with phospho changes) and AP-4 knockout (SERINC1/3 recovered, TMEM199 implicated).",
+      "s7.4.4": "HCMV 24 hpi: hundreds of differentially localised proteins; integration with degradation, abundance, acetylation and interactome data; several negative links.",
+      "s7.5": "BANDLE gives a differential localisation probability, reduces errors and recovers known biology; limits: PTM level, one comparison at a time, stepwise integration.",
+      "ch8": "Summarises contributions chapter by chapter and lists limitations and directions for future work.",
+      "s8.1": "One-paragraph summary of each research chapter's findings.",
+      "s8.2": "Twelve limitations and future directions.",
+      "s8.2.1": "Theory and empirical behaviour of mixed mixtures (robustness) not established.",
+      "s8.2.2": "Models cannot handle missing values; latent-indicator or restricted-likelihood fixes proposed.",
+      "s8.2.3": "Replicates assumed independent; hierarchical sharing needs gradient registration.",
+      "s8.2.4": "Sub-niche resolution (e.g. ER lumen vs membrane) via mixtures of mixtures; identifiability issues.",
+      "s8.2.5": "Protein-protein interactions and complexes from spatial profiles would need external validation.",
+      "s8.2.6": "Computation can be excessive; lower-level code or approximate Bayes could help.",
+      "s8.2.7": "No integration of different data modalities; multiple dataset integration is suggested.",
+      "s8.2.8": "Peptide/PSM-level summarisation and uncertainty propagation not explored.",
+      "s8.2.9": "Localisation of post-translational modifications; Bayesian semi-parametric two-sample test proposed.",
+      "s8.2.10": "Differential localisation with several perturbations needs a new approach (K^3 parameters naively).",
+      "s8.2.11": "Temporal perturbations, e.g. Markov structure on allocations.",
+      "s8.2.12": "Covariates (space, time, temperature, life-cycle stage) and their independence structure.",
+      "refs": "Bibliography (496 numbered references).",
+      "appA": "Derivations of the EM algorithm and collapsed Gibbs sampler, convergence diagnostics, t-test tables for F1 and quadratic loss, GO enrichment figures.",
+      "appB": "Matrix algorithms, derivatives of the marginal likelihood, tensor decompositions, sensitivity analyses, simulation study, HMC vs MH, hyperparameter tables.",
+      "sB.6": "HMC is more efficient than Metropolis-Hastings for GP hyperparameter updates (acceptance rate and time-normalised ESS).",
+      "appC": "Extra BANDLE simulations, convergence analyses, prior sensitivity, selecting tau, EGF/AP-4/HCMV figures and supplementary methods (Pólya-Gamma augmentation).",
+      "sC.7": "Choosing tau for the Pólya-Gamma prior via KL divergence to a weakly informative Dirichlet prior; default tau = 0.3.",
+      "sC.15": "Supplementary methods: non-conjugate prior, Pólya-Gamma and stick-breaking augmentation, correlated differential localisation model, calibration, prior coherence and simulating dynamic experiments."
+    },
+    "figures": 120,
+    "tables": 49,
+    "arc": "The thesis starts from a limitation of mass-spectrometry spatial proteomics: proteins are assigned to organelles by supervised classifiers that output a single label, although up to half the proteome cannot be robustly assigned to one location (p. 11). Crook reformulates the problem as Bayesian generative modelling (TAGM, ch. 2), packages it as Bioconductor software (ch. 3) and tests it on a poorly annotated parasite, Toxoplasma gondii (ch. 4). That application exposes the dependence on marker proteins, so the model is extended to discover unannotated niches (Novelty TAGM, ch. 5) and then recast with Gaussian-process regression to match the data-generating process (ch. 6), which gives only modest gains. The direction then changes from static allocation to the dynamic question of which proteins change location after a perturbation (differential localisation); BANDLE (ch. 7) answers it and is applied to EGF stimulation, an AP-4 knockout and cytomegalovirus infection. The conclusion (ch. 8) lists what is still missing, including missing values, hierarchical models, PTM-level localisation and multi-condition designs."
+  },
+  "carlos": {
+    "node_ids": [
+      "front",
+      "front.title",
+      "front.proquest",
+      "front.contents",
+      "front.abstract",
+      "front.declaration",
+      "front.copyright",
+      "front.epigraph",
+      "front.ack",
+      "front.acronyms",
+      "ch1",
+      "ch2",
+      "2.1",
+      "2.1.1",
+      "2.1.2",
+      "2.1.3",
+      "2.2",
+      "2.2.1",
+      "2.2.2",
+      "2.2.3",
+      "2.2.4",
+      "2.3",
+      "2.3.1",
+      "2.3.2",
+      "2.3.3",
+      "2.3.4",
+      "2.4",
+      "2.4.1",
+      "2.4.2",
+      "2.4.3",
+      "2.4.4",
+      "2.5",
+      "2.5.1",
+      "2.5.2",
+      "2.5.3",
+      "2.6",
+      "2.6.1",
+      "ch3",
+      "3.1",
+      "3.1.1",
+      "3.1.2",
+      "3.2",
+      "3.2.1",
+      "3.2.2",
+      "3.3",
+      "3.4",
+      "3.4.1",
+      "3.4.2",
+      "3.4.3",
+      "3.5",
+      "ch4",
+      "4.1",
+      "4.1.1",
+      "4.1.2",
+      "4.1.3",
+      "4.2",
+      "4.2.1",
+      "4.2.2",
+      "4.2.3",
+      "4.2.4",
+      "4.2.5",
+      "4.3",
+      "4.3.1",
+      "4.3.2",
+      "4.3.3",
+      "4.4",
+      "ch5",
+      "5.1",
+      "5.1.1",
+      "5.1.2",
+      "5.1.3",
+      "5.2",
+      "5.2.1",
+      "5.2.2",
+      "5.3",
+      "5.3.1",
+      "5.3.2",
+      "5.4",
+      "5.4.1",
+      "5.4.2",
+      "5.5",
+      "ch6",
+      "appA",
+      "A.1",
+      "A.2",
+      "appB",
+      "appC",
+      "C.1",
+      "C.2",
+      "C.3",
+      "C.4",
+      "C.5",
+      "bib",
+      "fig.2.1",
+      "fig.2.2",
+      "fig.2.3",
+      "fig.3.1",
+      "fig.3.2",
+      "fig.3.3",
+      "fig.3.4",
+      "fig.3.5",
+      "fig.3.6",
+      "fig.3.7",
+      "fig.3.8",
+      "fig.4.1",
+      "fig.4.2",
+      "fig.4.3",
+      "fig.4.4",
+      "fig.4.5",
+      "fig.4.6",
+      "fig.4.7",
+      "fig.4.8",
+      "fig.5.1",
+      "fig.5.2",
+      "fig.5.3",
+      "fig.5.4",
+      "fig.5.5",
+      "fig.5.6",
+      "fig.5.7",
+      "fig.5.8",
+      "fig.5.9",
+      "fig.5.10",
+      "fig.5.11",
+      "fig.5.12",
+      "fig.5.13",
+      "tab.2.1",
+      "tab.3.1",
+      "tab.4.1",
+      "fig.J1",
+      "fig.J2",
+      "fig.J3",
+      "fig.J4",
+      "fig.J5",
+      "fig.J6",
+      "fig.J7",
+      "fig.J8",
+      "tab.J1"
+    ],
+    "claims": {
+      "c01": "Very long (>100 microsecond) simulations on special-purpose hardware showed proteins drifting from native structures; the cited authors read this as force fields, not sampling, being limiting.",
+      "c02": "The thesis records the author's 2017-2018 MPhil year in the Popelier group under an open brief.",
+      "c03": "FFLUX (formerly QCTFF) grew from rigid-molecule multipolar simulations of HF and water to kriging-predicted conformation-dependent multipoles, after kriging outperformed neural networks in group comparisons.",
+      "c04": "By 2018 FFLUX's maximum demonstrations were optimisations of one water molecule and of capped glycine.",
+      "c05": "Abstract: FFLUX replaces fixed-form valence potentials with non-parametric regression and uses high-order multipolar electrostatics, aiming at ligand-receptor energetics.",
+      "c06": "E_FFLUX = E_IQA + E_electrostatic + E_dispersion: E_IQA is a kriged atomic energy, dispersion is Lennard-Jones, electrostatics use kriged multipoles up to hexadecapole.",
+      "c07": "FFLUX assumes charge transfer can be modelled by geometry changes alone.",
+      "c08": "Features live in an Atomic Local Frame, removing six translational and rotational degrees of freedom; the frame is set by the heaviest and second-heaviest bonded neighbours (CIP rules for ties).",
+      "c09": "Atomic forces follow from the chain rule through the ALF rotation matrix (internal forces) and through derivatives of the multipole interaction tensors (electrostatic forces); numerical checks are cited from ref. [231].",
+      "c10": "Training runs through GAIA: TYCHE geometries, Gaussian 09, AIMAll integration, NORMART rotation to the ALF, FEREBUS training, then DL_FFLUX.",
+      "c11": "In FFLUX the charge distribution depends only on molecular geometry, so polarisation is intramolecular only; two same-geometry molecules in different environments get identical multipoles.",
+      "c12": "In five water-cluster conformers, using in-vacuo rather than cluster multipoles gave an electrostatic error of about 400 kcal/mol, and cluster charges shifted by 0.10 +/- 0.05 e.",
+      "c13": "Unpolarised electrostatics cannot rank two conformers: the difference is ~8 kcal/mol with each treatment but of opposite sign (~16 kcal/mol in total); the conclusion rounds this to 'about 20' (p. 114).",
+      "c14": "As features leave the training range the GP prediction tends to the process mean, so the potential is flat and forces are zero ('extrapolation collapse').",
+      "c15": "In a single-water Metropolis-Hastings run, the energy sticks at -76.4166 hartree after ~1,000 of 2,500 steps and the molecule distorts unphysically.",
+      "c16": "Two remedies are set aside: a feature-dependent mean (classical bond potential) cancels the non-parametric benefit, and dense sampling is costly and often impossible via the curse of dimensionality.",
+      "c17": "A published capped-glycine model (~0.5 GB) tested on 2,000 B3LYP/apc-1 BOMD geometries gives a ~600 kcal/mol mean error and does not rank minima.",
+      "c18": "The 51-dimensional feature space is extremely sparse for a training set of about a thousand examples.",
+      "c19": "Earlier assessments built test sets by the same method as training sets (selection bias), and published simulations show optimisation to minima but not the energetics along trajectories.",
+      "c20": "Three open challenges: neglect of intermolecular polarisation, extrapolation collapse and the curse of dimensionality.",
+      "c21": "In current FFLUX monomers interact only through electrostatics and dispersion, so covalent exchange (e.g. the peptide bond) is missing.",
+      "c22": "Kriging V_xc directly needs six-dimensional integrals over irregular boundaries and models of two monomers' coordinates (curse of dimensionality); a harmonic potential would undo FFLUX's aims; so the DI is proposed as a cheaper proxy.",
+      "c23": "Integrating the exchange-correlation pair density gives N = sum of localization indices plus sum of delocalization indices, splitting an atom's electron pairs into localized and delocalized sets.",
+      "c24": "The DI is a first-order (charge-charge-like) approximation to V_xc for an arbitrary wavefunction and needs 3-D rather than 6-D integrals.",
+      "c25": "Müller's approximation estimates the correlated 2-RDM from the 1-RDM; it violates the Pauli principle in general, and p = 0 minimises the violation.",
+      "c26": "On 21 small molecules, most directly bonded DIs from CCSD/Müller are within 5% of full-2-RDM CCSD; N2 (11.4%), HCN C-N (10.1%) and F2 (34.1%) are worse; non-bonded DIs are underestimated 20-70% except hydrogen bonds, which are overestimated.",
+      "c27": "The full CCSD 2-RDM needed ~2 weeks on a 12-CPU node versus ~10 h on 4 cores for AIMAll with Müller.",
+      "c28": "HF DIs recover Lewis bond orders (H2 1.000, N2 ~3.04, O2 2.27); CCSD/Müller lowers bonded DIs (H2 0.844, N2 2.310, O2 1.615) and raises weak ones (Ne2 0.005 to 0.009, Ar2 0.002 to 0.015).",
+      "c29": "HF and CCSD/Müller DIs correlate strongly (Pearson 0.938 over 1,666 bonds).",
+      "c30": "The ~200-molecule database holds 14,756 HF DI entries; C-C DIs plateau near 1.0, 1.4 and 1.8; C-O near 0.8, ~1.2 (aldehydes) and ~1.4 (ketones); weak interactions separate sharply from bonds near 0.5.",
+      "c31": "k-means with three centroids on (DI, distance) pairs recovers the plateaus.",
+      "c32": "DI reflects bond polarity (N2 3.043 vs HCN C-N 2.340), inductive decay along homologous series, and resonance (phenoxide C-O 1.070).",
+      "c33": "For N8, DIs and QTAIM charges below 0.14 e argue against Hirshberg et al.'s ionic NBO structure and for a pentavalent-nitrogen Lewis structure.",
+      "c34": "In dilithium cyclopropane (planar tetracoordinate carbon) C-C DIs are 0.98-1.11 and the C-Li DI (0.197) is close to LiH (0.193), so the Li bonds are ionic and no concept needs revising.",
+      "c35": "In (eta4-C4H6)Fe(CO)3, DI(terminal C, Fe) = 0.469 versus 0.292 for the central carbon at HF (0.788 vs 0.286 at CCSD); the total ~1.7 is a double bond, despite no bond path to terminal carbons.",
+      "c36": "The DI is proposed as a general bond-order indicator; whether it works as an FFLUX exchange potential is left as future work.",
+      "c37": "Chapter 4 was published as Outeiral et al., Chem. Sci. 2018, 9, 5517-5529; the author did the vast majority of calculations and all of the analysis.",
+      "c38": "The six permutation-equivalent methanol minima share one Hamiltonian, but ordinary kriging trained on one seed either collapses or optimises to unphysical structures, for example ignoring the rotation barrier.",
+      "c39": "Prior work uses permutation-invariant features (Behler-Parrinello, bispectrum, SOAP, Coulomb matrices) or invariant models (invariant polynomials).",
+      "c40": "A kernel summed over the group images of each training point gives an invariant GP predictor, proved via the rearrangement theorem, an isotropic kernel and isometric representations.",
+      "c41": "Pure symmetry-adapted kriging needs N kernel evaluations per training point (O(NM)), so it saves nothing by itself.",
+      "c42": "Heuristic: map the query into the modelled region by choosing the symmetry image with minimum Kabsch RMSD to a pivot (a PES minimum); cost drops to O(M).",
+      "c43": "Implemented as fflux_symmetry_transformation in two_body_forces.f90 of DL_POLY FFLUX, reading matrices from MATRICES.txt; feature and force routines unchanged.",
+      "c44": "With 100 MP2/cc-pVTZ points per curve, SAGPR reproduces the stretch of every symmetry-equivalent bond in H2O and NH3, while ordinary GP fails on relabelled bonds.",
+      "c45": "Methanol (600 training points, 6,000 test geometries): symmetry-adapted minimisations converge to the B3LYP/aug-cc-pVTZ minimum (mean RMSD 0.002 +/- 0.004 A); baseline runs mostly end in wrong structures.",
+      "c46": "Acetaldehyde (900 training points) shows the same pattern as methanol.",
+      "c47": "Symmetry adaptation lets the training set shrink about six-fold relative to adding all permuted copies.",
+      "c48": "Conclusions claim DI is proven to be a first-order V_xc approximation, Müller is valid to ~10% for directly bonded atoms, and SAGPR is ready to deploy."
+    },
+    "edges": {
+      "x001": [
+        "ch1",
+        "ch2",
+        "stated"
+      ],
+      "x002": [
+        "ch1",
+        "ch3",
+        "stated"
+      ],
+      "x003": [
+        "ch1",
+        "ch4",
+        "stated"
+      ],
+      "x004": [
+        "ch1",
+        "ch5",
+        "stated"
+      ],
+      "x005": [
+        "ch1",
+        "ch6",
+        "stated"
+      ],
+      "x006": [
+        "ch2",
+        "2.1",
+        "stated"
+      ],
+      "x007": [
+        "ch2",
+        "2.2",
+        "stated"
+      ],
+      "x008": [
+        "ch2",
+        "2.3",
+        "stated"
+      ],
+      "x009": [
+        "ch2",
+        "2.4",
+        "stated"
+      ],
+      "x010": [
+        "ch2",
+        "2.5",
+        "stated"
+      ],
+      "x011": [
+        "ch2",
+        "2.6",
+        "stated"
+      ],
+      "x012": [
+        "ch2",
+        "ch3",
+        "stated"
+      ],
+      "x013": [
+        "2.1.3",
+        "ch3",
+        "stated"
+      ],
+      "x014": [
+        "2.2.3",
+        "ch3",
+        "stated"
+      ],
+      "x015": [
+        "2.2.3",
+        "appC",
+        "stated"
+      ],
+      "x016": [
+        "2.2.3",
+        "2.2.2",
+        "stated"
+      ],
+      "x017": [
+        "2.2.4",
+        "2.2.3",
+        "stated"
+      ],
+      "x018": [
+        "2.2.4",
+        "2.4.4",
+        "stated"
+      ],
+      "x019": [
+        "2.3.4",
+        "2.2",
+        "stated"
+      ],
+      "x020": [
+        "2.4.2",
+        "3.4.3",
+        "stated"
+      ],
+      "x021": [
+        "2.4.4",
+        "2.4.1",
+        "stated"
+      ],
+      "x022": [
+        "2.5.2",
+        "2.5.1",
+        "stated"
+      ],
+      "x023": [
+        "2.6.1",
+        "2.4.4",
+        "stated"
+      ],
+      "x024": [
+        "2.6.1",
+        "ch3",
+        "stated"
+      ],
+      "x025": [
+        "ch3",
+        "3.1",
+        "stated"
+      ],
+      "x026": [
+        "ch3",
+        "3.2",
+        "stated"
+      ],
+      "x027": [
+        "ch3",
+        "3.3",
+        "stated"
+      ],
+      "x028": [
+        "ch3",
+        "3.4",
+        "stated"
+      ],
+      "x029": [
+        "ch3",
+        "3.5",
+        "stated"
+      ],
+      "x030": [
+        "ch3",
+        "ch4",
+        "stated"
+      ],
+      "x031": [
+        "ch3",
+        "ch5",
+        "stated"
+      ],
+      "x032": [
+        "3.1.1",
+        "3.1.2",
+        "stated"
+      ],
+      "x033": [
+        "3.1.1",
+        "appC",
+        "stated"
+      ],
+      "x034": [
+        "3.1.2",
+        "3.2",
+        "stated"
+      ],
+      "x035": [
+        "3.1.2",
+        "C.5",
+        "stated"
+      ],
+      "x036": [
+        "3.2.1",
+        "2.5.1",
+        "stated"
+      ],
+      "x037": [
+        "3.2.1",
+        "3.1.2",
+        "stated"
+      ],
+      "x038": [
+        "3.2.2",
+        "3.1.1",
+        "stated"
+      ],
+      "x039": [
+        "3.4",
+        "3.4.3",
+        "stated"
+      ],
+      "x040": [
+        "3.4.1",
+        "2.3",
+        "stated"
+      ],
+      "x041": [
+        "3.4.1",
+        "3.1.1",
+        "stated"
+      ],
+      "x042": [
+        "3.4.1",
+        "2.3.4",
+        "stated"
+      ],
+      "x043": [
+        "ch4",
+        "appA",
+        "stated"
+      ],
+      "x044": [
+        "ch4",
+        "2.4.2",
+        "stated"
+      ],
+      "x045": [
+        "ch4",
+        "2.4.3",
+        "stated"
+      ],
+      "x046": [
+        "ch4",
+        "4.1.2",
+        "stated"
+      ],
+      "x047": [
+        "ch4",
+        "2.4",
+        "stated"
+      ],
+      "x048": [
+        "ch4",
+        "4.1",
+        "stated"
+      ],
+      "x049": [
+        "ch4",
+        "4.2",
+        "stated"
+      ],
+      "x050": [
+        "ch4",
+        "4.3",
+        "stated"
+      ],
+      "x051": [
+        "ch4",
+        "4.4",
+        "stated"
+      ],
+      "x052": [
+        "4.1.1",
+        "ch2",
+        "stated"
+      ],
+      "x053": [
+        "4.1.1",
+        "2.4.2",
+        "stated"
+      ],
+      "x054": [
+        "4.1.1",
+        "4.2",
+        "stated"
+      ],
+      "x055": [
+        "4.1.2",
+        "2.4.2",
+        "stated"
+      ],
+      "x056": [
+        "4.1.2",
+        "2.2.3",
+        "stated"
+      ],
+      "x057": [
+        "4.1.2",
+        "2.2.3",
+        "stated"
+      ],
+      "x058": [
+        "4.2.1",
+        "A.2",
+        "stated"
+      ],
+      "x059": [
+        "4.2.5",
+        "4.1.1",
+        "stated"
+      ],
+      "x060": [
+        "4.3.2",
+        "4.2.3",
+        "stated"
+      ],
+      "x061": [
+        "4.3.3",
+        "2.4.1",
+        "stated"
+      ],
+      "x062": [
+        "4.3.3",
+        "4.2.4",
+        "stated"
+      ],
+      "x063": [
+        "ch5",
+        "3.3",
+        "stated"
+      ],
+      "x064": [
+        "ch5",
+        "3.4.2",
+        "stated"
+      ],
+      "x065": [
+        "ch5",
+        "5.4.2",
+        "stated"
+      ],
+      "x066": [
+        "ch5",
+        "5.1",
+        "stated"
+      ],
+      "x067": [
+        "ch5",
+        "5.2",
+        "stated"
+      ],
+      "x068": [
+        "ch5",
+        "5.3",
+        "stated"
+      ],
+      "x069": [
+        "ch5",
+        "5.4",
+        "stated"
+      ],
+      "x070": [
+        "ch5",
+        "5.5",
+        "stated"
+      ],
+      "x071": [
+        "5.1.2",
+        "ch5",
+        "stated"
+      ],
+      "x072": [
+        "5.1.2",
+        "5.1.3",
+        "stated"
+      ],
+      "x073": [
+        "5.2.1",
+        "5.2.2",
+        "stated"
+      ],
+      "x074": [
+        "5.3.1",
+        "5.2.2",
+        "stated"
+      ],
+      "x075": [
+        "5.3.2",
+        "appB",
+        "stated"
+      ],
+      "x076": [
+        "5.4.1",
+        "3.4.2",
+        "stated"
+      ],
+      "x077": [
+        "5.4.1",
+        "ch2",
+        "stated"
+      ],
+      "x078": [
+        "5.4.2",
+        "5.3.2",
+        "stated"
+      ],
+      "x079": [
+        "C.1",
+        "2.2.2",
+        "stated"
+      ],
+      "x080": [
+        "C.1",
+        "2.2.3",
+        "stated"
+      ],
+      "x081": [
+        "C.1",
+        "2.2.4",
+        "stated"
+      ],
+      "x082": [
+        "C.1",
+        "2.4.4",
+        "stated"
+      ],
+      "x083": [
+        "C.1",
+        "C.2",
+        "stated"
+      ],
+      "x084": [
+        "C.1",
+        "C.3",
+        "stated"
+      ],
+      "x085": [
+        "C.3",
+        "C.1",
+        "stated"
+      ],
+      "x086": [
+        "C.5",
+        "3.1.2",
+        "stated"
+      ],
+      "x087": [
+        "2.1.3",
+        "fig.2.1",
+        "stated"
+      ],
+      "x088": [
+        "2.2.4",
+        "fig.2.2",
+        "stated"
+      ],
+      "x089": [
+        "2.2.4",
+        "fig.2.3",
+        "stated"
+      ],
+      "x090": [
+        "2.4.1",
+        "tab.2.1",
+        "stated"
+      ],
+      "x091": [
+        "3.1.1",
+        "fig.3.1",
+        "stated"
+      ],
+      "x092": [
+        "3.1.2",
+        "fig.3.2",
+        "stated"
+      ],
+      "x093": [
+        "3.3",
+        "fig.3.3",
+        "stated"
+      ],
+      "x094": [
+        "3.4.1",
+        "tab.3.1",
+        "stated"
+      ],
+      "x095": [
+        "3.4.2",
+        "fig.3.4",
+        "stated"
+      ],
+      "x096": [
+        "3.4.2",
+        "fig.3.5",
+        "stated"
+      ],
+      "x097": [
+        "3.4.2",
+        "fig.3.6",
+        "stated"
+      ],
+      "x098": [
+        "3.4.3",
+        "fig.3.7",
+        "stated"
+      ],
+      "x099": [
+        "3.4.3",
+        "fig.3.8",
+        "stated"
+      ],
+      "x100": [
+        "4.2.2",
+        "tab.4.1",
+        "stated"
+      ],
+      "x101": [
+        "4.2.4",
+        "fig.4.1",
+        "stated"
+      ],
+      "x102": [
+        "4.2.4",
+        "fig.4.2",
+        "stated"
+      ],
+      "x103": [
+        "4.2.5",
+        "fig.4.3",
+        "stated"
+      ],
+      "x104": [
+        "4.2.5",
+        "fig.4.4",
+        "stated"
+      ],
+      "x105": [
+        "4.3.1",
+        "fig.4.5",
+        "stated"
+      ],
+      "x106": [
+        "4.3.1",
+        "fig.4.6",
+        "stated"
+      ],
+      "x107": [
+        "4.3.2",
+        "fig.4.7",
+        "stated"
+      ],
+      "x108": [
+        "4.3.3",
+        "fig.4.8",
+        "stated"
+      ],
+      "x109": [
+        "ch5",
+        "fig.5.1",
+        "stated"
+      ],
+      "x110": [
+        "5.3.1",
+        "fig.5.2",
+        "stated"
+      ],
+      "x111": [
+        "5.3.1",
+        "fig.5.3",
+        "stated"
+      ],
+      "x112": [
+        "5.3.2",
+        "fig.5.4",
+        "stated"
+      ],
+      "x113": [
+        "5.4.1",
+        "fig.5.5",
+        "stated"
+      ],
+      "x114": [
+        "5.4.1",
+        "fig.5.6",
+        "stated"
+      ],
+      "x115": [
+        "5.4.2",
+        "fig.5.7",
+        "stated"
+      ],
+      "x116": [
+        "5.4.2",
+        "fig.5.8",
+        "stated"
+      ],
+      "x117": [
+        "5.4.2",
+        "fig.5.9",
+        "stated"
+      ],
+      "x118": [
+        "5.4.2",
+        "fig.5.10",
+        "stated"
+      ],
+      "x119": [
+        "5.4.2",
+        "fig.5.11",
+        "stated"
+      ],
+      "x120": [
+        "5.4.2",
+        "fig.5.12",
+        "stated"
+      ],
+      "x121": [
+        "5.4.2",
+        "fig.5.13",
+        "stated"
+      ],
+      "x122": [
+        "A.1",
+        "fig.J1",
+        "stated"
+      ],
+      "x123": [
+        "A.1",
+        "tab.J1",
+        "stated"
+      ],
+      "x124": [
+        "A.1",
+        "fig.J2",
+        "stated"
+      ],
+      "x125": [
+        "A.1",
+        "fig.J3",
+        "stated"
+      ],
+      "x126": [
+        "A.1",
+        "fig.J4",
+        "stated"
+      ],
+      "x127": [
+        "A.1",
+        "fig.J5",
+        "stated"
+      ],
+      "x128": [
+        "A.1",
+        "fig.J6",
+        "stated"
+      ],
+      "x129": [
+        "A.1",
+        "fig.J7",
+        "stated"
+      ],
+      "x130": [
+        "A.1",
+        "fig.J8",
+        "stated"
+      ],
+      "x131": [
+        "3.3",
+        "2.5.2",
+        "stated"
+      ],
+      "i001": [
+        "ch5",
+        "3.4.3",
+        "stated"
+      ],
+      "i002": [
+        "ch4",
+        "3.4.3",
+        "stated"
+      ],
+      "i003": [
+        "ch4",
+        "3.1.1",
+        "stated"
+      ],
+      "i004": [
+        "4.4",
+        "3.1.1",
+        "stated"
+      ],
+      "i005": [
+        "3.1.1",
+        "2.4.4",
+        "inferred"
+      ],
+      "i006": [
+        "3.3",
+        "2.5.3",
+        "inferred"
+      ],
+      "i007": [
+        "5.2.2",
+        "2.5.1",
+        "stated"
+      ],
+      "i008": [
+        "5.3.2",
+        "3.2",
+        "stated"
+      ],
+      "i009": [
+        "5.3.2",
+        "3.1.2",
+        "stated"
+      ],
+      "i010": [
+        "ch5",
+        "3.1.2",
+        "stated"
+      ],
+      "i011": [
+        "5.4.2",
+        "3.3",
+        "inferred"
+      ],
+      "i012": [
+        "4.2.1",
+        "3.3",
+        "inferred"
+      ],
+      "i013": [
+        "3.4.1",
+        "3.3",
+        "inferred"
+      ],
+      "i014": [
+        "3.4.3",
+        "3.4.1",
+        "inferred"
+      ],
+      "i015": [
+        "3.4.2",
+        "3.4.3",
+        "stated"
+      ],
+      "i016": [
+        "4.2.2",
+        "4.1.3",
+        "inferred"
+      ],
+      "i017": [
+        "4.2.3",
+        "4.2.1",
+        "inferred"
+      ],
+      "i018": [
+        "4.2.4",
+        "4.2.1",
+        "inferred"
+      ],
+      "i019": [
+        "4.2.5",
+        "4.2.1",
+        "inferred"
+      ],
+      "i020": [
+        "4.3",
+        "4.2",
+        "stated"
+      ],
+      "i021": [
+        "front.abstract",
+        "3.4",
+        "inferred"
+      ],
+      "i022": [
+        "front.abstract",
+        "ch4",
+        "inferred"
+      ],
+      "i023": [
+        "front.abstract",
+        "ch5",
+        "inferred"
+      ],
+      "i024": [
+        "ch6",
+        "ch4",
+        "stated"
+      ],
+      "i025": [
+        "ch6",
+        "ch5",
+        "stated"
+      ],
+      "i026": [
+        "A.1",
+        "ch4",
+        "stated"
+      ],
+      "i027": [
+        "5.1.3",
+        "5.2.2",
+        "stated"
+      ],
+      "i028": [
+        "5.4.1",
+        "5.2.1",
+        "inferred"
+      ],
+      "i029": [
+        "3.2.2",
+        "C.2",
+        "inferred"
+      ]
+    },
+    "entities": {
+      "e.ffl": "FFLUX / QCTFF",
+      "e.qtaim": "QTAIM / quantum atoms",
+      "e.iqa": "Interacting Quantum Atoms (IQA)",
+      "e.qct": "Quantum Chemical Topology",
+      "e.topomp": "Topological multipoles",
+      "e.multipole": "Multipolar electrostatics",
+      "e.polar": "Polarisation",
+      "e.gpr": "Gaussian process regression (kriging)",
+      "e.mle": "Maximum likelihood estimation",
+      "e.pso": "Particle swarm optimisation",
+      "e.bo": "Born-Oppenheimer approximation",
+      "e.alf": "Atomic local frame (ALF)",
+      "e.tyche": "Normal-mode distortion sampling (TYCHE)",
+      "e.di": "Delocalization index (DI)",
+      "e.muller": "Müller approximation",
+      "e.kmeans": "k-means clustering",
+      "e.mcmc": "Metropolis-Hastings Monte Carlo",
+      "e.sagpr": "Symmetry-adapted kriging (SAGPR)",
+      "e.kabsch": "Kabsch RMSD",
+      "e.group": "Group theory / faithful representations",
+      "e.hf": "Hartree-Fock",
+      "e.ccsd": "CCSD",
+      "e.dft": "DFT / B3LYP",
+      "e.lj": "Lennard-Jones potential",
+      "s.g09": "GAUSSIAN 09",
+      "s.aimall": "AIMAll",
+      "s.ferebus": "FEREBUS",
+      "s.gaia": "GAIA",
+      "s.dlpoly": "DL_POLY / DL_FFLUX",
+      "s.pyscf": "pySCF",
+      "s.promolden": "PROMOLDEN",
+      "s.orca": "ORCA",
+      "s.rdkit": "RDKit",
+      "s.sklearn": "scikit-learn / MolecularSAGPR",
+      "d.water5": "Five-water cluster conformers",
+      "d.glycine": "Capped-glycine test set (2,000 geometries)",
+      "d.di200": "~200-molecule DI database",
+      "d.muller21": "21-molecule Müller benchmark",
+      "d.methanol": "Methanol training/test sets",
+      "d.acetald": "Acetaldehyde training/test sets",
+      "k.extrap": "Extrapolation collapse",
+      "k.curse": "Curse of dimensionality",
+      "k.kqa": "Knowledgeable quantum atoms",
+      "k.perm": "Permutational symmetry",
+      "k.bondorder": "Bond order / Lewis picture",
+      "k.n8": "N8 molecule",
+      "k.ptc": "Planar tetracoordinate carbon",
+      "k.fe": "(eta4-C4H6)Fe(CO)3 complex"
+    },
+    "stages": {
+      "j1": "Orientation: the force-field problem and the FFLUX brief",
+      "j2": "Formalise FFLUX: architecture, forces, training pipeline",
+      "j3": "Test 1: is intermolecular polarisation negligible?",
+      "j4": "Test 2: what happens outside the training set?",
+      "j5": "Test 3: does the model scale to a flexible molecule?",
+      "j6": "Pivot: from an exchange term for the peptide bond to the delocalization index",
+      "j7": "Check Müller's approximation against the full 2-RDM",
+      "j8": "Survey ~200 molecules: does DI behave like a bond order?",
+      "j9": "Apply DI to exotic bonding: N8, planar carbon, an iron complex",
+      "j10": "Make kriging respect permutational symmetry",
+      "j11": "Cut the cost: pivot heuristic and DL_FFLUX implementation",
+      "j12": "Test on water, ammonia, methanol and acetaldehyde",
+      "j13": "Synthesis: two methodological contributions"
+    },
+    "observations": {
+      "n1": "Polarisation error in water clusters is ~16 kcal/mol in total on p. 103 but 'about 20 kcal/mol' on p. 114 (checked on page image).",
+      "n2": "Conclusions say Müller is within a 10% error bound for directly bonded atoms (p. 183); Table 4.1 lists F-F at 34.1% and N-N at 11.4% (p. 128), though the text treats F2 and HF as exceptions.",
+      "n3": "Benzaldehyde C-O DI: thesis p. 137 and the Fig. 4.4 caption give 0.798; the published paper's text gives benzaldehyde 1.297 and 0.798 for propanol (p. 196, checked on page image).",
+      "n4": "Chapter 1 promises that Chapter 6 outlines 'future lines of work' (p. 21); Chapter 6 contains no such list. Future-work remarks are scattered in 3.4, 4 (p. 117) and 5.3.1.",
+      "n5": "Pages 187-200 are a copy of the journal paper and carry the journal's pagination (5497-5529); thesis page numbers there are counted, not printed."
+    },
+    "summaries": {
+      "front": "Title, notices, contents, abstract, declaration, acknowledgements and acronym list.",
+      "front.title": "Title page: MPhil thesis, University of Manchester, 2018.",
+      "front.proquest": "ProQuest dissertation notice (number 27614609).",
+      "front.contents": "Contents plus lists of tables and figures.",
+      "front.abstract": "Sets out FFLUX, three hurdles (polarisation, extrapolation, curse of dimensionality) and two contributions: the delocalization index as a bond-order indicator, and symmetry-adapted kriging in DL_POLY 4.",
+      "front.declaration": "Declares no portion submitted for another degree.",
+      "front.copyright": "Standard University of Manchester copyright statement.",
+      "front.epigraph": "Galileo quotation on mathematics as the language of nature.",
+      "front.ack": "Thanks to family, friends and colleagues; EPSRC funding; supervisor P. L. A. Popelier for help getting the Chemical Science article published.",
+      "front.acronyms": "Glossary of acronyms (AIM, DI, FFLUX, GP, IQA, QCT, QTAIM and others).",
+      "ch1": "Argues force fields, not sampling, limit biomolecular simulation; positions FFLUX (ML-based, Popelier group) as a response; states the open brief and outlines the thesis.",
+      "ch2": "Literature review: molecular dynamics and force fields, intermolecular forces, polarisable force fields, Quantum Chemical Topology, Gaussian process regression, and the history of FFLUX.",
+      "2.1": "From the Schrödinger equation through Born-Oppenheimer and ab initio MD to classical force-field functional forms.",
+      "2.1.1": "Full derivation of the Born-Oppenheimer approximation from the time-dependent Schrödinger equation.",
+      "2.1.2": "Born-Oppenheimer and Car-Parrinello molecular dynamics.",
+      "2.1.3": "Classical force-field terms (bonds, angles, torsions, Lennard-Jones, point charges, RESP) and their weakness for non-bonded interactions.",
+      "2.2": "Theory of intermolecular forces, from van der Waals to perturbation theory and distributed multipoles.",
+      "2.2.1": "Historical account: Keesom, Debye and London forces.",
+      "2.2.2": "Rayleigh-Schrödinger perturbation theory recovers electrostatic, induction and dispersion terms.",
+      "2.2.3": "Cartesian and spherical multipolar expansion of the electrostatic interaction.",
+      "2.2.4": "Convergence limits of molecular multipoles; distributed multipoles (Stone DMA, CAMM).",
+      "2.3": "Why additive force fields need polarisation, and the three polarisable families.",
+      "2.3.1": "Evidence that electronic polarisation errors dominate additive force-field error.",
+      "2.3.2": "Fluctuating-charge models based on electronegativity equalisation.",
+      "2.3.3": "Classical Drude oscillator model.",
+      "2.3.4": "Inducible-dipole models (Applequist, Thole damping, AMOEBA, NEMO).",
+      "2.4": "Quantum Chemical Topology: real-space partitioning of the electron density.",
+      "2.4.1": "QTAIM: zero-flux atoms, critical points, derivation of atomic observables.",
+      "2.4.2": "Interacting Quantum Atoms energy decomposition and its cost.",
+      "2.4.3": "IQA for Kohn-Sham DFT via partitioned exchange-correlation energy.",
+      "2.4.4": "Topological multipoles: basis-set independent and fast-converging.",
+      "2.5": "Machine-learning background for FFLUX's regression engine.",
+      "2.5.1": "Derivation of Gaussian process regression (kriging) predictor.",
+      "2.5.2": "Hyperparameter training by maximum likelihood, with caveats.",
+      "2.5.3": "Global optimisation: gradient descent, basin hopping, particle swarm optimisation.",
+      "2.6": "Short history of the Quantum Chemical Topology Force Field.",
+      "2.6.1": "From rigid multipolar HF/water simulations to kriging-based flexible multipoles and the first optimisations (water, capped glycine).",
+      "ch3": "Presents the FFLUX architecture, force derivations and training pipeline, then critically appraises it through three tests.",
+      "3.1": "Potential and features of FFLUX.",
+      "3.1.1": "E_FFLUX = E_IQA + E_electrostatic + E_dispersion with kriged atomic energies and multipoles up to hexadecapole.",
+      "3.1.2": "Atomic local frame features and rotation matrix.",
+      "3.2": "Explicit force expressions.",
+      "3.2.1": "Chain-rule derivation of kriging forces through the ALF.",
+      "3.2.2": "Derivatives of multipolar interaction tensors for electrostatic forces.",
+      "3.3": "The GAIA training pipeline: TYCHE, Gaussian 09, AIMAll, NORMART, FEREBUS, DL_FFLUX.",
+      "3.4": "Three limitations of FFLUX, shown by simple numerical tests.",
+      "3.4.1": "FFLUX lacks intermolecular polarisation; five-water-cluster test gives ~400 kcal/mol electrostatic error.",
+      "3.4.2": "Extrapolation collapse: kriging predictions revert to the mean outside the training set.",
+      "3.4.3": "Curse of dimensionality: published capped-glycine model fails on a realistic test set.",
+      "3.5": "Summary of the three open challenges.",
+      "ch4": "A bond-order study that began as a search for an exchange term for peptide bonds in FFLUX; delocalization indices benchmarked, surveyed over ~200 molecules and applied to exotic bonding.",
+      "4.1": "Definition of delocalization and localization indices, link to IQA exchange-correlation, and the Müller approximation.",
+      "4.1.1": "Derives DI and LI from the pair density.",
+      "4.1.2": "Shows DI is a first-order approximation to V_xc for arbitrary wavefunctions.",
+      "4.1.3": "Müller's approximation for correlated 2-RDMs.",
+      "4.2": "Computational details, benchmark, correlation effects, bond-order plateaus and subtler effects.",
+      "4.2.1": "~200 molecules, HF and CCSD, 6-311++G(2d,2p), Gaussian 09 + AIMAll.",
+      "4.2.2": "Benchmark of Müller approximation against full CCSD 2-RDM on 21 small molecules.",
+      "4.2.3": "Effect of Coulomb correlation on DIs.",
+      "4.2.4": "Plateaus in DI values and k-means clustering.",
+      "4.2.5": "Polarity, inductive and resonance effects.",
+      "4.3": "DI applied to three exotic bonding cases.",
+      "4.3.1": "N8: DI analysis argues against an ionic NBO structure and for pentavalent nitrogen.",
+      "4.3.2": "Dilithium cyclopropane with planar tetracoordinate carbon.",
+      "4.3.3": "(eta4-C4H6)Fe(CO)3: terminal carbons bind iron more strongly than the central carbon, despite bond path.",
+      "4.4": "DI is a reasonable general bond-order indicator.",
+      "ch5": "Develops symmetry-adapted kriging to build permutational symmetry into FFLUX models, with a pivot heuristic and DL_FFLUX implementation.",
+      "5.1": "Survey of symmetry-adapted features and models.",
+      "5.1.1": "Introduction to the two families of approach.",
+      "5.1.2": "Behler-Parrinello, bispectrum, SOAP and Coulomb matrices.",
+      "5.1.3": "Invariant polynomials and monomial symmetrisation.",
+      "5.2": "Group-theoretic derivation of symmetry-adapted kernels.",
+      "5.2.1": "Permutation groups and faithful representations.",
+      "5.2.2": "Kernel summed over group images; proof of invariance.",
+      "5.3": "Pivot-based algorithm and its FFLUX implementation.",
+      "5.3.1": "Partition of configuration space into equivalent regions; RMSD-to-pivot projection.",
+      "5.3.2": "fflux_symmetry_transformation in DL_POLY FFLUX.",
+      "5.4": "Tests on water, ammonia, methanol and acetaldehyde.",
+      "5.4.1": "Dissociation curves with MolecularSAGPR.",
+      "5.4.2": "Energy minimisations of 6,000 permuted geometries in DL_FFLUX.",
+      "5.5": "Conclusions: invariance, six-fold fewer points, minimal code changes.",
+      "ch6": "Summarises the DI work and symmetry-adapted kriging as the two contributions. No separate limitations or future-work section.",
+      "appA": "The Chemical Science paper and its compound list.",
+      "A.1": "Reproduces Outeiral et al., Chem. Sci. 2018, 9, 5517-5529 (journal pagination 5497-5529).",
+      "A.2": "List of the ~200 compounds analysed in Chapter 4, grouped by class.",
+      "appB": "Fortran listings B.1-B.4 for symmetry transformation, distances, Cartesian conversion and matrix reading.",
+      "appC": "Cartesian derivation of multipolar electrostatics up to quadrupole.",
+      "C.1": "Interaction between two charge distributions via Taylor expansion.",
+      "C.2": "Interaction tensors T up to fourth order.",
+      "C.3": "Charge-charge through quadrupole-quadrupole interaction energies.",
+      "C.4": "Differences between raw and traceless quadrupole definitions.",
+      "C.5": "Rotation of dipoles and quadrupoles between laboratory and local frames.",
+      "bib": "331 references.",
+      "fig.2.1": "Morse potential for H2",
+      "fig.2.2": "Spheres of divergence in the water dimer",
+      "fig.2.3": "Distributed versus molecular multipoles in the benzene dimer",
+      "fig.3.1": "Scheme of interactions in the FFLUX force field",
+      "fig.3.2": "Definition of an atomic local frame",
+      "fig.3.3": "Scheme of the training pipeline",
+      "fig.3.4": "Dissociation curve of water as computed by FFLUX",
+      "fig.3.5": "Energy along a single-water Monte Carlo simulation",
+      "fig.3.6": "First and last snapshots of the 2,500-step water simulation",
+      "fig.3.7": "The curse of dimensionality, pictorially",
+      "fig.3.8": "Energies in glycine: B3LYP/apc-1 versus FFLUX",
+      "fig.4.1": "Distribution of HF delocalization indices",
+      "fig.4.2": "k-means clustering of internuclear distance versus DI",
+      "fig.4.3": "Decay of the DI in the alcohols and aldehydes series",
+      "fig.4.4": "Resonance structures: benzaldehyde, phenol, phenoxide",
+      "fig.4.5": "Lewis structure of the N8 molecule",
+      "fig.4.6": "Calculated DIs of the N8 molecule",
+      "fig.4.7": "DIs for the dilithium-substituted cyclopropane",
+      "fig.4.8": "DIs for (eta4-C4H6)Fe(CO)3",
+      "fig.5.1": "Permutationally equivalent conformers of methanol",
+      "fig.5.2": "Diagram of the symmetry partition scheme",
+      "fig.5.3": "Diagram of the symmetry algorithm",
+      "fig.5.4": "Symmetry projection in FFLUX",
+      "fig.5.5": "Dissociation curve of H2O: GP versus SAGPR",
+      "fig.5.6": "Dissociation curve of NH3: GP versus SAGPR",
+      "fig.5.7": "Training set for methanol and acetaldehyde",
+      "fig.5.8": "Evolution of methanol simulations",
+      "fig.5.9": "Methanol permuted conformers without symmetry",
+      "fig.5.10": "Methanol permuted conformers with symmetry",
+      "fig.5.11": "Evolution of acetaldehyde simulations",
+      "fig.5.12": "Acetaldehyde permuted conformers without symmetry",
+      "fig.5.13": "Acetaldehyde permuted conformers with symmetry",
+      "tab.2.1": "Classification of critical points of the electron density",
+      "tab.3.1": "Electrostatics of a cluster of five water molecules",
+      "tab.4.1": "Benchmark of the Müller approximation against the full 2-RDM",
+      "fig.J1": "Quantum atoms in the N8 molecule",
+      "fig.J2": "Distribution of HF delocalization indices",
+      "fig.J3": "k-means clustering, distance versus DI",
+      "fig.J4": "Resonance canonicals: benzaldehyde, phenol, phenoxide",
+      "fig.J5": "Lewis structures of N8",
+      "fig.J6": "Optimized N8 isomers with DIs",
+      "fig.J7": "Dilithium cyclopropane with DIs",
+      "fig.J8": "(eta4-C4H6)Fe(CO)3 geometry with DIs",
+      "tab.J1": "Comparison of DIs at HF, CCSD/Müller and CCSD"
+    },
+    "figures": 40,
+    "tables": 4,
+    "arc": "The thesis records a one-year MPhil in the Popelier group (2017-2018) whose open brief was to 'extend the applicability of the FFLUX force field' (p. 21). FFLUX replaces fixed-form valence terms with kriging models of quantum atoms and uses high-order multipoles for electrostatics, but after a decade it had only optimised a single water molecule and capped glycine (p. 86). The author first audits FFLUX and reports three negative results: no intermolecular polarisation, 'extrapolation collapse' outside the training set, and the curse of dimensionality (Ch. 3). Two methodological developments follow. The first began as a search for a cheap exchange term to model peptide bonds, then pivoted into a study of the delocalization index as a bond-order indicator, benchmarked on ~200 molecules and published in Chemical Science (Ch. 4). The second, symmetry-adapted kriging, builds permutational symmetry into the models with a group-theoretic kernel and a pivot heuristic, implemented in DL_FFLUX and tested on four small molecules (Ch. 5). The polarisation problem is left open. Order of stages follows the thesis narrative; the author says the path 'might perhaps look sinuous' (p. 21) and gives no dated chronology, so actual order of work is not established."
+  },
+  "vost": {
+    "node_ids": [
+      "ch1",
+      "s1.1",
+      "s1.2",
+      "s1.2.1",
+      "s1.2.2",
+      "s1.2.2.1",
+      "s1.2.2.1~cryo-em",
+      "s1.2.2.2",
+      "s1.2.2.3",
+      "s1.3",
+      "s1.3.1",
+      "s1.3.2",
+      "s1.3.3",
+      "s1.3.4",
+      "s1.3.5",
+      "s1.4",
+      "s1.4.1",
+      "s1.4.1.1",
+      "s1.4.1.1~alphafold2",
+      "s1.4.1.1~alphafold3",
+      "s1.4.1.1~open-source-models-and-extensions",
+      "s1.4.1.2",
+      "s1.4.1.2~direct-map-interpretation-methods",
+      "s1.4.1.2~alphafold-based-methods",
+      "s1.4.2",
+      "s1.4.3",
+      "s1.4.3.1",
+      "s1.4.3.2",
+      "s1.4.4",
+      "s1.5",
+      "ch2",
+      "s2.1",
+      "s2.2",
+      "s2.3",
+      "s2.4",
+      "s2.4.1",
+      "s2.4.2",
+      "s2.4.2.1",
+      "s2.4.2.2",
+      "s2.4.2.3",
+      "s2.4.3",
+      "s2.4.4",
+      "s2.4.5",
+      "s2.4.5.1",
+      "s2.4.5.2",
+      "s2.4.5.3",
+      "s2.4.5.4",
+      "s2.4.5.5",
+      "s2.5",
+      "s2.5.1",
+      "s2.5.1.1",
+      "s2.5.1.2",
+      "s2.5.2",
+      "s2.5.2.1",
+      "s2.5.2.2",
+      "s2.5.3",
+      "s2.5.3.1",
+      "s2.5.3.2",
+      "s2.5.4",
+      "s2.6",
+      "ch3",
+      "s3.1",
+      "s3.2",
+      "s3.3",
+      "s3.3.1",
+      "s3.3.2",
+      "s3.3.3",
+      "s3.3.4",
+      "s3.3.4.1",
+      "s3.3.4.2",
+      "s3.3.4.3",
+      "s3.4",
+      "s3.4.1",
+      "s3.4.2",
+      "s3.4.3",
+      "s3.4.4",
+      "s3.5",
+      "ch4",
+      "s4.1",
+      "s4.2",
+      "s4.3",
+      "s4.3.1",
+      "s4.3.1.1",
+      "s4.3.1.2",
+      "s4.3.2",
+      "s4.3.2.1",
+      "s4.3.2.2",
+      "s4.3.2.2~regular-brics-decomposition",
+      "s4.3.2.2~decomposition-with-standardised-fragments",
+      "s4.3.2.3",
+      "s4.3.3",
+      "s4.4",
+      "s4.4.1",
+      "s4.4.2",
+      "s4.4.3",
+      "s4.5",
+      "s4.6",
+      "ch5",
+      "s5.1",
+      "s5.2",
+      "s5.3",
+      "s5.3.1",
+      "s5.3.1.1",
+      "s5.3.1.2",
+      "s5.3.1.3",
+      "s5.3.1.4",
+      "s5.3.1.5",
+      "s5.3.1.5~block-scheduling",
+      "s5.3.1.5~global-scheduling",
+      "s5.3.1.5~block-and-global-scheduling",
+      "s5.3.2",
+      "s5.3.3",
+      "s5.4",
+      "s5.4.1",
+      "s5.4.1.1",
+      "s5.4.1.2",
+      "s5.4.1.3",
+      "s5.4.2",
+      "s5.4.2.1",
+      "s5.4.2.2",
+      "s5.4.2.2~only-msa-subsampling",
+      "s5.4.2.2~combining-with-gradient-based-optimisation",
+      "s5.5",
+      "ch6",
+      "s6.1",
+      "s6.2",
+      "s6.3",
+      "s6.4",
+      "appA",
+      "sA.1",
+      "sA.2",
+      "sA.3",
+      "sA.4",
+      "appB",
+      "sB.1",
+      "sB.2",
+      "sB.3",
+      "fm.title",
+      "fm.dedication",
+      "fm.ack",
+      "fm.abstract",
+      "fm.contents",
+      "fm.figures",
+      "fm.abbrev",
+      "fm",
+      "refs",
+      "app",
+      "fig1.1",
+      "fig1.2",
+      "fig1.3",
+      "fig2.1",
+      "fig2.2",
+      "tab2.1",
+      "tab2.2",
+      "fig2.3",
+      "tab2.3",
+      "tab2.4",
+      "tab2.5",
+      "fig2.5",
+      "tab2.6",
+      "tab2.7",
+      "fig2.4",
+      "fig2.6",
+      "fig3.1",
+      "fig3.2",
+      "tab3.1",
+      "tab3.3",
+      "tab3.5",
+      "tab3.2",
+      "fig4.1",
+      "fig4.2",
+      "fig4.3",
+      "fig4.4",
+      "tab4.1",
+      "tab5.1",
+      "fig5.1",
+      "fig5.2",
+      "fig5.3",
+      "fig5.4",
+      "fig5.5",
+      "fig5.6",
+      "fig5.7",
+      "fig5.8",
+      "fig5.9",
+      "tabA.1",
+      "figA.1",
+      "tabA.2",
+      "figA.2",
+      "tabB.1",
+      "tabB.2",
+      "tabB.2-full"
+    ],
+    "claims": {
+      "c1": "Median cost of bringing a drug to market is about $1.3bn and takes over ten years on average.",
+      "c2": "Lack of efficacy is the main cause of failure in over 50% of Phase II and over 60% of Phase III cases; safety accounts for about 20-25%.",
+      "c3": "In the original DUD, 42% of actives were charged versus 15% of decoys, letting models inflate performance by labelling charged compounds active.",
+      "c4": "Joint first-author split: Scantlebury designed PointVS and did dataset filtering and scoring-function assessment; Vost did the other attribution methods, the attribution tests and the elaboration tests.",
+      "c5": "284 of 285 PDBBind Core proteins have a counterpart with ≥90% sequence similarity in the General set; 273 (95.7%) have an identical sequence.",
+      "c6": "Pose ranking is barely affected by filtering: Top-1 on gninaSetPose is 70% (Redocked) and 68% (Redocked\\gninaSetPose80); gnina trained on Redocked gets 68%.",
+      "c7": "Core-set Top-1 without the crystal pose: PointVS 85.3% (Redocked), 84.2% (Redocked\\Core80); Vina 84.6%; gnina 83.2%.",
+      "c8": "Scoring power (PCC): PointVS General 0.805, General\\CoreR 0.803, General\\Core80 0.754; Vina 0.601; debiased X-Score 0.631. Equal-size random removal does not reduce performance, filtering does.",
+      "c9": "In three Tankyrase-2 complexes PointVS ranks the PLIP hydrogen-bond edges first and second; it misses the halogen bond in 4J21. IGN bond masking found none of the hydrogen bonds; gnina atom masking identified an important bond in only one structure.",
+      "c10": "Attribution score correlates negatively with protein-ligand atom distance over the Core set: PCC -0.766 (top 5) and -0.844 (top 10).",
+      "c11": "On 20 Core structures, PointVS top-5 / top-10 PCC is -0.710 / -0.853 versus gnina -0.233 / 0.094.",
+      "c12": "PLIP counting yields four Mpro hotspots (146, 40, 9, 5 of 152 structures). All but one lie within 2 Å of a top-5 PointVS hotspot, yet PointVS ranks the 146-count atom second and the 40-count atom first.",
+      "c13": "With as few as 10 bound structures the full-screen top-5 PointVS hotspots are still the most commonly picked; consistency rises with more structures (sizes 10-80, 40 random draws each).",
+      "c14": "Top-5 PointVS hotspots gave higher ΔSLE20 than top-5 API hotspots on all three targets: Mpro 0.341 vs 0.213, Mac1 1.749 vs 1.581, NSP14 1.708 vs 1.240.",
+      "c15": "API hotspots ranked 6-10 had higher ΔSLE20 than PointVS 6-10 on all three targets, but PointVS ranks 1-5 beat 6-10 while the API could not rank its hotspots.",
+      "c16": "Elaborations are judged by GOLD constrained-docking score per heavy atom, standardised against the ground-truth molecule (ΔSLE20); no experimental testing is reported in the chapter.",
+      "c17": "FGFR1 case study: PointVS ranks both hydrogen-bonding protein atoms of erdafitinib 3rd and 6th; the Hotspots API places a donor hotspot 1.5 Å from one but misses the other.",
+      "c18": "Best ablation setting on GEOM (no H): 1 distorted per 50 originals, Dmax 0.25 Å, giving RDKit 97% and PoseBusters 81% (n = 100).",
+      "c19": "1:100 at Dmax = 1 Å gives PoseBusters 8%; sampling at D = Dmax yields at most 53%.",
+      "c20": "EDM PoseBusters all-tests pass rate with distortion conditioning: GEOM 62.2% to 68.8%, ZINC 40.0% to 74.5%, QM9 81.1% to 46.9%.",
+      "c21": "On ZINC, conditioning raised atom-connectivity pass rate from 62.4% to 95.7% and bond-length pass rate from 65.0% to 94.1%.",
+      "c22": "XTB energy labels: GEOM 70% to 84% PoseBusters, QM9 81% to 19%, ZINC 40% to 36% (n = 100).",
+      "c23": "GCDM on ZINC: PoseBusters 40.8% to 66.5%; on GEOM 77.8% to 79.7%. MolFM on GEOM: 80.8% to 46.8%; on ZINC 42.3% to 45.9%.",
+      "c24": "The method is strongest for diffusion models on larger drug-like molecules, limited for QM9, inconsistent for flow matching.",
+      "c25": "Centroid-only control with ground-truth blocks: 48/100 pass RDKit sanitisation; the full diffusion model reaches about 4%.",
+      "c26": "Plane alignment post-processing gives 10.8% RDKit sanitisation, mostly failing on inter-block connectivity.",
+      "c27": "With orientation vectors the control rises to 89/100 and generation reaches 27.2% (full BRICS, 172 block types) and 51.7% (reduced library, 23 types), against 84.7% for the atomistic model.",
+      "c28": "Later work reports >94% validity for HierDiff (GEOM) and 97.5% for CMD-GEN; these metrics are not necessarily the same as RDKit sanitisation, so the comparison is indicative only.",
+      "c29": "OpenFold with constant scaling: modest gains for coordinates and single representation, none for frames; all conditioning worsened 7VPL and 8CXO.",
+      "c30": "Best OpenFold scheme (frames, 0.1, 3, block and global) improved 9 of 10 targets but all improvements were marginal; adaptive updates cut 8FEI from 3.58 to 2.20 Å and 6LN8 from 5.25 to 4.62 Å.",
+      "c31": "Boltz-2 gradient conditioning: 8FEI 20.0 to 2.4 Å and 8CXO 11.7 to 7.7 Å; worse for 6LLY and 7VLR.",
+      "c32": "MSA subsampling alone improved 7VLR and 7VPL, which gradient conditioning alone made worse; it is inconsistent, with at most five MSAs tried.",
+      "c33": "Combining MSA subsampling and gradients was the best approach excluding 8FEI; 2048 sequences gave the lowest RMSD on only 6 of 10 targets.",
+      "c34": "All Ch 5 results use simulated ideal density maps, alignment to the ground-truth structure, ten monomer targets and Cα-RMSD only.",
+      "c35": "With currently available datasets it is impossible to train scoring functions entirely free from bias; large, consistently modelled public protein-ligand datasets are needed.",
+      "c36": "Four lessons: interpretability, negative data, block-encoding difficulty, early intervention plus stochasticity for guiding AlphaFold-like predictors."
+    },
+    "edges": {
+      "x1": [
+        "s1.1",
+        "ch3",
+        "stated"
+      ],
+      "x2": [
+        "s1.1",
+        "ch4",
+        "stated"
+      ],
+      "x3": [
+        "s1.1",
+        "ch2",
+        "stated"
+      ],
+      "x4": [
+        "s1.1",
+        "ch5",
+        "stated"
+      ],
+      "x5": [
+        "s1.2.2",
+        "fig1.2",
+        "stated"
+      ],
+      "x6": [
+        "s1.2.2.1",
+        "ch5",
+        "stated"
+      ],
+      "x7": [
+        "s1.2.2.2",
+        "s1.4.2",
+        "stated"
+      ],
+      "x8": [
+        "s1.2.2.2",
+        "s1.4.3",
+        "stated"
+      ],
+      "x9": [
+        "s1.3",
+        "s1.2",
+        "stated"
+      ],
+      "x10": [
+        "s1.3",
+        "s1.4",
+        "stated"
+      ],
+      "x11": [
+        "s1.3",
+        "fig1.3",
+        "stated"
+      ],
+      "x12": [
+        "s1.3.2",
+        "s1.3.1",
+        "stated"
+      ],
+      "x13": [
+        "s1.3.4",
+        "sA.1",
+        "stated"
+      ],
+      "x14": [
+        "s1.3.5",
+        "fig1.3",
+        "stated"
+      ],
+      "x15": [
+        "s1.4",
+        "ch5",
+        "stated"
+      ],
+      "x16": [
+        "s1.4",
+        "ch2",
+        "stated"
+      ],
+      "x17": [
+        "s1.4",
+        "ch3",
+        "stated"
+      ],
+      "x18": [
+        "s1.4",
+        "ch4",
+        "stated"
+      ],
+      "x19": [
+        "s1.4.2",
+        "s1.2.2.2",
+        "stated"
+      ],
+      "x20": [
+        "s1.4.3.1",
+        "s1.3",
+        "stated"
+      ],
+      "x21": [
+        "s1.4.3.2",
+        "s1.2",
+        "stated"
+      ],
+      "x22": [
+        "s1.4.4",
+        "s1.2.2.2",
+        "stated"
+      ],
+      "x23": [
+        "ch2",
+        "s2.2",
+        "stated"
+      ],
+      "x24": [
+        "s2.3",
+        "ch1",
+        "stated"
+      ],
+      "x25": [
+        "s2.4.1",
+        "fig2.2",
+        "stated"
+      ],
+      "x26": [
+        "s2.4.3",
+        "fig2.1",
+        "stated"
+      ],
+      "x27": [
+        "s2.4.3",
+        "tab2.1",
+        "stated"
+      ],
+      "x28": [
+        "s2.4.4",
+        "fig2.1",
+        "stated"
+      ],
+      "x29": [
+        "s2.4.5.1",
+        "sA.2",
+        "stated"
+      ],
+      "x30": [
+        "s2.4.5.4",
+        "tab2.6",
+        "stated"
+      ],
+      "x31": [
+        "s2.5.1.2",
+        "fig2.3",
+        "stated"
+      ],
+      "x32": [
+        "s2.5.1.2",
+        "tab2.3",
+        "stated"
+      ],
+      "x33": [
+        "s2.5.1.2",
+        "tab2.4",
+        "stated"
+      ],
+      "x34": [
+        "s2.5.2.1",
+        "fig2.4",
+        "stated"
+      ],
+      "x35": [
+        "s2.5.2.2",
+        "sA.3",
+        "stated"
+      ],
+      "x36": [
+        "s2.5.2.2",
+        "tab2.5",
+        "stated"
+      ],
+      "x37": [
+        "s2.5.3",
+        "sA.3",
+        "stated"
+      ],
+      "x38": [
+        "s2.5.3",
+        "fig2.5",
+        "stated"
+      ],
+      "x39": [
+        "s2.5.3.1",
+        "fig2.5",
+        "stated"
+      ],
+      "x40": [
+        "s2.5.3.2",
+        "fig2.6",
+        "stated"
+      ],
+      "x41": [
+        "s2.5.4",
+        "tab2.7",
+        "stated"
+      ],
+      "x42": [
+        "s2.6",
+        "ch1",
+        "stated"
+      ],
+      "x43": [
+        "s3.2",
+        "ch1",
+        "stated"
+      ],
+      "x44": [
+        "s3.3.3",
+        "sB.3",
+        "stated"
+      ],
+      "x45": [
+        "s3.4.1",
+        "sB.1",
+        "stated"
+      ],
+      "x46": [
+        "s3.4.2",
+        "tab3.2",
+        "stated"
+      ],
+      "x47": [
+        "s3.4.3",
+        "tab3.3",
+        "stated"
+      ],
+      "x48": [
+        "s3.4.4",
+        "tab3.5",
+        "stated"
+      ],
+      "x49": [
+        "s3.5",
+        "sB.2",
+        "stated"
+      ],
+      "x50": [
+        "s4.2",
+        "ch3",
+        "stated"
+      ],
+      "x51": [
+        "s4.3.1.2",
+        "s4.3.2.2",
+        "stated"
+      ],
+      "x52": [
+        "s4.3.2.1",
+        "ch3",
+        "stated"
+      ],
+      "x53": [
+        "s4.3.2.2~decomposition-with-standardised-fragments",
+        "fig4.2",
+        "stated"
+      ],
+      "x54": [
+        "s4.3.3",
+        "ch3",
+        "stated"
+      ],
+      "x55": [
+        "s4.4.1",
+        "fig4.4",
+        "stated"
+      ],
+      "x56": [
+        "s4.4.2",
+        "tab4.1",
+        "stated"
+      ],
+      "x57": [
+        "s5.2",
+        "ch1",
+        "stated"
+      ],
+      "x58": [
+        "s5.4.1.1",
+        "s5.3.1",
+        "stated"
+      ],
+      "x59": [
+        "s5.4.1.1",
+        "fig5.2",
+        "stated"
+      ],
+      "x60": [
+        "s5.4.1.2",
+        "s5.3.1.5",
+        "stated"
+      ],
+      "x61": [
+        "s5.4.1.1",
+        "fig5.1",
+        "stated"
+      ],
+      "x62": [
+        "s5.4.1.1",
+        "fig5.3",
+        "stated"
+      ],
+      "x63": [
+        "s5.4.1.2",
+        "fig5.4",
+        "stated"
+      ],
+      "x64": [
+        "s5.4.1.3",
+        "fig5.5",
+        "stated"
+      ],
+      "x65": [
+        "s5.4.1.3",
+        "fig5.6",
+        "stated"
+      ],
+      "x66": [
+        "s5.4.2.1",
+        "fig5.7",
+        "stated"
+      ],
+      "x67": [
+        "s5.4.2.2~only-msa-subsampling",
+        "fig5.8",
+        "stated"
+      ],
+      "x68": [
+        "s5.4.2.2~combining-with-gradient-based-optimisation",
+        "fig5.9",
+        "stated"
+      ],
+      "x69": [
+        "s5.4.2.2~combining-with-gradient-based-optimisation",
+        "fig5.3",
+        "stated"
+      ],
+      "x70": [
+        "s5.5",
+        "fig5.9",
+        "stated"
+      ],
+      "x71": [
+        "s6.1",
+        "ch2",
+        "stated"
+      ],
+      "x72": [
+        "s6.2",
+        "ch3",
+        "stated"
+      ],
+      "x73": [
+        "s6.2",
+        "ch4",
+        "stated"
+      ],
+      "x74": [
+        "sA.3",
+        "s3.4.2",
+        "stated"
+      ],
+      "x75": [
+        "sA.4",
+        "figA.1",
+        "stated"
+      ],
+      "x76": [
+        "sA.3",
+        "tabA.1",
+        "stated"
+      ],
+      "x77": [
+        "sA.4",
+        "figA.2",
+        "stated"
+      ],
+      "i1": [
+        "s1.4.2",
+        "s2.3",
+        "inferred"
+      ],
+      "i2": [
+        "s1.4.3.2",
+        "s2.5.1.1",
+        "inferred"
+      ],
+      "i3": [
+        "s1.3.4",
+        "s2.4.1",
+        "inferred"
+      ],
+      "i4": [
+        "s1.4.4",
+        "s2.4.5.4",
+        "inferred"
+      ],
+      "i5": [
+        "s1.3.5",
+        "s3.3.1",
+        "inferred"
+      ],
+      "i6": [
+        "s1.4.1.1",
+        "s5.3",
+        "inferred"
+      ],
+      "i7": [
+        "s1.4.1.2~alphafold-based-methods",
+        "s5.4.2.2",
+        "stated"
+      ],
+      "i8": [
+        "s2.6",
+        "s3.1",
+        "stated"
+      ],
+      "i9": [
+        "s3.5",
+        "s4.1",
+        "stated"
+      ],
+      "i10": [
+        "s3.3.3",
+        "s4.3.3",
+        "stated"
+      ],
+      "i11": [
+        "s3.3.4.2",
+        "s4.3.2.1",
+        "stated"
+      ],
+      "i12": [
+        "s3.4.2",
+        "s4.4.3",
+        "inferred"
+      ],
+      "i13": [
+        "s4.3.2.3",
+        "s1.4.1.1~alphafold2",
+        "stated"
+      ],
+      "i14": [
+        "s4.3.2.2~decomposition-with-standardised-fragments",
+        "s2.5.3",
+        "inferred"
+      ],
+      "i15": [
+        "s4.4.1",
+        "s4.4.3",
+        "stated"
+      ],
+      "i16": [
+        "s4.4.2",
+        "s4.4.3",
+        "stated"
+      ],
+      "i17": [
+        "s4.5",
+        "s4.4.3",
+        "stated"
+      ],
+      "i18": [
+        "s5.4.1.1",
+        "s5.4.1.2",
+        "stated"
+      ],
+      "i19": [
+        "s5.4.1.3",
+        "s5.4.2",
+        "stated"
+      ],
+      "i20": [
+        "s5.3.2",
+        "s5.4.1.3",
+        "stated"
+      ],
+      "i21": [
+        "s5.4.2.1",
+        "s5.4.2.2",
+        "stated"
+      ],
+      "i22": [
+        "s2.5.1.2",
+        "s2.5.2",
+        "stated"
+      ],
+      "i23": [
+        "s2.5.2.2",
+        "s2.5.3",
+        "stated"
+      ],
+      "i24": [
+        "s2.5.3.2",
+        "s2.5.4",
+        "stated"
+      ],
+      "i25": [
+        "sA.4",
+        "s2.5.4",
+        "inferred"
+      ],
+      "i26": [
+        "s2.5.1.1",
+        "s6.1",
+        "inferred"
+      ],
+      "i27": [
+        "s2.5.2",
+        "s6.1",
+        "inferred"
+      ],
+      "i28": [
+        "s3.4.3",
+        "s3.4.2",
+        "stated"
+      ],
+      "i29": [
+        "s3.4.4",
+        "s3.4.2",
+        "inferred"
+      ],
+      "i30": [
+        "s4.1",
+        "s3.5",
+        "stated"
+      ],
+      "i31": [
+        "s5.3.1",
+        "s5.4.2.1",
+        "stated"
+      ],
+      "i32": [
+        "s3.4.1",
+        "s6.2",
+        "inferred"
+      ]
+    },
+    "entities": {
+      "pointvs": "PointVS",
+      "egnn": "EGNN / equivariant GNN",
+      "gnn": "Graph neural network",
+      "cnn": "Convolutional neural network",
+      "attribution": "Input attribution",
+      "edge_attention": "Edge attention",
+      "masking": "Atom / bond masking",
+      "gnina": "gnina",
+      "ign": "InteractionGraphNet (IGN)",
+      "plip": "PLIP",
+      "strife": "STRIFE",
+      "hotspots_api": "Hotspots API",
+      "hotspot": "Hotspot",
+      "vina": "AutoDock Vina",
+      "gold": "GOLD docking",
+      "vs": "Virtual screening",
+      "fbdd": "Fragment-based design / elaboration",
+      "bias": "Dataset bias / leakage",
+      "interpretability": "Interpretability",
+      "equivariance": "Equivariance / invariance",
+      "diffusion": "Diffusion models",
+      "edm": "EDM",
+      "gcdm": "GCDM",
+      "molfm": "MolFM",
+      "distortion": "Distortion / quality conditioning",
+      "negative_data": "Negative data",
+      "xtb": "XTB",
+      "brics": "BRICS",
+      "hierdiff": "HierDiff / CMD-GEN / SubGDiff",
+      "posebusters": "PoseBusters",
+      "rdkit": "RDKit",
+      "openbabel": "Open Babel",
+      "plausibility": "Physical plausibility / validity",
+      "synthesisability": "Synthesisability",
+      "alphafold": "AlphaFold 2 / 3",
+      "openfold": "OpenFold",
+      "boltz": "Boltz-1 / Boltz-2",
+      "rocket_cryoboltz": "ROCKET / CryoBoltz",
+      "modelangelo": "ModelAngelo",
+      "msa": "MSA / MSA subsampling",
+      "cryoem": "Cryo-EM model building",
+      "gradopt": "Gradient-based map conditioning",
+      "local_minima": "Local minima",
+      "simulated_maps": "Simulated density maps",
+      "casf16": "CASF16",
+      "pdbbind": "PDBBind",
+      "redocked": "Redocked2020",
+      "dude": "DUD / DUD-E",
+      "qm9": "QM9",
+      "geom": "GEOM",
+      "zinc": "ZINC",
+      "fragalysis": "Fragalysis / SARS-CoV-2 targets",
+      "tankyrase": "Tankyrase-2 complexes",
+      "fgfr1": "FGFR1 / erdafitinib",
+      "cryo_targets": "Ch 5 test targets"
+    },
+    "stages": {
+      "j0": "Start: make ML reliable in early drug discovery",
+      "j1": "Build a debiased scoring function (PointVS)",
+      "j2": "Check it uses real interactions (attribution)",
+      "j3": "Turn hotspots into fragment elaboration",
+      "j4": "Find a recipe for negative training data",
+      "j5": "Condition EDM on distortion across datasets",
+      "j6": "Try internal energy as the label",
+      "j7": "Test transfer to GCDM and MolFM",
+      "j8": "Replace atoms with blocks: centroid-only",
+      "j9": "Add orientation vectors to blocks",
+      "j10": "Condition OpenFold on a cryo-EM map",
+      "j11": "Move the idea to Boltz-2",
+      "j12": "Inject stochasticity with MSA subsampling",
+      "j13": "Where it ends up"
+    },
+    "observations": {
+      "a1": "Text says the 20 PDBBind Core structures were 'used in section 3.4.2'; Table 2.5 caption (p. 57) and section 2.5.2.2 (p. 57) give Appendix A.3 for those IDs, so 2.5.2.2 is almost certainly meant. The extracted cross-reference is kept but flagged low confidence.",
+      "a2": "The same paragraph lists 28 PDB IDs while the text says 20 structures.",
+      "a3": "Text says attribution was run on 18 FGFR1 structures; 16 PDB codes are listed.",
+      "a4": "Text refers to 'Tables 3.4a and 3.4b'; the only caption is Table 3.5 (a) GCDM, (b) MolFM. No Table 3.4 exists.",
+      "a5": "Appendix B.2's MolFM GEOM baseline row is identical to its GCDM GEOM baseline row (PoseBusters 77.8%), and the MolFM conditioned row (78.7%) is close to GCDM's (79.7%), while Table 3.5(b) gives MolFM GEOM 80.8% baseline and 46.8% conditioned. The chapter-3 text (p. 83) matches Table 3.5, so the appendix rows look mislabelled or copied. Treat MolFM GEOM numbers from the main text.",
+      "a6": "Refers to 'Table 1' for the 10.8% result; the captioned table is Table 4.1 (p. 100).",
+      "a7": "Table 2.6 is cited in the Methods but appears in the Results (p. 61).",
+      "a8": "The full PoseBusters table has no caption or number, so it is not counted as a numbered table; it is counted manually as one uncaptioned table.",
+      "a9": "PDF index 1 is the cover and index 2 is an unnumbered page repeating the abstract; neither has a printed page number and neither is mapped to a printed page."
+    },
+    "summaries": {
+      "ch1": "Background chapter. Explains how small-molecule drug discovery works, introduces the ML tools used later (supervised learning, CNNs, GNNs/EGNNs, diffusion models), reviews ML for structure prediction, cryo-EM model building, virtual screening, generative design and fragment-based design, and outlines the thesis.",
+      "s1.1": "Traces drug discovery from trial and error to rational and structure-based design, then states the cost problem (>10 years, median $1.3bn; lack of efficacy causes >50% of Phase II failures and safety ~20-25%). Argues for DL to improve the quality of early candidates and names two challenges that organise the thesis: intramolecular bonding (Chs 3-4) and intermolecular binding (Ch 2), with structure availability (Ch 5) as a prerequisite.",
+      "s1.2": "Overview of small-molecule drugs and the discovery pipeline. The thesis falls within target validation, hit identification and hit-to-lead.",
+      "s1.2.1": "Small molecules (<1000 Da) dominate approvals: 32 of 50 novel FDA approvals in 2024.",
+      "s1.2.2": "Pipeline: target identification and validation, hit identification, hit-to-lead / lead optimisation, preclinical and clinical trials; iterative with high attrition.",
+      "s1.2.2.1": "Target identification and validation, and why structural characterisation (X-ray, cryo-EM) enables structure-based design.",
+      "s1.2.2.1~cryo-em": "Short primer on cryo-EM: flash-frozen samples, 2D images, 3D density map. Building an atomic model into the map is not fully automated and is the bottleneck Ch 5 targets.",
+      "s1.2.2.2": "Hit identification: HTS, virtual screening and fragment-based drug design (growing, linking, merging) as screening vs designing strategies.",
+      "s1.2.2.3": "Hit-to-lead and lead optimisation, driven by the design-make-test-analyse cycle, with ligand-based and structure-based variants.",
+      "s1.3": "Compact ML primer covering only the architectures used later.",
+      "s1.3.1": "Supervised learning as loss minimisation over labelled data (eq. 1.1).",
+      "s1.3.2": "Neural networks and deep learning: neurons, activation, backpropagation (eq. 1.2).",
+      "s1.3.3": "Convolutional networks for grid-like data (eq. 1.3).",
+      "s1.3.4": "Graph neural networks and message passing (eq. 1.4); E(n)-equivariant GNNs that update features and coordinates (eq. 1.5), the basis of PointVS and of the EDM-type diffusion models. Points to Appendix A.1 for equivariance.",
+      "s1.3.5": "Diffusion models: a fixed noising (forward) process and a learned denoising (reverse) process; basis for Chs 3-5.",
+      "s1.4": "How ML is applied in the early pipeline, organised as target structure resolution, virtual screening, generative design and fragment-based design.",
+      "s1.4.1": "Target structure resolution: in silico prediction and ML-assisted cryo-EM model building.",
+      "s1.4.1.1": "AlphaFold2, AlphaFold3 and open-source relatives (OpenFold, Boltz-1, Boltz-2). Caveat: subtle binding-site errors can mislead downstream screening and design, and many predictions for novel targets deviate >2 Å.",
+      "s1.4.1.1~alphafold2": "AF2: MSA, single and pair representations, evoformer, then a frame-based structure module.",
+      "s1.4.1.1~alphafold3": "AF3: pairformer plus a diffusion module that denoises an atom cloud; handles proteins, nucleic acids and ligands.",
+      "s1.4.1.1~open-source-models-and-extensions": "OpenFold (retrainable AF2 reimplementation), Boltz-1 (AF3 replication) and Boltz-2 (adds affinity and experiment-type bias).",
+      "s1.4.1.2": "Cryo-EM model building: direct map-interpretation tools versus AlphaFold-based hybrids.",
+      "s1.4.1.2~direct-map-interpretation-methods": "CNN and GNN tools (DeepTracer, ModelAngelo) build models from density; accuracy drops at intermediate-to-low resolution (≈4-8 Å) and ModelAngelo degrades beyond ~3.5 Å.",
+      "s1.4.1.2~alphafold-based-methods": "ROCKET (conditions OpenFold) and CryoBoltz (conditions Boltz-2) are the two existing methods that Ch 5 builds on.",
+      "s1.4.2": "Virtual screening: docking, then ML scoring functions (voxel CNNs, GNNs, equivariant nets). ML scoring functions are sensitive to dataset bias; only interpretability can say if a model learns binding physics.",
+      "s1.4.3": "Generative molecular design, split into unconditional and conditional generation.",
+      "s1.4.3.1": "Unconditional generation: 1D/2D models, then 3D models (equivariant nets, diffusion) that implicitly solve conformer generation.",
+      "s1.4.3.2": "Conditional de novo generation: pocket-representation trade-offs, evaluation by docking score, and untested generalisation.",
+      "s1.4.4": "Fragment-based design with ML: elaboration (growing), linking and merging.",
+      "s1.5": "Chapter-by-chapter outline: PointVS and hotspot-guided elaboration (Ch 2), negative data for diffusion (Ch 3), block-based diffusion (Ch 4), cryo-EM conditioning of AlphaFold models (Ch 5).",
+      "ch2": "PointVS: an E(n)-equivariant GNN scoring function trained and tested on filtered data after CASF16 was found to leak. Edge-attention attribution is checked against PLIP, then applied to fragment-screen structures to extract hotspots that guide STRIFE fragment elaboration; elaborations are scored by docking.",
+      "s2.1": "Frames the aim: find hotspots (pocket regions contributing disproportionately to binding) to guide fragment growth. Summarises the chapter: CASF16 leakage, debiasing, edge-attention attribution, hotspots, better docking scores than a data-driven baseline.",
+      "s2.2": "States who did what: Scantlebury designed PointVS, filtered data and assessed it as a scoring function; Vost did the other attribution methods, attribution tests and elaboration tests.",
+      "s2.3": "Motivation: MLBSFs tend to learn dataset bias; interpretability could show whether they learn interactions, and could supply structural information for FBDD. Introduces PointVS and releases the code and splits on GitHub.",
+      "s2.4": "Methods: model, datasets, training-set filtering, attribution methods and the hotspot-to-elaboration pipeline.",
+      "s2.4.1": "PointVS: 48 EGNN layers over a protein pocket (atoms within 6 Å of the ligand), edges built on the fly (10 Å ligand-protein, 2 Å intramolecular), plus a learned edge-attention score.",
+      "s2.4.2": "Datasets: Redocked2020 for pose classification, PDBBind General for affinity regression, Core set as test.",
+      "s2.4.2.1": "Redocked2020: Vina-redocked Pocketome ligands, <2 Å poses active; 52,385 active and 734,417 inactive poses.",
+      "s2.4.2.2": "gninaSetPose: 441 PDBBind refined-set complexes held out to compare with gnina 1.0.",
+      "s2.4.2.3": "PDBBind v2020 General set (training) and the 285-structure Core set (CASF16 test).",
+      "s2.4.3": "Filtering: drop training ligands with Morgan Tanimoto >0.8 or proteins with >0.8 sequence identity to any test item; size-matched random subsets control for training-set size (Table 2.1).",
+      "s2.4.4": "Three attribution routes: atom masking (any model), bond masking (graph models) and edge attention (PointVS). Compared across gnina, InteractionGraphNet and PointVS.",
+      "s2.4.5": "From attribution to elaboration: extract hotspots from bound fragments, obtain fragments, elaborate with STRIFE, score by docking.",
+      "s2.4.5.1": "Hotspot maps from PointVS edge attention versus the data-driven Hotspots API (details in Appendix A.2).",
+      "s2.4.5.2": "Targets: SARS-CoV-2 Mpro (152 bound structures, includes curated follow-up compounds), Mac1 (58) and NSP14 (19) from fragalysis.",
+      "s2.4.5.3": "Fragments obtained by enumerating acyclic single-bond cuts and placing a dummy exit atom.",
+      "s2.4.5.4": "STRIFE: exploration then refinement stages; GOLD constrained docking picks 'quasi-actives' within 2 Å (API) or 3 Å (PointVS) of the hotspot. Some fragment-hotspot pairs cannot be elaborated.",
+      "s2.4.5.5": "Assessment: GOLD constrained-docking score divided by heavy atoms, standardised against the ground-truth molecule, top-20 mean (ΔSLE20).",
+      "s2.5": "Results across scoring performance, attribution, hotspot behaviour and fragment elaboration.",
+      "s2.5.1": "Debiased training and scoring-function performance.",
+      "s2.5.1.1": "Leakage in CASF16: 284/285 Core proteins have a ≥90%-identity counterpart in the General set, 273 (95.7%) identical, so a fair filtered-test comparison with other methods is impossible.",
+      "s2.5.1.2": "Docking power barely changes with filtering (Top-1 70% vs 68% on gninaSetPose). Scoring power does: PCC 0.805 unfiltered, 0.803 size-matched random, 0.754 filtered, still above Vina (0.601).",
+      "s2.5.2": "Does PointVS use real interactions? Compare attribution to PLIP on three Tankyrase-2 inhibitors and by distance correlation over many structures.",
+      "s2.5.2.1": "Three Tankyrase-2 complexes (5C5P, 4J21, 4J22): PointVS edge attention ranks PLIP hydrogen-bond edges first and second in each, but misses one halogen bond; gnina atom masking and IGN bond masking agree much less.",
+      "s2.5.2.2": "Over the Core set, attribution score correlates negatively with ligand-atom distance (PCC -0.766 top 5, -0.844 top 10); on a 20-structure subset PointVS (-0.710/-0.853) is far stronger than gnina (-0.233/0.094).",
+      "s2.5.3": "Hotspots from PointVS on Mpro land in different places from Hotspots API hotspots (Fig 2.5).",
+      "s2.5.3.1": "Control against simply counting contacts: PLIP counts yield four hotspots (146, 40, 9, 5 of 152); PointVS ranks the 146-count atom second and the 40-count atom first.",
+      "s2.5.3.2": "Hotspots from random subsets of 10-80 structures (40 draws each): fewer structures give more variable hotspots, but the full-screen top 5 stay the most frequent even at 10.",
+      "s2.5.4": "Elaboration: top-5 PointVS hotspots gave higher ΔSLE20 than top-5 API hotspots on all three targets; API hotspots ranked 6-10 scored higher, but the API could not rank its hotspots whereas PointVS ranks did separate good from worse.",
+      "s2.6": "Concludes PointVS is competitive when debiased, identifies PLIP-consistent interactions and gives the first ML-based extraction of target structural information useful for elaboration. Links forward: de novo design with diffusion models.",
+      "ch3": "Conditioning an equivariant diffusion model on conformer quality: distorted molecules are added to training data as negative examples with a distortion label; sampling at zero distortion raises validity, strongly for drug-like datasets, weakly or negatively for QM9 and for flow-matching MolFM.",
+      "s3.1": "Positions Ch 3 as a first step towards diffusion-based de novo design: diffusion models struggle with bond lengths, angles and energy for drug-like sizes; negative data can teach the model where valid space ends.",
+      "s3.2": "Reviews 3D generation and its plausibility problem, then states the approach: condition EDM on conformer quality using distorted molecules from QM9, GEOM and a ZINC subset; also test GCDM and MolFM.",
+      "s3.3": "Methods: EDM-style generation, distortion-based conditioning, metrics and datasets.",
+      "s3.3.1": "EDM (first E(3)-equivariant diffusion model) and its variants GCDM and MolFM.",
+      "s3.3.2": "Distortion recipe: sample D ~ U(0, Dmax) Å, add uniform offsets in [-D, D] to every coordinate, label with D, add to the dataset; sample at D = 0. Alternative label: XTB internal energy, sampled at the dataset's lowest energy.",
+      "s3.3.3": "Metrics: 1000 samples per model (100 in ablations), bonds assigned by Open Babel, RDKit sanitisation, PoseBusters, MOSES diversity and REOS filters, bootstrap 95% CIs.",
+      "s3.3.4": "Datasets: QM9, GEOM (no hydrogens used for ablations) and a 660,000-molecule ZINC subset.",
+      "s3.3.4.1": "QM9: ~130,000 small molecules (average 8.2 heavy atoms).",
+      "s3.3.4.2": "GEOM: ~430,000 molecules with conformers (average 20.1 heavy atoms); the no-hydrogen version trains fastest of the drug-like sets.",
+      "s3.3.4.3": "ZINC subset: 660,000 drug-like molecules without repeat conformers, 26.8 heavy atoms on average.",
+      "s3.4": "Results and discussion: ablation, distortion-factor conditioning, energy conditioning and transfer to other models.",
+      "s3.4.1": "Ablation on GEOM (no H): best setting is 1 distorted per 50 originals with Dmax = 0.25 Å (RDKit 97%, PoseBusters 81%). Too much distortion hurts; sampling at D = Dmax gives poor molecules, so the label is informative.",
+      "s3.4.2": "Distortion conditioning with EDM: PoseBusters all-tests pass rate rises on GEOM (62.2 to 68.8%) and ZINC (40.0 to 74.5%) but falls on QM9 (81.1 to 46.9%).",
+      "s3.4.3": "XTB internal-energy labels: best on GEOM (98% RDKit, 84% PoseBusters, n = 100) but worse on QM9 and ZINC; energies are hard to compare across molecules.",
+      "s3.4.4": "GCDM improves clearly on ZINC (PoseBusters 40.8 to 66.5%) and marginally on GEOM; flow-matching MolFM gets worse on GEOM (80.8 to 46.8%) and slightly better on ZINC.",
+      "s3.5": "Concludes quality conditioning helps diffusion models on larger drug-like molecules, helps little on QM9 and is inconsistent for flow matching. Flags why-it-works and alternative labels as future work, then hands over to a fragment-based alternative.",
+      "ch4": "An attempt to make diffusion easier by generating molecules from BRICS fragment 'blocks' instead of atoms. Centroid-only placement was capped by orientation ambiguity; adding orientation vectors raised RDKit validity to 51.7% at best, below the 84.7% atomistic baseline. Ends with a review of later hierarchical methods that work.",
+      "s4.1": "Motivates the chapter: post-processing hides rather than fixes the plausibility problem. Hypothesis: arranging individual atoms is too hard, so use pre-assembled blocks.",
+      "s4.2": "Two stated benefits of blocks: lower geometric dimensionality and potential synthesisability from commercial building blocks. Plan: adapt the Ch 3 EDM to blocks; the best block model did worse than atomistic.",
+      "s4.3": "Methods: adapting EDM to blocks, decomposition schemes, rotational descriptors and metrics.",
+      "s4.3.1": "Atom-based EDM recap, then changes needed for blocks.",
+      "s4.3.1.1": "How atomistic EDM diffuses coordinates and categorical atom types.",
+      "s4.3.1.2": "Adaptations: block centroids replace atoms, one-hot grows to ≥50 block types, and reconstruction places an RDKit conformer per block before Open Babel infers bonds.",
+      "s4.3.2": "Training data and decomposition.",
+      "s4.3.2.1": "QM9 rarely splits into more than two blocks, so GEOM is used.",
+      "s4.3.2.2": "Two decompositions: raw BRICS and a reduced library.",
+      "s4.3.2.2~regular-brics-decomposition": "Raw BRICS on GEOM gives >14,000 block types; keeping those seen >100 times leaves 172 types and 56,281 molecules.",
+      "s4.3.2.2~decomposition-with-standardised-fragments": "Reduced library: canonical rings plus single atoms, 23 types, 62,746 molecules; framed as step one of a possible scaffold-then-decorate pipeline.",
+      "s4.3.2.3": "Orientation descriptor: three 3D vectors per block (centroid, best-fit-plane normal, in-plane axis between the two most distant atoms). Heuristic is non-unique for symmetric blocks and ignores chirality.",
+      "s4.3.3": "Metrics: same as Ch 3 in principle, but pass rates were so low that most analysis switched to visual inspection.",
+      "s4.4": "Results for centroid-only, plane-aligned and rotation-aware block models.",
+      "s4.4.1": "Control with ground-truth blocks and centroids: only 48/100 molecules pass RDKit, so the representation caps accuracy; the full model reaches ~4%.",
+      "s4.4.2": "Post-hoc plane alignment gives 10.8% sanitisation; failures are mostly wrong inter-block connectivity, so orientation must be learned.",
+      "s4.4.3": "With orientation vectors the reconstruction control rises to 89/100; generation reaches 27.2% (full BRICS) and 51.7% (reduced library) versus 84.7% for the atomistic model.",
+      "s4.5": "Related work since: HierDiff (coarse-to-fine with an EGNN decoder, >94% validity), CMD-GEN (pharmacophore pseudo-atoms then autoregression, 97.5%), SubGDiff (substructure-aware conformer generation, not comparable).",
+      "s4.6": "Concludes the bottleneck is geometric variance in BRICS fragments that blocks a consistent local frame; recommends hierarchical models with a learned equivariant decoder.",
+      "ch5": "Preliminary work on conditioning AlphaFold-family structure prediction with cryo-EM density. Gradient-based map-overlap updates inside the OpenFold structure module gave only marginal, unstable gains; the same idea in diffusion-based Boltz-2 allowed larger rearrangements; MSA subsampling added the stochasticity needed to escape local minima. All tests use simulated maps and ground-truth alignment.",
+      "s5.1": "Frames the problem (predictors fail on large or out-of-distribution systems, exactly where cryo-EM is used) and previews the OpenFold, Boltz-2 and MSA-subsampling findings and their limits.",
+      "s5.2": "Cryo-EM growth and resolution limits; 'predict then refine' versus this thesis' idea of conditioning prediction on the map from the start (as ROCKET and CryoBoltz do).",
+      "s5.3": "Methods: gradient-based map-overlap optimisation, update scheduling, MSA subsampling and datasets.",
+      "s5.3.1": "Align the prediction to the map, simulate a density map, take a dot-product overlap, back-propagate to a chosen representation and add a scaled update at each recycle (OpenFold) or diffusion step (Boltz-2).",
+      "s5.3.1.1": "Alignment uses the ground-truth PDB structure on Cα atoms, not usable on real new maps.",
+      "s5.3.1.2": "Simulated map built by placing atom-type Gaussian kernels on a 3D grid.",
+      "s5.3.1.3": "Overlap by dot product; gradient w.r.t. single, frame or coordinate representation.",
+      "s5.3.1.4": "Full updates distort structures, so updates are scaled by a constant <1 chosen empirically.",
+      "s5.3.1.5": "Three decay schedules for the scaling factor over 3 recycles × 8 blocks.",
+      "s5.3.1.5~block-scheduling": "s = 1/i over the 8 blocks of a pass, reset each recycle.",
+      "s5.3.1.5~global-scheduling": "s = 1/r over recycles, constant within a recycle.",
+      "s5.3.1.5~block-and-global-scheduling": "s = 1/(8(r-1)+i), decaying from 1 to 1/24 without reset.",
+      "s5.3.2": "Run five parallel MSAs sampled at 8192, 4096 or 2048 sequences, prune the lowest-overlap trajectory every 20 steps. Differs from ROCKET's very shallow MSA ladder.",
+      "s5.3.3": "Ten small monomer targets whose vanilla predictions have Cα-RMSD 3-20 Å; simulated ideal maps; scored by Cα-RMSD only.",
+      "s5.4": "Results for OpenFold and Boltz-2 conditioning.",
+      "s5.4.1": "OpenFold: three variants of structure-module conditioning.",
+      "s5.4.1.1": "Constant scaling (0.1 coords/frames, 0.01 single): modest gains at coordinate and single level, none at frame level; 7VPL and 8CXO always worse (trapped in local density). 8FEI drifts about halfway to the answer.",
+      "s5.4.1.2": "Decay schedules allow coordinate scaling of 1.0 but give no breakthrough; no representation-schedule pair wins consistently.",
+      "s5.4.1.3": "Iterative updates: mixed. Best scheme improves 9/10 targets but only marginally; adaptive updates cut 8FEI from 3.58 to 2.20 Å yet fail badly elsewhere.",
+      "s5.4.2": "Boltz-2 is chosen because a diffusion process tolerates external guidance better and can model ligands.",
+      "s5.4.2.1": "Gradient-only conditioning in Boltz-2: large rearrangements OpenFold could not make (8FEI 20.0 to 2.4 Å; 8CXO 11.7 to 7.7 Å) but worse on 6LLY and 7VLR.",
+      "s5.4.2.2": "Adding MSA subsampling after concluding that late intervention cannot move large-scale structure.",
+      "s5.4.2.2~only-msa-subsampling": "MSA subsampling alone helps 7VLR and 7VPL but is inconsistent; no clear best sequence number; max five MSAs for cost.",
+      "s5.4.2.2~combining-with-gradient-based-optimisation": "Combined, it is the best approach tested excluding 8FEI (which gets worse); 2048 sequences most reliable overall but lowest RMSD on only 6/10 targets.",
+      "s5.5": "Concludes late interventions struggle without breaking learned priors, Boltz-2 tolerates more, and early stochasticity helps; lists next steps (more MSAs, repeats, real noisy maps, no ground-truth alignment).",
+      "ch6": "Draws conclusions per application and four lessons: interpretability is central, negative data helps generative models, block generation needs sophisticated encoding, and guiding AlphaFold-like predictions needs early intervention plus stochasticity.",
+      "s6.1": "Interpretability should be expected of VS models; debiased models plus attribution can guide design. With current datasets entirely bias-free scoring functions are impossible, so large consistent public protein-ligand datasets are needed.",
+      "s6.2": "Negative data helps even where positives seem plentiful; block diffusion needs learned equivariant decoders or hierarchy; question whether diffusion that needs heavy filtering is justified.",
+      "s6.3": "AlphaFold-conditioning results are mixed; Boltz-2 plus MSA subsampling shows promise. Next steps: more MSAs, other schedulers, fine-tuning the predictors.",
+      "s6.4": "Four lessons and a call for better datasets, benchmarks and more interrogation of models.",
+      "appA": "Supporting material for Chapter 2: equivariance primer, Hotspots API algorithm, structure IDs and an FGFR1 case study.",
+      "sA.1": "Defines invariance and equivariance and why EGNN layers suit pose scoring better than CNNs. Written by Jack Scantlebury.",
+      "sA.2": "Hotspots API: SuperStar propensity grids from CSD data, probe sampling, greedy 1 Å clustering, clusters <8 points removed and scored by size.",
+      "sA.3": "Fragalysis IDs of the bound structures for Mpro, Mac1 and NSP14, and the 20 PDBBind Core PDB IDs used in the attribution test (text mislabels this as section 3.4.2).",
+      "sA.4": "FGFR1 / erdafitinib case study: PointVS ranks both hydrogen-bonding protein atoms 3rd and 6th; the API found only one site; a STRIFE elaboration recovers the same hydrogen bond.",
+      "appB": "Supporting tables for Chapter 3.",
+      "sB.1": "Ablation sampled at D = Dmax (Table B.1): PoseBusters pass rate at most 53%. The thesis attributes the poor results mainly to internal-energy failures, stated in the main text on p. 78 rather than here.",
+      "sB.2": "Full PoseBusters sub-test pass rates for every model and ablation. Table is uncaptioned in the thesis.",
+      "sB.3": "MOSES diversity and eight REOS filter pass rates for baseline and conditioned models.",
+      "fm.title": "Machine Learning for Molecular Modelling and Drug Discovery, Lucy Vost, Green Templeton College, University of Oxford, October 2025.",
+      "fm.dedication": "Dedicated to the author's grandmother.",
+      "fm.ack": "Thanks to supervisors (including industry supervisors), the research group, friends and family; the PhD is described as four years of research.",
+      "fm.abstract": "Four-part summary: debiased virtual screening with interpretability and hotspots; conditioning diffusion on molecule quality; block-based diffusion that hit implementation challenges; cryo-EM conditioning of AlphaFold models with MSA subsampling.",
+      "fm.contents": "Table of contents to subsection level.",
+      "fm.figures": "Lists 26 figures; no list of tables is provided.",
+      "fm.abbrev": "Abbreviations used throughout (e.g. BRICS, CASF16, EGNN, MSA, PLIP).",
+      "fm": "Title page, dedication, acknowledgements, abstract, contents, list of figures and list of abbreviations. There is no list of tables.",
+      "refs": "Bibliography, author-year style.",
+      "app": "Appendices for Chapters 2 and 3.",
+      "fig1.1": "Figure 1.1 is printed on p. 6; placed under Small molecule drugs because that is where it is first cited (caption location).",
+      "fig1.2": "Figure 1.2 is printed on p. 7; placed under The drug discovery pipeline because that is where it is first cited (first in-text mention).",
+      "fig1.3": "Figure 1.3 is printed on p. 13; placed under Machine learning because that is where it is first cited (first in-text mention).",
+      "fig2.1": "Figure 2.1 is printed on p. 39; placed under Training dataset filtering because that is where it is first cited (first in-text mention).",
+      "fig2.2": "Figure 2.2 is printed on p. 40; placed under Model because that is where it is first cited (first in-text mention).",
+      "tab2.1": "Table 2.1 is printed on p. 42; placed under Training dataset filtering because that is where it is first cited (first in-text mention).",
+      "tab2.2": "Table 2.2 is printed on p. 46; placed under Protein targets because that is where it is first cited (caption location).",
+      "fig2.3": "Figure 2.3 is printed on p. 49; placed under Performance as a scoring function because that is where it is first cited (first in-text mention).",
+      "tab2.3": "Table 2.3 is printed on p. 51; placed under Performance as a scoring function because that is where it is first cited (first in-text mention).",
+      "tab2.4": "Table 2.4 is printed on p. 51; placed under Performance as a scoring function because that is where it is first cited (first in-text mention).",
+      "tab2.5": "Table 2.5 is printed on p. 57; placed under Large-scale attribution tests because that is where it is first cited (first in-text mention).",
+      "fig2.5": "Figure 2.5 is printed on p. 59; placed under Hotspot identification using PointVS because that is where it is first cited (first in-text mention).",
+      "tab2.6": "Table 2.6 is printed on p. 61; placed under STRIFE: A generative model for elaboration because that is where it is first cited (first in-text mention).",
+      "tab2.7": "Table 2.7 is printed on p. 61; placed under Fragment elaboration because that is where it is first cited (first in-text mention).",
+      "fig2.4": "Figure 2.4 is printed on p. 64; placed under Human Tankyrase-2 inhibitors because that is where it is first cited (first in-text mention).",
+      "fig2.6": "Figure 2.6 is printed on p. 65; placed under Dependency on fragment screen size because that is where it is first cited (first in-text mention).",
+      "fig3.1": "Figure 3.1 is printed on p. 71; placed under Generation of 3D molecules because that is where it is first cited (caption location).",
+      "fig3.2": "Figure 3.2 is printed on p. 73; placed under Conditioning on conformer quality because that is where it is first cited (caption location).",
+      "tab3.1": "Table 3.1 is printed on p. 78; placed under Ablation tests because that is where it is first cited (caption location).",
+      "tab3.3": "Table 3.3 is printed on p. 82; placed under Conditioning on internal energy because that is where it is first cited (first in-text mention).",
+      "tab3.5": "Table 3.5 is printed on p. 82; placed under Testing the conditioning method on additional models because that is where it is first cited (caption location).",
+      "tab3.2": "Table 3.2 is printed on p. 85; placed under Conditioning on distortion factor because that is where it is first cited (first in-text mention).",
+      "fig4.1": "Figure 4.1 is printed on p. 94; placed under Decomposition with standardised fragments because that is where it is first cited (caption location).",
+      "fig4.2": "Figure 4.2 is printed on p. 95; placed under Decomposition with standardised fragments because that is where it is first cited (first in-text mention).",
+      "fig4.3": "Figure 4.3 is printed on p. 96; placed under Rotational information because that is where it is first cited (caption location).",
+      "fig4.4": "Figure 4.4 is printed on p. 98; placed under Centroid-only method because that is where it is first cited (first in-text mention).",
+      "tab4.1": "Table 4.1 is printed on p. 100; placed under Related Work because that is where it is first cited (caption location).",
+      "tab5.1": "Table 5.1 is printed on p. 111; placed under Datasets and evaluation because that is where it is first cited (caption location).",
+      "fig5.1": "Figure 5.1 is printed on p. 113; placed under Direct conditioning with a constant scaling factor because that is where it is first cited (first in-text mention).",
+      "fig5.2": "Figure 5.2 is printed on p. 114; placed under Direct conditioning with a constant scaling factor because that is where it is first cited (first in-text mention).",
+      "fig5.3": "Figure 5.3 is printed on p. 114; placed under Direct conditioning with a constant scaling factor because that is where it is first cited (first in-text mention).",
+      "fig5.4": "Figure 5.4 is printed on p. 115; placed under Introducing gradient scaling schedules because that is where it is first cited (first in-text mention).",
+      "fig5.5": "Figure 5.5 is printed on p. 117; placed under Implementing iterative updates because that is where it is first cited (first in-text mention).",
+      "fig5.6": "Figure 5.6 is printed on p. 118; placed under Implementing iterative updates because that is where it is first cited (first in-text mention).",
+      "fig5.7": "Figure 5.7 is printed on p. 119; placed under Gradient-based optimisation alone because that is where it is first cited (first in-text mention).",
+      "fig5.8": "Figure 5.8 is printed on p. 120; placed under Only MSA subsampling because that is where it is first cited (first in-text mention).",
+      "fig5.9": "Figure 5.9 is printed on p. 121; placed under Combining with gradient-based optimisation because that is where it is first cited (first in-text mention).",
+      "tabA.1": "Table A.1 is printed on p. 132; placed under Structure IDs because that is where it is first cited (first in-text mention).",
+      "figA.1": "Figure A.1 is printed on p. 134; placed under FGFR1 Case Study because that is where it is first cited (first in-text mention).",
+      "tabA.2": "Table A.2 is printed on p. 135; placed under FGFR1 Case Study because that is where it is first cited (caption location).",
+      "figA.2": "Figure A.2 is printed on p. 136; placed under FGFR1 Case Study because that is where it is first cited (first in-text mention).",
+      "tabB.1": "Table B.1 is printed on p. 137; placed under Ablation test: sampling D = Dmax because that is where it is first cited (caption location).",
+      "tabB.2": "Table B.2 is printed on p. 140; placed under Other metrics because that is where it is first cited (caption location).",
+      "tabB.2-full": "Full PoseBusters sub-test pass rates for every model and ablation; the thesis gives this table no caption or number."
+    },
+    "figures": 26,
+    "tables": 18,
+    "arc": "The thesis starts from the cost and high failure rate of drug discovery and asks how machine learning can make the early stages more reliable. It first tests whether a scoring function can avoid memorising dataset bias: PointVS is trained on filtered data, shown to rely on interactions that agree with an interaction profiler, and its attributions are turned into hotspots that improve fragment elaboration. It then moves to generating molecules with diffusion models. Adding distorted molecules as labelled negatives raises the physical plausibility of drug-like samples, but not for the smallest molecules or for flow matching, and an energy label is no better than a simple distance label. A second attempt to simplify generation by assembling molecules from fragment blocks fails to match atomistic models because fragment orientation cannot be encoded consistently. The last project conditions AlphaFold-family predictors on cryo-EM density: late-stage gradient updates in OpenFold stall, Boltz-2 tolerates more, and MSA subsampling adds the early stochasticity needed, with results that stay mixed and rest on simulated maps. The thesis ends with lessons about interpretability, negative data, block-based encodings and early intervention, and an explicit call for better datasets and benchmarks."
+  }
+}

@@ -1,0 +1,4568 @@
+{
+  "ORDER_NOTE": "Stage order follows the thesis' own narrative order (Ch 2 -> Ch 5). The thesis does not give a research timeline; the only stated sequence is Ch 3 before Ch 4 (Ch 4 reuses the Ch 3 model and metrics, pp. 89, 97). Treat the sequence as narrative, not chronological.",
+  "ORIGIN": {
+    "id": "j0",
+    "title": "Start: make ML reliable in early drug discovery",
+    "question": "Drug discovery fails often and is costly; can deep learning improve the quality of candidates entering trials? To do so a model must master intramolecular bonding (valid molecules) and intermolecular binding, and structure-based work needs an accurate target structure.",
+    "chapters": [
+      "ch1"
+    ],
+    "nodes": [
+      "s1.1",
+      "s1.4",
+      "s1.5"
+    ],
+    "evidence": [
+      "3",
+      "4",
+      "5",
+      "30",
+      "31"
+    ],
+    "basis": "stated",
+    "confidence": "high"
+  },
+  "STAGES": [
+    {
+      "id": "j1",
+      "title": "Build a debiased scoring function (PointVS)",
+      "question": "Can an ML scoring function stay competitive when training data are filtered so the test proteins and ligands have no close analogues in training?",
+      "approach": "PointVS: 48-layer E(n)-equivariant GNN with learned edge attention, pretrained on pose classification (Redocked2020) then fine-tuned on PDBBind General affinities. Training sets filtered at Morgan Tanimoto >0.8 / sequence identity >0.8 to the test set, with size-matched random subsets as control.",
+      "outcome": "partial",
+      "negative_result": false,
+      "outcome_note": "Pose ranking barely changed with filtering (Top-1 70% to 68%). Affinity PCC fell from 0.805 to 0.754 with filtering but not with equal-size random removal (0.803), so standard CASF16 numbers are inflated by leakage (284 of 285 Core proteins have a >=90%-identity training counterpart). Debiased PointVS (0.754) still beat AutoDock Vina (0.601). Largely Scantlebury's work (p. 35).",
+      "why_next": "Good performance when debiased is only circumstantial evidence that interactions are learned; a more direct test is to look at what the model attributes its score to (p. 52).",
+      "next": "j2",
+      "chapters": [
+        "ch2"
+      ],
+      "nodes": [
+        "s2.3",
+        "s2.4.1",
+        "s2.4.2",
+        "s2.4.3",
+        "s2.5.1",
+        "s2.5.1.1",
+        "s2.5.1.2"
+      ],
+      "evidence": [
+        "35",
+        "37",
+        "38",
+        "41",
+        "49",
+        "50",
+        "51",
+        "52"
+      ],
+      "basis": "stated",
+      "confidence": "high"
+    },
+    {
+      "id": "j2",
+      "title": "Check it uses real interactions (attribution)",
+      "question": "Does PointVS base its predictions on genuine protein-ligand interactions rather than dataset patterns?",
+      "approach": "Compare edge-attention attribution (PointVS), bond masking (IGN) and atom masking (gnina) against PLIP interactions on three Tankyrase-2 complexes, and correlate attribution scores with protein-ligand distance over the PDBBind Core set and a 20-structure subset.",
+      "outcome": "worked",
+      "negative_result": false,
+      "outcome_note": "PointVS ranked PLIP hydrogen-bond edges first and second in all three complexes but missed one halogen bond; gnina and IGN agreed much less. Author's own wording is cautious: 'at least partial agreement' (p. 34).",
+      "why_next": "If attribution finds important protein atoms in one structure, averaging over many bound fragments should expose hotspots usable as design constraints.",
+      "next": "j3",
+      "chapters": [
+        "ch2"
+      ],
+      "nodes": [
+        "s2.4.4",
+        "s2.5.2",
+        "s2.5.2.1",
+        "s2.5.2.2"
+      ],
+      "evidence": [
+        "34",
+        "52",
+        "55",
+        "56",
+        "57"
+      ],
+      "basis": "stated",
+      "confidence": "high"
+    },
+    {
+      "id": "j3",
+      "title": "Turn hotspots into fragment elaboration",
+      "question": "Can attribution-derived hotspots from fragment screens guide fragment elaboration better than a data-driven hotspot method?",
+      "approach": "Run edge-attention attribution on bound fragment structures (Mpro 152, Mac1 58, NSP14 19), average per protein atom, feed top hotspots to STRIFE, dock elaborations with GOLD and compare standardised ligand efficiency (ΔSLE20) with Hotspots API hotspots. Controls: PLIP contact counts and random subsets of 10-80 structures. FGFR1 case study in Appendix A.4.",
+      "outcome": "worked",
+      "negative_result": false,
+      "outcome_note": "Top-5 PointVS hotspots gave higher ΔSLE20 than top-5 API hotspots on all three targets (e.g. Mpro 0.341 vs 0.213). API hotspots ranked 6-10 scored higher, but the API could not rank its hotspots whereas PointVS ranking separated good from worse. Evaluation is by docking score only.",
+      "why_next": "Fragment-based design needs good structural and fragment data; where that is missing, or broader chemical space is wanted, de novo design with diffusion models is the next step, and its main weakness is plausibility (p. 63).",
+      "next": "j4",
+      "chapters": [
+        "ch2"
+      ],
+      "nodes": [
+        "s2.4.5",
+        "s2.5.3",
+        "s2.5.3.1",
+        "s2.5.3.2",
+        "s2.5.4",
+        "s2.6",
+        "sA.4"
+      ],
+      "evidence": [
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "133",
+        "134"
+      ],
+      "basis": "stated",
+      "confidence": "high"
+    },
+    {
+      "id": "j4",
+      "title": "Find a recipe for negative training data",
+      "question": "If distorted molecules are added to the training set as labelled negatives, how many and how distorted should they be?",
+      "approach": "Ablation with EDM on GEOM (no H): distorted:original ratios 1:20, 1:50, 1:100 and maximum distortions 0.1-1 Å; the label is the distortion D; sample at D = 0 and, for contrast, at D = Dmax (100 molecules each).",
+      "outcome": "worked",
+      "negative_result": false,
+      "outcome_note": "Best: 1:50 with Dmax = 0.25 Å (RDKit 97%, PoseBusters 81%). Too little distortion blurs the label; too much stops the model learning subtle flaws (1:100 at 1 Å: 8%). Sampling at D = Dmax gave at most 53%, showing the label carries information.",
+      "why_next": "Apply the chosen setting (1:50, 0.25 Å) to QM9, GEOM and ZINC.",
+      "next": "j5",
+      "chapters": [
+        "ch3"
+      ],
+      "nodes": [
+        "s3.3.2",
+        "s3.4.1",
+        "sB.1"
+      ],
+      "evidence": [
+        "72",
+        "76",
+        "77",
+        "78",
+        "137"
+      ],
+      "basis": "stated",
+      "confidence": "high"
+    },
+    {
+      "id": "j5",
+      "title": "Condition EDM on distortion across datasets",
+      "question": "Does sampling from the low-distortion region improve the physical plausibility of EDM molecules across small and drug-like datasets?",
+      "approach": "Train EDM conditionally on distorted QM9, GEOM and a ZINC subset; sample 1000 molecules at D = 0 and score with RDKit sanitisation and PoseBusters.",
+      "outcome": "worked",
+      "negative_result": true,
+      "outcome_note": "PoseBusters pass rate rose on GEOM (62.2 to 68.8%) and ZINC (40.0 to 74.5%) but fell on QM9 (81.1 to 46.9%). The author reads this as the method helping where molecules are larger and conformational space more complex, and EDM already suiting QM9 (pp. 78-79, 84).",
+      "why_next": "Distortion distance is a crude label; test a physically grounded one, XTB internal energy.",
+      "next": "j6",
+      "chapters": [
+        "ch3"
+      ],
+      "nodes": [
+        "s3.4",
+        "s3.4.2"
+      ],
+      "evidence": [
+        "78",
+        "79",
+        "84",
+        "85"
+      ],
+      "basis": "stated",
+      "confidence": "high"
+    },
+    {
+      "id": "j6",
+      "title": "Try internal energy as the label",
+      "question": "Would an XTB internal-energy label work better than a distance-based distortion factor?",
+      "approach": "Annotate original and distorted molecules with GFN2-xTB single-point energies, train conditionally, and sample at each dataset's lowest energy (100 molecules per model).",
+      "outcome": "partial",
+      "negative_result": true,
+      "outcome_note": "Best single result on GEOM (RDKit 98%, PoseBusters 84% vs 90% / 70% baseline) but much worse on QM9 (19%) and slightly worse than baseline on ZINC (36% vs 40%). The thesis' explanation, offered as likely rather than shown: energies are hard to compare across different molecules (p. 81).",
+      "why_next": "Keep the simpler distance label as the main method and test whether it transfers to other generative architectures.",
+      "next": "j7",
+      "chapters": [
+        "ch3"
+      ],
+      "nodes": [
+        "s3.4.3"
+      ],
+      "evidence": [
+        "80",
+        "81",
+        "82"
+      ],
+      "basis": "stated",
+      "confidence": "high"
+    },
+    {
+      "id": "j7",
+      "title": "Test transfer to GCDM and MolFM",
+      "question": "Does distortion conditioning work for other plausibility-oriented generators?",
+      "approach": "Apply the same conditioning to GCDM (geometry-complete diffusion) and MolFM (flow matching) on GEOM and ZINC.",
+      "outcome": "partial",
+      "negative_result": true,
+      "outcome_note": "GCDM: large gain on ZINC (PoseBusters 40.8 to 66.5%), marginal on GEOM. MolFM: worse on GEOM (80.8 to 46.8%), slightly better on ZINC. The cause is 'unclear' (p. 83). Note: Appendix B.2's MolFM GEOM rows disagree with Table 3.5 (see anomalies).",
+      "why_next": "Having refined the training data, tackle plausibility from the generation side: build molecules from pre-validated fragments rather than atoms (p. 84).",
+      "next": "j8",
+      "chapters": [
+        "ch3"
+      ],
+      "nodes": [
+        "s3.4.4",
+        "s3.5",
+        "sB.2",
+        "sB.3"
+      ],
+      "evidence": [
+        "82",
+        "83",
+        "84",
+        "85",
+        "138"
+      ],
+      "basis": "stated",
+      "confidence": "high"
+    },
+    {
+      "id": "j8",
+      "title": "Replace atoms with blocks: centroid-only",
+      "question": "Is placing individual atoms in 3D the reason diffusion models generate implausible molecules, and would BRICS fragment blocks (also helping synthesisability) make the task tractable?",
+      "approach": "Adapt the Ch 3 EDM so each node is a BRICS block with a centroid position and a block-type one-hot (172 types from GEOM; 56,281 molecules); rebuild atoms from an RDKit conformer per block. Test centroid-only, then a plane-alignment post-process.",
+      "outcome": "pivot",
+      "negative_result": true,
+      "outcome_note": "Even with ground-truth blocks and centroids only 48 of 100 molecules passed RDKit, so the representation itself caps performance; the generative model reached about 4%. Plane alignment gave 10.8%, failing on inter-block connectivity.",
+      "why_next": "Orientation cannot be fixed by post-processing; it must be learned, so add explicit orientation vectors (p. 98).",
+      "next": "j9",
+      "chapters": [
+        "ch4"
+      ],
+      "nodes": [
+        "s4.2",
+        "s4.3.1.2",
+        "s4.3.2.2",
+        "s4.4.1",
+        "s4.4.2"
+      ],
+      "evidence": [
+        "88",
+        "89",
+        "92",
+        "93",
+        "97",
+        "98"
+      ],
+      "basis": "stated",
+      "confidence": "high"
+    },
+    {
+      "id": "j9",
+      "title": "Add orientation vectors to blocks",
+      "question": "Can a richer position-plus-orientation descriptor close the gap to atomistic diffusion?",
+      "approach": "Describe each block by three 3D vectors (centroid, best-fit-plane normal, in-plane axis) and train on full BRICS (172 types) and a reduced library (23 canonical rings and atoms; 62,746 molecules).",
+      "outcome": "failed",
+      "negative_result": true,
+      "outcome_note": "Reconstruction control rose from 48 to 89 of 100, and generation reached 27.2% (full) and 51.7% (reduced) RDKit sanitisation, but not the 84.7% of the atomistic model. The thesis diagnoses geometric variance of BRICS fragments, which blocks a consistent local frame.",
+      "why_next": "Later work (HierDiff, CMD-GEN) uses learned equivariant decoders or hierarchy and works; the thesis recommends that route and does not pursue it. The work then turns to the structure-prediction side, which the Introduction called a prerequisite for structure-based design (p. 5).",
+      "next": "j10",
+      "chapters": [
+        "ch4"
+      ],
+      "nodes": [
+        "s4.3.2.3",
+        "s4.4.3",
+        "s4.5",
+        "s4.6"
+      ],
+      "evidence": [
+        "93",
+        "95",
+        "99",
+        "100",
+        "101",
+        "102"
+      ],
+      "basis": "stated",
+      "confidence": "high"
+    },
+    {
+      "id": "j10",
+      "title": "Condition OpenFold on a cryo-EM map",
+      "question": "Can a map-overlap gradient inside OpenFold's structure module pull a poor prediction towards the experimental density?",
+      "approach": "Simulate a density map from the prediction, take dot-product overlap with the (simulated) target map, back-propagate to coordinates, frames or single representation, and add a scaled update; test constant scaling, three decay schedules and iterative or adaptive updates on 10 monomer targets.",
+      "outcome": "pivot",
+      "negative_result": true,
+      "outcome_note": "Gains were modest and inconsistent; frame-level conditioning did nothing at constant scaling; 7VPL and 8CXO got worse in every setting; the best scheme improved 9 of 10 targets but 'all improvements were marginal' (p. 116). Larger updates collapsed structures.",
+      "why_next": "Late intervention cannot make large rearrangements without breaking learned priors; try diffusion-based Boltz-2, which tolerates perturbation better (p. 116).",
+      "next": "j11",
+      "chapters": [
+        "ch5"
+      ],
+      "nodes": [
+        "s5.3.1",
+        "s5.3.3",
+        "s5.4.1",
+        "s5.4.1.1",
+        "s5.4.1.2",
+        "s5.4.1.3"
+      ],
+      "evidence": [
+        "107",
+        "111",
+        "112",
+        "114",
+        "116"
+      ],
+      "basis": "stated",
+      "confidence": "high"
+    },
+    {
+      "id": "j11",
+      "title": "Move the idea to Boltz-2",
+      "question": "Does a diffusion-based predictor accept stronger map guidance without structural collapse?",
+      "approach": "Apply the same gradient-based optimisation inside the Boltz-2 structure module at each diffusion step.",
+      "outcome": "partial",
+      "negative_result": false,
+      "outcome_note": "Large rearrangements became possible (8FEI 20.0 to 2.4 Å, 8CXO 11.7 to 7.7 Å) and 5YW7, 6LN8, 7N70 improved, but 6LLY and 7VLR got worse; the author calls it not yet reliable (p. 118).",
+      "why_next": "Inconsistency suggested that intervening late in the pipeline is insufficient; intervene earlier by subsampling MSAs, as ROCKET and CryoBoltz suggest (p. 119).",
+      "next": "j12",
+      "chapters": [
+        "ch5"
+      ],
+      "nodes": [
+        "s5.4.2",
+        "s5.4.2.1"
+      ],
+      "evidence": [
+        "116",
+        "117",
+        "118",
+        "119"
+      ],
+      "basis": "stated",
+      "confidence": "high"
+    },
+    {
+      "id": "j12",
+      "title": "Inject stochasticity with MSA subsampling",
+      "question": "Can early stochasticity let Boltz-2 escape the local minima of its unconstrained prediction and reach conformations closer to the map?",
+      "approach": "Run five parallel Boltz-2 predictions from MSAs sampled at 8192, 4096 or 2048 sequences, prune the worst trajectory every 20 steps, with and without gradient conditioning.",
+      "outcome": "partial",
+      "negative_result": true,
+      "outcome_note": "MSA subsampling alone helped 7VLR and 7VPL but was inconsistent. Combined with gradients it was the best approach tried, excluding 8FEI (which got worse); 2048 sequences gave the lowest RMSD on only 6 of 10 targets. All results use simulated maps and ground-truth alignment (pp. 110-111, 122).",
+      "why_next": "End of the experimental work: sample more MSAs, repeat runs, add noise injection, then drop ground-truth alignment and move to real experimental maps (p. 122).",
+      "next": null,
+      "chapters": [
+        "ch5"
+      ],
+      "nodes": [
+        "s5.3.2",
+        "s5.4.2.2",
+        "s5.4.2.2~only-msa-subsampling",
+        "s5.4.2.2~combining-with-gradient-based-optimisation",
+        "s5.5"
+      ],
+      "evidence": [
+        "110",
+        "111",
+        "119",
+        "120",
+        "121",
+        "122"
+      ],
+      "basis": "stated",
+      "confidence": "high"
+    }
+  ],
+  "DESTINATION": {
+    "id": "j13",
+    "title": "Where it ends up",
+    "question": "What does it amount to?",
+    "approach": "Chapter 6 gives per-application conclusions and four lessons.",
+    "outcome_note": "Chapter 6 states that none of the methods is a complete solution, but each gives insight into how data quality, architecture and conditioning shape outcomes (p. 126).",
+    "chapters": [
+      "ch6"
+    ],
+    "nodes": [
+      "s6.1",
+      "s6.2",
+      "s6.3",
+      "s6.4"
+    ],
+    "evidence": [
+      "123",
+      "124",
+      "125",
+      "126"
+    ],
+    "basis": "stated",
+    "confidence": "high"
+  },
+  "ARC": "The thesis starts from the cost and high failure rate of drug discovery and asks how machine learning can make the early stages more reliable. It first tests whether a scoring function can avoid memorising dataset bias: PointVS is trained on filtered data, shown to rely on interactions that agree with an interaction profiler, and its attributions are turned into hotspots that improve fragment elaboration. It then moves to generating molecules with diffusion models. Adding distorted molecules as labelled negatives raises the physical plausibility of drug-like samples, but not for the smallest molecules or for flow matching, and an energy label is no better than a simple distance label. A second attempt to simplify generation by assembling molecules from fragment blocks fails to match atomistic models because fragment orientation cannot be encoded consistently. The last project conditions AlphaFold-family predictors on cryo-EM density: late-stage gradient updates in OpenFold stall, Boltz-2 tolerates more, and MSA subsampling adds the early stochasticity needed, with results that stay mixed and rest on simulated maps. The thesis ends with lessons about interpretability, negative data, block-based encodings and early intervention, and an explicit call for better datasets and benchmarks.",
+  "CONTRIBUTIONS": [
+    {
+      "text": "Showed that the CASF16 benchmark leaks (284/285 Core proteins have a >=90%-identity training counterpart) and built PointVS, a scoring function trained and tested on filtered data (shared with J. Scantlebury).",
+      "chapters": [
+        "ch2"
+      ],
+      "pages": [
+        "49",
+        "62"
+      ],
+      "basis": "stated",
+      "stage": "j1"
+    },
+    {
+      "text": "First ML-based method, per the author, for extracting structural information from a protein target in a way that is useful for fragment elaboration: attribution-derived hotspots gave better top-5 docking efficiency than the Hotspots API. (Priority claim is the author's; not checked externally.)",
+      "chapters": [
+        "ch2"
+      ],
+      "pages": [
+        "61",
+        "62"
+      ],
+      "basis": "stated",
+      "stage": "j3"
+    },
+    {
+      "text": "Quality conditioning: adding distorted molecules as labelled negatives raises PoseBusters validity of EDM and GCDM samples on drug-like datasets.",
+      "chapters": [
+        "ch3"
+      ],
+      "pages": [
+        "83",
+        "84",
+        "124"
+      ],
+      "basis": "stated",
+      "stage": "j5"
+    },
+    {
+      "text": "A documented negative result for BRICS block diffusion, with a diagnosis (orientation ambiguity, fragment geometric variance) and a pointer to hierarchical decoders.",
+      "chapters": [
+        "ch4"
+      ],
+      "pages": [
+        "101",
+        "102"
+      ],
+      "basis": "stated",
+      "stage": "j9"
+    },
+    {
+      "text": "A map of which cryo-EM conditioning strategies for OpenFold and Boltz-2 do not work, plus an MSA-subsampling route for Boltz-2; the author says the work clarifies ineffective strategies more than it finds a viable one.",
+      "chapters": [
+        "ch5",
+        "ch6"
+      ],
+      "pages": [
+        "122",
+        "126"
+      ],
+      "basis": "stated",
+      "stage": "j12"
+    },
+    {
+      "text": "Four lessons: interpretability is central; negative data strengthens generative models; block generation needs sophisticated encodings; guiding AlphaFold-like predictors needs early intervention plus stochasticity.",
+      "chapters": [
+        "ch6"
+      ],
+      "pages": [
+        "126"
+      ],
+      "basis": "stated",
+      "stage": null
+    }
+  ],
+  "CLAIMS": [
+    {
+      "id": "c1",
+      "text": "Median cost of bringing a drug to market is about $1.3bn and takes over ten years on average.",
+      "node": "s1.1",
+      "stage": "j0",
+      "pages": [
+        "3"
+      ],
+      "evidence": null,
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c2",
+      "text": "Lack of efficacy is the main cause of failure in over 50% of Phase II and over 60% of Phase III cases; safety accounts for about 20-25%.",
+      "node": "s1.1",
+      "stage": "j0",
+      "pages": [
+        "3",
+        "4"
+      ],
+      "evidence": null,
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c3",
+      "text": "In the original DUD, 42% of actives were charged versus 15% of decoys, letting models inflate performance by labelling charged compounds active.",
+      "node": "s1.4.2",
+      "stage": "j0",
+      "pages": [
+        "26"
+      ],
+      "evidence": null,
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c4",
+      "text": "Joint first-author split: Scantlebury designed PointVS and did dataset filtering and scoring-function assessment; Vost did the other attribution methods, the attribution tests and the elaboration tests.",
+      "node": "s2.2",
+      "stage": "j1",
+      "pages": [
+        "35"
+      ],
+      "evidence": null,
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c5",
+      "text": "284 of 285 PDBBind Core proteins have a counterpart with ≥90% sequence similarity in the General set; 273 (95.7%) have an identical sequence.",
+      "node": "s2.5.1.1",
+      "stage": "j1",
+      "pages": [
+        "49"
+      ],
+      "evidence": null,
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c6",
+      "text": "Pose ranking is barely affected by filtering: Top-1 on gninaSetPose is 70% (Redocked) and 68% (Redocked\\gninaSetPose80); gnina trained on Redocked gets 68%.",
+      "node": "s2.5.1.2",
+      "stage": "j1",
+      "pages": [
+        "50"
+      ],
+      "evidence": "Fig 2.3",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c7",
+      "text": "Core-set Top-1 without the crystal pose: PointVS 85.3% (Redocked), 84.2% (Redocked\\Core80); Vina 84.6%; gnina 83.2%.",
+      "node": "s2.5.1.2",
+      "stage": "j1",
+      "pages": [
+        "51"
+      ],
+      "evidence": "Table 2.3",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c8",
+      "text": "Scoring power (PCC): PointVS General 0.805, General\\CoreR 0.803, General\\Core80 0.754; Vina 0.601; debiased X-Score 0.631. Equal-size random removal does not reduce performance, filtering does.",
+      "node": "s2.5.1.2",
+      "stage": "j1",
+      "pages": [
+        "51",
+        "52"
+      ],
+      "evidence": "Table 2.4",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c9",
+      "text": "In three Tankyrase-2 complexes PointVS ranks the PLIP hydrogen-bond edges first and second; it misses the halogen bond in 4J21. IGN bond masking found none of the hydrogen bonds; gnina atom masking identified an important bond in only one structure.",
+      "node": "s2.5.2.1",
+      "stage": "j2",
+      "pages": [
+        "54",
+        "55"
+      ],
+      "evidence": "Fig 2.4",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c10",
+      "text": "Attribution score correlates negatively with protein-ligand atom distance over the Core set: PCC -0.766 (top 5) and -0.844 (top 10).",
+      "node": "s2.5.2.2",
+      "stage": "j2",
+      "pages": [
+        "56"
+      ],
+      "evidence": null,
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c11",
+      "text": "On 20 Core structures, PointVS top-5 / top-10 PCC is -0.710 / -0.853 versus gnina -0.233 / 0.094.",
+      "node": "s2.5.2.2",
+      "stage": "j2",
+      "pages": [
+        "57"
+      ],
+      "evidence": "Table 2.5",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c12",
+      "text": "PLIP counting yields four Mpro hotspots (146, 40, 9, 5 of 152 structures). All but one lie within 2 Å of a top-5 PointVS hotspot, yet PointVS ranks the 146-count atom second and the 40-count atom first.",
+      "node": "s2.5.3.1",
+      "stage": "j3",
+      "pages": [
+        "58",
+        "59"
+      ],
+      "evidence": "Fig 2.5",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c13",
+      "text": "With as few as 10 bound structures the full-screen top-5 PointVS hotspots are still the most commonly picked; consistency rises with more structures (sizes 10-80, 40 random draws each).",
+      "node": "s2.5.3.2",
+      "stage": "j3",
+      "pages": [
+        "60"
+      ],
+      "evidence": "Fig 2.6",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c14",
+      "text": "Top-5 PointVS hotspots gave higher ΔSLE20 than top-5 API hotspots on all three targets: Mpro 0.341 vs 0.213, Mac1 1.749 vs 1.581, NSP14 1.708 vs 1.240.",
+      "node": "s2.5.4",
+      "stage": "j3",
+      "pages": [
+        "61"
+      ],
+      "evidence": "Table 2.7",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c15",
+      "text": "API hotspots ranked 6-10 had higher ΔSLE20 than PointVS 6-10 on all three targets, but PointVS ranks 1-5 beat 6-10 while the API could not rank its hotspots.",
+      "node": "s2.5.4",
+      "stage": "j3",
+      "pages": [
+        "61"
+      ],
+      "evidence": "Table 2.7",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c16",
+      "text": "Elaborations are judged by GOLD constrained-docking score per heavy atom, standardised against the ground-truth molecule (ΔSLE20); no experimental testing is reported in the chapter.",
+      "node": "s2.4.5.5",
+      "stage": "j3",
+      "pages": [
+        "48"
+      ],
+      "evidence": null,
+      "basis": "inferred",
+      "confidence": "medium",
+      "quote": null
+    },
+    {
+      "id": "c17",
+      "text": "FGFR1 case study: PointVS ranks both hydrogen-bonding protein atoms of erdafitinib 3rd and 6th; the Hotspots API places a donor hotspot 1.5 Å from one but misses the other.",
+      "node": "sA.4",
+      "stage": "j3",
+      "pages": [
+        "133",
+        "134"
+      ],
+      "evidence": null,
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c18",
+      "text": "Best ablation setting on GEOM (no H): 1 distorted per 50 originals, Dmax 0.25 Å, giving RDKit 97% and PoseBusters 81% (n = 100).",
+      "node": "s3.4.1",
+      "stage": "j4",
+      "pages": [
+        "77",
+        "78"
+      ],
+      "evidence": "Table 3.1",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c19",
+      "text": "1:100 at Dmax = 1 Å gives PoseBusters 8%; sampling at D = Dmax yields at most 53%.",
+      "node": "s3.4.1",
+      "stage": "j4",
+      "pages": [
+        "78"
+      ],
+      "evidence": "Table 3.1; Table B.1",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c20",
+      "text": "EDM PoseBusters all-tests pass rate with distortion conditioning: GEOM 62.2% to 68.8%, ZINC 40.0% to 74.5%, QM9 81.1% to 46.9%.",
+      "node": "s3.4.2",
+      "stage": "j5",
+      "pages": [
+        "79",
+        "85"
+      ],
+      "evidence": "Table 3.2",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c21",
+      "text": "On ZINC, conditioning raised atom-connectivity pass rate from 62.4% to 95.7% and bond-length pass rate from 65.0% to 94.1%.",
+      "node": "s3.4.2",
+      "stage": "j5",
+      "pages": [
+        "79"
+      ],
+      "evidence": "Table 3.2",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c22",
+      "text": "XTB energy labels: GEOM 70% to 84% PoseBusters, QM9 81% to 19%, ZINC 40% to 36% (n = 100).",
+      "node": "s3.4.3",
+      "stage": "j6",
+      "pages": [
+        "82"
+      ],
+      "evidence": "Table 3.3",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c23",
+      "text": "GCDM on ZINC: PoseBusters 40.8% to 66.5%; on GEOM 77.8% to 79.7%. MolFM on GEOM: 80.8% to 46.8%; on ZINC 42.3% to 45.9%.",
+      "node": "s3.4.4",
+      "stage": "j7",
+      "pages": [
+        "82",
+        "83"
+      ],
+      "evidence": "Table 3.5",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c24",
+      "text": "The method is strongest for diffusion models on larger drug-like molecules, limited for QM9, inconsistent for flow matching.",
+      "node": "s3.5",
+      "stage": "j7",
+      "pages": [
+        "84"
+      ],
+      "evidence": null,
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c25",
+      "text": "Centroid-only control with ground-truth blocks: 48/100 pass RDKit sanitisation; the full diffusion model reaches about 4%.",
+      "node": "s4.4.1",
+      "stage": "j8",
+      "pages": [
+        "97",
+        "100"
+      ],
+      "evidence": "Table 4.1",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c26",
+      "text": "Plane alignment post-processing gives 10.8% RDKit sanitisation, mostly failing on inter-block connectivity.",
+      "node": "s4.4.2",
+      "stage": "j8",
+      "pages": [
+        "98"
+      ],
+      "evidence": "Table 4.1",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c27",
+      "text": "With orientation vectors the control rises to 89/100 and generation reaches 27.2% (full BRICS, 172 block types) and 51.7% (reduced library, 23 types), against 84.7% for the atomistic model.",
+      "node": "s4.4.3",
+      "stage": "j9",
+      "pages": [
+        "93",
+        "99",
+        "100"
+      ],
+      "evidence": "Table 4.1",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c28",
+      "text": "Later work reports >94% validity for HierDiff (GEOM) and 97.5% for CMD-GEN; these metrics are not necessarily the same as RDKit sanitisation, so the comparison is indicative only.",
+      "node": "s4.5",
+      "stage": "j9",
+      "pages": [
+        "100",
+        "101"
+      ],
+      "evidence": null,
+      "basis": "stated",
+      "confidence": "medium",
+      "quote": null
+    },
+    {
+      "id": "c29",
+      "text": "OpenFold with constant scaling: modest gains for coordinates and single representation, none for frames; all conditioning worsened 7VPL and 8CXO.",
+      "node": "s5.4.1.1",
+      "stage": "j10",
+      "pages": [
+        "111"
+      ],
+      "evidence": "Fig 5.2",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c30",
+      "text": "Best OpenFold scheme (frames, 0.1, 3, block and global) improved 9 of 10 targets but all improvements were marginal; adaptive updates cut 8FEI from 3.58 to 2.20 Å and 6LN8 from 5.25 to 4.62 Å.",
+      "node": "s5.4.1.3",
+      "stage": "j10",
+      "pages": [
+        "116"
+      ],
+      "evidence": "Fig 5.6",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c31",
+      "text": "Boltz-2 gradient conditioning: 8FEI 20.0 to 2.4 Å and 8CXO 11.7 to 7.7 Å; worse for 6LLY and 7VLR.",
+      "node": "s5.4.2.1",
+      "stage": "j11",
+      "pages": [
+        "118"
+      ],
+      "evidence": "Fig 5.7; Table 5.1",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c32",
+      "text": "MSA subsampling alone improved 7VLR and 7VPL, which gradient conditioning alone made worse; it is inconsistent, with at most five MSAs tried.",
+      "node": "s5.4.2.2~only-msa-subsampling",
+      "stage": "j12",
+      "pages": [
+        "119",
+        "120"
+      ],
+      "evidence": "Fig 5.8",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c33",
+      "text": "Combining MSA subsampling and gradients was the best approach excluding 8FEI; 2048 sequences gave the lowest RMSD on only 6 of 10 targets.",
+      "node": "s5.4.2.2~combining-with-gradient-based-optimisation",
+      "stage": "j12",
+      "pages": [
+        "120",
+        "121"
+      ],
+      "evidence": "Fig 5.9",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c34",
+      "text": "All Ch 5 results use simulated ideal density maps, alignment to the ground-truth structure, ten monomer targets and Cα-RMSD only.",
+      "node": "s5.3.3",
+      "stage": "j12",
+      "pages": [
+        "107",
+        "108",
+        "111"
+      ],
+      "evidence": "Table 5.1",
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c35",
+      "text": "With currently available datasets it is impossible to train scoring functions entirely free from bias; large, consistently modelled public protein-ligand datasets are needed.",
+      "node": "s6.1",
+      "stage": "j13",
+      "pages": [
+        "124"
+      ],
+      "evidence": null,
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    },
+    {
+      "id": "c36",
+      "text": "Four lessons: interpretability, negative data, block-encoding difficulty, early intervention plus stochasticity for guiding AlphaFold-like predictors.",
+      "node": "s6.4",
+      "stage": "j13",
+      "pages": [
+        "126"
+      ],
+      "evidence": null,
+      "basis": "stated",
+      "confidence": "high",
+      "quote": null
+    }
+  ],
+  "SEMANTIC": [
+    {
+      "id": "i1",
+      "source": "s1.4.2",
+      "target": "s2.3",
+      "type": "motivates",
+      "kind": "semantic",
+      "basis": "inferred",
+      "confidence": "high",
+      "reason": "Ch 1 sets out dataset bias in ML scoring functions; Ch 2 starts from that problem.",
+      "source_pages": [
+        "25",
+        "26",
+        "35"
+      ]
+    },
+    {
+      "id": "i2",
+      "source": "s1.4.3.2",
+      "target": "s2.5.1.1",
+      "type": "same_concept",
+      "kind": "semantic",
+      "basis": "inferred",
+      "confidence": "low",
+      "reason": "Ch 1 says biased VS tools are often used to evaluate generative models, so debiased scoring matters beyond screening (my reading).",
+      "source_pages": [
+        "29",
+        "49"
+      ]
+    },
+    {
+      "id": "i3",
+      "source": "s1.3.4",
+      "target": "s2.4.1",
+      "type": "reuses_method",
+      "kind": "semantic",
+      "basis": "inferred",
+      "confidence": "high",
+      "reason": "EGNN layers introduced in 1.3.4 are the core of PointVS.",
+      "source_pages": [
+        "15",
+        "16",
+        "37",
+        "130"
+      ]
+    },
+    {
+      "id": "i4",
+      "source": "s1.4.4",
+      "target": "s2.4.5.4",
+      "type": "builds_on",
+      "kind": "semantic",
+      "basis": "inferred",
+      "confidence": "high",
+      "reason": "Fragment elaboration with ML (1.4.4) is what STRIFE does in Ch 2.",
+      "source_pages": [
+        "29",
+        "46"
+      ]
+    },
+    {
+      "id": "i5",
+      "source": "s1.3.5",
+      "target": "s3.3.1",
+      "type": "reuses_method",
+      "kind": "semantic",
+      "basis": "inferred",
+      "confidence": "high",
+      "reason": "Diffusion models (1.3.5) underlie EDM, GCDM and Ch 3.",
+      "source_pages": [
+        "16",
+        "17",
+        "70"
+      ]
+    },
+    {
+      "id": "i6",
+      "source": "s1.4.1.1",
+      "target": "s5.3",
+      "type": "reuses_method",
+      "kind": "semantic",
+      "basis": "inferred",
+      "confidence": "high",
+      "reason": "OpenFold and Boltz-2 described in 1.4.1.1 are the models modified in Ch 5.",
+      "source_pages": [
+        "20",
+        "21",
+        "106"
+      ]
+    },
+    {
+      "id": "i7",
+      "source": "s1.4.1.2~alphafold-based-methods",
+      "target": "s5.4.2.2",
+      "type": "builds_on",
+      "kind": "semantic",
+      "basis": "stated",
+      "confidence": "high",
+      "reason": "ROCKET and CryoBoltz (1.4.1.2) are named as the inspiration for MSA subsampling (stated p. 119).",
+      "source_pages": [
+        "23",
+        "119"
+      ]
+    },
+    {
+      "id": "i8",
+      "source": "s2.6",
+      "target": "s3.1",
+      "type": "motivates",
+      "kind": "semantic",
+      "basis": "stated",
+      "confidence": "high",
+      "reason": "Ch 2's closing paragraph says the next chapter explores diffusion-based de novo design and its plausibility.",
+      "source_pages": [
+        "63",
+        "68"
+      ]
+    },
+    {
+      "id": "i9",
+      "source": "s3.5",
+      "target": "s4.1",
+      "type": "motivates",
+      "kind": "semantic",
+      "basis": "stated",
+      "confidence": "high",
+      "reason": "Ch 3 ends by introducing a complementary approach, which Ch 4 opens by following on from 'the previous chapter'.",
+      "source_pages": [
+        "84",
+        "87"
+      ]
+    },
+    {
+      "id": "i10",
+      "source": "s3.3.3",
+      "target": "s4.3.3",
+      "type": "reuses_method",
+      "kind": "semantic",
+      "basis": "stated",
+      "confidence": "high",
+      "reason": "Ch 4 intended to use the same PoseBusters and RDKit metrics as Ch 3 (stated p. 97).",
+      "source_pages": [
+        "73",
+        "74",
+        "97"
+      ]
+    },
+    {
+      "id": "i11",
+      "source": "s3.3.4.2",
+      "target": "s4.3.2.1",
+      "type": "same_dataset",
+      "kind": "semantic",
+      "basis": "stated",
+      "confidence": "high",
+      "reason": "GEOM is the training source in both chapters (Ch 4 refers back to Ch 3 for its description).",
+      "source_pages": [
+        "75",
+        "92"
+      ]
+    },
+    {
+      "id": "i12",
+      "source": "s3.4.2",
+      "target": "s4.4.3",
+      "type": "same_dataset",
+      "kind": "semantic",
+      "basis": "inferred",
+      "confidence": "high",
+      "reason": "The 84.7% RDKit sanitisation of the atomistic GEOM baseline (Table 3.2) is the comparator for the block models.",
+      "source_pages": [
+        "85",
+        "99",
+        "100"
+      ]
+    },
+    {
+      "id": "i13",
+      "source": "s4.3.2.3",
+      "target": "s1.4.1.1~alphafold2",
+      "type": "same_concept",
+      "kind": "semantic",
+      "basis": "stated",
+      "confidence": "high",
+      "reason": "The orientation descriptor is inspired by AlphaFold's per-residue local coordinate frames (stated p. 95; frames described p. 19).",
+      "source_pages": [
+        "19",
+        "95"
+      ]
+    },
+    {
+      "id": "i14",
+      "source": "s4.3.2.2~decomposition-with-standardised-fragments",
+      "target": "s2.5.3",
+      "type": "same_concept",
+      "kind": "semantic",
+      "basis": "inferred",
+      "confidence": "medium",
+      "reason": "The proposed scaffold-then-decorate step could be guided by pharmacophoric hotspot maps, the object produced in 2.5.3.",
+      "source_pages": [
+        "94",
+        "57"
+      ]
+    },
+    {
+      "id": "i15",
+      "source": "s4.4.1",
+      "target": "s4.4.3",
+      "type": "motivates",
+      "kind": "semantic",
+      "basis": "stated",
+      "confidence": "high",
+      "reason": "Centroid-only failure made explicit orientation 'an essential next step' (p. 97).",
+      "source_pages": [
+        "97",
+        "99"
+      ]
+    },
+    {
+      "id": "i16",
+      "source": "s4.4.2",
+      "target": "s4.4.3",
+      "type": "motivates",
+      "kind": "semantic",
+      "basis": "stated",
+      "confidence": "high",
+      "reason": "Failure of plane alignment 'motivates' learned orientation (p. 98).",
+      "source_pages": [
+        "98",
+        "99"
+      ]
+    },
+    {
+      "id": "i17",
+      "source": "s4.5",
+      "target": "s4.4.3",
+      "type": "answers_limitation",
+      "kind": "semantic",
+      "basis": "stated",
+      "confidence": "high",
+      "reason": "Later hierarchical models with learned decoders solve the orientation problem that limited the block models.",
+      "source_pages": [
+        "99",
+        "100",
+        "101"
+      ]
+    },
+    {
+      "id": "i18",
+      "source": "s5.4.1.1",
+      "target": "s5.4.1.2",
+      "type": "motivates",
+      "kind": "semantic",
+      "basis": "stated",
+      "confidence": "high",
+      "reason": "The strength-versus-stability trade-off led to decay schedules (p. 112).",
+      "source_pages": [
+        "112"
+      ]
+    },
+    {
+      "id": "i19",
+      "source": "s5.4.1.3",
+      "target": "s5.4.2",
+      "type": "motivates",
+      "kind": "semantic",
+      "basis": "stated",
+      "confidence": "high",
+      "reason": "Limited OpenFold success is the stated reason for trying Boltz-2 (p. 116).",
+      "source_pages": [
+        "116"
+      ]
+    },
+    {
+      "id": "i20",
+      "source": "s5.3.2",
+      "target": "s5.4.1.3",
+      "type": "answers_limitation",
+      "kind": "semantic",
+      "basis": "stated",
+      "confidence": "high",
+      "reason": "MSA subsampling is introduced to counter gradient methods becoming trapped in local minima (p. 110; p. 116).",
+      "source_pages": [
+        "110",
+        "116"
+      ]
+    },
+    {
+      "id": "i21",
+      "source": "s5.4.2.1",
+      "target": "s5.4.2.2",
+      "type": "motivates",
+      "kind": "semantic",
+      "basis": "stated",
+      "confidence": "high",
+      "reason": "Inconsistent gradient-only results suggested late intervention was insufficient, leading to MSA subsampling (p. 119).",
+      "source_pages": [
+        "119"
+      ]
+    },
+    {
+      "id": "i22",
+      "source": "s2.5.1.2",
+      "target": "s2.5.2",
+      "type": "motivates",
+      "kind": "semantic",
+      "basis": "stated",
+      "confidence": "high",
+      "reason": "Debiased performance is only circumstantial, so attribution is applied (p. 52).",
+      "source_pages": [
+        "52"
+      ]
+    },
+    {
+      "id": "i23",
+      "source": "s2.5.2.2",
+      "target": "s2.5.3",
+      "type": "motivates",
+      "kind": "semantic",
+      "basis": "stated",
+      "confidence": "high",
+      "reason": "Having shown attribution finds important interactions, it is used to extract hotspots (p. 57).",
+      "source_pages": [
+        "57"
+      ]
+    },
+    {
+      "id": "i24",
+      "source": "s2.5.3.2",
+      "target": "s2.5.4",
+      "type": "motivates",
+      "kind": "semantic",
+      "basis": "stated",
+      "confidence": "high",
+      "reason": "Hotspots shown to be consistent, so elaboration tests whether they are also useful (p. 60).",
+      "source_pages": [
+        "60"
+      ]
+    },
+    {
+      "id": "i25",
+      "source": "sA.4",
+      "target": "s2.5.4",
+      "type": "builds_on",
+      "kind": "semantic",
+      "basis": "inferred",
+      "confidence": "medium",
+      "reason": "Case study applies PointVS hotspots with STRIFE to a real fragment-to-lead campaign; no cross-reference is given in the main text.",
+      "source_pages": [
+        "133",
+        "134"
+      ]
+    },
+    {
+      "id": "i26",
+      "source": "s2.5.1.1",
+      "target": "s6.1",
+      "type": "answers_limitation",
+      "kind": "semantic",
+      "basis": "inferred",
+      "confidence": "medium",
+      "reason": "Ch 6 turns the leakage finding into a call for large consistent public datasets.",
+      "source_pages": [
+        "49",
+        "124"
+      ]
+    },
+    {
+      "id": "i27",
+      "source": "s2.5.2",
+      "target": "s6.1",
+      "type": "same_concept",
+      "kind": "semantic",
+      "basis": "inferred",
+      "confidence": "high",
+      "reason": "Ch 6 argues interpretability should be expected of VS models, generalising the Ch 2 attribution work.",
+      "source_pages": [
+        "52",
+        "124"
+      ]
+    },
+    {
+      "id": "i28",
+      "source": "s3.4.3",
+      "target": "s3.4.2",
+      "type": "builds_on",
+      "kind": "semantic",
+      "basis": "stated",
+      "confidence": "high",
+      "reason": "Energy labelling re-uses the distorted datasets from the distortion-factor experiments (p. 80).",
+      "source_pages": [
+        "80"
+      ]
+    },
+    {
+      "id": "i29",
+      "source": "s3.4.4",
+      "target": "s3.4.2",
+      "type": "builds_on",
+      "kind": "semantic",
+      "basis": "inferred",
+      "confidence": "high",
+      "reason": "GCDM and MolFM are trained on the same distorted datasets with the Ch 3 settings.",
+      "source_pages": [
+        "82"
+      ]
+    },
+    {
+      "id": "i30",
+      "source": "s4.1",
+      "target": "s3.5",
+      "type": "same_concept",
+      "kind": "semantic",
+      "basis": "stated",
+      "confidence": "high",
+      "reason": "Both chapters target physical plausibility of diffusion-generated molecules (Ch 4 opens 'as highlighted in the previous chapter').",
+      "source_pages": [
+        "84",
+        "87"
+      ]
+    },
+    {
+      "id": "i31",
+      "source": "s5.3.1",
+      "target": "s5.4.2.1",
+      "type": "reuses_method",
+      "kind": "semantic",
+      "basis": "stated",
+      "confidence": "high",
+      "reason": "The same overlap-gradient method is applied in OpenFold and in Boltz-2 (p. 107).",
+      "source_pages": [
+        "107",
+        "117"
+      ]
+    },
+    {
+      "id": "i32",
+      "source": "s3.4.1",
+      "target": "s6.2",
+      "type": "same_concept",
+      "kind": "semantic",
+      "basis": "inferred",
+      "confidence": "high",
+      "reason": "Negative data as a reusable lesson is stated in Ch 6 (also pp. 125-126).",
+      "source_pages": [
+        "77",
+        "125",
+        "126"
+      ]
+    }
+  ],
+  "ANOMALIES": [
+    {
+      "id": "a1",
+      "where": "Appendix A.3 (p. 133)",
+      "what": "Text says the 20 PDBBind Core structures were 'used in section 3.4.2'; Table 2.5 caption (p. 57) and section 2.5.2.2 (p. 57) give Appendix A.3 for those IDs, so 2.5.2.2 is almost certainly meant. The extracted cross-reference is kept but flagged low confidence.",
+      "pages": [
+        "57",
+        "133"
+      ]
+    },
+    {
+      "id": "a2",
+      "where": "Appendix A.3 (p. 133)",
+      "what": "The same paragraph lists 28 PDB IDs while the text says 20 structures.",
+      "pages": [
+        "133"
+      ]
+    },
+    {
+      "id": "a3",
+      "where": "Appendix A.4 (pp. 133-134)",
+      "what": "Text says attribution was run on 18 FGFR1 structures; 16 PDB codes are listed.",
+      "pages": [
+        "133",
+        "134"
+      ]
+    },
+    {
+      "id": "a4",
+      "where": "Section 3.4.4 (p. 82) vs Table 3.5",
+      "what": "Text refers to 'Tables 3.4a and 3.4b'; the only caption is Table 3.5 (a) GCDM, (b) MolFM. No Table 3.4 exists.",
+      "pages": [
+        "82"
+      ]
+    },
+    {
+      "id": "a5",
+      "where": "Appendix B.2 (p. 138) vs Table 3.5 (p. 82)",
+      "what": "Appendix B.2's MolFM GEOM baseline row is identical to its GCDM GEOM baseline row (PoseBusters 77.8%), and the MolFM conditioned row (78.7%) is close to GCDM's (79.7%), while Table 3.5(b) gives MolFM GEOM 80.8% baseline and 46.8% conditioned. The chapter-3 text (p. 83) matches Table 3.5, so the appendix rows look mislabelled or copied. Treat MolFM GEOM numbers from the main text.",
+      "pages": [
+        "82",
+        "83",
+        "138"
+      ]
+    },
+    {
+      "id": "a6",
+      "where": "Section 4.4.2 (p. 98)",
+      "what": "Refers to 'Table 1' for the 10.8% result; the captioned table is Table 4.1 (p. 100).",
+      "pages": [
+        "98",
+        "100"
+      ]
+    },
+    {
+      "id": "a7",
+      "where": "Section 2.4.5.4 (p. 47)",
+      "what": "Table 2.6 is cited in the Methods but appears in the Results (p. 61).",
+      "pages": [
+        "47",
+        "61"
+      ]
+    },
+    {
+      "id": "a8",
+      "where": "Appendix B.2 (p. 137-138)",
+      "what": "The full PoseBusters table has no caption or number, so it is not counted as a numbered table; it is counted manually as one uncaptioned table.",
+      "pages": [
+        "138"
+      ]
+    },
+    {
+      "id": "a9",
+      "where": "PDF pages 1-2",
+      "what": "PDF index 1 is the cover and index 2 is an unnumbered page repeating the abstract; neither has a printed page number and neither is mapped to a printed page.",
+      "pages": []
+    }
+  ],
+  "ENT": [
+    [
+      "pointvs",
+      "PointVS",
+      "method",
+      "PointVS",
+      "E(n)-equivariant GNN scoring function with edge-attention attribution (Ch 2)."
+    ],
+    [
+      "egnn",
+      "EGNN / equivariant GNN",
+      "method",
+      "EGNN|E\\(n\\)[- ]equivariant|E\\(3\\)[- ]equivariant",
+      "Message passing that updates features and coordinates equivariantly (1.3.4)."
+    ],
+    [
+      "gnn",
+      "Graph neural network",
+      "method",
+      "\\bGNNs?\\b|(?i:graph neural network)",
+      "Neural network on graphs (atoms and bonds)."
+    ],
+    [
+      "cnn",
+      "Convolutional neural network",
+      "method",
+      "\\bCNNs?\\b|(?i:convolutional neural network)",
+      "Grid-based network; used by gnina; loses atom identity deeper in the net."
+    ],
+    [
+      "attribution",
+      "Input attribution",
+      "term",
+      "(?i:attribution)",
+      "Scoring which inputs a model's prediction depends on."
+    ],
+    [
+      "edge_attention",
+      "Edge attention",
+      "method",
+      "(?i:edge[- ]attention)",
+      "Learned 0-1 edge weights in PointVS used as the attribution signal."
+    ],
+    [
+      "masking",
+      "Atom / bond masking",
+      "method",
+      "(?i:(?:atom|bond) masking)",
+      "Importance as score change when an atom or edge is removed."
+    ],
+    [
+      "gnina",
+      "gnina",
+      "software",
+      "\\bgnina\\b",
+      "CNN scoring and docking tool; baseline and attribution comparison."
+    ],
+    [
+      "ign",
+      "InteractionGraphNet (IGN)",
+      "software",
+      "InteractionGraphNet|\\bIGN\\b",
+      "Graph-based scoring function used for bond-masking comparison."
+    ],
+    [
+      "plip",
+      "PLIP",
+      "software",
+      "\\bPLIP\\b",
+      "Distance-rule protein-ligand interaction profiler used as reference."
+    ],
+    [
+      "strife",
+      "STRIFE",
+      "software",
+      "\\bSTRIFE\\b",
+      "Graph generative model for fragment elaboration given hotspots."
+    ],
+    [
+      "hotspots_api",
+      "Hotspots API",
+      "software",
+      "Hotspots API|API hotspots",
+      "Data-driven (CSD) hotspot detector used as baseline."
+    ],
+    [
+      "hotspot",
+      "Hotspot",
+      "term",
+      "(?i:hotspots?)\\b",
+      "Pocket region contributing disproportionately to binding."
+    ],
+    [
+      "vina",
+      "AutoDock Vina",
+      "software",
+      "Autodock Vina|AutoDock Vina",
+      "Classical docking and scoring baseline."
+    ],
+    [
+      "gold",
+      "GOLD docking",
+      "software",
+      "\\bGOLD\\b",
+      "Docking software used to score elaborations."
+    ],
+    [
+      "vs",
+      "Virtual screening",
+      "term",
+      "(?i:virtual screening)|\\bVS\\b",
+      "Computational prioritisation of candidate binders."
+    ],
+    [
+      "fbdd",
+      "Fragment-based design / elaboration",
+      "term",
+      "(?i:fragment[- ]based|fragment elaboration)|\\bFBDD\\b",
+      "Growing, linking or merging fragment hits."
+    ],
+    [
+      "bias",
+      "Dataset bias / leakage",
+      "term",
+      "(?i:dataset bias|biases|leakage|debias|biased)",
+      "Models exploiting benchmark artefacts rather than physics."
+    ],
+    [
+      "interpretability",
+      "Interpretability",
+      "term",
+      "(?i:interpretab)",
+      "Checking what a model's prediction rests on."
+    ],
+    [
+      "equivariance",
+      "Equivariance / invariance",
+      "term",
+      "(?i:equivarian|invarian)",
+      "Symmetry property of models on 3D data."
+    ],
+    [
+      "diffusion",
+      "Diffusion models",
+      "method",
+      "(?i:diffusion)",
+      "Generative models that learn to reverse a noising process."
+    ],
+    [
+      "edm",
+      "EDM",
+      "method",
+      "\\bEDM\\b",
+      "First E(3)-equivariant diffusion model for 3D molecules."
+    ],
+    [
+      "gcdm",
+      "GCDM",
+      "method",
+      "\\bGCDM\\b",
+      "Geometry-complete diffusion model."
+    ],
+    [
+      "molfm",
+      "MolFM",
+      "method",
+      "MolFM",
+      "Flow-matching molecule generator."
+    ],
+    [
+      "distortion",
+      "Distortion / quality conditioning",
+      "method",
+      "(?i:distort|conformer quality)",
+      "Negative examples with a distortion label (Ch 3)."
+    ],
+    [
+      "negative_data",
+      "Negative data",
+      "term",
+      "(?i:negative (?:data|examples|training))",
+      "Low-quality examples used to define the boundary of valid space."
+    ],
+    [
+      "xtb",
+      "XTB",
+      "software",
+      "\\bXTB\\b|GFN2",
+      "Semi-empirical tight-binding energies."
+    ],
+    [
+      "brics",
+      "BRICS",
+      "method",
+      "\\bBRICS\\b",
+      "Rule-based fragmentation into retrosynthetic building blocks."
+    ],
+    [
+      "hierdiff",
+      "HierDiff / CMD-GEN / SubGDiff",
+      "method",
+      "HierDiff|CMD-GEN|SubGDiff",
+      "Later hierarchical or substructure-aware generators."
+    ],
+    [
+      "posebusters",
+      "PoseBusters",
+      "software",
+      "PoseBusters",
+      "Physical-validity checks for molecules and poses."
+    ],
+    [
+      "rdkit",
+      "RDKit",
+      "software",
+      "RDKit",
+      "Cheminformatics toolkit; sanitisation pass rate."
+    ],
+    [
+      "openbabel",
+      "Open Babel",
+      "software",
+      "Open ?Babel",
+      "Assigns bonds from coordinates."
+    ],
+    [
+      "plausibility",
+      "Physical plausibility / validity",
+      "term",
+      "(?i:plausib|physically (?:valid|realistic)|validity)",
+      "Whether generated molecules obey chemistry and physics."
+    ],
+    [
+      "synthesisability",
+      "Synthesisability",
+      "term",
+      "(?i:synthesisab|synthetic accessib)",
+      "Motivation for building-block generation."
+    ],
+    [
+      "alphafold",
+      "AlphaFold 2 / 3",
+      "method",
+      "AlphaFold ?[23]?",
+      "Structure-prediction models (frames; pairformer and diffusion)."
+    ],
+    [
+      "openfold",
+      "OpenFold",
+      "software",
+      "OpenFold",
+      "Open AF2 reimplementation; Ch 5 target."
+    ],
+    [
+      "boltz",
+      "Boltz-1 / Boltz-2",
+      "software",
+      "Boltz-?[12]?",
+      "Open AF3-style models; Ch 5 target."
+    ],
+    [
+      "rocket_cryoboltz",
+      "ROCKET / CryoBoltz",
+      "method",
+      "ROCKET|Cryo-?Boltz",
+      "Existing cryo-EM-conditioned AlphaFold methods."
+    ],
+    [
+      "modelangelo",
+      "ModelAngelo",
+      "method",
+      "ModelAngelo",
+      "GNN-based direct map-interpretation model builder."
+    ],
+    [
+      "msa",
+      "MSA / MSA subsampling",
+      "term",
+      "\\bMSAs?\\b|(?i:multiple sequence alignment|subsampl)",
+      "Evolutionary input; subsampling injects stochasticity."
+    ],
+    [
+      "cryoem",
+      "Cryo-EM model building",
+      "term",
+      "(?i:cryo-?EM)",
+      "Fitting an atomic model into a density map."
+    ],
+    [
+      "gradopt",
+      "Gradient-based map conditioning",
+      "method",
+      "(?i:gradient-based)",
+      "Overlap gradient added to a model's internal state."
+    ],
+    [
+      "local_minima",
+      "Local minima",
+      "term",
+      "(?i:local minim)",
+      "Why late-stage gradient guidance stalls."
+    ],
+    [
+      "simulated_maps",
+      "Simulated density maps",
+      "term",
+      "simulated (?:cryo-EM |density )?(?:maps?|data)|simulated density",
+      "Ideal maps built from the ground truth (a stated limitation)."
+    ],
+    [
+      "casf16",
+      "CASF16",
+      "dataset",
+      "CASF",
+      "Standard scoring-function benchmark found to leak."
+    ],
+    [
+      "pdbbind",
+      "PDBBind",
+      "dataset",
+      "PDBBind",
+      "Protein-ligand complexes with affinities."
+    ],
+    [
+      "redocked",
+      "Redocked2020",
+      "dataset",
+      "Redocked",
+      "Pose-classification training set."
+    ],
+    [
+      "dude",
+      "DUD / DUD-E",
+      "dataset",
+      "DUD-E|\\bDUD\\b",
+      "Decoy sets with known biases."
+    ],
+    [
+      "qm9",
+      "QM9",
+      "dataset",
+      "QM9",
+      "Small molecules (<=9 heavy atoms)."
+    ],
+    [
+      "geom",
+      "GEOM",
+      "dataset",
+      "\\bGEOM",
+      "Drug-like conformer dataset used in Chs 3-4."
+    ],
+    [
+      "zinc",
+      "ZINC",
+      "dataset",
+      "\\bZINC\\b",
+      "Commercially available compounds; 660k subset in Ch 3."
+    ],
+    [
+      "fragalysis",
+      "Fragalysis / SARS-CoV-2 targets",
+      "dataset",
+      "fragalysis|\\bMpro\\b|Mac1|NSP14",
+      "Fragment screens used for hotspot tests."
+    ],
+    [
+      "tankyrase",
+      "Tankyrase-2 complexes",
+      "dataset",
+      "Tankyrase",
+      "Three complexes for the attribution-versus-PLIP test."
+    ],
+    [
+      "fgfr1",
+      "FGFR1 / erdafitinib",
+      "dataset",
+      "FGFR1|erdafitinib",
+      "Case study of a fragment-derived drug."
+    ],
+    [
+      "cryo_targets",
+      "Ch 5 test targets",
+      "dataset",
+      "5YW7|6LLY|6LN8|7N70|7O3D|7RAV|7VLR|7VPL|8CXO|8FEI",
+      "Ten monomer targets with 3-20 Å vanilla error."
+    ]
+  ],
+  "N": {
+    "ch1": {
+      "summary": "Background chapter. Explains how small-molecule drug discovery works, introduces the ML tools used later (supervised learning, CNNs, GNNs/EGNNs, diffusion models), reviews ML for structure prediction, cryo-EM model building, virtual screening, generative design and fragment-based design, and outlines the thesis.",
+      "quote": [
+        "it must master two fundamental challenges",
+        "4"
+      ],
+      "type": "background",
+      "template": "Background & motivation → Drug discovery → Machine learning → ML in early-stage drug discovery → Thesis outline",
+      "pub": "Not stated (background chapter; no publication listed)."
+    },
+    "s1.1": {
+      "summary": "Traces drug discovery from trial and error to rational and structure-based design, then states the cost problem (>10 years, median $1.3bn; lack of efficacy causes >50% of Phase II failures and safety ~20-25%). Argues for DL to improve the quality of early candidates and names two challenges that organise the thesis: intramolecular bonding (Chs 3-4) and intermolecular binding (Ch 2), with structure availability (Ch 5) as a prerequisite.",
+      "quote": [
+        "the use of deep learning (DL) algorithms to screen and design drugs in the early stages of development",
+        "4"
+      ]
+    },
+    "s1.2": {
+      "summary": "Overview of small-molecule drugs and the discovery pipeline. The thesis falls within target validation, hit identification and hit-to-lead.",
+      "quote": null
+    },
+    "s1.2.1": {
+      "summary": "Small molecules (<1000 Da) dominate approvals: 32 of 50 novel FDA approvals in 2024.",
+      "quote": null
+    },
+    "s1.2.2": {
+      "summary": "Pipeline: target identification and validation, hit identification, hit-to-lead / lead optimisation, preclinical and clinical trials; iterative with high attrition.",
+      "quote": null
+    },
+    "s1.2.2.1": {
+      "summary": "Target identification and validation, and why structural characterisation (X-ray, cryo-EM) enables structure-based design.",
+      "quote": null
+    },
+    "s1.2.2.1~cryo-em": {
+      "summary": "Short primer on cryo-EM: flash-frozen samples, 2D images, 3D density map. Building an atomic model into the map is not fully automated and is the bottleneck Ch 5 targets.",
+      "quote": [
+        "remains a major bottleneck",
+        "8"
+      ]
+    },
+    "s1.2.2.2": {
+      "summary": "Hit identification: HTS, virtual screening and fragment-based drug design (growing, linking, merging) as screening vs designing strategies.",
+      "quote": null
+    },
+    "s1.2.2.3": {
+      "summary": "Hit-to-lead and lead optimisation, driven by the design-make-test-analyse cycle, with ligand-based and structure-based variants.",
+      "quote": null
+    },
+    "s1.3": {
+      "summary": "Compact ML primer covering only the architectures used later.",
+      "quote": null
+    },
+    "s1.3.1": {
+      "summary": "Supervised learning as loss minimisation over labelled data (eq. 1.1).",
+      "quote": null
+    },
+    "s1.3.2": {
+      "summary": "Neural networks and deep learning: neurons, activation, backpropagation (eq. 1.2).",
+      "quote": null
+    },
+    "s1.3.3": {
+      "summary": "Convolutional networks for grid-like data (eq. 1.3).",
+      "quote": null
+    },
+    "s1.3.4": {
+      "summary": "Graph neural networks and message passing (eq. 1.4); E(n)-equivariant GNNs that update features and coordinates (eq. 1.5), the basis of PointVS and of the EDM-type diffusion models. Points to Appendix A.1 for equivariance.",
+      "quote": null
+    },
+    "s1.3.5": {
+      "summary": "Diffusion models: a fixed noising (forward) process and a learned denoising (reverse) process; basis for Chs 3-5.",
+      "quote": null
+    },
+    "s1.4": {
+      "summary": "How ML is applied in the early pipeline, organised as target structure resolution, virtual screening, generative design and fragment-based design.",
+      "quote": null
+    },
+    "s1.4.1": {
+      "summary": "Target structure resolution: in silico prediction and ML-assisted cryo-EM model building.",
+      "quote": null
+    },
+    "s1.4.1.1": {
+      "summary": "AlphaFold2, AlphaFold3 and open-source relatives (OpenFold, Boltz-1, Boltz-2). Caveat: subtle binding-site errors can mislead downstream screening and design, and many predictions for novel targets deviate >2 Å.",
+      "quote": [
+        "over 50% of predictions may deviate more than 2Å",
+        "21"
+      ]
+    },
+    "s1.4.1.1~alphafold2": {
+      "summary": "AF2: MSA, single and pair representations, evoformer, then a frame-based structure module.",
+      "quote": null
+    },
+    "s1.4.1.1~alphafold3": {
+      "summary": "AF3: pairformer plus a diffusion module that denoises an atom cloud; handles proteins, nucleic acids and ligands.",
+      "quote": null
+    },
+    "s1.4.1.1~open-source-models-and-extensions": {
+      "summary": "OpenFold (retrainable AF2 reimplementation), Boltz-1 (AF3 replication) and Boltz-2 (adds affinity and experiment-type bias).",
+      "quote": null
+    },
+    "s1.4.1.2": {
+      "summary": "Cryo-EM model building: direct map-interpretation tools versus AlphaFold-based hybrids.",
+      "quote": null
+    },
+    "s1.4.1.2~direct-map-interpretation-methods": {
+      "summary": "CNN and GNN tools (DeepTracer, ModelAngelo) build models from density; accuracy drops at intermediate-to-low resolution (≈4-8 Å) and ModelAngelo degrades beyond ~3.5 Å.",
+      "quote": null
+    },
+    "s1.4.1.2~alphafold-based-methods": {
+      "summary": "ROCKET (conditions OpenFold) and CryoBoltz (conditions Boltz-2) are the two existing methods that Ch 5 builds on.",
+      "quote": null
+    },
+    "s1.4.2": {
+      "summary": "Virtual screening: docking, then ML scoring functions (voxel CNNs, GNNs, equivariant nets). ML scoring functions are sensitive to dataset bias; only interpretability can say if a model learns binding physics.",
+      "quote": [
+        "only interpretability methods can come close to establishing whether a model is truly learning the physics of binding",
+        "26"
+      ]
+    },
+    "s1.4.3": {
+      "summary": "Generative molecular design, split into unconditional and conditional generation.",
+      "quote": null
+    },
+    "s1.4.3.1": {
+      "summary": "Unconditional generation: 1D/2D models, then 3D models (equivariant nets, diffusion) that implicitly solve conformer generation.",
+      "quote": null
+    },
+    "s1.4.3.2": {
+      "summary": "Conditional de novo generation: pocket-representation trade-offs, evaluation by docking score, and untested generalisation.",
+      "quote": [
+        "a self-referential loop where models are optimised to satisfy a flawed benchmark",
+        "29"
+      ]
+    },
+    "s1.4.4": {
+      "summary": "Fragment-based design with ML: elaboration (growing), linking and merging.",
+      "quote": null
+    },
+    "s1.5": {
+      "summary": "Chapter-by-chapter outline: PointVS and hotspot-guided elaboration (Ch 2), negative data for diffusion (Ch 3), block-based diffusion (Ch 4), cryo-EM conditioning of AlphaFold models (Ch 5).",
+      "quote": [
+        "ensuring that ML outputs are not only accurate but also physically realistic and practically useful",
+        "31"
+      ]
+    },
+    "ch2": {
+      "summary": "PointVS: an E(n)-equivariant GNN scoring function trained and tested on filtered data after CASF16 was found to leak. Edge-attention attribution is checked against PLIP, then applied to fragment-screen structures to extract hotspots that guide STRIFE fragment elaboration; elaborations are scored by docking.",
+      "quote": [
+        "was found to suffer from information leakage concerning almost every test structure",
+        "34"
+      ],
+      "type": "result",
+      "template": "Preface → Contributions → Introduction → Methods (model, datasets, filtering, attribution, elaboration) → Results (scoring, attribution, hotspots, elaboration) → Conclusions",
+      "pub": "Published: Scantlebury J*, Vost L* et al., J Chem Inf Model, 22 May 2023 (*equal contribution).",
+      "collab": "Joint first-author work with Jack Scantlebury, who designed PointVS, filtered datasets and assessed it as a scoring function; Vost prepared the other attribution methods and ran attribution and fragment-elaboration tests (p. 35)."
+    },
+    "s2.1": {
+      "summary": "Frames the aim: find hotspots (pocket regions contributing disproportionately to binding) to guide fragment growth. Summarises the chapter: CASF16 leakage, debiasing, edge-attention attribution, hotspots, better docking scores than a data-driven baseline.",
+      "quote": null
+    },
+    "s2.2": {
+      "summary": "States who did what: Scantlebury designed PointVS, filtered data and assessed it as a scoring function; Vost did the other attribution methods, attribution tests and elaboration tests.",
+      "quote": [
+        "designed PointVS, carried out the dataset filtering, and conducted all assessments of PointVS as an MLBSF",
+        "35"
+      ]
+    },
+    "s2.3": {
+      "summary": "Motivation: MLBSFs tend to learn dataset bias; interpretability could show whether they learn interactions, and could supply structural information for FBDD. Introduces PointVS and releases the code and splits on GitHub.",
+      "quote": null
+    },
+    "s2.4": {
+      "summary": "Methods: model, datasets, training-set filtering, attribution methods and the hotspot-to-elaboration pipeline.",
+      "quote": null,
+      "type": "method"
+    },
+    "s2.4.1": {
+      "summary": "PointVS: 48 EGNN layers over a protein pocket (atoms within 6 Å of the ligand), edges built on the fly (10 Å ligand-protein, 2 Å intramolecular), plus a learned edge-attention score.",
+      "quote": null
+    },
+    "s2.4.2": {
+      "summary": "Datasets: Redocked2020 for pose classification, PDBBind General for affinity regression, Core set as test.",
+      "quote": null
+    },
+    "s2.4.2.1": {
+      "summary": "Redocked2020: Vina-redocked Pocketome ligands, <2 Å poses active; 52,385 active and 734,417 inactive poses.",
+      "quote": null
+    },
+    "s2.4.2.2": {
+      "summary": "gninaSetPose: 441 PDBBind refined-set complexes held out to compare with gnina 1.0.",
+      "quote": null
+    },
+    "s2.4.2.3": {
+      "summary": "PDBBind v2020 General set (training) and the 285-structure Core set (CASF16 test).",
+      "quote": null
+    },
+    "s2.4.3": {
+      "summary": "Filtering: drop training ligands with Morgan Tanimoto >0.8 or proteins with >0.8 sequence identity to any test item; size-matched random subsets control for training-set size (Table 2.1).",
+      "quote": null
+    },
+    "s2.4.4": {
+      "summary": "Three attribution routes: atom masking (any model), bond masking (graph models) and edge attention (PointVS). Compared across gnina, InteractionGraphNet and PointVS.",
+      "quote": null
+    },
+    "s2.4.5": {
+      "summary": "From attribution to elaboration: extract hotspots from bound fragments, obtain fragments, elaborate with STRIFE, score by docking.",
+      "quote": null
+    },
+    "s2.4.5.1": {
+      "summary": "Hotspot maps from PointVS edge attention versus the data-driven Hotspots API (details in Appendix A.2).",
+      "quote": null
+    },
+    "s2.4.5.2": {
+      "summary": "Targets: SARS-CoV-2 Mpro (152 bound structures, includes curated follow-up compounds), Mac1 (58) and NSP14 (19) from fragalysis.",
+      "quote": null
+    },
+    "s2.4.5.3": {
+      "summary": "Fragments obtained by enumerating acyclic single-bond cuts and placing a dummy exit atom.",
+      "quote": null
+    },
+    "s2.4.5.4": {
+      "summary": "STRIFE: exploration then refinement stages; GOLD constrained docking picks 'quasi-actives' within 2 Å (API) or 3 Å (PointVS) of the hotspot. Some fragment-hotspot pairs cannot be elaborated.",
+      "quote": null
+    },
+    "s2.4.5.5": {
+      "summary": "Assessment: GOLD constrained-docking score divided by heavy atoms, standardised against the ground-truth molecule, top-20 mean (ΔSLE20).",
+      "quote": null
+    },
+    "s2.5": {
+      "summary": "Results across scoring performance, attribution, hotspot behaviour and fragment elaboration.",
+      "quote": null,
+      "type": "result"
+    },
+    "s2.5.1": {
+      "summary": "Debiased training and scoring-function performance.",
+      "quote": null
+    },
+    "s2.5.1.1": {
+      "summary": "Leakage in CASF16: 284/285 Core proteins have a ≥90%-identity counterpart in the General set, 273 (95.7%) identical, so a fair filtered-test comparison with other methods is impossible.",
+      "quote": [
+        "making any fair and unbiased comparison to these methods impossible",
+        "49"
+      ]
+    },
+    "s2.5.1.2": {
+      "summary": "Docking power barely changes with filtering (Top-1 70% vs 68% on gninaSetPose). Scoring power does: PCC 0.805 unfiltered, 0.803 size-matched random, 0.754 filtered, still above Vina (0.601).",
+      "quote": null
+    },
+    "s2.5.2": {
+      "summary": "Does PointVS use real interactions? Compare attribution to PLIP on three Tankyrase-2 inhibitors and by distance correlation over many structures.",
+      "quote": [
+        "demonstrating that the attribution scores of PointVS relate to important binding interactions is a more direct measure",
+        "52"
+      ]
+    },
+    "s2.5.2.1": {
+      "summary": "Three Tankyrase-2 complexes (5C5P, 4J21, 4J22): PointVS edge attention ranks PLIP hydrogen-bond edges first and second in each, but misses one halogen bond; gnina atom masking and IGN bond masking agree much less.",
+      "quote": null
+    },
+    "s2.5.2.2": {
+      "summary": "Over the Core set, attribution score correlates negatively with ligand-atom distance (PCC -0.766 top 5, -0.844 top 10); on a 20-structure subset PointVS (-0.710/-0.853) is far stronger than gnina (-0.233/0.094).",
+      "quote": null
+    },
+    "s2.5.3": {
+      "summary": "Hotspots from PointVS on Mpro land in different places from Hotspots API hotspots (Fig 2.5).",
+      "quote": null
+    },
+    "s2.5.3.1": {
+      "summary": "Control against simply counting contacts: PLIP counts yield four hotspots (146, 40, 9, 5 of 152); PointVS ranks the 146-count atom second and the 40-count atom first.",
+      "quote": null
+    },
+    "s2.5.3.2": {
+      "summary": "Hotspots from random subsets of 10-80 structures (40 draws each): fewer structures give more variable hotspots, but the full-screen top 5 stay the most frequent even at 10.",
+      "quote": null
+    },
+    "s2.5.4": {
+      "summary": "Elaboration: top-5 PointVS hotspots gave higher ΔSLE20 than top-5 API hotspots on all three targets; API hotspots ranked 6-10 scored higher, but the API could not rank its hotspots whereas PointVS ranks did separate good from worse.",
+      "quote": [
+        "unable to successfully rank them amongst themselves",
+        "61"
+      ]
+    },
+    "s2.6": {
+      "summary": "Concludes PointVS is competitive when debiased, identifies PLIP-consistent interactions and gives the first ML-based extraction of target structural information useful for elaboration. Links forward: de novo design with diffusion models.",
+      "quote": [
+        "the first ML-based method of extracting structural information from a protein target",
+        "62"
+      ],
+      "type": "discussion"
+    },
+    "ch3": {
+      "summary": "Conditioning an equivariant diffusion model on conformer quality: distorted molecules are added to training data as negative examples with a distortion label; sampling at zero distortion raises validity, strongly for drug-like datasets, weakly or negatively for QM9 and for flow-matching MolFM.",
+      "quote": [
+        "exploits the well-known utility of negative data as a resource in machine learning",
+        "68"
+      ],
+      "type": "result",
+      "template": "Preface → Introduction → Methods → Results and discussion → Conclusions (limits and future work sit inside Conclusions; no separate Contributions section)",
+      "pub": "Published: Vost L, Chenthamarakshan V, Das P, Deane CM. Digital Discovery 2025, 4(4), 1092-1099."
+    },
+    "s3.1": {
+      "summary": "Positions Ch 3 as a first step towards diffusion-based de novo design: diffusion models struggle with bond lengths, angles and energy for drug-like sizes; negative data can teach the model where valid space ends.",
+      "quote": null
+    },
+    "s3.2": {
+      "summary": "Reviews 3D generation and its plausibility problem, then states the approach: condition EDM on conformer quality using distorted molecules from QM9, GEOM and a ZINC subset; also test GCDM and MolFM.",
+      "quote": null
+    },
+    "s3.3": {
+      "summary": "Methods: EDM-style generation, distortion-based conditioning, metrics and datasets.",
+      "quote": null,
+      "type": "method"
+    },
+    "s3.3.1": {
+      "summary": "EDM (first E(3)-equivariant diffusion model) and its variants GCDM and MolFM.",
+      "quote": null
+    },
+    "s3.3.2": {
+      "summary": "Distortion recipe: sample D ~ U(0, Dmax) Å, add uniform offsets in [-D, D] to every coordinate, label with D, add to the dataset; sample at D = 0. Alternative label: XTB internal energy, sampled at the dataset's lowest energy.",
+      "quote": null
+    },
+    "s3.3.3": {
+      "summary": "Metrics: 1000 samples per model (100 in ablations), bonds assigned by Open Babel, RDKit sanitisation, PoseBusters, MOSES diversity and REOS filters, bootstrap 95% CIs.",
+      "quote": null
+    },
+    "s3.3.4": {
+      "summary": "Datasets: QM9, GEOM (no hydrogens used for ablations) and a 660,000-molecule ZINC subset.",
+      "quote": null
+    },
+    "s3.3.4.1": {
+      "summary": "QM9: ~130,000 small molecules (average 8.2 heavy atoms).",
+      "quote": null
+    },
+    "s3.3.4.2": {
+      "summary": "GEOM: ~430,000 molecules with conformers (average 20.1 heavy atoms); the no-hydrogen version trains fastest of the drug-like sets.",
+      "quote": null
+    },
+    "s3.3.4.3": {
+      "summary": "ZINC subset: 660,000 drug-like molecules without repeat conformers, 26.8 heavy atoms on average.",
+      "quote": null
+    },
+    "s3.4": {
+      "summary": "Results and discussion: ablation, distortion-factor conditioning, energy conditioning and transfer to other models.",
+      "quote": null,
+      "type": "result"
+    },
+    "s3.4.1": {
+      "summary": "Ablation on GEOM (no H): best setting is 1 distorted per 50 originals with Dmax = 0.25 Å (RDKit 97%, PoseBusters 81%). Too much distortion hurts; sampling at D = Dmax gives poor molecules, so the label is informative.",
+      "quote": [
+        "Distorted molecules should therefore still bear some resemblance to realistic conformers",
+        "77"
+      ]
+    },
+    "s3.4.2": {
+      "summary": "Distortion conditioning with EDM: PoseBusters all-tests pass rate rises on GEOM (62.2 to 68.8%) and ZINC (40.0 to 74.5%) but falls on QM9 (81.1 to 46.9%).",
+      "quote": null
+    },
+    "s3.4.3": {
+      "summary": "XTB internal-energy labels: best on GEOM (98% RDKit, 84% PoseBusters, n = 100) but worse on QM9 and ZINC; energies are hard to compare across molecules.",
+      "quote": [
+        "challenging to compare directly between different molecules",
+        "81"
+      ]
+    },
+    "s3.4.4": {
+      "summary": "GCDM improves clearly on ZINC (PoseBusters 40.8 to 66.5%) and marginally on GEOM; flow-matching MolFM gets worse on GEOM (80.8 to 46.8%) and slightly better on ZINC.",
+      "quote": [
+        "The reason for this degradation is unclear",
+        "83"
+      ]
+    },
+    "s3.5": {
+      "summary": "Concludes quality conditioning helps diffusion models on larger drug-like molecules, helps little on QM9 and is inconsistent for flow matching. Flags why-it-works and alternative labels as future work, then hands over to a fragment-based alternative.",
+      "quote": [
+        "selectively sample from the high-quality region of learned space",
+        "84"
+      ],
+      "type": "discussion"
+    },
+    "ch4": {
+      "summary": "An attempt to make diffusion easier by generating molecules from BRICS fragment 'blocks' instead of atoms. Centroid-only placement was capped by orientation ambiguity; adding orientation vectors raised RDKit validity to 51.7% at best, below the 84.7% atomistic baseline. Ends with a review of later hierarchical methods that work.",
+      "quote": [
+        "the highest-performing fragment-based model demonstrated inferior performance compared to the original atomistic baseline",
+        "90"
+      ],
+      "type": "result",
+      "template": "Preface → Introduction → Methods → Results → Related Work → Conclusions",
+      "pub": "No publication stated."
+    },
+    "s4.1": {
+      "summary": "Motivates the chapter: post-processing hides rather than fixes the plausibility problem. Hypothesis: arranging individual atoms is too hard, so use pre-assembled blocks.",
+      "quote": null
+    },
+    "s4.2": {
+      "summary": "Two stated benefits of blocks: lower geometric dimensionality and potential synthesisability from commercial building blocks. Plan: adapt the Ch 3 EDM to blocks; the best block model did worse than atomistic.",
+      "quote": null
+    },
+    "s4.3": {
+      "summary": "Methods: adapting EDM to blocks, decomposition schemes, rotational descriptors and metrics.",
+      "quote": null,
+      "type": "method"
+    },
+    "s4.3.1": {
+      "summary": "Atom-based EDM recap, then changes needed for blocks.",
+      "quote": null
+    },
+    "s4.3.1.1": {
+      "summary": "How atomistic EDM diffuses coordinates and categorical atom types.",
+      "quote": null
+    },
+    "s4.3.1.2": {
+      "summary": "Adaptations: block centroids replace atoms, one-hot grows to ≥50 block types, and reconstruction places an RDKit conformer per block before Open Babel infers bonds.",
+      "quote": null
+    },
+    "s4.3.2": {
+      "summary": "Training data and decomposition.",
+      "quote": null
+    },
+    "s4.3.2.1": {
+      "summary": "QM9 rarely splits into more than two blocks, so GEOM is used.",
+      "quote": null
+    },
+    "s4.3.2.2": {
+      "summary": "Two decompositions: raw BRICS and a reduced library.",
+      "quote": null
+    },
+    "s4.3.2.2~regular-brics-decomposition": {
+      "summary": "Raw BRICS on GEOM gives >14,000 block types; keeping those seen >100 times leaves 172 types and 56,281 molecules.",
+      "quote": null
+    },
+    "s4.3.2.2~decomposition-with-standardised-fragments": {
+      "summary": "Reduced library: canonical rings plus single atoms, 23 types, 62,746 molecules; framed as step one of a possible scaffold-then-decorate pipeline.",
+      "quote": null
+    },
+    "s4.3.2.3": {
+      "summary": "Orientation descriptor: three 3D vectors per block (centroid, best-fit-plane normal, in-plane axis between the two most distant atoms). Heuristic is non-unique for symmetric blocks and ignores chirality.",
+      "quote": null
+    },
+    "s4.3.3": {
+      "summary": "Metrics: same as Ch 3 in principle, but pass rates were so low that most analysis switched to visual inspection.",
+      "quote": null
+    },
+    "s4.4": {
+      "summary": "Results for centroid-only, plane-aligned and rotation-aware block models.",
+      "quote": null,
+      "type": "result"
+    },
+    "s4.4.1": {
+      "summary": "Control with ground-truth blocks and centroids: only 48/100 molecules pass RDKit, so the representation caps accuracy; the full model reaches ~4%.",
+      "quote": [
+        "even with perfect block placement, the ambiguity in fragment orientation leads to chemically invalid structures more than half the time",
+        "97"
+      ]
+    },
+    "s4.4.2": {
+      "summary": "Post-hoc plane alignment gives 10.8% sanitisation; failures are mostly wrong inter-block connectivity, so orientation must be learned.",
+      "quote": null
+    },
+    "s4.4.3": {
+      "summary": "With orientation vectors the reconstruction control rises to 89/100; generation reaches 27.2% (full BRICS) and 51.7% (reduced library) versus 84.7% for the atomistic model.",
+      "quote": null
+    },
+    "s4.5": {
+      "summary": "Related work since: HierDiff (coarse-to-fine with an EGNN decoder, >94% validity), CMD-GEN (pharmacophore pseudo-atoms then autoregression, 97.5%), SubGDiff (substructure-aware conformer generation, not comparable).",
+      "quote": [
+        "solving the orientation problem through a learned, end-to-end process rather than a predefined geometric heuristic",
+        "100"
+      ],
+      "type": "discussion"
+    },
+    "s4.6": {
+      "summary": "Concludes the bottleneck is geometric variance in BRICS fragments that blocks a consistent local frame; recommends hierarchical models with a learned equivariant decoder.",
+      "quote": [
+        "high geometric variance within the chemically-derived BRICS fragments",
+        "101"
+      ],
+      "type": "discussion"
+    },
+    "ch5": {
+      "summary": "Preliminary work on conditioning AlphaFold-family structure prediction with cryo-EM density. Gradient-based map-overlap updates inside the OpenFold structure module gave only marginal, unstable gains; the same idea in diffusion-based Boltz-2 allowed larger rearrangements; MSA subsampling added the stochasticity needed to escape local minima. All tests use simulated maps and ground-truth alignment.",
+      "quote": [
+        "an overview of our preliminary work",
+        "104"
+      ],
+      "type": "result",
+      "template": "Preface → Introduction → Methods → Results → Conclusions (limitations stated in Preface and Conclusions)",
+      "pub": "No publication stated; described as preliminary work."
+    },
+    "s5.1": {
+      "summary": "Frames the problem (predictors fail on large or out-of-distribution systems, exactly where cryo-EM is used) and previews the OpenFold, Boltz-2 and MSA-subsampling findings and their limits.",
+      "quote": null
+    },
+    "s5.2": {
+      "summary": "Cryo-EM growth and resolution limits; 'predict then refine' versus this thesis' idea of conditioning prediction on the map from the start (as ROCKET and CryoBoltz do).",
+      "quote": null
+    },
+    "s5.3": {
+      "summary": "Methods: gradient-based map-overlap optimisation, update scheduling, MSA subsampling and datasets.",
+      "quote": null,
+      "type": "method"
+    },
+    "s5.3.1": {
+      "summary": "Align the prediction to the map, simulate a density map, take a dot-product overlap, back-propagate to a chosen representation and add a scaled update at each recycle (OpenFold) or diffusion step (Boltz-2).",
+      "quote": null
+    },
+    "s5.3.1.1": {
+      "summary": "Alignment uses the ground-truth PDB structure on Cα atoms, not usable on real new maps.",
+      "quote": null
+    },
+    "s5.3.1.2": {
+      "summary": "Simulated map built by placing atom-type Gaussian kernels on a 3D grid.",
+      "quote": null
+    },
+    "s5.3.1.3": {
+      "summary": "Overlap by dot product; gradient w.r.t. single, frame or coordinate representation.",
+      "quote": null
+    },
+    "s5.3.1.4": {
+      "summary": "Full updates distort structures, so updates are scaled by a constant <1 chosen empirically.",
+      "quote": null
+    },
+    "s5.3.1.5": {
+      "summary": "Three decay schedules for the scaling factor over 3 recycles × 8 blocks.",
+      "quote": null
+    },
+    "s5.3.1.5~block-scheduling": {
+      "summary": "s = 1/i over the 8 blocks of a pass, reset each recycle.",
+      "quote": null
+    },
+    "s5.3.1.5~global-scheduling": {
+      "summary": "s = 1/r over recycles, constant within a recycle.",
+      "quote": null
+    },
+    "s5.3.1.5~block-and-global-scheduling": {
+      "summary": "s = 1/(8(r-1)+i), decaying from 1 to 1/24 without reset.",
+      "quote": null
+    },
+    "s5.3.2": {
+      "summary": "Run five parallel MSAs sampled at 8192, 4096 or 2048 sequences, prune the lowest-overlap trajectory every 20 steps. Differs from ROCKET's very shallow MSA ladder.",
+      "quote": null
+    },
+    "s5.3.3": {
+      "summary": "Ten small monomer targets whose vanilla predictions have Cα-RMSD 3-20 Å; simulated ideal maps; scored by Cα-RMSD only.",
+      "quote": [
+        "we are currently testing the method using ideal, simulated density maps generated from the ground-truth structures",
+        "111"
+      ]
+    },
+    "s5.4": {
+      "summary": "Results for OpenFold and Boltz-2 conditioning.",
+      "quote": null,
+      "type": "result"
+    },
+    "s5.4.1": {
+      "summary": "OpenFold: three variants of structure-module conditioning.",
+      "quote": null
+    },
+    "s5.4.1.1": {
+      "summary": "Constant scaling (0.1 coords/frames, 0.01 single): modest gains at coordinate and single level, none at frame level; 7VPL and 8CXO always worse (trapped in local density). 8FEI drifts about halfway to the answer.",
+      "quote": null
+    },
+    "s5.4.1.2": {
+      "summary": "Decay schedules allow coordinate scaling of 1.0 but give no breakthrough; no representation-schedule pair wins consistently.",
+      "quote": null
+    },
+    "s5.4.1.3": {
+      "summary": "Iterative updates: mixed. Best scheme improves 9/10 targets but only marginally; adaptive updates cut 8FEI from 3.58 to 2.20 Å yet fail badly elsewhere.",
+      "quote": [
+        "all improvements were marginal",
+        "116"
+      ]
+    },
+    "s5.4.2": {
+      "summary": "Boltz-2 is chosen because a diffusion process tolerates external guidance better and can model ligands.",
+      "quote": null
+    },
+    "s5.4.2.1": {
+      "summary": "Gradient-only conditioning in Boltz-2: large rearrangements OpenFold could not make (8FEI 20.0 to 2.4 Å; 8CXO 11.7 to 7.7 Å) but worse on 6LLY and 7VLR.",
+      "quote": [
+        "inducing substantial rearrangements that were unachievable with OpenFold",
+        "118"
+      ]
+    },
+    "s5.4.2.2": {
+      "summary": "Adding MSA subsampling after concluding that late intervention cannot move large-scale structure.",
+      "quote": null
+    },
+    "s5.4.2.2~only-msa-subsampling": {
+      "summary": "MSA subsampling alone helps 7VLR and 7VPL but is inconsistent; no clear best sequence number; max five MSAs for cost.",
+      "quote": null
+    },
+    "s5.4.2.2~combining-with-gradient-based-optimisation": {
+      "summary": "Combined, it is the best approach tested excluding 8FEI (which gets worse); 2048 sequences most reliable overall but lowest RMSD on only 6/10 targets.",
+      "quote": null
+    },
+    "s5.5": {
+      "summary": "Concludes late interventions struggle without breaking learned priors, Boltz-2 tolerates more, and early stochasticity helps; lists next steps (more MSAs, repeats, real noisy maps, no ground-truth alignment).",
+      "quote": [
+        "introducing stochasticity at an early stage is an effective means of broadening the explored conformational landscape",
+        "122"
+      ],
+      "type": "discussion"
+    },
+    "ch6": {
+      "summary": "Draws conclusions per application and four lessons: interpretability is central, negative data helps generative models, block generation needs sophisticated encoding, and guiding AlphaFold-like predictions needs early intervention plus stochasticity.",
+      "quote": [
+        "interpretability is central to ensuring that models learn physics rather than artefacts",
+        "126"
+      ],
+      "type": "discussion",
+      "template": "One section per application (6.1-6.3) → Concluding remarks",
+      "pub": "Not stated (conclusion chapter)."
+    },
+    "s6.1": {
+      "summary": "Interpretability should be expected of VS models; debiased models plus attribution can guide design. With current datasets entirely bias-free scoring functions are impossible, so large consistent public protein-ligand datasets are needed.",
+      "quote": [
+        "it is impossible to train scoring functions that are entirely free from bias",
+        "124"
+      ]
+    },
+    "s6.2": {
+      "summary": "Negative data helps even where positives seem plentiful; block diffusion needs learned equivariant decoders or hierarchy; question whether diffusion that needs heavy filtering is justified.",
+      "quote": [
+        "the importance of mastering foundational principles before applying new, computationally expensive architectures",
+        "125"
+      ]
+    },
+    "s6.3": {
+      "summary": "AlphaFold-conditioning results are mixed; Boltz-2 plus MSA subsampling shows promise. Next steps: more MSAs, other schedulers, fine-tuning the predictors.",
+      "quote": [
+        "perhaps more by clarifying which strategies are ineffective than by arriving at a viable one",
+        "126"
+      ]
+    },
+    "s6.4": {
+      "summary": "Four lessons and a call for better datasets, benchmarks and more interrogation of models.",
+      "quote": [
+        "interpretability is central to ensuring that models learn physics rather than artefacts",
+        "126"
+      ]
+    },
+    "app": {
+      "summary": "Appendices for Chapters 2 and 3.",
+      "quote": null,
+      "type": "appendix"
+    },
+    "appA": {
+      "summary": "Supporting material for Chapter 2: equivariance primer, Hotspots API algorithm, structure IDs and an FGFR1 case study.",
+      "quote": null,
+      "type": "appendix"
+    },
+    "sA.1": {
+      "summary": "Defines invariance and equivariance and why EGNN layers suit pose scoring better than CNNs. Written by Jack Scantlebury.",
+      "quote": null,
+      "type": "appendix",
+      "collab": "Written by Jack Scantlebury (stated in the heading, p. 129)."
+    },
+    "sA.2": {
+      "summary": "Hotspots API: SuperStar propensity grids from CSD data, probe sampling, greedy 1 Å clustering, clusters <8 points removed and scored by size.",
+      "quote": null,
+      "type": "appendix"
+    },
+    "sA.3": {
+      "summary": "Fragalysis IDs of the bound structures for Mpro, Mac1 and NSP14, and the 20 PDBBind Core PDB IDs used in the attribution test (text mislabels this as section 3.4.2).",
+      "quote": null,
+      "type": "appendix"
+    },
+    "sA.4": {
+      "summary": "FGFR1 / erdafitinib case study: PointVS ranks both hydrogen-bonding protein atoms 3rd and 6th; the API found only one site; a STRIFE elaboration recovers the same hydrogen bond.",
+      "quote": [
+        "making it the third fragment-derived drug to reach this stage",
+        "133"
+      ],
+      "type": "appendix"
+    },
+    "appB": {
+      "summary": "Supporting tables for Chapter 3.",
+      "quote": null,
+      "type": "appendix"
+    },
+    "sB.1": {
+      "summary": "Ablation sampled at D = Dmax (Table B.1): PoseBusters pass rate at most 53%. The thesis attributes the poor results mainly to internal-energy failures, stated in the main text on p. 78 rather than here.",
+      "quote": null,
+      "type": "appendix"
+    },
+    "sB.2": {
+      "summary": "Full PoseBusters sub-test pass rates for every model and ablation. Table is uncaptioned in the thesis.",
+      "quote": null,
+      "type": "appendix"
+    },
+    "sB.3": {
+      "summary": "MOSES diversity and eight REOS filter pass rates for baseline and conditioned models.",
+      "quote": null,
+      "type": "appendix"
+    }
+  },
+  "F": {
+    "fm": {
+      "title": "Front matter",
+      "start": "i",
+      "end": "xx",
+      "summary": "Title page, dedication, acknowledgements, abstract, contents, list of figures and list of abbreviations. There is no list of tables.",
+      "type": "front-matter"
+    },
+    "fm.title": {
+      "title": "Title page",
+      "start": "i",
+      "end": "i",
+      "summary": "Machine Learning for Molecular Modelling and Drug Discovery, Lucy Vost, Green Templeton College, University of Oxford, October 2025.",
+      "type": "front-matter"
+    },
+    "fm.dedication": {
+      "title": "Dedication",
+      "start": "iii",
+      "end": "iii",
+      "summary": "Dedicated to the author's grandmother.",
+      "type": "front-matter"
+    },
+    "fm.ack": {
+      "title": "Acknowledgements",
+      "start": "v",
+      "end": "v",
+      "summary": "Thanks to supervisors (including industry supervisors), the research group, friends and family; the PhD is described as four years of research.",
+      "type": "front-matter"
+    },
+    "fm.abstract": {
+      "title": "Abstract",
+      "start": "vii",
+      "end": "viii",
+      "summary": "Four-part summary: debiased virtual screening with interpretability and hotspots; conditioning diffusion on molecule quality; block-based diffusion that hit implementation challenges; cryo-EM conditioning of AlphaFold models with MSA subsampling.",
+      "type": "front-matter",
+      "quote": [
+        "pocket-free, 3D de novo molecule generation",
+        "vii"
+      ]
+    },
+    "fm.contents": {
+      "title": "Contents",
+      "start": "ix",
+      "end": "xii",
+      "summary": "Table of contents to subsection level.",
+      "type": "front-matter"
+    },
+    "fm.figures": {
+      "title": "List of Figures",
+      "start": "xiii",
+      "end": "xvii",
+      "summary": "Lists 26 figures; no list of tables is provided.",
+      "type": "front-matter"
+    },
+    "fm.abbrev": {
+      "title": "List of Abbreviations",
+      "start": "xix",
+      "end": "xx",
+      "summary": "Abbreviations used throughout (e.g. BRICS, CASF16, EGNN, MSA, PLIP).",
+      "type": "front-matter"
+    },
+    "refs": {
+      "title": "References",
+      "start": "141",
+      "end": "155",
+      "summary": "Bibliography, author-year style.",
+      "type": "references"
+    }
+  },
+  "meta": {
+    "title": "Machine Learning for Molecular Modelling and Drug Discovery",
+    "author": "Lucy Vost",
+    "institution": "Green Templeton College, University of Oxford",
+    "degree": "DPhil / PhD thesis",
+    "date": "October 2025"
+  },
+  "name": "vost",
+  "toc": [
+    "1|1|Introduction|1",
+    "1.1|1|Background and motivation|1",
+    "1.2|1|Drug discovery|6",
+    "1.2.1|1|Small molecule drugs|6",
+    "1.2.2|1|The drug discovery pipeline|7",
+    "1.2.2.1|1|Target identification, validation, and structural characterisation|7",
+    "~|1|Cryo-EM|8",
+    "1.2.2.2|1|Hit identification|8",
+    "1.2.2.3|1|Hit-to-lead and lead optimisation|10",
+    "1.3|1|Machine learning|11",
+    "1.3.1|1|Supervised learning|12",
+    "1.3.2|1|Neural networks and deep learning|13",
+    "1.3.3|1|Convolutional neural networks|14",
+    "1.3.4|1|Graph neural networks|15",
+    "1.3.5|1|Diffusion models|16",
+    "1.4|1|Machine learning in early-stage drug discovery|17",
+    "1.4.1|1|Target structure resolution|18",
+    "1.4.1.1|1|In silico structure prediction|18",
+    "~|1|AlphaFold2|19",
+    "~|1|AlphaFold3|19",
+    "~|1|Open-source models and extensions|20",
+    "1.4.1.2|1|Cryo-EM model building|21",
+    "~|1|Direct map interpretation methods|22",
+    "~|1|AlphaFold-based methods|23",
+    "1.4.2|1|Virtual screening|24",
+    "1.4.3|1|Generative design|26",
+    "1.4.3.1|1|Unconditional generation|27",
+    "1.4.3.2|1|Conditional de novo generation|27",
+    "1.4.4|1|Fragment-based design|29",
+    "1.5|1|Thesis outline|30",
+    "2|2|Fragment elaboration with attribution-informed constraints|33",
+    "2.1|2|Preface|34",
+    "2.2|2|Contributions|35",
+    "2.3|2|Introduction|35",
+    "2.4|2|Methods|37",
+    "2.4.1|2|Model|37",
+    "2.4.2|2|Datasets|38",
+    "2.4.2.1|2|The Redocked set|40",
+    "2.4.2.2|2|PDBBind refined: gninaSetPose set|40",
+    "2.4.2.3|2|PDBBind General and Core sets|41",
+    "2.4.3|2|Training dataset filtering|41",
+    "2.4.4|2|Attribution|42",
+    "2.4.5|2|Fragment elaboration|45",
+    "2.4.5.1|2|Hotspot Extraction|45",
+    "2.4.5.2|2|Protein targets|45",
+    "2.4.5.3|2|Obtaining fragments|46",
+    "2.4.5.4|2|STRIFE: A generative model for elaboration|46",
+    "2.4.5.5|2|Assessing generated molecules|48",
+    "2.5|2|Results|48",
+    "2.5.1|2|Training and testing PointVS|48",
+    "2.5.1.1|2|Bias in the CASF16 test set|48",
+    "2.5.1.2|2|Performance as a scoring function|49",
+    "2.5.2|2|Attribution: identifying important interactions|52",
+    "2.5.2.1|2|Human Tankyrase-2 inhibitors|53",
+    "2.5.2.2|2|Large-scale attribution tests|56",
+    "2.5.3|2|Hotspot identification using PointVS|57",
+    "2.5.3.1|2|Impact of fragment screen similarity|58",
+    "2.5.3.2|2|Dependency on fragment screen size|60",
+    "2.5.4|2|Fragment elaboration|60",
+    "2.6|2|Conclusions|62",
+    "3|3|Improving Structural Plausibility in 3D Molecule Generation via Property-Conditioned Training with Distorted Molecules|67",
+    "3.1|3|Preface|68",
+    "3.2|3|Introduction|68",
+    "3.3|3|Methods|70",
+    "3.3.1|3|Generation of 3D molecules|70",
+    "3.3.2|3|Conditioning on conformer quality|72",
+    "3.3.3|3|Assessment metrics|73",
+    "3.3.4|3|Datasets|74",
+    "3.3.4.1|3|QM9|75",
+    "3.3.4.2|3|GEOM|75",
+    "3.3.4.3|3|ZINC|76",
+    "3.4|3|Results and discussion|76",
+    "3.4.1|3|Ablation tests|76",
+    "3.4.2|3|Conditioning on distortion factor|78",
+    "3.4.3|3|Conditioning on internal energy|80",
+    "3.4.4|3|Testing the conditioning method on additional models|82",
+    "3.5|3|Conclusions|83",
+    "4|4|Molecule diffusion with fragment blocks|87",
+    "4.1|4|Preface|87",
+    "4.2|4|Introduction|88",
+    "4.3|4|Methods|90",
+    "4.3.1|4|Model|90",
+    "4.3.1.1|4|Atom-based setup|90",
+    "4.3.1.2|4|Initial model adaptations|91",
+    "4.3.2|4|Data|92",
+    "4.3.2.1|4|Training datasets|92",
+    "4.3.2.2|4|Decomposition|92",
+    "~|4|Regular BRICS decomposition|92",
+    "~|4|Decomposition with standardised fragments|93",
+    "4.3.2.3|4|Rotational information|95",
+    "4.3.3|4|Assessment metrics|97",
+    "4.4|4|Results|97",
+    "4.4.1|4|Centroid-only method|97",
+    "4.4.2|4|Plane alignment method|98",
+    "4.4.3|4|Addition of rotational information|99",
+    "4.5|4|Related Work|99",
+    "4.6|4|Conclusions|101",
+    "5|5|Cryo-EM model building with AlphaFold|103",
+    "5.1|5|Preface|103",
+    "5.2|5|Introduction|104",
+    "5.3|5|Methods|106",
+    "5.3.1|5|Calculating and applying gradient-based optimisation|107",
+    "5.3.1.1|5|Alignment|107",
+    "5.3.1.2|5|Simulating a map from the prediction|108",
+    "5.3.1.3|5|Overlap and gradient calculation|108",
+    "5.3.1.4|5|Updating the prediction|108",
+    "5.3.1.5|5|Update scheduling|109",
+    "~|5|Block Scheduling|109",
+    "~|5|Global Scheduling|109",
+    "~|5|Block and Global Scheduling|109",
+    "5.3.2|5|MSA subsampling|110",
+    "5.3.3|5|Datasets and evaluation|110",
+    "5.4|5|Results|111",
+    "5.4.1|5|OpenFold conditioning|111",
+    "5.4.1.1|5|Direct conditioning with a constant scaling factor|111",
+    "5.4.1.2|5|Introducing gradient scaling schedules|112",
+    "5.4.1.3|5|Implementing iterative updates|115",
+    "5.4.2|5|Boltz-2 conditioning|116",
+    "5.4.2.1|5|Gradient-based optimisation alone|117",
+    "5.4.2.2|5|Adding MSA subsampling|119",
+    "~|5|Only MSA subsampling|119",
+    "~|5|Combining with gradient-based optimisation|120",
+    "5.5|5|Conclusions|121",
+    "6|6|Conclusions and outlook|123",
+    "6.1|6|Interpretability in virtual screening|123",
+    "6.2|6|Plausibility in diffusion-based generative design|124",
+    "6.3|6|AlphaFold for cryo-EM model building|125",
+    "6.4|6|Concluding remarks|126",
+    "A|A|Appendix: chapter 2|129",
+    "A.1|A|Equivariance and Invariance - written by Jack Scantlebury|129",
+    "A.2|A|Hotspots API: calculation and processing of hotspots|130",
+    "A.3|A|Structure IDs|133",
+    "A.4|A|FGFR1 Case Study|133",
+    "B|B|Appendix: chapter 3|137",
+    "B.1|B|Ablation test: sampling D = Dmax|137",
+    "B.2|B|Full PoseBusters outputs|137",
+    "B.3|B|Other metrics|139"
+  ],
+  "pagemap": {
+    "rule": "printed = pdf_index - 22 for body pages (pdf 23 = p. 1); front matter is roman: printed = roman(pdf_index - 2) (pdf 3 = i); pdf 1-2 are cover pages with no printed number",
+    "pages": [
+      {
+        "pdf_index": 1,
+        "label": null,
+        "status": "unnumbered",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 2,
+        "label": null,
+        "status": "unnumbered",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 3,
+        "label": "i",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 4,
+        "label": "ii",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 5,
+        "label": "iii",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 6,
+        "label": "iv",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 7,
+        "label": "v",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 8,
+        "label": "vi",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 9,
+        "label": "vii",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 10,
+        "label": "viii",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 11,
+        "label": "ix",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 12,
+        "label": "x",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 13,
+        "label": "xi",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 14,
+        "label": "xii",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 15,
+        "label": "xiii",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 16,
+        "label": "xiv",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 17,
+        "label": "xv",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 18,
+        "label": "xvi",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 19,
+        "label": "xvii",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 20,
+        "label": "xviii",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 21,
+        "label": "xix",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 22,
+        "label": "xx",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 23,
+        "label": "1",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 24,
+        "label": "2",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 25,
+        "label": "3",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 26,
+        "label": "4",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 27,
+        "label": "5",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 28,
+        "label": "6",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 29,
+        "label": "7",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 30,
+        "label": "8",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 31,
+        "label": "9",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 32,
+        "label": "10",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 33,
+        "label": "11",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 34,
+        "label": "12",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 35,
+        "label": "13",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 36,
+        "label": "14",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 37,
+        "label": "15",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 38,
+        "label": "16",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 39,
+        "label": "17",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 40,
+        "label": "18",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 41,
+        "label": "19",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 42,
+        "label": "20",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 43,
+        "label": "21",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 44,
+        "label": "22",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 45,
+        "label": "23",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 46,
+        "label": "24",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 47,
+        "label": "25",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 48,
+        "label": "26",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 49,
+        "label": "27",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 50,
+        "label": "28",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 51,
+        "label": "29",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 52,
+        "label": "30",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 53,
+        "label": "31",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 54,
+        "label": "32",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 55,
+        "label": "33",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 56,
+        "label": "34",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 57,
+        "label": "35",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 58,
+        "label": "36",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 59,
+        "label": "37",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 60,
+        "label": "38",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 61,
+        "label": "39",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 62,
+        "label": "40",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 63,
+        "label": "41",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 64,
+        "label": "42",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 65,
+        "label": "43",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 66,
+        "label": "44",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 67,
+        "label": "45",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 68,
+        "label": "46",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 69,
+        "label": "47",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 70,
+        "label": "48",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 71,
+        "label": "49",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 72,
+        "label": "50",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 73,
+        "label": "51",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 74,
+        "label": "52",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 75,
+        "label": "53",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 76,
+        "label": "54",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 77,
+        "label": "55",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 78,
+        "label": "56",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 79,
+        "label": "57",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 80,
+        "label": "58",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 81,
+        "label": "59",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 82,
+        "label": "60",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 83,
+        "label": "61",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 84,
+        "label": "62",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 85,
+        "label": "63",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 86,
+        "label": "64",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 87,
+        "label": "65",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 88,
+        "label": "66",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 89,
+        "label": "67",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 90,
+        "label": "68",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 91,
+        "label": "69",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 92,
+        "label": "70",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 93,
+        "label": "71",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 94,
+        "label": "72",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 95,
+        "label": "73",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 96,
+        "label": "74",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 97,
+        "label": "75",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 98,
+        "label": "76",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 99,
+        "label": "77",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 100,
+        "label": "78",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 101,
+        "label": "79",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 102,
+        "label": "80",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 103,
+        "label": "81",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 104,
+        "label": "82",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 105,
+        "label": "83",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 106,
+        "label": "84",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 107,
+        "label": "85",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 108,
+        "label": "86",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 109,
+        "label": "87",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 110,
+        "label": "88",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 111,
+        "label": "89",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 112,
+        "label": "90",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 113,
+        "label": "91",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 114,
+        "label": "92",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 115,
+        "label": "93",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 116,
+        "label": "94",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 117,
+        "label": "95",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 118,
+        "label": "96",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 119,
+        "label": "97",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 120,
+        "label": "98",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 121,
+        "label": "99",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 122,
+        "label": "100",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 123,
+        "label": "101",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 124,
+        "label": "102",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 125,
+        "label": "103",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 126,
+        "label": "104",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 127,
+        "label": "105",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 128,
+        "label": "106",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 129,
+        "label": "107",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 130,
+        "label": "108",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 131,
+        "label": "109",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 132,
+        "label": "110",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 133,
+        "label": "111",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 134,
+        "label": "112",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 135,
+        "label": "113",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 136,
+        "label": "114",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 137,
+        "label": "115",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 138,
+        "label": "116",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 139,
+        "label": "117",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 140,
+        "label": "118",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 141,
+        "label": "119",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 142,
+        "label": "120",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 143,
+        "label": "121",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 144,
+        "label": "122",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 145,
+        "label": "123",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 146,
+        "label": "124",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 147,
+        "label": "125",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 148,
+        "label": "126",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 149,
+        "label": "127",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 150,
+        "label": "128",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 151,
+        "label": "129",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 152,
+        "label": "130",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 153,
+        "label": "131",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 154,
+        "label": "132",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 155,
+        "label": "133",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 156,
+        "label": "134",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 157,
+        "label": "135",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 158,
+        "label": "136",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 159,
+        "label": "137",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 160,
+        "label": "138",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 161,
+        "label": "139",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 162,
+        "label": "140",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 163,
+        "label": "141",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 164,
+        "label": "142",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 165,
+        "label": "143",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 166,
+        "label": "144",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 167,
+        "label": "145",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 168,
+        "label": "146",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 169,
+        "label": "147",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 170,
+        "label": "148",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 171,
+        "label": "149",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 172,
+        "label": "150",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 173,
+        "label": "151",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 174,
+        "label": "152",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 175,
+        "label": "153",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 176,
+        "label": "154",
+        "status": "printed",
+        "alternate_labels": []
+      },
+      {
+        "pdf_index": 177,
+        "label": "155",
+        "status": "printed",
+        "alternate_labels": []
+      }
+    ],
+    "verification": null,
+    "exceptions": []
+  },
+  "profile_version": 1,
+  "pdf_pages": 177,
+  "source_checks": [
+    {
+      "record": "c1",
+      "tokens": [
+        [
+          "1",
+          "one"
+        ]
+      ],
+      "source_pages": [
+        "3"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c2",
+      "tokens": [
+        [
+          "50"
+        ],
+        [
+          "60"
+        ],
+        [
+          "20"
+        ],
+        [
+          "25"
+        ]
+      ],
+      "source_pages": [
+        "3",
+        "4"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c3",
+      "tokens": [
+        [
+          "42"
+        ],
+        [
+          "15"
+        ]
+      ],
+      "source_pages": [
+        "26"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c5",
+      "tokens": [
+        [
+          "284"
+        ],
+        [
+          "285"
+        ],
+        [
+          "90"
+        ],
+        [
+          "273"
+        ],
+        [
+          "95.7"
+        ]
+      ],
+      "source_pages": [
+        "49"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c6",
+      "tokens": [
+        [
+          "1",
+          "one"
+        ],
+        [
+          "70"
+        ],
+        [
+          "68"
+        ],
+        [
+          "68"
+        ]
+      ],
+      "source_pages": [
+        "50"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c7",
+      "tokens": [
+        [
+          "1",
+          "one"
+        ],
+        [
+          "85.3"
+        ],
+        [
+          "84.2"
+        ],
+        [
+          "84.6"
+        ],
+        [
+          "83.2"
+        ]
+      ],
+      "source_pages": [
+        "51"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c8",
+      "tokens": [
+        [
+          "0.805"
+        ],
+        [
+          "0.803"
+        ],
+        [
+          "0.754"
+        ],
+        [
+          "0.601"
+        ],
+        [
+          "0.631"
+        ]
+      ],
+      "source_pages": [
+        "51",
+        "52"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c9",
+      "tokens": [
+        [
+          "2",
+          "two"
+        ]
+      ],
+      "source_pages": [
+        "54",
+        "55"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c10",
+      "tokens": [
+        [
+          "0.766"
+        ],
+        [
+          "5",
+          "five"
+        ],
+        [
+          "0.844"
+        ],
+        [
+          "10",
+          "ten"
+        ]
+      ],
+      "source_pages": [
+        "56"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c11",
+      "tokens": [
+        [
+          "20"
+        ],
+        [
+          "5",
+          "five"
+        ],
+        [
+          "10",
+          "ten"
+        ],
+        [
+          "0.710"
+        ],
+        [
+          "0.853"
+        ],
+        [
+          "0.233"
+        ],
+        [
+          "0.094"
+        ]
+      ],
+      "source_pages": [
+        "57"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c12",
+      "tokens": [
+        [
+          "146"
+        ],
+        [
+          "40"
+        ],
+        [
+          "9",
+          "nine"
+        ],
+        [
+          "5",
+          "five"
+        ],
+        [
+          "152"
+        ],
+        [
+          "2",
+          "two"
+        ],
+        [
+          "5",
+          "five"
+        ],
+        [
+          "146"
+        ],
+        [
+          "40"
+        ]
+      ],
+      "source_pages": [
+        "58",
+        "59"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c13",
+      "tokens": [
+        [
+          "10",
+          "ten"
+        ],
+        [
+          "5",
+          "five"
+        ],
+        [
+          "10",
+          "ten"
+        ],
+        [
+          "80"
+        ],
+        [
+          "40"
+        ]
+      ],
+      "source_pages": [
+        "60"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c14",
+      "tokens": [
+        [
+          "5",
+          "five"
+        ],
+        [
+          "5",
+          "five"
+        ],
+        [
+          "0.341"
+        ],
+        [
+          "0.213"
+        ],
+        [
+          "1.749"
+        ],
+        [
+          "1.581"
+        ],
+        [
+          "1.708"
+        ],
+        [
+          "1.240"
+        ]
+      ],
+      "source_pages": [
+        "61"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c15",
+      "tokens": [
+        [
+          "6",
+          "six"
+        ],
+        [
+          "10",
+          "ten"
+        ],
+        [
+          "6",
+          "six"
+        ],
+        [
+          "10",
+          "ten"
+        ],
+        [
+          "1",
+          "one"
+        ],
+        [
+          "5",
+          "five"
+        ],
+        [
+          "6",
+          "six"
+        ],
+        [
+          "10",
+          "ten"
+        ]
+      ],
+      "source_pages": [
+        "61"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c17",
+      "tokens": [
+        [
+          "1.5"
+        ]
+      ],
+      "source_pages": [
+        "133",
+        "134"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c18",
+      "tokens": [
+        [
+          "1",
+          "one"
+        ],
+        [
+          "50"
+        ],
+        [
+          "0.25"
+        ],
+        [
+          "97"
+        ],
+        [
+          "81"
+        ],
+        [
+          "100"
+        ]
+      ],
+      "source_pages": [
+        "77",
+        "78"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c19",
+      "tokens": [
+        [
+          "1",
+          "one"
+        ],
+        [
+          "100"
+        ],
+        [
+          "1",
+          "one"
+        ],
+        [
+          "8",
+          "eight"
+        ],
+        [
+          "53"
+        ]
+      ],
+      "source_pages": [
+        "78"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c20",
+      "tokens": [
+        [
+          "62.2"
+        ],
+        [
+          "68.8"
+        ],
+        [
+          "40.0"
+        ],
+        [
+          "74.5"
+        ],
+        [
+          "81.1"
+        ],
+        [
+          "46.9"
+        ]
+      ],
+      "source_pages": [
+        "79",
+        "85"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c21",
+      "tokens": [
+        [
+          "62.4"
+        ],
+        [
+          "95.7"
+        ],
+        [
+          "65.0"
+        ],
+        [
+          "94.1"
+        ]
+      ],
+      "source_pages": [
+        "79"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c22",
+      "tokens": [
+        [
+          "70"
+        ],
+        [
+          "84"
+        ],
+        [
+          "81"
+        ],
+        [
+          "19"
+        ],
+        [
+          "40"
+        ],
+        [
+          "36"
+        ],
+        [
+          "100"
+        ]
+      ],
+      "source_pages": [
+        "82"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c23",
+      "tokens": [
+        [
+          "40.8"
+        ],
+        [
+          "66.5"
+        ],
+        [
+          "77.8"
+        ],
+        [
+          "79.7"
+        ],
+        [
+          "80.8"
+        ],
+        [
+          "46.8"
+        ],
+        [
+          "42.3"
+        ],
+        [
+          "45.9"
+        ]
+      ],
+      "source_pages": [
+        "82",
+        "83"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c25",
+      "tokens": [
+        [
+          "48"
+        ],
+        [
+          "100"
+        ],
+        [
+          "4",
+          "four"
+        ]
+      ],
+      "source_pages": [
+        "97",
+        "100"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c26",
+      "tokens": [
+        [
+          "10.8"
+        ]
+      ],
+      "source_pages": [
+        "98"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c27",
+      "tokens": [
+        [
+          "89"
+        ],
+        [
+          "100"
+        ],
+        [
+          "27.2"
+        ],
+        [
+          "172"
+        ],
+        [
+          "51.7"
+        ],
+        [
+          "23"
+        ],
+        [
+          "84.7"
+        ]
+      ],
+      "source_pages": [
+        "93",
+        "99",
+        "100"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c28",
+      "tokens": [
+        [
+          "94"
+        ],
+        [
+          "97.5"
+        ]
+      ],
+      "source_pages": [
+        "100",
+        "101"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c30",
+      "tokens": [
+        [
+          "0.1"
+        ],
+        [
+          "3",
+          "three"
+        ],
+        [
+          "9",
+          "nine"
+        ],
+        [
+          "10",
+          "ten"
+        ],
+        [
+          "3.58"
+        ],
+        [
+          "2.20"
+        ],
+        [
+          "5.25"
+        ],
+        [
+          "4.62"
+        ]
+      ],
+      "source_pages": [
+        "116"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c31",
+      "tokens": [
+        [
+          "2",
+          "two"
+        ],
+        [
+          "20.0"
+        ],
+        [
+          "2.4"
+        ],
+        [
+          "11.7"
+        ],
+        [
+          "7.7"
+        ]
+      ],
+      "source_pages": [
+        "118"
+      ],
+      "continuation": false
+    },
+    {
+      "record": "c33",
+      "tokens": [
+        [
+          "6",
+          "six"
+        ],
+        [
+          "10",
+          "ten"
+        ]
+      ],
+      "source_pages": [
+        "120",
+        "121"
+      ],
+      "continuation": false
+    }
+  ]
+}

@@ -1,7 +1,0 @@
-List of Tables
-
-2.1 Classification of the critical points of the electron density .......
-
-3.1 Electrostatics of a cluster of five water molecules
-
-4.1 Benchmark of Miiller approximation against the full 2-RDM
