@@ -1,0 +1,40 @@
+21
+
+obvious interdisciplinarity of the environment, and the openness of the project (“ex-
+tend the applicability of the FFLUX force field”), this research follows a path that
+might perhaps look sinuous at first glance, but that has been conveniently directed
+
+to explore new ideas while exploiting previous developments.
+
+In Chapter 2, we provide a review of the relevant literature in the area of compu-
+tational chemistry. Given the vastness of the field, the scope is limited to the topics
+directly related to the research. This includes molecular dynamics, intermolecular
+forces and polarisable force fields as general topics, as well as some more specific
+matters: quantum chemical topology and machine learning. Finally, we also review
+
+previous work done by the Popelier group.
+
+In Chapter 3, we present in detail the architecture and formulation of the FFLUX
+force field, including a careful derivation of all the mathematical expressions re-
+quired for the calculations of atomic forces and a description of the parametriza-
+tion. We also provide a critical assessment of some of the challenges that the project
+
+will have to tackle before a significant upscaling can be possible.
+
+In Chapter 4, we explore a magnitude from Quantum Chemical Topology, the
+delocalization index. This quantity is analogous to a charge-charge interaction for
+the exchange interaction, and has been analysed as a possible candidate for inter-
+model interactions in FFLUX. It has also proved to play a leading role in under-
+
+standing bond order.
+
+In Chapter 5, we develop a new technique: symmetry-adapted Gaussian Pro-
+cess regression. This method can be used to incorporate permutational symmetry
+into the models, and allows to reduce the size of the training set. We study this ap-
+proach in a number of simple molecules, and show how it can be used to optimise
+
+geometries with particularly reduced training sizes.
+
+Finally, in Chapter 6 we gather the main conclusions of this work, and outline a
+
+set of future lines of work that might be taken by future students of the group.

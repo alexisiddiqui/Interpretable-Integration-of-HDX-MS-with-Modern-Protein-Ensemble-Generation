@@ -1,0 +1,44 @@
+264 BIBLIOGRAPHY
+
+[314] A. P. Barték, M. C. Payne, R. Kondor, and G. Csanyi, “Gaussian approxima-
+tion potentials: the accuracy of quantum mechanics, without the electrons,”
+
+Physical Review Letters, vol. 104, no. 13, p. 136403, 2010.
+
+[315] G. Montavon, K. Hansen, S. Fazli, M. Rupp, F. Biegler, A. Ziehe,
+A. Tkatchenko, A. V. Lilienfeld, and K.-R. Miiller, “Learning invariant rep-
+resentations of molecules for atomization energy prediction,” in Advances in
+
+Neural Information Processing Systems, pp. 440-448, 2012.
+
+[316] M. Rupp, A. Tkatchenko, K.-R. Miiller, and O. A. Von Lilienfeld, “Fast and ac-
+curate modeling of molecular atomization energies with machine learning,”
+Physical Review Letters, vol. 108, no. 5, p. 058301, 2012.
+
+[317] F. Faber, A. Lindmaa, O. A. von Lilienfeld, and R. Armiento, “Crystal struc-
+ture representations for machine learning models of formation energies,” In-
+
+ternational Journal of Quantum Chemistry, vol. 115, no. 16, pp. 1094-1101, 2015.
+
+[318] G. Montavon, M. Rupp, V. Gobre, A. Vazquez-Mayagoitia, K. Hansen,
+A. Tkatchenko, K.-R. Miiller, and O. A. Von Lilienfeld, “Machine learning
+of molecular electronic properties in chemical compound space,” New Journal
+
+of Physics, vol. 15, no. 9, p. 095003, 2013.
+
+[319] Z. Xie and J. M. Bowman, “Permutationally invariant polynomial basis for
+molecular energy surface fitting via monomial symmetrization,” Journal of
+
+Chemical Theory and Computation, vol. 6, no. 1, pp. 26-34, 2009.
+
+[320] B. J. Braams and J. M. Bowman, “Permutationally invariant potential energy
+surfaces in high dimensionality,” International Reviews in Physical Chemistry,
+
+vol. 28, no. 4, pp. 577-606, 2009.
+
+[321] C. Qu, Q. Yu, and J. M. Bowman, “Permutationally invariant potential energy
+surfaces,” Annual Review of Physical Chemistry, vol. 69, pp. 151-175, 2018.
+
+[322] A. Grisafi, D. M. Wilkins, G. Csanyi, and M. Ceriotti, “Symmetry-adapted
+machine learning for tensorial properties of atomistic systems,” Physical Re-
+view Letters, vol. 120, no. 3, p. 036002, 2018.

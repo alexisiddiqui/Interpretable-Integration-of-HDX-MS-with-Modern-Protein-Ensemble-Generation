@@ -1,0 +1,40 @@
+52 CHAPTER 2. LITERATURE REVIEW
+
+constraints are introduced to ensure that charge is conserved within a molecule; re-
+moving this constraint leads to a large overestimation of polarisability [106]. How-
+ever, given the importance of charge transfer from a quantum mechanical point of
+
+view, some models have been proposed to ease this problem [114, 115, 116].
+
+One of the main advantages of the fluctuating charges method is that it intro-
+duces no new potentials, and thus the implementation is easy and can take advan-
+tage of previous software development. There are also efficient methods to propa-
+gate the charges in an extended Lagrangian fashion [103, 108], although the smaller
+
+timesteps required can burden computation nonetheless.
+
+Nevertheless, the fluctuating charges method has some intrinsic problems. As a
+start, the charges represent only the first moment in the multipole expansion, and
+do not represent the electron distribution accurately in general [117]. In this way,
+fluctuating charges force fields include polarisation corrections, but their treatment
+
+of electrostatics is no better than in additive force fields.
+
+There are also more technical problems. On one hand, it has been shown that
+out-of-plane polarisation for planar or linear moieties is not reproduced, since the
+charge transfer proceeds along the bonds [103]. Additionally, it was shown that
+fluctuating charges cannot reproduce the energy of alanine tetrapeptide conform-
+ers [115], which has prompted a migration of research to the induced dipoles frame-
+work [103] described vide infra.
+
+There are several current implementations of the fluctuating charge model. Some
+of the most extended include the universal force field UFF [118], and a version of
+CHARMM22 [119, 120], as well as the original TIP4P/FQ [111] model. There is also
+a generalisation of the method to fluctuating multipoles [121].
+
+2.3.3 Classical Drude oscillator
+
+The classical Drude oscillator model owes its name to the work of the German
+physicist Paul Drude at the beginning of 20th century. His Drude model tried to ex-
+
+plain the electrical properties in metals by assuming that electrons could be treated

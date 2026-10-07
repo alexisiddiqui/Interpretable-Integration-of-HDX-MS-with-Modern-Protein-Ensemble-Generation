@@ -1,0 +1,54 @@
+Edge Article Chemical Science
+
+3.0 3.0
+2.54 254
+3 3
+8 2.04 8 2.04
+£ £
+< 154 = 154
+3 3S
+8 1.04 $1.04
+8 a
+0.5 4 0.54
+0.0 +5 - - - - - - o.o+5 r + : : : .
+3.0 3.0
+2.54 2.54
+3 3
+£2.04 8 2.04
+rH un
+e o
+£15] =,
+57 gi?
+s B=]
+8 8
+S 3
+8 1.04 3107
+8 a
+0.5 4 0.5 4
+o.o+5 : : 1 : : r , 0.0 ++ : , r r r + r
+
+Fig.2 Plots showing the distribution of HF delocalization indices for carbon-carbon (upper left), carbon—oxygen (upper right), carbon—nitrogen
+(lower left) and carbon—hydrogen (lower right) bonds. The presence of plateaus demonstrates the presence of remarkably stable patterns,
+identifiable with the classical ‘single’, ‘double’ and ‘intermediate’ pictures. In this way, Lewis's picture can be recovered from the delocalization
+indices.
+
+the other two plateaus in the area 1.2-1.4 correspond to double a through-space bond between two atoms in the amino acid
+C=O bonds. These two plateaus refer to aldehydes (~1.2) and __ lysine that are not directly bonded according to classical Lewis
+ketones (~1.4) whose C=O bond has been, respectively, theory (but show a bond critical point connecting them, at HF
+depleted or enriched in electron density. Finally, at the top of _ level).
+
+the plot lies the triple bond occurring in carbon monoxide, with These results lead to the conclusion that there are several
+a value considerably smaller than 3, due to the considerable very stable bonding patterns, which correlate with the classical
+polarization of this bond. The reason that the delocalization vision of single, double and triple bonds, as well as aromatic
+indices for carbon-oxygen bonds are slightly smaller than those _ intermediates, while there are also intermediate cases that give
+for carbon-carbon bonds is again polarization, and will be rise to a quasi-continuous distribution. In this way, the delo-
+discussed fully vide infra. In the lower left plot of Fig. 2, we calization index confirms and extends Lewis's vision. Addi-
+encounter the clear plateau of the single C-N bond, such as in _ tionally, the sharp discontinuity between non-bonded (separate
+amines, and also the several intermediate points, such as the cluster of DI values appearing at the bottom left of each panel)
+C-N in amides and resonant heterocycles, and less common and bonded interactions revitalizes the picture of the chemical
+double and triple bonds. Finally, the lower right plot shows — bond.
+
+a unique plateau, around 0.8-1.0, as expected from carbon- In Fig. 3 we perform a more sophisticated statistical analysis,
+hydrogen bonds. The only outlier, at 0.5, corresponds to through k-means clustering, a common technique to recognize
+
+This journal is © The Royal Society of Chemistry 2018 Chem. Sci., 2018, 9, 5517-5529 | 5523

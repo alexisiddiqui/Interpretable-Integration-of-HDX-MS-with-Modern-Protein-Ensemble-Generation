@@ -1,0 +1,24 @@
+5.4 Resultsand discussion ............0 000 eee eee eee 167
+5.4.1 Simple models: dissociation curves ............... 167
+
+5.4.2 Simulations of realisticmolecules ................ 171
+
+5.5 Conclusions ........ 20... 00 ee ee 180
+
+6 Conclusions 182
+A Attached publication 186
+A.1 Publication in Chemical Science... 2... ee es 186
+A.2 Listofcompounds ..... 20... 0.000. eee 201
+
+B_ Fortran subroutines for FFLUX 211
+C Derivation of multipolar electrostatics 221
+C.1 Interaction between charge distributions. ................ 221
+C.2 Interactiontensors ..... 20... 0. ce ee eee 224
+C.3 Multipolar interactions... 2... 2... ee 226
+C.4 Differences between quadrupole definitions. .............. 229
+C.5 Multipole rotation... 2... 2... ee 230
+Bibliography 232
+
+Word count 42,894
+
+6

@@ -1,0 +1,41 @@
+BIBLIOGRAPHY 235
+
+[29] P.-O. Léwdin, “Proton tunneling in DNA and its biological implications,” Re-
+views of Modern Physics, vol. 35, no. 3, p. 724, 1963.
+
+[30] Y. Cha, C. J. Murray, and J. P. Klinman, “Hydrogen tunneling in enzyme reac-
+tions,” Science, vol. 243, no. 4896, pp. 1325-1330, 1989.
+
+[31] P. W. Atkins and R. S. Friedman, Molecular Quantum Mechanics. Oxford Uni-
+versity Press, 2011.
+
+[32] I. N. Levine, D. H. Busch, and H. Shull, Quantum Chemistry, vol. 5. Prentice
+Hall, 2000.
+
+[33] D. Marx and J. Hutter, Ab initio molecular dynamics: basic theory and advanced
+methods. Cambridge University Press, 2009.
+
+[34] M. Born and R. Oppenheimer, “Zur Quantentheorie der Molekeln,” Annalen
+der Physik, vol. 389, no. 20, pp. 457-484, 1927.
+
+[35] M. Born and R. Oppenheimer, “On the quantum theory of molecules,” in
+Quantum Chemistry: Classic Scientific Papers, pp. 1-24, World Scientific, 2000.
+
+[36] F. London, “On the theory of non-adiabatic chemical reactions,” Zeitschrift fiir
+Physik, vol. 74, no. 132, 1932.
+
+[37] S. Pisana, M. Lazzeri, C. Casiraghi, K. S. Novoselov, A. K. Geim, A. C. Ferrari,
+and F. Mauri, “Breakdown of the adiabatic Born—Oppenheimer approxima-
+tion in graphene,” Nature Materials, vol. 6, no. 3, p. 198, 2007.
+
+[38] A. M. Virshup, C. Punwong, T. V. Pogorelov, B. A. Lindquist, C. Ko, and
+T. J. Martinez, “Photodynamics in complex environments: ab initio multiple
+spawning quantum mechanical/molecular mechanical dynamics,” The Jour-
+
+nal of Physical Chemistry B, vol. 113, no. 11, pp. 3280-3291, 2008.
+
+[39] D. R. Yarkony, “Nonadiabatic quantum chemistry past, present, and future,”
+Chemical Reviews, vol. 112, no. 1, pp. 481-498, 2011.
+
+[40] T. Helgaker, P. Jorgensen, and J. Olsen, Molecular electronic-structure theory.
+John Wiley & Sons, 2014.

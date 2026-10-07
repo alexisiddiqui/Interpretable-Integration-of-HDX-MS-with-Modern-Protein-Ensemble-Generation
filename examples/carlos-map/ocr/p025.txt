@@ -1,0 +1,46 @@
+24 CHAPTER 2. LITERATURE REVIEW
+
+Schrodinger equation:
+
+in? &(1; t) = H®(r;t) (2.1)
+
+In this expression ® is the wavefunction, a function dwelling in the Hilbert space
+£?(IR°) of normalisable functions. This function represents the state of a system,
+and contains all the information that can possibly be measured on this system. On
+the other hand, H is the Hamiltonian, an operator that yields the total energy of the
+
+system.
+
+Equation 2.1 is similar to Newton’s second law in quantum mechanics. Given a
+system that is in the state ;,(r) at time t, it is possible to obtain the state of the sys-
+tem at any time ¢ + t’, simply by integrating Schrédinger equation. Neglecting the
+epistemological challenge of the probabilistic interpretation of quantum mechanics,
+or the measure problem, it turns out that the methods in quantum mechanics are
+
+not very different from their classical analogues.
+
+Difficulties arise, however, when one tries to study a molecular system. The
+
+form of the Hamiltonian for an arbitrary molecule is, in atomic units:
+
+A= — Vaya “hp 1V2- a
+EE uae ry
+
+A B>A i j>i
+
+(2.2)
+
+a
+
+Here, we employ the uppercase indices A and B for the nuclei, and the lowercase
+variants i and j for electrons. The five terms are, correspondingly, the nuclear kinetic
+energy Truc, the electronic kinetic energy Telecr the electron-nucleus interaction po-
+tential V,., the nucleus-nucleus interaction potential Van and the electron-electron
+
+interaction potential Veo.
+
+In equation 2.2 there are three many-body terms that hinder its exact resolution
+in analytical form. We remark that this situation implies no novelties with respect to
+classical mechanics, where a problem involving three or more bodies is equally un-
+
+solvable. However, problems in computational chemistry can be significantly more

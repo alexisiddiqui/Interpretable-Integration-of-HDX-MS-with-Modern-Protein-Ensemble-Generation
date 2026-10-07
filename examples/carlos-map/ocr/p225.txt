@@ -1,0 +1,40 @@
+224 APPENDIX C. DERIVATION OF MULTIPOLAR ELECTROSTATICS
+
+with k = k’ = M is roughly O(N?**), and thus rapidly becoming prohibitive. For-
+tunately, in FFLUX it is not necessary to evaluate the electrostatic interactions be-
+tween atoms in the same molecules (intramolecular electrostatics are already taken
+
+into account in the Ejga models).
+
+C.2 Interaction tensors
+
+We first provide the formulae for the interaction tensors Ty , that are then em-
+ployed in the following section to define the multipolar interactions. The first inter-
+
+action tensor Tj; is trivially:
+
+1
+Ty(R) = Re (C.11)
+Here, as defined in previous section, R;; = ||R||, and R is the vector joining the
+atoms in i and j (or the centers of both charge distributions, in the general case). The
+
+successive interaction tensors are obtained by deriving T;;(R); for example, Ti (R)
+
+is:
+
+1 Rijn
+Tj(R) = Va (x) =— RS (C.12)
+j
+Similarly:
+78 Rijn 1 1
+ij (R) = VaVpTi(R) = Vp | 3) = —Rija Ve | R- | — pa V6 (Rita)
+! Rij Ry} Ri
+— BRijwRijp 1 bap = BRijaRij,p — Rida,p
+= AP 28 = ———_—__—
+(C.13)
+
+The derivation of the rest of the formulae can be greatly simplified by employing
+the symmetry properties of the indices «, B,... This follows from Schwartz’s theo-
+rem [329], which states that second derivatives of continuous functions are identical
+
+upon permutation of the derivative’s indices. Since Rj" and its derivatives of any

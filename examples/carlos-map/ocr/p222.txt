@@ -1,0 +1,29 @@
+Appendix C
+
+Derivation of multipolar electrostatics
+
+In this appendix, we provide a derivation of the formulae for the interaction be-
+tween multipoles up to quadrupole. These formulae have been employed in Chap-
+ter 3, and are useful for pedagogic purposes.
+
+C.1 Interaction between charge distributions
+
+We begin by considering two distributions of charge, p;(r) and p2(r), defined
+in regions of real space sufficiently disjoint to ensure that the conditions discussed
+in Section 2.2.2 hold. The interaction energy between these two distributions in
+
+vacuum, assuming that they do not alter each other, will be (in atomic units):
+
+pil Tj )p2( rj) Te.
+I I. |R+4;-1;]] —x;|| arid; (C1)
+
+Here R is the vector joining r; and rj, the centers of both charge distributions; this
+allows to express each charge distribution in its local frame of reference. Generally,
+the integration over r; and 1; will be very complex, since the integration domain is
+six-dimensional and the functional form of the distributions p; and p2 can be very
+complex. However, it is possible to separate variables, as done in Section 2.2.3, by
+expanding the term ||R + rj — r;|| tina Taylor series about r; — r;, which we denote
+
+as Laplace or multipolar expansion:
+
+221

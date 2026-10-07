@@ -1,0 +1,47 @@
+4.1. THEORETICAL BACKGROUND 123
+
+both integrals in the form:
+
+6(A,B) = 40 mini | pi(r)p;(r) dr |
+
+ijkl ‘A o
+
+Pe(x) p(x) dr (4.17)
+
+Since Roo(r) = 1, the integrals in this expression are merely Qi, and it is trivial
+
+to arrive at:
+
+6(A, B)
+
+Vse(A,B) & —e
+
+(4.18)
+
+There are a few comments to be made about this derivation. Although we have
+employed the multipolar expansion in spherical tensor form to ease the notation
+and derive the result rigorously, its physical meaning might be slightly obscured.
+The reader should not be distracted from the fact that we are simply performing a
+Taylor expansion and truncating to the first term. In fact, if one chooses to approx-
+imate the denominator in Vxc(A, B) as 1/R (to be compared with equation 2.52 in
+
+section 2.2.3), the same conclusion will follow.
+
+In a different view, the delocalization index can be understood as the interaction
+between two exchange charges. A study of the behaviour of the multipolar expansion
+
+of the exchange interaction has been recently performed by the Pendas group [271].
+
+Finally, we note that the delocalization index is significantly cheaper computa-
+tionally that the full exchange-correlation interaction. All the integrals in equation
+4.17 are 3D integrals that can be computed readily, unlike the 6D integrals in equa-
+tion 4.12 that can be very burdensome. In this way, the DI is a promising quantity
+that could allow to understand exchange-correlation interactions in large systems,
+
+where calculating the full Vxc is prohibitive.
+
+4.1.3 The Miller approximation
+
+Many of the derivations regarding QCT have retained a high degree of generality
+
+through the formalism of reduced density matrices. However, as seen in equation

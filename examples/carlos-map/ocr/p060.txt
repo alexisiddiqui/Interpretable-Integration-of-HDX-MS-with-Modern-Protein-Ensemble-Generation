@@ -1,0 +1,43 @@
+2.4. QUANTUM CHEMICAL TOPOLOGY 59
+
+Point type (w, 0)
+
+Nuclear critical point (NCP) (3, -3)
+Bond critical point (BCP) (3, -1)
+Ring critical point (RCP) (3, +1)
+Cage critical point (CCP) (3, +3)
+
+Table 2.1: Classification of the critical points of the electron density
+
+in triple carbon-carbon bonds, such as acetylene. For a long time it was believed
+that these were a consequence of ill-posed calculations, but they were discovered
+experimentally in the nineties [141, 142, 143], and later shown to be a natural con-
+
+sequence of the bond distance decreasing by Pendas [144].
+
+Of greater importance are the bond critical points. As their name indicates, these
+were initially thought to be the fingerprint of a bond [145, 146], although several
+criticisms [147, 148, 149] led Bader to retract his position in 2009 [150]. Today the
+
+community is persuaded that BCPs are not equivalent to bonds [151].
+
+The following step in our presentation of QTAIM is to define the concept of
+atomic observable; to do this, however, we need to ensure that the systems defined
+by the zero flux condition described above are quantum-mechanically consistent.
+Following a recent preprint on the open problems of QTAIM [152], there are three
+main ways of deriving this fact (and the zero flux condition): through the unique-
+ness of the kinetic energy (however, it has been pointed out that not all families
+of kinetic energy operators will yield the same expectation value if integrated over
+a QTAIM basin [153]), through the atomic virial theorem and through the varia-
+tional principles. All this methods are described to some extent in Bader’s original
+
+monograph [140].
+
+In this section, we have decided to employ the variational formulation for its
+particular elegance. We note, however, that the use of Schwinger’s action principle
+as done by Bader has been criticised by Cassam-Jenai and Jayatilaka due to math-
+ematical problems [154, 155, 156]. Here, we follow the approach of Pendas et al.
+[157], which is more mathematically elegant in our view, and does not suffer of this
+problem, since it does not employ Schwinger’s action principle. For a mathemati-
+
+cally rigorous derivation, we refer to the work of Shahbazian [158].

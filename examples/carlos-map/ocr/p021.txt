@@ -1,0 +1,40 @@
+20 CHAPTER 1. CONTEXTUALISATION
+
+carefully designed for molecular dynamics simulations [11]. The analysis of several
+very long (> 100 ys) simulations performed in this computer showed how proteins
+drifted away from their native structures, thus showing how force fields poorly
+model the physics of the system [12]. The authors concluded that:
+
+In our view, it is probably more beneficial in the long run to focus on the
+development of better force fields than on the development of sophisti-
+
+cated methodologies for scoring structures realised in simulation.
+
+A significant amount of work has been dedicated to produce novel force fields,
+mostly through the perhaps incremental approach of including polarisation effects
+[13, 14]. Moreover, in a very recent perspective by Teresa Head-Gordon [15], it was
+
+claimed that:
+
+Looking further ahead, force fields may undergo a more radical transfor-
+mation, moving away from certain privileged functional forms selected
+based on physical observations. Machine learning opens up the possi-
+bility of simulating interaction energies and forces without any sort of
+explicit functional form, or at least of automatically selecting functional
+
+forms.
+
+With the advent of deep learning [16], several very successful models have
+arisen, for example for prediction of thermochemical quantities [17] or as full-fledged
+force fields [18].
+
+The Popelier group has been amongst the pioneers employing machine learn-
+ing for molecular simulation, since more than a decade ago [19]. This approach, the
+Quantum Chemical Topological Force Field (QCTFF, later on renamed as FFLUX)
+employs a non-parametric potential based on knowledgeable quantum atoms [20],
+that has a strong focus on employing multipolar electrostatics to provide an accu-
+
+rate modelling of intermolecular interactions.
+
+This thesis captures the work performed by the author in the Popelier group
+during the 2017-2018 academic year, as a Master of Philosophy student. Given the

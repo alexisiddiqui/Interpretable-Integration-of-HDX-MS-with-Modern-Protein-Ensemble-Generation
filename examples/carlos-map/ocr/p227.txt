@@ -1,0 +1,36 @@
+226 APPENDIX C. DERIVATION OF MULTIPOLAR ELECTROSTATICS
+
+105 Rij, Rij, pRij,y~ Rijs — 21}, (Rij,aRij,568,7 + Rij, pRi66a,7 + Rij, yRij,65a,p)
+
+(C.19)
+
+The second term is:
+
+—15Rj, (Rij,aRij,p57,5 + Rij wRij7p,6 + Rij, pRijy5a5) + 3Ry, (52,857, 6 + 5x75 ps + 5a55py)
+
+(C.20)
+
+Gathering both terms together:
+
+5 1
+rip = @ x [105R;;, aR, pRijyRijs — ISR}; (Rij aRij,s5p,y + Rij, pRij65a,7 + Rij-yRij,s50,p
+ij
+
+Rij wRij pds + Rij,a Rip, + Rij pRij75n,5) + 3Ri (62,5, o+ Sx p65 + 5e55py)
+(C21)
+
+Interaction tensors of higher order can be derived by applying the same tech-
+niques; however, they soon become enormously complex, since the number of
+terms necessary to ensure that the symmetry holds grow exponentially with the
+number of indices. We note that there exist several efficient approaches to compute
+
+these terms using recurrence relations, for example [330].
+
+C.3 Multipolar interactions
+
+We now return to equation C.5:
+
+1 MX 1 a a se
+[Ren ce) WIR) + OF TR) + gO — ANP — TPR)
++ Z(t yf = B07 THR) (C.22)
++ wal" - ry rp - byy - r\(} — r) 7; (R) +...

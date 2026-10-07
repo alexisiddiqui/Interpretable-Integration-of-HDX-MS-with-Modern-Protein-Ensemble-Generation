@@ -1,0 +1,40 @@
+72 CHAPTER 2. LITERATURE REVIEW
+
+{xx}, {ye}:
+yi = f (xi) + (xi) (2.137)
+
+Note that we assume that our observations (and our predictions!) can be cor-
+rupted by a noise e. Also, this error can be considered to be dependent on the
+features (heteroscedastic regression), although we will assume that the variance is
+
+constant (homoscedastic regression) without loss of generality.
+
+The distinguishing feature of Gaussian process regression is that we assume
+that the regression function f can be taken as the sample from a Gaussian process:
+a stochastic process (i. e. a collection, perhaps infinite, of random variables) in which
+every finite subcollection of random variables follow a multivariate normal distri-
+
+bution (the generalisation of a normal distribution to several variables).
+
+In general, this statement might be quite confusing, so it is useful to obtain an
+intuitive understanding. Let us take a function f € £7; it is known from functional
+
+analysis that it can be expanded in a complete basis:
+
+F(x) = cee) (2.138)
+k=0
+
+If we fix a given complete basis, any possible function in £? can be represented
+simply by choosing the right coefficients c;,. It is worth to pay special attention to
+these coefficients; in particular, a given set of coefficients can be considered as an
+
+element of C®, the space of all infinite sequences of complex numbers.
+
+{c,} = (cy, C2, ..-) €ce (2.139)
+
+Now, let us assign an univariate normal distribution N’(1,7) to each of these
+coefficients. Let us assume that, in the position k, the mean 4; is equal to the coef-
+ficient c, in the expansion of a given “true” regression function f, and the standard
+deviation 7, which is the same for every k due to our assumption of homoscedas-
+
+ticity, represents the error.

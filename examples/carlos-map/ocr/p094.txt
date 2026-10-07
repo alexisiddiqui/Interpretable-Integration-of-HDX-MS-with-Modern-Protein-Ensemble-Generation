@@ -1,0 +1,46 @@
+3.2. FORCE FORMULAE 93
+
+Finally, the third row of the matrix C can be obtained by enforcing orthogonality
+with the other two rows. If we define the vector C,, = {C,,} for k = 1,2,3, then:
+
+C3 = Cy x Cy (3.15)
+
+With this, the featurization of atomic internal coordinates is complete.
+
+3.2 Force formulae
+
+3.2.1 Internal forces
+
+The valence potential in FFLUX is described by the machine-learned IQA energy.
+The equation providing the value of Ejg, is simply the kriging equation derived in
+
+Section 2.5.1, that can be written with explicit summations as:
+
+Ntrain Nyeat
+Eiga(f*) =" +) | exp (- » aif” - fir) (3.16)
+j=l
+
+n=1
+
+Here, f is the vector of ALF features defined in equation 3.3. The objective of
+this section is to derive the forces that are exerted on the atom O as a consequence
+of displacement. The procedure starts simply by application of the chain rule of
+
+calculus to provide the gradients:
+
+Natoms Natoms Nfeatures Pa) (A)
+a (Ee) _ "ss (2828 fi ) 6.17)
+
+A dof? A k a fi”) dai
+
+The first derivative in the right-hand side can be trivially computed from equa-
+tion 3.16. We note that the absolute value there is non-differentiable at ft” - ff =0;
+however, since pj; is defined to be 2.0 in modern implementations of FFLUX, we can
+
+simply take | ft” - ffl? = ( i - ff? which is differentiable everywhere. Thus:
+
+Nerain Neeat
+
+oat =-26, [o (A — fe) exw (- Lf,” -#)] 6.18)
+k n J
+

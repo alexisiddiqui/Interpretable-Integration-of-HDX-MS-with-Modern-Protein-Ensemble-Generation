@@ -1,0 +1,36 @@
+108 CHAPTER 3. THE QUANTUM CHEMICAL TOPOLOGY FORCE FIELD
+
+-76.42
+
+-76.43
+
+&
+
+>, —76.44
+a
+e
+a
+c
+wi
+
+76.45
+
+—76.46
+
+0
+
+500 1000 1500 2000 2500
+Simulation steps
+
+Figure 3.5: Evolution of the energy along a single water Monte Carlo simulation.
+After about 1000 steps, the energy of the system gets stuck in a constant energy
+of -76.4166 hartree, and does not change independently of the distortion. This is a
+
+consequence of the extrapolation collapse.
+
+Figure 3.6: First (left) and last (right) snapshots of a 2500 step single water Monte
+
+Carlo simulation. Due to the extrapolation collapse, a random distortion can take
+the molecule outside of the training region, where the potential is flat and unphys-
+
+ical behaviour arises.

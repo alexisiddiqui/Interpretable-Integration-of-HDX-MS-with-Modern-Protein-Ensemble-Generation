@@ -1,0 +1,67 @@
+218 APPENDIX B. FORTRAN SUBROUTINES FOR FFLUX
+
+34 ! Define index for non—ALF atoms
+35 Do i = 1, natms ! set integers
+36 nonalf(i) = i
+
+37 End Do
+
+38
+37 |! Swapping
+« Doi =1, 3
+
+41 nonalf(i) = alf(iatm, i)
+2 End Do
+
+43
+
+44 ! Add the others
+
+45 j = 0
+
+« Do i = 4, natms
+47
+48 Do While (1 .eq. 1)
+
+49
+
+50 switch = .False.
+
+51 j=zjrtil
+
+52 If (nonalf(1) .eq. j) switch = .True.
+53 If (nonalf(2) .eq. j) switch = .True.
+54 If (nonalf(3) .eq. j) switch = .True.
+55
+
+56 If (switch .eqv. .True.) Then
+
+57 Cycle
+
+58 Else
+
+59 Exit
+
+60 End If
+
+61
+
+62 End Do
+
+63
+
+64 nonalf(i) = j
+
+65
+
+«6 End Do
+
+67
+
+6 ! non—ALF-defining atoms
+
+«6 Doi = 4, natms
+70
+m1 r = features (3*(i—3)+1)
+
+n theta = features (3*(i—3)+2)

@@ -1,0 +1,41 @@
+BIBLIOGRAPHY 249
+
+[168] J. L. McDonagh, A. F. Silva, M. A. Vincent, and P. L. A. Popelier, “Machine
+learning of dynamic electron correlation energies from topological atoms,”
+
+Journal of Chemical Theory and Computation, vol. 14, no. 1, pp. 216-224, 2017.
+
+[169] J. L. Casalz-Sainz, J. M. Guevara-Vela, E. Francisco, T. Rocha-Rinza, and
+A. Martin Pendas, “Where does electron correlation lie? Some answers from
+
+a real space partition,” ChemPhysChem, vol. 18, no. 24, pp. 3553-3561, 2017.
+
+[170] W. Kohn and L. J. Sham, “Self-consistent equations including exchange and
+correlation effects,” Physical Review, vol. 140, no. 4A, p. A1133, 1965.
+
+[171] A. D. Becke, “Density-functional thermochemistry. III. The role of exact ex-
+change,” The Journal of Chemical Physics, vol. 98, no. 7, pp. 5648-5652, 1993.
+
+[172] M. G. Medvedev, I. S. Bushmarinov, J. Sun, J. P. Perdew, and K. A. Lyssenko,
+“Density functional theory is straying from the path toward the exact func-
+tional,” Science, vol. 355, no. 6320, pp. 49-52, 2017.
+
+[173] K. P. Kepp, “Comment on “density functional theory is straying from the path
+toward the exact functional”,” Science, vol. 356, no. 6337, pp. 496-496, 2017.
+
+[174] M. G. Medvedev, I. S. Bushmarinov, J. Sun, J. P. Perdew, and K. A. Lyssenko,
+“Response to comment on density functional theory is straying from the path
+
+toward the exact functional,” Science, vol. 356, no. 6337, pp. 496-496, 2017.
+
+[175] K. R. Brorsen, Y. Yang, M. V. Pak, and S. Hammes-Schiffer, “Is the accuracy
+of density functional theory for atomization energies and densities in bond-
+ing regions correlated?,” The Journal of Physical Chemistry Letters, vol. 8, no. 9,
+pp. 2076-2081, 2017.
+
+[176] K. P. Kepp, “Density functional theory is not straying from the path toward
+the exact functional,” arXiv preprint arXiv:1702.00813, 2017.
+
+[177] D. Kosov and P. L. A. Popelier, “Atomic partitioning of molecular electrostatic
+potentials,” The Journal of Physical Chemistry A, vol. 104, no. 31, pp. 7339-7345,
+2000.

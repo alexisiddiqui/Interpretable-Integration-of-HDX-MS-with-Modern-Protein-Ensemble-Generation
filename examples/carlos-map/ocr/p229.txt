@@ -1,0 +1,39 @@
+228 APPENDIX C. DERIVATION OF MULTIPOLAR ELECTROSTATICS
+
+Similarly, the first two terms in C.23 yield the charge-quadrupole term, which
+
+by the same procedure can be shown explicitly to be:
+
+rf I (rir? + rr? ox (ri) 2 (rj) drjdrj =
+A,BY Oa JOB
+
+; (C.27)
+» Lh, rr? o1(x;) dr; [ p2(x;) dx; + [. pi(x;) dz; I rir; p2(t)) ax
+The charge-quadrupole interaction has then the following form:
+1 a eg
+Uye = 5 (4:05 + ofa) T;P(R) (C.28)
+
+We now turn to the third-order term:
+
+(rf (ef <A) (F = rf) arr + rhe? — reer — Ptr? (C.29)
+
+— pt Be BY a BL 4 Ba
+rT tj TT, TG OTT
+
+There are many terms here that will be ignored. For example rr? r! and rer r}
+
+give rise to the charge-octapole terms, but terms of higher order than quadrupole
+
+are neglected in MC_FFLUX. Thus, we will assume:
+
+awe) (yB By (7 nV) yt BLY 0 BLY B07
+(PT, — HG <1) SIT) iT 7; (C30)
+
+BLY BLY B07
+rT PTT; PTT;
+
+All these are quadrupole-dipole interaction terms, that using the procedure al-
+
+ready outlined above, will give rise to:
+
+yor — or u® — ots — aru + user” + wher? = 3(uter? —efu?) — (C31)

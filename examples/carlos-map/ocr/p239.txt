@@ -1,0 +1,39 @@
+238 BIBLIOGRAPHY
+
+[61] P. M. Morse, “Diatomic molecules according to the wave mechanics. II. Vibra-
+
+tional levels,” Physical Review, vol. 34, no. 1, p. 57, 1929.
+
+[62] H. M. Senn and W. Thiel, “QM/MM methods for biomolecular systems,”
+Angewandte Chemie International Edition, vol. 48, no. 7, pp. 1198-1229, 2009.
+
+[63] A. R. Leach, Molecular modelling: principles and applications. Pearson education,
+2001.
+
+[64] N. L. Allinger, Y. H. Yuh, and J. H. Lii, “Molecular mechanics. The MM3
+force field for hydrocarbons,” Journal of the American Chemical Society, vol. 111,
+no. 23, pp. 8551-8566, 1989.
+
+[65] S. Chmiela, A. Tkatchenko, H. E. Sauceda, I. Poltavsky, K. T. Schiitt, and K.-
+R. Miiller, “Machine learning of accurate energy-conserving molecular force
+fields,” Science Advances, vol. 3, no. 5, p. 1603015, 2017.
+
+[66] J. E. Jones, “On the determination of molecular fields. II. From the equation
+of state of a gas,” Proceedings of the Royal Society of London A, vol. 106, no. 738,
+pp. 463-477, 1924.
+
+[67] R. A. Buckingham, “The classical equation of state of gaseous helium, neon
+and argon,” Proceedings of the Royal Society of London A, vol. 168, no. 933,
+pp. 264-283, 1938.
+
+[68] W. L. Jorgensen, J. Chandrasekhar, J. D. Madura, R. W. Impey, and M. L. Klein,
+“Comparison of simple potential functions for simulating liquid water,” The
+Journal of Chemical Physics, vol. 79, no. 2, pp. 926-935, 1983.
+
+[69] S. Cox and D. Williams, “Representation of the molecular electrostatic poten-
+tial by a net atomic charge model,” Journal of Computational Chemistry, vol. 2,
+no. 3, pp. 304-323, 1981.
+
+[70] L. E. Chirlian and M. M. Francl, “Atomic charges derived from electrostatic
+potentials: A detailed study,” Journal of Computational Chemistry, vol. 8, no. 6,
+pp. 894-905, 1987.

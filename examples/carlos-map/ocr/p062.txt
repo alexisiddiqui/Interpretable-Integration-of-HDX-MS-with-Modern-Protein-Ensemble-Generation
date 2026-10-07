@@ -1,0 +1,39 @@
+2.4. QUANTUM CHEMICAL TOPOLOGY 61
+
+surface integral with fixed boundary conditions at infinity). Therefore, the previous
+
+equation can be reduced to:
+
+51[¥,Q] = f. dSy / dr, [VICE Pons Vi moe (2.97)
+
+Now, the diagonal first-order density matrix (a function that will be introduced
+in detail vide infra) is introduced:
+p= N [ ¥°¥ae, = Nef ¥(tis---/ty)¥" (ty, ty)dre _..dty, (2.98)
+Then, equation 2.97 might be written as:
+
+51[¥,Q] = 4. dS; [anos / dr, V¥" rad (2.99)
+
+The first term can be simplified by noticing that:
+
+t. 45155, V7p5n5 =- I dr5 {Vp} - 3 I drV2p (2.100)
+
+Equally:
+
+[,an0 {ve} = Nf ds [ ar, {(V¥*) oY + ¥*OV¥} on (2.101)
+
+Gathering all components together:
+
+2
+o1=e as [dr {(V¥")5¥+¥9V¥}-n
+le)
+
+m
+h
+~ 4mN
+
+(2.102)
+a drV*p +0. ¢.
+fe)
+
+It is easy to recognise that the first integral contains the variation of the current
+density 6j = fdr, {(V¥*)5¥+¥*5V¥}. For a stationary state, this term will

@@ -1,0 +1,51 @@
+C.3. MULTIPOLAR INTERACTIONS 227
+
+This expansion contains not only the terms for interactions up to quadrupole-
+quadrupole, but also includes charge-quadrupole, dipole-octapole and charge-hexadecapole
+
+interactions. We will ignore those, although it is possible to obtain them trivially.
+
+We already showed at the beginning of this Appendix that the first two terms in
+equation C.22 give rise to the charge-charge and charge-dipole terms respectively.
+
+For the second-order term, we first note that:
+
+(rf — rr? - rh) = = rr? + rerh — reek - rb (C.23)
+
+It is easy to recognise that the order of each term will give rise to different multi-
+
+a yB
+ij
+
+is placed inside the integral in equation C.1. If we do this for the last two terms in
+
+poles. For example, the term rr’, will give rise to two dipoles when this expression
+
+equation C.23, we then obtain the following expression, that can easily be recog-
+
+nised as 15,5 + Hang:
+
+_ ab x) ind
+Eh, [ir tT; )e1 (ti) p2(4j) dridr; =
+
+B
+_ L a roi (r1 Jar f, rfatee) dea + | 1, 01(t1) dry I, 4 p2(t2) an
+
+(C.24)
+
+We note that this term is easily rearranged as (now including implicit summa-
+
+tion to ease the interpretation):
+
+Lowe +L w a 2b (C2)
+a £B a £6 a
+
+The dipole-dipole interaction can then be written, now employing Einstein’s
+
+summation convention again, as:
+
+Uru = — HEMET; F(R) (C.26)
+
+In the equation above, we note that the 1/2 coefficient from the Taylor expansion
+
+gets compensated by the 2 prefactor in equation C.25.

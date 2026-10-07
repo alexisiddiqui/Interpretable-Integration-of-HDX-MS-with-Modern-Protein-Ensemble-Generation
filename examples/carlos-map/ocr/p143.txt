@@ -1,0 +1,38 @@
+142 CHAPTER 4. DELOCALIZATION INDICES AND BOND ORDER
+
+bond, as discussed in Section 2.4.1). However, another study [300] found that bond
+paths connecting the terminal atoms with the metallic ion appear during an ab ini-
+tio molecular dynamics simulation, prompting questions about the bonding in the
+
+complex.
+
+Due to the difficulties of handling metallic compounds, the geometry was opti-
+mised at the B3LYP/6-311++G(2d, 2p) level of theory, and the delocalization indices
+
+were obtained from single point calculations; these are displayed in Figure 4.8.
+
+- a \u1 3063 A 3063
+riz en “< Bsao9 \o7871 -
+
+S .. “~* 0262 Ne.
+).2862
+CAgg003 Arze <<" se Cx gsars on « he
+yor en Y 8409 v 8409
+Figure 4.8: Calculated delocalization indices for (y*-C4H¢)Fe(CO)3 at the B3LYP/6-
+311++G(2d,2p) at the B3LYP/6-311++G(2d,2p) optimised geometry, displaying de-
+
+localization indices at the usual levels of theory. Hartree-Fock values are shown in
+the left, and CCSD/Miiller values in the right.. The Fe-BC values are not displayed,
+
+and are commented in text.
+
+The delocalization indices show that the interaction between the terminal atoms
+(which we will denote by BC) and the iron atom is actually stronger than its ana-
+logue for the central atom in TMM (which we will denote by aC). Although there is
+no direct BC-Fe bond path, 6(BC, Fe) = 0.469 is almost twice as much as 6(aC, Fe) =
+0.292. This is emphasised by the CCSD results, where 5(BC,Fe) = 0.788 and
+6(aC, Fe) = 0.286.
+
+These results can be related to the elementary electron-counting techniques [298],
+where the ligand TMM is expected to have an effective double bond with the iron
+atom. Adding up the delocalized electrons between the three BC and the central

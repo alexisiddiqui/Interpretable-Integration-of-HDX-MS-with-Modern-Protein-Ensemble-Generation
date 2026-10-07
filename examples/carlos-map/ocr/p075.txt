@@ -1,0 +1,40 @@
+74 CHAPTER 2. LITERATURE REVIEW
+
+(y|x) = (ys-y, NI" If) ~ N(£,0°T) (2.141)
+
+Let us consider a test input, which we will denote by x*. We want to rearrange
+the probability distribution that yields f in a way that produces a response to x*;
+and we want to define f using the sets of evaluations S = {x,, y,}. We can do this
+
+by using the sum rule of probability, which in the continuous case is an integral:
+
+P(f*|x*,S) = / P(f*, £|x*, S) dé (2.142)
+
+This last equation can also be interpreted as an average over all possible func-
+tional forms that is weighted by the agreement with the observations S. Now, using
+
+the product rule of probability we arrive to:
+
+P(f*|x*,S) = / P(f*|£,x*, S)P(f*|x*, S) df (2.143)
+
+We will now work on each of the terms in this equation until we obtain a simple
+expression that allows to perform training and prediction using only methods from
+linear algebra that can be easily implemented in a computer. However, it is worth
+to stop briefly on equation 2.143, and appreciate why Gaussian processes are so
+
+important.
+
+Although in the general case an infinite-dimensional Gaussian process can rep-
+resent any function, there is no reason to assume it is the best model. In fact, they
+are inherently bad to model certain processes, with financial data, plagued by sharp
+
+discontinuities, being a good example [190].
+
+However, Gaussian process have a significant advantage that makes them widely
+used even when they are not the most appropriate model: they are analytically
+tractable. For most of the probability distributions, evaluating integrals such as
+equation 2.143 is extremely involved and requires expensive techniques such as
+Markov Chain Monte Carlo (MCMC), or severe approximations such as variational
+inference [191]. Hereafter, we will assume that a Gaussian model is adequate, as is
+
+probably true for the majority of problems related to the objective of this thesis.

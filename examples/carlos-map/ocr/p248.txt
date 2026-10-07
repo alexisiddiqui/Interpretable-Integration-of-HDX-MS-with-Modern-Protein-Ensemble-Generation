@@ -1,0 +1,41 @@
+BIBLIOGRAPHY 247
+
+and H. Willner, “When do interacting atoms form a chemical bond? Spectro-
+scopic measurements and theoretical analyses of dideuteriophenanthrene,”
+
+Angewandte Chemie International Edition, vol. 48, no. 14, pp. 2592-2595, 2009.
+
+[150] R. F Bader, “Bond paths are not chemical bonds,” The Journal of Physical Chem-
+istry A, vol. 113, no. 38, pp. 10391-10396, 2009.
+
+[151] S. Shahbazian, “Why bond critical points are not “bond” critical points?,”
+Chemistry-A European Journal, 2017.
+
+[152] S. Shahbazian, “Revisiting the foundations of the quantum theory of atoms
+in molecules: some open problems,” arXiv preprint arXiv:1706.02288, 2017.
+
+[153] J. S. Anderson, P. W. Ayers, and J. I. R. Hernandez, “How ambiguous is the
+local kinetic energy?,” The Journal of Physical Chemistry A, vol. 114, no. 33,
+pp. 8884-8895, 2010.
+
+[154] P. Cassam-Chenai and D. Jayatilaka, “Some fundamental problems with
+zero flux partitioning of electron densities,” Theoretical Chemistry Accounts,
+vol. 105, no. 3, pp. 213-218, 2001.
+
+[155] P. Cassam-Chenai and D. Jayatilaka, “A complement to some fundamental
+problems with zero flux partitioning of electron densities,” Theoretical Chem-
+istry Accounts: Theory, Computation, and Modeling (Theoretica Chimica Acta),
+vol. 107, no. 6, pp. 383-384, 2002.
+
+[156] P. Cassam-Chenai, “Frequently asked questions on some fundamental prob-
+lems with zero flux partitioning of electron densities,” Journal of Mathematical
+Chemistry, vol. 31, no. 2, pp. 145-153, 2002.
+
+[157] A. M. Pendas, M. Blanco, and E. Francisco, “Revisiting the variational na-
+ture of the quantum theory of atoms in molecules,” Chemical Physics Letters,
+vol. 417, no. 1-3, pp. 16-21, 2006.
+
+[158] P. Nasertayoob and S. Shahbazian, “Revisiting the foundations of quantum
+theory of atoms in molecules (QTAIM): the variational procedure and the
+zero-flux conditions,” International Journal of Quantum Chemistry, vol. 108,
+no. 9, pp. 1477-1484, 2008.

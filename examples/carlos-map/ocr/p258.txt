@@ -1,0 +1,44 @@
+BIBLIOGRAPHY 257
+
+[247] A. R. Leach and V. J. Gillet, An introduction to cheminformatics. Springer, 2007.
+
+[248] P. L. A. Popelier, “Quantum chemical topology,” in The Chemical Bond II,
+pp- 71-117, Springer, 2016.
+
+[249] C. F Matta and R. J. Boyd, The quantum theory of atoms in molecules: from solid
+state to DNA and drug design. John Wiley & Sons, 2007.
+
+[250] G. N. Lewis, “The atom and the molecule.,” Journal of the American Chemical
+
+Society, vol. 38, no. 4, pp. 762-785, 1916.
+
+[251] I. Mayer, “Bond order and valence indices: A personal account,” Journal of
+Computational Chemistry, vol. 28, no. 1, pp. 204-221, 2007.
+
+[252] I. Mayer, Bond orders and energy components: extracting chemical information from
+
+molecular wave functions. CRC Press, 2016.
+
+[253] R. F. Bader and M. E. Stephens, “Spatial localization of the electronic pair and
+number distributions in molecules,” Journal of the American Chemical Society,
+
+vol. 97, no. 26, pp. 7391-7399, 1975.
+
+[254] X. Fradera, M. A. Austen, and R. F. Bader, “The Lewis model and beyond,”
+The Journal of Physical Chemistry A, vol. 103, no. 2, pp. 304-314, 1999.
+
+[255] Y.-G. Wang, C. F. Matta, and N. H. Werstiuk, “Comparison of localization and
+delocalization indices obtained with Hartree-Fock and conventional corre-
+lated methods: effect of coulomb correlation,” Journal of Computational Chem-
+
+istry, vol. 25, no. 2, pp. 309-309, 2004.
+
+[256] J. Poater, M. Sola, M. Duran, and X. Fradera, “The calculation of electron local-
+ization and delocalization indices at the Hartree-Fock, density functional and
+post-Hartree—Fock levels of theory,” Theoretical Chemistry Accounts, vol. 107,
+no. 6, pp. 362-371, 2002.
+
+[257] A. Gallo-Bueno, E. Francisco, and A. M. Pendas, “Decay rate of real space
+delocalization measures: a comparison between analytical and test systems,”
+
+Physical Chemistry Chemical Physics, vol. 18, no. 17, pp. 11772-11780, 2016.

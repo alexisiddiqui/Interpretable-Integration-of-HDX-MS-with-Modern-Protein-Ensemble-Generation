@@ -1,0 +1,65 @@
+Edge Article Chemical Science
+
+agleqrogiog
+TEaefOgeg
+TO --r
+
+Fig.4 Resonance canonicals for benzaldehyde, phenol and phenoxide. As stated in the text, d(C, O) is 0.798 for benzaldehyde, 0.829 for phenol
+and 1.070 in phenoxide, as these structures would suggest.
+
+mesomerism are reproduced. This effect is shown, forexample, molecules.** Additionally, Wu et al. described the synthesis of
+in Fig. 4: in phenol, 6(C, O) = 0.829, which is higher compared _an Ng anion stabilized on multi-wall carbon nanotubes.”
+
+to propanol's value of 6(C, O) = 0.798, while in benzaldehyde Here, we briefly compare the bond orders proposed by
+6(C, O) = 1.297, compared to propanal's 6(C, O) = 1.312. Simi- Hirshberg et al. (which are derived from NBO calculations) with
+larly, 6(C, O) = 1.070 for phenoxide, reflecting that the resonant the information provided by the delocalization indices. The
+forms with a formal positive charge on the oxygen are less suggested Lewis structures are depicted in Fig. 5.
+
+favourable. Fig. 6 displays the optimized structures of the EEE and EZE
+isomers, calculated at the HF (left) and CCSD (right) levels of
+theory, together with the computed delocalization indices. Most
+of the DI results seem to agree with the picture proposed by
+Hirshberg et al. The terminal pairs, N8-N7 and N4-N5, show
+large DI values, close to 2.00 (in CCSD), which are reminiscent
+of acetylene suggesting triple bonds. In addition, the central
+bond N1-N2 has a clear double character, while the N6-N2 and
+N3-N1 are clearly single.
+
+However, the intermediate bonds N6-N7 and N3-N4 do not
+comply with the picture of “strong ionic character” proposed by
+Hirshberg et al. The delocalization index 6(N, N) = 1.17 corre-
+sponds to a single bond that is enriched by some conjugation.
+In fact, although ionicity and covalency are not necessarily
+The Ng molecule opposed concepts,” the calculation of QTAIM charges disagrees
+The existence of a molecule of Ng was first analyzed in 2000 by With the presence of charge transfer. Indeed, the largest charges
+Gordon's group.’” In 2012, this line of research was revitalized te of the order of 0.14e, and contrary to what was suggested by
+after Hirshberg et al. described calculations predicting the Hirshberg e¢ al., lie on terminal nitrogen atoms. These findings
+remarkable stability of a molecular crystal consisting of N, 2!together seem to suggest a pentavalent nitrogen (depicted in
+
+Delocalization indices in uncommon bonding patterns
+
+In the previous section we have shown how delocalization
+indices can contain a significant amount of chemical infor-
+mation. However, our study has been limited to very well-
+known molecules. Here, we take a step forward and apply
+the knowledge, acquired in the previous part, to some
+uncommon bonding patterns. We hope that this will pave the
+way for a more widespread application of delocalization
+indices and help towards the understanding of molecular
+interactions.
+
+N==N —
+pit a a
+4
+
+i——N
+
+=N——N
+
+N>==N N==N
+
+Fig.5 Lewis structure of the Ng molecule. On the left, the structure depicted by Hirshberg et al. in their 2014 paper, obtained through NBO and
+bond length analysis. On the right, the structure suggested by DI analysis.
+
+journal is © The Royal Society of Chemistry 2018 Chem. Sci., 2018, 9, 5517-5529 | 5525
+

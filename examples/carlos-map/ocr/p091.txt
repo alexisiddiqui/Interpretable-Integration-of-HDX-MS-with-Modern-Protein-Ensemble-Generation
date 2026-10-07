@@ -1,0 +1,42 @@
+90 CHAPTER 3. THE QUANTUM CHEMICAL TOPOLOGY FORCE FIELD
+
+reference must be specified in order to obtain sensible multipoles; it is also impor-
+tant in the process of multipole rotation, described in Appendix C.5. In this section
+we will present the Atomic Local Frame (ALF), which is used in FFLUX, not only to
+define the multipoles, but also the features. We report the definition given by [231]
+and corrected by [219, 232].
+
+As will be discussed in Section 3.2, the formulae for the forces in FFLUX depend
+on the assumption that the kriging model uses the positions of the molecule as fea-
+tures. One could, in principle, employ the coordinates of the molecule in a global
+Cartesian frame, but these contain six superfluous degrees of freedom (three of po-
+sition and three of rotation) that are not required, and that are a source of errors and
+inaccuracy during training. The power of the ALF resides in its ability to eliminate
+
+these degrees of freedom.
+
+As its name implies, the ALF is defined per atom. The coordinates of every other
+
+atom in the molecule are given by:
+
+Ap Ox fe) On On
+f° = [Rite Rate XOLF (Rite Ont tr Pate --- Rap Oate onte) | (3.3)
+
+The ALF is set by three atoms, denoted by the indices No, Ox and Oxy. The
+origin of the coordinate system is set on R™, which is the atom whose ALF we
+are defining. The x-axis is chosen to match the R®: — R® vector, and the y axis is
+
+chosen so that both QO, and Ox, are contained in the xy plane.
+
+The non-zero coordinates allow to define the three features that express the con-
+
+figuration of these atoms: the distance between Mo and Ox (R on), the distance
+
+between Oo and Oxy (Ra*.) and the angle between both (x2 ;):
+
+RRig = [[R™ — R% (3.4)
+ROW = |R™ - R™ | (3.5)
+a
+R® RY
+xo Lp = arccos —ALE ALE (3.6)
+RugpRare Lt

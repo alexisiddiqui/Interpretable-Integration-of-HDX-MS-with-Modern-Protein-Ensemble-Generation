@@ -1,0 +1,37 @@
+147
+
+He Ha Hp
+
+, , ;
+Ha x Hp { He s
+
+Hp He Ha
+
+| a | ao [ao
+Ha x Hp 4 He ‘
+
+J ') He J ) Ha J ) Hp
+
+Figure 5.1: Permutationally equivalent conformers of methanol. Each row contains
+three geometries obtained by 120° rotations, and the two elements in each column
+are related by an inversion of handedness. All these geometries are completely
+equivalent: their observable properties are identical, since they share the same
+Hamiltonian.
+
+fmodel = fl. -+/TA,¥B,IC,-- .) (5.1)
+
+then, an arbitrary permutation of the labels (for example ABC > BCA, a 120° clock-
+
+wise rotation) yields a different evaluation of the function
+
+rp Wy
+Icom fraodet = f(-- +0, tp tC, +) (5.2)
+
+ta > 1G
+
+There is, a priori, no reason why fmodel and f/,4qo, Should be equal. A non-
+parametric regression model is merely an interpolation of previously observed val-
+ues, and has no knowledge of the chemical structure to infer that this permutation
+yields an identical physical system. This is a disadvantage with respect to classical
+
+force fields, where the simple but fixed functional forms of the potentials avoid the

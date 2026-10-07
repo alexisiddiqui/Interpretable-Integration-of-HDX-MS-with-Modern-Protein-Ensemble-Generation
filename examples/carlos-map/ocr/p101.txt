@@ -1,0 +1,40 @@
+100 CHAPTER 3. THE QUANTUM CHEMICAL TOPOLOGY FORCE FIELD
+
+set.
+
+Finally, the training sets are passed to FEREBUS [213], a highly-parallelized
+in-house kriging engine, that performs the actual training, resembling the proce-
+dure described in 2.5.2. The output from FEREBUS can be provided directly to
+DL_FFLUX, the implementation of FFLUX in the DL-POLY 4 code [237, 232].
+
+3.4 Accritical appraisal
+
+Every model of physical reality is subject to errors, and understanding when and
+why these errors are important is perhaps as crucial as employing them correctly.
+This might be clarified with a simple example. Hartree-Fock theory is very success-
+ful at predicting geometries and thermochemical properties of organic compounds;
+however, employing this same method to metallic complexes will lead to disas-
+trous conclusions. This does not imply that the theory itself is wrong: it means that
+metallic complexes are beyond its range of applicability. Similarly, understanding
+the reasons behind the failure, in this case the existence of static correlation, allows
+
+to design more powerful methods that can cope with new problems.
+
+Here, after thoroughly presenting the formulation of FFLUX, we will try to dis-
+cuss some of its weaknesses. In this context, these shall not be understood as a
+criticism to the force field, but rather an understanding of its limitations that allows
+to consider its development and applications carefully. As an example, the curse of
+dimensionality presented in Section 3.4.3 implies that handling proteins will only
+be possible after introducing severe approximations in the models. However, this
+same difficulty does not apply to water molecules, and perhaps FFLUX should be
+focused in producing a cheap and accurate model of solvation, a development long
+
+awaited by the quantum chemical community [238].
+
+The difficulties presented here will be based in physical and mathematical rea-
+sonings, and will also be exemplified with some simple numerical verifications. It is
+not the main objective of this thesis, or of this chapter, to treat these problems in de-
+tail, and so the discussion will be kept as concise and simple as possible. Similarly,
+the examples are brief and self-contained, although it will become evident that they
+
+are representative of the respective phenomena, rather than anecdotal findings.

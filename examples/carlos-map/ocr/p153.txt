@@ -1,0 +1,42 @@
+152 CHAPTER 5. SYMMETRY-ADAPTED KRIGING
+
+The same authors proposed another methodology named as Smooth Overlap of
+Atomic Positions (SOAP), based in similar arguments [303]. Strictly speaking, this
+approach is not a featurization, but a measure of similarity that is employed as a
+kernel; however, it is usually regarded in similar terms to other featurization ap-
+proaches [304]. Within this approach, the similarity between two atomic neighbour
+
+densities is defined as their inner product:
+
+(vie!) = [ pi(t)oi(x) ar (5.9)
+
+The invariant kernel is obtained by integrating the equation above over all pos-
+
+sible rotations of one of the environments, as in:
+
+k(pi,P}) = / |S(oi, Rp;)|dR (5.10)
+
+To ensure that this object is continuous, the Dirac deltas in equation 5.7 are sub-
+stituted by Gaussian functions, which in turn are expanded in terms of spherical
+
+harmonics:
+
+2 .
+pi(t) = oe *laill = Yh (2) Yim(r) (6.11)
+where the coefficients c » contain the conjugated spherical harmonic Y;*, (r), grant-
+
+ing it certain orthogonality properties. This expression can be manipulated to yield
+
+the following relation:
+
+ksoar = Cntm (Chim!) * (Cntm)*Cn!tm! (5.12)
+
+nn’ L,mm!
+where the c,,, are the expansion coefficients of the atomic neighbouring density
+in terms of radial basis functions. The SOAP approach has the same properties as
+the bispectrum expansion, with an important advantage: since the neighbouring is
+expressed in terms of Gaussian functions and not Dirac deltas, it responds smoothly
+
+to changes, unlike the former, that can yield strong numerical changes.
+
+Another approach that has recently received much attention in the literature is

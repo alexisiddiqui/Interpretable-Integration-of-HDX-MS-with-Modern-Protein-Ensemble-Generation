@@ -1,0 +1,41 @@
+62 CHAPTER 2. LITERATURE REVIEW
+
+vanish, so therefore:
+
+_— 2
+sl =— — I drV2p (2.103)
+
+Now, by application of Gauss’ divergence theorem:
+
+6l=
+
+(2.104)
+
+The flux condition arises from the last equation, since dI = 0 if and only if the
+
+integral in the right-hand side of equation 2.104 vanishes.
+
+According to the derivation presented above, the atoms defined by the zero flux
+condition fulfil Schrédinger equation by themselves. Now, it follows from the pos-
+tulates of quantum mechanics that all the operators that commute with the Hamil-
+tonian will correspond to observables that can be observed mutually with the en-
+ergy of the system (i. e. they form a complete set of commuting observables). Let
+
+us take a given observable O whose operator is O; then:
+
+O= [,,FO¥dr=¥ [, FOFdT=Y'On (2.105)
+
+This proves that, within the QTAIM formulation, it is possible to partition a
+
+given observable in atomic contributions.
+
+2.4.2 Interacting Quantum Atoms
+
+The Interacting Quantum Atoms (IQA) formalism is an energy decomposition scheme
+based on an exhaustive topological partition of the space that was developed by
+Blanco et al [160] in 2005.
+
+The strength of this approach relies in the use of first- and second-order reduced
+density matrices [161, 162], respectively abbreviated as 1-RDM and 2-RDM:
+
+o1(1:1') = N, [ve ¥,(1,...,Ne)¥2(1',...,Ne)dxp...dxn, (2.106)

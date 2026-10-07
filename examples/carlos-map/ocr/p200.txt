@@ -1,0 +1,71 @@
+Chemical Science Edge Article
+
+All these results have led us to conclude that the delocal- 13 M. Garcia-Revilla, P. L. A. Popelier, E. Francisco and
+
+ization index is a generalization of the bond order that can be A. Martin Pendas, Nature of chemical interactions from
+
+suitably applied to any quantum chemical calculation. We hope the profiles of electron delocalization indices, J. Chem.
+
+that this work lays the foundation for a novel tool in the study of Theory Comput., 2011, 7(6), 1704-1711.
+
+chemical bonding. 14 A. Gallo-Bueno, E. Francisco and A. Martin Pendas, Decay
+rate of real space delocalization measures: a comparison
+
+Conflicts of interest between analytical and test systems, Phys. Chem. Chem.
+Phys., 2016, 18(17), 11772-11780.
+
+The authors declare no competing financial interests. 15 X. Fradera, J. Poater, S. Simon, M. Duran and M. Sola,
+Electron-pairing analysis from localization and
+
+Acknowledgements delocalization indices in the framework of the atoms-in-
+
+molecules theory, Theor. Chem. Acc., 2002, 108(4), 214-224.
+C. O. thanks Fundacion Maria Cristina Masaveu Peterson, 16 C. F. Matta and J. Hernandez-Trujillo, Bonding in polycyclic
+
+which funded his stay in Manchester. A. M. P. thanks the aromatic hydrocarbons in terms of the electron density and
+Spanish MINECO, grant CT2015-65790-P, the FICyT, grant of electron delocalization, J. Phys. Chem. A, 2003, 107(38),
+GRUPIN14-049, and the FEDER funds of the European Union. 7496-7504.
+P. L. A. P. and M. V. thank EPSRC for the award of an Estab- 17. F. Matta, Molecules as networks: A_localization-
+lished Career Fellowship (EP/K005472). The authors also wish delocalization matrices approach, Comput. Theor. Chem.,
+to thank J. L. Casals-Sainz for helpful discussions and support 2018, 1124, 1-14.
+in calculations involving Miiller's approximation. 18 C. F. Matta, Modeling biophysical and biological properties
+from the characteristics of the molecular electron density,
+References electron localization and delocalization matrices, and the
+electrostatic potential, J. Comput. Chem., 2014, 35(16),
+1 G. N. Lewis, The Atom and the Molecule, J. Am. Chem. Soc., 1165-1198.
+1916, 38, 762-785. 19 F. Feixas, M. Sola, J. M. Barroso, J. M. Ugalde and E. Matito,
+2 R. S. Mulliken, Electronic Population Analysis on LCAO-MO New Approximation to the Third-Order Density. Application
+Molecular Wave Functions, J. Chem. Phys., 1955, 23, 1833- to the Calculation of Correlated Multicenter Indices, J. Chem.
+1840. Theory Comput., 2014, 10(8), 3055-3065.
+3 I. Mayer, Bond order and valence indices: A personal 20 M. Rodriguez-Mayorga, E. Ramos-Cordoba, F. Feixas and
+account, J. Comput. Chem., 2007, 28(1), 204-221. E. Matito, Electron correlation effects in third-order
+41. Mayer, Bond orders and energy components: extracting densities, Phys. Chem. Chem. Phys., 2017, 19(6), 4522-4529.
+chemical information from molecular wave functions, CRC 21 R. McWeeny, Methods of Molecular Quantum Mechanics,
+Press, 2016. Academic Press, San Diego, USA, 2nd edn, 1992.
+5 A. D. McNaught and A. Wilkinson, IUPAC. Compendium of 22 P. Maxwell, A. Martin Pendas and P. L. A. Popelier, Extension
+Chemical Terminology (the “Gold Book”), 2nd edn, 1997. of the interacting quantum atoms (IQA) approach to B3LYP
+6 R. F. W. Bader, Atoms in Molecules. A Quantum Theory, Oxford level density functional theory, Phys. Chem. Chem. Phys.,
+Univ. Press, Oxford, Great Britain, 1990. 2016, 18, 20986-21000.
+7 P. Popelier, F. Aicken and S. O'Brien, Atoms in molecules, 23 A. Martin Pendas, M. A. Blanco and E. Francisco, Chemical
+Chem. Modell., 2000, 1, 143-198. Fragments in Real Space: Definitions, Properties, and
+8 R. F. W. Bader and M. E. Stephens, Spatial Localization of the Energetic Decompositions, J. Comput. Chem., 2007, 28,
+Electronic Pair and Number Distributions in Molecules, /. 161-184.
+Am. Chem. Soc., 1975, 97, 7391-7399. 24 P.-O. Léwdin, Quantum theory of many-particle systems. I.
+9 X. Fradera, M. A. Austen and R. F. W. Bader, The Lewis Model Physical interpretations by means of density matrices,
+and Beyond, J. Phys. Chem. A, 1999, 103, 304-314. natural spin-orbitals, and convergence problems in the
+10 Y. G. Wang and N. H. Werstiuk, A Practical and Efficient method of configurational interaction, Phys. Rev., 1955,
+Method to Calculate AIM Localization and Delocalization 97(6), 1474.
+Indices at Post-HF Levels of Theory, J. Comput. Chem., 25 M.A. Blanco, A. Martin Pendas and E. Francisco, Interacting
+2002, 24, 379-385. quantum atoms: a correlated energy decomposition scheme
+11 Y. G. Wang, C. F. Matta and N. H. Werstiuk, Comparison of based on the quantum theory of atoms in molecules, /.
+localization and delocalization indices obtained with Chem. Theory Comput., 2005, 1, 1096-1109.
+Hartree-Fock and conventional correlated methods: Effect 26 D. A. Varshalovich, A. N. Moskalev and V. K. Khersonskii,
+of Coulomb correlation, J. Comput. Chem., 2004, 24(2), Theory of Angular Momentum, World Scientific, 1988.
+1720-1729. 27 J. G. Angyan, M. Loos and I. Mayer, Covalent Bond Orders
+12 J. Poater, M. Sola, M. Duran and X. Fradera, The calculation and Atomic Valence Indices in the Topological Theory of
+of electron localization and delocalization indices at the Atoms in Molecules, J. Phys. Chem., 1994, 98, 5244-5248.
+
+Hartree-Fock, density functional and post-Hartree-Fock
+levels of theory, Theor. Chem. Acc., 2002, 107(6), 362-371.
+
+5528 | Chem. Sci., 2018, 9, 5517-5529 This journal is © The Royal Society of Chemistry 2018

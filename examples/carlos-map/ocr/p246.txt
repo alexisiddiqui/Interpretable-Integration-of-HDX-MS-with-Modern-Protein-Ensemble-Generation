@@ -1,0 +1,38 @@
+BIBLIOGRAPHY 245
+
+[131] Y. Shi, Z. Xia, J. Zhang, R. Best, C. Wu, J. W. Ponder, and P. Ren, “Polarizable
+atomic multipole-based AMOEBA force field for proteins,” Journal of Chemical
+Theory and Computation, vol. 9, no. 9, pp. 4046-4063, 2013.
+
+[132] C. Zhang, C. Lu, Z. Jing, C. Wu, J.-P. Piquemal, J. W. Ponder, and P. Ren,
+“AMOEBA polarizable atomic multipole force field for nucleic acids,” Journal
+
+of Chemical Theory and Computation, vol. 14, no. 4, pp. 2084-2108, 2018.
+
+[133] J. W. Ponder, C. Wu, P. Ren, V. S. Pande, J. D. Chodera, M. J. Schnieders,
+I. Haque, D. L. Mobley, D. S. Lambrecht, R. A. DiStasio Jr, et al., “Current sta-
+tus of the AMOEBA polarizable force field,” The Journal of Physical Chemistry
+B, vol. 114, no. 8, pp. 2549-2564, 2010.
+
+[134] A. Holt, J. Bostrém, G. Karlstrém, and R. Lindh, “A NEMO potential that
+includes the dipole-quadrupole and quadrupole—quadrupole polarizability,”
+Journal of Computational Chemistry, vol. 31, no. 8, pp. 1583-1591, 2010.
+
+[135] A. Savin, R. Nesper, S. Wengert, and T. F. Fassler, “ELF: the electron local-
+ization function,” Angewandte Chemie International Edition, vol. 36, no. 17,
+pp. 1808-1832, 1997.
+
+[136] F. L. Hirshfeld, “Bonded-atom fragments for describing molecular charge
+densities,” Theoretica Chimica Acta, vol. 44, no. 2, pp. 129-138, 1977.
+
+[137] P. L. A. Popelier and F. M. Aicken, “Atomic properties of amino acids: com-
+puted atom types as a guide for future force-field design,” ChemPhysChem,
+vol. 4, no. 8, pp. 824-829, 2003.
+
+[138] B. Silvi and A. Savin, “Classification of chemical bonds based on topological
+analysis of electron localization functions,” Nature, vol. 371, no. 6499, p. 683,
+1994.
+
+[139] J. R. Munkres, Topology. Prentice Hall, 2000.
+
+[140] R. F. Bader, Atoms in molecules. Wiley Online Library, 1990.

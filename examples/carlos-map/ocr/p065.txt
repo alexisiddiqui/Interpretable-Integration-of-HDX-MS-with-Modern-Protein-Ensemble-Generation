@@ -1,0 +1,36 @@
+64 CHAPTER 2. LITERATURE REVIEW
+
+p2(1,2) = 7 ELeal (1,2)[O4(1)Og(2) — Oa (2)@p(1)] (2.111)
+
+To move from a partition of density matrices to a partition of energetic mag-
+nitudes, we first recognise that the monoelectronic operator h contains the kinetic
+
+energy Tf and the nucleus-electron interaction V,,,. The first can be split trivially as:
+
+T= I. Tor (1;1)dx; = rh, To, (1;1')dx; = pT (2.112)
+
+The electron-nucleus operator is a bit more involved, since it has the form:
+
+B
+= LiVne =-y% (2.113)
+Nb
+Therefore, the partition has the form:
+Vee = )) | Ye Vee (131')dxr = Ye ve? (2.114)
+A °Oa B AB
+
+Regarding the electron-electron part of the energy:
+
+Veo = 2! [Le B12 ) = dx = Yvee" +5 7 y vab (2.115)
+
+A BZA
+
+In the last equality, we have recognised the electron-electron interactions that
+happen between the electrons of a basin with themselves, and the interactions be-
+
+tween different basins.
+
+The total energy can be rewritten in a particularly clear way, if one groups all
+
+the one-basin and two-basin contributions:
+
+EA, = 74+ VA4 + vga (2.116)

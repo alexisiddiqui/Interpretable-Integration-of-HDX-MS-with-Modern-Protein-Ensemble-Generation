@@ -1,0 +1,81 @@
+Edge Article Chemical Science
+
+28 E. Francisco, D. Menendez Crespo, A. Costales and A. Martin 39 F. Feixas, J. Vandenbussche, P. Bultinck, E. Matito and
+
+Pendas, A Multipolar Approach to the Interatomic Covalent M. Sola, Electron delocalization and aromaticity in low-
+Interaction Energy, J. Comput. Chem., 2017, 38, 816-829. lying excited states of archetypal organic compounds, Phys.
+
+29 L. Gagliardi and B. O. Roos, Quantum chemical calculations Chem. Chem. Phys., 2011, 13(46), 20690-20703.
+show that the uranium molecule U, has a quintuple bond, 40 Q. Sun, T. C. Berkelbach, N. S. Blunt, G. H. Booth, S. Guo,
+Nature, 2005, 433, 848-851. Z. Li, J. Liu, J. D. McClain, E. R. Sayfutyarova and
+
+30 A. Genoni, L. Bucinsky, N. Claiser, J. Contreras-Garcia, S. Sharma, PySCF: the Python-based simulations of
+B. Dittrich, P. M. Dominiak, E. Espinosa, C. Gatti, chemistry framework, Wiley Interdiscip. Rev.: Comput. Mol.
+P. Giannozzi and J.-M. Gillet, Quantum Crystallography: Sci., 2018, 8(1), e1340.
+
+Current Developments and Future Perspectives, Chem.-Eur. 41K. L. Schuchardt, B. T. Didier, T. Elsethagen, L. Sun,
+J., 2018, DOI: 10.1002/chem.201705952. V. Gurumoorthi, J. Chase, J. Li and T. L. Windus, Basis Set
+
+31 M. J. Frisch, G. W. Trucks, H. B. Schlegel, G. E. Scuseria, Exchange: A Community Database for Computational
+M. A. Robb, J. R. Cheeseman, G. Scalmani, V. Barone, Sciences, J. Chem. Inf. Model., 2007, 47(3), 1045-1052.
+
+B. Mennucci, G. A. Petersson, H. Nakatsuji, M. Caricato, 42 A. C. Wahl, Analytic Self-Consistent Field Wavefunctions
+X. Li, H. P. Hratchian, A. F. Izmaylov, J. Bloino, G. Zheng, and Computed Properties for Homonuclear Diatomic
+J. L. Sonnenberg, M. Hada, M. Ehara, K. Toyota, Molecules, J. Chem. Phys., 1964, 41(9), 2600-2611.
+
+R. Fukuda, J. Hasegawa, M. Ishida, T. Nakajima, Y. Honda, 43 S. Shaik, D. Danovich, W. Wu and P. C. Hiberty, The Valence
+O. Kitao, H. Nakai, T. Vreven, J. A. Montgomery Jr, Bond Perspective of the Chemical Bond, Chem. Bond, 2014,
+J. E. Peralta, F. Ogliaro, M. Bearpark, J. J. Heyd, 159-198.
+
+E. Brothers, K. N. Kudin, V. N. Staroverov, R. Kobayashi, 44 S. Shaik, D. Danovich, W. Wu and P. C. Hiberty, Charge-shift
+J. Normand, K. Raghavachari, A. Rendell, J. C. Burant, bonding and its manifestations in chemistry, Nat. Chem.,
+S. S. Iyengar, J. Tomasi, M. Cossi, N. Rega, N. J. Millam, 2009, 1(6), 443.
+
+M. Klene, J. E. Knox, J. B. Cross, V. Bakken, C. Adamo, 45S. Grimme, Density functional theory with London
+J. Jaramillo, R. Gomperts, R. E. Stratmann, O. Yazyev, dispersion corrections, Wiley Interdiscip. Rev.: Comput. Mol.
+A. J. Austin, R. Cammi, C. Pomelli, J. W. Ochterski, Sci., 2011, 1(2), 211-228.
+
+R. L. Martin, K. Morokuma, V. G. Zakrzewski, G. A. Voth, 46 A. Martin Pendas, M. A. Blanco, A. Costales, P. M. Sanchez
+P. Salvador, J. J. Dannenberg, S. Dapprich, A. D. Daniels, and V. Luana, Non-nuclear maxima of the electron density,
+O. Farkas, J. B. Foresman, J. V. Ortiz, J. Cioslowski and Phys. Rev. Lett., 1999, 83(10), 1930-1933.
+
+D. J. Fox, Gaussian 09, Gaussian, Inc., Wallingford CT, 2009. 47 G. Chung, M. W. Schmidt and M. S. Gordon, An ab initio
+
+32 T. A. Keith, AIMAIl 2015 (Version 15.09.12), TK Gristmill study of potential energy surfaces for N8 isomers, J. Phys.
+Software, Overland Park KS, USA, http://aim.tkgristmill.com. Chem. A, 2000, 104(23), 5647-5650.
+
+33 A. Miiller, Explicit approximate relation between reduced 48 B. Hirshberg, R. B. Gerber and A. I. Krylov, Calculations
+two- and one-particle density matrices, Phys. Lett. A, 1984, predict a stable molecular crystal of N8, Nat. Chem., 2014,
+105(9), 446-452. 6(1), 52.
+
+34 A. Martin Pendas and E. Francisco, PROMOLDEN: AQTAIM. 49 Z. Wu, E. M. Benchafia, Z. Iqbal and X. Wang, N8—
+IQA Code, unpublished, 2012. Polynitrogen Stabilized on Multi-Wall Carbon Nanotubes
+
+35 M. Garcia-Revilla, E. Francisco, A. Costales and A. Martin for Oxygen-Reduction Reactions at Ambient Conditions,
+Pendas, Performance of the density matrix functional Angew. Chem., 2014, 126(46), 12763-12767.
+theory in the quantum theory of atoms in molecules, j. 50 J. L. McDonagh, A. F. Silva, M. A. Vincent and P. L. Popelier,
+Phys. Chem. A, 2011, 116(4), 1237-1250. Quantifying Electron Correlation of the Chemical Bond, /.
+
+36 E. Matito, M. Sola, P. Salvador and M. Duran, Electron Phys. Chem. Lett., 2017, 8(9), 1937-1942.
+sharing indexes at the correlated level. Application to 51 G. Merino, M. A. Méndez-Rojas, A. Vela and T. Heine, Recent
+aromaticity calculations, Faraday Discuss., 2007, 135(0), advances in planar tetracoordinate carbon chemistry, J.
+325-345. Comput. Chem., 2007, 28(1), 362-372.
+
+37 I. Ruiz, E. Matito, F. J. Holguin-Gallego, E. Francisco, 52 L. J. Farrugia, C. Evans and M. Tegel, Chemical bonds
+A. Martin Pendas and T. Rocha-Rinza, Fermi and Coulomb without “chemical bonding”? A combined experimental
+correlation effects upon the interacting quantum atoms and theoretical charge density study on an _ iron
+energy partition, Theor. Chem. Acc., 2016, 135(9), 209. trimethylenemethane complex, J. Phys. Chem. A, 2006,
+
+38 M. Rodriguez-Mayorga, E. Ramos-Cordoba, M. Via-Nadal, 110(25), 7952-7961.
+
+M. Piris and E. Matito, Comprehensive benchmarking of 53 F. Cortés-Guzman, T. Rocha-Rinza, J. M. Guevara-Vela,
+
+density matrix functional approximations, Phys. Chem. G. Cuevas and R. M. Gomez, Dynamic Molecular Graphs:
+
+Chem. Phys., 2017, 19(35), 24029-24041. “Hopping” Structures, Chem.-Eur. J., 2014, 20(19), 5665-
+5672.
+
+This journal is © The Royal Societ
+
+Chemistry 2018 Chem. Sci, 2018, 9, 5517-5529 | 5529
+

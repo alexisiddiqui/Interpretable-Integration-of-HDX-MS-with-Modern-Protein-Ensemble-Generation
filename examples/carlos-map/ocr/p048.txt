@@ -1,0 +1,42 @@
+2.2. INTERMOLECULAR FORCES 47
+
+Let us first assume that we have chosen a set of sites in the molecule, and de-
+velop how to assign the multipole moments to that particular region. The practical
+totality of electronic structure methods (one exception being, for example, explicitly
+correlated methods such as [91]) are based on more or less creative combinations of
+
+monoelectronic orbitals, that are generally expanded in a basis:
+
+$i(ti) = D> crix (te) (2.70)
+k
+
+The basis functions x(r,) (where r, = r—R, and R, is the position where
+the basis function is centered, usually a nucleus) are generally Gaussian-type or-
+bitals (GTOs) of the form Rj», (1j,) exp(—arz) where Rjm(r,) is a regular spherical
+
+harmonic. The electron density can then be written in the following form:
+
+o(r) = Le, Pax(s)x() (2.71)
+
+Here P5; is the density matrix (therefore all the physical filigrees are gathered
+here, allowing the inclusion of correlation). Now, the Gaussian product theorem
+[92] states that the product of two given Gaussian functions is another Gaussian
+
+function centered elsewhere:
+
+exp (~a ||r—al|*) exp (— ||r— bl”) =
+
+exp (—*F. |a— bl?) exp (-( +) inl)
+
+(2.72)
+
+where the first term in the right-hand side is a constant, and the second is a Gaussian
+
+centered in p, a weighted average of the vectors a and b:
+
+_ aa+ Bb
+~ at+fB
+
+(2.73)
+
+On the other hand, the regular spherical harmonics can also be expanded in

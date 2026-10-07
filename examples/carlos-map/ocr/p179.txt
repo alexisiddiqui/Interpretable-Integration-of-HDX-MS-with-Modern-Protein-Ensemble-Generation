@@ -1,0 +1,12 @@
+178 CHAPTER 5. SYMMETRY-ADAPTED KRIGING
+
+ABC ACB
+
+CAB CBA
+
+Figure 5.12: Simulations of acetaldehyde permutated conformers in absence of
+symmetry. As in methanol, all the examples that do not belong to the ABC con-
+figuration converge to wrong minima. In the case of the proper rotations BCA and
+CAB, the simulation ignores the rotation barrier, while in the improper rotations
+
+there is an attempted inversion of handedness that ends up in a senseless structure.

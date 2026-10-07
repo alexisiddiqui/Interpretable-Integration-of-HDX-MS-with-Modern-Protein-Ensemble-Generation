@@ -1,0 +1,39 @@
+3.4. A CRITICAL APPRAISAL 109
+
+and the promise of being able to handle reactions in the future.
+
+Another possibility would be extended sampling: providing a sampling so ex-
+tensive that the system will never leave the training set in a reasonable temperature
+simulation. However, this brings up several problems. In the first place, this im-
+plies intensive computational expenses, both during the training phase and during
+simulation. Additionally, bond dissociation is known to be significantly difficult to
+model due to multiconfigurational issues, and the methods to tackle this problem
+are usually expensive. Finally, a consequence of the curse of dimensionality dis-
+cussed vide infra is that the number of sampling points grows exponentially with
+sample size, and thus extended sampling is generally impractical and often impos-
+sible.
+
+There is no obvious solution, and the extrapolation collapse threatens to be-
+come catastrophic, as it is made evident in unpublished results for moderately-
+sized molecules. Future work should aim to develop solutions that minimise the
+
+effect on the force field accuracy.
+
+3.4.3 The curse of dimensionality
+
+In this final section, we will discuss the influence of a well-known problem in statis-
+tics and machine learning, the curse of dimensionality, and its implications for the
+Quantum Chemical Topology Force Field. This is a problem related to the complex-
+ity of the mathematical models involved in the predictions in FFLUX.
+
+The curse of dimensionality can be understood intuitively by analysing the fol-
+lowing example. Let us consider that we are trying to numerically evaluate the
+
+multidimensional integral of a certain function f (x):
+
+/ a I F(x) dx (3.46)
+
+The actual domain of integration is unimportant: we will simply assume that
+it is a regular n-hypercube. Since the result is trivially extensible to any kind of
+
+quadrature, we will also assume that we are employing a regular evenly-spaced

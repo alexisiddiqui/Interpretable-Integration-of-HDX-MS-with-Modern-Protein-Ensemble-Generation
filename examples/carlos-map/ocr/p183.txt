@@ -1,0 +1,31 @@
+Chapter 6
+
+Conclusions
+
+The current thesis presents several developments sprouted from the Quantum Chem-
+ical Topology Force Field (FFLUX). This force field is a long-lasting endeavour
+that aims to supersede classical molecular mechanics by introducing modern non-
+parametric regression techniques that improve the valence and electrostatic poten-
+tials. As comes with novel approaches, there are many open challenges that should
+be addressed before the methodology is ready for deployment. The research pre-
+
+sented here attempts to palliate these problems.
+
+Our first development is motivated by the need of deploying inter-monomer po-
+tentials for the simulation of macromolecules. In the current formulation of FFLUX
+monomers interact only through electrostatics, but an exchange contribution is es-
+sential to model covalent bonding, and therefore the peptide bond. Unfortunately,
+it is not easy to build potentials that incorporate this magnitude: the models should
+depend on the coordinates of both monomers, thus requiring a very large amount
+of points. In addition, Vy: is a costly magnitude that requires the evaluation of
+
+six-dimensional integrals, slowing down the development.
+
+We have proposed the delocalization index, a magnitude from Quantum Chem-
+ical Topology, as a suitable alternative. In order to understand its properties and
+chemical meaning, we have done a theoretical analysis and performed a careful
+study on about 200 compounds, both organic and inorganic. As we proved, the
+
+delocalization index is a first-order approximation to the full exchange-correlation
+
+182

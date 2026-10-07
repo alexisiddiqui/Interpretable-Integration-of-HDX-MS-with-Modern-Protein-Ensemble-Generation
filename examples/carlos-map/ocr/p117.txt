@@ -1,0 +1,41 @@
+116 CHAPTER 4. DELOCALIZATION INDICES AND BOND ORDER
+
+bond, because they cannot model the exchange energy that is essential for covalency.
+
+In order to model macromolecules, we need to incorporate a new term into FFLUX.
+
+There are several possible approaches to achieve an appropriate model of the
+peptide bond. First, one might employ an appropriately parameterised harmonic
+potential between the aminoacids. This would in principle ensure the cohesion of
+the peptide chain, but it is undesirable, both conceptually and technically, to spoil
+the careful development of FFLUX by introducing the same coarse potentials that
+it aimed to supersede. On the other hand, we might do just the opposite: introduce
+a potential that explicitly includes the IQA exchange-correlation energy, which we
+
+defined in Section 2.4.2 to be:
+
+Vac(A,B) = I P1(11)P2(t2) — P2(t1, 12) dridry (4.1)
+
+There are several problems in this formulation. Computing V;- requires a costly
+six-dimensional integration in a complicated boundary; this also requires important
+approximations, such as Miiller’s approximation described vide infra or the ones
+discussed in Section 2.4.3. Moreover, since we are fitting a potential dependent on
+the coordinates of two aminoacids, the model will require an enormous amount of
+points due to the curse of dimensionality. Concerns of kriging performance aside,
+the process of generating a training set with the full exchange-correlation energy
+
+seems too costly to be reasonable.
+
+A possible solution passes by approximating the exchange-correlation term by
+another magnitude: the delocalization index. It was proved by Popelier for Hartree-
+Fock theory that the delocalization index is a first order approximation to Vy¢ [248]
+that requires only three-dimensional integrals; we will actually generalise this result
+to arbitrary wavefunctions in Section 4.1.2. Moreover, this magnitude has been
+applied in several theoretical studies, and is generally accepted as a bond order
+
+indicator within the Quantum Chemical Topology community [249].
+
+Prior to testing the performance of the delocalization index on exchange models,
+we attempted to carefully analyse its behaviour in simple organic systems. This
+
+study soon acquired a dimension of its own, revealing the interesting properties

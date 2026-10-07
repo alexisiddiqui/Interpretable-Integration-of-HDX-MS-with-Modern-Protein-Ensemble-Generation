@@ -1,0 +1,40 @@
+2.4. QUANTUM CHEMICAL TOPOLOGY 67
+
+having the following form:
+
+E [pe] = T [e] + Vne [0] + Vee [0] + Exc [0] (2.122)
+
+where Ex¢ [p] is the so-called exchange-correlation functional, which contains all effects
+(for example the correlation of the electrons, or the inadequacy of the Kohn-Sham
+kinetic energy functional) necessary to yield the exact energy. The electron den-
+sity e(r) is obtained by an expansion in terms of monoelectronic functions that are
+
+known as Kohn-Sham orbitals.
+
+The problem posed by the Kohn-Sham method is that there is no way to calcu-
+late a second-order reduced density matrix, as in wavefunction theory. However,
+using the fine structure of the 2-~RDM described vide supra, we note that only the
+
+exchange-correlation part is actually unknown:
+
+P2(t1,42) = p(r1) (12) + Pxc(r1, 42) (2.123)
+
+The problem of producing a reasonable adaptation of the Interacting Quan-
+tum Atoms scheme is thus reduced to providing an appropriate partition of the
+exchange-correlation energy. Before proceeding to do so, we establish a division
+between hybrid and non-hybrid functionals, depending on whether they use or not
+
+the HF expression for the exchange. For the last class, also referred as local:
+
+EXt loc = J, 002) Exc [e] ar (2.124)
+
+and, if the functional is hybrid:
+
+EDFT _ I ; p(r) Ex. |p] dr + agESS (2.125)
+
+where 4 is the coefficient of the HF exchange in the functional (for example, 0.2
+in B3LYP [171]), and the prime in Ej, indicates that the HF exchange is not in-
+cluded to avoid double-counting. Note that although we employ the ESS, we could
+equivalently write E!"; we have chosen the former for consistence with the original
+
+publication [166], and to emphasise that the exchange is calculated employing the

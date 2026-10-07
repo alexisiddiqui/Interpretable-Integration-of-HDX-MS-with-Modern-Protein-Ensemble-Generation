@@ -1,0 +1,40 @@
+2.5. MACHINE LEARNING 71
+
+2.5 Machine learning
+
+The term machine learning was supposedly coined by Arthur L. Samuel in the
+fifties, as a paradigm in which computers can learn to perform tasks without being ex-
+plicitly programmed [184]. This branch of statistics and computer science, which is
+rather undefined due to the enormous advancements in the last few years, com-
+prises a large number of techniques, mathematical and computational, sprouted
+
+from different areas.
+
+Aside from recent developments, arising from the so-called deep learning revolu-
+tion [16] that uses very specialised neural networks to solve a wide range of prob-
+lems, the impact of machine learning in the scientific community is mostly related
+to non-parametric statistical regression models. Despite the awe of the name, most
+of these approaches are actually quite simple, being generalisations of well-known
+statistical models, such as least squares regression or simple interpolation methods.
+For example, kriging can be shown to be a generalisation of interpolation by splines
+[185].
+
+In this section, we will introduce Gaussian Process regression (also known as
+kriging), a very powerful non-parametric regression method that is employed by
+
+the Quantum Chemical Topology Force Field to build its potential.
+
+2.5.1 Gaussian process regression
+
+Gaussian process regression is one of the most powerful techniques in machine
+learning. Its origin is usually linked to geostatistics, where it is used for ore predic-
+tion [186], although we note that its use can actually be traced back to Laplace. This
+technique received special attention in the nineties, when it was used by Sacks et al
+to analyse the output of computer simulations [187]. Nowadays, it is mostly used
+
+in Bayesian optimisation [188].
+
+Here, we will follow a modern derivation in the spirit of [189]. In general, given
+a set of features x from the system, we want to predict a certain response y (which
+
+we will assume scalar without loss of generality), following certain observations

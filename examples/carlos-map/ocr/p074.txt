@@ -1,0 +1,42 @@
+2.5. MACHINE LEARNING 73
+
+This is completely equivalent to a probability distribution in a space of func-
+tions! In particular, we have a Gaussian process whose mean is the regression func-
+tion f, but also all the possible functions resulting from measures corrupted by error
+
+are considered.
+
+This short digression has probably clarified how to define a probability distribu-
+tion over a space of functions. It has also offered a glimpse to our objective: obtain
+a stochastic process whose mean corresponds to a given objective function, and a
+variance that quantifies the expected error (and thus, hopefully, provide a reason-
+
+able error estimate to our predictions).
+
+There is, however, one caveat. Specifying the stochastic process completely re-
+quires then an infinite number of coefficients (actually, an infinite number of means,
+and an infinite number of standard deviations). This is, in practice, impossible: not
+only is it impossible to store all this information in a computer, but the mere recol-
+lection of an infinite number of samples is a doomed procedure. We note that, in
+case an infinite number of points is available, it is probably more efficient to simply
+
+store the value of the function f at every possible point.
+
+Let us accept the restriction to a finite number of points. In this case, we will
+take the regression function to be given from a Gaussian process, which in the finite
+
+case is simply a multivariate normal distribution:
+
+£ = [f (x1), f (x2), f(xw)|’ ~ N(0,K) (2.140)
+
+Here K is the covariance matrix (also called correlation matrix, and typically de-
+noted by F in the literature), which models the correlation between the different
+points. This matrix plays an extremely important role on the performance of Gaus-
+sian process regression; obviously, it contains the information through which we
+try to model an infinite problem by means of a finite number of samples. However,
+
+we will only address its form later on.
+
+Continuing with the derivation, it follows from the previous equation that the
+
+dependence of y on f is thus:

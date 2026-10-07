@@ -1,0 +1,62 @@
+214 APPENDIX B. FORTRAN SUBROUTINES FOR FFLUX
+
+2  Real( kind = wp ) :: Videt, W_det
+2 Real( kind = wp ) :: rot-matrix(3, 3)
+2 + Real( kind = wp ) >: WORK(100)
+
+2 Integer 88 il, Jip IR
+
+25 Integer :: IWORK(24)
+
+2 Integer :: INFO
+
+28
+
+29 ! Create Q_matrix
+
+» Do i = 1, natms
+
+31 Q_matrix(i, 1) = reference_point_cart (3*(i—1)+1)
+32 Q_matrix(i, 2) = reference_point_cart (3*(i—1)+2)
+33 Q_matrix(i, 3) = reference_point_cart (3*(i—1)+3)
+34 End Do
+
+36 distances(:) = 0.0_wp
+
+37
+
+38 ! Compute centroid
+
+39 Doi = 1, 3
+
+40 centroid(i) = SUM(Q_matrix(:, i)) / natms
+
+4 End Do
+
+42
+
+43 ! Substract centroid
+
+44 Do i = 1, natms
+
+45 Q_matrix(i, 1) = Q_-matrix(i, 1) — centroid (1)
+46 Q_matrix(i, 2) = Q_matrix(i, 2) — centroid (2)
+47 Q_matrix(i, 3) = Q_matrix(i, 3) — centroid (3)
+4s End Do
+
+49
+
+5s. ! Rotate all symmetry—equivalent systems
+
+51 Do i = 1, n_matrices
+
+53 ! Create P matrix
+
+54 Do j = 1, natms
+
+P_matrix(j, 1) = cartesian_vectors(i, 3*(j —1)+1)
+56 P_matrix(j, 2) = cartesian_vectors(i, 3*(j —1)+2)
+57 P_matrix(j, 3) = cartesian_vectors(i, 3x(j —1)+3)
+58 End Do
+
+59

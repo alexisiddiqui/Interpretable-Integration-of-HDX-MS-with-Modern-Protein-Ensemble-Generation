@@ -1,0 +1,10 @@
+185
+
+these developments.
+
+Overall, our contributions have provided two major methodological improve-
+ments. The first, the delocalization index, will be used as a bond order indicator
+for chemical structure and reactivity studies; it might also become an useful quan-
+tity for the Quantum Chemical Topology Force Field in the long run. The second,
+symmetry-adapted kriging, is ready to be deployed as a tool to fit molecular poten-
+tials, and can be incorporated in further versions of FFLUX.

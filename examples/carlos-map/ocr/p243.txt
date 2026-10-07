@@ -1,0 +1,41 @@
+242 BIBLIOGRAPHY
+
+[104] K. A. Dill, S. Bromberg, K. Yue, H. S. Chan, K. M. Ftebig, D. P. Yee, and P. D.
+Thomas, “Principles of protein folding: a perspective from simple exact mod-
+
+els,” Protein Science, vol. 4, no. 4, pp. 561-602, 1995.
+
+[105] J. W. Caldwell and P. A. Kollman, “Cation—7 interactions: nonadditive effects
+are critical in their accurate representation,” Journal of the American Chemical
+
+Society, vol. 117, no. 14, pp. 4177-4178, 1995.
+
+[106] P. E. Lopes, B. Roux, and A. D. MacKerell, “Molecular modeling and dynam-
+ics studies with explicit inclusion of electronic polarizability: theory and ap-
+
+plications,” Theoretical Chemistry Accounts, vol. 124, no. 1-2, pp. 11-28, 2009.
+
+[107] C. M. Baker, “Polarizable force fields for molecular dynamics simulations
+of biomolecules,” Wiley Interdisciplinary Reviews: Computational Molecular Sci-
+
+ence, vol. 5, no. 2, pp. 241-254, 2015.
+
+[108] S. Patel and C. L. Brooks III, “Fluctuating charge force fields: recent develop-
+ments and applications from small molecules to macromolecular biological
+systems,” Molecular Simulation, vol. 32, no. 3-4, pp. 231-249, 2006.
+
+[109] J. A. Lemkul, J. Huang, B. Roux, and A. D. MacKerell Jr, “An empirical polar-
+izable force field based on the classical Drude oscillator model: development
+history and recent applications,” Chemical Reviews, vol. 116, no. 9, pp. 4983-
+5013, 2016.
+
+[110] R. Sanderson, “An interpretation of bond lengths and a classification of
+bonds,” Science, vol. 114, no. 2973, pp. 670-672, 1951.
+
+[111] S. W. Rick, S. J. Stuart, and B. J. Berne, “Dynamical fluctuating charge force
+fields: application to liquid water,” The Journal of Chemical Physics, vol. 101,
+no. 7, pp. 6141-6156, 1994.
+
+[112] R. S. Mulliken, “A new electroaffinity scale; together with data on valence
+states and on valence ionization potentials and electron affinities,” The Journal
+of Chemical Physics, vol. 2, no. 11, pp. 782-793, 1934.

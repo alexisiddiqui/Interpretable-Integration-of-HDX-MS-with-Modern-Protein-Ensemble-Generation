@@ -1,0 +1,2349 @@
+{
+ "edges": [
+  {
+   "source": "fm-preface",
+   "target": "ch2",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "x"
+   ],
+   "count": 1,
+   "examples": [
+    "Chapter 2"
+   ]
+  },
+  {
+   "source": "fm-preface",
+   "target": "ch3",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "x"
+   ],
+   "count": 1,
+   "examples": [
+    "Chapter 3"
+   ]
+  },
+  {
+   "source": "fm-preface",
+   "target": "ch4",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "x"
+   ],
+   "count": 1,
+   "examples": [
+    "Chapter 4"
+   ]
+  },
+  {
+   "source": "fm-preface",
+   "target": "ch5",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "x"
+   ],
+   "count": 1,
+   "examples": [
+    "Chapter 5"
+   ]
+  },
+  {
+   "source": "fm-preface",
+   "target": "ch6",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "x"
+   ],
+   "count": 1,
+   "examples": [
+    "Chapter 6"
+   ]
+  },
+  {
+   "source": "fm-preface",
+   "target": "ch7",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "x"
+   ],
+   "count": 1,
+   "examples": [
+    "Chapter 7"
+   ]
+  },
+  {
+   "source": "s1.5.3",
+   "target": "fig:1.1",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "5"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 1.1"
+   ]
+  },
+  {
+   "source": "s1.7",
+   "target": "ch3",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "7"
+   ],
+   "count": 2,
+   "examples": [
+    "Chapter 3",
+    "chapter 2,3 and 4"
+   ]
+  },
+  {
+   "source": "s1.7",
+   "target": "ch2",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "7",
+    "8"
+   ],
+   "count": 3,
+   "examples": [
+    "chapter 2",
+    "chapter 2,3 and 4"
+   ]
+  },
+  {
+   "source": "s1.7",
+   "target": "ch4",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "7"
+   ],
+   "count": 2,
+   "examples": [
+    "Chapter 4",
+    "chapter 2,3 and 4"
+   ]
+  },
+  {
+   "source": "s1.7",
+   "target": "ch5",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "7"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 5"
+   ]
+  },
+  {
+   "source": "s1.7",
+   "target": "ch6",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "8"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 6"
+   ]
+  },
+  {
+   "source": "s1.7",
+   "target": "ch7",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "8"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 7"
+   ]
+  },
+  {
+   "source": "s2.2",
+   "target": "ch3",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "12"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 3"
+   ]
+  },
+  {
+   "source": "s2.3.3",
+   "target": "fig:2.1",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "28"
+   ],
+   "count": 1,
+   "examples": [
+    "Figure 2.1"
+   ]
+  },
+  {
+   "source": "s2.3.4",
+   "target": "sA.1",
+   "type": "refers_to_appendix",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "29"
+   ],
+   "count": 1,
+   "examples": [
+    "appendix A.1"
+   ]
+  },
+  {
+   "source": "u2.3.4/maximum-a-posteriori-prediction",
+   "target": "sA.1",
+   "type": "refers_to_appendix",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "31"
+   ],
+   "count": 1,
+   "examples": [
+    "appendix A.1"
+   ]
+  },
+  {
+   "source": "u2.3.4/uncertainty-in-the-posterior-localisation-probabilities",
+   "target": "sA.2",
+   "type": "refers_to_appendix",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "31"
+   ],
+   "count": 1,
+   "examples": [
+    "appendix A.2"
+   ]
+  },
+  {
+   "source": "s2.4",
+   "target": "tab:2.1",
+   "type": "refers_to_table",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "33"
+   ],
+   "count": 1,
+   "examples": [
+    "Table 2.1"
+   ]
+  },
+  {
+   "source": "s2.4",
+   "target": "fig:2.2",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "33",
+    "34"
+   ],
+   "count": 2,
+   "examples": [
+    "Figure 2.2"
+   ]
+  },
+  {
+   "source": "s2.4",
+   "target": "sA.5",
+   "type": "refers_to_appendix",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "34"
+   ],
+   "count": 1,
+   "examples": [
+    "appendix A.5"
+   ]
+  },
+  {
+   "source": "s2.4",
+   "target": "fig:2.3",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "36"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 2.3"
+   ]
+  },
+  {
+   "source": "s2.4",
+   "target": "fig:2.4",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "38"
+   ],
+   "count": 2,
+   "examples": [
+    "figure 2.4",
+    "Figure 2.4"
+   ]
+  },
+  {
+   "source": "s2.5",
+   "target": "s2.3.2",
+   "type": "refers_to_section",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "40",
+    "41",
+    "45"
+   ],
+   "count": 3,
+   "examples": [
+    "section 2.3.2",
+    "Section 2.3.2"
+   ]
+  },
+  {
+   "source": "s2.5",
+   "target": "sA.3",
+   "type": "refers_to_appendix",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "41"
+   ],
+   "count": 1,
+   "examples": [
+    "appendix A.3"
+   ]
+  },
+  {
+   "source": "s2.5",
+   "target": "fig:2.6",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "41",
+    "42"
+   ],
+   "count": 3,
+   "examples": [
+    "figure 2.6",
+    "Figure 2.6"
+   ]
+  },
+  {
+   "source": "s2.5",
+   "target": "fig:2.7",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "41"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 2.7"
+   ]
+  },
+  {
+   "source": "s2.5",
+   "target": "sA.4",
+   "type": "refers_to_appendix",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "42"
+   ],
+   "count": 1,
+   "examples": [
+    "appendix A.4"
+   ]
+  },
+  {
+   "source": "s2.5",
+   "target": "fig:2.8",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "42"
+   ],
+   "count": 2,
+   "examples": [
+    "Figure 2.8",
+    "figure 2.8"
+   ]
+  },
+  {
+   "source": "s2.5",
+   "target": "fig:A.3",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "45"
+   ],
+   "count": 1,
+   "examples": [
+    "figure A.3"
+   ]
+  },
+  {
+   "source": "s2.5",
+   "target": "fig:2.9",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "46"
+   ],
+   "count": 1,
+   "examples": [
+    "Figure 2.9"
+   ]
+  },
+  {
+   "source": "s2.5",
+   "target": "fig:2.10",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "46"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 2.10"
+   ]
+  },
+  {
+   "source": "s2.5",
+   "target": "fig:2.11",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "46"
+   ],
+   "count": 1,
+   "examples": [
+    "Figure 2.11"
+   ]
+  },
+  {
+   "source": "s2.5",
+   "target": "fig:2.12",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "51"
+   ],
+   "count": 3,
+   "examples": [
+    "figure 2.12",
+    "Figure 2.12"
+   ]
+  },
+  {
+   "source": "s2.6",
+   "target": "fig:2.13",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "54"
+   ],
+   "count": 1,
+   "examples": [
+    "Figure 2.13"
+   ]
+  },
+  {
+   "source": "s3.2",
+   "target": "ch2",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "59"
+   ],
+   "count": 1,
+   "examples": [
+    "Chapter 2"
+   ]
+  },
+  {
+   "source": "s3.3",
+   "target": "fig:3.1",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "62"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 3.1"
+   ]
+  },
+  {
+   "source": "s3.4.2",
+   "target": "fig:3.2",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "64"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 3.2"
+   ]
+  },
+  {
+   "source": "s3.4.3",
+   "target": "fig:3.3",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "64"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 3.3"
+   ]
+  },
+  {
+   "source": "s3.4.3",
+   "target": "fig:3.4",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "67"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 3.4"
+   ]
+  },
+  {
+   "source": "s3.5",
+   "target": "fig:3.5",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "68"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 3.5"
+   ]
+  },
+  {
+   "source": "s3.6.1",
+   "target": "fig:3.6",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "73"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 3.6"
+   ]
+  },
+  {
+   "source": "u3.6.1/applying-the-gelman-diagnostic",
+   "target": "fig:3.6",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "75"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 3.6"
+   ]
+  },
+  {
+   "source": "u3.6.1/applying-the-gelman-diagnostic",
+   "target": "fig:3.7",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "76"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 3.7"
+   ]
+  },
+  {
+   "source": "s3.6.4",
+   "target": "fig:3.10",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "90"
+   ],
+   "count": 2,
+   "examples": [
+    "figure 3.10"
+   ]
+  },
+  {
+   "source": "u3.6.4/spatial-variation-of-localisation-probabilities",
+   "target": "fig:3.12",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "94"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 3.12"
+   ]
+  },
+  {
+   "source": "u3.6.4/spatial-variation-of-localisation-probabilities",
+   "target": "fig:3.14",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "94"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 3.14"
+   ]
+  },
+  {
+   "source": "s4.2",
+   "target": "fig:4.1",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "98"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 4.1"
+   ]
+  },
+  {
+   "source": "s4.2",
+   "target": "fig:4.2",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "98"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 4.2"
+   ]
+  },
+  {
+   "source": "s4.2",
+   "target": "fig:4.3",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "98"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 4.3"
+   ]
+  },
+  {
+   "source": "s4.2",
+   "target": "fig:4.4",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "98"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 4.4"
+   ]
+  },
+  {
+   "source": "s4.2",
+   "target": "fig:4.5",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "100"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 4.5"
+   ]
+  },
+  {
+   "source": "s4.3.1",
+   "target": "fig:4.6",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "103"
+   ],
+   "count": 2,
+   "examples": [
+    "figure 4.6"
+   ]
+  },
+  {
+   "source": "s4.4.1",
+   "target": "fig:4.7",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "105"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 4.7"
+   ]
+  },
+  {
+   "source": "s4.4.1",
+   "target": "fig:4.8",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "105"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 4.8"
+   ]
+  },
+  {
+   "source": "s4.4.1",
+   "target": "fig:4.9",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "106"
+   ],
+   "count": 1,
+   "examples": [
+    "figures 4.9"
+   ]
+  },
+  {
+   "source": "s4.4.1",
+   "target": "fig:4.13",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "111"
+   ],
+   "count": 4,
+   "examples": [
+    "figure 4.13"
+   ]
+  },
+  {
+   "source": "s4.4.1",
+   "target": "fig:4.14",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "111"
+   ],
+   "count": 1,
+   "examples": [
+    "Figure 4.14"
+   ]
+  },
+  {
+   "source": "s4.4.1",
+   "target": "fig:4.15",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "114"
+   ],
+   "count": 2,
+   "examples": [
+    "figure 4.15",
+    "Figure 4.15"
+   ]
+  },
+  {
+   "source": "s4.4.1",
+   "target": "fig:4.16",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "114"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 4.16"
+   ]
+  },
+  {
+   "source": "s4.4.3",
+   "target": "fig:4.17",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "118",
+    "119"
+   ],
+   "count": 3,
+   "examples": [
+    "figure 4.17"
+   ]
+  },
+  {
+   "source": "s4.4.3",
+   "target": "s4.3.2",
+   "type": "refers_to_section",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "118"
+   ],
+   "count": 1,
+   "examples": [
+    "section 4.3.2"
+   ]
+  },
+  {
+   "source": "s5.2",
+   "target": "ch2",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "125"
+   ],
+   "count": 2,
+   "examples": [
+    "chapter 2 and 3",
+    "chapter 2"
+   ]
+  },
+  {
+   "source": "s5.2",
+   "target": "ch3",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "125"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 2 and 3"
+   ]
+  },
+  {
+   "source": "s5.2",
+   "target": "ch4",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "125"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 4"
+   ]
+  },
+  {
+   "source": "s5.2",
+   "target": "tab:5.1",
+   "type": "refers_to_table",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "126"
+   ],
+   "count": 1,
+   "examples": [
+    "Table 5.1"
+   ]
+  },
+  {
+   "source": "u5.3.1/frequentist-approaches",
+   "target": "ch2",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "128"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 2"
+   ]
+  },
+  {
+   "source": "s5.3.2",
+   "target": "fig:5.1",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "131"
+   ],
+   "count": 1,
+   "examples": [
+    "Figure 5.1"
+   ]
+  },
+  {
+   "source": "s5.3.2",
+   "target": "ch2",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "131",
+    "132",
+    "133"
+   ],
+   "count": 3,
+   "examples": [
+    "chapter 2"
+   ]
+  },
+  {
+   "source": "s5.3.2",
+   "target": "ch3",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "133"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 3"
+   ]
+  },
+  {
+   "source": "s5.4.1",
+   "target": "fig:5.2",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "137",
+    "138"
+   ],
+   "count": 5,
+   "examples": [
+    "figure 5.2"
+   ]
+  },
+  {
+   "source": "s5.4.1",
+   "target": "fig:5.3",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "140"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 5.3"
+   ]
+  },
+  {
+   "source": "s5.4.2",
+   "target": "fig:5.4",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "142"
+   ],
+   "count": 3,
+   "examples": [
+    "figure 5.4",
+    "Figure 5.4"
+   ]
+  },
+  {
+   "source": "s5.4.2",
+   "target": "s5.4.1",
+   "type": "refers_to_section",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "142"
+   ],
+   "count": 1,
+   "examples": [
+    "section 5.4.1"
+   ]
+  },
+  {
+   "source": "s5.4.2",
+   "target": "fig:5.5",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "143",
+    "145"
+   ],
+   "count": 2,
+   "examples": [
+    "figure 5.5"
+   ]
+  },
+  {
+   "source": "s5.4.3",
+   "target": "fig:5.6",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "147"
+   ],
+   "count": 2,
+   "examples": [
+    "Figure 5.6",
+    "figure 5.6"
+   ]
+  },
+  {
+   "source": "s5.5",
+   "target": "fig:5.8",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "150"
+   ],
+   "count": 4,
+   "examples": [
+    "figure 5.8",
+    "Figure 5.8"
+   ]
+  },
+  {
+   "source": "s5.6",
+   "target": "fig:5.9",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "152",
+    "153"
+   ],
+   "count": 6,
+   "examples": [
+    "figure 5.9",
+    "Figure 5.9"
+   ]
+  },
+  {
+   "source": "s6.2",
+   "target": "fig:6.1",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "158"
+   ],
+   "count": 2,
+   "examples": [
+    "Figure 6.1"
+   ]
+  },
+  {
+   "source": "s6.2.1",
+   "target": "fig:6.1",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "159"
+   ],
+   "count": 4,
+   "examples": [
+    "Figure 6.1"
+   ]
+  },
+  {
+   "source": "s6.2.1",
+   "target": "s6.3.6",
+   "type": "refers_to_section",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "161"
+   ],
+   "count": 1,
+   "examples": [
+    "Section 6.3.6"
+   ]
+  },
+  {
+   "source": "u6.3.1/prediction-with-gaussian-processes",
+   "target": "ch2",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "164"
+   ],
+   "count": 1,
+   "examples": [
+    "Chapter 2"
+   ]
+  },
+  {
+   "source": "u6.3.1/prediction-with-gaussian-processes",
+   "target": "ch2",
+   "type": "refers_to_equation",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "164"
+   ],
+   "count": 1,
+   "examples": [
+    "theorem 2"
+   ]
+  },
+  {
+   "source": "s6.3.3",
+   "target": "ch2",
+   "type": "refers_to_equation",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "166"
+   ],
+   "count": 1,
+   "examples": [
+    "equation 2.44"
+   ]
+  },
+  {
+   "source": "s6.3.4",
+   "target": "appB",
+   "type": "refers_to_appendix",
+   "kind": "explicit",
+   "basis": "inferred",
+   "pages": [
+    "169"
+   ],
+   "count": 1,
+   "examples": [
+    "(unnumbered \"appendix\")"
+   ]
+  },
+  {
+   "source": "s6.3.6",
+   "target": "appB",
+   "type": "refers_to_appendix",
+   "kind": "explicit",
+   "basis": "inferred",
+   "pages": [
+    "173"
+   ],
+   "count": 1,
+   "examples": [
+    "(unnumbered \"appendix\")"
+   ]
+  },
+  {
+   "source": "s6.4.1",
+   "target": "fig:6.2",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "175"
+   ],
+   "count": 1,
+   "examples": [
+    "Figure 6.2"
+   ]
+  },
+  {
+   "source": "s6.4.1",
+   "target": "fig:6.3",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "175"
+   ],
+   "count": 1,
+   "examples": [
+    "Figure 6.3"
+   ]
+  },
+  {
+   "source": "s6.4.1",
+   "target": "fig:6.4",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "175"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 6.4"
+   ]
+  },
+  {
+   "source": "s6.4.1",
+   "target": "fig:6.5",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "175"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 6.5"
+   ]
+  },
+  {
+   "source": "s6.4.1",
+   "target": "fig:6.6",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "179"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 6.6"
+   ]
+  },
+  {
+   "source": "s6.4.2",
+   "target": "fig:6.7",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "180"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 6.7"
+   ]
+  },
+  {
+   "source": "s6.4.2",
+   "target": "appB",
+   "type": "refers_to_appendix",
+   "kind": "explicit",
+   "basis": "inferred",
+   "pages": [
+    "180"
+   ],
+   "count": 2,
+   "examples": [
+    "(unnumbered \"appendix\")"
+   ]
+  },
+  {
+   "source": "s6.4.2",
+   "target": "fig:6.8",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "181"
+   ],
+   "count": 2,
+   "examples": [
+    "figure 6.8"
+   ]
+  },
+  {
+   "source": "s6.4.2",
+   "target": "fig:6.9",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "181"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 6.9"
+   ]
+  },
+  {
+   "source": "s6.4.2",
+   "target": "fig:6.10",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "181"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 6.10"
+   ]
+  },
+  {
+   "source": "s6.4.3",
+   "target": "fig:6.11",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "182"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 6.11"
+   ]
+  },
+  {
+   "source": "s6.4.3",
+   "target": "ch5",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "183"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 5"
+   ]
+  },
+  {
+   "source": "u7.3/likelihood-model",
+   "target": "ch2",
+   "type": "refers_to_equation",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "195"
+   ],
+   "count": 1,
+   "examples": [
+    "Definition 5"
+   ]
+  },
+  {
+   "source": "u7.3/penalised-complexity-priors",
+   "target": "ch2",
+   "type": "refers_to_equation",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "197"
+   ],
+   "count": 1,
+   "examples": [
+    "Theorem 3"
+   ]
+  },
+  {
+   "source": "u7.3/modelling-outliers-and-hyperparameter-inference",
+   "target": "ch6",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "198"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 6"
+   ]
+  },
+  {
+   "source": "u7.3/differential-localisation-probability",
+   "target": "appC",
+   "type": "refers_to_appendix",
+   "kind": "explicit",
+   "basis": "inferred",
+   "pages": [
+    "200"
+   ],
+   "count": 1,
+   "examples": [
+    "(unnumbered \"appendix\")"
+   ]
+  },
+  {
+   "source": "s7.4.1",
+   "target": "fig:7.1",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "200"
+   ],
+   "count": 1,
+   "examples": [
+    "figure 7.1"
+   ]
+  },
+  {
+   "source": "s7.4.1",
+   "target": "appC",
+   "type": "refers_to_appendix",
+   "kind": "explicit",
+   "basis": "inferred",
+   "pages": [
+    "201"
+   ],
+   "count": 1,
+   "examples": [
+    "(unnumbered \"appendix\")"
+   ]
+  },
+  {
+   "source": "s7.4.2",
+   "target": "appC",
+   "type": "refers_to_appendix",
+   "kind": "explicit",
+   "basis": "inferred",
+   "pages": [
+    "203"
+   ],
+   "count": 5,
+   "examples": [
+    "(unnumbered \"appendix\")"
+   ]
+  },
+  {
+   "source": "s7.4.2",
+   "target": "fig:7.3",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "205",
+    "206",
+    "207"
+   ],
+   "count": 9,
+   "examples": [
+    "figure 7.3",
+    "Figure 7.3"
+   ]
+  },
+  {
+   "source": "s7.4.3",
+   "target": "appC",
+   "type": "refers_to_appendix",
+   "kind": "explicit",
+   "basis": "inferred",
+   "pages": [
+    "210",
+    "214"
+   ],
+   "count": 2,
+   "examples": [
+    "(unnumbered \"appendix\")"
+   ]
+  },
+  {
+   "source": "s7.4.3",
+   "target": "fig:7.4",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "210",
+    "211"
+   ],
+   "count": 5,
+   "examples": [
+    "figure 7.4"
+   ]
+  },
+  {
+   "source": "s7.4.3",
+   "target": "fig:7.5",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "214",
+    "215"
+   ],
+   "count": 6,
+   "examples": [
+    "figures 7.5",
+    "figure 7.5"
+   ]
+  },
+  {
+   "source": "s7.4.4",
+   "target": "fig:7.6",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "219",
+    "222"
+   ],
+   "count": 5,
+   "examples": [
+    "figure 7.6"
+   ]
+  },
+  {
+   "source": "s7.4.4",
+   "target": "appC",
+   "type": "refers_to_appendix",
+   "kind": "explicit",
+   "basis": "inferred",
+   "pages": [
+    "219",
+    "222",
+    "223",
+    "226"
+   ],
+   "count": 9,
+   "examples": [
+    "(unnumbered \"appendix\")"
+   ]
+  },
+  {
+   "source": "s7.4.4",
+   "target": "fig:7.7",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "223",
+    "226"
+   ],
+   "count": 6,
+   "examples": [
+    "figures 7.7",
+    "figure 7.7"
+   ]
+  },
+  {
+   "source": "s8.1",
+   "target": "ch2",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "229"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 2"
+   ]
+  },
+  {
+   "source": "s8.1",
+   "target": "ch3",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "230"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 3"
+   ]
+  },
+  {
+   "source": "s8.1",
+   "target": "ch4",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "230"
+   ],
+   "count": 1,
+   "examples": [
+    "Chapter 4"
+   ]
+  },
+  {
+   "source": "s8.1",
+   "target": "ch5",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "230"
+   ],
+   "count": 2,
+   "examples": [
+    "Chapters 5 and 6",
+    "chapter 5"
+   ]
+  },
+  {
+   "source": "s8.1",
+   "target": "ch6",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "230"
+   ],
+   "count": 2,
+   "examples": [
+    "Chapters 5 and 6",
+    "chapter 6"
+   ]
+  },
+  {
+   "source": "s8.1",
+   "target": "ch7",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "230"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 7"
+   ]
+  },
+  {
+   "source": "appA",
+   "target": "appA",
+   "type": "refers_to_appendix",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "269"
+   ],
+   "count": 1,
+   "examples": [
+    "Appendix A"
+   ]
+  },
+  {
+   "source": "appA",
+   "target": "ch2",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "269"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 2"
+   ]
+  },
+  {
+   "source": "sA.1",
+   "target": "ch2",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "270",
+    "272",
+    "274",
+    "276"
+   ],
+   "count": 4,
+   "examples": [
+    "chapter 2"
+   ]
+  },
+  {
+   "source": "sA.1",
+   "target": "ch2",
+   "type": "refers_to_equation",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "272",
+    "276"
+   ],
+   "count": 2,
+   "examples": [
+    "equations 2.54",
+    "equations (2.54)"
+   ]
+  },
+  {
+   "source": "sA.2",
+   "target": "ch2",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "278",
+    "280",
+    "282"
+   ],
+   "count": 3,
+   "examples": [
+    "chapter 2"
+   ]
+  },
+  {
+   "source": "sA.3",
+   "target": "ch2",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "284"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 2"
+   ]
+  },
+  {
+   "source": "sA.5",
+   "target": "ch2",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "286",
+    "288"
+   ],
+   "count": 2,
+   "examples": [
+    "chapter 2"
+   ]
+  },
+  {
+   "source": "sA.6",
+   "target": "ch2",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "290",
+    "292"
+   ],
+   "count": 2,
+   "examples": [
+    "chapter 2"
+   ]
+  },
+  {
+   "source": "appB",
+   "target": "appB",
+   "type": "refers_to_appendix",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "295"
+   ],
+   "count": 1,
+   "examples": [
+    "Appendix B"
+   ]
+  },
+  {
+   "source": "appB",
+   "target": "ch6",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "295"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 6"
+   ]
+  },
+  {
+   "source": "sB.1",
+   "target": "ch6",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "296"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 6"
+   ]
+  },
+  {
+   "source": "sB.3",
+   "target": "ch6",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "298",
+    "300",
+    "302"
+   ],
+   "count": 3,
+   "examples": [
+    "chapter 6"
+   ]
+  },
+  {
+   "source": "sB.4",
+   "target": "fig:B.1",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "303"
+   ],
+   "count": 1,
+   "examples": [
+    "figure B.1"
+   ]
+  },
+  {
+   "source": "sB.4",
+   "target": "fig:B.2",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "303"
+   ],
+   "count": 1,
+   "examples": [
+    "figure B.2"
+   ]
+  },
+  {
+   "source": "sB.4",
+   "target": "fig:B.3",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "303"
+   ],
+   "count": 1,
+   "examples": [
+    "figure B.3"
+   ]
+  },
+  {
+   "source": "sB.4",
+   "target": "tab:B.1",
+   "type": "refers_to_table",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "303"
+   ],
+   "count": 1,
+   "examples": [
+    "table B.1"
+   ]
+  },
+  {
+   "source": "sB.4",
+   "target": "ch6",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "304",
+    "306",
+    "308",
+    "310",
+    "312"
+   ],
+   "count": 5,
+   "examples": [
+    "chapter 6"
+   ]
+  },
+  {
+   "source": "sB.4",
+   "target": "fig:B.4",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "304"
+   ],
+   "count": 1,
+   "examples": [
+    "figure B.4"
+   ]
+  },
+  {
+   "source": "sB.4",
+   "target": "fig:B.5",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "305"
+   ],
+   "count": 1,
+   "examples": [
+    "figures B.5"
+   ]
+  },
+  {
+   "source": "sB.4",
+   "target": "fig:B.8",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "307"
+   ],
+   "count": 1,
+   "examples": [
+    "figure B.8"
+   ]
+  },
+  {
+   "source": "sB.4",
+   "target": "fig:B.9",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "308"
+   ],
+   "count": 1,
+   "examples": [
+    "figure B.9"
+   ]
+  },
+  {
+   "source": "sB.4",
+   "target": "tab:B.5",
+   "type": "refers_to_table",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "308"
+   ],
+   "count": 1,
+   "examples": [
+    "table B.5"
+   ]
+  },
+  {
+   "source": "sB.5",
+   "target": "fig:B.10",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "312"
+   ],
+   "count": 1,
+   "examples": [
+    "figure B.10"
+   ]
+  },
+  {
+   "source": "sB.5",
+   "target": "fig:B.11",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "312",
+    "313"
+   ],
+   "count": 4,
+   "examples": [
+    "Figure B.11",
+    "figure B.11"
+   ]
+  },
+  {
+   "source": "sB.5",
+   "target": "tab:B.6",
+   "type": "refers_to_table",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "313"
+   ],
+   "count": 1,
+   "examples": [
+    "table B.6"
+   ]
+  },
+  {
+   "source": "sB.5",
+   "target": "ch6",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "314",
+    "316",
+    "318"
+   ],
+   "count": 3,
+   "examples": [
+    "chapter 6"
+   ]
+  },
+  {
+   "source": "appC",
+   "target": "appC",
+   "type": "refers_to_appendix",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "321"
+   ],
+   "count": 1,
+   "examples": [
+    "Appendix C"
+   ]
+  },
+  {
+   "source": "appC",
+   "target": "ch7",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "321"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 7"
+   ]
+  },
+  {
+   "source": "sC.1",
+   "target": "ch7",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "322"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 7"
+   ]
+  },
+  {
+   "source": "sC.2",
+   "target": "ch7",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "324"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 7"
+   ]
+  },
+  {
+   "source": "sC.4",
+   "target": "ch7",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "326"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 7"
+   ]
+  },
+  {
+   "source": "sC.5",
+   "target": "ch7",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "328"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 7"
+   ]
+  },
+  {
+   "source": "sC.6",
+   "target": "s7.4.2",
+   "type": "refers_to_section",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "328"
+   ],
+   "count": 1,
+   "examples": [
+    "section 7.4.2"
+   ]
+  },
+  {
+   "source": "sC.7",
+   "target": "fig:C.14",
+   "type": "refers_to_figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "329"
+   ],
+   "count": 1,
+   "examples": [
+    "figure C.14"
+   ]
+  },
+  {
+   "source": "sC.7",
+   "target": "ch7",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "330"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 7"
+   ]
+  },
+  {
+   "source": "sC.8",
+   "target": "ch7",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "332"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 7"
+   ]
+  },
+  {
+   "source": "sC.10",
+   "target": "ch7",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "334"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 7"
+   ]
+  },
+  {
+   "source": "sC.11",
+   "target": "ch7",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "336"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 7"
+   ]
+  },
+  {
+   "source": "sC.12",
+   "target": "ch7",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "338"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 7"
+   ]
+  },
+  {
+   "source": "sC.14",
+   "target": "ch7",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "340"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 7"
+   ]
+  },
+  {
+   "source": "sC.15.2",
+   "target": "ch7",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "342"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 7"
+   ]
+  },
+  {
+   "source": "sC.15.4",
+   "target": "ch7",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "344"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 7"
+   ]
+  },
+  {
+   "source": "sC.15.6",
+   "target": "ch7",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "346",
+    "348"
+   ],
+   "count": 2,
+   "examples": [
+    "chapter 7"
+   ]
+  },
+  {
+   "source": "sC.15.7",
+   "target": "ch7",
+   "type": "refers_to_chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "pages": [
+    "350"
+   ],
+   "count": 1,
+   "examples": [
+    "chapter 7"
+   ]
+  }
+ ],
+ "unresolved": [],
+ "stats": {
+  "chapter": 88,
+  "figure": 140,
+  "theorem/definition": 10,
+  "equation": 32,
+  "appendix": 9,
+  "table": 5,
+  "section": 7,
+  "appendix-vague": 22
+ },
+ "intra": {
+  "chapter": 8,
+  "theorem/definition": 7,
+  "equation": 29
+ },
+ "raw_n": 269
+}

@@ -1,0 +1,33 @@
+206 APPENDIX A. ATTACHED PUBLICATION
+
+e Acetonitrile
+
+e Butanenitrile
+
+e Isocyanoethene
+
+e Isocyanoethyne
+
+e Isocyanoethane
+
+e Isoacetonitrile
+
+e Isocyanopropane
+e Isocyanoformonitrile
+e Propiolonitrile
+
+e Acrylonitrile
+
+e Hydrogen cyanide
+
+e Hydrogen isocyanide
+
+Diazocompounds
+e p-aminodiazobenzene
+e m-hydroxydiazobenzene
+e o-hydroxydiazobenzene
+e o-aminodiazobenzene
+e p-hydroxydiazobenzene
+e m-aminodiazobenzene
+
+e Diazobenzene

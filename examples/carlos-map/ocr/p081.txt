@@ -1,0 +1,43 @@
+80 CHAPTER 2. LITERATURE REVIEW
+
+In the first place, it is obviously impossible to obtain an infinite number of sam-
+ples, so it remains to prove whether the maximum likelihood estimation is still valid
+for a finite number of measurements. This can be seen easily with a toy example,
+
+that the chemical reader might remember from elementary chemometrics.
+
+Let us imagine that we are sampling from a Gaussian distribution N (1,7), per-
+haps by performing complexation titration to measure hardness in water, and that
+we are interested in obtaining the parameters p (the “real” value) and ¢ (an estima-
+tion of the error). Let us apply the maximum likelihood estimation approach, with
+the likelihood being simply a product of Gaussian probabilities:
+
+_Ty 1. -G—")
+L(u,c) = IT Jano exp ( 302 (2.161)
+
+By applying logarithms, and equating the derivatives with respect to » and o to
+
+zero, it is easy to arrive to the following formulas:
+
+1 N
+MLE = 3 ye x (2.162)
+k=1
+
+1 N
+OMLE = N Ye (xe — ete) (2.163)
+k=l
+
+The first formula looks exactly like the universally known definition of the arith-
+metic mean, but the variance does not quite look like what is written in the text-
+books. In fact, it can be proved that equation 2.163 is a biased estimator, i. e. an
+
+estimator whose expected value is not the quantity that it is supposed to estimate:
+
+E [ote] = oe (2.164)
+
+It is clear that, in the limit N — oo, the maximum likelihood estimation of the
+variance equals the right value (as ensured by the theorem vide supra); however, for
+small N, the estimation can be significantly distinct. In practice, this is solved by
+introducing Bessel’s correction, that yields the appropriate expected value and is the
+
+well-known formula for the sample variance:

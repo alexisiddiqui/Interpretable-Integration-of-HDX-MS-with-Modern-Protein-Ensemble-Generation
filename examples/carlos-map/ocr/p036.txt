@@ -1,0 +1,46 @@
+2.1. MOLECULAR DYNAMICS 35
+
+is zero. It is also clear that the first term is a repulsion at very short range, while the
+
+second term is attractive at a short range.
+
+Another usual choice is the Buckingham potential [67], that tries to model the
+
+R-"? with a more realistic exponential term:
+
+Cc
+Veuckingham =A exp(—BR) ~ R6 (2.31)
+
+Both expressions are fairly old, although they have been demonstrated to be
+quite successful and are widely employed in many force fields (including the prac-
+tical totality of examples mentioned in this thesis). Their parameters are usually
+determined from fits to crystallographic data, or other experimental measurements
+
+such as densities.
+
+A problem of the dispersion interactions is that the parameters are dependent
+on the atom types being involved. Since a system containing N atom types would
+require ~ N?/2 parameters, it is usual to assume that the cross interaction param-
+eters can be obtained using a set of mixing rules; for example, the Lorentz-Berthelot
+
+mixing rules for the Lennard-Jones potential assume that:
+
+1
+TAB = 5 (TAA + opp) (2.32)
+€aB = VEAAEBB (2.33)
+
+The treatment of electrostatic interactions is generally more important. The ma-
+jority of classical force fields assume that the electron distribution in a molecule
+can be appropriately modelled by means of a handful of point charges, placed at
+the atomic sites (and sometimes in another extra sites, for example the non-bonded
+electron pair in TIP4P [68]). One of the first methods was proposed by Cox and
+Williams [69], and is based in computing the molecular electrostatic potential (MEP)
+¢° at a grid of points {1;}. The charges in the model potential !° are optimised by
+
+means of a least-squares fitting procedure, where the cost function is:
+
+N, points
+
+C{gi}) = Le wi (9x) — 9"(ni)) (2.34)
+
+i=1

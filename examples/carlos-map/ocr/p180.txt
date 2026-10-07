@@ -1,0 +1,15 @@
+5.4. RESULTS AND DISCUSSION 179
+
+5 Sy) =
+
+) oO
+ABC ACB
+
+oe)
+
+CAB CBA
+
+Figure 5.13: Simulations of acetaldehyde permutated conformers employing sym-
+metry. All the conformers converge readily to the expected minimum, in absence
+
+of artefacts.

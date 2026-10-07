@@ -1,0 +1,42 @@
+2.2. INTERMOLECULAR FORCES 37
+
+The terminology of this field is better understood within a brief historical con-
+text. The first insights regarding the presence of intermolecular forces can be traced
+back to 1743 [73], where a treaty of hydrostatics points out that capillary action can-
+not be explained only by surface interactions between molecules and the tube walls;
+
+actually, it requires a general interaction, embracing all molecules.
+
+The theoretical advances of Johannes Diderik van der Waals, through its cele-
+brated state equation (which would award him the Nobel Prize in Physics, in 1910),
+transformed the existence of intermolecular forces in a topic of general interest. In
+
+van der Waals’ equation
+
+(P + vr) (V —nb) = nRT (2.37)
+
+the term b corrects the volume by taking into account the intrinsic volume of
+the component particles, and a corrects the pressure by means of certain attractive
+interactions between the particles (in fact, some authors have defined intermolecu-
+lar forces as that force which gives rise to the constant a in van der Waals equation [74]).
+In his Nobel Lecture, van der Waals [75] declared that I came to the conclusion that
+the attraction of the molecules decreases extremely quickly with distance, indeed that the
+
+attraction only has an appreciable value at distances close to the size of the molecules.
+
+The early theories of intermolecular forces have named the three most impor-
+tant contributions to long-range interactions. Initially, Willem H. Keesom theorised
+that van der Waals forces between non-charged molecules arise as a consequence of
+the electrostatic interaction between their dipoles [76]. Although symmetry seems
+to indicate that the global interaction must be zero, Boltzmann statistics assign sta-
+tistical preference to low energy configurations, creating an attractive force with
+
+form:
+
+2 24,2
+a= — xe ig ME <kT (2.38)
+
+However, this same argument yields attractive forces that vanish with increas-
+ing temperature, which contradicts experimental evidence. Shortly after, Peter De-
+
+bye [77] remarked that these electrostatic interactions could not be the only cause.

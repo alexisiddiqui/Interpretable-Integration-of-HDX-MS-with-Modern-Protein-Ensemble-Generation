@@ -1,0 +1,43 @@
+68 CHAPTER 2. LITERATURE REVIEW
+
+Kohn-Sham orbitals obtained from a DFT calculation.
+
+The partition of the total exchange-correlation is of heuristic nature. In the first
+place, we simply apply the exhaustive atomic partition to the expression of ERFT
+(we will assume an hybrid functional without loss of generality; the extension to
+
+local is trivial):
+
+EDFT _ Es DET _ | p(t) Exc [o] dr + aEXS (2.126)
+A Wa
+
+Now, to ensure that the total energy is recovered, we apply a rescaling proce-
+
+dure. We define the scaling parameter of the atom A as:
+
+exo
+Aa = PSS =a + os | o(t) Exe {p] dr (2.127)
+Exé Exé oz
+
+Note that in a local functional ao is simply set to zero. Now, for a pair of basins
+A and B (perhaps A = B), we define the rescaled exchange-correlation energy (this
+is, the amount of exchange-correlation energy integrated for this pair of quantum
+
+atoms) as:
+
+KS
+etn) drijdry (2.128)
+
+BAB _ 5 lta 4 Ag] ESB KS — pRataa ff, ne
+
+where the Kohn-Sham exchange density p£°(r1, 12) is defined as:
+
+N/2
+
+Pr (HL 2) = D2 PP (HOF (12); (HF (2) (2.129)
+ij
+
+where N is the number of electrons, and a closed-shell state has been assumed for
+simplicity.
+
+It is simple to check that the total exchange-correlation energy is now recovered:

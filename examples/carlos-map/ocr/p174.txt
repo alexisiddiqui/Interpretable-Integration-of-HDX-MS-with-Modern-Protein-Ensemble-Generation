@@ -1,0 +1,42 @@
+5.4. RESULTS AND DISCUSSION 173
+
+the monitorization of the RMSD with the expected minimum allows to observe the
+
+improvement provided by the symmetry.
+
+In Figure 5.8 we show the evolution of the minimisation along 1500 timesteps,
+for runs without (top) and with symmetry-adapted kriging (bottom). At first sight,
+it is clear that the baseline runs converge to several distinct wrong structures, while
+symmetry-adapted runs converge readily to the expected minimum. The mean
+final RMSD to the B3LYP/aug-cc-pVTZ optimum is 0.002+0.004 A.
+
+There are some interesting features in the baseline curves. First, all the ABC runs
+converge to the right minimum, as it would be expected: they are the runs in the
+well-modelled symmetry region Or. It is also noteworthy that a large amount of
+the proper rotations BCA and CAB get initially very close to the expected minimum
+and then drift away. In these runs, the hydroxyl group rotates until reaching the
+expected minimum and then, since the potential does not recognise a minimum,
+continues rotating, ignoring the rotation barrier, until reaching the ABC minimum,
+
+which is the only one where the potential acknowledges a minimum.
+
+The improper rotations do not experience this behaviour, and generally the
+methyl group twists while the hydrogen atoms try to reassemble to invert the hand-
+edness in a completely unphysical evolution. In most of the cases, these runs get
+
+stuck in a meaningless structure due to the extrapolation collapse.
+
+Finally, we note that there is an ACB (pink) simulation that experiences an er-
+ratic behaviour with a kink around 200 fs. We have analysed this trajectory care-
+fully, and concluded that it is a boundary effect. Since kriging is a non-linear inter-
+polation method, the potential in the borders of the training set is significantly less
+accurate that in regions are surrounded by training points. Therefore, if the simula-
+tion begins close to this boundary, as is the case for this particular trajectory, the ini-
+tial forces can be completely wrong. In this case, the simulation begins quite close to
+the boundary, and receives a significant force that pushes it through the boundary
+between two symmetry-equivalent regions Ox and Oy. As a consequence, there is
+a small period of readjustment that reminds of a damped oscillation, until finally
+
+the structure is within the training set and converges to a minimum.
+
+There is no reason, in principle, why this could not happen in symmetry-adapted

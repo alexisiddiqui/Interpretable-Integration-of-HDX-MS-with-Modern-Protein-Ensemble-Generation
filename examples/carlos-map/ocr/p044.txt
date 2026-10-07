@@ -1,0 +1,51 @@
+2.2. INTERMOLECULAR FORCES 43
+
+eq. 2.42 as:
+Al = 74*G? + Te (G48 - ag?) LY Trphdwhs+... (2.61)
+a aX B
+Expanding equation 2.46 using this definition, we get simply:
+
+Uelectrostatic = 74494" + yy Ty (Ca ~ nq") a LV Tepe hp Tees (2.62)
+a a £p
+
+This is obviously the interaction between the unperturbed charge distributions.
+Truncating to the third term, setting g4 = q? = 0 and applying Boltzmann’s dis-
+tribution, it is possible to recover Keesom’s 1910 result. We note that a detailed
+
+derivation of multipolar electrostatic interactions is given in Appendix C.
+
+A similar treatment can be applied to induction, starting with equation 2.48 and
+
+introducing the multipolar expression for H’:
+
+(00| T94g? + Tyq4p8, ...\On) (On| T94g? + Ty 94 p8, . .. |00)
+we — w8
+
+Una =—-
+
+n#0
+
+(2.63)
+
+Since the state |mn) is simply YAY8, the integration over the coordinates of
+
+molecule A yields the expected values of all the operators relying on this molecule.
+
+(0| Tq4g? + Tyq4p®, ...\n) (n| Tq4g8 + Ty qf, . .. |0)
+w8 — we
+
+(2.64)
+
+Una = — Do
+
+n#0
+
+The operator 4° is simply a constant, and since (m|n) = dyn all the terms includ-
+
+ing 9° vanish:
+
+0] Tyq4 8, ...|n) (n| Tyr q4 p8, .. . |0)
+us, =— (0| Tw" Pe aa (2.65)
+ind xX w8 — we
+
+This can be expanded to have the form:

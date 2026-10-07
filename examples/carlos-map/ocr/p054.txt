@@ -1,0 +1,42 @@
+2.3. POLARISABLE FORCE FIELDS 53
+
+as classical point particles that collided with the atoms in the lattice [122, 123]. De-
+spite its simplicity, it provides powerful insight, and its properties are significantly
+
+close to the real values, specially in semiconductors [124].
+
+The Drude oscillator model attempts to mimic electronic polarisation by con-
+sidering atoms as two-particle systems that are joined together by a spring with
+constant kp. These two particles are referred to as the core atom, with charge q4 and
+the Drude oscillator with charge gp (and g4 + 4p = 4q, being this the total charge of
+
+the atom).
+
+The separation of the Drude oscillator and the core (which we represent by the
+vector d; for the ith oscillator) represents a dipole. At each step of the MD simu-
+lation, the displacement of the Drude oscillator will be updated in a self-consistent
+
+fashion to minimise the energy:
+
+dE
+5a, °C (2.80)
+
+Let us take a given site i, and assume that the environment (including all other
+sites) generates an electric potential ¢(r). The contributions of the energy at this
+site that depend on the displacement are given by the harmonic potential at the
+
+oscillator and the electric interaction:
+
+E = qp($(1; + di) — $(ti)) + kp |||? (2.81)
+
+By differentiation, one arrives at:
+
+a= 125 (2.82)
+kp
+It is easy to identify the polarisability as:
+2
+a= - (2.83)
+D
+
+All the induced dipoles have to be solved self-consistently, and this is usually the
+limiting factor in simulations. Fortunately, extended Lagrangian approaches allow

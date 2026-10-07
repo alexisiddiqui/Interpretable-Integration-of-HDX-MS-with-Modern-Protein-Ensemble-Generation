@@ -1,0 +1,45 @@
+3.1. ARCHITECTURE OF FFLUX 89
+
+multipolar electrostatics. The dispersion is currently based on the classical 12-6
+Lennard-Jones potential, although there is ongoing work to implement a more ad-
+vanced potential based on variable-input kriging [226] trained on topologically par-
+titioned dispersion energies [227]. On the other hand, the electrostatics is the key
+
+part of the FFLUX force field, and can be summarised in the following equation:
+
+co ls oo lz
+EG? srostatic = >» >» yi - QP maa ({Ra}) Qi ms ({Ra}) Teme (3.2)
+
+14=0 m4g=—l, lgp=0 mg=—Ip
+
+Here, Qf malt R,}) is the prediction of a kriging model that captures a given
+multipolar moment in terms of the atomic configuration of the molecule. This is
+necessary since atomic multipoles can be highly dependent on the conformation
+[228]. Additionally, the good convergence [177, 179, 229] and transferability [230]
+of QTAIM multipoles advocate for its usability in a force field. The charge distri-
+butions of both atoms are described by multipole moments up to hexadecapole,
+
+necessary to accurately converge to the molecular electrostatic potential.
+
+Multipolar electrostatics can seem quite obscure for those not familiar with its
+terminology. In Appendix C we provide a complete derivation of multipolar elec-
+trostatics employing the Cartesian tensor formalism, as well as the formulae for the
+different interactions and interaction tensors up to quadrupole. The conclusion of
+this treatment, as simple as it is, must be borne in mind: multipole moments are
+nothing more than the coefficients in a Taylor expansion”, and if the latter converges, it
+
+is clear that adding more terms improves the description of the potential.
+
+We note that a significant assumption in the FFLUX scaffold is that charge trans-
+fer can be adequately modelled by the changes induced in the geometry. This as-
+
+sumption will be explored in more detail vide infra.
+
+3.1.2. The atomic local frame
+
+Multipole moments of order greater than zero are tensor magnitudes, which are de-
+
+pendent on the system of coordinates in which they are defined. This frame of
+
+The spherical tensor formulation is not much different, but has the advantage that implicitly
+accounts for the symmetries in the formulae, simplifying the treatment significantly.

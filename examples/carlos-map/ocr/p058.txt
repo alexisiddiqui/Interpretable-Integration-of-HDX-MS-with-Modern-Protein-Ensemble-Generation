@@ -1,0 +1,40 @@
+2.4. QUANTUM CHEMICAL TOPOLOGY 57
+
+eigenvalues of an appropriate quantum mechanical operator: the so-called Dirac
+
+observables.
+
+O=(¥|Ol¥) = [ord (2.90)
+
+A theory that allows to recover the division of a molecule in atoms, maintaining
+the classical chemical vision while ensuring that all molecular and atomic proper-
+ties remain as Dirac observables was proposed by Richard F. W. Bader in the sev-
+enties, under the name of Quantum Theory of Atoms in Molecules (QTAIM). This
+theory is based on the division of real space IR° in several atoms, which constitute
+
+open quantum systems.
+
+While not enjoying the same quantum mechanical rigour, other theories propos-
+ing a partition of real space have been proposed, including the Electron Localiza-
+tion Function (ELF) [135] and Hirshfeld partitioning [136], to name a few. These
+theories have been widely considered to form part of a family of techniques called
+Quantum Chemical Topology (QCT), a term proposed by Prof. Popelier in 2003, in a
+quite extended footnote [137]. However, while the term was coined by Popelier, the
+conception of these theories as topological analysis was well-extended in the commu-
+nity before; proof of this is the presence of titles as “Classification of chemical bonds
+based on topological analysis of electron localization functions”, the Nature paper
+by Silvi and Savin in 1994 [138].
+
+The name topology is a consequence of the atomic partitioning inducing a topol-
+
+ogy in real space, in the usual mathematical sense [139]:
+
+Definition 1 (Topology) A topology on a set X is a collection (i. e. a set whose elements
+are sets) T of subsets of X having the following properties:
+
+1. © (the empty set) and X are in T,
+2. The union of the elements of any subcollection of T is in T,
+
+3. The intersection of the elements of any finite subcollection of T is in T.
+
+The different areas of Quantum Chemical Topology are each one a considerable

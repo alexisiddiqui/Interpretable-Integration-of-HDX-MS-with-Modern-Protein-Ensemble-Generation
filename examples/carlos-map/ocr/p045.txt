@@ -1,0 +1,42 @@
+A+ CHAPTER 2. LITERATURE REVIEW
+
+_ (0| a8,....|n) (n| 8,....|0)
+Ula = — (Tw --) x we we (Twq’..-) (2.66)
+
+The two terms between round brackets can be identified with the electric field
+induced by molecule A onto molecule B, while the sum term between them yields
+the expansion in terms of polarisability. For example, the dipole polarisability is
+
+defined as:
+
+0| p38, Blo
+Hew = Yo OlRs In) (nl Ra 0) (2.67)
+n#0 Wr — Wo
+By tedious direct computation, it is possible to show that the formula also in-
+volves the dipole-quadrupole polarisability, the quadrupole-quadrupole polaris-
+ability, etc. [81]:
+
+1
+Una = 5 DFA (B)FY (B)a wy — DOLE BE Ay (Ba ayy —- (2.68)
+a gl
+
+a a! pl
+
+This shows that the induction energy is totally equivalent to the classical treat-
+ment, and is a generalisation of Debye’s work. We note that the induction energy is
+
+non-additive and always negative.
+
+A similar treatment can be done for the dispersion energy, that yields the R~®
+
+asymptotic behaviour of this interaction. However, this will not be done here.
+
+2.2.4 Distributed multipoles
+
+The results presented in the previous section provide powerful insight about in-
+termolecular interactions, as well as expressions that could potentially be included
+in a force field for describing them. However, there is a main hurdle to apply the
+
+multipolar expansion: it suffers from convergence problems.
+
+The convergence criteria for the multipolar expansion can be traced back to

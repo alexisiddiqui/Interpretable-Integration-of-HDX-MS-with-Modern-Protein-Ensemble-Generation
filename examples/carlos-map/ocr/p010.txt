@@ -1,0 +1,29 @@
+4.3 Decay of the delocalization index in the alcohols and aldehydes series. 136
+
+4.4 Resonance structures for benzaldehyde, phenol and phenoxide. . . . 136
+4.5 Lewis structure of the Ng molecule... .............00055 138
+4.6 Calculated delocalization indices of the Ng molecule. ......... 139
+4.7 Calculated delocalization indices for the dilithium-substituted cy-
+clopropane. 2... 2... ee 140
+
+4.8 Calculated delocalization indices for (y*-C4H¢)Fe(CO)3 at the B3LYP/6-
+
+B3114+4+G(2d,2p). ee eee eee 142
+5.1 Permutationally equivalent conformers of methanol .......... 147
+5.2 Diagram of the symmetry partition scheme................ 163
+5.3 Diagram of the symmetry algorithm..................0.. 165
+5.4 Symmetry projection in FFLUX..................0204. 166
+
+5.5 Dissociation curve of HzO computed with trained GP and SAGPR. . 169
+
+5.6 Dissociation curve of NH3 computed with trained GP and SAGPR . 170
+
+5.7. Training set for methanol and acetaldehyde. .............. 171
+5.8 Evolution of methanol simulations during time............. 172
+5.9 Simulations of methanol permutated conformers in absence of sym-
+Metry 2. ees 174
+5.10 Simulations of methanol permutated conformers employing sym-
+Metry ees 175
+5.11 Evolution of acetaldehyde simulations during time .......... 177
+
+9

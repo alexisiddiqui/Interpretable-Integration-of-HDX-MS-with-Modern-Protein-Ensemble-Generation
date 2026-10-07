@@ -1,0 +1,23 @@
+List of Figures
+
+2.1 Morse potential forH2 .... 2... .. 2 ee eee 33
+2.2 Spheres of divergence in the waterdimer ................ 45
+2.3. Distributed versus molecular multipoles in the benzene dimer. . . . . 46
+3.1 Scheme of interactions in the FFLUX force field. ............ 88
+3.2 Definition of anatomiclocalframe .................0-. 91
+3.3 Scheme of the training pipeline... .........-.....22.0.5. 99
+3.4 Dissociation curve of water as computed by FFLUX........... 107
+
+3.5 Evolution of the energy along a single water Monte Carlo simulation. 108
+
+3.6 First and last snapshots of a 2500 step single water Monte Carlo
+
+simulation... 2... ee ee 108
+3.7 A pictorial description of the curse of dimensionality. ......... 110
+3.8 Distribution of energies in glycine as predicted by B3LYP/apc-1 and
+
+FFLUX. .. 2... ee 111
+4.1 Distribution of HF delocalization indices. ................ 132
+4.2 k-means clustering of the internuclear distance d versus 6. ...... 134
+
+8

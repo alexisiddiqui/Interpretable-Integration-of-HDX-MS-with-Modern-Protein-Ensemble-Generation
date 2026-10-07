@@ -1,0 +1,41 @@
+Acronyms and Abbreviations
+
+AIM Atoms In Molecules
+AMOEBA Atomic Multipole Optimized Energetics for BiomoleculAr simulations
+
+B3LYP Becke 3-parameter Lee-Yang-Parr functional
+BOMD Born-Oppenheimer Molecular Dynamics
+BFGS Broyden-Fletcher-Goldfarb-Shanno algorithm
+BP86 Becke-Perdew ’86 functional
+
+BSSE Basis Set Superposition Error
+
+CHELP CHarges from ELectrostatic Potentials
+CPMD Car-Parrinello Molecular Dynamics
+
+DE Differential Evolution
+
+DI Delocalization Index
+
+DFT Density-Functional Theory
+DMA Distributed Multipole Analysis
+ESP ElectroStatic Potential
+
+FFLUX Quantum Chemical Topology Force Field
+
+GP Gaussian Process
+
+GPR Gaussian Process Regression
+HF Hartree-Fock
+
+IAS InterAtomic Surfaces
+
+LI Localization Index
+
+MCMC Markov Chain Monte Carlo
+
+MD Molecular Dynamics
+MEP Molecular Electrostatic Potential
+MLE Maximum Likelihood Estimation
+
+17

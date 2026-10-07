@@ -1,0 +1,46 @@
+2.1. MOLECULAR DYNAMICS 29
+
+the fly at every timestep employing ab initio computational methods. There are
+two main approaches: Born-Oppenheimer and Car-Parrinello molecular dynamics,
+
+which will be discussed with certain detail here.
+
+In the first place we introduce the classical equations of motion for the nuclei.
+We follow the approach in [33], recognising that the nuclear wavefunction, as a
+
+complex function, can be written as:
+
+iS (Rit) | (2.15)
+
+Xi (Rit) = Ax (Rt) exp | HC
+Here A; and S, are real functions that represent respectively the amplitude and
+phase of the wavefunction. This equation can be inserted into the time-dependent
+
+Schrédinger equation and obtain a pair of equations for the amplitude and phase:
+
+aS; ar 1 ~VRAy
+ott Lang (VpS) +E =h LU oMs A, (2.16)
+t+ Dong (VeAx) (VaSk) +L’ (Vis) =0 (2.17)
+at 2Mz Bk BOk k AYVk .
+
+The equations above employ the nuclear index B to avoid confusion with the
+amplitude function. In order to obtain a classical description of the nuclei, we will
+apply the well-known correspondence principle [41], and impose that the classical
+
+description will be recovered as i — 0. This yields the following expression:
+
+aS,
+
+a + Doms (VBS;,)* +E =0 (2.18)
+
+However, these equations looks exactly like the Hamilton-Jacobi formulation of
+classical mechanics [42], where S; represents the action integral, and the second and
+
+third terms in the left hand side are respectively the kinetic and potential energy.
+
+In this framework, it can be shown that p = V5,, and since the total energy is
+
+conserved:
+
+OS 0(VBSx) _ Op _ tot
+Vp (St) = ee = P = —vaE | (2.19)

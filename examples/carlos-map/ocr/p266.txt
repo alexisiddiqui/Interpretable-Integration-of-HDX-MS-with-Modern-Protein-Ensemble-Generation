@@ -1,0 +1,33 @@
+BIBLIOGRAPHY 265
+
+[323] R. Mulliken, “Electronic structures of polyatomic molecules and valence.
+IV. Electronic states, quantum theory of the double bond,” Physical Review,
+vol. 43, p. 279, 1933.
+
+[324] H. Longuet-Higgins, “The symmetry groups of non-rigid molecules,” Molec-
+ular Physics, vol. 6, no. 5, pp. 445-460, 1963.
+
+[325] E. B. Vinberg, A course in algebra. American Mathematical Society, 2003.
+
+[326] M.S. Dresselhaus, G. Dresselhaus, and A. Jorio, Group theory: application to the
+physics of condensed matter. Springer Science & Business Media, 2007.
+
+[327] W. Kabsch, “A solution for the best rotation to relate two sets of vectors,” Acta
+Crystallographica Section A: Crystal Physics, Diffraction, Theoretical and General
+Crystallography, vol. 32, no. 5, pp. 922-923, 1976.
+
+[328] M. J. Mills, K. L. Sale, B. A. Simmons, and P. L. A. Popelier, “Rhorix: An
+interface between quantum chemical topology and the 3d graphics program
+blender,” Journal of Computational Chemistry, vol. 38, no. 29, pp. 2538-2552,
+2017.
+
+[329] T. M. Apostol, Multivariable Calculus and Linear Algebra, with Applications to
+Differential Equations and Probability. 1962.
+
+[330] M. Challacombe, E. Schwegler, and J. Alml6f, “Recurrence relations for cal-
+culation of the cartesian multipole tensor,” Chemical Physics Letters, vol. 241,
+
+no. 1-2, pp. 67-72, 1995.
+
+[331] A. Buckingham, “Molecular moments and intermolecular forces,” Advances
+in Chemical Physics, vol. 12, p. 107, 1967.

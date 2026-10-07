@@ -1,0 +1,30 @@
+88 CHAPTER 3. THE QUANTUM CHEMICAL TOPOLOGY FORCE FIELD
+
+Figure 3.1: Scheme of interactions in the FFLUX force field. The valence potential
+is obtained fully from a machine-learned Ejgq potential. Dispersion is modelled
+by a Lennard-Jones potential, and electrostatics include multipole moments up to
+
+hexadecapole.
+
+This potential can be better understood in the context of an example simulation,
+such as the water cluster depicted in Figure 3.1. As in classical molecular mechan-
+ics, there will be intramolecular and intermolecular interactions. In the first place,
+every individual water molecule contributes an energy Ejga({Ra}), where {R,}
+indicates that it is dependent on the total molecular configuration, and as such this
+
+potential is reminiscent of the valence, intramolecular terms in classical force fields.
+
+The usage of Ejgq has a number of advantages. In the first place, it makes a
+direct connection with quantum mechanics, as the IQA self-energy rigorously parti-
+tions the total energy. In the second place, given the non-parametric nature of atom-
+istic kriging models, it might be feasible! in the following years to study processes
+where bond breaking and forming is involved, competing with the few existing re-
+active force fields [225]. Overall, it allows to recover the total quantum-mechanical
+
+energy for a single molecule.
+
+The interaction between molecules is given by two components: dispersion and
+
+1We note, however, that very significant changes should be made to the current formulation.
+For example, it is not clear how the features of a molecule, described in Section 3.1.2, would change
+upon dissociation.

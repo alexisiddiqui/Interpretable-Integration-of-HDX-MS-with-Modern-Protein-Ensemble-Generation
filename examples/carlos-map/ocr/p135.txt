@@ -1,0 +1,55 @@
+134 CHAPTER 4. DELOCALIZATION INDICES AND BOND ORDER
+
+set of centroids, representing the clusters, is modified to accommodate the mean of
+
+such cluster.
+
+This analysis has been undertaken on the (4, d) (where d is the internuclear dis-
+tance) pairs computed from Hartree-Fock wavefunctions, after removing the values
+corresponding to non-bonded pairs, as well as the outliers arising from non-nuclear
+critical points (and thus the majority of triple bonds). The clustering was performed
+employing scikit-learn [222] and employed three centroids. In both cases, the clus-
+ters can be clearly identified with the plateaus in Figure 4.1.
+
+2.5 2.5
+1.30 OH
+0.733
+2.0 2.04
+1.137
+1-080 0.800
+: fe)
+CH,——=CH,
+zis a ° zis] OH c=o
+$ al 2 aR
+8 em ee ° & Os A
+cd rj
+3 10 5104 O 1.104 © 5 10)
+
+1.740
+\ a 2.470 |
+NC
+0.5 0.54 NH OH
+
+NH
+0.0
+
+. r 0.0 7 r
+0.0 0.5 1.0 15 2.0 2.5 3.0 0.0 0.5 1.0 1.5 2.0 2.5 3.0
+Delocalization indices [a. u.] Delocalization indices [a. u.}
+
+Figure 4.2: k-means clustering of the internuclear distance d versus 6 plot for
+carbon-carbon (left) and carbon-oxygen (right) bonds. Weak interactions (smaller
+than 0.5 a.u.), as well as delocalization indices where there is a non-nuclear criti-
+cal point have been removed. The vast majority of examples are concentrated in a
+band between 1.0 and 2.0 , and correspond to the single, double and triple bonds for
+carbon-carbon interactions, and to the single and double bonds for carbon-oxygen
+
+interactions.
+
+4.2.5 The subtler bonding effects
+
+The delocalization index is sensitive to the environment of the bond it refers, and
+in that way it can reflect some well-known effects in practical chemistry. We will
+understand the DI to be under the influence of two responses: the atoms that con-
+
+stitute the bond, and their surroundings.

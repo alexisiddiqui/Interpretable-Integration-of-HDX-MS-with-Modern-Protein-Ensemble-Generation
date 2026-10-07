@@ -1,0 +1,30 @@
+Appendix A
+
+Attached publication
+
+A.1 Publication in Chemical Science
+
+The results in Chapter 4 have been published in the journal Chemical Science
+
+(Impact factor: 9.063), under the following citation:
+
+C. Outeiral et al.
+
+Revitalizing the concept of bond order through delocalization measures in real
+space
+
+Chem. Sci., 2018, 9, 5517-5529
+
+My scientific contributions to this article include the vast majority of the calcu-
+lations, and the totality of the analysis. Since I am the first author and have handled
+the research directly, the article is reproduced (with some unpublished additions)
+
+in Chapter 4.
+
+I also designed the cover artwork. I thank the contributions from Dr. Matthew
+L. Mills (his program Rhorix [328], after some modifications, allowed to draw the
+atomic meshes) and Ivan Batalla (his advice allowed to improve significantly the
+
+materials).
+
+186

@@ -1,0 +1,28 @@
+Chapter 5
+Symmetry-adapted kriging
+
+HE following chapter will be concerned with developing a methodology
+that increases the robustness and efficiency of atomistic kriging mod-
+els by implicitly taking into account the symmetries of the system. We
+present the algorithm and implement it into FFLUX, showing its capacity to handle
+
+some moderately-sized systems.
+
+This chapter is strongly methodological, being focused in obtaining a consistent
+mathematical model as well as an efficient implementation. The mathematical con-
+tent of the chapter is intense, and in particular it makes use of finite group theory in
+an abstract way. Since the majority of the effort has been dedicated to derivations
+and code development, the number of numerical examples will be reduced, as they
+
+are costly and necessary only to verify the framework.
+
+We now turn to the concept of symmetry, which can be loosely defined as the
+property of being invariant to certain transformations. This concept is generally un-
+derstood in a static, geometrical way, although it is much wider. For example, the
+electronic structure of a molecule in vacuum is independent of its position: there is
+an invariance upon translation, and thus a form of symmetry. All physical systems
+are endowed with certain symmetries, and capturing those in the mathematical
+models is key to avoid catastrophes, the symmetry breakings that are well known
+in physics.
+
+145

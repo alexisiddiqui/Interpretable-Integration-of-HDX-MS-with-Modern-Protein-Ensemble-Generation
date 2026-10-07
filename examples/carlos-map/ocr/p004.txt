@@ -1,0 +1,49 @@
+2.3
+
+2.4
+
+2.5
+
+2.6
+
+2.2.1 Introduction and historical context
+
+2.2.2 Insights from p
+
+2.2.3 The multipolar
+
+2.2.4 Distributed multipoles
+
+Polarisable force fields
+
+2.3.1 The need for polarisation
+2.3.2 Fluctuating charges
+
+2.3.3. Classical Drude oscillator
+
+2.3.4 Inducible dipol
+
+Quantum Chemical Topology
+2.4.1 The Quantum Theory of Atoms in Molecules
+2.4.2 Interacting Quantum Atoms
+2.4.3 Interacting Quantum Atoms and DFT
+
+2.4.4 Topological multipoles
+
+Machine learning . .
+
+2.5.1 Gaussian proce
+
+2.5.2. Maximum likelihood estimation
+2.5.3. Global optimisation
+
+The Quantum Chemical Topology Force Field
+
+2.6.1 Previous work
+
+es
+
+expansion .... 2... eee ee ee ee
+ss regression
+
+erturbation theory ................

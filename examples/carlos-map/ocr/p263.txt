@@ -1,0 +1,39 @@
+262 BIBLIOGRAPHY
+
+[294] R. B. Grossman, “Van’t Hoff, Le Bel, and the development of stereochemistry:
+
+a reassessment,” Journal of Chemical Education, vol. 66, no. 1, p. 30, 1989.
+
+[295] R. Keese, “Carbon flatland: planar tetracoordinate carbon and fenestranes,”
+Chemical Reviews, vol. 106, no. 12, pp. 4787-4808, 2006.
+
+[296] G. Merino, M. A. Méndez-Rojas, A. Vela, and T. Heine, “Recent advances in
+planar tetracoordinate carbon chemistry,” Journal of Computational Chemistry,
+vol. 28, no. 1, pp. 362-372, 2007.
+
+[297] K. Sorger and P. v. R. Schleyer, “Planar and inherently non-tetrahedral tetraco-
+ordinate carbon: a status report,” Journal of Molecular Structure: THEOCHEM,
+vol. 338, no. 1-3, pp. 317-346, 1995.
+
+[298] D. Shriver, P. Atkins, T. Overton, J. Rourke, M. Weller, and F. Armstrong,
+“Inorganic chemistry,” 2006.
+
+[299] L. J. Farrugia, C. Evans, and M. Tegel, “Chemical bonds without chemical
+bonding? A combined experimental and theoretical charge density study on
+an iron trimethylenemethane complex,” The Journal of Physical Chemistry A,
+vol. 110, no. 25, pp. 7952-7961, 2006.
+
+[300] F. Cortés-Guzman, T. Rocha-Rinza, J. M. Guevara-Vela, G. Cuevas, and R. M.
+Gomez, “Dynamic molecular graphs: Hopping structures,” Chemistry-A Eu-
+ropean Journal, vol. 20, no. 19, pp. 5665-5672, 2014.
+
+[301] F. A. Cotton, Chemical applications of group theory. John Wiley & Sons, 2003.
+
+[302] R. McWeeny, Symmetry: An introduction to group theory and its applications.
+Courier Corporation, 2002.
+
+[303] A. P. Bart6k, R. Kondor, and G. Csanyi, “On representing chemical environ-
+ments,” Physical Review B, vol. 87, no. 18, p. 184115, 2013.
+
+[304] J. Behler, “Perspective: Machine learning potentials for atomistic simula-
+tions,” The Journal of Chemical Physics, vol. 145, no. 17, p. 170901, 2016.

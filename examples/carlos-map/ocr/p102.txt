@@ -1,0 +1,40 @@
+3.4. A CRITICAL APPRAISAL 101
+
+The discussions in this section do not necessarily agree with the vision held
+
+currently by the Popelier group, and represent the observations of the thesis’ author.
+
+3.4.1 The challenge of polarisation
+
+We will first assess the lack of polarisation in FFLUX, which is a problem in its
+physical description of intermolecular interactions, rather than a technical prob-
+lem related to the details of the parametrization. This arises from one of the major
+assumptions of the force field: that the charge distribution depends only on the
+molecular geometry, and that charge transfer effects are governed only by confor-
+
+mational changes.
+
+Turning to the electrostatic interaction described in equation 3.2, one might eas-
+ily observe that the charges (and higher-order multipoles) on every atomic site are
+obtained from the kriging models, which depend on the molecular geometry alone.
+There is, in principle, no direct influence of the environment: two molecules in com-
+pletely different environments will show the same charges, as long as both share
+the same geometry. In other words, the environment affects the molecular charge
+
+distribution only by distorting the geometry.
+
+This assumption means that, although FFLUX has been presented as a polaris-
+able force field, in rigour it can only be categorised as a multipolar force field, since
+the electrostatics do not respond directly to the changes in the environment. In
+other words, the polarisation is intramolecular rather than intermolecular, in contrast
+to the polarisable force fields presented in Section 2.3, where both forms are present.
+For example, in fluctuating charge force fields, the intermolecular response is repre-
+sented by a charge redistribution until the electronegativity constraints are fulfilled.
+Similarly, in inducible dipole force fields, this is accounted explicitly employing
+Applequist model. In both cases, two molecules with the same geometry will have
+different charge distributions if their environments differ.
+
+Neglecting intermolecular polarisation could in principle be an important asset,
+especially in terms of efficiency, since it is known that this step consumes a signifi-
+
+cant amount of computer time (for example, in the AMOEBA force field it amounts

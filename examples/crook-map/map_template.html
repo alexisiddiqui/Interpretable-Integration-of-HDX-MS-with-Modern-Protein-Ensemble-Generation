@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thesis map: Bayesian methods for spatial proteomics</title>
+<style>
+:root{
+  --bg:#f6f5f1; --surface:#ffffff; --surface2:#efede7; --ink:#1d2229; --muted:#59626e; --line:#c9c5ba; --accent:#0b5cad; --focus:#0b5cad;
+  --o-worked:#007a5a; --o-partial:#b36b00; --o-failed:#c2410c; --o-pivot:#0b5cad;
+  --t-background:#5f7390; --t-method:#2f6fa6; --t-result:#2d8a6a; --t-discussion:#a8741f; --t-appendix:#7d5ba6; --t-front:#80808a; --t-back:#8f8f8f;
+  --x-xref:#6c7a89; --x-method:#0072b2; --x-build:#c27c00; --x-share:#00875f; --x-compare:#a8467f; --x-summ:#7a7a7a; --x-mention:#9aa0a8;
+  --shadow:0 1px 2px rgba(0,0,0,.08),0 2px 8px rgba(0,0,0,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#14171b; --surface:#1d2127; --surface2:#262b33; --ink:#e8e9ec; --muted:#a3abb7; --line:#3a414b; --accent:#6db0f2; --focus:#8cc4ff;
+    --o-worked:#3ecf9f; --o-partial:#f0b24a; --o-failed:#ff8a5c; --o-pivot:#74b4ff;
+    --t-background:#8fa3c0; --t-method:#6aa5da; --t-result:#5ec9a1; --t-discussion:#e0b062; --t-appendix:#b69ae0; --t-front:#a0a0aa; --t-back:#a8a8a8;
+    --x-xref:#9aa7b5; --x-method:#56b4e9; --x-build:#f0b24a; --x-share:#3ecf9f; --x-compare:#e48ab9; --x-summ:#a0a0a0; --x-mention:#6d7580;
+    --shadow:0 1px 2px rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14171b; --surface:#1d2127; --surface2:#262b33; --ink:#e8e9ec; --muted:#a3abb7; --line:#3a414b; --accent:#6db0f2; --focus:#8cc4ff;
+  --o-worked:#3ecf9f; --o-partial:#f0b24a; --o-failed:#ff8a5c; --o-pivot:#74b4ff;
+  --t-background:#8fa3c0; --t-method:#6aa5da; --t-result:#5ec9a1; --t-discussion:#e0b062; --t-appendix:#b69ae0; --t-front:#a0a0aa; --t-back:#a8a8a8;
+  --x-xref:#9aa7b5; --x-method:#56b4e9; --x-build:#f0b24a; --x-share:#3ecf9f; --x-compare:#e48ab9; --x-summ:#a0a0a0; --x-mention:#6d7580;
+  --shadow:0 1px 2px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden;-webkit-text-size-adjust:100%}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+header.top{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+.top-in{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;padding:8px 16px;max-width:1500px;margin:0 auto}
+.brand{min-width:0;flex:1 1 220px}
+.brand h1{font-size:16px;line-height:1.25;margin:0}
+.brand p{margin:0;font-size:12px;color:var(--muted)}
+.tabs{display:flex;gap:4px;order:3;flex:1 1 100%}
+.tabs button{flex:1 1 0;padding:8px 10px;border:1px solid var(--line);background:var(--surface2);border-radius:8px 8px 0 0;font-weight:600;min-height:40px}
+.tabs button[aria-selected="true"]{background:var(--surface);border-bottom-color:var(--surface);color:var(--accent);box-shadow:inset 0 3px 0 var(--accent)}
+.tabs .sub{display:block;font-weight:400;font-size:11px;color:var(--muted)}
+.searchwrap{position:relative;flex:1 1 260px;max-width:480px}
+.searchwrap input{width:100%;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;min-height:40px}
+.results{position:absolute;left:0;right:0;top:46px;background:var(--surface);border:1px solid var(--line);border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.25);max-height:60vh;overflow:auto;z-index:40;padding:4px;margin:0;list-style:none}
+.results li{padding:6px 8px;border-radius:6px;cursor:pointer;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.results li[aria-selected="true"],.results li:hover{background:var(--surface2)}
+.results .grp{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);padding:6px 8px 2px;cursor:default}
+.results .grp:hover{background:none}
+.results .rt{flex:1 1 200px;min-width:0}
+.iconbtn{border:1px solid var(--line);background:var(--surface2);border-radius:8px;padding:6px 10px;min-height:40px}
+main{max-width:1500px;margin:0 auto;padding:12px 16px 40px;display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+@media (min-width:1050px){ main{grid-template-columns:minmax(0,1fr) 400px} }
+.view{min-width:0}
+.view[hidden]{display:none}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow)}
+.pad{padding:12px 14px}
+h2{font-size:18px;margin:0 0 4px}
+h3{font-size:15px;margin:0}
+.muted{color:var(--muted)}
+.small{font-size:12px}
+.lead{margin:0 0 8px;max-width:78ch}
+/* chips */
+.chip,.pg,.tag{display:inline-flex;align-items:center;gap:4px;padding:1px 8px;border-radius:999px;border:1px solid var(--line);background:var(--surface2);font-size:12px;line-height:1.6;white-space:nowrap;color:var(--ink)}
+button.chip{min-height:24px}
+button.chip:hover{border-color:var(--accent)}
+.pg{font-variant-numeric:tabular-nums;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;background:transparent}
+.tag.stated{border-style:solid}
+.tag.inferred{border-style:dashed}
+.chips{display:flex;flex-wrap:wrap;gap:4px 6px;align-items:center}
+.swatch{display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--c,gray)}
+/* journey */
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--muted);margin:6px 0}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.strip-wrap{position:relative}
+.strip-ctl{display:flex;gap:6px;justify-content:flex-end;margin:0 0 6px}
+ol.strip{list-style:none;margin:0;padding:0 0 10px;display:flex;gap:0;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:thin;overscroll-behavior-x:contain}
+.stage{position:relative;flex:0 0 272px;padding:50px 8px 4px;scroll-snap-align:start;min-width:0}
+.stage::before{content:"";position:absolute;top:22px;left:0;right:0;height:3px;background:var(--line)}
+.stage:first-child::before{left:36px}.stage:last-child::before{right:calc(100% - 36px)}
+.marker{position:absolute;top:2px;left:8px;width:42px;height:42px;display:grid;place-items:center}
+.marker svg{width:42px;height:42px;overflow:visible}
+.marker .shape{fill:color-mix(in srgb,var(--oc) 20%,var(--surface));stroke:var(--oc);stroke-width:2.5}
+.marker .glyph{stroke:var(--oc);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.marker .num{position:absolute;right:-6px;bottom:-4px;background:var(--surface);border:1px solid var(--line);border-radius:999px;font-size:11px;min-width:20px;text-align:center;line-height:18px;font-weight:700}
+.scard{position:relative;height:100%;background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--oc);border-radius:10px;padding:10px 12px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px;margin-right:12px}
+.scard h3{font-size:15px;line-height:1.3}
+.scard h3 button{all:unset;cursor:pointer}
+.scard h3 button::after{content:"";position:absolute;inset:0;border-radius:10px}
+.scard h3 button:focus-visible::after{outline:3px solid var(--focus);outline-offset:2px}
+.scard .q{margin:0;font-size:13px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.scard .row{position:relative;z-index:2}
+.stage.hi .scard{box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 55%,transparent)}
+.stage.sel .scard{box-shadow:0 0 0 3px var(--accent);background:color-mix(in srgb,var(--accent) 7%,var(--surface))}
+.otag{font-weight:700;font-size:12.5px;color:var(--oc);display:inline-flex;gap:5px;align-items:center}
+.stage[data-o="worked"]{--oc:var(--o-worked)}.stage[data-o="partial"]{--oc:var(--o-partial)}.stage[data-o="failed"]{--oc:var(--o-failed)}.stage[data-o="pivot"]{--oc:var(--o-pivot)}
+.negbadge{font-size:12px;color:var(--o-failed);font-weight:600}
+@media (max-width:760px){
+  ol.strip{flex-direction:column;overflow:visible}
+  .stage{flex:1 1 auto;padding:0 0 12px 62px;scroll-snap-align:none}
+  .stage::before{top:0;bottom:0;left:21px;right:auto;width:3px;height:auto}
+  .stage:first-child::before{top:20px;left:21px}.stage:last-child::before{bottom:calc(100% - 22px);right:auto}
+  .marker{left:0;top:0}
+  .scard{margin-right:0}
+  .strip-ctl{display:none}
+}
+details.box{margin:10px 0;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+details.box>summary{padding:10px 14px;cursor:pointer;font-weight:600}
+details.box>div{padding:0 14px 12px}
+ul.plain{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+ul.plain li{padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+/* structure */
+.toolbar{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;margin:0 0 8px}
+.toolbar label{font-size:13px;display:inline-flex;gap:5px;align-items:center}
+.toolbar select,.toolbar input[type=number]{font:inherit;padding:3px 6px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.crumbs{display:flex;flex-wrap:wrap;gap:2px;align-items:center;font-size:13px;margin:4px 0 8px}
+.crumbs button{border:0;background:none;color:var(--accent);padding:2px 4px;text-decoration:underline}
+.ice{position:relative;width:100%;border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden}
+.bar{position:absolute;height:var(--rh);margin:0;padding:0 6px;border:1px solid color-mix(in srgb,var(--c) 70%,var(--surface));border-left-width:4px;background:color-mix(in srgb,var(--c) 18%,var(--surface));text-align:left;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:12.5px;line-height:calc(var(--rh) - 2px);border-radius:4px;color:var(--ink)}
+.bar .m{color:var(--muted);font-size:11.5px;margin-left:6px}
+.bar:hover{background:color-mix(in srgb,var(--c) 32%,var(--surface))}
+.bar.hi{background:color-mix(in srgb,var(--c) 40%,var(--surface));box-shadow:inset 0 0 0 2px var(--accent)}
+.bar.sel{background:color-mix(in srgb,var(--c) 55%,var(--surface));box-shadow:inset 0 0 0 3px var(--accent);z-index:2}
+.bar.tiny{padding:0;color:transparent}
+.t-background{--c:var(--t-background)}.t-method{--c:var(--t-method)}.t-result{--c:var(--t-result)}.t-discussion{--c:var(--t-discussion)}.t-appendix{--c:var(--t-appendix)}.t-front{--c:var(--t-front)}.t-back{--c:var(--t-back)}
+.tree{list-style:none;margin:0;padding:0}
+.tree ul{list-style:none;margin:0;padding-left:18px;border-left:1px dotted var(--line)}
+.trow{display:flex;gap:6px;align-items:center;padding:2px 4px;border-radius:6px;min-height:30px}
+.trow.hi{background:color-mix(in srgb,var(--accent) 14%,transparent)}
+.trow.sel{background:color-mix(in srgb,var(--accent) 24%,transparent);outline:2px solid var(--accent)}
+.twist{width:26px;height:26px;border:0;background:none;padding:0;flex:0 0 auto;color:var(--muted)}
+.twist[disabled]{visibility:hidden}
+.tname{all:unset;cursor:pointer;flex:1 1 auto;min-width:0;padding:2px 4px;border-radius:4px}
+.tname:hover{text-decoration:underline}
+.tname:focus-visible{outline:3px solid var(--focus)}
+.tmeta{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.tdot{width:10px;height:10px;border-radius:2px;background:var(--c);flex:0 0 auto}
+/* links */
+.graphwrap{background:var(--surface);border:1px solid var(--line);border-radius:10px;position:relative}
+svg.graph{display:block;width:100%;height:auto;max-height:78vh;touch-action:pan-y}
+.gnode{cursor:pointer}
+.gnode circle,.gnode rect{fill:color-mix(in srgb,var(--c) 22%,var(--surface));stroke:var(--c);stroke-width:2}
+.gnode text{font-size:11px;fill:var(--ink);pointer-events:none;paint-order:stroke;stroke:var(--surface);stroke-width:3px}
+.gnode.hi circle,.gnode.hi rect{stroke-width:4;stroke:var(--accent)}
+.gnode.sel circle,.gnode.sel rect{stroke-width:5;stroke:var(--accent);fill:color-mix(in srgb,var(--accent) 25%,var(--surface))}
+.gnode:focus-visible{outline:none}
+.gnode:focus-visible circle,.gnode:focus-visible rect{stroke:var(--focus);stroke-width:5}
+.gedge{fill:none;stroke:var(--ec);opacity:.75}
+.gedge.inferred{stroke-dasharray:7 5}
+.gedge.dim{opacity:.12}
+.gedge.hiE{opacity:1}
+.ghit{fill:none;stroke:transparent;stroke-width:14;cursor:pointer}
+.ghit:focus-visible{stroke:color-mix(in srgb,var(--focus) 35%,transparent)}
+#tip{position:fixed;z-index:60;max-width:min(380px,90vw);background:var(--ink);color:var(--bg);padding:8px 10px;border-radius:8px;font-size:12.5px;pointer-events:none;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+#tip b{font-weight:700}
+.fgroup{border:1px solid var(--line);border-radius:8px;padding:6px 10px;margin:0;background:var(--surface);min-width:0}
+.fgroup legend{font-size:12px;color:var(--muted);padding:0 4px}
+.fgroup label{display:inline-flex;gap:5px;align-items:center;margin:2px 10px 2px 0;font-size:13px}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+table.edges{width:100%;border-collapse:collapse;font-size:12.5px}
+table.edges th,table.edges td{text-align:left;vertical-align:top;padding:4px 6px;border-bottom:1px solid var(--line)}
+.scroll-x{overflow-x:auto}
+/* panel */
+aside.panel{min-width:0}
+.panel-in{position:sticky;top:112px;max-height:calc(100vh - 128px);overflow:auto;padding:14px 16px}
+.panel h2{font-size:17px;line-height:1.3;margin:2px 0 6px}
+.panel section{margin:12px 0}
+.panel h4{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 4px}
+.panel blockquote{margin:0;padding:6px 10px;border-left:4px solid var(--accent);background:var(--surface2);border-radius:0 6px 6px 0;font-style:italic}
+.pclose{display:none}
+.flow{display:flex;flex-wrap:wrap;gap:4px 2px;align-items:center;font-size:12.5px}
+.flow span.s{border:1px solid var(--line);background:var(--surface2);border-radius:6px;padding:1px 7px}
+.claimcard{border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--bg);display:grid;gap:4px}
+.claimcard.on{outline:2px solid var(--accent)}
+.edgeitem{padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-size:13px}
+.edgeitem.inferred{border-style:dashed}
+@media (max-width:1049px){
+  aside.panel{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(105%);transition:transform .2s}
+  aside.panel.open{transform:none}
+  .panel-in{position:static;max-height:68vh;border-radius:14px 14px 0 0;border:1px solid var(--line);background:var(--surface);box-shadow:0 -8px 24px rgba(0,0,0,.3)}
+  .pclose{display:inline-flex;position:sticky;top:0;float:right}
+  .toolbar{gap:6px 10px}
+}
+@media (max-width:760px){
+  header.top{position:static}
+  .top-in{padding:8px 12px;gap:6px 8px}
+  .brand{flex:1 1 100%}.brand h1{font-size:15px}.brand p{display:none}
+  .searchwrap{flex:1 1 0;min-width:0}
+  .tabs .sub{display:none}
+  .tabs button{min-height:44px}
+  main{padding:10px 12px 40px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.footer{max-width:1500px;margin:0 auto;padding:0 16px 30px;font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+<a class="sr" href="#main">Skip to content</a>
+<header class="top">
+  <div class="top-in">
+    <div class="brand"><h1 id="ttl"></h1><p id="subttl"></p></div>
+    <div class="searchwrap">
+      <label class="sr" for="q">Search titles, entities, claims and stages</label>
+      <input id="q" type="search" placeholder="Search titles, entities, claims…" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="results" aria-autocomplete="list">
+      <ul class="results" id="results" role="listbox" hidden></ul>
+    </div>
+    <button class="iconbtn" id="theme" type="button" aria-label="Toggle light or dark mode">Theme</button>
+    <div class="tabs" role="tablist" aria-label="Views">
+      <button role="tab" id="tab-journey" aria-controls="v-journey" aria-selected="true">Journey<span class="sub">the scientific story</span></button>
+      <button role="tab" id="tab-structure" aria-controls="v-structure" aria-selected="false" tabindex="-1">Structure<span class="sub">how it is built</span></button>
+      <button role="tab" id="tab-links" aria-controls="v-links" aria-selected="false" tabindex="-1">Links<span class="sub">how it connects</span></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+  <div>
+    <section class="view" id="v-journey" role="tabpanel" aria-labelledby="tab-journey"></section>
+    <section class="view" id="v-structure" role="tabpanel" aria-labelledby="tab-structure" hidden></section>
+    <section class="view" id="v-links" role="tabpanel" aria-labelledby="tab-links" hidden></section>
+  </div>
+  <aside class="panel" id="panel" aria-label="Details of the selected item" aria-live="polite"><div class="card panel-in" id="panel-in"></div></aside>
+</main>
+<div class="footer" id="foot"></div>
+<div id="tip" role="tooltip" hidden></div>
+<script type="application/json" id="thesis-data">/*DATA*/</script>
+<script>
+"use strict";
+const DATA = JSON.parse(document.getElementById('thesis-data').textContent);
+/* ---------------- helpers ---------------- */
+const NS='http://www.w3.org/2000/svg';
+function h(tag,props,...kids){
+  const el=document.createElement(tag);
+  for(const [k,v] of Object.entries(props||{})){
+    if(v==null||v===false) continue;
+    if(k==='class') el.className=v;
+    else if(k==='text') el.textContent=v;
+    else if(k.startsWith('on')) el.addEventListener(k.slice(2),v);
+    else if(k==='style' && typeof v==='object') Object.assign(el.style,v);
+    else el.setAttribute(k, v===true?'':String(v));
+  }
+  add(el,kids); return el;
+}
+function hs(tag,props,...kids){
+  const el=document.createElementNS(NS,tag);
+  for(const [k,v] of Object.entries(props||{})){
+    if(v==null||v===false) continue;
+    if(k==='class') el.setAttribute('class',v);
+    else if(k==='text') el.textContent=v;
+    else if(k.startsWith('on')) el.addEventListener(k.slice(2),v);
+    else el.setAttribute(k,String(v));
+  }
+  add(el,kids); return el;
+}
+function add(el,kids){ for(const k of kids.flat(Infinity)){ if(k==null||k===false) continue; el.append(k.nodeType?k:document.createTextNode(String(k))); } }
+const $=(s,r=document)=>r.querySelector(s);
+const fmt=n=>n.toLocaleString('en-GB');
+const ROMAN=['','i','ii','iii','iv','v','vi','vii','viii','ix','x','xi','xii','xiii','xiv','xv','xvi','xvii','xviii','xix','xx','xxi','xxii','xxiii','xxiv','xxv','xxvi','xxvii','xxviii','xxix','xxx'];
+const lbl2n=l=>{const i=ROMAN.indexOf(l);return i>0?i:30+parseInt(l,10)};
+const pg=p=>h('span',{class:'pg',title:'Printed page '+p+' (PDF page '+lbl2n(p)+')'},'p. '+p);
+const pgs=(arr,max=99)=>{arr=[...new Set(arr||[])];const a=arr.slice(0,max);return h('span',{class:'chips'},a.map(pg),arr.length>max?h('span',{class:'muted small'},'+'+(arr.length-max)):null)};
+function basisTag(b){return b?h('span',{class:'tag '+b,title:b==='stated'?'The author says this (solid outline)':'My inference from the text (dashed outline)'},b):null}
+/* ---------------- data ---------------- */
+const nodes=DATA.structure.nodes, N=Object.fromEntries(nodes.map(n=>[n.id,n])), order=Object.fromEntries(nodes.map((n,i)=>[n.id,i]));
+const FIG=Object.fromEntries([...DATA.structure.figures,...DATA.structure.tables].map(f=>[f.id,f]));
+const STAGES=DATA.journey.stages, ST=Object.fromEntries(STAGES.map(s=>[s.id,s]));
+const NEG=DATA.journey.negative_results, CLAIMS=DATA.claims, CL=Object.fromEntries(CLAIMS.map(c=>[c.id,c]));
+const ENT=Object.fromEntries(DATA.links.entities.map(e=>[e.id,e]));
+const EDGES=DATA.links.edges;
+const ancestors=id=>{const a=[];let n=N[id];while(n&&n.parent){a.push(n.parent);n=N[n.parent]}return a};
+const topOf=id=>{if(FIG[id]) id=FIG[id].node; let n=N[id];while(n&&n.parent)n=N[n.parent];return n?n.id:null};
+const descendants=id=>{const o=[];const w=i=>{for(const c of N[i].children){o.push(c);w(c)}};w(id);return o};
+const roots=nodes.filter(n=>!n.parent);
+const SHORT={ch1:'Intro',ch2:'TAGM',ch3:'Workflow',ch4:'Toxoplasma',ch5:'Novelty TAGM',ch6:'GP model',ch7:'BANDLE',ch8:'Conclusion',appA:'App. A',appB:'App. B',appC:'App. C','fm-summary':'Summary','fm-preface':'Preface'};
+const chapNum=id=>/^ch\d$/.test(id)?'Ch. '+id.slice(2):(/^app/.test(id)?'App. '+id.slice(3):N[id].title);
+const typeClass=n=>{const t=n.type||'';return t==='front matter'?'t-front':t==='back matter'?'t-back':'t-'+(t||'background')};
+const nodeLabel=n=>(n.num&&!/^Appendix [A-C]$/.test(n.num)&&!/^References$/.test(n.num)?n.num+' ':'')+n.title;
+const claimsByNode={};
+for(const c of CLAIMS){for(const a of [c.node,...ancestors(c.node)])(claimsByNode[a]=claimsByNode[a]||[]).push(c)}
+const edgesByNode={};
+for(const e of EDGES){for(const end of ['source','target']){const id=e[end];const nid=FIG[id]?FIG[id].node:id;for(const a of [nid,...ancestors(nid)]){(edgesByNode[a]=edgesByNode[a]||new Set()).add(e)}}}
+/* ---------------- state ---------------- */
+const state={tab:'journey',sel:null,focus:'root',metric:'words',depth:3,expanded:new Set(['ch1','ch2','ch3','ch4','ch5','ch6','ch7','ch8']),
+  edgeTypes:null,basis:{stated:true,inferred:true},entKinds:new Set(),graphPos:{}};
+function save(){try{const p=new URLSearchParams();p.set('tab',state.tab);if(state.sel)p.set('sel',state.sel.type+':'+state.sel.id);history.replaceState(null,'','#'+p.toString())}catch(e){}}
+function load(){try{const p=new URLSearchParams(location.hash.slice(1));if(p.get('tab'))state.tab=p.get('tab');const s=p.get('sel');if(s){const i=s.indexOf(':');state.sel={type:s.slice(0,i),id:s.slice(i+1)}}}catch(e){}}
+/* ---------------- relations / highlighting ---------------- */
+function stagesForNode(id){
+  const anc=new Set([id,...ancestors(id)]),desc=new Set([id,...(N[id]?descendants(id):[])]);
+  const bySec=STAGES.filter(s=>s.sections.some(x=>anc.has(x)||desc.has(x)));
+  if(bySec.length) return bySec.map(s=>s.id);
+  return STAGES.filter(s=>s.chapters.some(x=>anc.has(x))).map(s=>s.id);
+}
+function relations(sel){
+  const hi={nodes:new Set(),stages:new Set(),ents:new Set(),claims:new Set()};
+  if(!sel) return hi;
+  if(sel.type==='node'){const n=N[sel.id];hi.nodes.add(sel.id);for(const a of ancestors(sel.id))hi.nodes.add(a);stagesForNode(sel.id).forEach(s=>hi.stages.add(s));
+    for(const e of DATA.links.entities){if(e.chapters.includes(topOf(sel.id))||e.appendices.includes(topOf(sel.id)))hi.ents.add(e.id)} (claimsByNode[sel.id]||[]).forEach(c=>hi.claims.add(c.id)); if(n.level===0){/*chapter*/}}
+  else if(sel.type==='stage'){const s=ST[sel.id];hi.stages.add(s.id);[...s.chapters,...s.sections].forEach(x=>{hi.nodes.add(x);ancestors(x).forEach(a=>hi.nodes.add(a))});s.claims.forEach(c=>hi.claims.add(c))}
+  else if(sel.type==='entity'){const e=ENT[sel.id];hi.ents.add(sel.id);[...e.chapters,...e.appendices].forEach(c=>{hi.nodes.add(c);STAGES.filter(s=>s.chapters.includes(c)).forEach(s=>hi.stages.add(s.id))})}
+  else if(sel.type==='claim'){const c=CL[sel.id];hi.claims.add(c.id);hi.nodes.add(c.node);ancestors(c.node).forEach(a=>hi.nodes.add(a));hi.stages.add(c.stage)}
+  else if(sel.type==='fig'){const f=FIG[sel.id];hi.nodes.add(f.node);ancestors(f.node).forEach(a=>hi.nodes.add(a));stagesForNode(f.node).forEach(s=>hi.stages.add(s))}
+  else if(sel.type==='edge'){const g=sel.id.split('>');[g[0],g[1]].forEach(x=>{hi.nodes.add(x)})}
+  return hi;
+}
+let HI=relations(null);
+function select(type,id,opts={}){
+  state.sel=id==null?null:{type,id};
+  HI=relations(state.sel);
+  if(opts.tab&&opts.tab!==state.tab) setTab(opts.tab,true);
+  if(state.sel&&state.sel.type==='entity'){const k=ENT[state.sel.id].kind;state.entKinds.add(k)}
+  if(state.sel){const f=[...HI.nodes][0];if(state.tab==='structure'||opts.tab==='structure'){ensureVisible(state.sel)}}
+  renderAll(); if(opts.scroll) scrollSel(); save();
+  if(state.sel&&window.matchMedia('(max-width:1049px)').matches) $('#panel').classList.add('open');
+}
+function ensureVisible(sel){
+  let nid=sel.type==='node'?sel.id:sel.type==='fig'?FIG[sel.id].node:sel.type==='claim'?CL[sel.id].node:null;
+  if(!nid){const arr=[...HI.nodes];nid=arr[arr.length-1]}
+  if(!nid) return;
+  ancestors(nid).forEach(a=>state.expanded.add(a));
+  if(state.focus!=='root'&&!(state.focus===nid||ancestors(nid).includes(state.focus)||groupOf(nid)===state.focus)) state.focus='root';
+}
+function scrollSel(){requestAnimationFrame(()=>{const el=document.querySelector('.sel');if(el&&el.scrollIntoView)el.scrollIntoView({block:'nearest',inline:'nearest'})})}
+/* ---------------- tabs ---------------- */
+const TABS=['journey','structure','links'];
+function setTab(t,silent){
+  state.tab=t;
+  TABS.forEach(x=>{const b=$('#tab-'+x),on=x===t;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;$('#v-'+x).hidden=!on});
+  if(!silent){renderAll();save()} else {renderAll();save()}
+}
+TABS.forEach((t,i)=>{const b=$('#tab-'+t);b.addEventListener('click',()=>setTab(t));b.addEventListener('keydown',e=>{let j=null;if(e.key==='ArrowRight')j=(i+1)%3;if(e.key==='ArrowLeft')j=(i+2)%3;if(e.key==='Home')j=0;if(e.key==='End')j=2;if(j!=null){e.preventDefault();setTab(TABS[j]);$('#tab-'+TABS[j]).focus()}})});
+/* ---------------- theme ---------------- */
+(function(){let t=null;try{t=localStorage.getItem('thesis-map-theme')}catch(e){}
+ if(t) document.documentElement.setAttribute('data-theme',t);
+ const btn=$('#theme');
+ const cur=()=>document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+ const lab=()=>{btn.textContent=cur()==='dark'?'Light mode':'Dark mode'};
+ lab();
+ btn.addEventListener('click',()=>{const n=cur()==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('thesis-map-theme',n)}catch(e){}lab();renderAll()});
+})();
+/* ---------------- journey view ---------------- */
+const OUT={worked:{label:'Worked',glyph:'check'},partial:{label:'Partial',glyph:'dash'},failed:{label:'Failed',glyph:'x'},pivot:{label:'Pivot',glyph:'arrow'}};
+function outIcon(o,size){
+  const w=size||42;const svg=hs('svg',{viewBox:'0 0 42 42',width:w,height:w,'aria-hidden':'true',focusable:'false'});
+  const sh=o==='worked'?hs('circle',{class:'shape',cx:21,cy:21,r:17}):o==='partial'?hs('path',{class:'shape',d:'M21 4 L39 36 L3 36 Z','stroke-linejoin':'round'}):o==='failed'?hs('rect',{class:'shape',x:5,y:5,width:32,height:32,rx:4}):hs('path',{class:'shape',d:'M21 3 L39 21 L21 39 L3 21 Z','stroke-linejoin':'round'});
+  const gl=o==='worked'?hs('path',{class:'glyph',d:'M12 22 L19 29 L31 14'}):o==='partial'?hs('path',{class:'glyph',d:'M14 28 H28'}):o==='failed'?hs('path',{class:'glyph',d:'M14 14 L28 28 M28 14 L14 28'}):hs('path',{class:'glyph',d:'M11 21 H30 M23 14 L30 21 L23 28'});
+  svg.append(sh,gl);return svg;
+}
+function renderJourney(){
+  const root=$('#v-journey');root.replaceChildren();
+  const J=DATA.journey;
+  root.append(h('div',{class:'pad card'},
+    h('h2',{text:'The scientific journey'}),
+    h('p',{class:'lead',text:J.arc}),
+    h('details',{},h('summary',{class:'small',text:'How to read this storyline'}),h('p',{class:'small muted lead',text:J.caveat}))
+  ));
+  const leg=h('div',{class:'legend',role:'group','aria-label':'Outcome legend'});
+  for(const o of ['worked','partial','failed','pivot']){leg.append(h('span',{style:{'--oc':`var(--o-${o})`}},(()=>{const s=outIcon(o,22);s.style.setProperty('--oc',`var(--o-${o})`);return s})(),OUT[o].label+(o==='failed'?' (none reported)':'')))}
+  leg.append(h('span',{},h('b',{style:{color:'var(--o-failed)'}},'✗'),' negative or limiting results are listed per stage'));
+  root.append(h('div',{style:{margin:'8px 0 0'}},leg));
+  const ctl=h('div',{class:'strip-ctl'},h('button',{class:'iconbtn',type:'button','aria-label':'Scroll storyline left',onclick:()=>strip.scrollBy({left:-300,behavior:'smooth'})},'◀'),h('button',{class:'iconbtn',type:'button','aria-label':'Scroll storyline right',onclick:()=>strip.scrollBy({left:300,behavior:'smooth'})},'▶'));
+  const strip=h('ol',{class:'strip',tabindex:'-1','aria-label':'Journey stages in order'});
+  STAGES.forEach((s,i)=>{
+    const nneg=s.negative_results.length;
+    const li=h('li',{class:'stage'+(HI.stages.has(s.id)?' hi':'')+(state.sel&&state.sel.type==='stage'&&state.sel.id===s.id?' sel':''),'data-o':s.outcome,'data-id':s.id});
+    li.append(h('div',{class:'marker'},outIcon(s.outcome),h('span',{class:'num'},String(i+1))));
+    const card=h('article',{class:'scard'});
+    card.append(h('div',{class:'row'},h('span',{class:'otag'},OUT[s.outcome].label,s.outcome_basis==='inferred'?h('span',{class:'muted small',style:{fontWeight:400},title:'Outcome label is my reading'},'(inferred)'):null)));
+    card.append(h('h3',{},h('button',{type:'button',onclick:()=>select('stage',s.id),'aria-label':`Stage ${i+1}: ${s.title}. Outcome ${OUT[s.outcome].label}. Open details`},s.title)));
+    card.append(h('p',{class:'q',text:s.question}));
+    card.append(h('div',{class:'row chips'},s.chapters.map(c=>h('button',{class:'chip',type:'button',title:N[c].title,onclick:()=>select('node',c,{tab:'structure',scroll:true})},chapNum(c)+' · '+N[c].pages))));
+    card.append(h('div',{class:'row chips'},h('span',{class:'muted small'},'evidence'),pgs(s.evidence,4)));
+    card.append(h('div',{class:'row small muted'},nneg?h('span',{class:'negbadge'},'✗ '+nneg+' negative/limiting result'+(nneg>1?'s':'')):null,nneg?' · ':'',s.claims.length+' claims'));
+    li.append(card);strip.append(li);
+  });
+  root.append(h('div',{class:'strip-wrap'},ctl,strip));
+  // contributions
+  root.append(h('details',{class:'box',open:true},h('summary',{},'Contributions ('+J.contribution.length+')'),h('div',{},h('ul',{class:'plain'},J.contribution.map(k=>h('li',{},h('div',{text:k.text}),h('div',{class:'chips',style:{marginTop:'4px'}},k.chapters.map(c=>h('button',{class:'chip',type:'button',onclick:()=>select('node',c,{tab:'structure',scroll:true})},chapNum(c))),h('button',{class:'chip',type:'button',onclick:()=>select('stage',k.stage)},'stage '+(STAGES.findIndex(s=>s.id===k.stage)+1)),pgs(k.source_pages),basisTag(k.basis))))))));
+  root.append(h('details',{class:'box',open:true},h('summary',{},'Negative and limiting results ('+NEG.length+')'),h('div',{},h('ul',{class:'plain'},NEG.map(n=>h('li',{},h('div',{},h('b',{style:{color:'var(--o-failed)'}},'✗ '),n.text),h('div',{class:'chips',style:{marginTop:'4px'}},h('span',{class:'tag'},n.kind),h('button',{class:'chip',type:'button',onclick:()=>select('node',n.node,{tab:'structure',scroll:true})},nodeLabel(N[n.node]).slice(0,40)),h('button',{class:'chip',type:'button',onclick:()=>select('stage',n.stage)},'stage '+(STAGES.findIndex(s=>s.id===n.stage)+1)),pgs(n.source_pages),n.figures.map(f=>h('button',{class:'chip',type:'button',onclick:()=>select('fig',f)},FIG[f].label)),basisTag(n.basis))))))));
+}
+/* ---------------- structure view ---------------- */
+const val=n=>(n.virtual)?n.children.reduce((s,c)=>s+val(kid(c)),0):(state.metric==='words'?Math.max(n.approx_words,1):Math.max(lbl2n(n.page_end)-lbl2n(n.page_start)+1,1));
+const mkG=(id,title,ids)=>{const ks=ids.map(i=>N[i]);return {id,virtual:true,title,children:ids,type:'front matter',level:-1,approx_words:ks.reduce((s,k)=>s+k.approx_words,0),page_start:ks[0].page_start,page_end:ks[ks.length-1].page_end,pages:'p. '+ks[0].page_start+'–'+ks[ks.length-1].page_end,n_figures:ks.reduce((s,k)=>s+k.n_figures,0),n_tables:ks.reduce((s,k)=>s+k.n_tables,0),figure_ids:[],table_ids:[]}};
+const VG={'g-front':mkG('g-front','Front matter',roots.filter(r=>r.id.startsWith('fm-')).map(r=>r.id)),'g-body':mkG('g-body','Chapters 1–8',roots.filter(r=>/^ch\d$/.test(r.id)).map(r=>r.id)),'g-back':mkG('g-back','References and appendices',roots.filter(r=>r.id==='refs'||/^app/.test(r.id)).map(r=>r.id))};
+const groupOf=id=>{const t=topOf(id);return t.startsWith('fm-')?'g-front':/^ch\d$/.test(t)?'g-body':'g-back'};
+const VROOT={id:'root',virtual:true,title:'Thesis',children:['g-front','g-body','g-back'],approx_words:0,page_start:'i',page_end:'350',type:null};
+const getN=id=>id==='root'?VROOT:(VG[id]||N[id]);
+const kid=id=>VG[id]||N[id];
+function layoutIce(focus,maxDepth,W){
+  const out=[];const minW=Math.max(0.004,0);
+  const sumVal=n=>val(n);
+  (function rec(n,x,w,d){
+    out.push({n,x,w,d});
+    if(d>=maxDepth||!n.children.length)return;
+    const kids=n.children.map(c=>kid(c));const own=sumVal(n);const sum=kids.reduce((s,k)=>s+val(k),0);const den=Math.max(own,sum)||1;
+    let ws=kids.map(k=>Math.max(w*val(k)/den,minW*W));const tot=ws.reduce((a,b)=>a+b,0);if(tot>w)ws=ws.map(v=>v*w/tot);
+    let cx=x;kids.forEach((k,i)=>{rec(k,cx,ws[i],d+1);cx+=ws[i]});
+  })(focus,0,1,0);
+  return out;
+}
+function crumbs(){const f=state.focus;if(f==='root')return [];if(VG[f])return [f];return [groupOf(f),...[f,...ancestors(f)].reverse()]}
+function renderStructure(){
+  const root=$('#v-structure');root.replaceChildren();
+  root.append(h('div',{class:'card pad'},h('h2',{text:'How the thesis is built'}),h('p',{class:'lead small muted',text:'Bar width shows size. Click a bar to open its details; use “Zoom to selection” (or double-click) to focus a part. Colour shows section type (inferred from the heading) and the label always names it.'})));
+  const tb=h('div',{class:'toolbar',style:{marginTop:'10px'}});
+  tb.append(h('label',{},'Size by ',h('select',{id:'metric','aria-label':'Size metric',onchange:e=>{state.metric=e.target.value;renderStructure()}},h('option',{value:'words',selected:state.metric==='words'},'approx. words'),h('option',{value:'pages',selected:state.metric==='pages'},'printed pages'))));
+  tb.append(h('label',{},'Levels shown ',h('select',{'aria-label':'Levels shown',onchange:e=>{state.depth=+e.target.value;renderStructure()}},[1,2,3,4].map(d=>h('option',{value:d,selected:state.depth===d},String(d))))));
+  tb.append(h('button',{class:'iconbtn',type:'button',disabled:!(state.sel&&state.sel.type==='node'&&N[state.sel.id].children.length),onclick:()=>{state.focus=state.sel.id;ancestors(state.sel.id).forEach(a=>state.expanded.add(a));state.expanded.add(state.sel.id);renderStructure()}},'Zoom to selection'));
+  tb.append(h('button',{class:'iconbtn',type:'button',disabled:state.focus==='root',onclick:()=>{const f=state.focus;state.focus=VG[f]?'root':(N[f].parent||groupOf(f));renderStructure()}},'Zoom out'));
+  root.append(tb);
+  const cr=h('nav',{class:'crumbs','aria-label':'Zoom path'},h('button',{type:'button',onclick:()=>{state.focus='root';renderStructure()}},'Whole thesis'));
+  crumbs().forEach(id=>{cr.append(h('span',{class:'muted'},'›'),h('button',{type:'button',onclick:()=>{state.focus=id;renderStructure()}},VG[id]?VG[id].title:nodeLabel(N[id]).slice(0,48)))});
+  root.append(cr);
+  const legend=h('div',{class:'legend','aria-label':'Section types'});
+  [['background','Background'],['method','Method'],['result','Result'],['discussion','Discussion'],['appendix','Appendix'],['front','Front matter'],['back','Back matter']].forEach(([k,l])=>legend.append(h('span',{class:'t-'+k},h('i',{class:'swatch',style:{'--c':`var(--t-${k})`}}),l)));
+  root.append(legend);
+  // icicle
+  const ice=h('div',{class:'ice',role:'group','aria-label':'Icicle chart of the thesis structure'});
+  const RH=34;ice.style.setProperty('--rh',RH+'px');
+  const fnode=getN(state.focus);
+  const maxDepth=state.depth;
+  const draw=()=>{
+    ice.replaceChildren();const W=ice.clientWidth||900;
+    const lay=layoutIce(fnode,maxDepth,W);const rows=Math.max(...lay.map(l=>l.d))+1;ice.style.height=(rows*RH+(rows-1)*2)+'px';
+    for(const {n,x,w,d} of lay){
+      if(n.id==='root'&&false) continue;
+      const px=w*W;const isSel=state.sel&&state.sel.type==='node'&&state.sel.id===n.id;
+      const meta=[];
+      if(px>200){meta.push(n.pages||'');if(n.n_figures)meta.push(n.n_figures+' fig');if(n.n_tables)meta.push(n.n_tables+' tab')}
+      else if(px>120){if(n.n_figures)meta.push('F'+n.n_figures);if(n.n_tables)meta.push('T'+n.n_tables)}
+      const tip=n.virtual?(n.title+' — '+n.pages+' · '+fmt(n.approx_words)+' words (click to zoom)'):nodeLabel(n)+' — '+n.pages+' · '+fmt(n.approx_words)+' words · '+n.n_figures+' figures · '+n.n_tables+' tables · '+(n.type||'');
+      const b=h('button',{type:'button',class:'bar '+(n.virtual?'t-front':typeClass(n))+(HI.nodes.has(n.id)?' hi':'')+(isSel?' sel':'')+(px<44&&n.level!==0?' tiny':''),title:tip,'aria-label':tip,'aria-pressed':isSel?'true':'false',style:{left:(x*100)+'%',width:`calc(${w*100}% - 2px)`,top:(d*(RH+2))+'px'},
+        onclick:()=>{ if(n.virtual){state.focus=n.id;renderStructure();return} select('node',n.id)},
+        ondblclick:()=>{if(n.children.length&&n.id!=='root'){state.focus=n.id;renderStructure()}}});
+      b.append(n.virtual?n.title:(px<60&&n.level===0?(/^ch\d$/.test(n.id)?n.id.slice(2):/^app/.test(n.id)?n.id.slice(3):nodeLabel(n)):nodeLabel(n)));if(meta.length)b.append(h('span',{class:'m'},meta.join(' · ')));
+      ice.append(b);
+    }
+  };
+  root.append(ice);draw();
+  if(window.ResizeObserver){if(renderStructure._ro)renderStructure._ro.disconnect();renderStructure._ro=new ResizeObserver(()=>{if(state.tab==='structure')draw()});renderStructure._ro.observe(ice)}
+  // outline
+  const tree=h('ul',{class:'tree',role:'tree','aria-label':'Outline of the thesis'});
+  const mk=(n)=>{
+    const open=state.expanded.has(n.id),has=n.children.length>0;
+    const isSel=state.sel&&state.sel.type==='node'&&state.sel.id===n.id;
+    const li=h('li',{role:'treeitem','aria-expanded':has?String(open):null,'aria-selected':isSel?'true':'false'});
+    const row=h('div',{class:'trow '+typeClass(n)+(HI.nodes.has(n.id)?' hi':'')+(isSel?' sel':'')});
+    row.append(h('button',{class:'twist',type:'button',disabled:!has,'aria-label':(open?'Collapse ':'Expand ')+n.title,onclick:()=>{open?state.expanded.delete(n.id):state.expanded.add(n.id);renderStructure()}},has?(open?'▾':'▸'):''));
+    row.append(h('i',{class:'tdot'}));
+    row.append(h('button',{class:'tname',type:'button',onclick:()=>select('node',n.id)},nodeLabel(n)));
+    const meta=h('span',{class:'tmeta'},h('span',{class:'pg'},n.pages),h('span',{class:'muted small'},fmt(n.approx_words)+' w'));
+    if(n.n_figures)meta.append(h('span',{class:'chip',title:n.n_figures+' figures'},n.n_figures+' fig'));
+    if(n.n_tables)meta.append(h('span',{class:'chip',title:n.n_tables+' tables'},n.n_tables+' tab'));
+    if(n.level===0&&n.type)meta.append(h('span',{class:'tag',title:'Type (inferred)'},n.type));
+    row.append(meta);li.append(row);
+    if(has&&open){const ul=h('ul',{role:'group'});n.children.forEach(c=>ul.append(mk(N[c])));li.append(ul)}
+    return li;
+  };
+  roots.forEach(r=>tree.append(mk(r)));
+  root.append(h('div',{class:'card pad',style:{marginTop:'12px'}},h('h3',{text:'Outline'}),h('div',{class:'toolbar'},h('button',{class:'iconbtn',type:'button',onclick:()=>{nodes.forEach(n=>{if(n.children.length)state.expanded.add(n.id)});renderStructure()}},'Expand all'),h('button',{class:'iconbtn',type:'button',onclick:()=>{state.expanded.clear();renderStructure()}},'Collapse all')),tree));
+}
+/* ---------------- links view ---------------- */
+const ETYPES={
+  refers_to_chapter:{l:'cites a chapter',f:'xref',on:true},refers_to_section:{l:'cites a section',f:'xref',on:true},refers_to_appendix:{l:'cites an appendix',f:'xref',on:true},refers_to_equation:{l:'cites an equation',f:'xref',on:true},
+  refers_to_figure:{l:'cites a figure',f:'xref',on:false},refers_to_table:{l:'cites a table',f:'xref',on:false},
+  implements_method:{l:'implements method',f:'method',on:true},reuses_method:{l:'reuses method',f:'method',on:true},extends_model:{l:'extends model',f:'method',on:true},modifies_method:{l:'modifies method',f:'method',on:true},
+  answers_limitation:{l:'answers limitation',f:'build',on:true},builds_on_result:{l:'builds on result',f:'build',on:true},
+  same_dataset:{l:'same dataset',f:'share',on:true},same_concept:{l:'same concept',f:'share',on:true},compares_against:{l:'compares against',f:'compare',on:true},summarises:{l:'summarises',f:'summ',on:true}};
+const FAM={xref:'Numbered cross-reference',method:'Method reuse',build:'Builds on / answers',share:'Shared data / concept',compare:'Comparison',summ:'Summary'};
+state.edgeTypes=new Set(Object.entries(ETYPES).filter(([k,v])=>v.on).map(([k])=>k));
+const GNODES=['fm-summary','fm-preface','ch1','ch2','ch3','ch4','ch5','ch6','ch7','ch8','appA','appB','appC'];
+const KIND_LBL={method:'Methods',assay:'Assays',dataset:'Datasets',software:'Software',term:'Key terms'};
+const KIND_COL={method:'--t-method',assay:'--t-appendix',dataset:'--t-result',software:'--t-discussion',term:'--t-background'};
+function groupEdges(){
+  const m=new Map();
+  for(const e of EDGES){
+    if(!state.edgeTypes.has(e.type)||!state.basis[e.basis]) continue;
+    const a=topOf(e.source),b=topOf(e.target);if(!a||!b||a===b||!GNODES.includes(a)||!GNODES.includes(b)) continue;
+    const k=a+'>'+b+'>'+e.basis;let g=m.get(k);if(!g){g={a,b,basis:e.basis,items:[]};m.set(k,g)}g.items.push(e);
+  }
+  return [...m.values()];
+}
+function edgeFam(g){const c=Counter(g.items.map(e=>ETYPES[e.type].f));return Object.entries(c).sort((x,y)=>y[1]-x[1])[0][0]}
+function Counter(a){const o={};a.forEach(x=>o[x]=(o[x]||0)+1);return o}
+let SIM=null;
+function ensureSim(gedges,entNodes){
+  const big=entNodes.length>0;const W=big?1250:900,H=big?860:620;
+  if(state.gsize!==W){state.graphPos={};state.gsize=W}
+  const ids=[...GNODES,...entNodes.map(e=>e.id)];
+  const pos=state.graphPos;
+  GNODES.forEach((id,i)=>{if(!pos[id]){const ang=-Math.PI/2+i/GNODES.length*2*Math.PI;pos[id]={x:W/2+Math.cos(ang)*W*.37,y:H/2+Math.sin(ang)*H*.39,vx:0,vy:0}}});
+  entNodes.forEach(e=>{if(!pos[e.id]){const cs=[...e.chapters,...e.appendices].filter(c=>pos[c]);let x=W/2,y=H/2;if(cs.length){x=cs.reduce((s,c)=>s+pos[c].x,0)/cs.length;y=cs.reduce((s,c)=>s+pos[c].y,0)/cs.length}pos[e.id]={x:x+(Math.random()-.5)*60,y:y+(Math.random()-.5)*60,vx:0,vy:0}}});
+  const links=[];
+  gedges.forEach(g=>links.push({s:g.a,t:g.b,len:200,k:.006}));
+  entNodes.forEach(e=>[...e.chapters,...e.appendices].forEach(c=>{if(GNODES.includes(c))links.push({s:e.id,t:c,len:120,k:.02})}));
+  const rad=id=>ENT[id]?7:Math.max(14,Math.min(30,Math.sqrt(N[id].approx_words)/3.6));
+  const iters=entNodes.length?420:220;
+  for(let it=0;it<iters;it++){
+    const alpha=1-it/iters;
+    for(let i=0;i<ids.length;i++){const a=pos[ids[i]];for(let j=i+1;j<ids.length;j++){const b=pos[ids[j]];let dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy+.01,d=Math.sqrt(d2);const rep=(ENT[ids[i]]||ENT[ids[j]])?55:420;let f=rep/d*(.35+alpha);const min=rad(ids[i])+rad(ids[j])+14;if(d<min)f+=(min-d)*.25;dx/=d;dy/=d;a.vx+=dx*f;a.vy+=dy*f;b.vx-=dx*f;b.vy-=dy*f}}
+    for(const l of links){const a=pos[l.s],b=pos[l.t];let dx=b.x-a.x,dy=b.y-a.y,d=Math.sqrt(dx*dx+dy*dy)||1;const f=(d-l.len)*l.k*(.3+alpha);dx/=d;dy/=d;a.vx+=dx*f;a.vy+=dy*f;b.vx-=dx*f;b.vy-=dy*f}
+    for(const id of ids){const p=pos[id];p.vx+=(W/2-p.x)*.0015;p.vy+=(H/2-p.y)*.0015;p.vx*=.6;p.vy*=.6;p.x+=p.vx;p.y+=p.vy;const r=rad(id)+30;p.x=Math.max(r,Math.min(W-r,p.x));p.y=Math.max(r,Math.min(H-r,p.y))}
+  }
+  return {W,H,rad};
+}
+function showTip(html,ev){const t=$('#tip');t.replaceChildren(...html);t.hidden=false;moveTip(ev)}
+function moveTip(ev){const t=$('#tip');let x=(ev.clientX||0)+14,y=(ev.clientY||0)+14;const r=t.getBoundingClientRect();if(x+r.width>innerWidth-8)x=Math.max(8,innerWidth-r.width-8);if(y+r.height>innerHeight-8)y=Math.max(8,(ev.clientY||0)-r.height-14);t.style.left=x+'px';t.style.top=y+'px'}
+function hideTip(){$('#tip').hidden=true}
+function edgeTip(g){
+  const a=[h('div',{},h('b',{},SHORT[g.a]||g.a),' → ',h('b',{},SHORT[g.b]||g.b),'  ·  '+g.basis+(g.basis==='stated'?' (solid)':' (dashed)'))];
+  g.items.slice(0,4).forEach(e=>a.push(h('div',{style:{marginTop:'4px'}},h('b',{},ETYPES[e.type].l+': '),e.reason,' ',e.source_pages.slice(0,5).map(p=>'p. '+p).join(', '))));
+  if(g.items.length>4)a.push(h('div',{style:{marginTop:'4px'}},'+ '+(g.items.length-4)+' more (click for the full list)'));
+  return a;
+}
+function renderLinks(){
+  const root=$('#v-links');root.replaceChildren();
+  root.append(h('div',{class:'card pad'},h('h2',{text:'How things connect'}),h('p',{class:'lead small muted',text:'Chapters (circles) are linked by numbered cross-references found by pattern-matching the text and by semantic links that I classified. Solid = the author states it; dashed = my inference. Hover or focus an edge for its reason and pages, click for the list. Turn on entities to add methods, datasets, software and key terms as small squares.'})));
+  // filters
+  const fl=h('div',{class:'filters',style:{margin:'10px 0'}});
+  const grp=h('fieldset',{class:'fgroup'},h('legend',{},'Edge types'));
+  const byFam={};Object.entries(ETYPES).forEach(([k,v])=>(byFam[v.f]=byFam[v.f]||[]).push(k));
+  for(const [f,ks] of Object.entries(byFam)){
+    const box=h('span',{style:{display:'inline-block',marginRight:'6px'}});
+    ks.forEach(k=>{box.append(h('label',{},h('input',{type:'checkbox',checked:state.edgeTypes.has(k),onchange:e=>{e.target.checked?state.edgeTypes.add(k):state.edgeTypes.delete(k);renderLinks()}}),h('i',{class:'swatch',style:{'--c':`var(--x-${f})`}}),ETYPES[k].l))});
+    grp.append(box);
+  }
+  fl.append(grp);
+  fl.append(h('fieldset',{class:'fgroup'},h('legend',{},'Basis'),['stated','inferred'].map(b=>h('label',{},h('input',{type:'checkbox',checked:state.basis[b],onchange:e=>{state.basis[b]=e.target.checked;renderLinks()}}),b==='stated'?'stated (solid)':'inferred (dashed)'))));
+  fl.append(h('fieldset',{class:'fgroup'},h('legend',{},'Entities as nodes'),Object.entries(KIND_LBL).map(([k,l])=>h('label',{},h('input',{type:'checkbox',checked:state.entKinds.has(k),onchange:e=>{e.target.checked?state.entKinds.add(k):state.entKinds.delete(k);renderLinks()}}),h('i',{class:'swatch',style:{'--c':`var(${KIND_COL[k]})`}}),l))));
+  root.append(fl);
+  const ge=groupEdges();
+  const entNodes=DATA.links.entities.filter(e=>state.entKinds.has(e.kind));
+  const {W,H,rad}=ensureSim(ge,entNodes);
+  const pos=state.graphPos;
+  const svg=hs('svg',{class:'graph',viewBox:`0 0 ${W} ${H}`,role:'group','aria-label':'Network of chapters and their links'});
+  const defs=hs('defs');
+  for(const f of Object.keys(FAM)){defs.append(hs('marker',{id:'ar-'+f,viewBox:'0 0 10 10',refX:9,refY:5,markerWidth:9,markerHeight:9,markerUnits:'userSpaceOnUse',orient:'auto-start-reverse'},hs('path',{d:'M0 0 L10 5 L0 10 z',style:`fill:var(--x-${f})`})))}
+  svg.append(defs);
+  const selNode=state.sel&&state.sel.type==='node'?topOf(state.sel.id):null;
+  const focusSet=new Set(HI.nodes);const hasSel=!!state.sel;
+  const gE=hs('g');const gN=hs('g');svg.append(gE,gN);
+  // entity edges
+  entNodes.forEach(e=>[...e.chapters,...e.appendices].forEach(c=>{if(!pos[c])return;const a=pos[e.id],b=pos[c];const act=(state.sel&&state.sel.type==='entity'&&state.sel.id===e.id);gE.append(hs('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,stroke:'var(--x-mention)','stroke-width':act?2.2:.8,opacity:act?1:(hasSel&&!HI.ents.has(e.id)?.12:.45)}))}));
+  // chapter edges
+  const used=[];
+  ge.forEach((g,i)=>{
+    const a=pos[g.a],b=pos[g.b];const dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy)||1;const nx=-dy/d,ny=dx/d;
+    const bend=(g.basis==='stated'?1:-1)*(26+Math.min(30,d*.08));
+    const ra=rad(g.a)+3,rb=rad(g.b)+6;
+    const cx=(a.x+b.x)/2+nx*bend,cy=(a.y+b.y)/2+ny*bend;
+    const sx=a.x+(cx-a.x)/Math.hypot(cx-a.x,cy-a.y)*ra,sy=a.y+(cy-a.y)/Math.hypot(cx-a.x,cy-a.y)*ra;
+    const ex=b.x+(cx-b.x)/Math.hypot(cx-b.x,cy-b.y)*rb,ey=b.y+(cy-b.y)/Math.hypot(cx-b.x,cy-b.y)*rb;
+    const path=`M${sx},${sy} Q${cx},${cy} ${ex},${ey}`;
+    const fam=edgeFam(g);const w=1.2+Math.min(3.8,Math.log2(1+g.items.length)*1.1);
+    const inc=hasSel&&(HI.nodes.has(g.a)||HI.nodes.has(g.b));
+    const isSelEdge=state.sel&&state.sel.type==='edge'&&state.sel.id===g.a+'>'+g.b+'>'+g.basis;
+    const vis=hs('path',{d:path,class:'gedge '+g.basis+(hasSel&&!inc?' dim':'')+(inc||isSelEdge?' hiE':''),style:`--ec:var(--x-${fam});stroke-width:${isSelEdge?w+2:w}px`,'marker-end':`url(#ar-${fam})`});
+    const label=`${SHORT[g.a]||g.a} to ${SHORT[g.b]||g.b}, ${g.basis}, ${g.items.length} link${g.items.length>1?'s':''}: ${[...new Set(g.items.map(e=>ETYPES[e.type].l))].join(', ')}`;
+    const hit=hs('path',{d:path,class:'ghit',tabindex:'0',role:'button','aria-label':label,
+      onmouseenter:ev=>showTip(edgeTip(g),ev),onmousemove:moveTip,onmouseleave:hideTip,onfocus:ev=>{const r=ev.target.getBoundingClientRect();showTip(edgeTip(g),{clientX:r.left+r.width/2,clientY:r.top+r.height/2})},onblur:hideTip,
+      onclick:()=>{hideTip();select('edge',g.a+'>'+g.b+'>'+g.basis)},onkeydown:ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();hideTip();select('edge',g.a+'>'+g.b+'>'+g.basis)}}});
+    gE.append(vis,hit);
+  });
+  // nodes
+  entNodes.forEach(e=>{
+    const p=pos[e.id];const isSel=state.sel&&state.sel.type==='entity'&&state.sel.id===e.id;
+    const g=hs('g',{class:'gnode'+(HI.ents.has(e.id)&&hasSel?' hi':'')+(isSel?' sel':''),transform:`translate(${p.x},${p.y})`,tabindex:'0',role:'button','aria-label':`${e.label}, ${e.kind}, appears in ${e.chapters.length} chapters`,style:`--c:var(${KIND_COL[e.kind]})`,
+      onclick:()=>select('entity',e.id),onkeydown:ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();select('entity',e.id)}},
+      onmouseenter:ev=>showTip([h('b',{},e.label),' · '+e.kind+' · '+e.chapters.map(c=>'ch'+c.slice(2)).join(', ')],ev),onmousemove:moveTip,onmouseleave:hideTip});
+    g.append(hs('rect',{x:-6,y:-6,width:12,height:12,rx:2}),hs('text',{x:9,y:4,text:e.label.length>22?e.label.slice(0,21)+'…':e.label,style:'font-size:9.5px'}));
+    gN.append(g);
+  });
+  GNODES.forEach(id=>{
+    const p=pos[id],n=N[id],r=rad(id);const isSel=selNode===id&&state.sel.type==='node';
+    const g=hs('g',{class:'gnode '+typeClass(n)+(HI.nodes.has(id)&&hasSel?' hi':'')+(isSel&&state.sel.id===id?' sel':''),transform:`translate(${p.x},${p.y})`,tabindex:'0',role:'button','aria-label':`${n.title}, ${n.pages}`,
+      onclick:()=>select('node',id),onkeydown:ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();select('node',id)}},
+      onmouseenter:ev=>showTip([h('b',{},nodeLabel(n)),' · '+n.pages],ev),onmousemove:moveTip,onmouseleave:hideTip});
+    g.append(hs('circle',{r}),hs('text',{y:4,'text-anchor':'middle',text:/^ch\d$/.test(id)?id.slice(2):/^app/.test(id)?id.slice(3):'•',style:'font-weight:700;font-size:13px'}),hs('text',{y:r+13,'text-anchor':'middle',text:SHORT[id]||id}));
+    gN.append(g);
+  });
+  const wrap=h('div',{class:'graphwrap'},svg);
+  root.append(wrap);
+  const lineSvg=(w,style)=>hs('svg',{width:w,height:8,'aria-hidden':'true'},hs('line',{x1:1,x2:w-1,y1:4,y2:4,style}));
+  root.append(h('div',{class:'legend'},Object.entries(FAM).map(([f,l])=>h('span',{},lineSvg(28,`stroke:var(--x-${f});stroke-width:3`),l)),h('span',{},lineSvg(34,'stroke:var(--ink);stroke-width:2.5;stroke-dasharray:7 5'),'dashed = inferred'),h('span',{},lineSvg(34,'stroke:var(--ink);stroke-width:2.5'),'solid = stated')));
+  // table alternative
+  const rows=EDGES.filter(e=>state.edgeTypes.has(e.type)&&state.basis[e.basis]);
+  const t=h('table',{class:'edges'},h('thead',{},h('tr',{},['From','To','Type','Basis','Pages','Reason'].map(x=>h('th',{scope:'col'},x)))));
+  const tb=h('tbody');
+  rows.forEach(e=>tb.append(h('tr',{},h('td',{},linkNode(e.source)),h('td',{},linkNode(e.target)),h('td',{},ETYPES[e.type].l),h('td',{},basisTag(e.basis)),h('td',{},pgs(e.source_pages,4)),h('td',{},e.reason))));
+  t.append(tb);
+  root.append(h('details',{class:'box'},h('summary',{},'All links as a table ('+rows.length+' links matching the filters)'),h('div',{class:'scroll-x'},t)));
+}
+function linkNode(id){
+  if(FIG[id]) return h('button',{class:'chip',type:'button',onclick:()=>select('fig',id)},FIG[id].label+' ('+chapNum(topOf(id))+')');
+  const n=N[id];return h('button',{class:'chip',type:'button',title:n.title,onclick:()=>select('node',id)},n.level===0?chapNum(id):nodeLabel(n).slice(0,34));
+}
+/* ---------------- panel ---------------- */
+function typeChip(n){return n.type?h('span',{class:'tag '+(n.type_basis||'stated'),title:'Section type'+(n.type_basis?' (my classification)':'')},n.type):null}
+function renderPanel(){
+  const P=$('#panel-in');P.replaceChildren();
+  P.append(h('button',{class:'iconbtn pclose',type:'button',onclick:()=>{$('#panel').classList.remove('open')}},'Close'));
+  const s=state.sel;
+  if(!s){
+    const m=DATA.meta;
+    P.append(h('h2',{text:'Select something'}),h('p',{class:'small muted'},'Click a stage, a bar, a chapter or an entity to see its summary, claims, evidence pages and links here. A selection is highlighted in all three views.'),
+      h('section',{},h('h4',{},'The thesis'),h('p',{class:'small'},m.author+', '+m.institution+', '+m.date+'. '+DATA.structure.nodes.filter(n=>n.level===0&&/^ch\d/.test(n.id)).length+' chapters, '+DATA.structure.figures.length+' figures, '+DATA.structure.tables.length+' tables, about '+fmt(m.body_words_approx)+' words in the chapters.')),
+      h('section',{},h('h4',{},'About the page numbers'),h('p',{class:'small'},DATA.pagemap.rule)),
+      h('section',{},h('h4',{},'Stated vs inferred'),h('p',{class:'small'},'Items tagged ',h('span',{class:'tag stated'},'stated'),' are things the author says. Items tagged ',h('span',{class:'tag inferred'},'inferred'),' are my reading (dashed outline).')));
+    return;
+  }
+  if(s.type==='stage') panelStage(P,ST[s.id]);
+  else if(s.type==='node') panelNode(P,N[s.id]);
+  else if(s.type==='entity') panelEntity(P,ENT[s.id]);
+  else if(s.type==='claim') panelClaim(P,CL[s.id]);
+  else if(s.type==='fig') panelFig(P,FIG[s.id]);
+  else if(s.type==='edge') panelEdge(P,s.id);
+}
+function showIn(label,tab,fn){return h('button',{class:'chip',type:'button',onclick:fn},label)}
+function claimCard(c,showNode){
+  return h('div',{class:'claimcard'+(state.sel&&state.sel.type==='claim'&&state.sel.id===c.id?' on':'')},
+    h('div',{text:c.text}),
+    h('div',{class:'chips'},pgs(c.source_pages),c.figures.map(f=>h('button',{class:'chip',type:'button',onclick:()=>select('fig',f)},FIG[f].label)),
+      showNode?h('button',{class:'chip',type:'button',onclick:()=>select('node',c.node,{tab:'structure',scroll:true})},nodeLabel(N[c.node]).slice(0,32)):null,
+      h('button',{class:'chip',type:'button',onclick:()=>select('stage',c.stage)},'stage '+(STAGES.findIndex(s=>s.id===c.stage)+1)),basisTag(c.basis),c.confidence!=='high'?h('span',{class:'tag',title:'Confidence'},c.confidence+' confidence'):null));
+}
+function panelStage(P,s){
+  const i=STAGES.findIndex(x=>x.id===s.id),nx=STAGES[i+1];
+  P.append(h('div',{class:'chips'},h('span',{class:'tag'},'Stage '+(i+1)+' of '+STAGES.length),h('span',{class:'otag',style:{'--oc':`var(--o-${s.outcome})`}},outIcon(s.outcome,22),OUT[s.outcome].label),basisTag(s.outcome_basis)));
+  P.append(h('h2',{text:s.title}));
+  const sec=(t,...c)=>h('section',{},h('h4',{},t),...c);
+  P.append(sec('Question',h('p',{text:s.question})),sec('Approach',h('p',{text:s.approach})),sec('Outcome',h('p',{text:s.outcome_note})),
+    sec('Why this led to the next stage',h('p',{text:s.why_next}),nx?h('button',{class:'chip',type:'button',onclick:()=>select('stage',nx.id)},'Next: '+nx.title):null));
+  P.append(sec('Where it lives',h('div',{class:'chips'},s.chapters.map(c=>h('button',{class:'chip',type:'button',onclick:()=>select('node',c,{tab:'structure',scroll:true})},'Structure: '+chapNum(c)+' ('+N[c].pages+')'))),h('div',{class:'chips',style:{marginTop:'6px'}},s.sections.map(c=>h('button',{class:'chip',type:'button',onclick:()=>select('node',c,{tab:'structure',scroll:true})},nodeLabel(N[c]).slice(0,30))))));
+  P.append(sec('Evidence pages',pgs(s.evidence)),sec('Quote',h('blockquote',{},'“'+s.quote.text+'” ',pg(s.quote.page))));
+  if(s.negative_results.length)P.append(sec('Negative and limiting results',...s.negative_results.map(id=>{const n=NEG.find(x=>x.id===id);return h('div',{class:'claimcard',style:{marginBottom:'6px'}},h('div',{},h('b',{style:{color:'var(--o-failed)'}},'✗ '),n.text),h('div',{class:'chips'},pgs(n.source_pages),n.figures.map(f=>h('button',{class:'chip',type:'button',onclick:()=>select('fig',f)},FIG[f].label)),basisTag(n.basis)))})));
+  P.append(sec('Claims ('+s.claims.length+')',...s.claims.map(id=>claimCard(CL[id],true))));
+}
+function panelNode(P,n){
+  P.append(h('div',{class:'chips'},typeChip(n),h('span',{class:'tag'},n.pages),n.kind?h('span',{class:'tag'},n.kind):null,basisTag(n.basis)));
+  P.append(h('h2',{text:nodeLabel(n)}));
+  P.append(h('p',{class:'small muted'},fmt(n.approx_words)+' words (approx.) · '+n.n_figures+' figures · '+n.n_tables+' tables'+(n.parent?'  ·  in ':''),n.parent?linkNode(n.parent):null));
+  const sec=(t,...c)=>h('section',{},h('h4',{},t),...c);
+  if(n.summary)P.append(sec('Summary',h('p',{text:n.summary})));
+  if(n.quote)P.append(sec('Quote',h('blockquote',{},'“'+n.quote.text+'” ',pg(n.quote.page))));
+  if(n.template)P.append(sec('Internal template',h('div',{class:'flow'},n.template.map((t,i)=>[i?h('span',{class:'muted'},'→'):null,h('span',{class:'s'},t)]))));
+  if(n.publication_status)P.append(sec('Publication status',h('p',{class:'small',text:n.publication_status}),pgs(n.source_pages)));
+  if(n.collaboration)P.append(sec('Collaboration notes',h('p',{class:'small',text:n.collaboration})));
+  if(n.also&&n.also.length)P.append(h('p',{class:'small muted'},'Also contains: '+n.also.join(', ')));
+  const rel=stagesForNode(n.id);
+  if(rel.length)P.append(sec('Journey stages',h('div',{class:'chips'},rel.map(id=>h('button',{class:'chip',type:'button',onclick:()=>select('stage',id,{tab:'journey',scroll:true})},(STAGES.findIndex(s=>s.id===id)+1)+'. '+ST[id].title.slice(0,32))))));
+  const cl=claimsByNode[n.id]||[];
+  if(cl.length)P.append(sec('Claims ('+cl.length+')',...cl.map(c=>claimCard(c,n.id!==c.node))));
+  const figs=[...n.figure_ids,...n.table_ids];
+  const allF=[];[n.id,...descendants(n.id)].forEach(id=>{N[id].figure_ids.forEach(f=>allF.push(f));N[id].table_ids.forEach(f=>allF.push(f))});
+  if(allF.length){const box=h('div',{class:'chips'});allF.slice(0,40).forEach(f=>box.append(h('button',{class:'chip',type:'button',title:FIG[f].caption,onclick:()=>select('fig',f)},FIG[f].label+' · p. '+FIG[f].page)));if(allF.length>40)box.append(h('span',{class:'muted small'},'+'+(allF.length-40)+' more'));P.append(sec('Figures and tables ('+allF.length+')',box))}
+  const es=[...(edgesByNode[n.id]||[])];
+  if(es.length){
+    const out=es.filter(e=>(FIG[e.source]?FIG[e.source].node:e.source)===n.id||ancestors(FIG[e.source]?FIG[e.source].node:e.source).includes(n.id));
+    const outS=out.filter(e=>!FIG[e.target]||e.kind==='semantic'),inn=es.filter(e=>!out.includes(e));
+    const mkE=(e,dir)=>h('div',{class:'edgeitem '+e.basis},h('div',{class:'chips'},linkNode(dir==='out'?e.target:e.source),h('span',{class:'tag'},ETYPES[e.type]?ETYPES[e.type].l:e.type),basisTag(e.basis),pgs(e.source_pages,4)),h('div',{class:'small muted',text:e.reason}));
+    const showL=(arr,dir)=>{const f=arr.filter(e=>e.type!=='refers_to_figure'&&e.type!=='refers_to_table');return f};
+    const o=showL(out,'out'),i=showL(inn,'in');
+    if(o.length)P.append(sec('Links out ('+o.length+')',...o.slice(0,10).map(e=>mkE(e,'out')),o.length>10?h('details',{},h('summary',{class:'small',text:'show '+(o.length-10)+' more'}),...o.slice(10).map(e=>mkE(e,'out'))):null));
+    if(i.length)P.append(sec('Links in ('+i.length+')',...i.slice(0,10).map(e=>mkE(e,'in')),i.length>10?h('details',{},h('summary',{class:'small',text:'show '+(i.length-10)+' more'}),...i.slice(10).map(e=>mkE(e,'in'))):null));
+  }
+  const ents=DATA.links.entities.filter(e=>n.level===0&&(e.chapters.includes(n.id)||e.appendices.includes(n.id)));
+  if(ents.length){const box=h('div',{class:'chips'});ents.sort((a,b)=>b.by_chapter[n.id].mentions-a.by_chapter[n.id].mentions).slice(0,24).forEach(e=>box.append(h('button',{class:'chip',type:'button',title:e.gloss,onclick:()=>select('entity',e.id,{tab:'links'})},e.label+' ×'+e.by_chapter[n.id].mentions)));P.append(sec('Entities mentioned (top 24 of '+ents.length+')',box))}
+  P.append(h('section',{},h('h4',{},'Show in'),h('div',{class:'chips'},h('button',{class:'chip',type:'button',onclick:()=>setTab('structure')},'Structure'),h('button',{class:'chip',type:'button',onclick:()=>setTab('journey')},'Journey'),h('button',{class:'chip',type:'button',onclick:()=>{ if(!GNODES.includes(topOf(n.id)))return; setTab('links')},disabled:!GNODES.includes(topOf(n.id))},'Links'))));
+}
+function panelEntity(P,e){
+  P.append(h('div',{class:'chips'},h('span',{class:'tag'},e.kind),basisTag(e.basis)));
+  P.append(h('h2',{text:e.label}),h('p',{text:e.gloss}));
+  P.append(h('section',{},h('h4',{},'Appears in ('+e.total_mentions+' mentions)'),h('ul',{class:'plain'},Object.entries(e.by_chapter).map(([c,v])=>h('li',{},h('div',{class:'chips'},h('button',{class:'chip',type:'button',onclick:()=>select('node',c,{tab:'structure',scroll:true})},chapNum(c)),h('span',{class:'small'},v.mentions+' mention'+(v.mentions>1?'s':'')),pgs(v.pages)))))));
+  P.append(h('p',{class:'small muted'},'Detected by text pattern in each chapter; page chips are the first pages where it occurs.'));
+}
+function panelClaim(P,c){P.append(h('h2',{text:'Claim'}),claimCard(c,true),h('section',{},h('h4',{},'Section'),linkNode(c.node)))}
+function panelFig(P,f){
+  P.append(h('div',{class:'chips'},h('span',{class:'tag'},f.id.startsWith('fig')?'figure':'table'),pg(f.page)),h('h2',{text:f.label}),h('p',{text:f.caption}),h('section',{},h('h4',{},'Located in'),linkNode(f.node)));
+  const cl=CLAIMS.filter(c=>c.figures.includes(f.id));if(cl.length)P.append(h('section',{},h('h4',{},'Claims it supports'),...cl.map(c=>claimCard(c,true))));
+  const es=EDGES.filter(e=>e.target===f.id);if(es.length)P.append(h('section',{},h('h4',{},'Cited from'),h('div',{class:'chips'},es.map(e=>linkNode(e.source)))));
+}
+function panelEdge(P,id){
+  const [a,b,basis]=id.split('>');const g=groupEdges().find(x=>x.a===a&&x.b===b&&x.basis===basis);
+  P.append(h('div',{class:'chips'},basisTag(basis)),h('h2',{},(SHORT[a]||a)+' → '+(SHORT[b]||b)));
+  if(!g){P.append(h('p',{class:'muted'},'No links match the current filters.'));return}
+  P.append(h('p',{class:'small muted'},g.items.length+' link'+(g.items.length>1?'s':'')+(basis==='stated'?' (stated, solid line)':' (inferred, dashed line)')));
+  g.items.forEach(e=>P.append(h('div',{class:'edgeitem '+e.basis,style:{marginBottom:'6px'}},h('div',{class:'chips'},linkNode(e.source),'→',linkNode(e.target),h('span',{class:'tag'},ETYPES[e.type].l),pgs(e.source_pages,6)),h('div',{class:'small muted',text:e.reason}))));
+}
+/* ---------------- search ---------------- */
+const INDEX=[];
+nodes.forEach(n=>INDEX.push({g:'Structure',t:nodeLabel(n),x:(n.summary||'')+' '+n.title,sel:['node',n.id],tab:'structure',p:n.pages}));
+STAGES.forEach((s,i)=>INDEX.push({g:'Journey stage',t:(i+1)+'. '+s.title,x:s.question+' '+s.approach,sel:['stage',s.id],tab:'journey',p:s.evidence.slice(0,3).map(x=>'p. '+x).join(', ')}));
+DATA.links.entities.forEach(e=>INDEX.push({g:'Entity',t:e.label,x:e.gloss,sel:['entity',e.id],tab:'links',p:'p. '+e.source_pages[0]}));
+CLAIMS.forEach(c=>INDEX.push({g:'Claim',t:c.text,x:'',sel:['claim',c.id],tab:null,p:c.source_pages.map(x=>'p. '+x).join(', ')}));
+Object.values(FIG).forEach(f=>INDEX.push({g:f.id.startsWith('fig')?'Figure':'Table',t:f.label+' '+f.caption,x:'',sel:['fig',f.id],tab:'structure',p:'p. '+f.page}));
+const qEl=$('#q'),rEl=$('#results');let act=-1,cur=[];
+function runSearch(){
+  const q=qEl.value.trim().toLowerCase();rEl.replaceChildren();act=-1;cur=[];
+  if(q.length<2){rEl.hidden=true;qEl.setAttribute('aria-expanded','false');return}
+  const terms=q.split(/\s+/);
+  const sc=INDEX.map(it=>{const t=it.t.toLowerCase(),x=it.x.toLowerCase();let s=0;for(const w of terms){if(t.includes(w))s+=t.startsWith(w)?5:3;else if(x.includes(w))s+=1;else return null}return s?{it,s}:null}).filter(Boolean);
+  const order=['Journey stage','Structure','Entity','Claim','Figure','Table'];
+  const groups={};sc.forEach(r=>(groups[r.it.g]=groups[r.it.g]||[]).push(r));
+  let n=0;
+  for(const g of order){const arr=(groups[g]||[]).sort((a,b)=>b.s-a.s).slice(0,g==='Claim'||g==='Figure'?5:7);if(!arr.length)continue;
+    rEl.append(h('li',{class:'grp',role:'presentation'},g+(groups[g].length>arr.length?' ('+groups[g].length+')':'')));
+    arr.forEach(r=>{const li=h('li',{role:'option',id:'opt'+n,'aria-selected':'false'},h('span',{class:'rt',text:r.it.t.length>110?r.it.t.slice(0,108)+'…':r.it.t}),h('span',{class:'pg'},r.it.p||''));li.addEventListener('mousedown',e=>{e.preventDefault();choose(r.it)});rEl.append(li);cur.push({li,it:r.it});n++});}
+  if(!n)rEl.append(h('li',{class:'grp',role:'presentation'},'No matches'));
+  rEl.hidden=false;qEl.setAttribute('aria-expanded','true');
+}
+function choose(it){rEl.hidden=true;qEl.setAttribute('aria-expanded','false');qEl.value='';select(it.sel[0],it.sel[1],{tab:it.tab||undefined,scroll:true})}
+qEl.addEventListener('input',runSearch);
+qEl.addEventListener('keydown',e=>{
+  if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();if(rEl.hidden)runSearch();if(!cur.length)return;if(act>=0)cur[act].li.setAttribute('aria-selected','false');act=(act+(e.key==='ArrowDown'?1:-1)+cur.length)%cur.length;cur[act].li.setAttribute('aria-selected','true');qEl.setAttribute('aria-activedescendant',cur[act].li.id);cur[act].li.scrollIntoView({block:'nearest'})}
+  else if(e.key==='Enter'){if(act>=0){e.preventDefault();choose(cur[act].it)}else if(cur.length){e.preventDefault();choose(cur[0].it)}}
+  else if(e.key==='Escape'){rEl.hidden=true;qEl.setAttribute('aria-expanded','false')}
+});
+qEl.addEventListener('blur',()=>setTimeout(()=>{rEl.hidden=true;qEl.setAttribute('aria-expanded','false')},120));
+document.addEventListener('keydown',e=>{if(e.key==='/'&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='SELECT'){e.preventDefault();qEl.focus()}if(e.key==='Escape'&&$('#panel').classList.contains('open')){$('#panel').classList.remove('open')}});
+/* ---------------- render ---------------- */
+function renderAll(){
+  if(state.tab==='journey')renderJourney();
+  else if(state.tab==='structure')renderStructure();
+  else renderLinks();
+  renderPanel();
+}
+function init(){
+  $('#ttl').textContent=DATA.meta.title+': an interactive map';
+  $('#subttl').textContent=DATA.meta.author+' · '+DATA.meta.institution+' · '+DATA.meta.date;
+  $('#foot').textContent='Built from the thesis PDF text (pdftotext, '+DATA.meta.pdf_pages+' pages). All page references are printed page numbers. “Stated” = the author says it; “inferred” = my reading. Summaries are paraphrases; quotes are under 25 words and were checked against the page.';
+  load();
+  HI=relations(state.sel&&((state.sel.type==='node'&&N[state.sel.id])||(state.sel.type==='stage'&&ST[state.sel.id])||(state.sel.type==='entity'&&ENT[state.sel.id])||(state.sel.type==='claim'&&CL[state.sel.id])||(state.sel.type==='fig'&&FIG[state.sel.id])||state.sel.type==='edge')?state.sel:null);
+  if(!HI.nodes.size&&!HI.stages.size&&!HI.ents.size)state.sel=state.sel&&state.sel.type==='edge'?state.sel:null;
+  if(state.sel&&state.sel.type==='entity'&&ENT[state.sel.id])state.entKinds.add(ENT[state.sel.id].kind);
+  if(state.sel)ensureVisible(state.sel);
+  if(state.sel&&matchMedia('(max-width:1049px)').matches)$('#panel').classList.add('open');
+  setTab(TABS.includes(state.tab)?state.tab:'journey',true);
+}
+window.addEventListener('resize',()=>{hideTip()});
+init();
+</script>
+</body>
+</html>

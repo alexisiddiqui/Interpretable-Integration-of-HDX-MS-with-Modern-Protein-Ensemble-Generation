@@ -1,0 +1,43 @@
+2.4. QUANTUM CHEMICAL TOPOLOGY 69
+
+EBT = Peete Ye!
+A
+
+A B>A
+=y lest y eg =e
+A 2 A
+
+BHA
+
+(2.130)
+
+Finally, we note that there is an ongoing discussion in the literature [172, 173,
+174, 175, 176] regarding how density functionals seem to provide reasonable en-
+ergy differences, but their description of the electron density (and thus the Kohn-
+Sham orbitals) might be very poor. We note that, in absence of the exact functional
+promised by Hohenberg-Kohn first theorem, there is no guarantee that the Kohn-
+Sham orbitals will provide a good description of the electronic structure, and thus
+IQA calculations might be completely unreliable. Nonetheless, their use is extended
+
+given the enormous computational expense of ab initio correlated methods.
+
+2.4.4 Topological multipoles
+
+The partition of molecular observables in atomic contributions presented vide supra
+provides a very elegant way to distribute the molecular multipole. More impor-
+tantly, with the sensitivity on basis set that hinders the Distributed Multipole Anal-
+
+ysis of Stone, a formulation in real rather than in Hilbert space results promising.
+
+The simplest multipole is simply the integral of the electron density over the
+
+atomic density:
+
+Qh = - [, ee) dr° (2.131)
+
+Here, the negative sign takes account of the negative charge of the electron.
+This is the content of electrons of the basin, and cannot be interpreted as an atomic
+
+charge; this requires to subtract the nuclear charge:
+
+q4 =Za— QA (2.132)

@@ -1,0 +1,42 @@
+40 CHAPTER 2. LITERATURE REVIEW
+
+where unprimed indices represent the electronic coordinates of molecule A and
+primed indices represent the electrons of molecule B, will be zero, since the wave-
+functions are non-zero only when all its electrons are contained in the correspond-
+
+ing molecule. Thus, all the terms in equation 2.43 can be neglected except
+
+WA (1,2,..., Na) ¥3(1',2/, ..., Np) (2.45)
+which is equivalent to a non-antisymmetrized product. In this way, it is legitimate
+to perform perturbation theory without antisymmetrization [82].
+
+In terms of Rayleigh-Schrédinger perturbation theory, the first- and second-
+
+order corrections to the energy are given by:
+
+, 1
+-E! (Yoo| H Frnn) Pall |'Foo) (2.47)
+EY) EQ
+
+In equation 2.47, it is possible to separate the terms in:
+
+(00| # |m0) (mo| 21’ |00) (00| 4’ |On) (On| 21’ |00)
+Uing = — EA ~ fA _ ye EB — EB (2.48)
+m#0 m 0 n#0 0
+Ui ub,
+00| H’ |mn) (mn| H’ |00
+
+A _ pB
+m0 EA+E3— Es — EB
+n#0
+
+In equation 2.48, UA, represents the interaction between the unperturbed elec-
+tronic density of molecule B and the electronic density of the excited states of molecule
+A, and UB , represents the complementary term. Equally, equation 2.49 repre-
+sents the interaction between mutually excited electronic densities. In the words
+of Longuet-Higgins, the essential difference between dispersion and polarisation forces is
+[...] that the virtual transitions responsible for dispersion forces involve the simultaneous
+
+excitation of both molecules [83].
+
+If we recognise that equation 2.46 is actually the electrostatic interaction Uptectrostatic

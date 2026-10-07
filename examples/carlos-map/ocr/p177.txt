@@ -1,0 +1,44 @@
+176 CHAPTER 5. SYMMETRY-ADAPTED KRIGING
+
+runs as well. However, since the symmetry-adapted simulations always stay in a
+correctly modelled region Og, this is less likely than in the baseline simulations,
+where some of the features can be completely uncorrelated with the points in the
+training set. For example, in the case of methanol, the three methyl hydrogens are
+in positions completely different to anything that the kriging model has previously
+
+seen.
+
+In Figures 5.9 and 5.10 we show a representative example of the large body of
+methanol simulations, respectively for the baseline and symmetry-adapted case. It
+
+is possible to find examples of all the behaviours that are described above.
+
+The experiment in acetaldehyde is shown in Figure 5.11 for runs without (top)
+and with symmetry-adapted kriging (bottom). As in the previous case, we find that
+the baseline runs converge to several distinct wrong structures, while symmetry-
+
+adapted runs converge readily to the expected minimum.
+
+First, we note that the RMSD in this case are magnified with respect to the previ-
+ous example. In methanol, most of the RMSD is accounted by the hydroxyl group;
+however, in acetaldehyde the hydroxyl group is substituted by the O=C-H moiety.
+When two structures are superimposed, there will now be two atoms that do not
+coincide significantly with the reference, and thus the RMSD will be significantly
+higher. This also justifies the clustering of runs in the rightmost plot’, since the
+small differences in atomic positions after permutating the coordinates are magni-
+fied.
+
+Regardless of the last effect, it seems that the conclusions for acetaldehyde are
+quite similar: all the symmetry-adapted runs converge to the expected minimum,
+while the baseline show several wrong structures. Particularly, the proper config-
+urations BCA and CAB also pass close to the minimum before drifting away. It is
+
+also seen that the improper rotations converge generally to senseless structures.
+
+The examples in Figures 5.12 and 5.13 are quite close to the analogous for methanol
+in Figures 5.9 and 5.10. The main difference seems to be that the movement is here
+governed by the methyl group, while in the methanol it was the hydroxyl group
+
+moving.
+
+Which are also present in the rightmost plot in Figure 5.8, although it is less obvious.

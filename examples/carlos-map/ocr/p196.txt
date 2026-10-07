@@ -1,0 +1,65 @@
+Chemical Science Edge Article
+
+25 2.5
+1.307 OH
+0.733
+2.04 0.978 2.04
+1.137
+1.882 0.800 re)
+CH2,——=CH a™N 1.573
+qZisy ee qs] OH cnt
+=< < c—
+g id ¢ aR
+8 em ee ° S 7 a" a
+2 a B e
+a 1.04 1.003 4 104 O 1.104 ° 1101
+1.003 1.740
+2.470 0.740
+———SSaa  —
+0.5 4 0.54  NHZ OH
+1.740 1.079
+NH»
+0.0 r T T r T 0.0 T T T T T
+0.0 0.5 1.0 15 2.0 2.5 3.0 0.0 0.5 1.0 15 2.0 2.5 3.0
+Delocalization indices [a. u. ] Delocalization indices [a. u. ]
+
+Fig. 3 k-Means clustering of the internuclear distance d versus 6 plot for carbon-carbon (left) and carbon-oxygen (right) bonds (interactions
+smaller than 0.5 a.u. have been removed). The vast majority of examples are concentrated in a band between 1.0 and 2.0 A, and correspond to the
+single, double and triple bonds for carbon-carbon interactions, and to the single and double bonds for carbon—oxygen interactions.
+
+clustering of data points in a scatter plot. This analysis has been __ results is that polarity decreases the DI, as we observed for LiH
+performed on the (6, d) (where d is the internuclear distance) pairs and NaCl vide supra.
+computed from optimized HF wavefunctions. The DI values cor- In terms of the second response, the DI recovers all textbook
+responding to non-bonded pairs, as well as some outliers arising bonding effects. Here we will focus on two effects that are
+from the presence of non-nuclear critical points (most of the ubiquitous throughout chemistry: the inductive effect and the
+triple bonds) have been removed. In both cases, the clusters can resonance effect. We discuss these two effects in turn, starting
+be easily identified with the plateaus described above. with the inductive effect.
+The inductive effect is the action of a charged group, or one
+with a significant electronegativity difference compared to the
+The subtler bonding effects surrounding atoms in a given bonded interaction. An electro-
+Since it condenses information about the full electronic struc- negative atom or group positioned near a bond under study will
+ture of a system, the delocalization index is also sensitive to the | withdraw electron density from the pair of atoms of interest. As
+environment of a given bond and is able to reflect certain the withdrawal of electron density will probably occur through
+classical effects in practical chemistry. We may understand the mobile (i.e. participating in delocalization) electrons, we expect
+delocalization index to be under the influence of two responses: that the number of electron pairs delocalized between both
+one from the atoms constituting the “bond”, and the other from atoms will decrease. This effect manifests itself in a homolo-
+the surroundings. gous series, where the DI between two atoms in a given bond
+In terms of the first response, the DI is an indicator of converges to a constant value with an increasing number of
+covalency: it measures the amount of electron pairs shared carbons separating it from the electronegative group. Because
+between two atoms. Thus, apolar bonds will return larger DI carbon is more electronegative than hydrogen, it polarizes the
+values than polar bonds because then no atom has a greater electron density towards itself. Of course, this effect is highly
+electronegativity than another atom, and thus the electrons are__ local, and almost vanishes with more than two intermediate
+equally shared. On the other hand, in polar bonds, one of the carbon atoms. A straightforward example of the inductive effect
+atoms tends to hoard the electrons, making equal sharing less __ is the comparison of the C-C bond in ethanol, 6(C, C) = 0.828,
+favourable. A clear example of this effect is that of N, and HCN and that in ethanamine, 6(C, C) = 0.960, which has the less
+where 6(N, N) = 3.043 and 6(C, N) = 2.340, at HF level. This electronegative substituent. Thus, the presence of an electroneg-
+phenomenon can also be read in terms of the partition of @ive element near a bond decreases its number of delocalized
+electrons into localized and delocalized sets. For instance, on _¢/ectron pairs and thus the DI of this bond.
+changing from a two-center, two-electron non-polar link to Secondly, the resonance effect appears in the form of elec-
+a polar one, the electrons that were originally delocalized tron delocalization. In conjugated systems, the delocalization
+between the two centers tend to localize toward the electro- index takes account of this effect, for example, by reducing the
+negative atom. From eqn (6) it follows that the increase in the double bond character in double bonds, while enhancing the
+number of localized electrons must necessarily be accompanied double bond character in single bonds. In this way, the stan-
+by a decrease in the number of delocalized electrons. The end dard arrow-pushing rules used in the explanation of
+
+5524 | Chem. Sci., 2018, 9, 5517-5529 This journal is © The Royal Society of Chemistry 2018

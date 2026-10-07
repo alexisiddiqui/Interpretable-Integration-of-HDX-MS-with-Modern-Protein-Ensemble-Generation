@@ -1,0 +1,32 @@
+A.2. LIST OF COMPOUNDS 209
+
+Nitrogenated bases
+e Thymine
+e Adenine
+e Uracil
+e Guanine
+
+e Cytosine
+
+Pyrroles
+
+e N-methylpyrrole
+e 2-methylpyrrole
+e Pyrrole
+
+e 3-methylpyrrole
+
+Silicon compounds
+
+e Tetraethylsilane
+e Tetramethylsilane
+e Silane
+
+e Trimethylsilanol
+
+Sulfides and thiols
+
+e Ethanethiol
+e Dimethyl sulfide
+
+e Diethyl sulfide

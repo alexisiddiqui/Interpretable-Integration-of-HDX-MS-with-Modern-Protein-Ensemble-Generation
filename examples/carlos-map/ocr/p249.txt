@@ -1,0 +1,43 @@
+248 BIBLIOGRAPHY
+
+[159] E. Schrédinger, “E. schrédinger, ann. phys. 79, 361 (1926).,” Annalen der
+Physik, vol. 79, p. 361, 1926.
+
+[160] M. Blanco, A. Martin Pendas, and E. Francisco, “Interacting quantum atoms:
+a correlated energy decomposition scheme based on the quantum theory of
+atoms in molecules,” Journal of Chemical Theory and Computation, vol. 1, no. 6,
+
+pp. 1096-1109, 2005.
+
+[161] P.-O. Léwdin, “Quantum theory of many-particle systems. I. Physical inter-
+pretations by means of density matrices, natural spin-orbitals, and conver-
+gence problems in the method of configurational interaction,” Physical Re-
+
+view, vol. 97, no. 6, p. 1474, 1955.
+
+[162] R. McWeeny, “Some recent advances in density matrix theory,” Reviews of
+Modern Physics, vol. 32, no. 2, p. 335, 1960.
+
+[163] L. Li and R. G. Parr, “The atom in a molecule: a density matrix approach,”
+
+The Journal of Chemical Physics, vol. 84, no. 3, pp. 1704-1711, 1986.
+
+[164] K. Morokuma and K. Kitaura, “Energy decomposition analysis of molecu-
+lar interactions,” in Chemical Applications of Atomic and Molecular Electrostatic
+
+Potentials, pp. 215-242, Springer, 1981.
+
+[165] P. Maxwell, A. M. Pendas, and P. L. A. Popelier, “Extension of the interact-
+ing quantum atoms (IQA) approach to B3LYP level density functional theory
+(DFT),” Physical Chemistry Chemical Physics, vol. 18, no. 31, pp. 20986-21000,
+2016.
+
+[166] E. Francisco, J. Casals-Sainz, T. Rocha-Rinza, and A. M. Pendas, “Partitioning
+the DFT exchange-correlation energy in line with the interacting quantum
+
+atoms approach,” Theoretical Chemistry Accounts, vol. 135, no. 7, p. 170, 2016.
+
+[167] J. L. McDonagh, M. A. Vincent, and P. L. A. Popelier, “Partitioning dy-
+namic electron correlation energy: Viewing Moller-Plesset correlation ener-
+gies through Interacting Quantum Atoms (IQA) energy partitioning,” Chem-
+ical Physics Letters, vol. 662, pp. 228-234, 2016.

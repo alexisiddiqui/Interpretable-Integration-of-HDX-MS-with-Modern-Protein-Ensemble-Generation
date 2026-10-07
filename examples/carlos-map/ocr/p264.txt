@@ -1,0 +1,42 @@
+BIBLIOGRAPHY 263
+
+[305] J. Behler and M. Parrinello, “Generalized neural-network representation of
+high-dimensional potential-energy surfaces,” Physical Review Letters, vol. 98,
+
+no. 14, p. 146401, 2007.
+
+[306] S. Lorenz, A. Gro8, and M. Scheffler, “Representing high-dimensional
+potential-energy surfaces for reactions at surfaces by neural networks,” Chem-
+ical Physics Letters, vol. 395, no. 4-6, pp. 210-215, 2004.
+
+[307] B. Jiang and H. Guo, “Permutation invariant polynomial neural network ap-
+proach to fitting potential energy surfaces,” The Journal of Chemical Physics,
+vol. 139, no. 5, p. 054112, 2013.
+
+[308] J. Li, B. Jiang, and H. Guo, “Permutation invariant polynomial neural net-
+work approach to fitting potential energy surfaces. II. Four-atom systems,”
+The Journal of Chemical Physics, vol. 139, no. 20, p. 204103, 2013.
+
+[309] B. Jiang and H. Guo, “Permutation invariant polynomial neural network ap-
+proach to fitting potential energy surfaces. iii. molecule-surface interactions,”
+
+The Journal of Chemical Physics, vol. 141, no. 3, p. 034109, 2014.
+
+[310] J. Behler, R. Martondk, D. Donadio, and M. Parrinello, “Metadynamics simu-
+lations of the high-pressure phases of silicon employing a high-dimensional
+neural network potential,” Physical Review Letters, vol. 100, no. 18, p. 185501,
+2008.
+
+[311] H. Eshet, R. Z. Khaliullin, T. D. Kiihne, J. Behler, and M. Parrinello, “Mi-
+croscopic origins of the anomalous melting behavior of sodium under high
+
+pressure,” Physical Review Letters, vol. 108, no. 11, p. 115701, 2012.
+
+[312] N. Artrith, T. Morawietz, and J. Behler, “High-dimensional neural-network
+potentials for multicomponent systems: Applications to zinc oxide,” Physical
+Review B, vol. 83, no. 15, p. 153101, 2011.
+
+[313] B. Kolb, B. Zhao, J. Li, B. Jiang, and H. Guo, “Permutation invariant potential
+energy surfaces for polyatomic reactions using atomistic neural networks,”
+
+The Journal of Chemical Physics, vol. 144, no. 22, p. 224103, 2016.

@@ -1,0 +1,43 @@
+4.2. RESULTS AND DISCUSSION 127
+
+it was obtained from EMSL Basis Set Exchange [276].
+
+Finally, we note that a detailed account of this results may be found in the Elec-
+tronic Supplementary Information of the official publication.
+
+4.2.2 Benchmark of Miiller approximation
+
+Several articles have compared Miiller approximation with the full 2-RDM in a va-
+riety of contexts [264, 277, 278, 279, 280]. In this section, we provide a short bench-
+
+mark on 21 small molecules, which is provided in Table 4.1
+
+In the original paper, Miiller stated that the complications of his approximation
+may be compensated by the mean accuracy of this approximation for large N [273]. In this
+sense, it is to be expected that the approximation will become asymptotically better
+as the system size increases, and our benchmark can be interpreted as an upper
+
+bound in the error.
+
+The results in Table 4.1 show that Miiller’s approximation work best when cor-
+relation plays a minor role on the system. Most of the DIs for directly bonded atoms
+show relative errors below 5%, which is more than acceptable in relation to the enor-
+mous computational savings. We note that the computation required 2 weeks in a
+12-CPU node? for the full 2-RDM, versus ~ 10 hours in a 4-core node employing
+AIMAIL
+
+Unfortunately, the errors can be considerably large when correlation is impor-
+tant. Strong examples of this are N2 and HCN, where the lack of static correla-
+tion causes a relative error over 10%. Similarly, the delocalization indices between
+atomic basins that are not directly bonded, which cannot be described correctly in
+absence of dynamic correlation, show errors in the range 20-70% and always neg-
+ative. An exception is posed by hydrogen bonds which, as shown in Table 4.1, are
+overestimated by the Mller approximation, and generally by a significant amount.
+
+There are two interesting exceptions: the molecules of F) and HF. The first is
+
+well-known to pose difficulties at conventional levels of theory: it is unbounded
+
+4At the MALTA supercomputing centre in Oviedo, Spain. The computation of the full 2-RDM is
+not included.
+5At the Computational Shared Facilities (CSF) of the University of Manchester.

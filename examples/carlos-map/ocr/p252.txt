@@ -1,0 +1,44 @@
+BIBLIOGRAPHY 251
+
+[188] B. Shahriari, K. Swersky, Z. Wang, R. P. Adams, and N. De Freitas, “Taking
+the human out of the loop: a review of bayesian optimization,” Proceedings of
+
+the IEEE, vol. 104, no. 1, pp. 148-175, 2016.
+
+[189] C. M. Bishop, Pattern Recognition and Machine Learning (Information Science and
+Statistics). Secaucus, NJ, USA: Springer-Verlag New York, Inc., 2006.
+
+[190] C. E. Rasmussen, “Gaussian processes in machine learning,” in Advanced Lec-
+
+tures on Machine Learning, pp. 63-71, Springer, 2004.
+
+[191] K. Murphy, “Machine learning: a probabilistic approach,” Massachusetts In-
+stitute of Technology, pp. 1-21, 2012.
+
+[192] M. L. Eaton, Multivariate statistics: a vector space approach. 1983.
+
+[193] W. R. Tobler, “A computer movie simulating urban growth in the detroit re-
+gion,” Economic Geography, vol. 46, no. sup1, pp. 234-240, 1970.
+
+[194] R. V. Hogg, J. McKean, and A. T. Craig, Introduction to mathematical statistics.
+Pearson Education, 2005.
+
+[195] S. Goedecker, “Minima hopping: an efficient search method for the global
+minimum of the potential energy surface of complex molecular systems,” The
+
+Journal of Chemical Physics, vol. 120, no. 21, pp. 9911-9917, 2004.
+
+[196] N. Di Pasquale, S. J. Davie, and P. L. A. Popelier, “Optimization algorithms
+in optimal predictions of atomistic properties by kriging,” Journal of Chemical
+Theory and Computation, vol. 12, no. 4, pp. 1499-1513, 2016.
+
+[197] R. Eberhart and J. Kennedy, “A new optimizer using particle swarm theory,”
+in Micro Machine and Human Science, 1995. MHS’95., Proceedings of the Sixth
+International Symposium on, pp. 39-43, IEEE, 1995.
+
+[198] B. K. Panigrahi, Y. Shi, and M.-H. Lim, Handbook of swarm intelligence: concepts,
+principles and applications, vol. 8. Springer, 2011.
+
+[199] S. Y. Liem and P. L. A. Popelier, “High-rank quantum topological electrostatic
+potential: molecular dynamics simulation of liquid hydrogen fluoride,” The
+Journal of Chemical Physics, vol. 119, no. 8, pp. 4560-4566, 2003.

@@ -1,0 +1,43 @@
+5.3. EFFICIENT ALGORITHM 163
+
+Q» Q3
+
+1 0 0 0
+0 0 1 0
+0 1 0 0
+0 0 0 1
+
+Ts
+
+('N1 YHo YuH3 THs) =
+
+Figure 5.2: Diagram of the symmetry partition scheme, for the example of NH3.
+The total configurational space is divided in several symmetry-equivalent regions.
+By means of the symmetry operations, in the form of representation matrices I’y, it
+
+is possible to reduce the sampling space to a fraction.
+
+value, because it prevents unphysical artefacts (such as the problems with methanol
+presented in the introduction), but in its pure form does not reduce the number of
+evaluations. We shall now present a heuristic algorithm that increases the efficiency
+
+notably.
+
+Let us recall the expression of symmetry-adapted kriging in equation 5.22:
+
+o(r) =p +)iw; > k(Uxt;,r) (5.32)
+J
+
+XEG
+
+The key realisation is that we can build a symmetry-adapted kriging model only
+by applying the representation matrices I'y on the training set and adjusting the
+constant factor in w;. We shall find a way to exploit this fact and reduce the number
+
+of evaluations.
+
+Let us now consider the space of 3K Cartesian coordinates, where K is the num-
+ber of atoms. Since what we are doing is “transforming” the points in the training
+set with the symmetry operations, we might assume that this space is divided in
+several disjoint regions {Ox} that are equivalent by symmetry, that are depicted
+schematically in Figure 5.2.

@@ -1,0 +1,40 @@
+BIBLIOGRAPHY 243
+
+[113] R. G. Parr and R. G. Pearson, “Absolute hardness: companion parameter to
+absolute electronegativity,” Journal of the American Chemical Society, vol. 105,
+
+no. 26, pp. 7512-7516, 1983.
+
+[114] R. Chelli, P. Procacci, R. Righini, and S. Califano, “Electrical response in chem-
+ical potential equalization schemes,” The Journal of Chemical Physics, vol. 111,
+no. 18, pp. 8569-8575, 1999.
+
+[115] H. A. Stern, G. A. Kaminski, J. L. Banks, R. Zhou, B. Berne, and R. A. Friesner,
+“Fluctuating charge, polarizable dipole, and combined models: parameteri-
+zation from ab initio quantum chemistry,” The Journal of Physical Chemistry B,
+vol. 103, no. 22, pp. 4730-4737, 1999.
+
+[116] J. L. Banks, G. A. Kaminski, R. Zhou, D. T. Mainz, B. J. Berne, and R. A. Fries-
+ner, “Parametrizing a polarizable force field from ab initio data. I. The fluc-
+tuating point charge model,” The Journal of Chemical Physics, vol. 110, no. 2,
+pp. 741-754, 1999.
+
+[117] S. Cardamone, T. J. Hughes, and P. L. A. Popelier, “Multipolar electrostatics,”
+Physical Chemistry Chemical Physics, vol. 16, no. 22, pp. 10367-10387, 2014.
+
+[118] A. K. Rappé, C. J. Casewit, K. Colwell, W. Goddard Iii, and W. Skiff, “Uff,
+a full periodic table force field for molecular mechanics and molecular dy-
+namics simulations,” Journal of the American Chemical Society, vol. 114, no. 25,
+
+pp- 10024-10035, 1992.
+
+[119] S. Patel and C. L. Brooks, “CHARMM fluctuating charge force field for pro-
+teins. I. Parameterization and application to bulk organic liquid simulations,”
+
+Journal of Computational Chemistry, vol. 25, no. 1, pp. 1-16, 2004.
+
+[120] S. Patel, A. D. Mackerell, and C. L. Brooks, “CHARMM fluctuating charge
+force field for proteins. II. Protein/solvent properties from molecular dynam-
+ics simulations using a nonadditive electrostatic model,” Journal of Computa-
+
+tional Chemistry, vol. 25, no. 12, pp. 1504-1514, 2004.

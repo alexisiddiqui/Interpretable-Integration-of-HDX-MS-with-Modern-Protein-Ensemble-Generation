@@ -1,0 +1,53 @@
+217
+
+137 & Matrix(2, 1) * Matrix(1, 2) * Matrix(3, 3) —-&
+138 & Matrix(3, 2) * Matrix(2, 3) * Matrix(1, 1)
+139
+
+uo End Function
+
+Listing B.2: fflux_compute_distances.f90
+
+1 Subroutine fflux_calc_cartesian(features, alf, iatm, cartesian)
+
+Use kinds_f90
+« Use config-module, Only : natms
+
+s Use setup-module, Only : pi
+
+7 Implicit None
+
+9 Integer, Intent( In ) :: jiatm
+
+1 Integer, Intent( In ) :: alf(natms, 3)
+
+re Real( kind = wp ), Intent( In ) :: features (3*natms—6)
+2 Real( kind = wp ), Intent( Out ) :: cartesian(3*natms)
+B
+
+us Integer :: i, nonalf(natms), j, temp
+is Real( kind = wp ) :: xxx (natms)
+
+1  Real( kind = wp ) 2: yyy (natms)
+
+7 Real( kind = wp ) i: zzz(natms)
+
+is Real( kind = wp ) :: r, theta, phi
+
+1 Logical :: switch
+
+20
+
+2 ! ALF-defining atoms
+
+2  xxx(alf(iatm, 1)) = 0.0_wp
+2  yyy(alf(iatm, 1)) = 0.0-wp
+2  zzz(alf(iatm, 1)) = 0.0_wp
+
+2%  xxx(alf(iatm, 2)) = features (1)
+2”  yyy(alf(iatm, 2)) = 0.0_wp
+2» zzz(alf(iatm, 2)) = 0.0_wp
+
+9 =xxx(alf(iatm, 3)) = features(2) * DSIN( 0.5*pi—features(3) )
+a. yyy(alf(iatm, 3)) = features(2) * DCOS( 0.5*pi—features(3) )
+2 zzz(alf(iatm, 3)) = 0.0_wp

@@ -1,0 +1,41 @@
+183
+
+energy in an arbitrary wavefunction, and can be computed much quickly since it
+is a product of two three-dimensional integrals. It also reflects several chemical
+
+phenomena, particularly the inductive and resonance effects.
+
+The delocalization index is defined in terms of the second-order reduced density
+matrix (or more rigorously its diagonal part, the pair density). Given the complexity
+of an arbitrary correlated 2-RDM, a key step in our research was to validate Miiller
+approximation: a Hartree-Fock-like estimate of the 2-RDM in terms of the 1-RDM.
+Our benchmark showed that this approximation allows to compute delocalization
+indices within a 10% error bound for directly bonded atoms, although larger errors
+
+can be obtained when correlation is essential.
+
+A large scale statistical analysis verified a fact suspected by the QCT community,
+but never explored in detail: that the delocalization index is a bond order indicator.
+We have shown that delocalization indices vary in a quasi-continuous fashion, but
+cluster around certain well-defined values that can be identified with the classical
+bond orders present in Lewis diagrams. We have also shown that there is a sharp
+discontinuity between bonded and non-bonded terms, thus providing another evi-
+
+dence of chemical bonding.
+
+Finally, we attempted to extend the applicability of this approach by exploring
+several exotic compounds. These included a Ng molecule, a compound with pla-
+nar tetracoordinate carbon and a metallic complex whose actual bonding pattern
+has been object of discussion in the literature. In all cases, we obtained sensible an-
+swers, sometimes superseding other approaches in the literature. Specifically, we
+discarded the presence of an ionic bond in Ng, that was suggested by NBO, and
+provided a description of the metallic complex that is coherent with both hapticity
+and electron-counting techniques.
+
+Our second development is motivated by the curse of dimensionality. It is
+a well-known result that, as the system dimensionality increases, the number of
+points required to model its potential energy surface grows exponentially. Exploit-
+ing the intrinsic symmetries becomes a necessary step to provide accurate models
+of non-trivial molecules across their complete conformational space. Likewise the
+
+neglecting of symmetry can yield dangerously unphysical behaviour, such as the

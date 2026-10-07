@@ -1,0 +1,40 @@
+154 CHAPTER 5. SYMMETRY-ADAPTED KRIGING
+
+This procedure is easily generalised to arbitrary numbers of atoms and permu-
+tations. There is, however, a more compact procedure based on the theory of in-
+variant polynomials. While we will not discuss the mathematical details (they can
+easily be found in [320]), we note that they are obtained by noticing that the set of
+invariant polynomials forms an algebra. This structure is spanned by a set of ob-
+jects called generators, from which the polynomials can be efficiently obtained in
+
+compact form.
+
+We also mention that some work has been done by Grisafi et al regarding the
+introduction of symmetry in tensor models [322]. This work was published con-
+temporarily to this research, and could be employed with the algorithm presented
+
+vide infra in future developments.
+
+5.2 Derivation
+5.2.1 Groups and representations
+
+Before undertaking the derivation of a symmetry-adapted version of Gaussian pro-
+cess regression, two preliminary matters shall be addressed. In the first place, we
+need to actually formalise the symmetries that our model will take into account; it
+is simple to say that permuting the labels of methyl hydrogens does not alter the
+energy, but this lacks certain generality. In the second place, it is necessary to ex-
+press these symmetries in a mathematical form that allows to build an invariant
+
+regression model.
+
+The description of symmetry operations is best performed using the tools of
+group theory, as recognised in the early days of quantum mechanics by Wigner
+and von Neumann, and soon by the early quantum chemists [323]. We will follow
+the approach of Longuet-Higgins, who pioneered the study of non-rigid symmetry
+groups in the sixties [324]. If we consider the molecule as an aggregate of atomic
+
+nuclei and electrons, then its Hamiltonian must be invariant under:
+
+« Any permutation of the positions and spins of the electrons.
+
+« Any rotation of the positions and spins of all particles (electrons and nuclei)

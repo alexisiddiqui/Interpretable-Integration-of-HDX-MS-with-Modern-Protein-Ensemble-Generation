@@ -1,0 +1,44 @@
+164 CHAPTER 5. SYMMETRY-ADAPTED KRIGING
+
+We will not yet discuss how are these regions defined, but first stress their im-
+portance. Let us assume without loss of generality that all the training set is con-
+tained in one of these regions’, perhaps 1. What symmetry-adapted kriging is
+doing is projecting the points in , to the other regions: therefore, when we per-
+form a prediction on a point in QO, this point has the same environment as a point
+
+in Q, and therefore the result is the same.
+
+In order to reduce the computational expense, we propose to invert the process:
+instead of projecting the training set to the rest of regions, we will project the pre-
+diction point into the training set. This is conceptually simple: given an arbitrary
+prediction point r, we need only to identify which region 0.x does it belong to, and
+
+employ the adequate I'y matrix to project it back into 0).
+
+The key problem here is how to identify the whereabouts of the prediction point.
+In principle, the partition of space in symmetry-equivalent regions is arbitrary, and
+there is no obvious and general way to select a standard one. To overcome this,
+we will introduce a simple heuristic: the concept of pivot: a reference point in the
+
+3K-dimensional space.
+
+The pivot can be any point in the training set, although we will assume the
+convention that it is a minimum in the PES; this will be very useful for chemical
+interpretability. Given an arbitrary example, and all the equivalent points generated
+with the symmetry operations, the point that has a minimum distance with the
+pivot will be the one in the correct region. This is depicted schematically in Figure
+5.3.
+
+Within this heuristic, it is only necessary to evaluate the points of the training
+set, effectively reducing the computational cost to O(M). Although there will be
+a small computational overhead, due to the application of the symmetry matrices
+and the comparison of the distances, this will be negligible as the size of the training
+
+set increases.
+
+Selecting a distance metric is not an easy matter, since providing fundamental
+
+arguments on the properties that it should verify is challenging. Fortunately, simple
+
+7This can always be made true, since the points in other regions can always be “projected back”
+into OO; .

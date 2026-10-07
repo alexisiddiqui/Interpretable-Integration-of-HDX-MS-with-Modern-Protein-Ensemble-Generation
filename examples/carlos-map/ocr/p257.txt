@@ -1,0 +1,42 @@
+256 BIBLIOGRAPHY
+
+[235] M. Frisch, G. Trucks, H. B. Schlegel, G. Scuseria, M. Robb, J. Cheeseman,
+G. Scalmani, V. Barone, B. Mennucci, G. Petersson, et al., GAUSSIAN 09. 2009.
+
+[236] T. A. Keith, AIMAII (Version 13.11.04). TK Gristmill Software, 2013.
+[237] I. Todorov and W. Smith, DL_POLY 4. 2011.
+
+[238] S. Grimme and P. R. Schreiner, “Computational chemistry: the fate of cur-
+rent methods and future challenges,” Angewandte Chemie International Edition,
+vol. 57, no. 16, pp. 4170-4176, 2018.
+
+[239] M. D. Hanwell, D. E. Curtis, D. C. Lonie, T. Vandermeersch, E. Zurek, and
+G. R. Hutchison, “Avogadro: an advanced semantic chemical editor, visual-
+ization, and analysis platform,” Journal of Cheminformatics, vol. 4, no. 1, p. 17,
+
+2012.
+
+[240] T. A. Halgren, “Merck molecular force field. I. Basis, form, scope, parame-
+terization, and performance of MMFF94,” Journal of Computational Chemistry,
+vol. 17, no. 5-6, pp. 490-519, 1996.
+
+[241] F. Neese, “The ORCA program system,” Wiley Interdisciplinary Reviews: Com-
+putational Molecular Science, vol. 2, no. 1, pp. 73-78, 2012.
+
+[242] D. Hait and M. Head-Gordon, “How accurate is density functional theory
+at predicting dipole moments? An assessment using a new database of 200
+benchmark values,” Journal of Chemical Theory and Computation, vol. 14, no. 4,
+pp. 1969-1981, 2018.
+
+[243] J. Salvatier, T. V. Wiecki, and C. Fonnesbeck, “Probabilistic programming in
+Python using PyMC3,” Peer] Computer Science, vol. 2, p. e55, 2016.
+
+[244] E. Keogh and A. Mueen, “Curse of dimensionality,” in Encyclopedia of machine
+learning, pp. 257-258, Springer, 2011.
+
+[245] G. Landrum, “RDKit: Open-source cheminformatics,” 2006.
+
+[246] D. Weininger, “SMILES, a chemical language and information system. 1. in-
+troduction to methodology and encoding rules,” Journal of Chemical Informa-
+
+tion and Computer Sciences, vol. 28, no. 1, pp. 31-36, 1988.

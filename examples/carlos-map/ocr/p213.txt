@@ -1,0 +1,67 @@
+212 APPENDIX B. FORTRAN SUBROUTINES FOR FFLUX
+
+2 End Do
+
+2! Apply all matrix operations
+
+3 Do i = 2, n_matrices
+
+31 cartesian_vectors(i, :) = MAIMUL( symmetry-_matrices(i, :, :), &
+32 & cartesian_vectors(1l, :) )
+
+33 End Do
+
+34
+
+3s ! Compute distances with reference point
+
+3 Call fflux.compute_distances(cartesian_vectors , distances)
+37
+
+3s min_index = MINLOC( distances, 1 )
+
+39
+
+40 ! Sort distances
+
+41 sorted_distances(:) = distances (:)
+
+2 Doi = 1, n_matrices
+
+43 Do j = 1, n_matrices—i
+
+44 If (sorted_distances(j) > sorted_distances(j+1)) Then
+45 swap = distances (j+1)
+
+46 sorted_distances(j+1) = sorted_distances (j)
+47 sorted_distances (j) = swap
+
+48 End If
+
+49 End Do
+
+5. End Do
+
+51
+
+52 ! If the difference is smaller than 0.1 choose the
+53! minimum by default
+
+54 If (sorted_distances(1)—sorted_distances(2) .le. 0.1) Then
+
+55 swap = distances (min-index)
+56 distances(min_index) = 1000.0
+57 j = MINLOC( distances, 1 )
+
+58 If (j .lt. min_index) Then
+
+59 min_index = j
+
+60 End If
+
+6. End If
+
+«6 Open( Unit = 25, Position = “APPEND”, Status = ‘OLD’, File = ”
+FFLUX SYMMETRY. txt” )
+
+« Write(25, *) min_index

@@ -1,0 +1,39 @@
+230 APPENDIX C. DERIVATION OF MULTIPOLAR ELECTROSTATICS
+
+However, there are many other definitions. For example, Stone [81] defines the
+
+quadrupole as:
+
+ap _ 3 0,6 12
+Oo; I (3+ Wor op) e(r) dr (C.38)
+
+where r = ||r||. These are known as Buckingham’s traceless multipoles [331].
+
+Perhaps unsurprisingly, these two different definitions can coexist. The reason
+
+is that the Coulomb kernel Rj; ! satisfies Laplace equation:
+
+It can then be seen that:
+
+ye VaVe (a) =) Taa(R) = 0 (C.40)
+
+The consequence of the equation above is that it is possible to modify the diago-
+nal terms of the quadrupole by an arbitrary quantity without affecting the potential.
+Hence, equations C.37 and C.38, with the only difference that the last also includes
+
+the 1/n! term from the Taylor expansion.
+
+C.5  Multipole rotation
+
+Besides the expression for multipolar interactions derived above, there is an ad-
+ditional step necessary for an accurate treatment of electrostatics. Multipole mo-
+ments are tensorial magnitudes, that depend on the frame of reference, and it must
+be ensured that they are placed in an adequate system of coordinates to obtain the
+
+right results.
+
+The system of coordinates in which the molecular positions are expressed is
+often known as the laboratory frame, while the set of axes in which the multipoles are
+defined is known as the local frame of a given atom or molecule. The transformation
+
+formulas for dipoles and quadrupoles are:

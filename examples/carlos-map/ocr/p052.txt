@@ -1,0 +1,43 @@
+2.3. POLARISABLE FORCE FIELDS 51
+
+This approach was initially proposed by Rick et al in 1994 [111]. The authors
+
+expanded the energy required to create a charge Q in the molecule in a Taylor series:
+
+2
+
+Assuming a neutral atom as reference, 0E/dQ can be computed by finite dif-
+ferences, since the energy to induce a charge +1 is the ionisation energy IP and the
+
+energy to induce a -1 charge is the negative of the electronic affinity AE:
+
+B _IE+EA _ 19 (2.77)
+Q=0
+
+aQ 2
+
+This is Mulliken electronegativity [112]. By similar arguments [103] it is possi-
+ble to show that the second derivative is twice the chemical hardness [113] of the
+isolated atom. We note, however, that these parameters are in general treated as
+purely empirical [108]. Now, the energy of a system of M molecules containing
+
+each N; atoms can be written as:
+
+MN. 1MM[N MN
+E=) Ye xR Qin + 5 YY | YE ¥ ainjgQinQip + Vne(Tinjp) (2.78)
+
+i=la=1 i=1j=1 |a=1B=1
+
+In this expression Vne(Tiajp) gathers the contributions to the energy other than
+the electrostatic. Now, the idea of the fluctuating force fields is that, at each step, the
+charges are modified in response to the environment. This is done by differentiating
+
+equation 2.78 with respect to the charge on the site a on molecule i:
+
+i=1,N;
+OF go ford! i (2.79)
+OQix a=1,M
+
+This procedure leads to electronegativity equalisation: the charges that min-
+
+imise the energy are those for which the electronegativities are equal. In general,

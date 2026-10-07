@@ -1,0 +1,40 @@
+122 CHAPTER 4. DELOCALIZATION INDICES AND BOND ORDER
+
+p2(t1, 42) = EEE mindile) Hj(t1) Px (12) Pr (2) (4.11)
+
+Here 4;j; is a symmetric 4-tensor, that determines the 2-RD completely. Using
+
+this procedure, an arbitrary exchange-correlation interaction can be expressed as:
+
+Vec(A,B) =-2f, Ly ye Mie 11) Pj (11) x (12) Y (12) (4.12)
+
+B ijkl |R +12 —11|
+
+Here R is the vector from atom A to atom B; r; and rp are then the electronic
+coordinates in the system of reference of respective atoms. Now, we can expand the
+denominator in equation 4.12 by employing the multipolar expansion described in
+
+Section 2.2.3:
+
+=0/,=0 L
+co 8m =—h m2=—lp
+
+Here T),m;[pm(R) is the multipole interaction tensor and Qi m, are the multipole
+
+moments defined by:
+= | ¥ile)yj(2)Rin(2) de (4.14)
+
+The R;,,(r) functions are the regular spherical harmonics. The derivation con-
+cludes by truncating the expansion in equation 4.13 to first order, i. e. ) = bh =
+
+m = m2 = 0, which recognising that Toooo = 1/R yields:
+
+Vic(A, B) ~ “REE t,(Op) (4.15)
+
+Now we turn to the expression of the delocalization index:
+
+(A,B) = 43 pina ff, veler¥,(ev)¥e(e2)i(e2) dridre (4.16)
+
+ijkl
+
+Taking advantage of the product form of the integrand, it is possible to separate

@@ -1,0 +1,21 @@
+MM3 Molecular Mechanics 3
+
+MP2 Moller-Plesset perturbation theory to second order
+PSO Particle Swarm Optimisation
+QCT Quantum Chemical Topology
+
+OCTFF Quantum Chemical Topology Force Field
+
+QM/MM = Quantum Mechanical + Molecular Mechanics methods
+QTAIM Quantum Theory of Atoms In Molecules
+
+QSAR Quantitative Structure-Activity Relationship
+
+RD Reduced Density
+RDM Reduced Density Matrix
+RESP Restricted ElectroStatic Potential
+
+SOAP Smooth Overlap of Atomic Positions
+TMM TriMethyleneMethane
+
+18

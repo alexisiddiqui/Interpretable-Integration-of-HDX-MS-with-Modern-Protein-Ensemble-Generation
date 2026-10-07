@@ -1,0 +1,33 @@
+4.1. THEORETICAL BACKGROUND 119
+at rp given that there is an electron at rj; it is an electronic counterpart of the well-
+known pair distribution function in the physical chemistry of liquids.
+
+As it was done for the full 2-RDM in Section 2.4.2, it is possible to split the
+pair density in three terms: Coulomb (11) 01 (12), exchange (1 (11; r2)01(12; 11), and
+correlation, which is the difference between a given pair density and the Hartree-
+Fock reference, lacking correlation. It is also customary to talk about the exchange-
+
+correlation pair density:
+
+Pxc = p1(11)p1(t2) — p2(t1,12) (4.4)
+
+Integrating the pair density over all space can yield, depending on whether we
+prefer to think of ordered or unordered pairs [161], Ny = N(N —1) or Np = N(N—
+1)/2, following the normalisation criteria. We will adopt the first option here, which
+
+combined with the real space partition yields:
+
+Jo feotattvte)dnidtrs = EY" J, paltirta)dnidr =N(N-1) (45)
+
+Now, the pair density can be split into its Coulomb and exchange-correlation
+
+parts. It is easy to see that the Coulomb part integrates to N?:
+
+I I (1 (¥1)p2(t2) drydry = I. p1(t) dry I. px(r2) dry = N2 (46)
+
+Since the total pair density integrates to N(N — 1), the exchange-correlation den-
+sity will then integrate to N? — N(N —1) = N:
+
+ry/,, [ Pxc(t1,12) dridry = N (4.7)
+
+We now split the equation above in 1- and 2-basin terms:

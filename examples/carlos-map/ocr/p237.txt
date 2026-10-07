@@ -1,0 +1,38 @@
+236 BIBLIOGRAPHY
+
+[41] J. H. Van Vleck, “The correspondence principle in the statistical interpretation
+of quantum mechanics,” Proceedings of the National Academy of Sciences, vol. 14,
+
+no. 2, pp. 178-188, 1928.
+[42] H. Goldstein, Classical Mechanics. Pearson Education, 2011.
+
+[43] J. A. Bjorgaard, K. A. Velizhanin, and S. Tretiak, “Nonequilibrium solvent ef-
+fects in Born-Oppenheimer molecular dynamics for ground and excited elec-
+tronic states,” The Journal of Chemical Physics, vol. 144, no. 15, p. 154104, 2016.
+
+[44] M. Heshmat and T. Privalov, “Testing the nature of reaction coordinate de-
+scribing interaction of H2 with carbonyl carbon, activated by Lewis acid com-
+plexation, and the Lewis basic solvent: A Born—Oppenheimer molecular dy-
+namics study with explicit solvent,” The Journal of Chemical Physics, vol. 147,
+no. 9, p. 094302, 2017.
+
+[45] J. Hutter, “Car-Parrinello molecular dynamics,” Wiley Interdisciplinary Re-
+views: Computational Molecular Science, vol. 2, no. 4, pp. 604-612, 2012.
+
+[46] P. Pulay and G. Fogarasi, “Fock matrix dynamics,” Chemical Physics Letters,
+vol. 386, no. 4-6, pp. 272-278, 2004.
+
+[47] A. M. Niklasson, C. Tymezak, and M. Challacombe, “Time-reversible Born—
+Oppenheimer molecular dynamics,” Physical Review Letters, vol. 97, no. 12,
+p- 123001, 2006.
+
+[48] A. M. Niklasson, C. Tymczak, and M. Challacombe, “Time-reversible ab ini-
+tio molecular dynamics,” The Journal of Chemical Physics, vol. 126, no. 14,
+p- 144103, 2007.
+
+[49] A. M. Niklasson, “Extended Born—Oppenheimer molecular dynamics,” Phys-
+ical Review Letters, vol. 100, no. 12, p. 123004, 2008.
+
+[50] R. Car and M. Parrinello, “Unified approach for molecular dynamics and
+density-functional theory,” Physical Review Letters, vol. 55, no. 22, p. 2471,
+1985.

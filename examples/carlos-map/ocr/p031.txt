@@ -1,0 +1,47 @@
+30 CHAPTER 2. LITERATURE REVIEW
+
+Therefore:
+
+2°Ra(E)
+
+Mp 5p
+
+= ~VaVP° ({Ra(t)}) (2.20)
+
+This is the equation of motion of the nucleus B under the potential induced
+by the electrons in the molecule. We note that this equation is fixed to a single
+
+electronic state and does not allow transitions between them °.
+
+Equation 2.20 defines the basis of Born-Oppenheimer molecular dynamics, where
+the forces on each atom are computed from an ab initio calculation. This method is
+compatible with virtually every electronic structure method (even when analyti-
+cal derivatives are not available, since these can always be computed numerically,
+although this is hardly advisable for most practical cases due to the strong compu-
+tational overhead), and has been applied in different contexts, from solvation [43]
+
+to reactivity [44].
+
+However, since the errors in the derivatives are approximately linear on the
+wavefunction error, BOMD simulations require a rather tight convergence criterion
+to produce meaningful forces [45], resulting in significant computational expenses.
+It seems that this problem could be palliated if the wavefunction from the previous
+step is used as guess, although this results in drifts in energy [46] due to the break-
+ing of time-reversal symmetry. Some methods have been proposed to reduce this
+problem [47, 48, 49], but their impact in the literature is rather recent, and small in
+
+comparison with its alternative: Car-Parrinello molecular dynamics.
+
+This approach was proposed by Robert Car and Michele Parrinello in 1985 [50],
+and allows to avoid the tight convergence of the wavefunction while maintaining
+most of the advantages of Born-Oppenheimer molecular dynamics. The importance
+of CPMD is such that no modern treatment of ab initio molecular dynamics can be
+complete in absence of even a brief analysis. In this line of thought, although we
+
+will not make use of CPMD techniques in this thesis, we will succinctly introduce
+
+3An alternative is Ehrenfest molecular dynamics, where the dynamics of the electrons are fixed
+by solving the time-dependent Schrédinger equation; however, we have omitted this treatment for
+conciseness reasons, and because its importance is reduced in comparison to the most extended
+BOMD and CPMD. In fact, Ehrenfest MD reduces to BOMD if the wavefunction is restricted to be
+the ground state eigenvector [33].

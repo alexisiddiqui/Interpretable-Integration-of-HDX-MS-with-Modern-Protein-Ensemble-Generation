@@ -1,0 +1,44 @@
+C.4. DIFFERENCES BETWEEN QUADRUPOLE DEFINITIONS 229
+
+The dipole-quadrupole interaction is then:
+
+1 a
+Uyo = 5(wt0p” — OF uf) TP (C92)
+
+Finally, the fourth order term contains the products for quadrupole-quadrupole,
+octapole-dipole and charge-hexadecapole interactions, so he we will only focus on
+
+the first. We can then assume:
+
+(rt — rt) (rP — r?)
+
+Yr — rh (1? — 1) )(r8 — 1h) & rib rr +... (C.33)
+
+i i] tiej
+
+and all other terms of the same order. If we remember equation C.23, then equa-
+
+tion C.33 can be written as:
+
+im OB yt B_ Bimy (V5 4 Vy _ 4%yd _ 7,5
+(rir; + rir, ls antes (rJr + rir; rir — 1} (C.34)
+
+It is then obvious that the only terms related to the quadrupole-quadrupole in-
+
+teraction are rir? nr and rYrbrart . This lead, in turn, to:
+
+20'F@r? (C.35)
+
+And then, the quadrupole-quadrupole interaction is:
+
+— 1 pap yy5-paBv6
+Upe = 750/077; (R) (C.36)
+
+C.4 Differences between quadrupole definitions
+
+We note that the multipoles that we have introduced are the actual moments of
+the electronic distribution; for example, we define the elements of the quadrupole
+
+as:
+
+on =f rr o(r) dr (C.37)

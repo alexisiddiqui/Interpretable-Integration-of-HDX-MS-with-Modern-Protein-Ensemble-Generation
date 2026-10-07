@@ -1,0 +1,55 @@
+A. TABLE OF CONTENTS COVERAGE
+   ToC entries transcribed from the page images (pp. 2-6): 82 numbered nodes (chapters 1-6, sections, subsections, A-C, A.1-A.2, C.1-C.5)
+   Cross-check against raw OCR of the ToC: 63 of 72 numbered entries recovered by regex;
+   9 not recovered because OCR split number from title on pp. 3-6 (2.1.3, 2.3, 2.3.3, 2.4, 2.5, 2.5.2, 2.5.3, 2.6, 4.4); they were read from the page images instead.
+   OCR numbers with no node (likely figure/table numbers on the lists pages): ['44']
+   Heading found by OCR on its declared start page: 92 of 92 structure nodes (the empty "front" container is excluded)
+   Parent/child links consistent: yes
+   Chapters 6, sections 20, subsections 46, appendices 3
+   Page ranges valid (start <= end): yes
+
+B0. FIGURE / TABLE LEAF NODES
+   44 leaf nodes (40 figures, 4 tables; 9 of them from the embedded journal paper)
+   Caption label found at the start of a line on the stated page: 44 of 44 (thesis and journal)
+   Figure/table reference edges: 44; leaves with no incoming reference: []
+
+B. FIGURES AND TABLES
+   ch2: 3 figures, 1 tables
+   ch3: 8 figures, 1 tables
+   ch4: 8 figures, 1 tables
+   ch5: 13 figures, 0 tables
+   Thesis figures 32 (List of Figures: 3+8+8+13 = 32), tables 3 (List of Tables: 3). Embedded paper adds 8 figures + 1 table (counted under A.1).
+
+C. EDGES
+   160 edges: explicit/stated=131, inferred/inferred=15, inferred/stated=14
+   Edge endpoints that do not exist: 0   edges without source_pages: 0
+   Edge types: answers_limitation=2, appendix_ref=8, builds_on=7, chapter_ref=13, equation_ref=11, figure_ref=40, page_ref=1, reuses_method=8, same_concept=3, same_content=1, same_dataset=3, section_ref=54, summarises=5, table_ref=4
+   Explicit references found by regex: 266 raw (Section/Chapter/Appendix/Figure/Table/Equation/page); 167 were within the same node and are not edges;
+   0 unresolved (13 equation labels whose number OCR had dropped were resolved by hand; those edges are marked medium confidence).
+   Not extracted: "vide infra / vide supra" pointers (11), which name no target; references inside the embedded paper and bibliography.
+   Explicit edges whose cited page falls outside the source node range: 0
+
+D. JOURNEY STAGES
+   13 stages; stages with no evidence: 0
+   Outcomes: worked=7, failed=3, pivot=1, partial=2
+   Top-level nodes outside the journey: ['front', 'bib']
+
+E. QUOTES
+   22 quotes, all under 25 words: yes; found verbatim in OCR text of the cited page: 22 of 22
+
+F. CLAIMS
+   48 claims over 34 nodes and all 13 stages; unresolved node/stage ids: 0
+   Numeric provenance check: numbers in claim text not found in the OCR text of the cited pages: 0
+
+G. ENTITIES
+   48 entities (term=12, method=20, software=10, dataset=6); with zero mentions: []
+   Fewest mentions: k-means clustering (1), PROMOLDEN (1), RDKit (1), 21-molecule Müller benchmark (1), Metropolis-Hastings Monte Carlo (2)
+
+H. SOURCE OBSERVATIONS (kept in thesis.json "notes")
+   n1 [source inconsistency] Polarisation error in water clusters is ~16 kcal/mol in total on p. 103 but 'about 20 kcal/mol' on p. 114 (checked on page image).
+   n2 [source inconsistency] Conclusions say Müller is within a 10% error bound for directly bonded atoms (p. 183); Table 4.1 lists F-F at 34.1% and N-N at 11.4% (p. 128), though the text treats F2 and HF as exceptions.
+   n3 [source inconsistency] Benzaldehyde C-O DI: thesis p. 137 and the Fig. 4.4 caption give 0.798; the published paper's text gives benzaldehyde 1.297 and 0.798 for propanol (p. 196, checked on page image).
+   n4 [observation] Chapter 1 promises that Chapter 6 outlines 'future lines of work' (p. 21); Chapter 6 contains no such list. Future-work remarks are scattered in 3.4, 4 (p. 117) and 5.3.1.
+   n5 [page-map caveat] Pages 187-200 are a copy of the journal paper and carry the journal's pagination (5497-5529); thesis page numbers there are counted, not printed.
+
+PROBLEMS: none

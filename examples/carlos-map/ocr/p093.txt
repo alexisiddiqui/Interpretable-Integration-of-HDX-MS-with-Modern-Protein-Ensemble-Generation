@@ -1,0 +1,49 @@
+92 CHAPTER 3. THE QUANTUM CHEMICAL TOPOLOGY FORCE FIELD
+
+of the second axis in the first system), and a rotation.
+
+For the derivation of atomic forces in the following subsections, it is of special
+interest to get an explicit definition of the rotation matrix C. This is also very impor-
+tant for multipole rotation, described in Appendix C.5. Let us consider the action
+
+of this matrix:
+
+oP" = Cn [RR] to [Rate| 5+ Ss [Rate 3 (3.10)
+
+For clarity, we have employed the notation [-], to express the kth component of a
+vector. It is easy to derive the form of the different rows of the matrix if we employ
+our knowledge of the ALF. In the first place, the x axis (defined by the first row of
+C,i. e. Ciz for k = 1,2,3) is given by the difference between R®: and R®, and so
+
+this matrix can be written as:
+
+" _ O
+Cy = e eel) for k = 1,2,3 (3.11)
+
+Ox
+Ratr
+
+Note that the rows of the matrix must be normalised vectors, as required by the
+matrix being orthogonal. The second row entails more complications, although its
+
+form should be similar to equation 3.11:
+
+Cy, = YALE for k = 1,2,3 (3.12)
+IlYALF||
+
+It is evident that the vector y must be contained in the xy plane of the ALF, and
+
+as such it can be expressed in terms of the vectors that span it:
+
+Or
+yatr = ORG, + Rae (3.13)
+
+The parameter ¢ is obtained by forcing orthogonality between the x and y axes
+
+in the ALF, such that yarr - Re = 0. Therefore:
+
+Oy pO,
+
+o=-—
+OQ, re)
+Rair , Ratr

@@ -1,0 +1,55 @@
+222 APPENDIX C. DERIVATION OF MULTIPOLAR ELECTROSTATICS
+
+1 1
+[R+x—xl] [Rll
+
+1 1
+
+T
+rj—1;) V—
++ Gi ¥)) IRI
+
++ 5(ti 4)" ie )'VV Rit . (C.2)
+
+The expression above is often written, not in vectorial form, but in terms of vec-
+tor components. Adopting Einstein’s summation convention on the Greek indices
+
+x, B, etc, this expression may be written:
+
+1 Lee
+[R+n—y] [RI
+
+1
+r)V ey V,V
+i) a a(t *)(rb rj P) a TR] t
+
+ini
+(C.3)
+
+The derivatives of the ||R||~’ function define the so-called multipole interac-
+tion tensors, that contain the functional dependence of the interaction between two
+multipole moments. For example, the interaction tensor Tj; (which will shortly be
+
+shown to mediate the charge-dipole interaction) has the form:
+
+_ Rijn
+T4(R) = Vara =~ C4)
+4
+Here we have set Rj; = ||R||, and Rj. is the ath component of the R vector,
+
+to match with the most extended notation. Employing the comfortable interaction
+
+tensor notation, the multipolar expansion can be written as:
+
+1 rt a) Pu 1 a a Sad
+JRen ce] 7 IR +E THR) + OF AE — TPR) +... (C5)
+
+This can be taken to equation C.1, yielding:
+
+T;(R) I ; I _pr(t)pa() dede’ + TS(R) I I (r¥ —r*)pi(x)p2(’) dede’ +...
+(C.6)
+
+In this form, it is trivial to separate variables and obtain the well-known mul-
+tipole interaction terms. For example, the first term in equation C.6 is clearly the
+
+charge-charge interaction:

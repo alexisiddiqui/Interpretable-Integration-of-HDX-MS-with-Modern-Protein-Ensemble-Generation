@@ -1,0 +1,11 @@
+220 APPENDIX B. FORTRAN SUBROUTINES FOR FFLUX
+
+19 Read(54,*) ! white separation line
+2 End Do
+
+2  Close( 54 )
+24
+
+2% End Subroutine
+
+Listing B.4: fflux_read_symmetry_matrices.f90

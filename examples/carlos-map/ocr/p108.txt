@@ -1,0 +1,54 @@
+3.4. A CRITICAL APPRAISAL 107
+
+-76.4125
+—— FFLUX
+
+—76.4150
+
+—76.4175
+
+ZS -76.4200
+
+&
+B 76.4225
+ov
+=
+
+4 -76.4250
+
+-76.4275
+
+—76.4300
+
+0.6 0.8 1.0 1.2 14 1.6 18 2.0
+O-H bond length [\AA]
+
+Figure 3.4: Dissociation curve of water as computed by FFLUX. The model con-
+tained 500 training points obtained by normal mode distortion with TYCHE [211]
+and computed at the B3LYP/aug-cc-pVTZ level of theory. The flat potential beyond
+
+the training set is a clear example of the extrapolation collapse.
+
+the energy gets stuck in a constant value, and the water molecule get distorted to
+
+absolutely unphysical structures, such as the shown in the left side of Figure 3.6.
+
+Eventually, the simulation ends up climbing up the potential energy barrier of
+dissociation; then, since the potential is asymptotically flat as the features leave the
+training set, the unphysical distortions carry a AE ~ 0, and are always accepted.
+After enough time, the distortion is so strong that the system is far from any physi-
+
+cally sensible behaviour.
+
+We note that it is also possible to find the opposite behaviour: molecules trapped
+in a flat potential because the hydrogen atoms are too close to the oxygen. This is
+more rare, since the barrier is slightly higher, and there is much more feature space
+after dissociation than near the collapse with the oxygen atom, but we have been
+
+able to find it after a handful of successive runs with the same starting geometry.
+
+There is no simple way to solve this problem. A simple solution passes by mak-
+ing p a function dependent on the features, perhaps in the form of a classical bond
+potential. This prevents the extrapolation collapse, but also cancels most of the
+
+benefits of the non-parametric potential, including the flexibility of the potential

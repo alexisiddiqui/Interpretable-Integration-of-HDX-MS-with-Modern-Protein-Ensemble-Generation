@@ -1,0 +1,45 @@
+5.4. RESULTS AND DISCUSSION 169
+
+With symmetry, O1-H2 Without symmetry, O1-H2
+-76.20
+
+— Prediction
+-76.22 95% confidence interval
+
+Ss ~76.24
+> -76.26
+c -76.28
+-76.30
+
+-76.32
+
+With symmetry, O1-H3 Without symmetry, O1-H3
+-76.20
+
+-76.22
+ZS -76.24
+> -76.26
+© -76.28
+
+-76.30
+
+-76.32
+0.7 0.8 0.9 1.0 11 1.2 0.7 08 0.9 1.0 1.1 1.2
+Distance [A] Distance [A]
+
+Figure 5.5: Dissociation curve of HyO computed with trained GP and SAGPR. Or-
+dinary kriging reproduces the dissociation curve for the labelling that corresponds
+to the training set, but the other is greatly flawed. On the other hand, the symmetry-
+
+adapted version can recover both curves flawlessly.
+
+curve with independence of the atomic labelling, confirming our expectations. In
+the same line, ordinary kriging yields rather senseless results upon permutation of
+
+the labels, since it is outside of the training set.
+
+It is to be noted that the regression in absence of symmetry is out of scale, be-
+cause of the extrapolation collapse described in Section 3.4.2. This is especially
+important since scikit-learn employs a meanless Gaussian Process (as explained in
+Chapter 2), and thus the kriging predictions are less numerically stable under ex-
+trapolation.

@@ -1,0 +1,43 @@
+3.4. A CRITICAL APPRAISAL 105
+
+return to the prediction equations:
+
+Neraining Nfeatures 2
+y(f*) = p+ w; exp |- au A
+u » my) (3.43)
+
+=wt+rR! (y—y1)
+
+Here py is the mean of the Gaussian process, R is the correlation or covariance
+matrix, y is the vector containing the responses of the training set, and r is the
+correlation vector, that includes the correlation of every point in the training set
+with the input f*. Similarly, 6; represents the hyperparameter @ on the jth feature,
+and w; represents the weight of the ith training point, which is obtained as the ith
+
+component in the vector R~!(y — y/1).
+
+It is easy to observe that, in the last equation, the only term that depends on the
+input f* is the correlation vector r (note that the weights w; and the hyperparame-
+ters 6; are all fixed after the model has been trained and do not change at all when
+
+f* changes), whose components we will write explicitly as:
+
+Nfeatures .
+1; = exp |- yu Of; - AP (3.44)
+J
+
+Let us consider a simple example: that we are trying to predict the Ejgq energy
+of the oxygen atom in water. The features are simple: the first two will be the
+distances between the oxygen and each hydrogen atom, and the third will be the
+HOH angle. Now let us assume that we are trying to compute the dissociation
+curve of water by stretching the first O-H bond while keeping the other bond and
+the HOH angle constant. Let us also consider that the dissociation curve continues
+
+after the features leave the training set.
+
+As the O-H distance increases, the difference between f; and the correspond-
+ing feature in any of the training examples will be greater: the term | ff - fi ? in
+equation 3.44 will become larger and larger, and therefore the value of the corre-
+lation vector will drop to zero, since the exponential of a large negative number
+
+approaches zero very rapidly. Note that we have implicitly assumed the Gaussian

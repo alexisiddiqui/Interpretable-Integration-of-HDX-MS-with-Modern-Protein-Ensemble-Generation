@@ -1,0 +1,43 @@
+BIBLIOGRAPHY 237
+
+[51] M. E. Tuckerman and M. Parrinello, “Integrating the Car—Parrinello equa-
+tions. I. Basic integration techniques,” The Journal of Chemical Physics, vol. 101,
+no. 2, pp. 1302-1315, 1994.
+
+[52] T. Morishita and S. Nosé, “Momentum conservation law in the Car—Parrinello
+method,” Physical Review B, vol. 59, no. 23, p. 15126, 1999.
+
+[53] F. A. Bornemann and C. Schiitte, “Adaptive accuracy control for Car-
+Parrinello simulations,” Numerische Mathematik, vol. 83, no. 2, pp. 179-186,
+1999.
+
+[54] P. E. Bléchl, “Second-generation wave-function thermostat for ab initio
+
+molecular dynamics,” Physical Review B, vol. 65, no. 10, p. 104303, 2002.
+
+[55] W. Andreoni and A. Curioni, “New advances in chemistry and materials sci-
+ence with CPMD and parallel computing,” Parallel Computing, vol. 26, no. 7-8,
+pp. 819-842, 2000.
+
+[56] P. Giannozzi, S. Baroni, N. Bonini, M. Calandra, R. Car, C. Cavazzoni,
+D. Ceresoli, G. L. Chiarotti, M. Cococcioni, I. Dabo, et al., “Quantum Espresso:
+a modular and open-source software project for quantum simulations of ma-
+terials,” Journal of Physics: Condensed Matter, vol. 21, no. 39, p. 395502, 2009.
+
+[57] J. Hutter, M. Iannuzzi, F. Schiffmann, and J. VandeVondele, “CP2K: atomistic
+simulations of condensed matter systems,” Wiley Interdisciplinary Reviews:
+
+Computational Molecular Science, vol. 4, no. 1, pp. 15-25, 2014.
+
+[58] C. Rovira, “Car-Parrinello simulations of chemical reactions in proteins,” in
+
+Protein Modelling, pp. 51-70, Springer, 2014.
+
+[59] A. A. Hassanali, J. Cuny, V. Verdolino, and M. Parrinello, “Aqueous solutions:
+state of the art in ab initio molecular dynamics,” Philosophical Transactions of
+the Royal Society A, vol. 372, no. 2011, p. 20120482, 2014.
+
+[60] A. Philips, A. Marchenko, L. A. Truflandier, and J. Autschbach, “Quadrupolar
+NMR relaxation from ab initio molecular dynamics: Improved sampling and
+cluster models versus periodic calculations,” Journal of Chemical Theory and
+Computation, vol. 13, no. 9, pp. 4397-4409, 2017.

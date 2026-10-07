@@ -1,0 +1,1664 @@
+{
+ "edges": [
+  {
+   "source": "s1.1",
+   "target": "ch3",
+   "type": "xref-chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "5",
+     "label": "3",
+     "text": "organised around these two challenges. Chapters 3 and 4 address the first challenge,"
+    }
+   ],
+   "confidence": "high",
+   "id": "x1",
+   "source_pages": [
+    "5"
+   ],
+   "reason": "Explicit cross-reference: chapter 3"
+  },
+  {
+   "source": "s1.1",
+   "target": "ch4",
+   "type": "xref-chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "5",
+     "label": "4",
+     "text": "organised around these two challenges. Chapters 3 and 4 address the first challenge,"
+    }
+   ],
+   "confidence": "high",
+   "id": "x2",
+   "source_pages": [
+    "5"
+   ],
+   "reason": "Explicit cross-reference: chapter 4"
+  },
+  {
+   "source": "s1.1",
+   "target": "ch2",
+   "type": "xref-chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "5",
+     "label": "2",
+     "text": "te the distribution of known compounds. Chapter 2 explores the second challenge"
+    }
+   ],
+   "confidence": "high",
+   "id": "x3",
+   "source_pages": [
+    "5"
+   ],
+   "reason": "Explicit cross-reference: chapter 2"
+  },
+  {
+   "source": "s1.1",
+   "target": "ch5",
+   "type": "xref-chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "5",
+     "label": "5",
+     "text": "e final results chapter of this thesis: chapter 5, where we describe an adaptat"
+    }
+   ],
+   "confidence": "high",
+   "id": "x4",
+   "source_pages": [
+    "5"
+   ],
+   "reason": "Explicit cross-reference: chapter 5"
+  },
+  {
+   "source": "s1.2.2",
+   "target": "fig1.2",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "7",
+     "label": "1.2",
+     "text": "evant to this thesis. As illustrated in Figure 1.2, the process can be depicted"
+    }
+   ],
+   "confidence": "high",
+   "id": "x5",
+   "source_pages": [
+    "7"
+   ],
+   "reason": "Explicit cross-reference: figure 1.2"
+  },
+  {
+   "source": "s1.2.2.1",
+   "target": "ch5",
+   "type": "xref-chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "8",
+     "label": "5",
+     "text": "ledge of known binders). As the work in Chapter 5 centres around cryo-EM model"
+    }
+   ],
+   "confidence": "high",
+   "id": "x6",
+   "source_pages": [
+    "8"
+   ],
+   "reason": "Explicit cross-reference: chapter 5"
+  },
+  {
+   "source": "s1.2.2.2",
+   "target": "s1.4.2",
+   "type": "xref-section",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "9",
+     "label": "1.4.2",
+     "text": "ng subset for experimental testing (see section 1.4.2 for a more thorough introduct"
+    }
+   ],
+   "confidence": "high",
+   "id": "x7",
+   "source_pages": [
+    "9"
+   ],
+   "reason": "Explicit cross-reference: section 1.4.2"
+  },
+  {
+   "source": "s1.2.2.2",
+   "target": "s1.4.3",
+   "type": "xref-section",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "9",
+     "label": "1.4.3",
+     "text": "d selectivity for the binding site (see section 1.4.3). Fragment-based drug design"
+    }
+   ],
+   "confidence": "high",
+   "id": "x8",
+   "source_pages": [
+    "9"
+   ],
+   "reason": "Explicit cross-reference: section 1.4.3"
+  },
+  {
+   "source": "s1.3",
+   "target": "s1.2",
+   "type": "xref-section",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "11",
+     "label": "1.2",
+     "text": "ly applied to the problems described in section 1.2 will be reviewed in section 1"
+    }
+   ],
+   "confidence": "high",
+   "id": "x9",
+   "source_pages": [
+    "11"
+   ],
+   "reason": "Explicit cross-reference: section 1.2"
+  },
+  {
+   "source": "s1.3",
+   "target": "s1.4",
+   "type": "xref-section",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "11",
+     "label": "1.4",
+     "text": "ibed in section 1.2 will be reviewed in section 1.4. ML is a subfield of artifici"
+    }
+   ],
+   "confidence": "high",
+   "id": "x10",
+   "source_pages": [
+    "11"
+   ],
+   "reason": "Explicit cross-reference: section 1.4"
+  },
+  {
+   "source": "s1.3",
+   "target": "fig1.3",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "12",
+     "label": "1.3",
+     "text": "nceptual map, we present a flowchart in Figure 1.3 outlining the key methods und"
+    }
+   ],
+   "confidence": "high",
+   "id": "x11",
+   "source_pages": [
+    "12"
+   ],
+   "reason": "Explicit cross-reference: figure 1.3"
+  },
+  {
+   "source": "s1.3.2",
+   "target": "s1.3.1",
+   "type": "xref-equation",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "14",
+     "label": "1.1",
+     "text": "s according to the objective defined in eq. 1.1. 1.3.3 Convolutional neural n"
+    }
+   ],
+   "confidence": "high",
+   "id": "x12",
+   "source_pages": [
+    "14"
+   ],
+   "reason": "Explicit cross-reference: equation 1.1"
+  },
+  {
+   "source": "s1.3.4",
+   "target": "sA.1",
+   "type": "xref-appendix",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "15",
+     "label": "A.1",
+     "text": "l and then transforming the output (see Appendix A.1 for a more detailed explanati"
+    }
+   ],
+   "confidence": "high",
+   "id": "x13",
+   "source_pages": [
+    "15"
+   ],
+   "reason": "Explicit cross-reference: appendix A.1"
+  },
+  {
+   "source": "s1.3.5",
+   "target": "fig1.3",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "16",
+     "label": "1.3",
+     "text": ".3.5 Diffusion models As illustrated in Figure 1.3, diffusion models are not tie"
+    }
+   ],
+   "confidence": "high",
+   "id": "x14",
+   "source_pages": [
+    "16"
+   ],
+   "reason": "Explicit cross-reference: figure 1.3"
+  },
+  {
+   "source": "s1.4",
+   "target": "ch5",
+   "type": "xref-chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "17",
+     "label": "5",
+     "text": "rtant context for the work presented in Chapter 5. Next, we delve into hit iden"
+    }
+   ],
+   "confidence": "high",
+   "id": "x15",
+   "source_pages": [
+    "17"
+   ],
+   "reason": "Explicit cross-reference: chapter 5"
+  },
+  {
+   "source": "s1.4",
+   "target": "ch2",
+   "type": "xref-chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "17",
+     "label": "2",
+     "text": "hat form the basis of the first half of Chapter 2. Finally, we discuss structur"
+    },
+    {
+     "page": "17",
+     "label": "2",
+     "text": "ecessary context for the second half of Chapter 2."
+    }
+   ],
+   "confidence": "high",
+   "id": "x16",
+   "source_pages": [
+    "17"
+   ],
+   "reason": "Explicit cross-reference: chapter 2"
+  },
+  {
+   "source": "s1.4",
+   "target": "ch3",
+   "type": "xref-chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "17",
+     "label": "3",
+     "text": "of molecules, a challenge addressed in Chapters 3 and 4, and second, the conditional"
+    }
+   ],
+   "confidence": "high",
+   "id": "x17",
+   "source_pages": [
+    "17"
+   ],
+   "reason": "Explicit cross-reference: chapter 3"
+  },
+  {
+   "source": "s1.4",
+   "target": "ch4",
+   "type": "xref-chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "17",
+     "label": "4",
+     "text": "of molecules, a challenge addressed in Chapters 3 and 4, and second, the conditional"
+    }
+   ],
+   "confidence": "high",
+   "id": "x18",
+   "source_pages": [
+    "17"
+   ],
+   "reason": "Explicit cross-reference: chapter 4"
+  },
+  {
+   "source": "s1.4.2",
+   "target": "s1.2.2.2",
+   "type": "xref-section",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "24",
+     "label": "1.2.2.2",
+     "text": ".4.2 Virtual screening As introduced in section 1.2.2.2, VS is a computational techni"
+    }
+   ],
+   "confidence": "high",
+   "id": "x19",
+   "source_pages": [
+    "24"
+   ],
+   "reason": "Explicit cross-reference: section 1.2.2.2"
+  },
+  {
+   "source": "s1.4.3.1",
+   "target": "s1.3",
+   "type": "xref-section",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "27",
+     "label": "1.3",
+     "text": "eural networks or diffusion models (see section 1.3), learn the joint probability"
+    }
+   ],
+   "confidence": "high",
+   "id": "x20",
+   "source_pages": [
+    "27"
+   ],
+   "reason": "Explicit cross-reference: section 1.3"
+  },
+  {
+   "source": "s1.4.3.2",
+   "target": "s1.2",
+   "type": "xref-section",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "29",
+     "label": "1.2",
+     "text": "selective. As discussed in section 1.2, off-target binding is a majo"
+    }
+   ],
+   "confidence": "high",
+   "id": "x21",
+   "source_pages": [
+    "29"
+   ],
+   "reason": "Explicit cross-reference: section 1.2"
+  },
+  {
+   "source": "s1.4.4",
+   "target": "s1.2.2.2",
+   "type": "xref-section",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "29",
+     "label": "1.2.2.2",
+     "text": "Fragment-based design As introduced in section 1.2.2.2, FBDD offers an alternative a"
+    }
+   ],
+   "confidence": "high",
+   "id": "x22",
+   "source_pages": [
+    "29"
+   ],
+   "reason": "Explicit cross-reference: section 1.2.2.2"
+  },
+  {
+   "source": "ch2",
+   "target": "s2.2",
+   "type": "xref-section",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "34",
+     "label": "2.2",
+     "text": "individual contributions are covered in section 2.2. 2.1 Preface In order to mean"
+    }
+   ],
+   "confidence": "high",
+   "id": "x23",
+   "source_pages": [
+    "34"
+   ],
+   "reason": "Explicit cross-reference: section 2.2"
+  },
+  {
+   "source": "s2.3",
+   "target": "ch1",
+   "type": "xref-chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "36",
+     "label": "1",
+     "text": "s, and grow them into active leads (see chapter 1). In order to meaningfully ad"
+    }
+   ],
+   "confidence": "high",
+   "id": "x24",
+   "source_pages": [
+    "36"
+   ],
+   "reason": "Explicit cross-reference: chapter 1"
+  },
+  {
+   "source": "s2.4.1",
+   "target": "fig2.2",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "37",
+     "label": "2.2",
+     "text": "ctivation, which outputs y \u2208 (R+ ) (see Fig 2.2). It also uses a shallow neur"
+    }
+   ],
+   "confidence": "high",
+   "id": "x25",
+   "source_pages": [
+    "37"
+   ],
+   "reason": "Explicit cross-reference: figure 2.2"
+  },
+  {
+   "source": "s2.4.3",
+   "target": "fig2.1",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "41",
+     "label": "2.1",
+     "text": "ore finetuning on affinity data. As per Fig 2.1, filtered subsets of both the"
+    }
+   ],
+   "confidence": "high",
+   "id": "x26",
+   "source_pages": [
+    "41"
+   ],
+   "reason": "Explicit cross-reference: figure 2.1"
+  },
+  {
+   "source": "s2.4.3",
+   "target": "tab2.1",
+   "type": "xref-table",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "42",
+     "label": "2.1",
+     "text": "). A full list of datasets is given in Table 2.1. In order to deconvolute the"
+    }
+   ],
+   "confidence": "high",
+   "id": "x27",
+   "source_pages": [
+    "42"
+   ],
+   "reason": "Explicit cross-reference: table 2.1"
+  },
+  {
+   "source": "s2.4.4",
+   "target": "fig2.1",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "43",
+     "label": "2.1",
+     "text": "ribe non- covalent bonds. As set out in Fig 2.1, we can also use this knowled"
+    }
+   ],
+   "confidence": "high",
+   "id": "x28",
+   "source_pages": [
+    "43"
+   ],
+   "reason": "Explicit cross-reference: figure 2.1"
+  },
+  {
+   "source": "s2.4.5.1",
+   "target": "sA.2",
+   "type": "xref-appendix",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "45",
+     "label": "A.2",
+     "text": "ribed in Radoux et al. 2016, covered in Appendix A.2\u2014briefly, this involves search"
+    }
+   ],
+   "confidence": "high",
+   "id": "x29",
+   "source_pages": [
+    "45"
+   ],
+   "reason": "Explicit cross-reference: appendix A.2"
+  },
+  {
+   "source": "s2.4.5.4",
+   "target": "tab2.6",
+   "type": "xref-table",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "47",
+     "label": "2.6",
+     "text": "hotspot. An example of this is shown in Table 2.6, which shows the number of fr"
+    }
+   ],
+   "confidence": "high",
+   "id": "x30",
+   "source_pages": [
+    "47"
+   ],
+   "reason": "Explicit cross-reference: table 2.6"
+  },
+  {
+   "source": "s2.5.1.2",
+   "target": "fig2.3",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "50",
+     "label": "2.3",
+     "text": "ce on the gninaSetP ose set is shown in Fig 2.3. When the training sets are t"
+    },
+    {
+     "page": "50",
+     "label": "2.3",
+     "text": "with the docking power results shown in Fig 2.3, although the performance of"
+    }
+   ],
+   "confidence": "high",
+   "id": "x31",
+   "source_pages": [
+    "50"
+   ],
+   "reason": "Explicit cross-reference: figure 2.3"
+  },
+  {
+   "source": "s2.5.1.2",
+   "target": "tab2.3",
+   "type": "xref-table",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "50",
+     "label": "2.3",
+     "text": "CASF16 docking power set) are shown in Table 2.3, for both the case where the"
+    }
+   ],
+   "confidence": "high",
+   "id": "x32",
+   "source_pages": [
+    "50"
+   ],
+   "reason": "Explicit cross-reference: table 2.3"
+  },
+  {
+   "source": "s2.5.1.2",
+   "target": "tab2.4",
+   "type": "xref-table",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "51",
+     "label": "2.4",
+     "text": "sults from other methods can be seen in Table 2.4. The three best methods witho"
+    }
+   ],
+   "confidence": "high",
+   "id": "x33",
+   "source_pages": [
+    "51"
+   ],
+   "reason": "Explicit cross-reference: table 2.4"
+  },
+  {
+   "source": "s2.5.2.1",
+   "target": "fig2.4",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "53",
+     "label": "2.4",
+     "text": "three tankyrase inhibitors are shown in Fig 2.4. The top row (structures a, b"
+    },
+    {
+     "page": "53",
+     "label": "2.4",
+     "text": "with the protein as calculated by PLIP (Fig 2.4a) are scored by gnina as the 6"
+    },
+    {
+     "page": "53",
+     "label": "2.4",
+     "text": "s the 6th and 8th most important of 20 (Fig 2.4d). Of the two hydrogen bonding"
+    },
+    {
+     "page": "53",
+     "label": "2.4",
+     "text": "other as neutral. The second structure, Fig 2.4e, shows a similar story, with"
+    },
+    {
+     "page": "53",
+     "label": "2.4",
+     "text": "mportant ligand atoms as given by PLIP (Fig 2.4b) scoring 4th, 7th and 8th out"
+    },
+    {
+     "page": "53",
+     "label": "2.4",
+     "text": "und ligand atoms as identified by PLIP (Fig 2.4c) are scored 11th, 13th and"
+    },
+    {
+     "page": "54",
+     "label": "2.4",
+     "text": "y positively and moderately positively (Fig 2.4f). Interestingly, the last two"
+    },
+    {
+     "page": "54",
+     "label": "2.4",
+     "text": "attribution methods is the third row of Fig 2.4, which shows the edges found"
+    },
+    {
+     "page": "54",
+     "label": "2.4",
+     "text": "sking with IGN. In the first structure, Fig 2.4g, the bond highlighted as most"
+    },
+    {
+     "page": "54",
+     "label": "2.4",
+     "text": "highlights as forming a hydrogen bond (Fig 2.4a) with a different protein ato"
+    },
+    {
+     "page": "54",
+     "label": "2.4",
+     "text": "mportant edge. In the second structure (Fig 2.4h), we again see edges connecti"
+    },
+    {
+     "page": "54",
+     "label": "2.4",
+     "text": "necting rings involved in \u03c0-stacking in Fig 2.4b, this time ranked first and f"
+    },
+    {
+     "page": "55",
+     "label": "2.4",
+     "text": "ing the other contributor to this bond (Fig 2.4c) is ranked third most importa"
+    },
+    {
+     "page": "55",
+     "label": "2.4",
+     "text": "g the first example in the final row of Fig 2.4, we see that the bonds ranked"
+    },
+    {
+     "page": "55",
+     "label": "2.4",
+     "text": "t and second most important by PointVS (Fig 2.4j) correspond to the hydrogen b"
+    },
+    {
+     "page": "55",
+     "label": "2.4",
+     "text": "the hydrogen bonds identified by PLIP (Fig 2.4a). Edges between the two aroma"
+    },
+    {
+     "page": "55",
+     "label": "2.4",
+     "text": "d in hydrogen bonds as defined by PLIP (Fig 2.4b) are connected by edges assig"
+    },
+    {
+     "page": "55",
+     "label": "2.4",
+     "text": "ranked first and second most important, Fig 2.4k). We also again see high scor"
+    },
+    {
+     "page": "55",
+     "label": "2.4",
+     "text": "d in the halogen bond shown in green in Fig 2.4b. In the third example structu"
+    },
+    {
+     "page": "55",
+     "label": "2.4",
+     "text": "the hydrogen bonds identified by PLIP (Fig 2.4c) as being important, again ra"
+    },
+    {
+     "page": "55",
+     "label": "2.4",
+     "text": "e most and second most important edges (Fig 2.4l). The other edges assigned hi"
+    }
+   ],
+   "confidence": "high",
+   "id": "x34",
+   "source_pages": [
+    "53",
+    "54",
+    "55"
+   ],
+   "reason": "Explicit cross-reference: figure 2.4"
+  },
+  {
+   "source": "s2.5.2.2",
+   "target": "sA.3",
+   "type": "xref-appendix",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "57",
+     "label": "A.3",
+     "text": "ructures from the PDBBind Core set (see Appendix A.3 for PDB IDs). of input atoms,"
+    }
+   ],
+   "confidence": "high",
+   "id": "x35",
+   "source_pages": [
+    "57"
+   ],
+   "reason": "Explicit cross-reference: appendix A.3"
+  },
+  {
+   "source": "s2.5.2.2",
+   "target": "tab2.5",
+   "type": "xref-table",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "57",
+     "label": "2.5",
+     "text": "d the rank correlation, \u03c1, are shown in Table 2.5. On this smaller set we again"
+    }
+   ],
+   "confidence": "high",
+   "id": "x36",
+   "source_pages": [
+    "57"
+   ],
+   "reason": "Explicit cross-reference: table 2.5"
+  },
+  {
+   "source": "s2.5.3",
+   "target": "sA.3",
+   "type": "xref-appendix",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "58",
+     "label": "A.3",
+     "text": "tailing the structures used is given in Appendix A.3. The hotspots identified by t"
+    }
+   ],
+   "confidence": "high",
+   "id": "x37",
+   "source_pages": [
+    "58"
+   ],
+   "reason": "Explicit cross-reference: appendix A.3"
+  },
+  {
+   "source": "s2.5.3",
+   "target": "fig2.5",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "58",
+     "label": "2.5",
+     "text": "d attribution with PointVS are shown in Fig 2.5a and b. The hotspots of the tw"
+    }
+   ],
+   "confidence": "high",
+   "id": "x38",
+   "source_pages": [
+    "58"
+   ],
+   "reason": "Explicit cross-reference: figure 2.5"
+  },
+  {
+   "source": "s2.5.3.1",
+   "target": "fig2.5",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "59",
+     "label": "2.5",
+     "text": "four are shown in Fig 2.5c, and correspond to protein at"
+    }
+   ],
+   "confidence": "high",
+   "id": "x39",
+   "source_pages": [
+    "59"
+   ],
+   "reason": "Explicit cross-reference: figure 2.5"
+  },
+  {
+   "source": "s2.5.3.2",
+   "target": "fig2.6",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "60",
+     "label": "2.6",
+     "text": "hits. The results of this are shown in Fig 2.6, where we took samples of siz"
+    },
+    {
+     "page": "60",
+     "label": "2.6",
+     "text": "included, hence their darker colour in Fig 2.6. This is a promising sign tha"
+    }
+   ],
+   "confidence": "high",
+   "id": "x40",
+   "source_pages": [
+    "60"
+   ],
+   "reason": "Explicit cross-reference: figure 2.6"
+  },
+  {
+   "source": "s2.5.4",
+   "target": "tab2.7",
+   "type": "xref-table",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "61",
+     "label": "2.7",
+     "text": "ed using the top five PointVS hotspots (Table 2.7). Elaborations made using the"
+    }
+   ],
+   "confidence": "high",
+   "id": "x41",
+   "source_pages": [
+    "61"
+   ],
+   "reason": "Explicit cross-reference: table 2.7"
+  },
+  {
+   "source": "s2.6",
+   "target": "ch1",
+   "type": "xref-chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "63",
+     "label": "1",
+     "text": "path to fragment-based strategies (see chapter 1). Among the most promising fr"
+    }
+   ],
+   "confidence": "high",
+   "id": "x42",
+   "source_pages": [
+    "63"
+   ],
+   "reason": "Explicit cross-reference: chapter 1"
+  },
+  {
+   "source": "s3.2",
+   "target": "ch1",
+   "type": "xref-chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "68",
+     "label": "1",
+     "text": "s in 3D. As covered more extensively in Chapter 1, autoregressive models were o"
+    }
+   ],
+   "confidence": "high",
+   "id": "x43",
+   "source_pages": [
+    "68"
+   ],
+   "reason": "Explicit cross-reference: chapter 1"
+  },
+  {
+   "source": "s3.3.3",
+   "target": "sB.3",
+   "type": "xref-appendix",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "74",
+     "label": "B.3",
+     "text": "it_utils toolkit (P. Walters 2025) (see Appendix B.3). For every statistic, we pro"
+    }
+   ],
+   "confidence": "high",
+   "id": "x44",
+   "source_pages": [
+    "74"
+   ],
+   "reason": "Explicit cross-reference: appendix B.3"
+  },
+  {
+   "source": "s3.4.1",
+   "target": "sB.1",
+   "type": "xref-appendix",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "78",
+     "label": "B.1",
+     "text": "x \u00c5 ). The results of this are shown in Appendix B.1. The molecules sampled using"
+    }
+   ],
+   "confidence": "high",
+   "id": "x45",
+   "source_pages": [
+    "78"
+   ],
+   "reason": "Explicit cross-reference: appendix B.1"
+  },
+  {
+   "source": "s3.4.2",
+   "target": "tab3.2",
+   "type": "xref-table",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "78",
+     "label": "3.2",
+     "text": "lts of this evaluation are presented in Table 3.2. Our baseline analysis reveal"
+    }
+   ],
+   "confidence": "high",
+   "id": "x46",
+   "source_pages": [
+    "78"
+   ],
+   "reason": "Explicit cross-reference: table 3.2"
+  },
+  {
+   "source": "s3.4.3",
+   "target": "tab3.3",
+   "type": "xref-table",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "81",
+     "label": "3.3",
+     "text": "molecules using RDKit and PoseBusters (Table 3.3). As observed when conditioni"
+    }
+   ],
+   "confidence": "high",
+   "id": "x47",
+   "source_pages": [
+    "81"
+   ],
+   "reason": "Explicit cross-reference: table 3.3"
+  },
+  {
+   "source": "s3.4.4",
+   "target": "tab3.5",
+   "type": "xref-table",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "82",
+     "label": "3.4 (read as 3.5)",
+     "text": "ed on GEOMno h and ZINC is presented in Tables 3.4a and 3.4b, respectively. RDKi"
+    }
+   ],
+   "confidence": "low",
+   "id": "x48",
+   "source_pages": [
+    "82"
+   ],
+   "reason": "Explicit cross-reference: table 3.4 (read as 3.5)"
+  },
+  {
+   "source": "s3.5",
+   "target": "sB.2",
+   "type": "xref-appendix",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "85",
+     "label": "B.2",
+     "text": "across all six models, are provided in Appendix B.2. 95% confidence intervals are"
+    }
+   ],
+   "confidence": "high",
+   "id": "x49",
+   "source_pages": [
+    "85"
+   ],
+   "reason": "Explicit cross-reference: appendix B.2"
+  },
+  {
+   "source": "s4.2",
+   "target": "ch3",
+   "type": "xref-chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "89",
+     "label": "3",
+     "text": "l. 2022), the same architecture used in Chapter 3, to operate on"
+    }
+   ],
+   "confidence": "high",
+   "id": "x50",
+   "source_pages": [
+    "89"
+   ],
+   "reason": "Explicit cross-reference: chapter 3"
+  },
+  {
+   "source": "s4.3.1.2",
+   "target": "s4.3.2.2",
+   "type": "xref-section",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "91",
+     "label": "4.3.2.2",
+     "text": "to at least 50 unique block types (see section 4.3.2.2 for more details), significan"
+    }
+   ],
+   "confidence": "high",
+   "id": "x51",
+   "source_pages": [
+    "91"
+   ],
+   "reason": "Explicit cross-reference: section 4.3.2.2"
+  },
+  {
+   "source": "s4.3.2.1",
+   "target": "ch3",
+   "type": "xref-chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "92",
+     "label": "3",
+     "text": "les, which average 8.2 heavy atoms (see chapter 3 for an in-depth description o"
+    }
+   ],
+   "confidence": "high",
+   "id": "x52",
+   "source_pages": [
+    "92"
+   ],
+   "reason": "Explicit cross-reference: chapter 3"
+  },
+  {
+   "source": "s4.3.2.2~decomposition-with-standardised-fragments",
+   "target": "fig4.2",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "93",
+     "label": "4.2",
+     "text": "h only 23 block or atom types (shown in Fig 4.2)."
+    }
+   ],
+   "confidence": "high",
+   "id": "x53",
+   "source_pages": [
+    "93"
+   ],
+   "reason": "Explicit cross-reference: figure 4.2"
+  },
+  {
+   "source": "s4.3.3",
+   "target": "ch3",
+   "type": "xref-chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "97",
+     "label": "3",
+     "text": "y the same quantitative metrics used in Chapter 3, namely PoseBusters and RDKit"
+    }
+   ],
+   "confidence": "high",
+   "id": "x54",
+   "source_pages": [
+    "97"
+   ],
+   "reason": "Explicit cross-reference: chapter 3"
+  },
+  {
+   "source": "s4.4.1",
+   "target": "fig4.4",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "97",
+     "label": "4.4",
+     "text": "the lack of rotational information (see Figure 4.4). To isolate and quantify thi"
+    }
+   ],
+   "confidence": "high",
+   "id": "x55",
+   "source_pages": [
+    "97"
+   ],
+   "reason": "Explicit cross-reference: figure 4.4"
+  },
+  {
+   "source": "s4.4.2",
+   "target": "tab4.1",
+   "type": "xref-table",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "98",
+     "label": "1 (read as 4.1)",
+     "text": "on all fragments. However, as shown in Table 1, this method achieved only a"
+    }
+   ],
+   "confidence": "low",
+   "id": "x56",
+   "source_pages": [
+    "98"
+   ],
+   "reason": "Explicit cross-reference: table 1 (read as 4.1)"
+  },
+  {
+   "source": "s5.2",
+   "target": "ch1",
+   "type": "xref-chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "104",
+     "label": "1",
+     "text": "oject. 5.2 Introduction As described in Chapter 1, resolving the 3D structure o"
+    }
+   ],
+   "confidence": "high",
+   "id": "x57",
+   "source_pages": [
+    "104"
+   ],
+   "reason": "Explicit cross-reference: chapter 1"
+  },
+  {
+   "source": "s5.4.1.1",
+   "target": "s5.3.1",
+   "type": "xref-section",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "111",
+     "label": "5.3.1",
+     "text": "-based optimisation method described in section 5.3.1 with a constant scaling facto"
+    }
+   ],
+   "confidence": "high",
+   "id": "x58",
+   "source_pages": [
+    "111"
+   ],
+   "reason": "Explicit cross-reference: section 5.3.1"
+  },
+  {
+   "source": "s5.4.1.1",
+   "target": "fig5.2",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "111",
+     "label": "5.2",
+     "text": "condary structure elements. As shown in Fig. 5.2, this method yielded modest i"
+    }
+   ],
+   "confidence": "high",
+   "id": "x59",
+   "source_pages": [
+    "111"
+   ],
+   "reason": "Explicit cross-reference: figure 5.2"
+  },
+  {
+   "source": "s5.4.1.2",
+   "target": "s5.3.1.5",
+   "type": "xref-section",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "112",
+     "label": "5.3.1.5",
+     "text": "ee scheduling strategies as detailed in section 5.3.1.5: block, global, and block and"
+    }
+   ],
+   "confidence": "high",
+   "id": "x60",
+   "source_pages": [
+    "112"
+   ],
+   "reason": "Explicit cross-reference: section 5.3.1.5"
+  },
+  {
+   "source": "s5.4.1.1",
+   "target": "fig5.1",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "112",
+     "label": "5.1",
+     "text": "actually corresponding to those parts (Fig. 5.1). A closer analysis of the re"
+    }
+   ],
+   "confidence": "high",
+   "id": "x61",
+   "source_pages": [
+    "112"
+   ],
+   "reason": "Explicit cross-reference: figure 5.1"
+  },
+  {
+   "source": "s5.4.1.1",
+   "target": "fig5.3",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "112",
+     "label": "5.3",
+     "text": "ioned prediction to the correct answer (Fig. 5.3). This is a promising sign th"
+    }
+   ],
+   "confidence": "high",
+   "id": "x62",
+   "source_pages": [
+    "112"
+   ],
+   "reason": "Explicit cross-reference: figure 5.3"
+  },
+  {
+   "source": "s5.4.1.2",
+   "target": "fig5.4",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "112",
+     "label": "5.4",
+     "text": "ined at 0.1. The results, summarised in Fig. 5.4, demonstrate that schedulers"
+    }
+   ],
+   "confidence": "high",
+   "id": "x63",
+   "source_pages": [
+    "112"
+   ],
+   "reason": "Explicit cross-reference: figure 5.4"
+  },
+  {
+   "source": "s5.4.1.3",
+   "target": "fig5.5",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "115",
+     "label": "5.5",
+     "text": "ock. This method yielded mixed results (Figure 5.5). While some targets, such as"
+    }
+   ],
+   "confidence": "high",
+   "id": "x64",
+   "source_pages": [
+    "115"
+   ],
+   "reason": "Explicit cross-reference: figure 5.5"
+  },
+  {
+   "source": "s5.4.1.3",
+   "target": "fig5.6",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "116",
+     "label": "5.6",
+     "text": "5 iterations. The results, presented in Figure 5.6, demonstrate that this adapti"
+    }
+   ],
+   "confidence": "high",
+   "id": "x65",
+   "source_pages": [
+    "116"
+   ],
+   "reason": "Explicit cross-reference: figure 5.6"
+  },
+  {
+   "source": "s5.4.2.1",
+   "target": "fig5.7",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "118",
+     "label": "5.7",
+     "text": "results of this approach, summarised in Fig 5.7, show a mixed pattern of succ"
+    }
+   ],
+   "confidence": "high",
+   "id": "x66",
+   "source_pages": [
+    "118"
+   ],
+   "reason": "Explicit cross-reference: figure 5.7"
+  },
+  {
+   "source": "s5.4.2.2~only-msa-subsampling",
+   "target": "fig5.8",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "119",
+     "label": "5.8",
+     "text": "adient-based conditioning. The results (Fig. 5.8) show that running Boltz-2 wi"
+    }
+   ],
+   "confidence": "high",
+   "id": "x67",
+   "source_pages": [
+    "119"
+   ],
+   "reason": "Explicit cross-reference: figure 5.8"
+  },
+  {
+   "source": "s5.4.2.2~combining-with-gradient-based-optimisation",
+   "target": "fig5.9",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "120",
+     "label": "5.9",
+     "text": "ing approach, with the results shown in Fig. 5.9. As with all other methods te"
+    }
+   ],
+   "confidence": "high",
+   "id": "x68",
+   "source_pages": [
+    "120"
+   ],
+   "reason": "Explicit cross-reference: figure 5.9"
+  },
+  {
+   "source": "s5.4.2.2~combining-with-gradient-based-optimisation",
+   "target": "fig5.3",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "121",
+     "label": "5.3",
+     "text": "r target 8FEI. However, as we showed in Fig 5.3, predictions for this target"
+    }
+   ],
+   "confidence": "high",
+   "id": "x69",
+   "source_pages": [
+    "121"
+   ],
+   "reason": "Explicit cross-reference: figure 5.3"
+  },
+  {
+   "source": "s5.5",
+   "target": "fig5.9",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "122",
+     "label": "5.9",
+     "text": "rge disparity among 8FEI predictions in Figure 5.9). Finally, the present work s"
+    }
+   ],
+   "confidence": "high",
+   "id": "x70",
+   "source_pages": [
+    "122"
+   ],
+   "reason": "Explicit cross-reference: figure 5.9"
+  },
+  {
+   "source": "s6.1",
+   "target": "ch2",
+   "type": "xref-chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "123",
+     "label": "2",
+     "text": "nterpretability in virtual screening In chapter 2, we introduced an EGNN-based"
+    }
+   ],
+   "confidence": "high",
+   "id": "x71",
+   "source_pages": [
+    "123"
+   ],
+   "reason": "Explicit cross-reference: chapter 2"
+  },
+  {
+   "source": "s6.2",
+   "target": "ch3",
+   "type": "xref-chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "124",
+     "label": "3",
+     "text": "ffusion models for molecule generation (chapter 3) demonstrated the benefits of"
+    }
+   ],
+   "confidence": "high",
+   "id": "x72",
+   "source_pages": [
+    "124"
+   ],
+   "reason": "Explicit cross-reference: chapter 3"
+  },
+  {
+   "source": "s6.2",
+   "target": "ch4",
+   "type": "xref-chapter",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "125",
+     "label": "4",
+     "text": "on approaches to a block-based setting (chapter 4). While this direction offers"
+    }
+   ],
+   "confidence": "high",
+   "id": "x73",
+   "source_pages": [
+    "125"
+   ],
+   "reason": "Explicit cross-reference: chapter 4"
+  },
+  {
+   "source": "sA.3",
+   "target": "s3.4.2",
+   "type": "xref-section",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "133",
+     "label": "3.4.2",
+     "text": "tures from the PDBBind core set used in section 3.4.2 are 3URI, 4DE1, 4DLI, 3N76, 4"
+    }
+   ],
+   "confidence": "high",
+   "id": "x74",
+   "source_pages": [
+    "133"
+   ],
+   "reason": "Explicit cross-reference: section 3.4.2"
+  },
+  {
+   "source": "sA.4",
+   "target": "figA.1",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "133",
+     "label": "A.1",
+     "text": "fragment found in this screen, shown in Fig A.1, was found to have high poten"
+    }
+   ],
+   "confidence": "high",
+   "id": "x75",
+   "source_pages": [
+    "133"
+   ],
+   "reason": "Explicit cross-reference: figure A.1"
+  },
+  {
+   "source": "sA.3",
+   "target": "tabA.1",
+   "type": "xref-table",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "133",
+     "label": "A.1",
+     "text": "ts (Mpro, Mac1 and NSP14) are listed in Table A.1. These datasets are all avail"
+    }
+   ],
+   "confidence": "high",
+   "id": "x76",
+   "source_pages": [
+    "133"
+   ],
+   "reason": "Explicit cross-reference: table A.1"
+  },
+  {
+   "source": "sA.4",
+   "target": "figA.2",
+   "type": "xref-figure",
+   "kind": "explicit",
+   "basis": "stated",
+   "occurrences": [
+    {
+     "page": "134",
+     "label": "A.2",
+     "text": "binding mode as erdafitinib is shown in Fig A.2."
+    }
+   ],
+   "confidence": "high",
+   "id": "x77",
+   "source_pages": [
+    "134"
+   ],
+   "reason": "Explicit cross-reference: figure A.2"
+  }
+ ],
+ "unresolved": [],
+ "dropped_self_refs": 0,
+ "raw_count": 100
+}

@@ -1,0 +1,42 @@
+162 CHAPTER 5. SYMMETRY-ADAPTED KRIGING
+
+At first sight, the strategy we have proposed might seem similar to the naive ap-
+proach, described in the introduction, of increasing the number of conformational
+seeds. Our approach is however quite different. Since we are projecting the training
+set using the representation matrices, the new points do not need to be calculated,
+simplifying the training. More importantly, the symmetry breakings due to integra-
+
+tion errors are avoided.
+
+It is key to realise that symmetry-adapted kriging is not equivalent to ordinary
+kriging with projected points. In our formulation, the weights for all the symmetry-
+
+equivalent are identical, a condition that does not hold for ordinary kriging, where:
+
+H(t) =n+ YL YE wXo% (x) (5.31)
+
+j XeG
+and in general wi # wx for X # X’. Unfortunately, this also poses a slight prob-
+lem: to employ this formula as is, it is necessary to modify the kriging engine FERE-
+BUS to implement this constraint®. As shown later, this hurdle can be overcome
+
+with some tricks.
+
+The major drawback of symmetry-adapted kriging is that it does not actually re-
+duce the number of evaluations. Since the symmetry-adapted kernel ¢(r) requires
+N evaluations, then the computational scaling of the method scales as O(NM)
+where M is the number of training points. The asymptotic complexity is linear,
+but it is paramount to reduce the factor M as much as possible. Fortunately, it turns
+out that it is possible to reduce the number of evaluations by a factor close to N by
+
+employing clever heuristics.
+
+5.3 Efficient algorithm
+5.3.1 Description
+
+The predictor derived in the previous section guarantees that symmetry-equivalent
+
+molecular configurations produce identical predictions. This is of great practical
+
+6Unfortunately, this program has a large amount of legacy code and part of the scarce documen-
+tation is written in foreign languages.

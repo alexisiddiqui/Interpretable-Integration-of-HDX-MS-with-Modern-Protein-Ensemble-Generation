@@ -1,0 +1,40 @@
+124 CHAPTER 4. DELOCALIZATION INDICES AND BOND ORDER
+
+4.11, the size of an arbitrary 2-RDM grows as N’4, since the p tensor and the molec-
+ular orbitals determine 2 (11,12; 1,1) completely. This leads to a significant com-
+putational burden just to store the matrix, together with the difficulty of actually
+
+computing the }4;;,; elements.
+
+The same problem does not appear in first-order reduced density matrices, that
+are usually diagonalised and expressed in terms of their eigenvectors and eigenval-
+
+ues, the natural orbitals Xj and occupation numbers vj:
+
+prlristy) = Divx; (ri)xj (1) (4.19)
+J
+
+In Hartree-Fock theory, a given n-RDM can be written in terms of the 1-RDM
+[272], reducing significantly the difficulties of handling the density matrices. For
+example, the HF 2-RDM can be written as:
+
+05 (tu t2) = er (tut) oy (nizti) — on" (tu; 82) 04 (27 41) (4.20)
+
+Incidentally, we note that it is equal to the sum of the Coulomb and exchange
+terms. Unfortunately, there exist no similar relationships for correlated wavefunc-
+tions. In order to reduce the computational expense and simplify the handling of
+the RDMs, the majority of practical calculations make use of the Miiller approxima-
+tion [273], which we will describe in this section.
+
+This approximation starts by considering the following matrix:
+
+~ 0.5
+Pr (nizx2;p) = Dov”? Lay) (xe (4.21)
+j
+Here p is a parameter contained in the (—5, 5) interval that will be determined
+
+later. Miiller’s approximation passes by approximating the 2-RDM as the following
+
+HF-like linear combination:
+
+62(t1, 12) = B1p1(11; 41) e1(r2; 42) — B21 (11; F2; p) 61 (12; 11; p) (4.22)

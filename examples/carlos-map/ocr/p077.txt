@@ -1,0 +1,38 @@
+76 CHAPTER 2. LITERATURE REVIEW
+
+vide supra, and their functional forms are respectively:
+
+P(f) « exp (-;8"K8) (2.149)
+— f)T ly —
+P(£ly) « exp (2-9 a ?) (2.150)
+
+By direct computation, we can obtain:
+
+P(£|S) « exp E (ff (C7 +0 °Z)£— 20-y"*) (2.151)
+
+This equation can be further rearranged into a normal distribution, yielding:
+
+(£|S) ~N (K(K +0°Z) “ly, o°K(K + 0?L)*) (2.152)
+
+Combining equations 2.145 and 2.152 into equation 2.143, and after an involved
+manipulation that is not worth reproducing here’, it is possible to arrive to the final
+result: (f*|x*, S) follows a normal distribution whose mean and standard deviation
+
+are respectively:
+
+u(x") =k" (K+ 0°Z) y (2.153)
+0 (xt) = k(x*,x*) — kT (KC + 0°Z) ok (2.154)
+
+Here k(-,-) is a function that returns the correlation between two given points,
+and k is the vector that contains the correlation between each point in S and the
+
+input features x, i. e. k(x*, x,) is the kth element of k.
+
+We return now to the discussion of the correlation matrix K, and the correlation
+
+function k(-,-). In general, k is taken to be a kernel, a function that is used to model
+
+°We note that this requires Woodbury matrix identity:
+
+-1
+(A+ucV)?=A— Au (c3 + vVAu) VA"!

@@ -1,0 +1,39 @@
+252 BIBLIOGRAPHY
+
+[200] S. Y. Liem, P. L. A. Popelier, and M. Leslie, “Simulation of liquid water using
+a high-rank quantum topological electrostatic potential,” International Journal
+
+of Quantum Chemistry, vol. 99, no. 5, pp. 685-694, 2004.
+
+[201] S. Houlding, S. Liem, and P. L. A. Popelier, “A polarizable high-rank quantum
+topological electrostatic potential developed using neural networks: Molecu-
+lar dynamics simulations on the hydrogen fluoride dimer,” International Jour-
+nal of Quantum Chemistry, vol. 107, no. 14, pp. 2817-2827, 2007.
+
+[202] C. M. Handley and P. L. A. Popelier, “Dynamically polarizable water po-
+tential based on multipole moments trained by machine learning,” Journal
+
+of Chemical Theory and Computation, vol. 5, no. 6, pp. 1474-1489, 2009.
+
+[203] C. M. Handley and P. L. A. Popelier, “Potential energy surfaces fitted by ar-
+tificial neural networks,” The Journal of Physical Chemistry A, vol. 114, no. 10,
+pp- 3371-3383, 2010.
+
+[204] C. M. Handley, G. I. Hawe, D. B. Kell, and P. L. A. Popelier, “Optimal con-
+struction of a fast and accurate polarisable water potential based on multipole
+moments trained by machine learning,” Physical Chemistry Chemical Physics,
+
+vol. 11, no. 30, pp. 6365-6376, 2009.
+
+[205] G. I. Hawe and P. L. A. Popelier, “A water potential based on multipole mo-
+ments trained by machine learning: reducing maximum energy errors,” Cana-
+
+dian Journal of Chemistry, vol. 88, no. 11, pp. 1104-1111, 2010.
+
+[206] M. J. Mills and P. L. A. Popelier, “Intramolecular polarisable multipolar elec-
+trostatics from the machine learning method kriging,” Computational and The-
+oretical Chemistry, vol. 975, no. 1-3, pp. 42-51, 2011.
+
+[207] M. J. Mills and P. L. A. Popelier, “Polarisable multipolar electrostatics from
+the machine learning method kriging: an application to alanine,” Theoretical
+Chemistry Accounts, vol. 131, no. 3, p. 1137, 2012.

@@ -1,0 +1,62 @@
+213
+
+6 Close(25)
+
+66
+
+oe ! Change cartesian vectors
+e Do i = 1, natms
+69 xxx(i) = cartesian_vectors(min_index, 3*(i—1) + 1)
+
+70 yyy(i) = cartesian_vectors(min_index, 3*(i—1) + 2)
+71 zzz(i) = cartesian_vectors(min-_index, 3*(i-—1) + 3)
+7 End Do
+
+73
+
+7  Deallocate( cartesian_vectors)
+
+7  Deallocate( distances )
+
+76
+
+7 End Subroutine
+
+Listing B.1: fflux_symmetry_transformation.f90
+
+1 Subroutine fflux_compute_distances(cartesian_vectors, distances)
+3! Distances for symmetry transformation (COR)
+
+5 Use kinds_f90
+6 Use config-module, Only : natms
+
+7 Use fflux_module, Only : n_matrices, reference_point_cart
+
+9 Implicit None
+
+10
+
+un _Real( kind = wp ), Intent( In ) :: cartesian_vectors(n_matrices, 3x
+natms )
+
+2  Real( kind = wp ), Intent( Out ) :: distances (n_matrices)
+
+3  Real( kind = wp ) :: Determinant
+
+4
+
+is  Real( kind = wp ) i: new _cartesian_vectors(n_matrices,
+3*natms)
+
+1 Real( kind = wp ) :: Q_matrix(natms, 3), P_matrix(
+natms, 3)
+
+7 Real( kind = wp ) :: centroid (3)
+
+1s Real( kind = wp ) :: Q_vector(3*natms)
+
+19 Real( kind = wp ) i: cross_cov(3, 3)
+
+2 Real( kind = wp ) :: V_matrix(3, 3), W_matrix(3, 3),
+
+S_matrix (3)

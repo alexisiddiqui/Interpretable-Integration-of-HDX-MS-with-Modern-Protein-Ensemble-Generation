@@ -1,0 +1,40 @@
+258 BIBLIOGRAPHY
+
+[258] A. Gallo-Bueno, M. Kohout, and A. Martin Pendas, “Decay rate of correlated
+real-space delocalization measures: insights into chemical bonding and Mott
+transitions from hydrogen chains,” Journal of Chemical Theory and Computation,
+vol. 12, no. 7, pp. 3053-3062, 2016.
+
+[259] C. F Matta and J. Hernandez-Trujillo, “Bonding in polycyclic aromatic hydro-
+carbons in terms of the electron density and of electron delocalization,” The
+Journal of Physical Chemistry A, vol. 107, no. 38, pp. 7496-7504, 2003.
+
+[260] F. Feixas, M. Sola, J. M. Barroso, J. M. Ugalde, and E. Matito, “New approxi-
+mation to the third-order density. Application to the calculation of correlated
+multicenter indices,” Journal of Chemical Theory and Computation, vol. 10, no. 8,
+pp. 3055-3065, 2014.
+
+[261] M. Rodriguez-Mayorga, E. Ramos-Cordoba, F. Feixas, and E. Matito, “Elec-
+tron correlation effects in third-order densities,” Physical Chemistry Chemical
+
+Physics, vol. 19, no. 6, pp. 4522-4529, 2017.
+
+[262] C. F. Matta, “Modeling biophysical and biological properties from the char-
+acteristics of the molecular electron density, electron localization and delo-
+calization matrices, and the electrostatic potential,” Journal of Computational
+
+Chemistry, vol. 35, no. 16, pp. 1165-1198, 2014.
+
+[263] C. EF Matta, “Molecules as networks: a localization-delocalization matrices
+
+approach,” Computational and Theoretical Chemistry, vol. 1124, pp. 1-14, 2018.
+
+[264] M. Garcia-Revilla, E. Francisco, A. Costales, and A. Martin Pendas, “Perfor-
+mance of the density matrix functional theory in the quantum theory of atoms
+in molecules,” The Journal of Physical Chemistry A, vol. 116, no. 4, pp. 1237-
+1250, 2011.
+
+[265] E. Matito, J. Poater, M. Duran, and M. Sola, “An analysis of the changes in
+aromaticity and planarity along the reaction path of the simplest Diels-Alder
+reaction. Exploring the validity of different indicators of aromaticity,” Journal
+of Molecular Structure: THEOCHEM, vol. 727, no. 1-3, pp. 165-171, 2005.

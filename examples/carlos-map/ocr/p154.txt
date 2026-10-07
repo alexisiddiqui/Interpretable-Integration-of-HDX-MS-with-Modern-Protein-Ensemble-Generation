@@ -1,0 +1,42 @@
+5.1. RELATED WORK 153
+
+the Coulomb matrices featurization [315, 316]. The Coulomb matrix for a molecule
+
+is defined as:
+
+0.5224 ifi=j
+My= 4 z,2, tie; (5.13)
+
+Tj
+
+This representation is attractive because of its simplicity and physical consis-
+tency. Moreover, the diagonalised version of this matrix is invariant to atomic per-
+mutations; however, it is not complete, since there are N eigenvalues but 3N-6 de-
+grees of freedom. This representation can also be generalised to periodic systems
+[317].
+
+Coulomb matrices have been widely used in Quantitative Structure-Activity Re-
+lationship (QSAR) studies with electronic properties [318], and recently also in ma-
+chine learning force fields [65].
+
+5.1.3 Symmetry-adapted regression models
+
+The other class of methods imposes that the model itself is invariant to permuta-
+tions of the features, independently of what these are. The main representative
+of this approach is the regression employing invariant polynomials [319, 320, 321],
+that has many ideas in common with symmetry-adapted kriging .
+
+Let us assume that we aim to fit the potential energy surface of a single water
+molecule employing a polynomial of the interatomic distances that is of, at most,
+
+degree M. A given monomial will have the form:
+ror sr5s (5.14)
+
+where a+b+c =m < M. The procedure of monomial symmetrization applies
+the permutation operations to the monomials to obtain symmetrized polynomials.
+In the case of water, if we assume that the oxygen atom is labelled by 1, then an
+
+invariant monomial would be:
+
+ab yc asbyc _ (4a ,b a,b \ Cc
+rh213793 + Tister5s = (riaris + ri3r12) 153 (5.15)

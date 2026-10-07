@@ -1,0 +1,42 @@
+3.2. FORCE FORMULAE 95
+
+The next step is the calculation of the first derivatives of the azimuthal coordinate
+
+An.
+Once
+An An
+00 ALF — a dcos / ALR (3.24)
+On} sinOAr, 90;
+The last derivative is likewise:
+An An n
+dcos 6475 _ An 1 ; ORATF 1 0¢3 (3.25)
+fe) fe) An dy .
+On (Rite) On Riytp 2%;
+Finally, the derivatives of the polar coordinate Pare can be calculated as:
+OPAEE — ogg? gay Otan ate
+where:
+dtan gar, 1 agama. agin
+= 65" yt 7 (3.27)
+aa? ( ry’ da? Gin da
+
+To complete the derivation of valence forces, it only remains to compute the
+derivatives of the ALF Cartesian coordinates {¢;'"} respect to the global Cartesian
+coordinates {as "}. This can be done easily if we apply the product rule to equation
+3.10:
+
+agin Cit
+5,0 = y (Ss Cr — af +; jKOiKAO,n (3.28)
+
+The derivatives of the rotation matrix components can be done easily based on
+
+the definitions discussed above. For the first row (equation 3.11), this is:
+
+Ax A Ax A
+acy, 1 5, («/ ~ 4% °) («; ~ 8; °)
+dao RA. 0,Ax%ik — A \3
+
+i ALF (Rise)
+
+The second row (equation 3.12) entails more difficulties:
+
+Ao Ay (3.29)

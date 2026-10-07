@@ -1,0 +1,21 @@
+5.5. CONCLUSIONS 181
+
+dissociation curves of H2O and NH3. We then confirmed that symmetry-adapted
+kriging is capable of reproducing the dissociation of any of the bonds that is equiv-
+alent by symmetry, while ordinary kriging can only reproduce the energy in the
+
+conformational space it has been trained for.
+
+Moreover, further experiments demonstrate that symmetry-adapted kriging is
+consistent with the symmetry during a simulation. We have tested models of methanol
+and acetaldehyde that contained examples of only one of its symmetry-equivalent
+conformers. The results show that this formulation allows to extrapolate towards
+unseen geometries employing only the symmetry group of the molecule. In all
+cases, the geometries converge readily to the expected minimum within a negligible
+RMSD. On the other hand, the baseline lacking ordinary kriging shows numerous
+
+examples of unphysical behaviour due to the extrapolation collapse.
+
+This advance will be incorporated in the next major version of FFLUX, and prob-
+
+ably become one of the most powerful tools to reduce its computational cost.

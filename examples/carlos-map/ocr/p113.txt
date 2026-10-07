@@ -1,0 +1,41 @@
+112 CHAPTER 3. THE QUANTUM CHEMICAL TOPOLOGY FORCE FIELD
+
+conformations that could be found during a finite-temperature simulation; we note
+that the energy of these geometries is contained in a 4 kcal mol~! range, and thus
+accessible to reasonable temperatures. We then employ the glycine model in [219],
+containing ~ 0.5 GB of examples, and predict the energies of these configurations in
+vacuum. Since the test set explores the conformational space of capped glycine, the
+errors allow to assess how much of this space is actually modelled by the kriging
+models.
+
+At first sight, the results show significant disagreement, with an average error
+of 600 kcal mol~!. The standard deviation is 4 kcal mol~!, and a rapid comparison
+shows that the majority of the predictions are contained in a range of 5 kcal mol!
+at both sides of the mean of the Gaussian process, 4 = —455.502467 a. u., almost 1
+hartree below the true energy of any example in the test set. Note that this model has
+been validated in [219] for small distortions of the training set, where the maximum
+
+errors were reported to be in the range of 1-2 kcal mol™!.
+
+Moreover, a quick glance to the distribution of energies will reveal that the pre-
+dictions of FFLUX are significantly detached from the real values. This is done in
+Figure 3.8, where we report the energies as distributions around the mean, in or-
+der to make them comparable. It can be seen that, while the test set is basically
+a Gaussian distribution around the centre, FFLUX predicts an unrelated bimodal
+distribution. More importantly, the minima of energy (which can be observed in
+Figure 3.8, as the few examples in the left extreme of the histogram) are not ranked
+
+correctly, but rather their energies are placed randomly within the distribution.
+
+What is happening can be described as follows. In the 51-dimensional space
+spanned by the features of capped glycine, the training set containing barely a thou-
+sand examples is extremely sparse, and the interpolation of an arbitrary point in this
+space yields a senseless result. This is unobserved if one employs a test set that is
+very similar to the training set, as is usually done during parametrization tests, but
+
+occurs clearly when one attempts to perform simulation.
+
+These results show that the prediction of the kriging models is far less ideal
+than one would expect. In the multiple assessments realised until now [234, 217,
+
+216, 214], the test set is built with the same method as the training set, creating a

@@ -1,0 +1,43 @@
+2.1. MOLECULAR DYNAMICS 31
+
+the basics.
+
+The main idea of this approach is to propagate, rather than optimise the wave-
+function. The idea is perhaps clearer if we reformulate BOMD in terms of a La-
+
+grangian:
+
+. 1 :
+Lpomp(¥,R,R) = 3 > MsaR — Ego (¥,R) (2.21)
+B
+Ego (¥,R) = (¥|H|Y) for Y¥ =argmin (¥o| H|¥o) (2.22)
+Yo
+
+Car and Parrinello suggested avoiding the minimisation of the wavefunction by
+
+introducing a set of fictitious electronic coordinates:
+
+Leowp({9},{9}R/R) =5 DO MaR + EY (ily)
+B i (2.23)
+
+— E({yp;}, {Rp}) + constraints
+
+Here, ip; are the occupied orbitals (CPMD is conceived for one-electron theories,
+such as DFT or Hartree-Fock), and the constraints include orbital orthonormality
+or, if necessary, thermostats, barostats, etc. The electronic degrees of freedom are
+propagated under appropriate conditions to ensure that the system remains in the
+
+ground state.
+
+A major role is played by the parameter y, representing a fictitious mass for
+electronic degrees of freedom. On one hand, this parameter controls the adiabatic
+separation of electronic and nuclear subsystems, preventing a transference of en-
+ergy between them that might take the system out of the ground state. On the
+other, 1 is directly related to the maximum allowed timestep [33]. For this reason, it
+is necessary to find an optimal value for each simulation, and a significant amount
+
+of literature has been devoted to study this problem [51, 52, 53, 54].
+
+Applying the Euler-Lagrange approach to obtain the equations of motion, it can
+be seen that these are very similar to the BOMD; in fact, they become the latter as
+pz — 0.

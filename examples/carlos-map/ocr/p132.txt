@@ -1,0 +1,40 @@
+4.2. RESULTS AND DISCUSSION 131
+
+4.2.4 The stability of classical patterns
+
+The magnitude of our study, having built a database of ~ 200 compounds (account-
+ing for 14,756 entries of delocalization indices, only for Hartree-Fock calculations)
+allows to apply several data mining techniques to extract trends from the large num-
+bers of data points. In this section we perform some of such analyses, which have
+focused on the most abundant atom pairs in the database: carbon-carbon (2,364
+data points), carbon-oxygen (632 data points), carbon-nitrogen (724 data points)
+and carbon-hydrogen interactions (5,497 data points).
+
+In Figure 4.1, we display the spread of the delocalization indices for several
+classes of bonds. The first realisation is that there is a sharp discontinuity between
+the weak interactions, that are below ~ 0.5 and the rest, signalling the existence of
+
+chemical bonds.
+
+More importantly, it is clear that there are several plateaus, that under close ex-
+amination reveal to be stable well-known bond orders. For example, in the carbon-
+carbon plot (upper left panel) there is a wide plateau around 1.0 that contains many
+bonds that are recognisable as single, such as the C-C bonds of hydrocarbons. The
+other two plateaus can easily be identified with an aromatic C-C bond (plateau at
+1.4, containing for example conjugated bonds from benzene, thiophene and pyrrole
+and their derivatives) and a double C=C bond (plateau at 1.8, containing the double
+
+bonds in alkenes, etc.).
+
+Some points in the extreme of the same plot correspond to triple carbon-carbon
+bonds, but these are underrepresented in our study, both because of their scarcity
+and due to the well-known formation of a non-nuclear maximum in triple bonds
+[144], that entails difficulties in the analysis. It is likely that a similar plateau emerges
+
+if enough triple bond-containing compounds are added.
+
+In the case of carbon-oxygen bonds, included in the upper rightmost plot of
+Figure 4.1, there are three plateaus. Firstly, the plateau around 0.8 comprises single
+carbon-oxygen bonds, such as the founds in alcohols and carboxylic acids. The
+other two plateaus refer to double bonds, the first (~ 1.2) containing aldehydes
+and the second (~ 1.4) ketones, whose C=O bond has been respectively depleted

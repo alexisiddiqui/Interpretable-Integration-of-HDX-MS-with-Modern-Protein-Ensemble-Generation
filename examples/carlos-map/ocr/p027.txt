@@ -1,0 +1,45 @@
+26 CHAPTER 2. LITERATURE REVIEW
+
+(r,R;t) = )O Fe (1; R) xx (Rit) (2.4)
+k
+
+The nuclear wavefunctions x;(R;¢) are used as expansion coefficients, and in-
+clude the temporal dependence of the wavefunction. This ansatz can be inserted in
+
+equation 2.1, obtaining:
+
+. 0x; (R;t A
+ih Eee Raq) MD =H (2.5)
+k
+
+Yo ¥e(1; R)xx(R; #)
+k
+
+Multiplication on the left by ¥7(1;R,) and integration over the electronic co-
+ordinates yields the following expression, after applying the orthonormality of the
+wavefunctions (¥;|¥;,) = 6), in the left-hand side:
+
+inaRf) = L/*i (1; R) (Truc + Hetec) Y(t; R)xx(R; t) dr (2.6)
+
+The right-hand side is slightly more involved, since the kinetic energy operator
+affects both the nuclear and electronic wavefunctions (note that the latter depends
+parametrically on R). This can be tackled by expressing the Laplacian V7 as the
+divergence of a gradient V - V, and applying the product rule of differentiation to
+yield the following identity:
+
+V3, ¥ k(t; R) xe (R) =¥ie(t; R)V24xK (Rit) + x4 (Rs t)V% Pe(t; R)
++ 2Va¥e(1;R) - Vaxe(R;t)
+
+(2.7)
+
+Here the subindex A is employed to indicate that the gradient or Laplacian op-
+erator is applied with respect to the Cartesian coordinates of the respective nucleus.
+
+This identity allows to rewrite equation 2.6 as:
+
+0 1
+ine =) San V4 | Pe) Xe +2 (¥i| Va |¥e) Vaxe
+k LA A (2.8)
+
++ (¥7|'¥x) Viaxk + (¥| Hetec |¥x) Xk
+

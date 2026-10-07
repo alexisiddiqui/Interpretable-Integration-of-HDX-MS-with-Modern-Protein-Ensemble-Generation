@@ -1,0 +1,59 @@
+== TOC COVERAGE ==
+Numbered entries found in the PDF's own contents pages (ix-xii): 124
+Nodes with a section number: 124  | unnumbered run-in headings listed in the TOC: 13
+TOC entries without a node: none
+Nodes whose number is not in the TOC: none
+Nodes whose (number/title, start page) is not confirmed by the PDF contents pages: none  (checked 137)
+Headings located on their stated printed page in the body text: 137/137  not found: none
+Nodes lacking a summary: none
+Total nodes: 191  (front matter 8, TOC nodes 137, plus 'app' part, 'refs' and 44 figure/table leaves)
+Figures captured: 26 (List of Figures has 26)  | numbered table captions: 17 + 1 uncaptioned (B.2)
+
+== EDGES ==
+Edges: 109 total | explicit 77 | semantic 32 (stated 19, inferred 13)
+Edge endpoints missing from nodes: none
+Edges without source_pages: none
+Inferred edges without a reason: none
+Explicit references found: 100 raw, 77 inter-node edges after merging, 0 references inside their own node dropped, unresolved: 0 -> []
+Low-confidence edges: ['x48 (s3.4.4->tab3.5)', 'x56 (s4.4.2->tab4.1)', 'x74 (sA.3->s3.4.2)', 'i2 (s1.4.3.2->s2.5.1.1)']
+Edge page labels that are not valid printed pages: none
+Figure/table leaf nodes: 26 figures + 18 tables; with an incoming reference edge: 32
+Figure/table nodes never cited in the text: ['fig1.1', 'tab2.2', 'fig3.1', 'fig3.2', 'tab3.1', 'fig4.1', 'fig4.3', 'tab5.1', 'tabA.2', 'tabB.1', 'tabB.2', 'tabB.2-full']
+Edges into figure/table nodes: 37 (hidden by default in the Links view)
+Claims whose figure/table evidence did not resolve to a node: none
+
+== ENTITIES ==
+55 entities; with zero mentions: none
+by category: {'method': 17, 'term': 14, 'software': 13, 'dataset': 11}
+
+== QUOTES ==
+77 node quotes; failing (not verbatim on stated page or >=25 words): none
+
+== JOURNEY ==
+Stages: 12 (+ start and end markers). Stages without evidence pages: none
+Outcomes: {'partial': 5, 'worked': 4, 'pivot': 2, 'failed': 1} | negative results flagged: ['j5', 'j6', 'j7', 'j8', 'j9', 'j10', 'j12']
+Stage nodes that do not exist: none
+Evidence pages outside the stage's chapters (and appendices): none
+Claims per stage: {'j0': 3, 'j1': 5, 'j2': 3, 'j3': 6, 'j4': 2, 'j5': 2, 'j6': 1, 'j7': 2, 'j8': 2, 'j9': 2, 'j10': 2, 'j11': 1, 'j12': 3, 'j13': 2}
+Stages with no claim attached: none
+
+== CLAIMS ==
+36 claims; unknown nodes: none
+Claim numbers not found on the cited pages (to review): none
+Stage numbers not found on evidence pages (to review): none
+Anomaly checks: PDB IDs listed in A.3 for the '20 structures': 28; FGFR1 codes listed in A.4 for '18 structures': 16
+
+Printed pages not inside any top-level part (blank versos / dividers): ['32', '66', '86']
+Words: extracted text 54071; sum of top-level node words 51012
+Anomaly a5 check: Appendix B.2 MolFM GEOM baseline row identical to GCDM GEOM baseline row: True
+
+== ANOMALIES FOUND IN THE THESIS ==
+- [a1] Appendix A.3 (p. 133): Text says the 20 PDBBind Core structures were 'used in section 3.4.2'; Table 2.5 caption (p. 57) and section 2.5.2.2 (p. 57) give Appendix A.3 for those IDs, so 2.5.2.2 is almost certainly meant. The extracted cross-reference is kept but flagged low confidence.
+- [a2] Appendix A.3 (p. 133): The same paragraph lists 28 PDB IDs while the text says 20 structures.
+- [a3] Appendix A.4 (pp. 133-134): Text says attribution was run on 18 FGFR1 structures; 16 PDB codes are listed.
+- [a4] Section 3.4.4 (p. 82) vs Table 3.5: Text refers to 'Tables 3.4a and 3.4b'; the only caption is Table 3.5 (a) GCDM, (b) MolFM. No Table 3.4 exists.
+- [a5] Appendix B.2 (p. 138) vs Table 3.5 (p. 82): Appendix B.2's MolFM GEOM baseline row is identical to its GCDM GEOM baseline row (PoseBusters 77.8%), and the MolFM conditioned row (78.7%) is close to GCDM's (79.7%), while Table 3.5(b) gives MolFM GEOM 80.8% baseline and 46.8% conditioned. The chapter-3 text (p. 83) matches Table 3.5, so the appendix rows look mislabelled or copied. Treat MolFM GEOM numbers from the main text.
+- [a6] Section 4.4.2 (p. 98): Refers to 'Table 1' for the 10.8% result; the captioned table is Table 4.1 (p. 100).
+- [a7] Section 2.4.5.4 (p. 47): Table 2.6 is cited in the Methods but appears in the Results (p. 61).
+- [a8] Appendix B.2 (p. 137-138): The full PoseBusters table has no caption or number, so it is not counted as a numbered table; it is counted manually as one uncaptioned table.
+- [a9] PDF pages 1-2: PDF index 1 is the cover and index 2 is an unnumbered page repeating the abstract; neither has a printed page number and neither is mapped to a printed page.

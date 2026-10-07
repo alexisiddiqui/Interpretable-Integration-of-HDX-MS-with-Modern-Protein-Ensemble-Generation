@@ -1,0 +1,39 @@
+130 CHAPTER 4. DELOCALIZATION INDICES AND BOND ORDER
+
+The CCSD values decrease significantly for directly bonded atoms, finding re-
+spectively that 6(H,H) = 0.844, 6(O,O) = 1.615 and 5(N,N) = 2.310 for the
+molecules presented above. This phenomenon is easily explained since the inclu-
+sion of Coulomb correlation means that electrons, on average, repel more strongly
+
+than if only Fermi correlation is included.
+
+The opposite effect is found in weak interactions, since Hartree-Fock, as a mean
+field theory, cannot take into account the instantaneous fluctuations that give rise to
+the dispersion interactions. Clear examples are Nez and Ar2, where the DI changes
+from 6(Ne,Ne) = 0.005 to 6(Ne,Ne) = 0.009, and from 6(Ar,Ar) = 0.002 to
+6(Ar,Ar) = 0.015. Perhaps unsurprisingly, hydrogen bonds do not seem to fol-
+low this pattern: they remain barely unchanged, which might be an indicator of the
+
+importance of exchange in these interactions.
+
+Ionic compounds show small changes upon inclusion of Coulomb correlation.
+In the model LiH and NaCl molecules, we obtain a observe a change from 6(Li, H) =
+0.193 to 6(Li,H) = 0.199 and from 6(Na,Cl) = 0.193 to 6(Na,Cl) = 0.222. The
+small changes in geometry are negligible, and comparisons of DIs obtained with
+the same geometry yield an identical result. Although the change in DI upon in-
+clusion of electron correlation is small in these systems, it is rather clear that the DI
+
+increases, like in the weak-interaction limit.
+
+Finally, we note that delocalization indices obtained at the CCSD/Miiller level
+are highly correlated with Hartree-Fock values: Pearson’s correlation coefficient for
+the 1,666 bonds analysed is 0.938, and the individual correlation coefficients for
+each group of compounds are all above 0.9.
+
+As the calculated wavefunction approaches the exact wavefunction, our inter-
+pretation of it evolves. In view of these results, Lewis structures can be considered
+as a baseline, and the deviations of it at higher levels of theory are not a failure to
+recover bond order, but contrarily offer a deeper understanding into the physical
+nature of bonding. The delocalization index thus provides a tool that extends the
+
+classical idea of bond order towards general domains.

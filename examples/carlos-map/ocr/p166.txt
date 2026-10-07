@@ -1,0 +1,40 @@
+5.3. EFFICIENT ALGORITHM 165
+Dor
+Tir | ; A(U3r,tret) < d(C ir, ter) < d(T 2x, rer)
+> y(Pir) = (Por) = y( sr)
+
+[sr
+
+Figure 5.3: Diagram of the symmetry algorithm. Given a point in 3K-dimensional
+space, all its symmetry equivalent configurations are generated, and the corre-
+sponding distances with the pivot point are computed. The point that minimises
+
+the distance with the pivot is in the right region (and the transformation).
+
+experimentation shows that the RMSD between Cartesian coordinates as computed
+with Kabsch algorithm [327] is usually adequate. Future work might be devoted to
+
+develop a more general metric derived from first principles.
+
+5.3.2 Implementation in FFLUX
+
+The algorithm described above was implemented in the last version of DL_POLY
+FFLUX [232], with some modifications and corrections. We will outline this imple-
+mentation, describing its structure and the logic behind. Moreover, the FORTRAN
+
+code of our routines is provided in Appendix B.
+
+All the operations of the algorithm are implemented in the two_body_forces.f90
+file, where previous work incorporated the valence potential of FFLUX [232]. Ef-
+fectively, when the FFLUX potential is active (represented by the variable keyfce
+being equal to 7), the subroutine evaluates the IQA kriging models and returns the
+
+corresponding derivatives for the forces.
+
+Our approach was conceived to preserve as much of the previous implementa-
+tion as possible, and is depicted in Figure 5.4. Instead of applying the symmetry
+operations during the prediction model, we modify the Cartesian coordinates to
+ensure that the features are in the appropriate symmetry region. This is a done
+through a subroutine fflux_symmetry_transformation, that is applied before the pro-
+
+cess of computing the features and then the forces.

@@ -1,0 +1,41 @@
+84 CHAPTER 2. LITERATURE REVIEW
+
+much the previous velocity influences the current one. The consecutive two terms
+represent how the particle is attracted by its best position, and by the best position
+that the swarm has visited. In this way, the particle is allowed to explore the land-
+scape of the function (global exploration), while carefully checking the surround-
+
+ings of previously found minima (local exploitation).
+
+Of course, to ensure that the algorithm works properly, it is necessary to find
+appropriate parameters for w, cj and cz. Fortunately, this algorithm has been well
+
+studied, and fine-tuned parameters are available [198].
+
+2.6 The Quantum Chemical Topology Force Field
+2.6.1 Previous work
+
+The Popelier work has been working for more than a decade in the development of
+a novel polarisable force field that is able to correctly describe electrostatic interac-
+tions by means of conformationally-dependent multipoles. This is done by employ-
+ing Gaussian process regression to predict topological multipoles computed from
+the Quantum Theory of Atoms in Molecules. We will briefly present a historical re-
+view of the most important feats in this development; a comprehensive description
+
+of the formulation is given in Chapter 3.
+
+The origins of this idea can be traced back to the early research in QTAIM multi-
+poles described in Section 2.4.4, especially regarding the good mathematical prop-
+erties of these objects. Given the fast convergence to the quantum electrostatic po-
+tential, Liem and Popelier proposed a force field based on rigid molecules endowed
+with static, high-order multipoles to obtain accurate electrostatics. This potential
+was tested almost 15 years ago for hydrogen fluoride [199] and water [200], with
+very promising results. In particular, in the former they found the spontaneous for-
+mation of chains of hydrogen-bonded monomers, as well as very good agreement
+
+of calculated bulk properties with experiment; similar results were found for water.
+
+Grounded on this work, the group started the development of a flexible polaris-
+able force field based in conformationally-dependent topological multipoles, which
+
+was initially named QCTFF (Quantum Chemical Topology Force Field), although

@@ -1,0 +1,43 @@
+60 CHAPTER 2. LITERATURE REVIEW
+
+This approach is based on the work of Schrédinger [159]:
+
+1[¥] = / F(t, .., ty, ¥, Vi¥,-Vn¥) (2.92)
+F= Rw Vit} +(V—-A)Y*Y (2.93)
+
+Here, A is a Lagrange’s multiplier. The approach is rooted on calculus of varia-
+tions: we search for a function that creates a stationary (hopefully minimum) point
+in the functional within the allowed trial functions defined as ¢ = ¥ + d¥.
+
+The derivation proceeds by assuming free boundary conditions, noting that a
+solution for a problem with free boundary conditions is also a solution for a prob-
+
+lem with fixed boundary conditions. The variation equation is:
+
+oF
+51[¥,Q] = f. F5,SdS+ f° ee dS + [ Spo¥dt +c. (2.94)
+Here, 6,S is the normal variation of the boundary at each of its points. Since
+Euler-Lagrange approach leads to the Schrédinger equation HY = EY, it is only
+
+necessary to take care of the surface terms in the previous equation. In a many-
+
+electron system, these can be easily written as:
+
+é1[¥,Q] = Elf, | acieons as+ fe [a roe as| (2.95)
+
+Here we have employed the notation dr; to indicate integration over all elec-
+tronic coordinates except the ith. Now, since free boundary conditions are only
+assumed for one electron, all the terms in the previous expression vanish except
+
+one:
+
+oF
+
+we ™ (2.96)
+
+61[¥,Q] = f. dS; / dr [Fonsi + OHS
+
+Since we are integrating only over r1, all the terms with i 1 are integrated
+8 & only 1 er
+
+over IR°, and these turn out to be zero (this can be seen by transformation onto a
