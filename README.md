@@ -11,12 +11,12 @@ DPhil thesis repository: research projects, knowledge base, figures and the thes
 | `kb/` | Obsidian vault: claims, concepts, literature notes, decisions |
 | `examples/` | Reference theses and their structure maps |
 
-| Project | Chapter |
-|---|---|
-| `projects/1-ValDX` | `thesis/chapters/03-valdx.tex` |
-| `projects/2-jaxENT` | `thesis/chapters/04-jaxent.tex` |
-| `projects/3-BioFeaturisers` | `thesis/chapters/05-biofeaturisers.tex` |
-| `projects/4-jax-Ka` | `thesis/chapters/06-jax-ka.tex` |
+| Project | Chapter | Latex | Manuscript/Chapter Status |
+|---|---|---|---|
+| `projects/1-ValDX` | `thesis/chapters/03-valdx.tex` | `projects/1-ValDX/manuscript/main_omc.tex` | `manuscript` (post-review) |
+| `projects/2-jaxENT` | `thesis/chapters/04-jaxent.tex` | `projects/2-jaxENT/manuscript/main.tex` | `draft-manuscript` (confirmation, outdated experiments) |
+| `projects/3-BioFeaturisers` | `thesis/chapters/05-biofeaturisers.tex` | n/a | `none` (preliminary experiments) |
+| `projects/4-jax-Ka` | `thesis/chapters/06-jax-ka.tex` | n/a | `none` (preliminary experiments) |
 
 ## Setup
 ```
