@@ -1,13 +1,10 @@
 # jaxENT
 
-- **Status:** Code, analyses and manuscript
 - **Thesis chapter:** `thesis/chapters/04-jaxent.tex`
-- **Code:** `code/` — add as a pinned submodule: `git submodule add <repo-url> projects/2-jaxENT/code`, then check out the commit used for the thesis results.
-- **Pinned commit:** TODO
-- **Paper:** TODO (DOI / preprint link)
-- **Milestone:** Confirmation of status (`milestones/2025-11-confirmation-of-status/`)
+- **Status:** code and analyses; manuscript unfinished
+- **Milestone:** confirmation of status (`milestones/2025-11-confirmation-of-status/`)
 
-## Layout
-- `code/` — submodule of the project repository
-- `analyses/` — thesis-specific scripts and notebooks that are not in the code repo
-- `manuscript/` — paper as submitted / published
+| Folder | Submodule | Pinned commit |
+|---|---|---|
+| `code/` | [JAX-ENT](https://github.com/alexisiddiqui/JAX-ENT) (code and analyses) | `37043b5` |
+| `manuscript/` | [jaxENT_paper1](https://github.com/alexisiddiqui/jaxENT_paper1) (unfinished) | `db6cae7` |
