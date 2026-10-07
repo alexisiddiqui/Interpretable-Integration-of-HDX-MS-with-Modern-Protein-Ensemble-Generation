@@ -1,0 +1,27 @@
+[submodule "projects/1-ValDX/code"]
+	path = projects/1-ValDX/code
+	url = https://github.com/alexisiddiqui/ValDX
+[submodule "projects/1-ValDX/analyses"]
+	path = projects/1-ValDX/analyses
+	url = https://github.com/alexisiddiqui/interpretable-hdxer
+[submodule "projects/1-ValDX/manuscript"]
+	path = projects/1-ValDX/manuscript
+	url = https://github.com/alexisiddiqui/Machine-Learning-Methods-for-Biophysics-Ensemble-Integration-HDX-MS
+[submodule "projects/2-jaxENT/code"]
+	path = projects/2-jaxENT/code
+	url = https://github.com/alexisiddiqui/JAX-ENT
+[submodule "projects/2-jaxENT/manuscript"]
+	path = projects/2-jaxENT/manuscript
+	url = https://github.com/alexisiddiqui/jaxENT_paper1
+[submodule "projects/3-BioFeaturisers/code"]
+	path = projects/3-BioFeaturisers/code
+	url = https://github.com/alexisiddiqui/BioFeaturisers
+[submodule "projects/3-BioFeaturisers/meta-diffusion"]
+	path = projects/3-BioFeaturisers/meta-diffusion
+	url = https://github.com/alexisiddiqui/MaxENT-FK
+[submodule "projects/4-jax-Ka/code"]
+	path = projects/4-jax-Ka/code
+	url = https://github.com/alexisiddiqui/jax-Ka
+[submodule "milestones/2025-11-confirmation-of-status"]
+	path = milestones/2025-11-confirmation-of-status
+	url = https://github.com/alexisiddiqui/Confirmation-Introduction
