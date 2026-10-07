@@ -1,3 +1,0 @@
-Code +Analyses
-Manuscript
-Confirmation

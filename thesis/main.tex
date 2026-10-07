@@ -1,0 +1,33 @@
+\documentclass[11pt,a4paper,twoside,openright]{report}
+\input{preamble}
+
+\title{Interpretable Integration of HDX-MS with Modern Protein Ensemble Generation}
+\author{Alexander Hussain}
+\date{}
+
+\begin{document}
+
+\pagenumbering{roman}
+\maketitle
+\input{frontmatter/abstract}
+\input{frontmatter/acknowledgements}
+\tableofcontents
+\listoffigures
+\listoftables
+
+\cleardoublepage
+\pagenumbering{arabic}
+\include{chapters/01-introduction}
+\include{chapters/02-background}
+\include{chapters/03-valdx}
+\include{chapters/04-jaxent}
+\include{chapters/05-biofeaturisers}
+\include{chapters/06-jax-ka}
+\include{chapters/07-conclusion}
+
+\printbibliography[heading=bibintoc]
+
+\appendix
+% \include{appendices/...}
+
+\end{document}

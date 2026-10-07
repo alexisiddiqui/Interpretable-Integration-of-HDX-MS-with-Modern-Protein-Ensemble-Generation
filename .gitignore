@@ -220,3 +220,31 @@ __marimo__/
 .streamlit/secrets.toml
 
 *.pdf
+# LaTeX
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+*.out
+*.toc
+*.run.xml
+*.synctex.gz
+*-blx.bib
+thesis/build/
+
+# Obsidian
+kb/.obsidian/workspace*
+kb/.obsidian/cache
+kb/.trash/
+
+# OS
+.DS_Store
+
+# Thesis-map build caches and optional interface-test dependencies
+/tools/thesis-map/.cache/
+/tools/thesis-map/tests/node_modules/
+/tools/thesis-map/tests/test-results/
