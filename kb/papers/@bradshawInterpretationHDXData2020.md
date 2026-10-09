@@ -72,6 +72,11 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "To predict deuterium uptake based on structural snapshots (obtained from MD simulations or other molecular modeling method), we first calculate the protection factor"
   - quote_check: pass
   - reviewed: false
+- Apparent work W_app is related to the Kullback-Leibler divergence between the initial and corrected ensembles, D_KL = W_app / k_e T. ^c11
+  - page: 9
+  - quote: "is related to the Kullback-Leibler divergence between the initial and corrected ensembles"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

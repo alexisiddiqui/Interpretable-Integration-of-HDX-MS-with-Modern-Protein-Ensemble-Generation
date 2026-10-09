@@ -22,7 +22,7 @@ Cesari et al. describe the [[maximum entropy principle]] as giving the distribut
 
 ## Caveats
 
-Cesari et al. do not use apparent work (W_app), and the equivalence of W_app with the KL divergence is not stated in the cited papers. Lee et al. p9 (block ^c10) and Bradshaw et al. p9 describe apparent work as the bias cost in HDXer, but neither is cited here. Jaynes (1957) has no PDF.
+Cesari et al. do not use apparent work (W_app), and the equivalence of W_app with the KL divergence is not stated in the cited papers. Lee et al. p9 (block ^c10) and Bradshaw et al. p9 describe apparent work as the bias cost in HDXer, but neither is cited here. The statement that W_app is related to the Kullback-Leibler divergence (D_KL = W_app / k_e T) is in Bradshaw et al. p9 (@bradshawInterpretationHDXData2020 ^c11), the likely intended source; it is not cited here. Jaynes (1957) has no PDF.
 
 ## Unverified citations
 

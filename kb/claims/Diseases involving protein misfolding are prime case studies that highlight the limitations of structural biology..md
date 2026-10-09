@@ -4,11 +4,11 @@ chapter: 01-introduction
 project:
 basis: stated
 confidence: medium
-status: supported
+status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/biological_dynamics.tex#L26
 source_state: current
-needs_review: false
-review_reason:
+needs_review: true
+review_reason: Support is partial or indirect
 figures: []
 cites:
   - "[[@sotoProteinMisfoldingAggregation2018#^c3]]"
@@ -24,6 +24,8 @@ Soto and Pritzkow describe misfolded oligomers as an ill-defined, heterogeneous 
 ## Caveats
 
 Soto and Pritzkow make these points about misfolded oligomers and PrPSc specifically; the sentence generalizes to protein-misfolding diseases. The other cited paper (Mukherjee) could not be checked. The Biancaniello paper (@biancanielloStructureDynamicsMisfolding2025 p1 ^c2, p8 ^c9) makes a similar point about X-ray crystallography, NMR and cryo-EM, but it is not cited for this sentence.
+
+The cited passages cover misfolded oligomers (Soto and Pritzkow p2 ^c3, ^c5) and PrPSc (p5 ^c6) only, so the general statement about misfolding diseases goes beyond them.
 
 ## Unverified citations
 

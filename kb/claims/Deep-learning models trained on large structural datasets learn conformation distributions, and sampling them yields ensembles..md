@@ -3,12 +3,12 @@ type: claim
 chapter: 01-introduction
 project:
 basis: stated
-confidence: high
-status: supported
+confidence: medium
+status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/ensemble_generators.tex#L59
 source_state: current
-needs_review: false
-review_reason: 
+needs_review: true
+review_reason: Support is partial or indirect
 figures: []
 cites:
   - "[[@zhengMachineLearningGeneration2023#^c3]]"
@@ -23,3 +23,5 @@ Zheng et al. describe generative deep learning models that learn the regularitie
 ## Caveats
 
 Zheng et al. discuss generative models for ensembles in general, not only protein structure models such as AlphaFold.
+
+Zheng et al. do not state that the training datasets are large, and p11 says only limited successes have been demonstrated for generating dynamic protein conformations.
