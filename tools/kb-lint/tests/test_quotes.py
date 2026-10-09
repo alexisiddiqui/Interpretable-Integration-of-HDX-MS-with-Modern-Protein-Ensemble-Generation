@@ -1,0 +1,67 @@
+from helpers import edit
+from model import load_vault
+from quotes import PdfText, check_quotes, normalise, write_quote_checks
+
+PAPER = "kb/papers/@smith2020.md"
+
+
+def run_quotes(repo, tmp_path):
+    vault = load_vault(repo)
+    issues = check_quotes(vault, PdfText(tmp_path / "cache"))
+    return vault, [(i.severity, i.check, i.message) for i in issues]
+
+
+def test_normalise_handles_ligatures_hyphens_quotes_and_spacing():
+    assert normalise("ﬁeld  pro-\ntection “x”") == normalise('field protection "x"')
+    assert normalise("force-field") == normalise("force‐\nfield")
+    assert normalise("soft­hyphen") == "softhyphen"
+
+
+def test_pdf_pages_split_and_cache(repo, tmp_path):
+    pdf_text = PdfText(tmp_path / "cache")
+    pages = pdf_text.pages(repo / "kb/_pdf/@smith2020.pdf")
+    assert len(pages) == 3
+    assert "protection factors" in pages[0]
+    assert len(list((tmp_path / "cache").glob("*.txt"))) == 1
+
+
+def test_quotes_found_including_across_a_page_break(repo, tmp_path):
+    vault, issues = run_quotes(repo, tmp_path)
+    assert issues == []
+    assert [b.computed for b in vault.find("@smith2020").blocks] == ["pass", "pass"]
+    assert [b.computed for b in vault.find("@jones2019").blocks] == [None]  # no PDF, not checked
+
+
+def test_missing_quote_in_cited_block_is_an_error(repo, tmp_path):
+    edit(repo, PAPER, '"reports on backbone amide protection factors"', '"words the paper never said"')
+    _, issues = run_quotes(repo, tmp_path)
+    assert ("error", 2, "^c1: quote not found on PDF page 1") in issues
+
+
+def test_missing_quote_in_uncited_unreviewed_block_is_a_warning(repo, tmp_path):
+    edit(repo, PAPER, '"The effect carries over to the next page"', '"invented text"')
+    _, issues = run_quotes(repo, tmp_path)
+    assert ("warning", 2, "^c2: quote not found on PDF page 2") in issues
+
+
+def test_page_outside_pdf(repo, tmp_path):
+    edit(repo, PAPER, "  - page: 2", "  - page: 9")
+    _, issues = run_quotes(repo, tmp_path)
+    assert ("warning", 2, "^c2: page 9 is outside the PDF (3 pages)") in issues
+
+
+def test_pdf_not_present_locally_is_a_warning_and_keeps_recorded_state(repo, tmp_path):
+    (repo / "kb/_pdf/@smith2020.pdf").unlink()
+    vault, issues = run_quotes(repo, tmp_path)
+    assert issues == [("warning", 2, "PDF kb/_pdf/@smith2020.pdf not found locally; quotes not checked")]
+    assert [b.computed for b in vault.find("@smith2020").blocks] == [None, None]
+
+
+def test_write_changes_only_quote_check_lines(repo, tmp_path):
+    before = (repo / PAPER).read_text(encoding="utf-8")
+    vault, _ = run_quotes(repo, tmp_path)
+    assert write_quote_checks(vault) == [repo / PAPER]
+    after = (repo / PAPER).read_text(encoding="utf-8")
+    assert after == before.replace("quote_check: unchecked", "quote_check: pass")
+    vault, _ = run_quotes(repo, tmp_path)
+    assert write_quote_checks(vault) == []  # nothing left to change
