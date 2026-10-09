@@ -21,4 +21,4 @@ Fiorin et al. describe the colvars module, which combines collective variables w
 
 ## Caveats
 
-The passage does not describe online analysis of collective variables or steering towards underexplored regions.
+Fiorin et al. p7 has a section 2.1 on runtime analysis, which covers computing colvars and their properties while a simulation runs. Nothing there guides sampling towards underexplored regions. The passage does not describe online analysis of collective variables or steering towards underexplored regions.

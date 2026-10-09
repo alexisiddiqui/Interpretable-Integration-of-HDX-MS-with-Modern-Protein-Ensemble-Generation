@@ -32,6 +32,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "AlphaFold is an AI system developed by DeepMind that makes state-of-the-art predictions of protein structures from their amino-acid sequences"
   - quote_check: pass
   - reviewed: false
+- Experimentally determined structures archived in the PDB enabled the training of AlphaFold. ^c3
+  - page: 5
+  - quote: "whose experimentally determined structures, archived in the PDB, enabled the training of AlphaFold"
+  - quote_check: pass
+  - reviewed: false
+- Public protein sequence archives such as UniProt, BFD and MGnify collected and organised the protein-sequence data used for predicting structures. ^c4
+  - page: 5
+  - quote: "public protein sequence archives such as the UniProt consortium, BFD and MGnify in collecting and organizing protein-sequence data"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

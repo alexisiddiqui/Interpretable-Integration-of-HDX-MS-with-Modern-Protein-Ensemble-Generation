@@ -21,4 +21,4 @@ Bussi and Laio say the effectiveness of metadynamics is strongly influenced by t
 
 ## Caveats
 
-Complex computational requirements and destruction of equilibrium properties are not stated. Bussi and Laio say well-tempered metadynamics reaches a quasi-equilibrium state in which the bias gives an exact estimator for the free energy.
+Partial support for the other two limitations: Bussi and Laio p4 say that with large Gaussians the system is strongly out of equilibrium, and p6 says filling a multidimensional space becomes more expensive as the number of CVs grows. Neither passage states complex computational requirements or destruction of equilibrium properties in general terms. Bussi and Laio also say well-tempered metadynamics reaches a quasi-equilibrium state in which the bias gives an exact estimator for the free energy.

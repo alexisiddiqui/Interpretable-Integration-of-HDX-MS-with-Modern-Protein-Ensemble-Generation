@@ -22,4 +22,4 @@ Abramson et al. present a diffusion-based AlphaFold 3 that predicts complexes of
 
 ## Caveats
 
-The phrase end-to-end training is not used in the checked passages.
+Nearest support: @abramsonAccurateStructurePrediction2024 p3 (^c5) describes a generative training procedure that produces a distribution of answers, and p1 (^c1) describes predicting complexes of nearly all molecular types, with the diffusion module directly predicting raw atom coordinates. Neither passage states that training is end-to-end, so that key term remains unsupported. The phrase end-to-end training is not used in the checked passages.
