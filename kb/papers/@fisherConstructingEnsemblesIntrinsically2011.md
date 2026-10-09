@@ -22,6 +22,21 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Intrinsically disordered proteins have relatively flat energy landscapes and sample a large, diverse set of conformations at room temperature. ^c1
+  - page: 1
+  - quote: "these proteins sample a relatively large and diverse set of conformations at room temperature"
+  - quote_check: pass
+  - reviewed: false
+- Any comprehensive description of an intrinsically disordered protein requires constructing an ensemble. ^c2
+  - page: 5
+  - quote: "Any comprehensive description of an IDP necessitates the construction of an ensemble"
+  - quote_check: pass
+  - reviewed: false
+- Long-ranged contacts found in some IDP ensembles may be associated with important functional properties. ^c3
+  - page: 6
+  - quote: "these contacts may be associated with important functional properties"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

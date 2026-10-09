@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Previous work on light chains indicates that differences in conformational dynamics can play a role in the aggregation properties of amyloidogenic light chains. ^c1
+  - page: 2
+  - quote: "Previous work on LCs has indicated how differences in conformational dynamics can play a role in the aggregation properties of AL-LCs"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

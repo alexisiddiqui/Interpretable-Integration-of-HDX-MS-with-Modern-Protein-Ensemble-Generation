@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Multi-conformational data are scarce: only roughly 12,000 NMR-derived protein ensembles exist, covering just 21% of CATH superfamilies. ^c1
+  - page: 3
+  - quote: "only roughly 12,000 NMR-derived protein ensembles covering just 21% of CATH superfamilies"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

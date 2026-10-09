@@ -1,0 +1,23 @@
+---
+type: claim
+chapter: 01-introduction
+project:
+basis: stated
+confidence: low
+status: draft
+origin: milestones/2025-11-confirmation-of-status/introduction/biological_dynamics.tex#L36
+source_state: current
+needs_review: true
+review_reason: Cited paper does not support the claim
+figures: []
+cites: []
+code: []
+---
+
+## Argument
+
+Ahmed et al. do not discuss pathogenic mutations of alpha-synuclein.
+
+## Unverified citations
+
+- [[@ahmedRefinementASynucleinEnsembles2021]]: no passage supporting this claim found

@@ -37,6 +37,11 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "enable high-resolution, quantitative, robust, and objective structural ensembles to be derived directly from the experimental measurements"
   - quote_check: pass
   - reviewed: false
+- Using single structures to interpret HDX data underutilizes the information encoded in the measurement. ^c4
+  - page: 2
+  - quote: "limitation of using single structures to interpret HDX data, however, is that this approach underutilizes the information inherently encoded in the experimental measurement"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

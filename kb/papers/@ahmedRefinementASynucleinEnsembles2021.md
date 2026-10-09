@@ -42,6 +42,11 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "We have measured new SAXS data on the protein α-synuclein, and integrate this with simulations performed using different force fields"
   - quote_check: pass
   - reviewed: false
+- Monomeric alpha-synuclein is known to be disordered and to populate multiple conformational states. ^c5
+  - page: 2
+  - quote: "in its monomeric state is known to be disordered and populate multiple conformational states"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

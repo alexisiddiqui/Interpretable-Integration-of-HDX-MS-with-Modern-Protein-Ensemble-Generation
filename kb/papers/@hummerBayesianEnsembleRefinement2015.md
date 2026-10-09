@@ -37,6 +37,11 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "maximum entropy “ensemble refinement of SAXS” (EROS) formulation"
   - quote_check: pass
   - reviewed: false
+- Most experimental observables report on averages over the entire ensemble of structures, so only the appropriate average over a model ensemble should match the experiment. ^c4
+  - page: 1
+  - quote: "most observables accessible to experiment report on averages over the entire ensemble of structures"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

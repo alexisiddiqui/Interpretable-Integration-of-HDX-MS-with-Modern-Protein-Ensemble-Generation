@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Alongside X-ray crystallography, the more common tool for determining a drug target's structure, NMR and more recently cryo-EM are also important players. ^c1
+  - page: 4
+  - quote: "but nuclear magnetic resonance (NMR) and, more recently, cryo-electron microscopy (cryo-EM) are also important players in the field"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

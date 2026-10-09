@@ -27,6 +27,11 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "a consistent increase in the population of the polyproline-II conformations and a decrease of α-helical-like conformations"
   - quote_check: pass
   - reviewed: false
+- Ensemble refinement produces structural ensembles of flexible, dynamic biomolecules by integrating experimental data with molecular simulations. ^c2
+  - page: 1
+  - quote: "Ensemble reﬁnement produces structural ensembles of ﬂexible and dynamic biomolecules by integrating experimental data and molecular simulations"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

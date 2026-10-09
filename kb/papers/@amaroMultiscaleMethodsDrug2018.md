@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- The dynamic nature of drug targets and the complexity of biological systems challenge scientific understanding. ^c1
+  - page: 1
+  - quote: "The dynamic nature of drug targets and the breathtaking complexity of biological systems challenge scientific understanding"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

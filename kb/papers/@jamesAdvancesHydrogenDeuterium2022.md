@@ -42,6 +42,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "this results in a gradual mass shift over the course of deuteration"
   - quote_check: pass
   - reviewed: false
+- Concrete 3-D structural information, meaning exact atomic positions, is what NMR, crystallography and cryo-EM provide and what HDX-MS data alone cannot. ^c5
+  - page: 40
+  - quote: "exact details about atomic positions akin to NMR, crystallography, or cryoEM"
+  - quote_check: pass
+  - reviewed: false
+- Structure-resolving techniques such as cryo-EM have advanced faster than the techniques for resolving and modelling disordered regions. ^c6
+  - page: 24
+  - quote: "have fallen behind advances in structureresolving techniques such as cryoEM"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 
