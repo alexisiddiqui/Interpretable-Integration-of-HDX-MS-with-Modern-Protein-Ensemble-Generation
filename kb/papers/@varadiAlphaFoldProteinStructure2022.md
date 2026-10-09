@@ -42,6 +42,11 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "public protein sequence archives such as the UniProt consortium, BFD and MGnify in collecting and organizing protein-sequence data"
   - quote_check: pass
   - reviewed: false
+- UniProt archives almost 220 million unique protein sequences, while the PDB holds just over 180,000 experimental 3D structures. ^c5
+  - page: 1
+  - quote: "archives almost 220 million unique protein sequences, the Protein Data Bank (PDB) holds only just over 180 000 3D structures"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 
