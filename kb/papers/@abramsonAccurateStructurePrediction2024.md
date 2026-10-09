@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- AlphaFold 3 is a single model that predicts the structure of complexes containing nearly all molecular types in the Protein Data Bank with high accuracy. ^c1
+  - page: 1
+  - quote: "a model that is capable of high-accuracy prediction of complexes containing nearly all molecular types present in the Protein Data Bank"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

@@ -22,6 +22,21 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Ensemble refinement is becoming more important as structural biology turns to dynamic and partially disordered biomolecular structures. ^c1
+  - page: 1
+  - quote: "structural biology enters a new era in which dynamic and partially disordered biomolecular structures come into focus"
+  - quote_check: pass
+  - reviewed: false
+- Dynamic and partially disordered biomolecular systems play central roles in biology, including in disease. ^c2
+  - page: 1
+  - quote: "play central roles in biology, both in functional cellular processes ranging from signal transduction to the formation of large cellular structures, and in disease"
+  - quote_check: pass
+  - reviewed: false
+- The optimal Bayesian ensemble distribution for discrete configurations is identical to that of the maximum-entropy ensemble-refinement-of-SAXS (EROS) formulation. ^c3
+  - page: 1
+  - quote: "maximum entropy “ensemble refinement of SAXS” (EROS) formulation"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

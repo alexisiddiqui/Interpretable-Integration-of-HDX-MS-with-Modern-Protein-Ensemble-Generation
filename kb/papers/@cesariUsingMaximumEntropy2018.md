@@ -22,6 +22,21 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Bulk experiments measure averages over heterogeneous mixtures of structures that contribute to the observation with different weights. ^c1
+  - page: 2
+  - quote: "heterogeneous structures might be mixed and contribute with different weights to the experimental observation"
+  - quote_check: pass
+  - reviewed: false
+- Accounting for experimental errors in the maximum entropy method is fundamental to reducing over-fitting. ^c2
+  - page: 7
+  - quote: "This step is fundamental in order to reduce over-fitting"
+  - quote_check: pass
+  - reviewed: false
+- An ensemble-reweighting-of-SAXS method based on a related reweighting procedure has been used to construct structural ensembles of proteins compatible with SAXS data. ^c3
+  - page: 13
+  - quote: "that has been used to construct structural ensembles of proteins compatible with SAXS data"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

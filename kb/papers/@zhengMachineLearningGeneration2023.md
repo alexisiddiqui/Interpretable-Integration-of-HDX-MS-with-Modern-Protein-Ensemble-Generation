@@ -22,6 +22,16 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- AlphaFold and RoseTTAFold are end-to-end deep learning methods that can generate high-quality structures for entire proteomes. ^c1
+  - page: 2
+  - quote: "end-to-end deep machine learning (ML) methods capable of generating highquality structures for the entire proteomes"
+  - quote_check: pass
+  - reviewed: false
+- Machine-learning structure prediction tools have drastically expanded the structural coverage of proteins. ^c2
+  - page: 2
+  - quote: "Together, these powerful tools have drastically expanded the structural coverage of proteins"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

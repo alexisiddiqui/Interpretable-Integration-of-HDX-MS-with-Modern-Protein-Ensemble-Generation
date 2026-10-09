@@ -32,6 +32,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "nearly any protein system, many of which are too large, flexible, heterogeneous, or sample limited to be analyzed by other existing structural tools"
   - quote_check: pass
   - reviewed: false
+- Deuterium incorporation is readily measured by MS because protium and deuterium differ in mass by about one Dalton. ^c3
+  - page: 2
+  - quote: "the levels of deuterium incorporation are readily measured with MS, thanks to the approximately one Dalton mass difference"
+  - quote_check: pass
+  - reviewed: false
+- At the peptide level, deuteration under EX2 kinetics produces a gradual mass shift over the course of labelling. ^c4
+  - page: 3
+  - quote: "this results in a gradual mass shift over the course of deuteration"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

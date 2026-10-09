@@ -22,6 +22,26 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- SAXS is often used to determine the overall size of multimodular or partially unfolded proteins by monitoring the radius of gyration. ^c1
+  - page: 11
+  - quote: "SAXS is often used to determine the overall size of multimodular or partially unfolded proteins by monitoring RG"
+  - quote_check: pass
+  - reviewed: false
+- The structural information SAXS yields is only the size, shape and conformational distribution, even when a high-resolution atomic model is used in the modelling. ^c2
+  - page: 11
+  - quote: "The structural information that can be extracted is only the size, shape and conformational distribution"
+  - quote_check: pass
+  - reviewed: false
+- Data quality from low-concentration SAXS samples (under 1 mg/ml) has improved significantly. ^c3
+  - page: 2
+  - quote: "significant improvement in data quality from low concentration samples (<1 mg/ml)"
+  - quote_check: pass
+  - reviewed: false
+- SAXS can provide structural information on molecules with intrinsic disorder, flexibility or heterogeneity, which have been a major obstacle for other classical structural methods. ^c4
+  - page: 2
+  - quote: "it can provide structural information on molecules exhibiting some intrinsic disorder, flexibility or heterogeneity"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

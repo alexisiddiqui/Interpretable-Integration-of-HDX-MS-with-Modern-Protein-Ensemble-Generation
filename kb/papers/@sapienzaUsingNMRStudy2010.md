@@ -22,6 +22,16 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- NMR is particularly well suited to characterising protein dynamics in solution at atomic resolution. ^c1
+  - page: 1
+  - quote: "NMR spectroscopy is particularly well-suited to characterize dynamics of proteins and other molecules in solution at atomic resolution"
+  - quote_check: pass
+  - reviewed: false
+- Protein motions span timescales from picoseconds to days, and NMR methods are sensitive to essentially this entire range. ^c2
+  - page: 7
+  - quote: "Protein motions occur on timescales from ps to days, and NMR methods are sensitive to essentially this entire timescale"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

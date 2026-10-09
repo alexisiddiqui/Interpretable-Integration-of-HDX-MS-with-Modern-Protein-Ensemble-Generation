@@ -3,6 +3,12 @@
 
 ## Cited paper does not support the claim
 
+- [[19F-NMR of beta2-adrenergic receptors showed biased agonists give distinct shift patterns, linking dynamics to signalling bias.]] (`claims/19F-NMR of beta2-adrenergic receptors showed biased agonists give distinct shift patterns, linking dynamics to signalling bias..md`)
+- [[HDX-MS mapped ACE2 and antibody binding sites on the SARS-CoV-2 spike protein to predict immune escape mechanisms.]] (`claims/HDX-MS mapped ACE2 and antibody binding sites on the SARS-CoV-2 spike protein to predict immune escape mechanisms..md`)
+- [[HDX-MS mapped binding sites on HIV-1 Vif and enabled inhibitor screening where traditional structural characterisation failed.]] (`claims/HDX-MS mapped binding sites on HIV-1 Vif and enabled inhibitor screening where traditional structural characterisation failed..md`)
+- [[NMR relaxation showed the central helix of calmodulin is flexible in solution, though it appears rigid in crystal structures.]] (`claims/NMR relaxation showed the central helix of calmodulin is flexible in solution, though it appears rigid in crystal structures..md`)
+- [[NMR showed protective picosecond intramolecular interactions in soluble alpha-synuclein, whose disruption starts aggregation.]] (`claims/NMR showed protective picosecond intramolecular interactions in soluble alpha-synuclein, whose disruption starts aggregation..md`)
+- [[SAXS has been integrated with cross-linking MS and HDX-MS to constrain conformational ensembles across length scales.]] (`claims/SAXS has been integrated with cross-linking MS and HDX-MS to constrain conformational ensembles across length scales..md`)
 - [[Structure-to-uptake models rely on hydrogen bonding and solvent exposure but add systematic errors that accumulate at peptide level.]] (`claims/Structure-to-uptake models rely on hydrogen bonding and solvent exposure but add systematic errors that accumulate at peptide level..md`)
 
 ## No PDF in Zotero; add kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto
@@ -24,12 +30,21 @@
 
 ## Support is partial or indirect
 
+- [[Different methods can measure protein dynamics, depending on the system, timescale and experimental conditions.]] (`claims/Different methods can measure protein dynamics, depending on the system, timescale and experimental conditions..md`)
 - [[Ensemble reweighting adjusts structural contributions so proposed conformational states can be tested against experiment.]] (`claims/Ensemble reweighting adjusts structural contributions so proposed conformational states can be tested against experiment..md`)
 - [[Ensembles have far more degrees of freedom than observables, so any single data source leaves them underdetermined.]] (`claims/Ensembles have far more degrees of freedom than observables, so any single data source leaves them underdetermined..md`)
 - [[Experimental biophysical data are increasingly used in concert rather than in isolation.]] (`claims/Experimental biophysical data are increasingly used in concert rather than in isolation..md`)
 - [[HDX-MS flexibility and increasing throughput make it well suited to challenging targets such as GPCRs, antibodies and IDPs.]] (`claims/HDX-MS flexibility and increasing throughput make it well suited to challenging targets such as GPCRs, antibodies and IDPs..md`)
 - [[NMR relaxation probes dynamics across timescales from picoseconds to seconds within a comparable analytical framework.]] (`claims/NMR relaxation probes dynamics across timescales from picoseconds to seconds within a comparable analytical framework..md`)
+- [[NMR typically needs larger samples and is limited to smaller proteins or domains by sensitivity and spectral complexity.]] (`claims/NMR typically needs larger samples and is limited to smaller proteins or domains by sensitivity and spectral complexity..md`)
 - [[Orthogonal to X-ray, cryo-EM and NMR, HDX-MS probes without size limits and uniquely unravels dynamics in diverse conditions.]] (`claims/Orthogonal to X-ray, cryo-EM and NMR, HDX-MS probes without size limits and uniquely unravels dynamics in diverse conditions..md`)
+- [[Quantifying state populations requires experimental measurements of protein dynamics.]] (`claims/Quantifying state populations requires experimental measurements of protein dynamics..md`)
+- [[SAXS can capture conformational changes and dynamics by analysing scattering profiles under different conditions or over time.]] (`claims/SAXS can capture conformational changes and dynamics by analysing scattering profiles under different conditions or over time..md`)
 - [[SAXS ensembles have been refined against scattering profiles using Bayesian inference and maximum entropy reweighting.]] (`claims/SAXS ensembles have been refined against scattering profiles using Bayesian inference and maximum entropy reweighting..md`)
+- [[SAXS with MD simulations and ensemble refinement gives minimal ensembles consistent with restraints, without overfitting.]] (`claims/SAXS with MD simulations and ensemble refinement gives minimal ensembles consistent with restraints, without overfitting..md`)
 - [[Successful reweighting shows which conformations fit experiment, giving pseudo-structural models of solution behaviour.]] (`claims/Successful reweighting shows which conformations fit experiment, giving pseudo-structural models of solution behaviour..md`)
+- [[The emerging bottleneck is scoring generated structures against in vitro and in vivo behaviour.]] (`claims/The emerging bottleneck is scoring generated structures against in vitro and in vivo behaviour..md`)
+- [[The primary benefits of HDX-MS are sensitivity, flexibility and low sample needs compared with other biophysical techniques.]] (`claims/The primary benefits of HDX-MS are sensitivity, flexibility and low sample needs compared with other biophysical techniques..md`)
 - [[To address this ambiguity, researchers increasingly turn to molecular simulations for structural hypotheses.]] (`claims/To address this ambiguity, researchers increasingly turn to molecular simulations for structural hypotheses..md`)
+- [[Useful ensemble generation requires quantifying the relative populations of each state, not only generating structures.]] (`claims/Useful ensemble generation requires quantifying the relative populations of each state, not only generating structures..md`)
+- [[Without experimental measurements of protein dynamics, the biological mechanism of misfunction can remain unclear.]] (`claims/Without experimental measurements of protein dynamics, the biological mechanism of misfunction can remain unclear..md`)
