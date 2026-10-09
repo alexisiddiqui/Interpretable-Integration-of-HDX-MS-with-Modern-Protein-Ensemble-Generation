@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- The maximum entropy framework provides a recipe for constructing the least biased probability distribution compatible with data-derived constraints. ^c1
+  - page: 4
+  - quote: "provides a recipe to construct the ‘optimal’ (i.e. least biased) probability distribution compatible with a given set of data-derived constraints"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

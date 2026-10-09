@@ -27,6 +27,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "For each glycoform of the IgG1—FccRIa complex peptic peptides of Fab, Fc and FccRIa report distinct H/D exchange rates"
   - quote_check: pass
   - reviewed: false
+- Molecular dynamics simulations are a powerful way to understand conformational dynamics by adding time to static three-dimensional coordinates. ^c2
+  - page: 2
+  - quote: "Molecular dynamics simulations are a powerful way to gain understanding about conformational dynamics by projecting a fourth dimension (time) to the static 3D coordinates"
+  - quote_check: pass
+  - reviewed: false
+- Many groups have had success with post hoc ensemble pruning or with restraining simulations using HDX-MS data for simpler systems. ^c3
+  - page: 2
+  - quote: "Many groups have had success in either post hoc ensemble pruning or restraining simulations using HDX-MS data for simpler systems"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

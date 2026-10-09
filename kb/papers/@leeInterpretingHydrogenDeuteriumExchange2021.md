@@ -42,6 +42,36 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "limitation of using single structures to interpret HDX data, however, is that this approach underutilizes the information inherently encoded in the experimental measurement"
   - quote_check: pass
   - reviewed: false
+- The connection between deuterium exchange and structural flexibility offers the possibility to interpret HDX data in a structural context. ^c5
+  - page: 2
+  - quote: "The connection between deuterium exchange and structural flexibility offers the possibility to interpret HDX in a structural context"
+  - quote_check: pass
+  - reviewed: false
+- HDXer is classified as a post-hoc maximum entropy ensemble reweighting method. ^c6
+  - page: 5
+  - quote: "We classify HDXer itself as a post-hoc maximum entropy ensemble reweighting method"
+  - quote_check: pass
+  - reviewed: false
+- HDXer minimally biases the relative populations of frames in a previously generated candidate structural ensemble. ^c7
+  - page: 5
+  - quote: "HDXer minimally biases the relative populations of frames in a previously-generated candidate structural ensemble"
+  - quote_check: pass
+  - reviewed: false
+- The HDXer software is a Python 3.7 package. ^c8
+  - page: 16
+  - quote: "The HDXer software itself is a Python 3.7 package"
+  - quote_check: pass
+  - reviewed: false
+- HDXer's protection factors can be translated into an overall H-D exchange rate and fractional deuteration for peptide segments, allowing direct comparison to HDX-MS data. ^c9
+  - page: 3
+  - quote: "These values can then be translated into an overall H-D exchange rate and fractional deuteration, for any combination of residues in a peptide segment"
+  - quote_check: pass
+  - reviewed: false
+- HDXer iteratively minimises a distance function that balances the bias applied to the ensemble, quantified as an apparent work, against an error distribution. ^c10
+  - page: 9
+  - quote: "HDXer iteratively minimizes a distance function that balances the bias applied, quantified across the whole ensemble as an apparent work"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

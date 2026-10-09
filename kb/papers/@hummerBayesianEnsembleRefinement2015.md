@@ -42,6 +42,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "most observables accessible to experiment report on averages over the entire ensemble of structures"
   - quote_check: pass
   - reviewed: false
+- Bayesian replica ensemble refinement enhances sampling of relevant configurations by restraining averages of observables in coupled replica molecular dynamics simulations. ^c5
+  - page: 1
+  - quote: "Bayesian replica ensemble refinement enhances the sampling of relevant configurations by imposing restraints on averages of observables in coupled replica molecular dynamics simulations"
+  - quote_check: pass
+  - reviewed: false
+- Inverse problems are typically ill-conditioned and underdetermined. ^c6
+  - page: 2
+  - quote: "Inverse problems are typically ill-conditioned, i.e., sensitive to input parameter variations, and underdetermined"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

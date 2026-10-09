@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Maximum Entropy produces the minimum perturbation to the original ensemble such that it fits the experimental data. ^c1
+  - page: 2
+  - quote: "Maximum Entropy produces the minimum perturbation to the original ensemble so that it fits the experimental data"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 
