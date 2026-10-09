@@ -240,6 +240,8 @@ thesis/build/
 kb/.obsidian/workspace*
 kb/.obsidian/cache
 kb/.trash/
+kb/_pdf/
+kb/.cache/
 
 # OS
 .DS_Store
