@@ -133,7 +133,7 @@ review_reason: No PDF available
 
 - Ensembles explain HDX better than single structures. ^c1
   - page: 3
-  - quote: "ensembles explain exchange better"
+  - quote: "ensembles explain hydrogen exchange better"
   - quote_check: unchecked
   - reviewed: false
 """

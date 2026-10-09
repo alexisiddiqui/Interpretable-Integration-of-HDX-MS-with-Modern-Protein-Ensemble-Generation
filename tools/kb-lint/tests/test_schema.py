@@ -88,3 +88,23 @@ def test_method_without_code_is_check_9(repo):
     start = text.index("code:")
     path.write_text(text[:start] + "code: []\n---\n", encoding="utf-8")
     assert ("error", 9) in {(m[0], m[1]) for m in messages(repo)}
+
+
+def test_recorded_pass_on_paper_without_pdf_is_an_error(repo):
+    edit(repo, "kb/papers/@jones2019.md", "quote_check: unchecked", "quote_check: pass")
+    assert any("^c1: quote_check is pass, but this paper has no PDF" in m[3] for m in messages(repo))
+
+
+def test_pdf_path_must_match_citekey(repo):
+    edit(repo, PAPER, "pdf: kb/_pdf/@smith2020.pdf", "pdf: kb/_pdf/@jones2019.pdf")
+    assert any("pdf must be empty or kb/_pdf/@smith2020.pdf" in m[3] for m in messages(repo))
+
+
+def test_short_quote_is_rejected(repo):
+    edit(repo, PAPER, '"reports on backbone amide protection factors"', '"protection factors"')
+    assert any("^c1: quote is 2 words; use at least 5" in m[3] for m in messages(repo))
+
+
+def test_note_at_vault_root_is_linted(repo):
+    write(repo, "kb/Untitled.md", "Just text\n")
+    assert any(m[2] == "kb/Untitled.md" and "missing frontmatter type" in m[3] for m in messages(repo))

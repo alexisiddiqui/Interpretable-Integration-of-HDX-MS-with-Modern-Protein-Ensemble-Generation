@@ -6,6 +6,7 @@ import re
 from model import Issue
 
 STATUSES = ("draft", "supported", "in-thesis")
+MIN_QUOTE_WORDS = 5   # long enough to identify one passage
 MAX_QUOTE_WORDS = 25
 ANY_TYPE_KEYS = {"tags", "aliases", "cssclasses"}  # Obsidian's own properties
 UNTYPED_FOLDERS = {"chapters", "inbox"}
@@ -176,13 +177,21 @@ def check_note(note):
 def _check_paper(note, error):
     meta = note.meta
     issues = []
-    if isinstance(meta.get("citekey"), str) and note.name != "@" + meta["citekey"]:
-        issues.append(error(f"note name must be @{meta['citekey']} to match its citekey"))
-    if (meta.get("extraction") == "none" or not meta.get("pdf")) and meta.get("needs_review") is not True:
+    citekey = meta.get("citekey") if isinstance(meta.get("citekey"), str) else None
+    if citekey and note.name != "@" + citekey:
+        issues.append(error(f"note name must be @{citekey} to match its citekey"))
+    if citekey and meta.get("pdf") and meta["pdf"] != f"kb/_pdf/@{citekey}.pdf":
+        issues.append(error(f"pdf must be empty or kb/_pdf/@{citekey}.pdf"))
+    no_pdf = meta.get("extraction") == "none" or not meta.get("pdf")
+    if no_pdf and meta.get("needs_review") is not True:
         issues.append(error("papers without a PDF must set needs_review: true with a review_reason"))
     issues += [error(problem) for problem in note.block_problems]
     for block in note.blocks:
         words = len(block.quote.split()) if block.quote else 0
         if words > MAX_QUOTE_WORDS:
             issues.append(error(f"^{block.id}: quote is {words} words; keep it to {MAX_QUOTE_WORDS} or fewer"))
+        elif 0 < words < MIN_QUOTE_WORDS:
+            issues.append(error(f"^{block.id}: quote is {words} words; use at least {MIN_QUOTE_WORDS} so it identifies one passage"))
+        if no_pdf and block.quote_check in ("pass", "fail"):
+            issues.append(error(f"^{block.id}: quote_check is {block.quote_check}, but this paper has no PDF and only the lint sets it; use unchecked"))
     return issues

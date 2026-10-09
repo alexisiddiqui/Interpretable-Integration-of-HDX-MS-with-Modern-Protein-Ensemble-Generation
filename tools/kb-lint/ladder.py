@@ -28,6 +28,11 @@ def check_ladder(vault):
             link = parse_wikilink(entry)
             target = vault.find(link[0]) if link and link[1] else None
             block = target.block(link[1]) if target is not None and target.type == "paper" else None
-            if block is not None and block.effective_quote_check != "pass":
-                error(f"cited claim {entry} has quote_check: {block.effective_quote_check}")
+            if block is None or block.computed == "pass":
+                continue
+            if block.computed == "fail":
+                error(f"cited claim {entry} has quote_check: fail")
+            else:  # PDF absent or not checkable: a recorded value is not evidence
+                error(f"cited claim {entry} was not verified against its PDF in this run "
+                      f"(recorded quote_check: {block.quote_check}); add the PDF under kb/_pdf/")
     return issues

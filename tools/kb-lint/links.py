@@ -1,6 +1,10 @@
 """Checks 3 (figure IDs exist), 4 (cites and citekeys resolve) and 5 (example theses are never cited)."""
 
+import re
+
 from model import Issue, parse_wikilink
+
+FIGURE_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*$")  # one folder name under figures/
 
 
 def check_links(vault):
@@ -13,17 +17,22 @@ def check_links(vault):
 
         if note.type == "claim":
             for fig_id in _strings(meta.get("figures")):
-                if not (vault.root / "figures" / fig_id).is_dir():
-                    error(3, f"figure '{fig_id}' not found under figures/")
+                _check_figure(vault, fig_id, error)
             for entry in _strings(meta.get("cites")):
                 _check_cite(vault, note, entry, error)
         if note.type == "figure" and isinstance(meta.get("fig_id"), str):
-            if not (vault.root / "figures" / meta["fig_id"]).is_dir():
-                error(3, f"figure '{meta['fig_id']}' not found under figures/")
+            _check_figure(vault, meta["fig_id"], error)
         if note.type == "paper" and isinstance(meta.get("citekey"), str):
             if meta["citekey"] not in vault.bib_keys:
                 error(4, f"citekey '{meta['citekey']}' is not in thesis/references.bib")
     return issues
+
+
+def _check_figure(vault, fig_id, error):
+    if not FIGURE_ID.match(fig_id):
+        error(3, f"'{fig_id}' is not a valid figure ID; use the folder name under figures/")
+    elif not (vault.root / "figures" / fig_id).is_dir():
+        error(3, f"figure '{fig_id}' not found under figures/")
 
 
 def _check_cite(vault, note, entry, error):

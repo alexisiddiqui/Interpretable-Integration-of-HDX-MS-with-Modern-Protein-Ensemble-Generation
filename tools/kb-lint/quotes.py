@@ -21,6 +21,11 @@ def normalise(text):
     return " ".join(text.split()).lower()
 
 
+def contains_words(text, quote):
+    """True if quote occurs in text without starting or ending inside a word."""
+    return re.search(r"(?<!\w)" + re.escape(quote) + r"(?!\w)", text) is not None
+
+
 class PdfText:
     """Per-page PDF text from pdftotext, cached by the PDF's SHA-256."""
 
@@ -74,7 +79,7 @@ def check_quotes(vault, pdf_text):
             else:
                 # A quote may run onto the next page.
                 window = pages[block.page - 1] + "\n" + (pages[block.page] if block.page < len(pages) else "")
-                found = normalise(block.quote) in normalise(window)
+                found = contains_words(normalise(window), normalise(block.quote))
                 detail = f"quote not found on PDF page {block.page}"
             block.computed = "pass" if found else "fail"
             if not found:
@@ -94,7 +99,7 @@ def write_quote_checks(vault):
         for block in edits:
             line = note.lines[block.quote_check_line]
             note.lines[block.quote_check_line] = re.sub(
-                r"(quote_check:\s*)\S*", lambda m: m.group(1) + block.computed, line, count=1
+                r"quote_check:[^\r\n]*", lambda m: "quote_check: " + block.computed, line, count=1
             )
             block.quote_check = block.computed
         if edits:

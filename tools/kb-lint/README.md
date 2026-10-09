@@ -26,13 +26,13 @@ Exit codes: 0 with no errors, 1 with errors, 2 when there is no `kb/` folder. Wa
 
 | # | Check | Severity |
 |---|---|---|
-| 1 | Frontmatter matches the schema for the note type; `review_reason` present when `needs_review` is true; paper notes named `@<citekey>`; papers without a PDF flagged; claim blocks complete; quotes of 25 words or fewer | error (unexpected fields: warning) |
-| 2 | Each quote appears on its cited PDF page, or runs onto the next one | error if the block is `reviewed` or cited by a claim, otherwise warning; PDF absent locally: warning |
-| 3 | Figure IDs exist under `figures/` | error |
+| 1 | Frontmatter matches the schema for the note type; `review_reason` present when `needs_review` is true; paper notes named `@<citekey>` with `pdf` empty or `kb/_pdf/@<citekey>.pdf`; papers without a PDF flagged and their `quote_check` left `unchecked`; claim blocks complete; quotes of 5 to 25 words | error (unexpected fields: warning) |
+| 2 | Each quote appears, as whole words, on its cited PDF page or running onto the next one | error if the block is `reviewed` or cited by a claim, otherwise warning; PDF absent locally: warning |
+| 3 | Figure IDs are plain folder names that exist under `figures/` | error |
 | 4 | `cites` entries resolve to a block in a paper note; citekeys exist in `thesis/references.bib` | error |
 | 5 | No claim cites a note in `ref-theses/` | error |
-| 6 | `supported` / `in-thesis` claims have evidence, are not flagged for review, cite only quotes that passed, and outdated sources come with a figure | error |
-| 7 | Code references resolve: commit, file and line range exist in the submodule | error; submodule not checked out: warning |
+| 6 | `supported` / `in-thesis` claims have evidence, are not flagged for review, cite only quotes verified against their PDF in this run (a recorded `pass` is not enough), and outdated sources come with a figure | error |
+| 7 | Code references resolve: commit, file and line range exist in the submodule | error; a real submodule that is not checked out: warning |
 | 8 | The referenced file changed between the recorded commit and the pinned one | warning |
 | 9 | Method notes have at least one code reference | error |
 
@@ -40,7 +40,8 @@ Check 10 (phrase echo against the example theses) arrives with the example-thesi
 
 ## Behaviour
 
-- Notes are every `*.md` under `kb/` except files directly in `kb/` (`README.md`, `review-queue.md`), `_templates/`, `_pdf/` and hidden folders. Notes in `chapters/` and `inbox/` may have no frontmatter type.
+- Notes are every `*.md` under `kb/` except `kb/README.md`, `kb/review-queue.md`, `_templates/`, `_pdf/` and hidden folders. Notes saved at the vault root are linted too. Notes in `chapters/` and `inbox/` may have no frontmatter type.
 - PDF text comes from `pdftotext` without `-layout`, which keeps two-column articles in reading order. It is cached in `kb/.cache/pdftext/` by the PDF's SHA-256. Ligatures, line-break hyphens, curly quotes, dashes, case and spacing are normalised before comparing.
 - A code reference is `<submodule path>@<sha>:<file>#L<start>-<end>` (`#L<n>` for one line). Drift is measured against the commit the superproject pins (`git ls-tree HEAD`), or the submodule's checked-out commit when there is no gitlink.
+- A claim can only be `supported` on a machine that has the cited PDFs, because the ladder trusts only quotes checked in the current run.
 - `--write` touches only `quote_check:` lines in paper notes and `kb/review-queue.md`, and only when they change.

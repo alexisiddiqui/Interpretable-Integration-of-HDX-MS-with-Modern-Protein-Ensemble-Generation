@@ -97,3 +97,8 @@ def test_cli_exit_codes(repo):
     assert bad.returncode == 1
     assert "ERROR [check 1] kb/claims/HDX-MS constrains ensemble reweighting.md: 'status' must be one of" in bad.stdout
     assert cli("--root", str(repo / "nowhere")).returncode == 2
+
+
+def test_generated_review_queue_is_not_linted(repo):
+    run(repo, write=True)
+    assert [str(i) for i in run(repo).errors] == []

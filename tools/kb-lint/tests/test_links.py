@@ -37,3 +37,9 @@ def test_citekey_missing_from_bib(repo):
 def test_figure_note_id_must_exist(repo):
     edit(repo, "kb/figures/fig-hdx-uptake.md", "fig_id: fig-hdx-uptake", "fig_id: fig-gone")
     assert (3, "figure 'fig-gone' not found under figures/") in messages(repo)
+
+
+@pytest.mark.parametrize("bad_id", ['""', '"."', '".."', '"a/b"'])
+def test_figure_id_must_be_a_plain_folder_name(repo, bad_id):
+    edit(repo, CLAIM, "  - fig-hdx-uptake", f"  - {bad_id}")
+    assert any(c == 3 and "is not a valid figure ID" in m for c, m in messages(repo))

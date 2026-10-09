@@ -67,3 +67,9 @@ def test_bump_that_does_not_touch_the_file_is_not_drift(repo):
     new = commit_file(code, "other.py", "x = 1\n")
     pin(repo, "projects/demo/code", new)
     assert entry_messages(repo, f"projects/demo/code@{old[:7]}:model.py#L1-2") == []
+
+
+def test_path_that_is_not_a_submodule_is_an_error(repo):
+    [(severity, check, message)] = entry_messages(repo, f"projects/demo/cdoe@{head(repo)[:7]}:model.py#L1-2")
+    assert (severity, check) == ("error", 7)
+    assert "projects/demo/cdoe is not a submodule or git repository" in message

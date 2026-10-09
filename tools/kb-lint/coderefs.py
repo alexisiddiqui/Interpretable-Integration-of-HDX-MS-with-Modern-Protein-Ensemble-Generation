@@ -27,6 +27,15 @@ def pinned_commit(root, repo_rel):
     return head.stdout.strip() if head.returncode == 0 else None
 
 
+def is_submodule(root, repo_rel):
+    """True if the superproject pins repo_rel as a gitlink or lists it in .gitmodules."""
+    if git(root, "ls-tree", "HEAD", "--", repo_rel).stdout.startswith("160000 "):
+        return True
+    gitmodules = root / ".gitmodules"
+    pattern = r"^\s*path\s*=\s*" + re.escape(repo_rel) + r"\s*$"
+    return gitmodules.is_file() and re.search(pattern, gitmodules.read_text(encoding="utf-8"), re.M) is not None
+
+
 def check_code_refs(vault):
     issues = []
     for note in vault.notes:
@@ -51,7 +60,9 @@ def check_entry(root, rel, entry):
     if not repo.is_relative_to(root.resolve()):
         return issue("error", 7, f"code entry '{entry}' points outside the repository")
     if not (repo / ".git").exists():
-        return issue("warning", 7, f"{repo_rel} is not checked out; run git submodule update --init to check '{entry}'")
+        if is_submodule(root, repo_rel):
+            return issue("warning", 7, f"{repo_rel} is not checked out; run git submodule update --init to check '{entry}'")
+        return issue("error", 7, f"{repo_rel} is not a submodule or git repository")
     resolved = git(repo, "rev-parse", "--verify", "--quiet", sha + "^{commit}")
     if resolved.returncode != 0:
         return issue("error", 7, f"commit {sha} not found in {repo_rel} (try git -C {repo_rel} fetch)")

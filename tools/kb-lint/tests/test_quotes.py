@@ -65,3 +65,16 @@ def test_write_changes_only_quote_check_lines(repo, tmp_path):
     assert after == before.replace("quote_check: unchecked", "quote_check: pass")
     vault, _ = run_quotes(repo, tmp_path)
     assert write_quote_checks(vault) == []  # nothing left to change
+
+
+def test_write_fills_an_empty_quote_check_without_eating_the_next_line(repo, tmp_path):
+    edit(repo, PAPER, "  - quote_check: unchecked\n  - reviewed: false\n- Reweighting", "  - quote_check:\n  - reviewed: false\n- Reweighting")
+    vault, _ = run_quotes(repo, tmp_path)
+    write_quote_checks(vault)
+    assert "  - quote_check: pass\n  - reviewed: false\n- Reweighting" in (repo / PAPER).read_text(encoding="utf-8")
+
+
+def test_quote_must_match_whole_words(repo, tmp_path):
+    edit(repo, PAPER, '"reports on backbone amide protection factors"', '"ports on backbone amide protection fact"')
+    _, issues = run_quotes(repo, tmp_path)
+    assert ("error", 2, "^c1: quote not found on PDF page 1") in issues

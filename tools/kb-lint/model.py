@@ -7,6 +7,7 @@ import re
 import yaml
 
 SKIP_DIRS = {"_templates", "_pdf"}
+ROOT_FILES = {"README.md", "review-queue.md"}  # kb/ files that are not notes
 REF_THESES = "ref-theses"
 QUOTE_STATES = ("pass", "fail", "unchecked")
 BLOCK_FIELDS = ("page", "quote", "quote_check", "reviewed")
@@ -223,8 +224,8 @@ def load_vault(root):
     notes = []
     for path in sorted(kb.rglob("*.md")):
         parts = path.relative_to(kb).parts
-        if len(parts) == 1 or any(p.startswith(".") or p in SKIP_DIRS for p in parts[:-1]):
-            continue  # kb/README.md, kb/review-queue.md, templates, PDFs, Obsidian state
+        if (len(parts) == 1 and parts[0] in ROOT_FILES) or any(p.startswith(".") or p in SKIP_DIRS for p in parts[:-1]):
+            continue  # templates, PDFs, Obsidian state
         note = Note(path=path, rel=path.relative_to(root).as_posix(), kb_rel="/".join(parts), lines=[])
         try:
             note.lines = path.read_text(encoding="utf-8").splitlines(keepends=True)
