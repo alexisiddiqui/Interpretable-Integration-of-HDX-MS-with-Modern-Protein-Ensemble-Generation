@@ -32,6 +32,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "Protein motions occur on timescales from ps to days, and NMR methods are sensitive to essentially this entire timescale"
   - quote_check: pass
   - reviewed: false
+- In free calmodulin the middle of the central helix, rigid in the crystal structure, was shown by NMR relaxation to be flexible in solution on the timescale of hundreds of picoseconds. ^c3
+  - page: 4
+  - quote: "the middle of central “helix” is flexible in solution on the timescale of hundreds of picoseconds"
+  - quote_check: pass
+  - reviewed: false
+- This central kink in the calmodulin helix allows the two lobes to come together and bind targets. ^c4
+  - page: 4
+  - quote: "This central kink in the helix allows the two lobes to come together and bind targets"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

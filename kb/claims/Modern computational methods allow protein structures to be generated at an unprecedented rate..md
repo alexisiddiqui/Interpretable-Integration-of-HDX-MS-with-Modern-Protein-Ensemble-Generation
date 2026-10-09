@@ -3,12 +3,12 @@ type: claim
 chapter: 01-introduction
 project:
 basis: stated
-confidence: high
-status: supported
+confidence: medium
+status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/measuring_dynamics.tex#L5
 source_state: current
-needs_review: false
-review_reason:
+needs_review: true
+review_reason: Support is partial or indirect
 figures: []
 cites:
   - "[[@abramsonAccurateStructurePrediction2024#^c1]]"
