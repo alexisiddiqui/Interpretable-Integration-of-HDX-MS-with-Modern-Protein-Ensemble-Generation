@@ -2,6 +2,8 @@
 
 DPhil thesis repository: research projects, knowledge base, figures and the thesis itself.
 
+Explore the [interactive research map](research-map/map.html), built directly from the project code, READMEs, reports and LaTeX sources. See [the map builder](tools/project-map/README.md) to refresh its evidence.
+
 | Folder | Contents |
 |---|---|
 | `thesis/` | LaTeX source of the thesis (`main.tex`, chapters, single `references.bib`) |

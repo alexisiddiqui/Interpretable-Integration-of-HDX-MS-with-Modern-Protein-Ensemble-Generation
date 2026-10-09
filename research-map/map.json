@@ -1,0 +1,3198 @@
+{
+  "schema_version": "repository-project-map/1.0",
+  "meta": {
+    "title": "Interpretable Integration of HDX-MS with Modern Protein Ensemble Generation",
+    "display_title": "From exchange to ensembles",
+    "author": "Alexander Hussain",
+    "degree": "DPhil research map",
+    "arc": "How can solution measurements distinguish structural explanations of protein dynamics, and how can that evidence guide the ensembles we generate?",
+    "summary": "A programme connecting validation, flexible ensemble inference, differentiable observables, and experimental guidance. Protein titration extends the same emphasis on interpretable, differentiable physical models into pH-dependent sequence objectives.",
+    "narrative_basis": "The programme-level narrative and conceptual connections are a synthesis of the repository sources, rather than a completed thesis argument.",
+    "source_method": "Curated interpretation of local READMEs, code, reports, and LaTeX; excerpts and headings extracted directly from files.",
+    "source_count": 48,
+    "claim_count": 24,
+    "review_note": "Source records substantiate capabilities and reported findings. Research experiments and package test suites were not rerun to build this map."
+  },
+  "journey": [
+    {
+      "id": "problem",
+      "number": "01",
+      "title": "Ask what the data can distinguish",
+      "kicker": "The inverse problem",
+      "text": "HDX reports on exchange through an indirect, ensemble-level measurement. Multiple structural explanations can agree with those measurements.",
+      "takeaway": "Compare explanations and their uncertainty.",
+      "sources": [
+        "val-author"
+      ],
+      "basis": "stated"
+    },
+    {
+      "id": "validate",
+      "number": "02",
+      "title": "Validate the explanation",
+      "kicker": "ValDX · Chapter 3",
+      "project": "valdx",
+      "text": "Test unseen peptide information, quantify changes required during fitting, and compare candidate ensembles rather than relying on uptake error alone.",
+      "takeaway": "Agreement needs structural diagnostics.",
+      "sources": [
+        "val-abstract",
+        "val-splits"
+      ],
+      "basis": "stated"
+    },
+    {
+      "id": "infer",
+      "number": "03",
+      "title": "Make inference flexible",
+      "kicker": "jaxENT · Chapter 4",
+      "project": "jaxent",
+      "text": "Use differentiable optimisation to adjust populations and prediction-model parameters, with composable losses, priors, and population benchmarks.",
+      "takeaway": "Separate model choices from structural evidence.",
+      "sources": [
+        "jax-gradients",
+        "jax-priors",
+        "jax-moprp"
+      ],
+      "basis": "stated"
+    },
+    {
+      "id": "observe",
+      "number": "04",
+      "title": "Differentiate the observables",
+      "kicker": "BioFeaturisers · Chapter 5",
+      "project": "biofeaturisers",
+      "text": "Connect changing atomic coordinates to HDX, SAXS, and solvent-accessibility predictions so experimental objectives can influence structure updates.",
+      "takeaway": "Move from weight gradients to coordinate gradients.",
+      "sources": [
+        "bio-readme",
+        "bio-hdx",
+        "bio-saxs"
+      ],
+      "basis": "inferred"
+    },
+    {
+      "id": "guide",
+      "number": "05",
+      "title": "Guide generation and test its limits",
+      "kicker": "MaxENT-FK · Chapter 5 workstream",
+      "project": "maxent-fk",
+      "text": "Couple ensemble fitting and coordinate gradients to Boltz sampling. Test identifiability, seeded maintenance, and creation of missing states as separate questions.",
+      "takeaway": "A mean fit is not population recovery.",
+      "sources": [
+        "fk-config",
+        "fk-v2",
+        "fk-supported",
+        "fk-maintenance"
+      ],
+      "basis": "stated"
+    },
+    {
+      "id": "titrate",
+      "number": "06",
+      "title": "Extend differentiable physical modelling",
+      "kicker": "jax-Ka · Chapter 6 · related branch",
+      "project": "jax-ka",
+      "text": "Model titration and charge on frozen structures under soft sequence identities, with gradients for pH-dependent bound/free objectives.",
+      "takeaway": "Numerical qualification precedes scientific calibration.",
+      "sources": [
+        "ka-readme",
+        "ka-selectivity",
+        "ka-limits"
+      ],
+      "basis": "inferred",
+      "branch": true
+    }
+  ],
+  "projects": [
+    {
+      "id": "valdx",
+      "name": "ValDX",
+      "chapter": 3,
+      "color": "#227b70",
+      "verb": "Validate",
+      "status": "Post-review manuscript",
+      "status_kind": "manuscript",
+      "tagline": "Assess and rank candidate explanations of protein dynamics.",
+      "question": "How can we compare structural hypotheses when uptake agreement alone does not establish population accuracy?",
+      "summary": "A validation framework combining overlap-aware splitting, replicate-based uncertainty estimates, and Work Done diagnostics. It examines the effect of ensemble composition, clustering, fitting order, and kinetic misspecification.",
+      "inputs": "HDX uptake or residue protection factors; candidate structural ensembles from molecular dynamics and AlphaFold-derived sampling.",
+      "outputs": "Held-out predictions, uncertainty estimates, Work Done profiles, and comparative assessments of ensemble representativeness.",
+      "boundary": "Conclusions are comparative across supplied ensembles and the chosen forward model. Reweighting cannot add absent states; good uptake agreement does not validate exchange kinetics.",
+      "next": "Carry the post-review findings and their limits into Chapter 3, with explicit separation of predictive fit and structural inference.",
+      "sources": [
+        "val-status",
+        "val-abstract",
+        "val-limits"
+      ],
+      "tags": [
+        "HDX-MS",
+        "cross-validation",
+        "Work Done",
+        "uncertainty",
+        "clustering",
+        "TeaA",
+        "BRD4"
+      ],
+      "claims": [
+        {
+          "id": "val-fit",
+          "title": "Prediction error is insufficient evidence of population accuracy",
+          "text": "The manuscript finds that conventional fitting error alone does not establish the accuracy of ensemble populations. Complementary diagnostics support comparison of candidate explanations.",
+          "kind": "finding",
+          "basis": "stated",
+          "sources": [
+            "val-abstract",
+            "val-author"
+          ]
+        },
+        {
+          "id": "val-split",
+          "title": "Validate unseen information, accounting for peptide overlap",
+          "text": "Sequence-based non-redundant and spatial splits remove overlapping training peptides; repeated splits assess sensitivity to the data partition.",
+          "kind": "method",
+          "basis": "stated",
+          "sources": [
+            "val-splits",
+            "val-abstract"
+          ]
+        },
+        {
+          "id": "val-metrics",
+          "title": "Work Done measures changes in model-predicted protection",
+          "text": "Shape, scale, and density describe different changes between prior and fitted protection profiles. Their interpretation remains conditional on the empirical forward model.",
+          "kind": "method",
+          "basis": "stated",
+          "sources": [
+            "val-work",
+            "val-limits"
+          ]
+        },
+        {
+          "id": "val-benchmark",
+          "title": "The post-review study covers 22 ensembles across six proteins",
+          "text": "The abstract reports a multi-system evaluation, retention of performance at 10–20% of the parent ensemble through clustering, and smaller representations that aid interpretation.",
+          "kind": "finding",
+          "basis": "stated",
+          "sources": [
+            "val-abstract"
+          ]
+        },
+        {
+          "id": "val-order",
+          "title": "Fitting order changes population distortion under kinetic mismatch",
+          "text": "The synthetic benchmark reports that calibrating forward-model parameters before reweighting limits population distortion. Restored uptake agreement still does not establish population recovery or correct kinetics.",
+          "kind": "finding",
+          "basis": "stated",
+          "sources": [
+            "val-protocol",
+            "val-limits"
+          ]
+        }
+      ],
+      "experiments": [
+        {
+          "id": "val-teaa",
+          "title": "TeaA isolated validation",
+          "text": "Open/closed reference conformations define a synthetic 40:60 target; bimodal and trimodal candidate ensembles probe population recovery and alternative support.",
+          "state": "Synthetic benchmark",
+          "sources": [
+            "val-iso"
+          ]
+        },
+        {
+          "id": "val-panel",
+          "title": "Multi-protein ensemble comparison",
+          "text": "The post-review manuscript compares predictive agreement, Work Done, clustering, and optimisation protocols across candidate ensembles.",
+          "state": "Manuscript findings",
+          "sources": [
+            "val-abstract"
+          ]
+        },
+        {
+          "id": "val-kinetics",
+          "title": "Imposed exchange-kinetic mismatch",
+          "text": "A controlled departure from the EX2 fitting assumption tests whether model calibration and reweighting distort the generating populations.",
+          "state": "Synthetic benchmark",
+          "sources": [
+            "val-protocol",
+            "val-limits"
+          ]
+        }
+      ],
+      "modules": [
+        {
+          "id": "val-runner",
+          "title": "ValDX / ValidationDX.py",
+          "text": "Experiment orchestration around HDXer: predictions, split replicates, training, validation, and reweighting.",
+          "sources": [
+            "val-code"
+          ]
+        }
+      ],
+      "manuscripts": [
+        {
+          "title": "Post-review results and discussion",
+          "path": "projects/1-ValDX/manuscript/report/7_results_omc.tex",
+          "headings": [
+            {
+              "title": "Results",
+              "level": 0,
+              "number": "1",
+              "line": 2,
+              "path": "projects/1-ValDX/manuscript/report/7_results_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/7_results_omc.tex"
+            },
+            {
+              "title": "Conceptual Framework for Ensemble Validation",
+              "level": 1,
+              "number": "1.1",
+              "line": 4,
+              "path": "projects/1-ValDX/manuscript/report/7_results_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/7_results_omc.tex"
+            },
+            {
+              "title": "Ensemble integration success is insufficiently explained by training error",
+              "level": 1,
+              "number": "1.2",
+              "line": 34,
+              "path": "projects/1-ValDX/manuscript/report/7_results_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/7_results_omc.tex"
+            },
+            {
+              "title": "Work Done metrics reveal distinct ensemble representativeness at global and local structural scales",
+              "level": 1,
+              "number": "1.3",
+              "line": 64,
+              "path": "projects/1-ValDX/manuscript/report/7_results_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/7_results_omc.tex"
+            },
+            {
+              "title": "Replicates facilitate uncertainty quantification in model parameter optimisation",
+              "level": 1,
+              "number": "1.4",
+              "line": 101,
+              "path": "projects/1-ValDX/manuscript/report/7_results_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/7_results_omc.tex"
+            },
+            {
+              "title": "Optimisation protocol choice affects ensemble-model reliability",
+              "level": 1,
+              "number": "1.5",
+              "line": 132,
+              "path": "projects/1-ValDX/manuscript/report/7_results_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/7_results_omc.tex"
+            },
+            {
+              "title": "Staged protocols respond differently to kinetic misspecification",
+              "level": 1,
+              "number": "1.6",
+              "line": 189,
+              "path": "projects/1-ValDX/manuscript/report/7_results_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/7_results_omc.tex"
+            },
+            {
+              "title": "Discussion",
+              "level": 0,
+              "number": "2",
+              "line": 216,
+              "path": "projects/1-ValDX/manuscript/report/7_results_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/7_results_omc.tex"
+            },
+            {
+              "title": "Limitations",
+              "level": 1,
+              "number": "2.1",
+              "line": 244,
+              "path": "projects/1-ValDX/manuscript/report/7_results_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/7_results_omc.tex"
+            },
+            {
+              "title": "General recommendations",
+              "level": 1,
+              "number": "2.2",
+              "line": 250,
+              "path": "projects/1-ValDX/manuscript/report/7_results_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/7_results_omc.tex"
+            },
+            {
+              "title": "Ensemble generation considerations",
+              "level": 1,
+              "number": "2.3",
+              "line": 265,
+              "path": "projects/1-ValDX/manuscript/report/7_results_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/7_results_omc.tex"
+            },
+            {
+              "title": "Acknowledgements",
+              "level": 0,
+              "number": "3",
+              "line": 281,
+              "path": "projects/1-ValDX/manuscript/report/7_results_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/7_results_omc.tex"
+            }
+          ]
+        },
+        {
+          "title": "Materials and methods",
+          "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+          "headings": [
+            {
+              "title": "Materials and Methods",
+              "level": 0,
+              "number": "1",
+              "line": 17,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "HDX Data",
+              "level": 1,
+              "number": "1.1",
+              "line": 19,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "HDX-MS data processing",
+              "level": 2,
+              "number": "1.1.1",
+              "line": 54,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Ensemble Generation Experiments",
+              "level": 1,
+              "number": "1.2",
+              "line": 83,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Iso-Validation Experiments",
+              "level": 2,
+              "number": "1.2.1",
+              "line": 107,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Kinetic Misspecification Experiments",
+              "level": 2,
+              "number": "1.2.2",
+              "line": 126,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "AlphaFold Experiments",
+              "level": 2,
+              "number": "1.2.3",
+              "line": 164,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "MD Experiments",
+              "level": 2,
+              "number": "1.2.4",
+              "line": 189,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Structure Poisoning Experiments",
+              "level": 2,
+              "number": "1.2.5",
+              "line": 256,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Quantifying Ensemble Similarity and Conformational Coverage",
+              "level": 1,
+              "number": "1.3",
+              "line": 295,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Dimensionality Reduction",
+              "level": 2,
+              "number": "1.3.1",
+              "line": 299,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Structural Comparison",
+              "level": 2,
+              "number": "1.3.2",
+              "line": 303,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Dynamics Comparison",
+              "level": 2,
+              "number": "1.3.3",
+              "line": 328,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Reweighting and Optimisation Methods",
+              "level": 1,
+              "number": "1.4",
+              "line": 356,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "HDXer Loss Function",
+              "level": 2,
+              "number": "1.4.1",
+              "line": 378,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Validation Framework",
+              "level": 1,
+              "number": "1.5",
+              "line": 468,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "ValDX Process Flow",
+              "level": 2,
+              "number": "1.5.1",
+              "line": 469,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Practical Considerations",
+              "level": 2,
+              "number": "1.5.2",
+              "line": 481,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Metrics and Statistical Analysis",
+              "level": 1,
+              "number": "1.6",
+              "line": 485,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Metrics at a Glance",
+              "level": 2,
+              "number": "1.6.1",
+              "line": 489,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Work Done Metrics",
+              "level": 2,
+              "number": "1.6.2",
+              "line": 508,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Operational Metrics",
+              "level": 2,
+              "number": "1.6.3",
+              "line": 579,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Statistical Analysis",
+              "level": 2,
+              "number": "1.6.4",
+              "line": 604,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Case Study Protocols",
+              "level": 1,
+              "number": "1.7",
+              "line": 612,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Iso-Validation Protocol",
+              "level": 2,
+              "number": "1.7.1",
+              "line": 614,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Reweighting-Only Protocol",
+              "level": 2,
+              "number": "1.7.2",
+              "line": 626,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "BV-Model Parameter Optimisation Protocol",
+              "level": 2,
+              "number": "1.7.3",
+              "line": 638,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Protocol Comparison Benchmark",
+              "level": 2,
+              "number": "1.7.4",
+              "line": 649,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Kinetic Misspecification Protocol",
+              "level": 2,
+              "number": "1.7.5",
+              "line": 661,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Ensemble Size (Clustering) Sweep",
+              "level": 2,
+              "number": "1.7.6",
+              "line": 695,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Structure Poisoning Protocol",
+              "level": 2,
+              "number": "1.7.7",
+              "line": 707,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Computational Implementation Details",
+              "level": 1,
+              "number": "1.8",
+              "line": 719,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Code and Data Availability",
+              "level": 1,
+              "number": "1.9",
+              "line": 725,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Extended Supplementary Information and ValDX Code",
+              "level": 2,
+              "number": "1.9.1",
+              "line": 729,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Structural Ensembles and Experimental Data",
+              "level": 2,
+              "number": "1.9.2",
+              "line": 732,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "HDXer Package",
+              "level": 2,
+              "number": "1.9.3",
+              "line": 735,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "ValDX",
+              "level": 2,
+              "number": "1.9.4",
+              "line": 739,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Topology Generation",
+              "level": 2,
+              "number": "1.9.5",
+              "line": 750,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Traditional MD Simulations",
+              "level": 2,
+              "number": "1.9.6",
+              "line": 754,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Enhanced MD Simulations",
+              "level": 2,
+              "number": "1.9.7",
+              "line": 761,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "AF2 Simulations",
+              "level": 2,
+              "number": "1.9.8",
+              "line": 772,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Conflicts of Interest",
+              "level": 1,
+              "number": "1.10",
+              "line": 783,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            },
+            {
+              "title": "Statement on Language Model use",
+              "level": 2,
+              "number": "1.10.1",
+              "line": 787,
+              "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+              "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jaxent",
+      "name": "jaxENT",
+      "chapter": 4,
+      "color": "#4768ac",
+      "verb": "Infer",
+      "status": "Implemented platform · draft manuscript",
+      "status_kind": "implementation",
+      "tagline": "Fit populations and forward models in a flexible inverse-problem framework.",
+      "question": "How can ensemble weights, model parameters, and multiple experimental objectives be fitted efficiently and transparently?",
+      "summary": "A JAX/Optax platform for differentiable ensemble fitting with configurable parameter partitions and registered loss functions. Current examples explore synthetic recovery, prion-state comparisons, model regularisation, alpha-synuclein conditions, and joint HDX/SAXS fitting.",
+      "inputs": "Precomputed structural features; experimental observations; population priors; train/validation splits and observation covariance.",
+      "outputs": "Optimised frame weights and selected model parameters, predictions, optimisation histories, population scores, and model comparisons.",
+      "boundary": "The repository marks manuscript experiments as outdated. Its speedup, recovery-precision, and alpha-synuclein mechanistic claims are historical draft reports, not current validated conclusions in this map. Example workflows and implemented losses do not by themselves prove population recovery.",
+      "next": "Reconcile the manuscript with the current experiments and distinguish observation noise, forward-model discrepancy, and independently defined state-population targets.",
+      "sources": [
+        "jax-status",
+        "repo-status",
+        "jax-readme",
+        "jax-gradients"
+      ],
+      "tags": [
+        "JAX",
+        "maximum entropy",
+        "joint fitting",
+        "MoPrP",
+        "alpha-synuclein",
+        "SAXS",
+        "covariance",
+        "population recovery"
+      ],
+      "claims": [
+        {
+          "id": "jax-joint",
+          "title": "Weights and model parameters have separate trainable partitions",
+          "text": "Gradient masks and the optimiser expose frame-weight and forward-model parameter choices, supporting staged or joint optimisation.",
+          "kind": "implementation",
+          "basis": "stated",
+          "sources": [
+            "jax-gradients",
+            "jax-optimiser"
+          ]
+        },
+        {
+          "id": "jax-losses",
+          "title": "Inference uses configurable regularisation and observation losses",
+          "text": "The code contains entropy/divergence losses and Gaussian observation likelihoods. Physical Gaussian losses explicitly require observation covariance and reject trace-normalised covariance.",
+          "kind": "implementation",
+          "basis": "stated",
+          "sources": [
+            "jax-priors",
+            "jax-gaussian"
+          ]
+        },
+        {
+          "id": "jax-state",
+          "title": "Population scoring can be separated from predictive error",
+          "text": "State-population analysis includes explicit population estimates and strict Jensen–Shannon recovery scoring against supplied state targets.",
+          "kind": "implementation",
+          "basis": "stated",
+          "sources": [
+            "jax-population",
+            "jax-moprp"
+          ]
+        },
+        {
+          "id": "jax-regularise",
+          "title": "MoPrP examples explore a second regularisation axis",
+          "text": "A two-dimensional sweep varies MaxEnt strength and BV-parameter regularisation to examine the trade-off between data agreement, prior populations, and model-parameter robustness.",
+          "kind": "method",
+          "basis": "stated",
+          "sources": [
+            "jax-bv"
+          ]
+        },
+        {
+          "id": "jax-multidata",
+          "title": "Calmodulin examples compare HDX-only, SAXS-only, and joint fitting",
+          "text": "The example design uses a NeuralPlexer-derived ensemble and two CDZ conditions, with separate observation losses and cross-validation. It is evidence of the integration workflow, not a confirmed gain from combining modalities.",
+          "kind": "implementation",
+          "basis": "stated",
+          "sources": [
+            "jax-saxs"
+          ]
+        },
+        {
+          "id": "jax-old",
+          "title": "Historical manuscript results need reconciliation",
+          "text": "The draft abstract reports performance and biological conclusions, while the thesis repository identifies its experiments as outdated. These statements are retained as historical context rather than promoted to current findings.",
+          "kind": "historical",
+          "basis": "stated",
+          "sources": [
+            "repo-status",
+            "jax-draft"
+          ]
+        }
+      ],
+      "experiments": [
+        {
+          "id": "jax-teaa",
+          "title": "TeaA known-population inversion",
+          "text": "Synthetic open/closed targets test recovery against a supplied 40:60 mixture rather than uptake agreement alone.",
+          "state": "Benchmark workflow",
+          "sources": [
+            "jax-iso"
+          ]
+        },
+        {
+          "id": "jax-prion",
+          "title": "MoPrP conformational-state comparisons",
+          "text": "Folded, PUF1, PUF2, and unfolded categories are assessed using structural features and literature-derived population references.",
+          "state": "Experimental-data workflow",
+          "sources": [
+            "jax-moprp",
+            "jax-bv"
+          ]
+        },
+        {
+          "id": "jax-syn",
+          "title": "Alpha-synuclein across four solution conditions",
+          "text": "Residue protection-factor fitting compares Tris-only, extracellular, intracellular, and lysosomal conditions; the documented PF-recovery score is not direct population ground truth.",
+          "state": "Condition-wise workflow",
+          "sources": [
+            "jax-asyn"
+          ]
+        },
+        {
+          "id": "jax-cam",
+          "title": "Calmodulin with HDX and SAXS",
+          "text": "Single-modality and combined fits compare two CDZ conditions and interrogate the balance between their losses.",
+          "state": "Multi-observable workflow",
+          "sources": [
+            "jax-saxs"
+          ]
+        }
+      ],
+      "modules": [
+        {
+          "id": "jax-opt",
+          "title": "Optax optimiser and gradient masks",
+          "text": "Parameter partitions, learning-rate controls, and optimisation histories.",
+          "sources": [
+            "jax-optimiser",
+            "jax-gradients"
+          ]
+        },
+        {
+          "id": "jax-likelihood",
+          "title": "Registered losses and population analysis",
+          "text": "Prior regularisation, Gaussian observation likelihoods, and independently supplied state targets.",
+          "sources": [
+            "jax-priors",
+            "jax-gaussian",
+            "jax-population"
+          ]
+        }
+      ],
+      "manuscripts": [
+        {
+          "title": "Historical draft results",
+          "path": "projects/2-jaxENT/manuscript/report/results.tex",
+          "headings": [
+            {
+              "title": "Results",
+              "level": 0,
+              "number": "1",
+              "line": 1,
+              "path": "projects/2-jaxENT/manuscript/report/results.tex",
+              "href": "../projects/2-jaxENT/manuscript/report/results.tex"
+            },
+            {
+              "title": "jaxENT fits ensemble weights and forward-model parameters in a single differentiable pass",
+              "level": 1,
+              "number": "1.1",
+              "line": 2,
+              "path": "projects/2-jaxENT/manuscript/report/results.tex",
+              "href": "../projects/2-jaxENT/manuscript/report/results.tex"
+            },
+            {
+              "title": "Covariance-weighted regularisation recovers ground-truth populations that Standard MSE cannot",
+              "level": 1,
+              "number": "1.2",
+              "line": 31,
+              "path": "projects/2-jaxENT/manuscript/report/results.tex",
+              "href": "../projects/2-jaxENT/manuscript/report/results.tex"
+            },
+            {
+              "title": "jaxENT recovers prion populations that HDXer cannot resolve",
+              "level": 1,
+              "number": "1.3",
+              "line": 76,
+              "path": "projects/2-jaxENT/manuscript/report/results.tex",
+              "href": "../projects/2-jaxENT/manuscript/report/results.tex"
+            },
+            {
+              "title": "Simultaneous weight and parameter fitting approaches the limit of HDX-precision even in the presence of decoys",
+              "level": 1,
+              "number": "1.4",
+              "line": 133,
+              "path": "projects/2-jaxENT/manuscript/report/results.tex",
+              "href": "../projects/2-jaxENT/manuscript/report/results.tex"
+            },
+            {
+              "title": "jaxENT diagnoses unexplained protection of $$-synuclein in Tris-buffer",
+              "level": 1,
+              "number": "1.5",
+              "line": 163,
+              "path": "projects/2-jaxENT/manuscript/report/results.tex",
+              "href": "../projects/2-jaxENT/manuscript/report/results.tex"
+            },
+            {
+              "title": "jaxENT is 1.5–400× faster than HDXer with greater acceleration on complex tasks",
+              "level": 1,
+              "number": "1.6",
+              "line": 223,
+              "path": "projects/2-jaxENT/manuscript/report/results.tex",
+              "href": "../projects/2-jaxENT/manuscript/report/results.tex"
+            },
+            {
+              "title": "Discussion",
+              "level": 0,
+              "number": "2",
+              "line": 275,
+              "path": "projects/2-jaxENT/manuscript/report/results.tex",
+              "href": "../projects/2-jaxENT/manuscript/report/results.tex"
+            },
+            {
+              "title": "Acknowledgements",
+              "level": 0,
+              "number": "3",
+              "line": 294,
+              "path": "projects/2-jaxENT/manuscript/report/results.tex",
+              "href": "../projects/2-jaxENT/manuscript/report/results.tex"
+            }
+          ]
+        },
+        {
+          "title": "Historical draft introduction",
+          "path": "projects/2-jaxENT/manuscript/report/introduction.tex",
+          "headings": [
+            {
+              "title": "Introduction",
+              "level": 0,
+              "number": "1",
+              "line": 1,
+              "path": "projects/2-jaxENT/manuscript/report/introduction.tex",
+              "href": "../projects/2-jaxENT/manuscript/report/introduction.tex"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biofeaturisers",
+      "name": "BioFeaturisers",
+      "chapter": 5,
+      "color": "#a66a24",
+      "verb": "Observe",
+      "status": "Implemented kernels · preliminary research",
+      "status_kind": "implementation",
+      "tagline": "Turn atomic coordinates into differentiable biophysical predictions.",
+      "question": "How can structural observables carry gradients back to changing coordinates?",
+      "summary": "JAX kernels for HDX protection, SAXS profiles, and solvent-accessible surface area, with fixed-topology APIs and trajectory prediction. This supplies the coordinate-sensitive measurement layer used by experimental guidance.",
+      "inputs": "Atomic coordinates, fixed topology/features, prediction parameters, and optional ensemble weights.",
+      "outputs": "Contact-based protection profiles, HDX predictions, SAXS intensities, solvent accessibility, and coordinate gradients.",
+      "boundary": "A differentiable implementation is not a validation of the underlying physical approximation. The README records outstanding provenance and reference-benchmark work; test sources show checks that exist, not a newly executed test run.",
+      "next": "Benchmark prediction and gradient behaviour against independent references and document approximation and provenance limits.",
+      "sources": [
+        "bio-status",
+        "bio-readme",
+        "bio-provenance"
+      ],
+      "tags": [
+        "JAX",
+        "coordinate gradients",
+        "HDX",
+        "SAXS",
+        "SASA",
+        "forward models",
+        "fixed topology"
+      ],
+      "claims": [
+        {
+          "id": "bio-fixed",
+          "title": "Fixed-topology APIs allow coordinates to change",
+          "text": "HDX and SAXS expose featurise_from_topology and predict_from_features paths; SASA supplies smooth, exact, and Gaussian-overlap modes with different topology behaviour.",
+          "kind": "implementation",
+          "basis": "stated",
+          "sources": [
+            "bio-readme"
+          ]
+        },
+        {
+          "id": "bio-protection",
+          "title": "HDX kernels map coordinates to contact-based protection",
+          "text": "The forward kernel computes heavy-atom and backbone contact contributions and log protection factors under configurable empirical models.",
+          "kind": "implementation",
+          "basis": "stated",
+          "sources": [
+            "bio-hdx",
+            "bio-predict"
+          ]
+        },
+        {
+          "id": "bio-scattering",
+          "title": "SAXS predictions support structures and trajectories",
+          "text": "The forward dispatch wraps FoXS-style single-structure and ensemble calculations with hydration and ensemble-weight options.",
+          "kind": "implementation",
+          "basis": "stated",
+          "sources": [
+            "bio-saxs",
+            "bio-readme"
+          ]
+        },
+        {
+          "id": "bio-test",
+          "title": "Gradient checks are present in the source tree",
+          "text": "HDX gradient tests compare directional derivatives with finite differences. Their presence supports an implementation-audit trail; no package test pass is asserted from this map build.",
+          "kind": "implementation",
+          "basis": "stated",
+          "sources": [
+            "bio-gradtests"
+          ]
+        }
+      ],
+      "experiments": [
+        {
+          "id": "bio-checks",
+          "title": "Numerical and gradient verification",
+          "text": "The package contains numerical fixtures and directional-gradient tests; independent physical validation remains a separate task.",
+          "state": "Test implementations",
+          "sources": [
+            "bio-gradtests",
+            "bio-provenance"
+          ]
+        }
+      ],
+      "modules": [
+        {
+          "id": "bio-hdx-module",
+          "title": "biofeaturisers.hdx",
+          "text": "Featurisation, coordinate-sensitive contact kernels, and prediction.",
+          "sources": [
+            "bio-hdx",
+            "bio-predict"
+          ]
+        },
+        {
+          "id": "bio-saxs-module",
+          "title": "biofeaturisers.saxs and .sasa",
+          "text": "Scattering and solvent-accessibility APIs for differentiable workflows.",
+          "sources": [
+            "bio-saxs",
+            "bio-readme"
+          ]
+        }
+      ],
+      "manuscripts": []
+    },
+    {
+      "id": "maxent-fk",
+      "parent": "biofeaturisers",
+      "name": "MaxENT-FK",
+      "chapter": 5,
+      "color": "#aa535a",
+      "verb": "Guide",
+      "status": "Active guidance experiments",
+      "status_kind": "research",
+      "tagline": "Guide Boltz ensembles while testing support and identifiability.",
+      "question": "Can experimental objectives improve structural populations during generation, beyond merely improving the mean observable?",
+      "summary": "A Chapter 5 workstream coupling Boltz sampling, BioFeaturisers coordinate gradients, and jaxENT fitting. Guidance modes include resampling, weighted gradients, and baseline controls, with explicit investigation of ensemble collapse and supplied-state support.",
+      "inputs": "Boltz particles, HDX targets, differentiable structural features, and guidance/regularisation schedules; synthetic controls may supply known conformers and moment targets.",
+      "outputs": "Guided structures, particle weights and lineage, observable diagnostics, and registered identifiability/maintenance decisions.",
+      "boundary": "Current governing V2 records do not establish HDX-only equilibrium population recovery or creation of absent basins. Oracle MD-derived variance targets and supplied open conformers must be identified as synthetic controls. Results here are reported by the handoff, not independently rerun or reanalysed.",
+      "next": "Audit which alternative structures reproduce open-like observables before treating better fit as a reason to tune the sampler or claim structural discovery.",
+      "sources": [
+        "bio-status",
+        "fk-readme",
+        "fk-v2",
+        "fk-supported",
+        "fk-maintenance"
+      ],
+      "tags": [
+        "Boltz",
+        "guided diffusion",
+        "Feynman–Kac",
+        "particle lineage",
+        "identifiability",
+        "TeaA",
+        "BPTI",
+        "negative result",
+        "variance"
+      ],
+      "claims": [
+        {
+          "id": "fk-modes",
+          "title": "Guidance combines fitting, resampling, and coordinate updates",
+          "text": "The configuration separates FK resampling, weighted gradients, uniform-gradient guidance, and an unguided mode; the hook returns sampling weights and coordinate updates.",
+          "kind": "implementation",
+          "basis": "stated",
+          "sources": [
+            "fk-config",
+            "fk-hook"
+          ]
+        },
+        {
+          "id": "fk-ambiguity",
+          "title": "Mean-observable losses cannot distinguish matched-mean collapse",
+          "text": "The V2 analysis explains that ensemble-mean MSE and the current residue-wise mean-curve transport assign the same loss to ensembles with the same weighted mean, even if their particle distributions differ.",
+          "kind": "finding",
+          "basis": "stated",
+          "sources": [
+            "fk-collapse",
+            "fk-loss"
+          ]
+        },
+        {
+          "id": "fk-support",
+          "title": "Supplied support permits recovery, but alternative support remains ambiguous",
+          "text": "The V2 report records recovery of the synthetic 40:60 mixture with a supplied two-state pool. Its overall verdict is observation_not_identifiable because a pool without open frames still fits below the registered missing-support failure threshold.",
+          "kind": "finding",
+          "basis": "stated",
+          "sources": [
+            "fk-supported"
+          ]
+        },
+        {
+          "id": "fk-negative",
+          "title": "Corrected maintenance experiment: null_or_harmful",
+          "text": "The governing true-lineage, five-seed experiment reports no structural maintenance improvement from the tested variance term and worse mean/variance observable errors than mean MSE alone; 0/5 seeds support the intervention.",
+          "kind": "negative",
+          "basis": "stated",
+          "sources": [
+            "fk-maintenance"
+          ]
+        },
+        {
+          "id": "fk-questions",
+          "title": "Identifiability, maintenance, and creation are different tests",
+          "text": "Recovering a mixture from supplied states, preserving seeded particle identities, and discovering an unsupported basin have different necessary conditions. Success in one does not establish the others.",
+          "kind": "method",
+          "basis": "stated",
+          "sources": [
+            "fk-v2"
+          ]
+        }
+      ],
+      "experiments": [
+        {
+          "id": "fk-phase-a",
+          "title": "TeaA supported-pool discriminator",
+          "text": "Disjoint calibration/confirmation targets and missing-support controls separate conditional two-state recovery from structural ambiguity under alternative support.",
+          "state": "Reported V2 result · ambiguity",
+          "sources": [
+            "fk-supported"
+          ]
+        },
+        {
+          "id": "fk-phase-b",
+          "title": "TeaA true-lineage SDEdit maintenance",
+          "text": "Matched unguided, mean-MSE, and mean-MSE-plus-variance conditions test the same seeded ensemble; the corrected five-seed verdict is null_or_harmful.",
+          "state": "Reported V2 result · negative",
+          "sources": [
+            "fk-maintenance"
+          ]
+        },
+        {
+          "id": "fk-bpti-example",
+          "title": "BPTI conformational-density case study",
+          "text": "The example proposes comparing protection-factor-guided structures with NMR and MD references in disulfide torsion space. The README describes a workflow rather than an established positive result.",
+          "state": "Case-study workflow",
+          "sources": [
+            "fk-bpti"
+          ]
+        }
+      ],
+      "modules": [
+        {
+          "id": "fk-assembly",
+          "title": "maxent_fk.guidance.builder and .hook",
+          "text": "Connects BioFeaturisers and jaxENT to per-step sampling updates.",
+          "sources": [
+            "fk-builder",
+            "fk-hook"
+          ]
+        },
+        {
+          "id": "fk-objectives",
+          "title": "maxent_fk.guidance.losses and .config",
+          "text": "Mean-observable, transport, and variance objectives with explicit baseline modes.",
+          "sources": [
+            "fk-loss",
+            "fk-config"
+          ]
+        }
+      ],
+      "manuscripts": []
+    },
+    {
+      "id": "jax-ka",
+      "name": "jax-Ka",
+      "chapter": 6,
+      "color": "#7a62a6",
+      "verb": "Titrate",
+      "status": "Numerically qualified components · calibration open",
+      "status_kind": "research",
+      "tagline": "Differentiate pH-dependent titration under soft sequence identities.",
+      "question": "Can interpretable titration and charge models supply useful sequence gradients for pH-dependent objectives?",
+      "summary": "The current implementation, jaxpropka, is a PROPKA-parameterised mean-field surrogate on frozen candidate geometry. It predicts charge, titration curves, and conditional pKa midpoints, and supplies a bound/free selectivity objective.",
+      "inputs": "Prepared protein structures and frozen candidate geometry, residue-wise amino-acid probabilities, pH grids, and model settings.",
+      "outputs": "Conditional protonation, residue/chain/total charge, pKa midpoints, sequence gradients, and explicit convergence diagnostics.",
+      "boundary": "This is not a numerically faithful PROPKA port or an experimentally calibrated pKa predictor. Frozen geometry, mean-field coupling, and solver-branch behaviour limit interpretation. CPU numerical qualification does not establish a unique equilibrium, experimental accuracy, or accelerator performance.",
+      "next": "Evaluate native and mutant predictions against independent data, validate gradient directions with discrete rescoring, and retain convergence and branch audits in design objectives.",
+      "sources": [
+        "ka-status",
+        "ka-readme",
+        "ka-limits",
+        "ka-preset"
+      ],
+      "tags": [
+        "pKa",
+        "pH",
+        "titration",
+        "PROPKA",
+        "JAX",
+        "soft sequence",
+        "selectivity",
+        "implicit gradients",
+        "calibration"
+      ],
+      "claims": [
+        {
+          "id": "ka-surrogate",
+          "title": "The model is a frozen-geometry mean-field surrogate",
+          "text": "The README explicitly distinguishes the model from PROPKA's coupled determinant algorithm; geometry is prepared outside the JIT sequence readouts.",
+          "kind": "implementation",
+          "basis": "stated",
+          "sources": [
+            "ka-readme"
+          ]
+        },
+        {
+          "id": "ka-readouts",
+          "title": "Charge, titration curves, and conditional midpoints are exposed",
+          "text": "Readouts retain separate conditional identity channels and numerical diagnostics for convergence, bracketing, and root validity.",
+          "kind": "implementation",
+          "basis": "stated",
+          "sources": [
+            "ka-model",
+            "ka-readme"
+          ]
+        },
+        {
+          "id": "ka-design",
+          "title": "Bound/free objectives differentiate binder sequence probabilities",
+          "text": "The selectivity objective holds structure and target identities fixed, relates bound and isolated environments, and differentiates the soft binder sequence.",
+          "kind": "implementation",
+          "basis": "stated",
+          "sources": [
+            "ka-selectivity"
+          ]
+        },
+        {
+          "id": "ka-numerical",
+          "title": "Numerical and scientific validation remain distinct",
+          "text": "The documentation reports analytic and directional-gradient checks and an opt-in CPU design preset that passed numerical gates. It also states that experimental calibration and broader scientific acceptance remain open.",
+          "kind": "reported check",
+          "basis": "stated",
+          "sources": [
+            "ka-validation",
+            "ka-preset",
+            "ka-limits"
+          ]
+        }
+      ],
+      "experiments": [
+        {
+          "id": "ka-checks",
+          "title": "Analytic, gradient, and external-reference checks",
+          "text": "The validation inventory reports independent-site limits, directional finite differences, topology handling, and PROPKA discrepancy tests; these are documented checks rather than experiments rerun for this map.",
+          "state": "Documented numerical checks",
+          "sources": [
+            "ka-validation"
+          ]
+        },
+        {
+          "id": "ka-cpu",
+          "title": "CPU design-preset qualification",
+          "text": "The documentation reports numerical promotion across protein–protein interfaces with explicit failed/nonqualifying samples and caller-controlled branch audits.",
+          "state": "Documented numerical qualification",
+          "sources": [
+            "ka-preset"
+          ]
+        }
+      ],
+      "modules": [
+        {
+          "id": "ka-kernels",
+          "title": "jaxpropka.model",
+          "text": "Sequence-dependent local terms, coupled titration solves, and midpoint readouts.",
+          "sources": [
+            "ka-model",
+            "ka-readme"
+          ]
+        },
+        {
+          "id": "ka-boundfree",
+          "title": "jaxpropka.selectivity",
+          "text": "Bound/free charge objectives and gradients with fixed-environment checks.",
+          "sources": [
+            "ka-selectivity",
+            "ka-preset"
+          ]
+        }
+      ],
+      "manuscripts": []
+    }
+  ],
+  "connections": [
+    {
+      "id": "validation-to-inference",
+      "source": "valdx",
+      "target": "jaxent",
+      "title": "Validation motivates flexible inference",
+      "type": "conceptual",
+      "basis": "inferred",
+      "text": "ValDX exposes the dependence of structural conclusions on splitting, diagnostics, and fitting order. jaxENT provides a flexible platform to investigate those choices; this is the research narrative, not a software-import dependency.",
+      "sources": [
+        "val-abstract",
+        "jax-gradients",
+        "jax-bv"
+      ]
+    },
+    {
+      "id": "validation-to-guidance",
+      "source": "valdx",
+      "target": "maxent-fk",
+      "title": "The same validation question recurs in generation",
+      "type": "conceptual",
+      "basis": "inferred",
+      "text": "Both workstreams distinguish predictive agreement from a correct structural population. Guidance extends the challenge to particle support, lineage, and missing basins.",
+      "sources": [
+        "val-limits",
+        "fk-v2",
+        "fk-supported"
+      ]
+    },
+    {
+      "id": "jaxent-to-guidance",
+      "source": "jaxent",
+      "target": "maxent-fk",
+      "title": "Ensemble fitting inside guidance",
+      "type": "dependency",
+      "basis": "stated",
+      "text": "MaxENT-FK lists jax-ent as a dependency and imports its optimisation and dataset interfaces when constructing guidance.",
+      "sources": [
+        "fk-readme",
+        "fk-builder"
+      ]
+    },
+    {
+      "id": "observables-to-guidance",
+      "source": "biofeaturisers",
+      "target": "maxent-fk",
+      "title": "Coordinate-sensitive observables supply guidance gradients",
+      "type": "dependency",
+      "basis": "stated",
+      "text": "MaxENT-FK imports BioFeaturisers HDX configuration and features; the guidance hook connects predicted protection/uptake losses to coordinate updates.",
+      "sources": [
+        "fk-builder",
+        "fk-hook",
+        "bio-hdx"
+      ]
+    },
+    {
+      "id": "fitting-to-observables",
+      "source": "jaxent",
+      "target": "biofeaturisers",
+      "title": "Complementary differentiable layers",
+      "type": "conceptual",
+      "basis": "inferred",
+      "text": "jaxENT fits weights and model parameters around structural features. BioFeaturisers makes the feature/observable calculations responsive to changing coordinates. The map does not assert a direct package dependency between them.",
+      "sources": [
+        "jax-gradients",
+        "bio-readme"
+      ]
+    },
+    {
+      "id": "observables-to-titration",
+      "source": "biofeaturisers",
+      "target": "jax-ka",
+      "title": "Shared emphasis on differentiable physical models",
+      "type": "conceptual",
+      "basis": "inferred",
+      "text": "Coordinate-sensitive observables and sequence-sensitive titration share a methodological emphasis on gradients, interpretable approximations, and separate numerical/scientific checks. No HDX-to-pKa coupling is established in the cited code.",
+      "sources": [
+        "bio-gradtests",
+        "ka-readme",
+        "ka-limits"
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "title": "The thesis is an outline, not a completed results document",
+      "text": "Chapters 1–2 provide the agreed introduction/background headings. The project chapters remain placeholders, so scientific content is drawn from the project repositories and manuscripts.",
+      "sources": [
+        "thesis-identity",
+        "repo-status"
+      ]
+    },
+    {
+      "title": "Current code and historical manuscripts have different authority",
+      "text": "The jaxENT manuscript is labelled outdated in the root README. Implemented capabilities, example designs, and historical manuscript conclusions are presented separately.",
+      "sources": [
+        "repo-status",
+        "jax-draft"
+      ]
+    },
+    {
+      "title": "Guidance has a superseding interpretation",
+      "text": "The V2 handoff supersedes earlier Stage 3 claims. Supported-pool ambiguity and the corrected null_or_harmful maintenance verdict govern this map.",
+      "sources": [
+        "fk-v2",
+        "fk-supported",
+        "fk-maintenance"
+      ]
+    },
+    {
+      "title": "jax-Ka has advanced beyond the brief root status label",
+      "text": "The project README says preliminary training, while the current code documentation records an implemented surrogate and numerical qualification. Scientific calibration is still explicitly open.",
+      "sources": [
+        "ka-status",
+        "ka-readme",
+        "ka-preset",
+        "ka-limits"
+      ]
+    }
+  ],
+  "evidence": {
+    "repo-status": {
+      "id": "repo-status",
+      "path": "README.md",
+      "anchor": "| Project | Chapter |",
+      "length": 8,
+      "label": "Repository project and manuscript status",
+      "kind": "README",
+      "start": 16,
+      "end": 23,
+      "excerpt": "| Project | Chapter | Latex | Manuscript/Chapter Status |\n|---|---|---|---|\n| `projects/1-ValDX` | `thesis/chapters/03-valdx.tex` | `projects/1-ValDX/manuscript/main_omc.tex` | `manuscript` (post-review) |\n| `projects/2-jaxENT` | `thesis/chapters/04-jaxent.tex` | `projects/2-jaxENT/manuscript/main.tex` | `draft-manuscript` (confirmation, outdated experiments) |\n| `projects/3-BioFeaturisers` | `thesis/chapters/05-biofeaturisers.tex` | n/a | `none` (preliminary experiments) |\n| `projects/4-jax-Ka` | `thesis/chapters/06-jax-ka.tex` | n/a | `none` (preliminary experiments) |\n\n## Setup",
+      "sha256": "d0c2d111a9543c426ec2c2b551f0b650dc86eae697255b3687b751440f37c264",
+      "href": "../README.md",
+      "uses": [
+        {
+          "project": "jaxent",
+          "record": "jaxent",
+          "title": "jaxENT"
+        },
+        {
+          "project": "jaxent",
+          "record": "jax-old",
+          "title": "Historical manuscript results need reconciliation"
+        },
+        {
+          "project": "valdx",
+          "record": "observation-0",
+          "title": "The thesis is an outline, not a completed results document",
+          "view": "evidence"
+        },
+        {
+          "project": "valdx",
+          "record": "observation-1",
+          "title": "Current code and historical manuscripts have different authority",
+          "view": "evidence"
+        }
+      ]
+    },
+    "thesis-identity": {
+      "id": "thesis-identity",
+      "path": "thesis/main.tex",
+      "anchor": "\\title{",
+      "length": 16,
+      "label": "Thesis identity and chapter order",
+      "kind": "LaTeX",
+      "start": 4,
+      "end": 19,
+      "excerpt": "\\title{Interpretable Integration of HDX-MS with Modern Protein Ensemble Generation}\n\\author{Alexander Hussain}\n\\date{}\n\n\\begin{document}\n\n\\pagenumbering{roman}\n\\maketitle\n\\input{frontmatter/abstract}\n\\input{frontmatter/acknowledgements}\n\\tableofcontents\n\\listoffigures\n\\listoftables\n\n\\cleardoublepage\n\\pagenumbering{arabic}",
+      "sha256": "36a512b76b9fb4ec8b071b90ca0bc2b8ee32c45ff9a1da73d0b42f2210fb6955",
+      "href": "../thesis/main.tex",
+      "uses": [
+        {
+          "project": "valdx",
+          "record": "observation-0",
+          "title": "The thesis is an outline, not a completed results document",
+          "view": "evidence"
+        }
+      ]
+    },
+    "val-status": {
+      "id": "val-status",
+      "path": "projects/1-ValDX/README.md",
+      "anchor": "- **Thesis chapter:",
+      "length": 13,
+      "label": "ValDX project status and repositories",
+      "kind": "README",
+      "start": 3,
+      "end": 12,
+      "excerpt": "- **Thesis chapter:** `thesis/chapters/03-valdx.tex`\n- **Status:** code, analyses and manuscript (post-review)\n\n| Folder | Submodule | Pinned commit |\n|---|---|---|\n| `code/` | [ValDX](https://github.com/alexisiddiqui/ValDX) | `4641fbe` |\n| `analyses/` | [interpretable-hdxer](https://github.com/alexisiddiqui/interpretable-hdxer) | `1d78b96` |\n| `manuscript/` | [Machine-Learning-Methods-for-Biophysics-Ensemble-Integration-HDX-MS](https://github.com/alexisiddiqui/Machine-Learning-Methods-for-Biophysics-Ensemble-Integration-HDX-MS) (post-review) | `f85d003` |\n\nThe transfer of status report (October 2024) is contained in this paper and has been superseded by it.",
+      "sha256": "bd5f768be034d82f17dea9e0d864a75bcd5de79ff5882ea41823604b1e008263",
+      "href": "../projects/1-ValDX/README.md",
+      "uses": [
+        {
+          "project": "valdx",
+          "record": "valdx",
+          "title": "ValDX"
+        }
+      ]
+    },
+    "val-abstract": {
+      "id": "val-abstract",
+      "path": "projects/1-ValDX/manuscript/report/0_abstract_omc.tex",
+      "anchor": "Protein dynamics determine",
+      "length": 1,
+      "label": "ValDX post-review abstract",
+      "kind": "Manuscript",
+      "start": 4,
+      "end": 4,
+      "excerpt": "Protein dynamics determine biological function, yet extracting structural ensembles from Hydrogen–Deuterium Exchange Mass Spectrometry (HDX-MS) remains a challenging inverse problem. Current ensemble-fitting approaches often achieve good agreement with uptake curves but lack rigorous validation and uncertainty quantification, limiting structural confidence. We propose ValDX, a validation framework for quantitative integration of HDX-MS data with structural ensembles. ValDX combines overlap-aware data splitting, replicate-based uncertainty estimation, and uptake-independent ``Work Done'' metrics that quantify how much an ensemble must be modified to match experiment. We analysed 22 ensembles across six proteins ranging from 58 to 480 residues. Conventional error consistently failed to establish ensemble population accuracy on their own. Work Done metrics provided complementary diagnostic information for assessing and ranking candidate structural hypotheses. We also demonstrate that clustering to 10--20\\% of the parent ensemble preserved performance, while smaller sets aid interpretation, and that the order of ensemble reweighting and forward-model fitting affects the resulting ensemble-models. A synthetic benchmark with an imposed kinetic mismatch shows how different fitting protocols respond, and fitting forward-model parameters before reweighting limited population distortion. ValDX therefore treats HDX-MS ensemble integration as the assessment and ranking of candidate ensemble representativeness, rather than a single optimisation problem. This framework provides a rigorous basis for structural hypothesis testing and uncertainty quantification in HDX-MS ensemble integration.",
+      "sha256": "6dcf557094391af3c6d1b82084be0f7cfc523d3f2cee401a5d56267f8bfe9f52",
+      "href": "../projects/1-ValDX/manuscript/report/0_abstract_omc.tex",
+      "uses": [
+        {
+          "project": "valdx",
+          "record": "valdx",
+          "title": "ValDX"
+        },
+        {
+          "project": "valdx",
+          "record": "val-fit",
+          "title": "Prediction error is insufficient evidence of population accuracy"
+        },
+        {
+          "project": "valdx",
+          "record": "val-split",
+          "title": "Validate unseen information, accounting for peptide overlap"
+        },
+        {
+          "project": "valdx",
+          "record": "val-benchmark",
+          "title": "The post-review study covers 22 ensembles across six proteins"
+        },
+        {
+          "project": "valdx",
+          "record": "val-panel",
+          "title": "Multi-protein ensemble comparison"
+        },
+        {
+          "project": "jaxent",
+          "record": "validation-to-inference",
+          "title": "Validation motivates flexible inference"
+        },
+        {
+          "project": "valdx",
+          "record": "validate",
+          "title": "Validate the explanation",
+          "view": "journey"
+        }
+      ]
+    },
+    "val-author": {
+      "id": "val-author",
+      "path": "projects/1-ValDX/manuscript/report/0_author_summary_omc.tex",
+      "anchor": "Proteins change shape",
+      "length": 5,
+      "label": "ValDX scientific rationale",
+      "kind": "Manuscript",
+      "start": 3,
+      "end": 5,
+      "excerpt": "Proteins change shape as part of their biological functions. Hydrogen–deuterium exchange mass spectrometry (HDX-MS) probes these dynamics, but its measurements do not uniquely identify the underlying structures. Researchers therefore align HDX-MS data with computationally generated structural ensembles. Despite their high resolution or physical plausibility, incorrect ensembles can closely match the data. How, then, can competing structural explanations be assessed?\n\nWe developed ValDX to evaluate both how well an ensemble predicts experimental measurements and how much adjustment is required to achieve that agreement. The framework tests predictions on held-out data while accounting for overlapping protein fragments, repeats the analysis across data splits to assess uncertainty, and introduces ``Work Done'' metrics that track changes in predicted protection against hydrogen exchange. Using synthetic benchmarks and experimental datasets, we show that these complementary tests distinguish structural hypotheses that conventional fitting errors cannot separate. They also help diagnose sampling deficiencies and guide the order in which structural populations and prediction-model parameters are adjusted. Grouping similar structures further produces smaller, more interpretable ensembles. Rather than claiming to recover one uniquely correct ensemble, ValDX provides a practical framework for comparing, diagnosing and refining candidate explanations of protein dynamics within the limits of the available data.",
+      "sha256": "54d2697b3031472ea3fb330819bdd4bcc4d373551191528fe07de92faf1bf772",
+      "href": "../projects/1-ValDX/manuscript/report/0_author_summary_omc.tex",
+      "uses": [
+        {
+          "project": "valdx",
+          "record": "val-fit",
+          "title": "Prediction error is insufficient evidence of population accuracy"
+        },
+        {
+          "project": "valdx",
+          "record": "problem",
+          "title": "Ask what the data can distinguish",
+          "view": "journey"
+        }
+      ]
+    },
+    "val-splits": {
+      "id": "val-splits",
+      "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+      "anchor": "\\paragraph{Assessing Global",
+      "length": 16,
+      "label": "Overlap-aware spatial and sequence splitting",
+      "kind": "Manuscript",
+      "start": 68,
+      "end": 83,
+      "excerpt": "\\paragraph{Assessing Global vs. Local Scales through Peptide Splitting}\\label{sec:peptide_splitting}\n\nBecause peptides share residues, a validation peptide can be partially `known' from training peptides covering similar regions. For example, if residue 50 is measured by five different peptides, information about that residue leaks between training and validation sets, inflating apparent performance. We therefore define splits that minimise shared residue coverage. To test whether an ensemble accurately represents protein dynamics at different structural scales, we designed splitting strategies that isolate distinct types of information.\n\n\\subparagraph{Non-Redundant Split (Global Scale)}\nThis split clusters peptides by sequence region, ensuring validation peptides test entirely unseen segments of the protein. This tests the ensemble's ability to predict global conformational behaviour without relying on local overfitting. Any peptide that shares $\\ge 1$ residue with a peptide in the other set is removed from the training set. Specifically, using the start and end positions of each peptide as features, a k-means clustering algorithm is applied using a tenth of the total number of peptides as the number of clusters. Clusters are then randomly assigned according to the specified training fraction; peptides that still overlap between the datasets are then dropped.\n\n\\subparagraph{Spatial Split (Local Scale)}\nThis split withholds peptides covering contiguous 3D regions of the protein structure. This tests the ensemble's accuracy in capturing local substructural dynamics, such as domain motions or specific binding site flexibility. A residue is randomly selected from the protein. The remaining residues are ordered by the distance of their $C_{\\alpha}$ atoms from the selected residue's $C_{\\alpha}$ atom. The training set is filled in order of proximity of peptide-residues. Overlapping peptides are then dropped.\n\n\\subparagraph{Random and Sequential Splits (Baselines)}\nWe also implemented standard random and sequential splits as baselines to demonstrate the insufficiency of methods that do not account for information leakage. These splits typically result in high overlap between training and validation sets. For the random split, peptides are randomly selected for the training set and the remainder used in the validation set. For the sequential split, peptides are ordered based on sequence number and are then selected up to the training fraction; the remainder is used in the validation set.\n\nAll splitting algorithms used a target training fraction of 50\\%. Removal of overlapping peptides could alter the realised fraction, with both training and validation sets containing at least 10\\% of the original peptides. To improve diversity and prevent redundancy-driven bias, peptides with high overlap density were stochastically dropped (10\\% dropout rate) prior to splitting.\n\n\\subsection{Ensemble Generation Experiments}\\label{sec:ensemble_generation}",
+      "sha256": "9ae1d6cbbb36d2efd99942e62c001cce4c0a7ec71a8ec42a4aca5f62cfd85597",
+      "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+      "uses": [
+        {
+          "project": "valdx",
+          "record": "val-split",
+          "title": "Validate unseen information, accounting for peptide overlap"
+        },
+        {
+          "project": "valdx",
+          "record": "validate",
+          "title": "Validate the explanation",
+          "view": "journey"
+        }
+      ]
+    },
+    "val-work": {
+      "id": "val-work",
+      "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+      "anchor": "\\paragraph{Work Shape",
+      "length": 31,
+      "label": "Work shape, scale, and density definitions",
+      "kind": "Manuscript",
+      "start": 532,
+      "end": 562,
+      "excerpt": "\\paragraph{Work Shape ($\\text{Work}_{\\text{shape}}$)}\nWork shape measures how much fitting changes each residue's absolute deviation from the mean log protection factor. We write this deviation as $a_i=|\\log P_{f,i}-\\overline{\\log P_f}|$ and define the centred protection score $H_{\\text{opt}}(X;i)=RTa_i$. Deviations above and below the mean contribute identically, so Work shape measures changes in protection contrast and not in its direction.\n\n\\begin{equation}\n    \\text{Work}_{\\text{shape}}\n    = \\frac{RT}{N}\\sum_{i=1}^{N}\n    \\left|\n    \\left|\\log P_{f,i}-\\overline{\\log P_f}\\right|\n    -\n    \\left|\\log \\hat{P}_{f,i}-\\overline{\\log \\hat{P}_f}\\right|\n    \\right|\n    \\label{eq:work_shape}\n\\end{equation}\n\n\n\\paragraph{Work Scale ($\\text{Work}_{\\text{scale}}$)}\nWork scale measures the shift in mean log protection factor during fitting. Changes in frame weights and in BV coefficients can both contribute to this shift.\n\n\\begin{equation}\n    \\text{Work}_{\\text{scale}} = RT \\left| \\overline{\\log P_f} - \\overline{\\log \\hat{P}_f} \\right|\n    \\label{eq:work_scale}\n\\end{equation}\n\n\\paragraph{Work Density ($\\text{Work}_{\\text{density}}$)}\nWork density measures the mean absolute change in residue-wise entropy-like contributions across the centred protection profile. Each residue is assigned a weight $w_{\\text{opt}}(X;i)=e^{-a_i}\\sum_j e^{-a_j}$, with the sum taken over the compared residues, and a contribution $S_{\\text{opt}}(X;i)=-R\\,w_{\\text{opt}}(X;i)\\log w_{\\text{opt}}(X;i)$. Fitted quantities are calculated in the same way from the fitted profile. These weights are indexed over residues. They are not conformational populations, and they are distinct from the frame weights adjusted during reweighting. The weights are not normalised to sum to one, so individual contributions can be negative.\n\n\\begin{equation}\n    \\text{Work}_{\\text{density}} = \\frac{T}{1000N}\\sum_{i=1}^{N}\\left|S_{\\text{opt}}(\\hat{X};i)-S_{\\text{opt}}(X;i)\\right|\n    \\label{eq:work_density}\n\\end{equation}\n",
+      "sha256": "9ae1d6cbbb36d2efd99942e62c001cce4c0a7ec71a8ec42a4aca5f62cfd85597",
+      "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+      "uses": [
+        {
+          "project": "valdx",
+          "record": "val-metrics",
+          "title": "Work Done measures changes in model-predicted protection"
+        }
+      ]
+    },
+    "val-protocol": {
+      "id": "val-protocol",
+      "path": "projects/1-ValDX/manuscript/report/7_results_omc.tex",
+      "anchor": "\\subsection{Staged protocols respond",
+      "length": 24,
+      "label": "Kinetic misspecification and protocol findings",
+      "kind": "Manuscript",
+      "start": 189,
+      "end": 212,
+      "excerpt": "\\subsection{Staged protocols respond differently to kinetic misspecification}\n\nErrors in assumed exchange kinetics alter uptake magnitudes as well as curve shapes, which can drive compensatory population changes during reweighting. We imposed a known kinetic mismatch and examined how different fitting protocols responded. Here, fitting BV parameters first restored uptake agreement and limited additional population distortion.\n\nWe used the TeaA ISO-Bimodal ensemble to generate synthetic uptake with known target populations of 40\\% open and 60\\% closed. Both target conformational states were present in the starting ensemble, which retained its original population imbalance. Across conditions, the structural ensemble and target populations were unchanged, while the ratio of closing to intrinsic exchange rates, $\\rho$, was varied across 1000, 1 and 0.01. All datasets were fitted using the standard EX2/BV forward model. Peptides were generated according to naive pepsin digestion patterns. This design allowed us to examine the additional fitting requirements introduced by altered exchange kinetics relative to the EX2-like reference condition, $\\rho=1000$. Complete generation and fitting procedures are described in \\nameref{sec:kinetic_misspecification} and \\nameref{exp:kinetic_misspecification}.\n\nUnder reweighting with fixed BV parameters (RW-only), fitting error and optimisation cost both increased with kinetic misspecification (\\autoref{fig:kinetic_calibration_overview}C--E) but increased work did not improve population recovery. As $\\rho$ decreased from 1000 to 0.01, both mean $\\text{MSE}_{\\text{Training}}$ and $\\text{MSE}_{\\text{Validation}}$ increased from $\\sim 0.0020$ to 0.128 and from 0.0038 to 0.179, respectively. Apparent $\\text{Work}_{\\text{HDXer}}$ increased from $\\sim 0.296$ to 7.29~\\mbox{kJ/mol}. A joint increase in uptake error and Work Done is not specific to kinetic mismatch; we therefore tested whether BV parameters could absorb it.\n\nFitting BV parameters accommodated the kinetic mismatch. At $\\rho=0.01$, RWafterBV and BVafterRW both achieved low training MSE ($\\sim 0.0021$ and 0.0027), and low validation MSE, ($\\sim 0.0026$ and 0.0027), respectively (\\autoref{fig:kinetic_calibration_overview}D--F). However, the Work Done metrics revealed different requirements at each fitting stage. When BV parameters were fitted first (RWafterBV), subsequent reweighting incurred similar Work Done between $\\rho$ values across all Work metrics. However, when reweighting preceded BV-parameter fitting (BVafterRW), the final parameter optimisation required increasingly large protection-factor changes, similar to the RW-only protocol. $\\text{Work}_{\\text{opt}}$ increased from $\\sim 10.5$ to 52.4~\\mbox{kJ/mol}, while $\\text{Work}_{\\text{scale}}$ increased from $\\sim 0.58$ to 19.0~\\mbox{kJ/mol} (\\autoref{fig:SI_kinetic_calibration_work_components}). The differentiator between RW-only and BVafterRW is found in ratio of the Work components  $\\text{Work}_{\\text{scale}}$ and $\\text{Work}_{\\text{shape}}$. RW-only has higher  $\\text{Work}_{\\text{shape}}$ ratio while BVafterRW has higher $\\text{Work}_{\\text{scale}}$ ratio and higher absolute values for both components, indicative of the fitting stages applied.\n\nThe known target populations allowed us to assess the ensemble-level consequences of this staging (\\autoref{fig:kinetic_calibration_overview}A--B). Fitting BV parameters before reweighting (RWafterBV) limited compensatory population changes. Open State Recovery, which normalises the fitted open-state population to the target population of 0.4, decreased from 25.7\\% to 10.5\\% when reweighting was performed with fixed BV parameters (RW-only). Subsequent parameter fitting restored uptake agreement by matching the HDX-uptake scale. RWafterBV saw consistent Work Done across kinetic conditions which translated to consistent Open State Recovery, with means of 29.2\\%, 32.4\\% and 27.0\\% across the three kinetic conditions. Variation across peptide splits was substantial, with standard deviations of approximately 5.4--12.7 percentage points. At the selected $\\gamma$ values, mean open-state populations were 10.8--13.0\\%, remaining below the 40\\% target. While RWafterBV recovery was low, fitting BV parameters first limited kinetic distortion.  Together with the clustering and structural-artefact experiments (Figures~\\ref{fig:figure_RW_Cluster_sweep} and~\\ref{fig:figure_Ensemble_Poison}, respectively), this build on the principle that better-supported ensemble-models respond more predictably to perturbation.\n\n\n\\begin{figure}[H]\n    \\centering\n    \\includegraphics[width=\\textwidth, height=0.8\\textheight, keepaspectratio]{figures/calibration_peptide_gamma_0/kinetic_calibration_overview.png}\n    \\caption[Fitting BV parameters before reweighting limits population distortion under kinetic model misspecification]{Fitting BV parameters before reweighting limits population distortion under kinetic model misspecification. Synthetic uptake was generated from the TeaA ISO-Bimodal ensemble with fixed 40:60 open:closed target populations. The ratio of closing to intrinsic exchange rates, $\\rho$, was varied across 1000, 1 and 0.01, with $\\rho=1000$ providing the EX2-like reference. All datasets were fitted using the standard EX2/BV forward model: reweighting alone (RW-only, blue), BV parameter optimisation followed by reweighting (RWafterBV, orange), and reweighting followed by BV parameter optimisation (BVafterRW, green).\n    \\textbf{(A)} Open State Recovery (\\%, normalised to the target open-state population of 0.4).\n    \\textbf{(B)} Fitted open-state population. RW-only and BVafterRW means are identical by construction, because the BV stage does not alter frame weights.\n    \\textbf{(C)} Apparent Work ($\\text{Work}_{\\text{HDXer}}$, \\mbox{kJ/mol}) for the final fitting stage; zero values for BVafterRW reflect fixed frame weights during BV fitting.\n    \\textbf{(D)} Training MSE.\n    \\textbf{(E)} Validation MSE.\n    \\textbf{(F)} Validation minus training MSE.\n    Points and error bars show means and standard deviations across three peptide-split replicates with matched measurement noise. Staged replicates share preceding-stage consensus weights or parameters. Fitting BV parameters (BVafterRW and RWafterBV) maintains low uptake errors, but RWafterBV approximately maintains reference Open State Recovery, whereas BVafterRW inherits the population changes introduced by RW-only.}",
+      "sha256": "0183d14806bd30eb6177b6b1fe7c8509ae8521bd452f360344c4eebd35430cb9",
+      "href": "../projects/1-ValDX/manuscript/report/7_results_omc.tex",
+      "uses": [
+        {
+          "project": "valdx",
+          "record": "val-order",
+          "title": "Fitting order changes population distortion under kinetic mismatch"
+        },
+        {
+          "project": "valdx",
+          "record": "val-kinetics",
+          "title": "Imposed exchange-kinetic mismatch"
+        }
+      ]
+    },
+    "val-limits": {
+      "id": "val-limits",
+      "path": "projects/1-ValDX/manuscript/report/7_results_omc.tex",
+      "anchor": "\\subsection{Limitations}",
+      "length": 5,
+      "label": "ValDX interpretation and sampling limits",
+      "kind": "Manuscript",
+      "start": 244,
+      "end": 248,
+      "excerpt": "\\subsection{Limitations}\n\nThe Best-Vendruscolo forward model relates protection factors to empirical counts of heavy-atom contacts and hydrogen bonds.\\cite{best_structural_2006} Contact-based protection-factor models compress the structural determinants of exchange into these local counts. In heterogeneous ensembles and allosteric systems, exchange also depends on the populations and cooperative opening of distinct conformational states. In intrinsically disordered and non-native systems, transient contacts and solvent exposure challenge the transferability of this empirical mapping. These systems therefore require assessment of both conformational sampling and forward-model suitability. Work shape, scale, and density quantify the adjustments required under the chosen model; large adjustments motivate testing alternative ensembles and model parameterisations alongside validation error. An inadequate prior or forward model can drive fitted populations towards an incorrect structural interpretation. Reweighting cannot create conformational states that are absent from the prior ensemble. Conclusions therefore remain comparative across the candidate ensembles supplied.\n\nThe fitting forward model assumes EX2 exchange. Our synthetic kinetic benchmark tests departures from this assumption and shows that staged calibration can restore uptake agreement under severe kinetic misspecification (\\autoref{fig:kinetic_calibration_overview}). Good uptake agreement did not imply recovery of the target populations with an ensemble containing both target conformational states. Calibration therefore does not validate the assumed exchange kinetics, and caution remains necessary when interpreting systems that may access EX1 kinetics.",
+      "sha256": "0183d14806bd30eb6177b6b1fe7c8509ae8521bd452f360344c4eebd35430cb9",
+      "href": "../projects/1-ValDX/manuscript/report/7_results_omc.tex",
+      "uses": [
+        {
+          "project": "valdx",
+          "record": "valdx",
+          "title": "ValDX"
+        },
+        {
+          "project": "valdx",
+          "record": "val-metrics",
+          "title": "Work Done measures changes in model-predicted protection"
+        },
+        {
+          "project": "valdx",
+          "record": "val-order",
+          "title": "Fitting order changes population distortion under kinetic mismatch"
+        },
+        {
+          "project": "valdx",
+          "record": "val-kinetics",
+          "title": "Imposed exchange-kinetic mismatch"
+        },
+        {
+          "project": "maxent-fk",
+          "record": "validation-to-guidance",
+          "title": "The same validation question recurs in generation"
+        }
+      ]
+    },
+    "val-code": {
+      "id": "val-code",
+      "path": "projects/1-ValDX/code/ValDX/ValidationDX.py",
+      "anchor": "    def run_VDX(",
+      "length": 29,
+      "label": "ValDX experiment orchestration",
+      "kind": "Code",
+      "start": 303,
+      "end": 331,
+      "excerpt": "    def run_VDX(self, \n                calc_name: str=None, \n                expt_name: str=None, \n                mode: str=None, # not implemented yet\n                n_reps: int=None, \n                random_seeds: list=None):\n        \n        if n_reps is None:\n            n_reps = self.settings.replicates\n        if random_seeds is None:\n            random_seeds = [self.settings.random_seed+i for i in range(n_reps)]\n\n\n        train_gammas = []\n        val_gammas = []\n\n        train_dfs = []\n        val_dfs = []\n\n        ## change functions to export dataframes which are then passed into evaulate HDX\n        for rep in range(1,n_reps+1):\n\n            _, train_rep_name, val_rep_name = self.split_segments(seg_name=expt_name,\n                                                                  calc_name=calc_name, \n                                                                  rep=rep, \n                                                                  random_seed=random_seeds[rep-1])\n\n            # train HDX\n            train_opt_gamma, train_df = self.train_HDX(calc_name=calc_name, ",
+      "sha256": "a6c0bd555f21d7d5319e6cf4ec503c9d6956e6bc4a9a050f22ed3aa8c79ca36e",
+      "href": "../projects/1-ValDX/code/ValDX/ValidationDX.py",
+      "uses": [
+        {
+          "project": "valdx",
+          "record": "val-runner",
+          "title": "ValDX / ValidationDX.py"
+        }
+      ]
+    },
+    "val-iso": {
+      "id": "val-iso",
+      "path": "projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+      "anchor": "\\subsubsection{Iso-Validation Experiments}",
+      "length": 18,
+      "label": "TeaA synthetic ensemble benchmark",
+      "kind": "Manuscript",
+      "start": 107,
+      "end": 124,
+      "excerpt": "\\subsubsection{Iso-Validation Experiments}\n\nThe TeaA trajectory used for the Iso-Validation experiment originates from the bias-exchange metadynamics simulations reported by Marinelli et al.\\cite{marinelli_allosteric_2011} We used the unbiased replica representing equilibrium dynamics, accessed through the HDXer tutorial/data materials described by Bradshaw et al., which we cite for trajectory processing and HDXer methods.\\cite{bradshaw_interpretation_2020} To produce the plots here we repeated the trajectory clustering on a sliced (1:50) subset of the original trajectory provided. Synthetic HDX-uptake curves were generated without added measurement noise to isolate the effects of ensemble composition from experimental uncertainty.\n\n\\subparagraph{Trajectory Clustering}\n\nTrajectory clustering was performed by aligning all frames to each reference (Open and Closed) and computing the RMSD. Frames were sorted into Open and Closed clusters if structures were less than 1.0 \\text{\\AA} from one of the reference structures.\n\n\n\\paragraph{ISO-Bimodal Ensemble}\n\nThe ISO-Bimodal ensemble is formed by taking the structures directly from the clustering process. Its native open to closed ratio is 5:95. We reweighted it to 40:60 open to closed and predicted uptake from the reweighted populations, giving the synthetic target used for fitting.\n\n\\paragraph{ISO-Trimodal Ensemble}\n\nThe ISO-Trimodal ensemble is the parent ensemble of the clustered, ISO-Bimodal ensemble. This contains Open, Closed as well as intermediate structures.\n\n",
+      "sha256": "9ae1d6cbbb36d2efd99942e62c001cce4c0a7ec71a8ec42a4aca5f62cfd85597",
+      "href": "../projects/1-ValDX/manuscript/report/6_methods_omc.tex",
+      "uses": [
+        {
+          "project": "valdx",
+          "record": "val-teaa",
+          "title": "TeaA isolated validation"
+        }
+      ]
+    },
+    "jax-status": {
+      "id": "jax-status",
+      "path": "projects/2-jaxENT/README.md",
+      "anchor": "- **Thesis chapter:",
+      "length": 10,
+      "label": "jaxENT chapter and unfinished manuscript",
+      "kind": "README",
+      "start": 3,
+      "end": 10,
+      "excerpt": "- **Thesis chapter:** `thesis/chapters/04-jaxent.tex`\n- **Status:** code and analyses; manuscript unfinished\n- **Milestone:** confirmation of status (`milestones/2025-11-confirmation-of-status/`)\n\n| Folder | Submodule | Pinned commit |\n|---|---|---|\n| `code/` | [JAX-ENT](https://github.com/alexisiddiqui/JAX-ENT) (code and analyses) | `37043b5` |\n| `manuscript/` | [jaxENT_paper1](https://github.com/alexisiddiqui/jaxENT_paper1) (unfinished) | `db6cae7` |",
+      "sha256": "bc56a71b3df9e9e766fd54e519a2163b1e134e8984ac233ca8c25522a7b563ff",
+      "href": "../projects/2-jaxENT/README.md",
+      "uses": [
+        {
+          "project": "jaxent",
+          "record": "jaxent",
+          "title": "jaxENT"
+        }
+      ]
+    },
+    "jax-readme": {
+      "id": "jax-readme",
+      "path": "projects/2-jaxENT/code/README.md",
+      "anchor": "### Overview",
+      "length": 22,
+      "label": "jaxENT inverse-problem platform",
+      "kind": "README",
+      "start": 12,
+      "end": 33,
+      "excerpt": "### Overview \nThis package is aimed at bioinformatics researchers who wish to integrate biophysical data with structural simulations.\n\nBuilt on JAX, this package provides a flexible and powerful framework to differentiably solve for any inverse problem.\n\n\nCurrently strictly validated for HDX-MS/NMR data but readily supports SAXS and XL-MS data.\n\nThis package is centered around a few main functions/scripts:\n\nFeaturise (CLI/API)\n\nPredict (CLI/API)\n\nOptimise (API - CLI coming soon)\n\nAnalysis (API - CLI planned)\n\nPCA-kmeans clustering (CLI/API)\n\nPymol visualisation (CLI)\n",
+      "sha256": "372cdb879b517e3ab18845d468a6d4886cd29b38d92b8ab538403fb1e055222a",
+      "href": "../projects/2-jaxENT/code/README.md",
+      "uses": [
+        {
+          "project": "jaxent",
+          "record": "jaxent",
+          "title": "jaxENT"
+        }
+      ]
+    },
+    "jax-gradients": {
+      "id": "jax-gradients",
+      "path": "projects/2-jaxENT/code/jaxent/src/opt/gradients.py",
+      "anchor": "def create_gradient_masks(",
+      "length": 44,
+      "label": "Trainable frame weights and model parameters",
+      "kind": "Code",
+      "start": 28,
+      "end": 71,
+      "excerpt": "def create_gradient_masks(\n    parameter_partition_masks: set[Optimisable_Parameters],\n    params: Simulation_Parameters,\n    optimisable_funcs: Array | None,\n    trainable_model_parameters: frozenset[str] | None = None,\n) -> Simulation_Parameters:\n    \"\"\"Creates gradient masks as a Simulation_Parameters instance with integer values.\n\n    Args:\n        params: The simulation parameters to create masks for\n\n    Returns:\n        A Simulation_Parameters instance containing integer masks (0 or 1) for each parameter\n    \"\"\"\n    if optimisable_funcs is None:\n        optimisable_funcs = jnp.zeros_like(params.forward_model_weights, dtype=jnp.float32)\n\n    # Create masks based on which parameters are enabled for optimization\n    frame_mask_gate = (\n        1.0 if Optimisable_Parameters.frame_weights in parameter_partition_masks else 0.0\n    )\n    model_mask = (\n        1.0 if Optimisable_Parameters.model_parameters in parameter_partition_masks else 0.0\n    )\n\n    frame_weight_logits_mask = jax.tree_util.tree_map(\n        lambda x: jnp.full_like(x, frame_mask_gate, dtype=jnp.float32),\n        params.frame_weight_logits,\n    )\n\n    # Create model parameters mask - handle each Model_Parameters instance separately\n    model_parameters_mask = []\n    for model_param in params.model_parameters:\n        masked_model_param = model_param._create_modified_instance(\n            lambda slot, value: jnp.full_like(\n                value,\n                model_mask\n                * float(\n                    trainable_model_parameters is None\n                    or slot in trainable_model_parameters\n                ),\n                dtype=jnp.float32,\n            )\n        )",
+      "sha256": "90a78c2ae137594fdda8a122cc7462b8e1d8ddedd336b614da174d5874c6bb71",
+      "href": "../projects/2-jaxENT/code/jaxent/src/opt/gradients.py",
+      "uses": [
+        {
+          "project": "jaxent",
+          "record": "jaxent",
+          "title": "jaxENT"
+        },
+        {
+          "project": "jaxent",
+          "record": "jax-joint",
+          "title": "Weights and model parameters have separate trainable partitions"
+        },
+        {
+          "project": "jaxent",
+          "record": "jax-opt",
+          "title": "Optax optimiser and gradient masks"
+        },
+        {
+          "project": "jaxent",
+          "record": "validation-to-inference",
+          "title": "Validation motivates flexible inference"
+        },
+        {
+          "project": "biofeaturisers",
+          "record": "fitting-to-observables",
+          "title": "Complementary differentiable layers"
+        },
+        {
+          "project": "jaxent",
+          "record": "infer",
+          "title": "Make inference flexible",
+          "view": "journey"
+        }
+      ]
+    },
+    "jax-optimiser": {
+      "id": "jax-optimiser",
+      "path": "projects/2-jaxENT/code/jaxent/src/opt/optimiser.py",
+      "anchor": "class OptaxOptimizer:",
+      "length": 38,
+      "label": "Optax optimisation and parameter partitions",
+      "kind": "Code",
+      "start": 68,
+      "end": 105,
+      "excerpt": "class OptaxOptimizer:\n    learning_rate: float\n    optimizer: optax.GradientTransformation\n    parameter_partition_masks: set[Optimisable_Parameters]\n    clip_value: Optional[float]\n    history: OptimizationHistory\n    plateau_denominator: float\n    step: Callable\n    model_parameters_lr_scale: float\n    lr_adjustment: bool\n    update_all_models: bool = False\n    _gradient_mask: Simulation_Parameters\n    _current_lr: float\n    _current_model_lr: float\n\n    def __init__(\n        self,\n        learning_rate: float = 1e-4,\n        optimizer: str = \"adam\",\n        parameter_partition_masks: set[Optimisable_Parameters] = {\n            Optimisable_Parameters.frame_weights,\n        },\n        clip_value: Optional[float] = 1.0,\n        force_simplex: Optional[bool] = None,\n        plateau_denominator: float = 1.005,\n        model_parameters_lr_scale: float = 1.0,\n        trainable_model_parameters: frozenset[str] | None = None,\n        lr_adjustment: bool = True,\n    ):\n        self.parameter_partition_masks = parameter_partition_masks\n        self.clip_value = clip_value\n        self.history = OptimizationHistory()\n        self.model_parameters_lr_scale = model_parameters_lr_scale\n        self.trainable_model_parameters = trainable_model_parameters\n        if not isinstance(lr_adjustment, bool):\n            raise ValueError(\"lr_adjustment must be a boolean\")\n        self.lr_adjustment = lr_adjustment\n        self.plateau_denominator = plateau_denominator",
+      "sha256": "9cffbd3e13c84c7a61f6bc98932878906451bd98fd73a1bb76e750dd92c69dd6",
+      "href": "../projects/2-jaxENT/code/jaxent/src/opt/optimiser.py",
+      "uses": [
+        {
+          "project": "jaxent",
+          "record": "jax-joint",
+          "title": "Weights and model parameters have separate trainable partitions"
+        },
+        {
+          "project": "jaxent",
+          "record": "jax-opt",
+          "title": "Optax optimiser and gradient masks"
+        }
+      ]
+    },
+    "jax-priors": {
+      "id": "jax-priors",
+      "path": "projects/2-jaxENT/code/jaxent/src/opt/loss/weights.py",
+      "anchor": "# Maximum Entropy Losses",
+      "length": 34,
+      "label": "Maximum-entropy and divergence regularisation",
+      "kind": "Code",
+      "start": 19,
+      "end": 52,
+      "excerpt": "# Maximum Entropy Losses\ndef _softmax_cross_entropy_loss(model_weights: Array, prior_weights: Array) -> Array:\n    \"\"\"Softmax cross entropy loss for weight comparison\"\"\"\n    return jnp.asarray(\n        optax.losses.safe_softmax_cross_entropy(jnp.log(model_weights), prior_weights)\n    )\n\n\ndef _scaled_convex_kl_loss(model_weights: Array, prior_weights: Array) -> Array:\n    \"\"\"Convex KL divergence loss scaled by number of frames\"\"\"\n    num_frames = model_weights.shape[0]\n    kl_loss = optax.losses.convex_kl_divergence(\n        log_predictions=jnp.log(model_weights),\n        targets=prior_weights,\n    )\n    return kl_loss / num_frames\n\n\ndef _jsd_loss(model_weights: Array, prior_weights: Array) -> Array:\n    \"\"\"Jensen-Shannon divergence loss\"\"\"\n    num_frames = model_weights.shape[0]\n\n    # Calculate midpoint distribution M\n    M = (model_weights + prior_weights) / 2\n\n    # Compute KL divergences against M\n    kl_sim = optax.losses.convex_kl_divergence(log_predictions=jnp.log(M), targets=model_weights)\n    kl_prior = optax.losses.convex_kl_divergence(log_predictions=jnp.log(M), targets=prior_weights)\n\n    # JSD is the average of the two KL divergences\n    jsd = (kl_sim + kl_prior) / 2\n    return jsd / num_frames\n\n",
+      "sha256": "b6d76a3ed30f5afd22f908f23a70dce31dfcb296de8ddf7073bf240f20be9bc4",
+      "href": "../projects/2-jaxENT/code/jaxent/src/opt/loss/weights.py",
+      "uses": [
+        {
+          "project": "jaxent",
+          "record": "jax-losses",
+          "title": "Inference uses configurable regularisation and observation losses"
+        },
+        {
+          "project": "jaxent",
+          "record": "jax-likelihood",
+          "title": "Registered losses and population analysis"
+        },
+        {
+          "project": "jaxent",
+          "record": "infer",
+          "title": "Make inference flexible",
+          "view": "journey"
+        }
+      ]
+    },
+    "jax-gaussian": {
+      "id": "jax-gaussian",
+      "path": "projects/2-jaxENT/code/jaxent/src/opt/loss/gaussian.py",
+      "anchor": "def _check_covariance(",
+      "length": 51,
+      "label": "Gaussian observation likelihoods",
+      "kind": "Code",
+      "start": 30,
+      "end": 79,
+      "excerpt": "def _check_covariance(cov: ObservationCovariance | None) -> ObservationCovariance:\n    if cov is None:\n        raise ValueError(\"Physical Gaussian losses require dataset.obs_covariance\")\n    if cov.trace_normalised:\n        raise ValueError(\"Physical Gaussian losses reject trace-normalised covariance\")\n    return cov\n\n\ndef _nll(residual: Array, cov: ObservationCovariance, normalisation: str, include_logdet: bool) -> Array:\n    n = residual.shape[0]\n    if normalisation not in (\"sum\", \"count_rescaled\"):\n        raise ValueError(\"normalisation must be 'sum' or 'count_rescaled'\")\n    if cov.kind == \"diag\":\n        variances = cov.sigma_diag.reshape(-1)\n        quadratic = jnp.sum(residual**2 / variances)\n    else:\n        whitened = jax.scipy.linalg.cho_solve((cov.chol, True), residual)\n        quadratic = residual @ whitened\n    value = 0.5 * quadratic\n    if include_logdet:\n        value = value + 0.5 * cov.log_det + 0.5 * n * jnp.log(2 * jnp.pi)\n    if normalisation == \"count_rescaled\":\n        value = value / n\n    return value\n\n\ndef _make_loss(normalisation: str, include_logdet: bool, diagonal_only: bool):\n    def loss(model, dataset, prediction_index: int):\n        predictions = model.outputs[prediction_index]\n        train_cov = _check_covariance(dataset.train.obs_covariance)\n        val_cov = _check_covariance(dataset.val.obs_covariance)\n        if diagonal_only and (train_cov.kind != \"diag\" or val_cov.kind != \"diag\"):\n            raise ValueError(\"sigma_diag_noise requires diagonal ObservationCovariance\")\n        return (\n            _nll(_residual(predictions, dataset, \"train\"), train_cov, normalisation, include_logdet),\n            _nll(_residual(predictions, dataset, \"val\"), val_cov, normalisation, include_logdet),\n        )\n    return loss\n\n\n@register_loss(\"gaussian_joint_nll\")\ndef gaussian_joint_nll(normalisation: str = \"sum\", include_logdet: bool = True):\n    \"\"\"Build a summed or count-rescaled joint Gaussian negative log likelihood.\"\"\"\n    return _make_loss(normalisation, include_logdet, diagonal_only=False)\n\n\n@register_loss(\"sigma_diag_noise\")\ndef sigma_diag_noise(normalisation: str = \"sum\", include_logdet: bool = True):\n    \"\"\"Build the diagonal Gaussian specialization.\"\"\"\n    return _make_loss(normalisation, include_logdet, diagonal_only=True)",
+      "sha256": "d753e8f25ddbfba2b99f4a59c007f7ed1882cb112ea0f17726a2c5d31cbf47df",
+      "href": "../projects/2-jaxENT/code/jaxent/src/opt/loss/gaussian.py",
+      "uses": [
+        {
+          "project": "jaxent",
+          "record": "jax-losses",
+          "title": "Inference uses configurable regularisation and observation losses"
+        },
+        {
+          "project": "jaxent",
+          "record": "jax-likelihood",
+          "title": "Registered losses and population analysis"
+        }
+      ]
+    },
+    "jax-iso": {
+      "id": "jax-iso",
+      "path": "projects/2-jaxENT/code/jaxent/examples/1_IsoValidation_OMass/README.md",
+      "anchor": "## Overview",
+      "length": 28,
+      "label": "TeaA population-recovery benchmark design",
+      "kind": "README",
+      "start": 3,
+      "end": 30,
+      "excerpt": "## Overview\n\nThe **IsoValidation** (Isolated Validation) experiment is a self-consistent, model-agnostic benchmarking workflow that uses a **known ground truth** to evaluate the quality of ensemble reweighting methods. It is a core validation paradigm used in the JAX-ENT manuscript to demonstrate that maximum entropy (MaxEnt) reweighting can reliably recover conformational populations from Hydrogen Deuterium Exchange Mass Spectrometry (HDX-MS) data.\n\n### Biological System\n\nThis example uses the **TeaA membrane transporter**, a protein with two major conformational states:\n- **Open** conformation\n- **Closed** conformation\n\nThe target ground truth population ratio is **Open : Closed = 40% : 60%** (inverted from a natural distribution to make the validation challenging).\n\n### Scientific Motivation\n\nA fundamental challenge in ensemble modelling is knowing whether a model's fitted parameters (e.g. frame weights) actually correspond to the real conformational populations. IsoValidation solves this by:\n\n1. **Starting from known structure**: Taking an MD trajectory with identifiable conformational states.\n2. **Creating synthetic data**: Computing artificial HDX uptake curves from these states at a known population ratio.\n3. **Inverting the populations**: Using a ratio that is plausible but *unnatural*, so recovery requires genuine model fitting (not just recognising a default equilibrium).\n4. **Measuring recovery**: After fitting, comparing recovered populations against the known ground truth using the Jensen-Shannon Divergence.\n\n---\n\n## Essential Workflow\n\n```mermaid\nflowchart TD\n    A[\"1. Download & Prepare Data\\n(get_HDXer_AutoValidation_data.py)\"] --> B[\"2. Extract Synthetic HDX Data\\n(extract_synthetic_data.py)\"]",
+      "sha256": "05abf743fb41c928f068e0df1a2b7d532657a1ac9b2520182f43d114767dae91",
+      "href": "../projects/2-jaxENT/code/jaxent/examples/1_IsoValidation_OMass/README.md",
+      "uses": [
+        {
+          "project": "jaxent",
+          "record": "jax-teaa",
+          "title": "TeaA known-population inversion"
+        }
+      ]
+    },
+    "jax-moprp": {
+      "id": "jax-moprp",
+      "path": "projects/2-jaxENT/code/jaxent/examples/2_CrossValidation/README.md",
+      "anchor": "### Biological System",
+      "length": 23,
+      "label": "MoPrP states and orthogonal evaluation",
+      "kind": "README",
+      "start": 7,
+      "end": 29,
+      "excerpt": "### Biological System\n\nThis example uses the **Mouse Prion Protein (MoPrP)**, a system with multiple conformational states:\n- **Folded** — Native structured conformation\n- **PUF1** (Partially Unfolded Form 1) — State with local unfolding in the S1–H1 region\n- **PUF2** (Partially Unfolded Form 2) — State with unfolding in the S2–H2–H3 region\n- **Unfolded** — Fully disordered\n\nThe target state populations are derived from published ValDX (Validated Dynamics by HDX) experimental data and literature ratios.\n\n### Scientific Motivation\n\nWhile IsoValidation (Example 1) demonstrates that MaxEnt reweighting *can* recover known populations from synthetic data, the CrossValidation example tests whether it *does* work on real experimental data where:\n\n1. **No ground truth exists in the HDX data itself** — the experimental uptake curves do not directly encode state populations.\n2. **Independent validation is possible** — conformational states can be identified from MD structural features (not HDX), providing an orthogonal check.\n3. **Model selection matters** — with real noise and model mismatch, it becomes critical to choose appropriate loss functions, convergence thresholds, and MaxEnt regularisation strengths.\n4. **Cross-validation is essential** — train/validation splitting of peptides tests whether the fitted ensemble generalises beyond the training data.\n\n### Ensembles\n\nTwo AlphaFold2-generated ensembles of MoPrP are used:\n",
+      "sha256": "01a11cdac87295c45ce109576fa83e15a4b06601b2778537851b1f445eb41ca1",
+      "href": "../projects/2-jaxENT/code/jaxent/examples/2_CrossValidation/README.md",
+      "uses": [
+        {
+          "project": "jaxent",
+          "record": "jax-state",
+          "title": "Population scoring can be separated from predictive error"
+        },
+        {
+          "project": "jaxent",
+          "record": "jax-prion",
+          "title": "MoPrP conformational-state comparisons"
+        },
+        {
+          "project": "jaxent",
+          "record": "infer",
+          "title": "Make inference flexible",
+          "view": "journey"
+        }
+      ]
+    },
+    "jax-bv": {
+      "id": "jax-bv",
+      "path": "projects/2-jaxENT/code/jaxent/examples/3_CrossValidationBV/README.md",
+      "anchor": "## Overview",
+      "length": 16,
+      "label": "Joint MaxEnt/BV regularisation sweeps",
+      "kind": "README",
+      "start": 3,
+      "end": 18,
+      "excerpt": "## Overview\n\nThis example extends [Example 2 (Cross-Validation)](../2_CrossValidation/README.md) by introducing **physical regularisation on the Best–Vendruscolo (BV) model parameters** alongside Maximum-Entropy (MaxEnt) ensemble reweighting. The result is a **2D hyperparameter sweep** over:\n\n| Axis | Parameter | Purpose |\n|------|-----------|---------|\n| **X** | MaxEnt scaling (`λ_MaxEnt`) | Controls the strength of the KL-divergence penalty that keeps frame weights close to a uniform prior |\n| **Y** | BV regularisation scaling (`λ_BV`) | Penalises the BV contact parameters (`β_c`, `β_h`) via an L1 or L2 norm to prevent over-fitting to the structural data |\n\nBy sweeping both axes simultaneously the pipeline identifies the optimal trade-off between data fidelity, ensemble diversity (MaxEnt), and physical model robustness (BV regularisation).\n\n### Scientific Motivation\n\nStandard ensemble reweighting adjusts frame weights to improve agreement with experimental HDX-MS data. However, simultaneously optimising the BV model parameters (`β_c` for heavy-atom contacts, `β_h` for hydrogen-bond acceptor contacts) can lead to over-fitting — the parameters absorb noise rather than capturing genuine physical effects. Adding a regularisation penalty on these parameters constrains the optimisation landscape and improves generalisation, as assessed through cross-validation.\n\n### Biological System",
+      "sha256": "6a1a2c039bd93620e4ba26eecaff83370e152bf3f926166baf75b3497c125ddc",
+      "href": "../projects/2-jaxENT/code/jaxent/examples/3_CrossValidationBV/README.md",
+      "uses": [
+        {
+          "project": "jaxent",
+          "record": "jax-regularise",
+          "title": "MoPrP examples explore a second regularisation axis"
+        },
+        {
+          "project": "jaxent",
+          "record": "jax-prion",
+          "title": "MoPrP conformational-state comparisons"
+        },
+        {
+          "project": "jaxent",
+          "record": "validation-to-inference",
+          "title": "Validation motivates flexible inference"
+        }
+      ]
+    },
+    "jax-asyn": {
+      "id": "jax-asyn",
+      "path": "projects/2-jaxENT/code/jaxent/examples/4_aSyn/README.md",
+      "anchor": "## Overview",
+      "length": 17,
+      "label": "Alpha-synuclein condition-wise PF analysis",
+      "kind": "README",
+      "start": 6,
+      "end": 22,
+      "excerpt": "## Overview\n\nThis example runs cross-validation for **alpha-synuclein (aSyn)** using residue-level protection factors (PF) across four conditions:\n\n- `Tris_only`\n- `Extracellular`\n- `Intracellular`\n- `Lysosomal`\n\nConditions are treated as the top-level comparison axis (ensemble-like grouping).\n\nRecovery is PF-based:\n\n`recovery (%) = (1 - sqrt(JSD(logPf_pred, logPf_exp))) * 100`\n\n## Data and paths\n",
+      "sha256": "0808f620ea40a59030f73f1ecc93602783013f8a465f93e432b47c7386598a61",
+      "href": "../projects/2-jaxENT/code/jaxent/examples/4_aSyn/README.md",
+      "uses": [
+        {
+          "project": "jaxent",
+          "record": "jax-syn",
+          "title": "Alpha-synuclein across four solution conditions"
+        }
+      ]
+    },
+    "jax-saxs": {
+      "id": "jax-saxs",
+      "path": "projects/2-jaxENT/code/jaxent/examples/5_SAXS/fitting/README.md",
+      "anchor": "# SAXS+HDX Fitting example",
+      "length": 26,
+      "label": "Calmodulin SAXS/HDX fitting design",
+      "kind": "README",
+      "start": 1,
+      "end": 26,
+      "excerpt": "# SAXS+HDX Fitting example  \nIn this example we will demonstrate combined fitting of SAXS and HDX-MS data using the jaxent framework.\n\nWe use the CaM ensemble generated from NeuralPlexer from the previous scripts.\n\nThis ensemble consists of 1125 structures - 5 x 225 conditions. These conditions are a pulldown of:\n- 3 initial clusters (APOlike, HOLOlike, and Neither) - from these clusters 5 subclusters mediods were obtained.\n- 5 different Ca2+ binding states (0, 1, 2, 3, or 4 Ca2+ bound)\n- 3 different CDZ binding states (0, 1, or 2 CDZ bound)\n\nThis is to be fit against the data obtained for CaM with and without CDZ. (CaM+CDZ and CaM-CDZ).\n- As we have HDX-MS and SAXS data for both conditions, we compare 3 scenarios:\n    1. Fit to SAXS data only\n    2. Fit to HDX-MS data only\n    3. Fit to both SAXS and HDX-MS data simultaneously\n\n\nFitting setup:\n- Reweighting only\n- Loss function:\n    - For SAXS: chi-squared between experimental and predicted curves\n    - For HDX-MS: Sigma MSE loss function\n    - For weights: KL divergence between the weights and the uniform distribution (To be updated with ESS loss function in the future)\n\nNote: We need to obtain a correct scaling factor for the SAXS and HDX-MS loss functions so that they are on the same order of magnitude for combined fitting.\n- This will be obtained from the initial fitting experiments via the ratio of the loss function values at the start of training from the SAXS-only and HDX-MS-only fitting experiments. ",
+      "sha256": "b8c1bcebf77c82092cba044fbac8e82a4d165f1a4b9c5172582b10ac0d5b93b6",
+      "href": "../projects/2-jaxENT/code/jaxent/examples/5_SAXS/fitting/README.md",
+      "uses": [
+        {
+          "project": "jaxent",
+          "record": "jax-multidata",
+          "title": "Calmodulin examples compare HDX-only, SAXS-only, and joint fitting"
+        },
+        {
+          "project": "jaxent",
+          "record": "jax-cam",
+          "title": "Calmodulin with HDX and SAXS"
+        }
+      ]
+    },
+    "jax-population": {
+      "id": "jax-population",
+      "path": "projects/2-jaxENT/code/jaxent/src/analysis/state_population.py",
+      "anchor": "def strict_population_jsd(",
+      "length": 28,
+      "label": "Independent state-population scoring",
+      "kind": "Code",
+      "start": 177,
+      "end": 204,
+      "excerpt": "def strict_population_jsd(\n    weights: ArrayLike,\n    states: np.ndarray,\n    support: Sequence[str],\n    targets: ArrayLike,\n) -> Array:\n    \"\"\"Full-support base-2 JSD between recovered and target populations.\"\"\"\n\n    populations = state_populations(weights, states, support)\n    return jensen_shannon_divergence(populations, jnp.asarray(targets))\n\n\ndef strict_recovery_percent(\n    weights: ArrayLike,\n    states: np.ndarray,\n    support: Sequence[str],\n    targets: ArrayLike,\n) -> Array:\n    \"\"\"Full-support recovery percent ``100 * (1 - sqrt(JSD))``.\"\"\"\n\n    populations = state_populations(weights, states, support)\n    return jensen_shannon_recovery_percent(populations, jnp.asarray(targets))\n\n\n# --------------------------------------------------------------------------------------\n# Covariance coordinate constructors (both from the same ensemble frames)\n# --------------------------------------------------------------------------------------\ndef peptide_logpf_covariance(",
+      "sha256": "539d63f1858cf94073a023ec0f966f8651f5077f7ab91ce555c38215e0e22834",
+      "href": "../projects/2-jaxENT/code/jaxent/src/analysis/state_population.py",
+      "uses": [
+        {
+          "project": "jaxent",
+          "record": "jax-state",
+          "title": "Population scoring can be separated from predictive error"
+        },
+        {
+          "project": "jaxent",
+          "record": "jax-likelihood",
+          "title": "Registered losses and population analysis"
+        }
+      ]
+    },
+    "jax-draft": {
+      "id": "jax-draft",
+      "path": "projects/2-jaxENT/manuscript/report/abstract.tex",
+      "anchor": "Inverting high-resolution",
+      "length": 1,
+      "label": "Historical jaxENT draft abstract",
+      "kind": "Manuscript",
+      "start": 4,
+      "end": 4,
+      "excerpt": "Inverting high-resolution structural ensembles from time-averaged biophysical measurements is a fundamental problem in structural biology. Existing methods are computationally expensive, lack uncertainty quantification, and offer limited modelling pipeline flexibility. Here we introduce jaxENT, a JAX-based maximum-entropy framework that fits ensemble weights and forward-model parameters simultaneously, recovering conformational populations within 20--25\\% experimental precision while running 1.5--400$\\times$ faster than HDXer. Greater speed-ups are observed on harder scenarios. Applied to $\\alpha$-Synuclein in Tris buffer, jaxENT identifies C-tail Tris-binding as the driver of unexplained protection while dissecting modelling limitations. These results establish jaxENT as a quantitative framework for structural hypothesis testing from solution biophysical data and underscore the importance of careful computational and experimental design when studying protein dynamics \\textit{in vitro}.",
+      "sha256": "ff9cac6d5b6971e1b8d36935baa2dad870f162d9379534bd7a305cdc094560c9",
+      "href": "../projects/2-jaxENT/manuscript/report/abstract.tex",
+      "uses": [
+        {
+          "project": "jaxent",
+          "record": "jax-old",
+          "title": "Historical manuscript results need reconciliation"
+        },
+        {
+          "project": "valdx",
+          "record": "observation-1",
+          "title": "Current code and historical manuscripts have different authority",
+          "view": "evidence"
+        }
+      ]
+    },
+    "bio-status": {
+      "id": "bio-status",
+      "path": "projects/3-BioFeaturisers/README.md",
+      "anchor": "- **Thesis chapter:",
+      "length": 10,
+      "label": "BioFeaturisers and guidance workstream status",
+      "kind": "README",
+      "start": 3,
+      "end": 9,
+      "excerpt": "- **Thesis chapter:** `thesis/chapters/05-biofeaturisers.tex`\n- **Status:** preliminary experiments; meta-diffusion in progress\n\n| Folder | Submodule | Pinned commit |\n|---|---|---|\n| `code/` | [BioFeaturisers](https://github.com/alexisiddiqui/BioFeaturisers) (preliminary experiments) | `0168b5a` |\n| `meta-diffusion/` | [MaxENT-FK](https://github.com/alexisiddiqui/MaxENT-FK) (in progress) | `02d90d7` |",
+      "sha256": "f109ec916626f4c3c99a3bb0733ae37f8504d75106853b96952dd3a2bf4c81e3",
+      "href": "../projects/3-BioFeaturisers/README.md",
+      "uses": [
+        {
+          "project": "biofeaturisers",
+          "record": "biofeaturisers",
+          "title": "BioFeaturisers"
+        },
+        {
+          "project": "maxent-fk",
+          "record": "maxent-fk",
+          "title": "MaxENT-FK"
+        }
+      ]
+    },
+    "bio-readme": {
+      "id": "bio-readme",
+      "path": "projects/3-BioFeaturisers/code/README.md",
+      "anchor": "## Grad-friendly fixed-topology APIs",
+      "length": 24,
+      "label": "Differentiable HDX, SAXS, and SASA APIs",
+      "kind": "README",
+      "start": 49,
+      "end": 72,
+      "excerpt": "## Grad-friendly fixed-topology APIs\n\nHDX and SAXS expose fixed-topology entrypoints:\n\n- `featurise_from_topology(...)`\n- `predict_from_features(...)`\n\nThese are intended for differentiable workflows where topology is static and coordinates change.\nFor SAXS, `featurise_from_topology(...)` requires precomputed per-atom `solvent_acc`\n(SASA fractions). `featurise(...)` can also attach smooth SASA features, allowing hydration\nto be recomputed from coordinates at forward-time for differentiable SAXS hydration.\n\nSASA currently exposes a Python API (no CLI in this phase):\n\n- `biofeaturisers.sasa.featurise(...)`\n- `biofeaturisers.sasa.forward(...)`\n- `biofeaturisers.sasa.predict(...)`\n\nSASA defaults to `SASAConfig(mode=\"smooth\")` (topology-free differentiable path).  \nUse `SASAConfig(mode=\"exact\")` to run the fixed-topology exact dSASA kernel.  \nUse `SASAConfig(mode=\"gaussvol\")` to run the per-frame rebuilt Gaussian-overlap SASA path,\nwhich recomputes its working overlap topology from the current coordinates on each forward call.\n\n`--env` supports either:",
+      "sha256": "1702cfe753a7e1300f42ed919f347c90fbc4b3a3d4ef59b5389fcea3b8cb10a4",
+      "href": "../projects/3-BioFeaturisers/code/README.md",
+      "uses": [
+        {
+          "project": "biofeaturisers",
+          "record": "biofeaturisers",
+          "title": "BioFeaturisers"
+        },
+        {
+          "project": "biofeaturisers",
+          "record": "bio-fixed",
+          "title": "Fixed-topology APIs allow coordinates to change"
+        },
+        {
+          "project": "biofeaturisers",
+          "record": "bio-scattering",
+          "title": "SAXS predictions support structures and trajectories"
+        },
+        {
+          "project": "biofeaturisers",
+          "record": "bio-saxs-module",
+          "title": "biofeaturisers.saxs and .sasa"
+        },
+        {
+          "project": "biofeaturisers",
+          "record": "fitting-to-observables",
+          "title": "Complementary differentiable layers"
+        },
+        {
+          "project": "biofeaturisers",
+          "record": "observe",
+          "title": "Differentiate the observables",
+          "view": "journey"
+        }
+      ]
+    },
+    "bio-hdx": {
+      "id": "bio-hdx",
+      "path": "projects/3-BioFeaturisers/code/biofeaturisers/hdx/forward.py",
+      "anchor": "def hdx_forward(",
+      "length": 23,
+      "label": "Coordinate-to-protection forward kernel",
+      "kind": "Code",
+      "start": 629,
+      "end": 651,
+      "excerpt": "def hdx_forward(\n    coords: Float[Array, \"n_atoms 3\"],\n    features: HDXFeatures,\n    config: HDXConfig | None = None,\n    return_pair_contribs: bool = False,\n) -> dict[str, Any]:\n    \"\"\"Compute BV contact counts and protection factors with power-of-two bucketing.\n\n    Provenance:\n        source_type: paper + internal implementation design\n        citation: Best & Vendruscolo (2006) ``ln(PF)=beta_c*Nc+beta_h*Nh`` style model with\n            Wan et al. (2020) sigmoid-contact implementation choices.\n        paper_id: doi:10.1016/j.str.2005.09.012; doi:10.1021/acs.jctc.9b01240\n        confidence: high\n    \"\"\"\n    cfg = config or HDXConfig()\n    coords_arr = jnp.asarray(coords, dtype=jnp.float32)\n    if coords_arr.ndim != 2 or int(coords_arr.shape[1]) != 3:\n        raise ValueError(f\"coords must have shape (n_atoms, 3), got {tuple(coords_arr.shape)}\")\n\n    n_atoms = int(coords_arr.shape[0])\n    prepared = _prepare_hdx_forward(features=features, n_atoms=n_atoms, cfg=cfg)\n    n_probe = prepared[\"n_probe\"]",
+      "sha256": "4eec2d995de6d0163d358c688fe237254c197d904b52e397b55dcaa80799d800",
+      "href": "../projects/3-BioFeaturisers/code/biofeaturisers/hdx/forward.py",
+      "uses": [
+        {
+          "project": "biofeaturisers",
+          "record": "bio-protection",
+          "title": "HDX kernels map coordinates to contact-based protection"
+        },
+        {
+          "project": "biofeaturisers",
+          "record": "bio-hdx-module",
+          "title": "biofeaturisers.hdx"
+        },
+        {
+          "project": "maxent-fk",
+          "record": "observables-to-guidance",
+          "title": "Coordinate-sensitive observables supply guidance gradients"
+        },
+        {
+          "project": "biofeaturisers",
+          "record": "observe",
+          "title": "Differentiate the observables",
+          "view": "journey"
+        }
+      ]
+    },
+    "bio-predict": {
+      "id": "bio-predict",
+      "path": "projects/3-BioFeaturisers/code/biofeaturisers/hdx/predict.py",
+      "anchor": "def predict_from_features(",
+      "length": 28,
+      "label": "HDX prediction from fixed features",
+      "kind": "Code",
+      "start": 28,
+      "end": 55,
+      "excerpt": "def predict_from_features(\n    features: HDXFeatures,\n    coords: Float[Array, \"n_atoms 3\"] | Float[Array, \"n_frames n_atoms 3\"],\n    config: HDXConfig | None = None,\n    weights: Float[Array, \"n_frames\"] | None = None,\n    peptide_mask: Float[Array, \"n_peptides n_probe\"] | None = None,\n) -> dict[str, Array]:\n    \"\"\"Run HDX forward prediction from precomputed static features.\n\n    Provenance:\n        source_type: paper + internal implementation design\n        citation: Applies the BioFeaturisers implementation of Best/Vendruscolo and Wan\n            kernels over single structures or trajectory ensembles.\n        paper_id: doi:10.1016/j.str.2005.09.012; doi:10.1021/acs.jctc.9b01240\n        confidence: medium\n    \"\"\"\n    cfg = config or HDXConfig()\n    coords_arr = jnp.asarray(coords, dtype=jnp.float32)\n\n    if coords_arr.ndim == 2:\n        result = hdx_forward(coords_arr, features=features, config=cfg)\n    elif coords_arr.ndim == 3:\n        if int(coords_arr.shape[2]) != 3:\n            raise ValueError(f\"coords must have shape (n_frames, n_atoms, 3), got {coords_arr.shape}\")\n        prepared = _prepare_hdx_forward(features=features, n_atoms=int(coords_arr.shape[1]), cfg=cfg)\n        n_probe = prepared[\"n_probe\"]\n        if n_probe == 0:\n            zeros = jnp.zeros((0,), dtype=coords_arr.dtype)",
+      "sha256": "3a8f5ba286b3bbf4bc4b7d61c13b63d1b2f677d7e1bd0ef62120342821603957",
+      "href": "../projects/3-BioFeaturisers/code/biofeaturisers/hdx/predict.py",
+      "uses": [
+        {
+          "project": "biofeaturisers",
+          "record": "bio-protection",
+          "title": "HDX kernels map coordinates to contact-based protection"
+        },
+        {
+          "project": "biofeaturisers",
+          "record": "bio-hdx-module",
+          "title": "biofeaturisers.hdx"
+        }
+      ]
+    },
+    "bio-saxs": {
+      "id": "bio-saxs",
+      "path": "projects/3-BioFeaturisers/code/biofeaturisers/saxs/forward.py",
+      "anchor": "def forward(",
+      "length": 26,
+      "label": "FoXS-style SAXS forward dispatch",
+      "kind": "Code",
+      "start": 23,
+      "end": 48,
+      "excerpt": "def forward(\n    coords: Float[Array, \"n_atoms 3\"] | Float[Array, \"n_frames n_atoms 3\"],\n    features: SAXSFeatures,\n    config: SAXSConfig | None = None,\n    c1: float | None = None,\n    c2: float | None = None,\n    weights: Float[Array, \"n_frames\"] | None = None,\n) -> Float[Array, \"n_q\"]:\n    \"\"\"Dispatch SAXS forward computation for single structures or trajectories.\n\n    Provenance:\n        source_type: paper + internal implementation design\n        citation: FoXS profile generation with trajectory averaging wrappers for ensemble SAXS.\n        paper_id: doi:10.1093/nar/gkq461; doi:10.1016/j.bpj.2013.07.020\n        confidence: high\n    \"\"\"\n    cfg = config or SAXSConfig()\n    c1_value = cfg.c1 if c1 is None else c1\n    c2_value = cfg.c2 if c2 is None else c2\n\n    coords_arr = jnp.asarray(coords, dtype=jnp.float32)\n    if coords_arr.ndim == 2:\n        return _saxs_forward_single(\n            coords=coords_arr,\n            features=features,\n            c1=float(c1_value),",
+      "sha256": "64440c8e24077dd9105bb5e1e7020196fce9941e31047354e85a3b3ce28e94c9",
+      "href": "../projects/3-BioFeaturisers/code/biofeaturisers/saxs/forward.py",
+      "uses": [
+        {
+          "project": "biofeaturisers",
+          "record": "bio-scattering",
+          "title": "SAXS predictions support structures and trajectories"
+        },
+        {
+          "project": "biofeaturisers",
+          "record": "bio-saxs-module",
+          "title": "biofeaturisers.saxs and .sasa"
+        },
+        {
+          "project": "biofeaturisers",
+          "record": "observe",
+          "title": "Differentiate the observables",
+          "view": "journey"
+        }
+      ]
+    },
+    "bio-gradtests": {
+      "id": "bio-gradtests",
+      "path": "projects/3-BioFeaturisers/code/tests/gradients/test_hdx_forward_gradients.py",
+      "anchor": "def test_hdx_forward_ln_pf_gradient_matches_fd",
+      "length": 25,
+      "label": "HDX directional finite-difference test",
+      "kind": "Test source",
+      "start": 53,
+      "end": 77,
+      "excerpt": "def test_hdx_forward_ln_pf_gradient_matches_fd() -> None:\n    atom_array = _make_three_residue_no_h_atom_array()\n    config = HDXConfig(seq_sep_min=0, chunk_size=0, steepness_c=6.0, steepness_h=8.0)\n    features = featurise(atom_array, config=config)\n    coords = jnp.asarray(atom_array.coord, dtype=jnp.float32)\n\n    loss = lambda c: jnp.sum(hdx_forward(c, features=features, config=config)[\"ln_Pf\"])\n    assert_directional_gradient_close(loss, coords, eps=1e-3, n_dirs=3, seed=31, rtol=2e-1, atol=2e-2)\n\n\ndef test_hdx_forward_ln_pf_torch_interop_gradient_matches_jax() -> None:\n    atom_array = _make_three_residue_no_h_atom_array()\n    config = HDXConfig(seq_sep_min=0, chunk_size=0, steepness_c=6.0, steepness_h=8.0)\n    features = featurise(atom_array, config=config)\n    coords = jnp.asarray(atom_array.coord, dtype=jnp.float32)\n\n    loss = lambda c: jnp.sum(hdx_forward(c, features=features, config=config)[\"ln_Pf\"])\n    assert_torch_jax_input_grad_close(loss, coords, atol=1e-5, rtol=1e-4)\n\n\ndef test_hdx_forward_chunked_and_dense_gradients_agree() -> None:\n    atom_array = _make_three_residue_no_h_atom_array()\n    dense_config = HDXConfig(seq_sep_min=0, chunk_size=0)\n    chunked_config = HDXConfig(seq_sep_min=0, chunk_size=2)\n    features = featurise(atom_array, config=dense_config)",
+      "sha256": "4dfdc6cc4520feda79f6d7d89f20692f9d523450ddba79d644c6fbd5930e01f8",
+      "href": "../projects/3-BioFeaturisers/code/tests/gradients/test_hdx_forward_gradients.py",
+      "uses": [
+        {
+          "project": "biofeaturisers",
+          "record": "bio-test",
+          "title": "Gradient checks are present in the source tree"
+        },
+        {
+          "project": "biofeaturisers",
+          "record": "bio-checks",
+          "title": "Numerical and gradient verification"
+        },
+        {
+          "project": "jax-ka",
+          "record": "observables-to-titration",
+          "title": "Shared emphasis on differentiable physical models"
+        }
+      ]
+    },
+    "bio-provenance": {
+      "id": "bio-provenance",
+      "path": "projects/3-BioFeaturisers/code/README.md",
+      "anchor": "## Provenance gaps",
+      "length": 12,
+      "label": "Documented BioFeaturisers citation gaps",
+      "kind": "README",
+      "start": 113,
+      "end": 121,
+      "excerpt": "## Provenance gaps\n\n| Component/API | Missing source | Evidence checked | Proposed next source |\n| --- | --- | --- | --- |\n| `biofeaturisers.hdx.hdxrate.compute_kint` | Canonical HDXrate method publication/DOI for intrinsic-rate implementation used by package API | `plans/HDX.md`; HDXrate package metadata and public docs; internal HDX provenance mapping pass | HDXrate maintainers/repository citation metadata and associated manuscript or software paper |\n| `biofeaturisers.hdx.predict` (HDXrate-enabled path) | Direct paper trail for optional HDXrate-backed intrinsic-rate branch inside BioFeaturisers wrapper | `biofeaturisers/hdx/predict.py` provenance review + HDXrate integration audit | Same HDXrate primary citation as above; update once pinned |\n| `biofeaturisers.sasa.gaussvol.sasa_gaussvol` | Primary GaussVol bibliographic identifier for Zhang et al. formulation currently cited in blueprints | `plans/SASA.md`; `blueprints/SASA_gaussvol.md`; repository provenance lookup and web search pass | Original GaussVol publication DOI (or authoritative preprint/software reference) from source authors |\n| `biofeaturisers.sasa.forward` and `biofeaturisers.sasa.predict` (gaussvol mode) | Inherited unresolved GaussVol primary citation for dispatched approximation path | SASA forward/predict provenance blocks + gaussvol source audit | Resolve GaussVol primary citation above, then propagate to dispatch wrappers |\n| `biofeaturisers.sasa.radii` (Alvarez/Mantina extensions) | Complete DOI set for all radius extension tables merged into SASA element radii lookup | `biofeaturisers/sasa/radii.py` table provenance audit; SASA planning docs | Full Alvarez/Mantina paper identifiers and any correction notes for table values |",
+      "sha256": "1702cfe753a7e1300f42ed919f347c90fbc4b3a3d4ef59b5389fcea3b8cb10a4",
+      "href": "../projects/3-BioFeaturisers/code/README.md",
+      "uses": [
+        {
+          "project": "biofeaturisers",
+          "record": "biofeaturisers",
+          "title": "BioFeaturisers"
+        },
+        {
+          "project": "biofeaturisers",
+          "record": "bio-checks",
+          "title": "Numerical and gradient verification"
+        }
+      ]
+    },
+    "fk-readme": {
+      "id": "fk-readme",
+      "path": "projects/3-BioFeaturisers/meta-diffusion/README.md",
+      "anchor": "Package to perform maximum entropy",
+      "length": 9,
+      "label": "MaxENT-FK dependencies and objective",
+      "kind": "README",
+      "start": 4,
+      "end": 12,
+      "excerpt": "Package to perform maximum entropy diffusion guidance towards target experimental data (HDX-MS)\n\n## Required packages:\n- Boltz\n- jax-ent\n- biofeaturisers\n\ninstalled as git submodules\n",
+      "sha256": "2ca445898a188d952c28b5c44089da914991e03267ad3b9860f018b017e02086",
+      "href": "../projects/3-BioFeaturisers/meta-diffusion/README.md",
+      "uses": [
+        {
+          "project": "maxent-fk",
+          "record": "maxent-fk",
+          "title": "MaxENT-FK"
+        },
+        {
+          "project": "maxent-fk",
+          "record": "jaxent-to-guidance",
+          "title": "Ensemble fitting inside guidance"
+        }
+      ]
+    },
+    "fk-builder": {
+      "id": "fk-builder",
+      "path": "projects/3-BioFeaturisers/meta-diffusion/src/maxent_fk/guidance/builder.py",
+      "anchor": "    from biofeaturisers.config import HDXConfig",
+      "length": 12,
+      "label": "BioFeaturisers and jaxENT integration",
+      "kind": "Code",
+      "start": 20,
+      "end": 31,
+      "excerpt": "    from biofeaturisers.config import HDXConfig\n    from biofeaturisers.hdx.features import HDXFeatures\n    from jaxent.src.custom_types.config import OptimiserSettings\n    from jaxent.src.data.loader import ExpD_Dataloader\n    from jaxent.src.models.config import BV_model_Config\n\n\n# ---------------------------------------------------------------------------\n# Public dataclasses\n# ---------------------------------------------------------------------------\n\n",
+      "sha256": "f27727bdef83a7c3141766b63cd6469ddc986b12d4fceebe03debad02397376f",
+      "href": "../projects/3-BioFeaturisers/meta-diffusion/src/maxent_fk/guidance/builder.py",
+      "uses": [
+        {
+          "project": "maxent-fk",
+          "record": "fk-assembly",
+          "title": "maxent_fk.guidance.builder and .hook"
+        },
+        {
+          "project": "maxent-fk",
+          "record": "jaxent-to-guidance",
+          "title": "Ensemble fitting inside guidance"
+        },
+        {
+          "project": "maxent-fk",
+          "record": "observables-to-guidance",
+          "title": "Coordinate-sensitive observables supply guidance gradients"
+        }
+      ]
+    },
+    "fk-config": {
+      "id": "fk-config",
+      "path": "projects/3-BioFeaturisers/meta-diffusion/src/maxent_fk/guidance/config.py",
+      "anchor": "class GuidanceConfig:",
+      "length": 30,
+      "label": "Resampling and gradient guidance modes",
+      "kind": "Code",
+      "start": 10,
+      "end": 39,
+      "excerpt": "class GuidanceConfig:\n    mode: Literal[\"fk\", \"weighted\", \"gradient\", \"none\"] = \"fk\"\n    \"\"\"\n    fk        — FK resampling (non-uniform weights returned to Boltz) + inv_w-weighted gradient\n    weighted  — no resampling + inv_w-weighted gradient\n    gradient  — no resampling + uniform gradient (no per-particle weight modulation)\n    none      — no resampling, no gradient; MaxEnt is skipped entirely\n    \"\"\"\n    gradient_path: Literal[\"direct_x0\", \"denoiser_vjp\"] = \"direct_x0\"\n    \"\"\"Where the experimental gradient enters the reverse diffusion update.\n\n    ``direct_x0`` applies the HDX descent vector directly to the denoiser's clean\n    prediction (the historical behaviour). ``denoiser_vjp`` pulls that cotangent\n    back to the current noisy coordinates through the frozen denoiser, then adds\n    the resulting loss gradient to the reverse-ODE velocity, mirroring the\n    upstream guidance path used by experiment-guided AF3.\n    \"\"\"\n    fit_parameters: bool = False\n    \"\"\"Fit the BV forward parameters (bv_bc/bv_bh) via MaxEnt each step.\n    Default False: freeze at literature BV values (bc=0.35, bh=2.0). Online\n    regression is degenerate on mid-diffusion coordinates — see sweep 2026-06-30.\"\"\"\n    inherit_parameters: bool = False\n    \"\"\"When False (default), parameters reset to the canonical prior each step so\n    the L1 penalty and gradient bc/bh restore toward the prior. When True, fitted\n    parameters carry forward and accumulate across steps (can drift/collapse —\n    see GUIDANCE_GRADIENT_DIAGNOSIS.md). Honoured regardless of fit_parameters.\"\"\"\n    n_lambda_steps: int = 50\n    n_lambda_values: int = 10\n    sampling_interval: int = 1\n    kld_budget: float = 1.0",
+      "sha256": "48c5d9088f48bb541bda07b7e03fee601f181a0f72f59bbaf615c050a93e62c9",
+      "href": "../projects/3-BioFeaturisers/meta-diffusion/src/maxent_fk/guidance/config.py",
+      "uses": [
+        {
+          "project": "maxent-fk",
+          "record": "fk-modes",
+          "title": "Guidance combines fitting, resampling, and coordinate updates"
+        },
+        {
+          "project": "maxent-fk",
+          "record": "fk-objectives",
+          "title": "maxent_fk.guidance.losses and .config"
+        },
+        {
+          "project": "maxent-fk",
+          "record": "guide",
+          "title": "Guide generation and test its limits",
+          "view": "journey"
+        }
+      ]
+    },
+    "fk-hook": {
+      "id": "fk-hook",
+      "path": "projects/3-BioFeaturisers/meta-diffusion/src/maxent_fk/guidance/hook.py",
+      "anchor": "class GuidanceHook:",
+      "length": 12,
+      "label": "Per-step weights and coordinate updates",
+      "kind": "Code",
+      "start": 427,
+      "end": 438,
+      "excerpt": "class GuidanceHook:\n    \"\"\"Stateful hook passed to Boltz's sample() to apply MaxEnt guidance.\n\n    Call once per diffusion step. Returns (resample_weights, grad_update):\n    - resample_weights: [K] torch tensor of FK resampling probabilities (sum=1)\n    - grad_update: [K, N_atoms, 3] torch tensor of coordinate perturbations\n\n    When lag_weights=True (default) the gradient uses the previous step's weights\n    and contacts are shared with MaxEnt (one hdx_forward call per step).\n    When lag_weights=False MaxEnt runs first so the gradient uses current weights\n    (two hdx_forward calls per step; unavoidable given the ordering).\n    \"\"\"",
+      "sha256": "ef8405e88e39ca182f0b7bc17f3ecdea28214335fac11b806967c5c5029b0cc2",
+      "href": "../projects/3-BioFeaturisers/meta-diffusion/src/maxent_fk/guidance/hook.py",
+      "uses": [
+        {
+          "project": "maxent-fk",
+          "record": "fk-modes",
+          "title": "Guidance combines fitting, resampling, and coordinate updates"
+        },
+        {
+          "project": "maxent-fk",
+          "record": "fk-assembly",
+          "title": "maxent_fk.guidance.builder and .hook"
+        },
+        {
+          "project": "maxent-fk",
+          "record": "observables-to-guidance",
+          "title": "Coordinate-sensitive observables supply guidance gradients"
+        }
+      ]
+    },
+    "fk-loss": {
+      "id": "fk-loss",
+      "path": "projects/3-BioFeaturisers/meta-diffusion/src/maxent_fk/guidance/losses.py",
+      "anchor": "def _uptake_loss_pre(",
+      "length": 65,
+      "label": "Mean uptake, transport, and variance objectives",
+      "kind": "Code",
+      "start": 82,
+      "end": 146,
+      "excerpt": "def _uptake_loss_pre(\n    nc_a: jax.Array,\n    nh_a: jax.Array,\n    weights: jax.Array,\n    bc: jax.Array,\n    bh: jax.Array,\n    target_uptake: jax.Array,\n    kint_safe: jax.Array,\n    timepoints: jax.Array,\n    valid_mask: jax.Array,\n    tp_weights: jax.Array,\n    *,\n    clip_contacts: bool,\n    contact_clip_max: float,\n    clip_pf: bool,\n    ln_pf_min: float | jax.Array,\n    ln_pf_max: float | jax.Array,\n    dirichlet_laplacian: jax.Array | None = None,\n    dirichlet_weight: float = 0.0,\n    guidance_likelihood: str = \"mse\",\n    ot_cost: jax.Array | None = None,\n    uptake_ot_mode: str = \"timepoint\",\n    ot_epsilon: float = 0.1,\n    ot_sinkhorn_iters: int = 100,\n    ot_mass_temperature: float = 1.0,\n    ot_debias: bool = False,\n    lambda_mass: float = 0.1,\n    target_uptake_variance: jax.Array | None = None,\n    variance_matching_weight: float = 0.0,\n    variance_eps: float = 1e-6,\n    lambda_var: float = 0.0,\n) -> jax.Array:\n    \"\"\"Uptake loss with precomputed closure constants: pointwise MSE (default) or OT.\n\n    target_uptake_variance/variance_matching_weight (MSE only, see\n    plans/research/hdx_variance_litmus_handoff.md Sec 8-10): an additive term\n    comparing the LIVE ensemble's own per-(residue,timepoint) variance,\n    Var_k[uptake_all] weighted by the current particle `weights`, against a\n    precomputed target variance. This is a fundamentally different mechanism\n    from inverse-variance-weighting the mean residual (`tp_weights` above,\n    or any covariance weighting of `residuals`): the mean-residual loss is a\n    function of `uptake_avg` only, so a collapsed (all-particles-identical)\n    ensemble and a genuinely diverse ensemble with the same weighted mean are\n    provably indistinguishable to it regardless of any residual weighting\n    (verified in hdx_variance_matching_test.py: mean-residual loss ratio\n    exactly 1.0 between such ensembles). The variance-matching term below\n    depends on `uptake_all` and `weights` jointly, so it CAN distinguish them\n    (same test: ~27x higher for the collapsed ensemble).\n    \"\"\"\n    if clip_contacts:\n        nc_a = jnp.clip(nc_a, 0.0, contact_clip_max)\n        nh_a = jnp.clip(nh_a, 0.0, contact_clip_max)\n    ln_pf = bc * nc_a + bh * nh_a\n    if clip_pf:\n        ln_pf = jnp.clip(ln_pf, ln_pf_min, ln_pf_max)\n    ln_pf_avg = jnp.einsum(\"k,kp->p\", weights, ln_pf)\n\n    if guidance_likelihood in (\"ot\", \"ot_var\"):\n        loss = uptake_ot_loss(\n            nc_a, nh_a, weights, bc, bh, target_uptake, kint_safe, timepoints, valid_mask,\n            ot_cost,\n            clip_contacts=clip_contacts, contact_clip_max=contact_clip_max,\n            clip_pf=clip_pf, ln_pf_min=ln_pf_min, ln_pf_max=ln_pf_max,\n            uptake_ot_mode=uptake_ot_mode, ot_epsilon=ot_epsilon,\n            ot_sinkhorn_iters=ot_sinkhorn_iters, ot_mass_temperature=ot_mass_temperature,",
+      "sha256": "866b534b0219bdcdd5203a0969573257e2edbb89da8d53f6e7017f5d0ecea0fe",
+      "href": "../projects/3-BioFeaturisers/meta-diffusion/src/maxent_fk/guidance/losses.py",
+      "uses": [
+        {
+          "project": "maxent-fk",
+          "record": "fk-ambiguity",
+          "title": "Mean-observable losses cannot distinguish matched-mean collapse"
+        },
+        {
+          "project": "maxent-fk",
+          "record": "fk-objectives",
+          "title": "maxent_fk.guidance.losses and .config"
+        }
+      ]
+    },
+    "fk-v2": {
+      "id": "fk-v2",
+      "path": "projects/3-BioFeaturisers/meta-diffusion/plans/research/hdx_ensemble_guidance_v2_handoff.md",
+      "anchor": "## 0. Executive decision",
+      "length": 33,
+      "label": "V2 separates identifiability, maintenance, and creation",
+      "kind": "Research report",
+      "start": 28,
+      "end": 60,
+      "excerpt": "## 0. Executive decision\n\nThe next work is a clean synthetic V2, not a new variance-weight sweep and not\nyet one of the proposed diversity mechanisms.\n\nV2 separates three questions that prior experiments mixed together:\n\n1. Identifiability: if credible open and closed conformers are already present,\n   can the synthetic HDX target recover their 40:60 population?\n2. Maintenance: given true open and closed particles at an SDEdit start, does\n   a guidance loss preserve their identities and allocation better than a\n   matched baseline?\n3. Creation: can a loss move an all-closed ensemble into an unsupported open\n   basin?\n\nThe questions have different necessary conditions. In particular, a successful\nmean fit is not population recovery, a variance penalty is not a\nbasin-transition proposal, and a supplied open reference is an oracle\npositive control rather than evidence of de novo discovery.\n\nThe V2 sequence is:\n\n    freeze provenance and true lineage\n        -> test HDX population identifiability by reweighting a supported pool\n        -> rerun a true-lineage seeded-maintenance control\n        -> decide whether the next bottleneck is the observation model,\n           proposal support, or a new particle-distribution objective.\n\nNo result from an exploratory SDEdit run should choose a new mechanism before\nthose gates pass.\n\n---\n",
+      "sha256": "350e11b53723c5bdd269232601f8b3ce84c01cc33da32b4028d0d829ae7ecaef",
+      "href": "../projects/3-BioFeaturisers/meta-diffusion/plans/research/hdx_ensemble_guidance_v2_handoff.md",
+      "uses": [
+        {
+          "project": "maxent-fk",
+          "record": "maxent-fk",
+          "title": "MaxENT-FK"
+        },
+        {
+          "project": "maxent-fk",
+          "record": "fk-questions",
+          "title": "Identifiability, maintenance, and creation are different tests"
+        },
+        {
+          "project": "maxent-fk",
+          "record": "validation-to-guidance",
+          "title": "The same validation question recurs in generation"
+        },
+        {
+          "project": "maxent-fk",
+          "record": "guide",
+          "title": "Guide generation and test its limits",
+          "view": "journey"
+        },
+        {
+          "project": "valdx",
+          "record": "observation-2",
+          "title": "Guidance has a superseding interpretation",
+          "view": "evidence"
+        }
+      ]
+    },
+    "fk-collapse": {
+      "id": "fk-collapse",
+      "path": "projects/3-BioFeaturisers/meta-diffusion/plans/research/hdx_ensemble_guidance_v2_handoff.md",
+      "anchor": "### 2.1 Retained: mean-observable losses",
+      "length": 29,
+      "label": "Mean-observable losses and collapse ambiguity",
+      "kind": "Research report",
+      "start": 112,
+      "end": 140,
+      "excerpt": "### 2.1 Retained: mean-observable losses are collapse-blind\n\nThe uptake MSE path computes a weighted ensemble mean before calculating a\nresidual. The current residue-graph Sinkhorn path also computes the\nensemble-mean uptake or ln(PF) before transport. Thus two ensembles with the\nsame weighted mean, one diverse and one collapsed, receive the same\nmean-observable loss.\n\nThis is a theorem about the loss architecture, not an empirical TeaA result.\nIt remains valid across the topology-schema repair. See\nsrc/maxent_fk/guidance/losses.py and src/maxent_fk/guidance/ot.py.\n\nConsequences:\n\n- Residue-wise inverse variance weighting of the mean residual cannot solve\n  ensemble collapse.\n- Full residue covariance of a mean residual would still be collapse-blind.\n- The current OT is transport over residues of a mean curve, not transport over\n  the particle distribution.\n\n### 2.2 Retained, narrowly: a variance loss sees a static spread mismatch\n\nThe synthetic matched-mean test showed that a live particle variance term can\nassign a larger scalar loss to a collapsed ensemble than to a diverse ensemble.\nThe unit tests for mse_nll and ot_var also verify their intended\ncollapse/inflation loss ordering.\n\nThis establishes loss-value observability only. It does not establish\nmaintenance in a sampler, particle identity, basin recovery, or creation of a",
+      "sha256": "350e11b53723c5bdd269232601f8b3ce84c01cc33da32b4028d0d829ae7ecaef",
+      "href": "../projects/3-BioFeaturisers/meta-diffusion/plans/research/hdx_ensemble_guidance_v2_handoff.md",
+      "uses": [
+        {
+          "project": "maxent-fk",
+          "record": "fk-ambiguity",
+          "title": "Mean-observable losses cannot distinguish matched-mean collapse"
+        }
+      ]
+    },
+    "fk-supported": {
+      "id": "fk-supported",
+      "path": "projects/3-BioFeaturisers/meta-diffusion/plans/research/hdx_ensemble_guidance_v2_handoff.md",
+      "anchor": "Full-sized confirmation result",
+      "length": 19,
+      "label": "Supported-pool recovery and missing-support failure",
+      "kind": "Research report",
+      "start": 323,
+      "end": 341,
+      "excerpt": "Full-sized confirmation result (2026-07-21; run\n`validation/supported_pool_hdx/20260721T133558Z`): the supported two-state pool\nrecovers the known population (scalar open fraction 0.395, 95% block-bootstrap\nCI 0.376--0.406; frame-level MaxEnt 0.404, CI 0.388--0.414), with normalized\nESS 0.931 and held-out normalized RMSE 0.202. Thus the frozen observation and\ninference pipeline works *conditional on supplied open/closed support*.\n\nThe registered overall verdict is nevertheless `observation_not_identifiable`:\nafter removing all open frames, closed-basin heterogeneity still fits the target\nwith normalized RMSE 0.844, below the pre-registered missing-support failure\nthreshold of 1.5. In the stress pool, MaxEnt assigns 0.548 closed, 0.306 open,\n0.141 intermediate, and 0.005 decoy mass. HDX therefore does not uniquely map\nthe synthetic target to the structural open population when alternative support\nis admitted. The legacy target is additionally incompatible with the current\nforward model (scalar 0.250 open; MaxEnt 0.269) and remains non-gating.\n\nThe immediate next step is an identifiability audit, not sampler tuning: locate\nwhich closed frames reproduce open-like observables, quantify the residue/time\nblocks that discriminate the basins, and test whether the ambiguity is caused by",
+      "sha256": "350e11b53723c5bdd269232601f8b3ce84c01cc33da32b4028d0d829ae7ecaef",
+      "href": "../projects/3-BioFeaturisers/meta-diffusion/plans/research/hdx_ensemble_guidance_v2_handoff.md",
+      "uses": [
+        {
+          "project": "maxent-fk",
+          "record": "maxent-fk",
+          "title": "MaxENT-FK"
+        },
+        {
+          "project": "maxent-fk",
+          "record": "fk-support",
+          "title": "Supplied support permits recovery, but alternative support remains ambiguous"
+        },
+        {
+          "project": "maxent-fk",
+          "record": "fk-phase-a",
+          "title": "TeaA supported-pool discriminator"
+        },
+        {
+          "project": "maxent-fk",
+          "record": "validation-to-guidance",
+          "title": "The same validation question recurs in generation"
+        },
+        {
+          "project": "maxent-fk",
+          "record": "guide",
+          "title": "Guide generation and test its limits",
+          "view": "journey"
+        },
+        {
+          "project": "valdx",
+          "record": "observation-2",
+          "title": "Guidance has a superseding interpretation",
+          "view": "evidence"
+        }
+      ]
+    },
+    "fk-maintenance": {
+      "id": "fk-maintenance",
+      "path": "projects/3-BioFeaturisers/meta-diffusion/plans/research/hdx_ensemble_guidance_v2_handoff.md",
+      "anchor": "## 6. Phase B: true-lineage",
+      "length": 39,
+      "label": "Corrected five-seed maintenance result",
+      "kind": "Research report",
+      "start": 399,
+      "end": 437,
+      "excerpt": "## 6. Phase B: true-lineage SDEdit maintenance experiment\n\nImplementation and result status (2026-07-21): **complete**. The immutable\nrun is `validation/stage3_sdeedit_v2/20260721T144040Z`; its governing result is\n`decision.json` and its concise human-readable output is `report.md`. The run\npassed topology, writer-lineage, near-zero-noise fidelity, and lossless\ncoordinate-repeatability preflights. Five-seed unguided calibration selected\nstart step 140 without an exploratory override. Confirmation used five new\npaired seeds and K=20 (8 open / 12 closed) for U/M/V.\n\nThe corrected V2 verdict is **`null_or_harmful`** (0/5 supporting seeds):\n\n| Condition | Population TV | Open retention | Closed retention | Quality | Mean-uptake RMSE | Uptake-variance RMSE |\n| --- | ---: | ---: | ---: | ---: | ---: | ---: |\n| U: unguided | 0.010 | 0.975 | 1.000 | 0.990 | 0.2289 | 0.0273 |\n| M: mean MSE | 0.010 | 0.975 | 1.000 | 0.990 | **0.0781** | **0.0181** |\n| V: mean MSE + variance (`w=100`) | 0.010 | 0.975 | 1.000 | 0.990 | 0.2243 | 0.0294 |\n\nV produced no change relative to M in population TV, true-lineage retention,\nor quality. Relative to M, it increased mean RMSE by 0.1461 (seed-clustered\n95% bootstrap interval 0.1446--0.1473) and variance RMSE by 0.01129\n(0.01079--0.01192). It failed both observable gates in every seed. This is not\na weak or underpowered maintenance signal: the structural effects were exactly\nzero at the resolution of the registered endpoints, while both observable\neffects consistently moved in the wrong direction.\n\nThe tested variance definition was the predicted-uptake population variance,\nwith `v_t = diag(C_target)` and precision weights\n`1 / (diag(C_target) + 1e-6)`. This is `diag(1/(diag(C)+eps))`, not\n`diag(inv(C))`; no off-diagonal covariance was inverted. The additive loss was\nweighted by 100. Because 24.29% of target entries were below the variance\nfloor, the result also warns that a large fixed weight plus inverse diagonal\nscaling can let near-zero-variance entries dominate the live gradient.\n\nThis closes H2 for the present loss and frozen direct-x0 protocol. It supports\nretiring broad variance-weight sweeps. It does not test de novo creation and\ndoes not invalidate the weaker Phase A finding that the synthetic observation\ncan recover 40:60 when credible open/closed support is supplied.\n",
+      "sha256": "350e11b53723c5bdd269232601f8b3ce84c01cc33da32b4028d0d829ae7ecaef",
+      "href": "../projects/3-BioFeaturisers/meta-diffusion/plans/research/hdx_ensemble_guidance_v2_handoff.md",
+      "uses": [
+        {
+          "project": "maxent-fk",
+          "record": "maxent-fk",
+          "title": "MaxENT-FK"
+        },
+        {
+          "project": "maxent-fk",
+          "record": "fk-negative",
+          "title": "Corrected maintenance experiment: null_or_harmful"
+        },
+        {
+          "project": "maxent-fk",
+          "record": "fk-phase-b",
+          "title": "TeaA true-lineage SDEdit maintenance"
+        },
+        {
+          "project": "maxent-fk",
+          "record": "guide",
+          "title": "Guide generation and test its limits",
+          "view": "journey"
+        },
+        {
+          "project": "valdx",
+          "record": "observation-2",
+          "title": "Guidance has a superseding interpretation",
+          "view": "evidence"
+        }
+      ]
+    },
+    "fk-bpti": {
+      "id": "fk-bpti",
+      "path": "projects/3-BioFeaturisers/meta-diffusion/examples/BPTI/README.md",
+      "anchor": "# BPTI Case Study",
+      "length": 7,
+      "label": "BPTI guidance case-study design",
+      "kind": "README",
+      "start": 1,
+      "end": 7,
+      "excerpt": "# BPTI Case Study\n\nBPTI is a small protein that is widely used for benchmarking of structural simulations.\n\nHere we use HDX-NMR protection factors to validate that our method is able to recreate the density of the conformational ensemble of BPTI against NMR PDB structures as well as the SHAW MD simulations.\n\n",
+      "sha256": "502fbd70b67d30cf2af6f502780b63afed0129eb7c15047eaa0c1b3c6ab356ca",
+      "href": "../projects/3-BioFeaturisers/meta-diffusion/examples/BPTI/README.md",
+      "uses": [
+        {
+          "project": "maxent-fk",
+          "record": "fk-bpti-example",
+          "title": "BPTI conformational-density case study"
+        }
+      ]
+    },
+    "ka-status": {
+      "id": "ka-status",
+      "path": "projects/4-jax-Ka/README.md",
+      "anchor": "- **Thesis chapter:",
+      "length": 8,
+      "label": "jax-Ka chapter status",
+      "kind": "README",
+      "start": 3,
+      "end": 8,
+      "excerpt": "- **Thesis chapter:** `thesis/chapters/06-jax-ka.tex`\n- **Status:** preliminary training\n\n| Folder | Submodule | Pinned commit |\n|---|---|---|\n| `code/` | [jax-Ka](https://github.com/alexisiddiqui/jax-Ka) (preliminary training) | `3efe0a1` |",
+      "sha256": "951ddff3a2cb7b018f13711d734be6a167dda722d4d9c4d74e6e91395b19b843",
+      "href": "../projects/4-jax-Ka/README.md",
+      "uses": [
+        {
+          "project": "jax-ka",
+          "record": "jax-ka",
+          "title": "jax-Ka"
+        },
+        {
+          "project": "valdx",
+          "record": "observation-3",
+          "title": "jax-Ka has advanced beyond the brief root status label",
+          "view": "evidence"
+        }
+      ]
+    },
+    "ka-readme": {
+      "id": "ka-readme",
+      "path": "projects/4-jax-Ka/code/README.md",
+      "anchor": "Frozen-structure, soft-sequence",
+      "length": 6,
+      "label": "PROPKA-parameterised mean-field surrogate",
+      "kind": "README",
+      "start": 3,
+      "end": 8,
+      "excerpt": "Frozen-structure, soft-sequence titration in JAX, with Biotite topology handling.\n\n**Scientific status:** this is a PROPKA-3.0/Nov30-parameterized **mean-field surrogate**, not a numerically faithful port of PROPKA's coupled determinant algorithm. The structural pipeline, differentiable outputs, reference adapters, tests, CLI and benchmarks are implemented. Biotite integration, pinned pip PROPKA primitives, the full reference path and float32 MPS execution are exercised by the test suite. CUDA remains a future channel. See [validation status](docs/VALIDATION.md).\n\nThe compiled readouts accept only `P[N,20]`. Geometry, candidate side chains, residue identities/keys, terminal masks, neighbor graphs and geometric kernels are prepared once outside JIT. An output selection never removes the other residues or chains from the physical environment.\n",
+      "sha256": "517a6e00b08f2f61df2195bad98a83947b4e752b8fa3e230e2e4df6aa0c8a6be",
+      "href": "../projects/4-jax-Ka/code/README.md",
+      "uses": [
+        {
+          "project": "jax-ka",
+          "record": "jax-ka",
+          "title": "jax-Ka"
+        },
+        {
+          "project": "jax-ka",
+          "record": "ka-surrogate",
+          "title": "The model is a frozen-geometry mean-field surrogate"
+        },
+        {
+          "project": "jax-ka",
+          "record": "ka-readouts",
+          "title": "Charge, titration curves, and conditional midpoints are exposed"
+        },
+        {
+          "project": "jax-ka",
+          "record": "ka-kernels",
+          "title": "jaxpropka.model"
+        },
+        {
+          "project": "jax-ka",
+          "record": "observables-to-titration",
+          "title": "Shared emphasis on differentiable physical models"
+        },
+        {
+          "project": "jax-ka",
+          "record": "titrate",
+          "title": "Extend differentiable physical modelling",
+          "view": "journey"
+        },
+        {
+          "project": "valdx",
+          "record": "observation-3",
+          "title": "jax-Ka has advanced beyond the brief root status label",
+          "view": "evidence"
+        }
+      ]
+    },
+    "ka-model": {
+      "id": "ka-model",
+      "path": "projects/4-jax-Ka/code/src/jaxpropka/model.py",
+      "anchor": "class CurveResult(",
+      "length": 46,
+      "label": "Titration and midpoint readouts",
+      "kind": "Code",
+      "start": 24,
+      "end": 69,
+      "excerpt": "class CurveResult(NamedTuple):\n    ph: jax.Array\n    protonated: jax.Array      # [H,R,9], conditional on identity, not multiplied by P\n    site_charge: jax.Array     # [H,R,9], already multiplied by identity probability\n    residue_charge: jax.Array  # [H,R], includes termini at their owner residue\n    chain_charge: jax.Array    # [H,C], ALWAYS all residues in the full environment\n    total_charge: jax.Array    # [H], ALWAYS full environment\n    probability: jax.Array     # [R,9]\n    intrinsic_pka: jax.Array    # [R,9]\n    effective_pka: jax.Array    # [H,R,9], pH-dependent field, NOT midpoint pKa\n    residual: jax.Array        # [H], undamped full-state fixed-point residual\n    weighted_residual: jax.Array  # [H]\n    converged: jax.Array       # [H]\n\n\nclass PkaResult(NamedTuple):\n    value: jax.Array           # [R,G] or [Q] for pka_sites()\n    valid: jax.Array           # bracket, slope, convergence, crossing all pass\n    bracketed: jax.Array\n    probability: jax.Array     # identity probability; zero does not make conditional pKa invalid\n    slope: jax.Array           # dh/dpH at the root\n    crossing_error: jax.Array  # |h - 0.5|\n    residual: jax.Array        # full-state fixed-point residual at root pH\n\n\n\nclass GridPkaResult(NamedTuple):\n    value: jax.Array           # [R,G], midpoint of interpolated titration curve\n    valid: jax.Array           # bracketed, sampled-monotone, converged grid\n    bracketed: jax.Array\n    probability: jax.Array\n    slope: jax.Array           # local piecewise-linear dh/dpH\n    bracket_width: jax.Array   # resolution, not an independently measured error\n    sampled_monotone: jax.Array\n    grid_residual: jax.Array   # maximum full-state residual across the pH grid\n\n\nclass SiteCurveResult(NamedTuple):\n    \"\"\"Full numerical curves; residue labels and chain aggregation stay outside JIT.\"\"\"\n    ph: jax.Array\n    protonated: jax.Array\n    site_charge: jax.Array\n    residue_charge: jax.Array\n    total_charge: jax.Array\n    probability: jax.Array\n    intrinsic_pka: jax.Array",
+      "sha256": "59699348548915ce64358431ddb823687295ffa9c29f271325ec6931a16796fe",
+      "href": "../projects/4-jax-Ka/code/src/jaxpropka/model.py",
+      "uses": [
+        {
+          "project": "jax-ka",
+          "record": "ka-readouts",
+          "title": "Charge, titration curves, and conditional midpoints are exposed"
+        },
+        {
+          "project": "jax-ka",
+          "record": "ka-kernels",
+          "title": "jaxpropka.model"
+        }
+      ]
+    },
+    "ka-selectivity": {
+      "id": "ka-selectivity",
+      "path": "projects/4-jax-Ka/code/src/jaxpropka/selectivity.py",
+      "anchor": "class SelectivityObjective:",
+      "length": 21,
+      "label": "Bound/free soft-sequence objective",
+      "kind": "Code",
+      "start": 105,
+      "end": 125,
+      "excerpt": "class SelectivityObjective:\n    \"\"\"Only binder probabilities are variable; environments are immutable.\n\n    ``binder_keys`` determines the row order of P_binder. All free-binder sites\n    must be represented. Fixed target probabilities use free-target row order.\n    Input P must be floating, finite and row-stochastic; use validate_probabilities\n    outside JIT. Structural geometry must be prepared consistently by the caller.\n    \"\"\"\n    def __init__(self, bound, free_binder, free_target, ph_grid, *,\n                 binder_keys=None, target_probabilities=None,\n                 required_log10_ratio=1., tau=.1, ph_chunk_size=1):\n        self.bound,self.free_binder,self.free_target = bound,free_binder,free_target\n        self.ph_grid = np.array(ph_grid,dtype=float,copy=True)\n        self.weights = trapezoid_weights(self.ph_grid)\n        if not np.isfinite(required_log10_ratio) or not np.isfinite(tau) or tau <= 0:\n            raise ValueError('required_log10_ratio must be finite and tau must be finite and positive')\n        if isinstance(ph_chunk_size,bool) or not isinstance(ph_chunk_size,int) or ph_chunk_size < 1:\n            raise ValueError('ph_chunk_size must be a positive Python int')\n        self.required_log10_ratio,self.tau,self.ph_chunk_size = required_log10_ratio,tau,ph_chunk_size\n        keys = (free_binder.cache.keys if binder_keys is None else\n                tuple(x if isinstance(x,ResidueKey) else ResidueKey.from_value(x) for x in binder_keys))",
+      "sha256": "b304b79d92d6cccac0fdcd65d3cde690d85a8ae51fd8bb0b2a1c51ef2aa475e4",
+      "href": "../projects/4-jax-Ka/code/src/jaxpropka/selectivity.py",
+      "uses": [
+        {
+          "project": "jax-ka",
+          "record": "ka-design",
+          "title": "Bound/free objectives differentiate binder sequence probabilities"
+        },
+        {
+          "project": "jax-ka",
+          "record": "ka-boundfree",
+          "title": "jaxpropka.selectivity"
+        },
+        {
+          "project": "jax-ka",
+          "record": "titrate",
+          "title": "Extend differentiable physical modelling",
+          "view": "journey"
+        }
+      ]
+    },
+    "ka-validation": {
+      "id": "ka-validation",
+      "path": "projects/4-jax-Ka/code/docs/VALIDATION.md",
+      "anchor": "## Executed locally",
+      "length": 23,
+      "label": "Documented analytic, gradient, and reference checks",
+      "kind": "Validation report",
+      "start": 3,
+      "end": 25,
+      "excerpt": "## Executed locally\n\nThe dependency-enforced CPU suite reports **57 passed** using Python 3.13.2, JAX/JAXLIB 0.11.1, Biotite 1.7.1 and the pinned PROPKA 3.5.1 package. The dedicated `jax-mps==0.11.0` test also passes on an Apple Silicon MPS device. Numerical finite-difference tests enable JAX float64 on CPU; MPS inputs are float32 because Metal does not support float64.\n\nThe included benchmark reports preserve the earlier benchmark environment and package versions recorded in their JSON files.\n\n| Area | Executed coverage |\n|---|---|\n| Analytic response | Independent-site Henderson–Hasselbalch curves, model pKa midpoints, charge limits and acid/base signs |\n| Differentiation | Charge, titration curves, direct midpoint and grid-interpolated midpoint gradients checked by directional finite differences; JVP/reverse-mode agreement |\n| Conditional identity | No premature acid/base averaging, soft-sequence dependence, presence probabilities, fixed-covalent gradient clamps |\n| Multiple chains, numerical layer | Separate terminal sites; full-environment charge accounting; cross-chain messages; selection leaves the environment intact |\n| Sparse kernels | Radial volume/count cutoffs, H-bond direction/distance factor, conservative graph coverage, overflow rejection, reciprocal blocks |\n| Numerical safety | Finite padded gathers, padding invariance, unavailable sites, unbracketed pKas, validation flags, iteration-count sensitivity |\n| Cache/CLI | Serialization, fingerprints, identity selection, invalid inputs and numerical prediction-file output |\n| Regression machinery | Summary parsing, mapped chain/insertion identity, report construction against analytic independent sites, missing-site and soft-sequence rejection, baseline drift checks |\n| Molecular integration | Biotite topology, CCD candidates, PDB/mmCIF handling, gaps, disulfides, reference export and molecular gradient smoke coverage |\n| External reference | Pinned pip PROPKA 3.5.1 live two-chain discrepancy report and default CLI regression path |\n| Implementation snapshots | Recorded hard/soft sequence outputs from the synthetic numerical graph, explicitly not an external reference |\n| Performance | Synchronized warm CPU timings for charge, curves, gradients, direct/grid pKas and sequence batching |\n\nThe source-distribution wheel was built, and the source tree was byte-compiled. Packaging and synthetic execution do not validate the molecular implementation.\n",
+      "sha256": "8a8c503e9408909920981757bcc2a3d15b056974950e4b9f28936092f2f269e8",
+      "href": "../projects/4-jax-Ka/code/docs/VALIDATION.md",
+      "uses": [
+        {
+          "project": "jax-ka",
+          "record": "ka-numerical",
+          "title": "Numerical and scientific validation remain distinct"
+        },
+        {
+          "project": "jax-ka",
+          "record": "ka-checks",
+          "title": "Analytic, gradient, and external-reference checks"
+        }
+      ]
+    },
+    "ka-limits": {
+      "id": "ka-limits",
+      "path": "projects/4-jax-Ka/code/docs/VALIDATION.md",
+      "anchor": "## Production acceptance remains open",
+      "length": 5,
+      "label": "Scientific calibration and approximation boundaries",
+      "kind": "Validation report",
+      "start": 90,
+      "end": 94,
+      "excerpt": "## Production acceptance remains open\n\nBefore using this model to select sequences, complete the real Biotite/pinned-PROPKA test runs; evaluate native and mutant structures representative of the target design domain; measure pKa and charge-curve errors; validate mutation-gradient direction against discrete rescoring; examine iteration and grid-resolution sensitivity; and measure actual accelerator throughput/memory with realistic graph degrees. Any acceptance threshold should be chosen for the scientific use, not inferred from this package's unit tests.\n\nThe model has one frozen candidate conformation per identity, simplified protonation-state H bonds, a fractional mean-field coupling model and a smoothed burial eligibility gate. Its predictions have not been calibrated against experimental pKas. It should not be described as a reference-faithful PROPKA 3.0 replacement, a folding-energy model, or a demonstrated speedup over PROPKA.",
+      "sha256": "8a8c503e9408909920981757bcc2a3d15b056974950e4b9f28936092f2f269e8",
+      "href": "../projects/4-jax-Ka/code/docs/VALIDATION.md",
+      "uses": [
+        {
+          "project": "jax-ka",
+          "record": "jax-ka",
+          "title": "jax-Ka"
+        },
+        {
+          "project": "jax-ka",
+          "record": "ka-numerical",
+          "title": "Numerical and scientific validation remain distinct"
+        },
+        {
+          "project": "jax-ka",
+          "record": "observables-to-titration",
+          "title": "Shared emphasis on differentiable physical models"
+        },
+        {
+          "project": "jax-ka",
+          "record": "titrate",
+          "title": "Extend differentiable physical modelling",
+          "view": "journey"
+        },
+        {
+          "project": "valdx",
+          "record": "observation-3",
+          "title": "jax-Ka has advanced beyond the brief root status label",
+          "view": "evidence"
+        }
+      ]
+    },
+    "ka-preset": {
+      "id": "ka-preset",
+      "path": "projects/4-jax-Ka/code/docs/GRADIENTS.md",
+      "anchor": "The preset has passed its CPU numerical promotion gates",
+      "length": 11,
+      "label": "Opt-in CPU design-preset numerical qualification",
+      "kind": "Validation report",
+      "start": 73,
+      "end": 83,
+      "excerpt": "The preset has passed its CPU numerical promotion gates and is recommended as\nthe **opt-in CPU design workflow**, with validity checks and explicit audits as\ndescribed above. Ordinary package defaults remain unchanged. The completed\n[CPU report](../reports/design_preset_cpu.json) covers 182 unit tests, 260 forward\ninterfaces, 24 gradient interfaces, five scaling cases and four sensitive-case\nregressions. It retains all convergence and audit failures: qualification does\nnot mean every sequence has a usable equilibrium result. See the\n[measured outcomes and limitations](BENCHMARKS.md#adaptive-design-preset-cpu-proteinprotein-panel).\nCUDA/MPS performance and the endpoint objective are not promoted by CPU results;\nexperimental calibration also remains open.\n",
+      "sha256": "caf2bb0e157811a7cbc2501daf921f16d5863b835be6ab6a61cc9fd607a2d2cf",
+      "href": "../projects/4-jax-Ka/code/docs/GRADIENTS.md",
+      "uses": [
+        {
+          "project": "jax-ka",
+          "record": "jax-ka",
+          "title": "jax-Ka"
+        },
+        {
+          "project": "jax-ka",
+          "record": "ka-numerical",
+          "title": "Numerical and scientific validation remain distinct"
+        },
+        {
+          "project": "jax-ka",
+          "record": "ka-cpu",
+          "title": "CPU design-preset qualification"
+        },
+        {
+          "project": "jax-ka",
+          "record": "ka-boundfree",
+          "title": "jaxpropka.selectivity"
+        },
+        {
+          "project": "valdx",
+          "record": "observation-3",
+          "title": "jax-Ka has advanced beyond the brief root status label",
+          "view": "evidence"
+        }
+      ]
+    }
+  },
+  "chapters": [
+    {
+      "number": 1,
+      "title": "Introduction",
+      "path": "thesis/chapters/01-introduction.tex",
+      "projects": [],
+      "state": "Outline",
+      "headings": [
+        {
+          "title": "Protein Conformational Ensembles and Biological Function",
+          "level": 0,
+          "number": "1",
+          "line": 5,
+          "path": "thesis/chapters/01-introduction.tex",
+          "href": "../thesis/chapters/01-introduction.tex"
+        },
+        {
+          "title": "Measuring Protein Dynamics with HDX-MS",
+          "level": 0,
+          "number": "2",
+          "line": 8,
+          "path": "thesis/chapters/01-introduction.tex",
+          "href": "../thesis/chapters/01-introduction.tex"
+        },
+        {
+          "title": "Generating Protein Conformational Ensembles",
+          "level": 0,
+          "number": "3",
+          "line": 11,
+          "path": "thesis/chapters/01-introduction.tex",
+          "href": "../thesis/chapters/01-introduction.tex"
+        },
+        {
+          "title": "Inferring Structural Ensembles from HDX-MS",
+          "level": 0,
+          "number": "4",
+          "line": 14,
+          "path": "thesis/chapters/01-introduction.tex",
+          "href": "../thesis/chapters/01-introduction.tex"
+        },
+        {
+          "title": "Challenges in Ensemble Inference and Validation",
+          "level": 0,
+          "number": "5",
+          "line": 17,
+          "path": "thesis/chapters/01-introduction.tex",
+          "href": "../thesis/chapters/01-introduction.tex"
+        },
+        {
+          "title": "Research Questions and Objectives",
+          "level": 0,
+          "number": "6",
+          "line": 20,
+          "path": "thesis/chapters/01-introduction.tex",
+          "href": "../thesis/chapters/01-introduction.tex"
+        },
+        {
+          "title": "Thesis Outline and Contributions",
+          "level": 0,
+          "number": "7",
+          "line": 23,
+          "path": "thesis/chapters/01-introduction.tex",
+          "href": "../thesis/chapters/01-introduction.tex"
+        }
+      ],
+      "href": "../thesis/chapters/01-introduction.tex"
+    },
+    {
+      "number": 2,
+      "title": "Background and Literature Review",
+      "path": "thesis/chapters/02-background.tex",
+      "projects": [],
+      "state": "Outline",
+      "headings": [
+        {
+          "title": "HDX-MS: Measurement, Exchange Kinetics, and Structural Interpretation",
+          "level": 0,
+          "number": "1",
+          "line": 5,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Experimental Workflow and Measurement Limitations",
+          "level": 1,
+          "number": "1.1",
+          "line": 7,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Intrinsic Exchange Rates",
+          "level": 1,
+          "number": "1.2",
+          "line": 10,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Linderstrøm–Lang Exchange Kinetics and EX1/EX2 Regimes",
+          "level": 1,
+          "number": "1.3",
+          "line": 13,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Protection Factors and Peptide Uptake",
+          "level": 1,
+          "number": "1.4",
+          "line": 16,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Structural Forward Models for HDX",
+          "level": 1,
+          "number": "1.5",
+          "line": 19,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Protein Conformational Ensembles and Their Generation",
+          "level": 0,
+          "number": "2",
+          "line": 22,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Molecular Dynamics and Empirical Force Fields",
+          "level": 1,
+          "number": "2.1",
+          "line": 24,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Enhanced Sampling",
+          "level": 1,
+          "number": "2.2",
+          "line": 26,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Learned Structure Predictors and Ensemble Generators",
+          "level": 1,
+          "number": "2.3",
+          "line": 28,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Diffusion Models for Protein Structure Generation",
+          "level": 1,
+          "number": "2.4",
+          "line": 31,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Sampling Coverage and Ensemble Populations",
+          "level": 1,
+          "number": "2.5",
+          "line": 33,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Integrating Biophysical Data with Structural Ensembles",
+          "level": 0,
+          "number": "3",
+          "line": 36,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "The Inverse Problem and Forward Modelling",
+          "level": 1,
+          "number": "3.1",
+          "line": 38,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Maximum-Entropy and Bayesian Ensemble Refinement",
+          "level": 1,
+          "number": "3.2",
+          "line": 41,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Joint Inference of Populations and Forward-Model Parameters",
+          "level": 1,
+          "number": "3.3",
+          "line": 43,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Experimentally Restrained Simulations and Metainference",
+          "level": 1,
+          "number": "3.4",
+          "line": 46,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Experimental Guidance of Diffusion Models",
+          "level": 1,
+          "number": "3.5",
+          "line": 48,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Validation, Uncertainty, and Interpretability",
+          "level": 0,
+          "number": "4",
+          "line": 51,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Experimental Uncertainty and Forward-Model Discrepancy",
+          "level": 1,
+          "number": "4.1",
+          "line": 53,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Cross-Validation with Overlapping Measurements",
+          "level": 1,
+          "number": "4.2",
+          "line": 55,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Identifiability and Competing Structural Hypotheses",
+          "level": 1,
+          "number": "4.3",
+          "line": 57,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Ensemble Comparison and Interpretable Representations",
+          "level": 1,
+          "number": "4.4",
+          "line": 60,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Protein Protonation and pH-Dependent Properties",
+          "level": 0,
+          "number": "5",
+          "line": 63,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Acid–Base Equilibria and Protein Charge",
+          "level": 1,
+          "number": "5.1",
+          "line": 66,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Structural Influences on pKa",
+          "level": 1,
+          "number": "5.2",
+          "line": 68,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        },
+        {
+          "title": "Computational Titration Models",
+          "level": 1,
+          "number": "5.3",
+          "line": 70,
+          "path": "thesis/chapters/02-background.tex",
+          "href": "../thesis/chapters/02-background.tex"
+        }
+      ],
+      "href": "../thesis/chapters/02-background.tex"
+    },
+    {
+      "number": 3,
+      "title": "ValDX",
+      "path": "thesis/chapters/03-valdx.tex",
+      "projects": [
+        "valdx"
+      ],
+      "state": "Chapter placeholder",
+      "headings": [],
+      "href": "../thesis/chapters/03-valdx.tex"
+    },
+    {
+      "number": 4,
+      "title": "jaxENT",
+      "path": "thesis/chapters/04-jaxent.tex",
+      "projects": [
+        "jaxent"
+      ],
+      "state": "Chapter placeholder",
+      "headings": [],
+      "href": "../thesis/chapters/04-jaxent.tex"
+    },
+    {
+      "number": 5,
+      "title": "BioFeaturisers",
+      "path": "thesis/chapters/05-biofeaturisers.tex",
+      "projects": [
+        "biofeaturisers",
+        "maxent-fk"
+      ],
+      "state": "Chapter placeholder",
+      "headings": [],
+      "href": "../thesis/chapters/05-biofeaturisers.tex"
+    },
+    {
+      "number": 6,
+      "title": "jax-Ka",
+      "path": "thesis/chapters/06-jax-ka.tex",
+      "projects": [
+        "jax-ka"
+      ],
+      "state": "Chapter placeholder",
+      "headings": [],
+      "href": "../thesis/chapters/06-jax-ka.tex"
+    },
+    {
+      "number": 7,
+      "title": "Conclusion",
+      "path": "thesis/chapters/07-conclusion.tex",
+      "projects": [],
+      "state": "Chapter placeholder",
+      "headings": [],
+      "href": "../thesis/chapters/07-conclusion.tex"
+    }
+  ]
+}

@@ -8,6 +8,7 @@ Obsidian vault for the thesis. Open **this folder** (`kb/`) as the vault, not th
 | `chapters/` | One hub note per chapter: the argument in order, linking to its claims | `03-valdx` |
 | `claims/` | One claim per note | The claim as a full sentence |
 | `concepts/` | Definitions and background ideas | Concept name |
+| `methods/` | Mathematical and experimental methods | Method name; project (methods may differ between projects) |
 | `papers/` | Literature notes | `@<citekey>` (matches `thesis/references.bib`) |
 | `decisions/` | Why a method, parameter or dataset was chosen | `YYYY-MM-DD <decision>` |
 | `inbox/` | Unsorted notes; triage weekly | anything |

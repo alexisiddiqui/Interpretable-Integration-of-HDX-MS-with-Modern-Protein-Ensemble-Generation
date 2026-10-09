@@ -1,0 +1,222 @@
+{
+  "schema_version": "repository-project-map/1.0",
+  "meta": {
+    "title": "Interpretable Integration of HDX-MS with Modern Protein Ensemble Generation",
+    "display_title": "From exchange to ensembles",
+    "author": "Alexander Hussain",
+    "degree": "DPhil research map",
+    "arc": "How can solution measurements distinguish structural explanations of protein dynamics, and how can that evidence guide the ensembles we generate?",
+    "summary": "A programme connecting validation, flexible ensemble inference, differentiable observables, and experimental guidance. Protein titration extends the same emphasis on interpretable, differentiable physical models into pH-dependent sequence objectives.",
+    "narrative_basis": "The programme-level narrative and conceptual connections are a synthesis of the repository sources, rather than a completed thesis argument."
+  },
+  "sources": [
+    {"id":"repo-status","path":"README.md","anchor":"| Project | Chapter |","length":8,"label":"Repository project and manuscript status","kind":"README"},
+    {"id":"thesis-identity","path":"thesis/main.tex","anchor":"\\title{","length":16,"label":"Thesis identity and chapter order","kind":"LaTeX"},
+    {"id":"val-status","path":"projects/1-ValDX/README.md","anchor":"- **Thesis chapter:","length":13,"label":"ValDX project status and repositories","kind":"README"},
+    {"id":"val-abstract","path":"projects/1-ValDX/manuscript/report/0_abstract_omc.tex","anchor":"Protein dynamics determine","length":1,"label":"ValDX post-review abstract","kind":"Manuscript"},
+    {"id":"val-author","path":"projects/1-ValDX/manuscript/report/0_author_summary_omc.tex","anchor":"Proteins change shape","length":5,"label":"ValDX scientific rationale","kind":"Manuscript"},
+    {"id":"val-splits","path":"projects/1-ValDX/manuscript/report/6_methods_omc.tex","anchor":"\\paragraph{Assessing Global","length":16,"label":"Overlap-aware spatial and sequence splitting","kind":"Manuscript"},
+    {"id":"val-work","path":"projects/1-ValDX/manuscript/report/6_methods_omc.tex","anchor":"\\paragraph{Work Shape","length":31,"label":"Work shape, scale, and density definitions","kind":"Manuscript"},
+    {"id":"val-protocol","path":"projects/1-ValDX/manuscript/report/7_results_omc.tex","anchor":"\\subsection{Staged protocols respond","length":24,"label":"Kinetic misspecification and protocol findings","kind":"Manuscript"},
+    {"id":"val-limits","path":"projects/1-ValDX/manuscript/report/7_results_omc.tex","anchor":"\\subsection{Limitations}","length":5,"label":"ValDX interpretation and sampling limits","kind":"Manuscript"},
+    {"id":"val-code","path":"projects/1-ValDX/code/ValDX/ValidationDX.py","anchor":"    def run_VDX(","length":29,"label":"ValDX experiment orchestration","kind":"Code"},
+    {"id":"val-iso","path":"projects/1-ValDX/manuscript/report/6_methods_omc.tex","anchor":"\\subsubsection{Iso-Validation Experiments}","length":18,"label":"TeaA synthetic ensemble benchmark","kind":"Manuscript"},
+    {"id":"jax-status","path":"projects/2-jaxENT/README.md","anchor":"- **Thesis chapter:","length":10,"label":"jaxENT chapter and unfinished manuscript","kind":"README"},
+    {"id":"jax-readme","path":"projects/2-jaxENT/code/README.md","anchor":"### Overview","length":22,"label":"jaxENT inverse-problem platform","kind":"README"},
+    {"id":"jax-gradients","path":"projects/2-jaxENT/code/jaxent/src/opt/gradients.py","anchor":"def create_gradient_masks(","length":44,"label":"Trainable frame weights and model parameters","kind":"Code"},
+    {"id":"jax-optimiser","path":"projects/2-jaxENT/code/jaxent/src/opt/optimiser.py","anchor":"class OptaxOptimizer:","length":38,"label":"Optax optimisation and parameter partitions","kind":"Code"},
+    {"id":"jax-priors","path":"projects/2-jaxENT/code/jaxent/src/opt/loss/weights.py","anchor":"# Maximum Entropy Losses","length":34,"label":"Maximum-entropy and divergence regularisation","kind":"Code"},
+    {"id":"jax-gaussian","path":"projects/2-jaxENT/code/jaxent/src/opt/loss/gaussian.py","anchor":"def _check_covariance(","length":51,"label":"Gaussian observation likelihoods","kind":"Code"},
+    {"id":"jax-iso","path":"projects/2-jaxENT/code/jaxent/examples/1_IsoValidation_OMass/README.md","anchor":"## Overview","length":28,"label":"TeaA population-recovery benchmark design","kind":"README"},
+    {"id":"jax-moprp","path":"projects/2-jaxENT/code/jaxent/examples/2_CrossValidation/README.md","anchor":"### Biological System","length":23,"label":"MoPrP states and orthogonal evaluation","kind":"README"},
+    {"id":"jax-bv","path":"projects/2-jaxENT/code/jaxent/examples/3_CrossValidationBV/README.md","anchor":"## Overview","length":16,"label":"Joint MaxEnt/BV regularisation sweeps","kind":"README"},
+    {"id":"jax-asyn","path":"projects/2-jaxENT/code/jaxent/examples/4_aSyn/README.md","anchor":"## Overview","length":17,"label":"Alpha-synuclein condition-wise PF analysis","kind":"README"},
+    {"id":"jax-saxs","path":"projects/2-jaxENT/code/jaxent/examples/5_SAXS/fitting/README.md","anchor":"# SAXS+HDX Fitting example","length":26,"label":"Calmodulin SAXS/HDX fitting design","kind":"README"},
+    {"id":"jax-population","path":"projects/2-jaxENT/code/jaxent/src/analysis/state_population.py","anchor":"def strict_population_jsd(","length":28,"label":"Independent state-population scoring","kind":"Code"},
+    {"id":"jax-draft","path":"projects/2-jaxENT/manuscript/report/abstract.tex","anchor":"Inverting high-resolution","length":1,"label":"Historical jaxENT draft abstract","kind":"Manuscript"},
+    {"id":"bio-status","path":"projects/3-BioFeaturisers/README.md","anchor":"- **Thesis chapter:","length":10,"label":"BioFeaturisers and guidance workstream status","kind":"README"},
+    {"id":"bio-readme","path":"projects/3-BioFeaturisers/code/README.md","anchor":"## Grad-friendly fixed-topology APIs","length":24,"label":"Differentiable HDX, SAXS, and SASA APIs","kind":"README"},
+    {"id":"bio-hdx","path":"projects/3-BioFeaturisers/code/biofeaturisers/hdx/forward.py","anchor":"def hdx_forward(","length":23,"label":"Coordinate-to-protection forward kernel","kind":"Code"},
+    {"id":"bio-predict","path":"projects/3-BioFeaturisers/code/biofeaturisers/hdx/predict.py","anchor":"def predict_from_features(","length":28,"label":"HDX prediction from fixed features","kind":"Code"},
+    {"id":"bio-saxs","path":"projects/3-BioFeaturisers/code/biofeaturisers/saxs/forward.py","anchor":"def forward(","length":26,"label":"FoXS-style SAXS forward dispatch","kind":"Code"},
+    {"id":"bio-gradtests","path":"projects/3-BioFeaturisers/code/tests/gradients/test_hdx_forward_gradients.py","anchor":"def test_hdx_forward_ln_pf_gradient_matches_fd","length":25,"label":"HDX directional finite-difference test","kind":"Test source"},
+    {"id":"bio-provenance","path":"projects/3-BioFeaturisers/code/README.md","anchor":"## Provenance gaps","length":12,"label":"Documented BioFeaturisers citation gaps","kind":"README"},
+    {"id":"fk-readme","path":"projects/3-BioFeaturisers/meta-diffusion/README.md","anchor":"Package to perform maximum entropy","length":9,"label":"MaxENT-FK dependencies and objective","kind":"README"},
+    {"id":"fk-builder","path":"projects/3-BioFeaturisers/meta-diffusion/src/maxent_fk/guidance/builder.py","anchor":"    from biofeaturisers.config import HDXConfig","length":12,"label":"BioFeaturisers and jaxENT integration","kind":"Code"},
+    {"id":"fk-config","path":"projects/3-BioFeaturisers/meta-diffusion/src/maxent_fk/guidance/config.py","anchor":"class GuidanceConfig:","length":30,"label":"Resampling and gradient guidance modes","kind":"Code"},
+    {"id":"fk-hook","path":"projects/3-BioFeaturisers/meta-diffusion/src/maxent_fk/guidance/hook.py","anchor":"class GuidanceHook:","length":12,"label":"Per-step weights and coordinate updates","kind":"Code"},
+    {"id":"fk-loss","path":"projects/3-BioFeaturisers/meta-diffusion/src/maxent_fk/guidance/losses.py","anchor":"def _uptake_loss_pre(","length":65,"label":"Mean uptake, transport, and variance objectives","kind":"Code"},
+    {"id":"fk-v2","path":"projects/3-BioFeaturisers/meta-diffusion/plans/research/hdx_ensemble_guidance_v2_handoff.md","anchor":"## 0. Executive decision","length":33,"label":"V2 separates identifiability, maintenance, and creation","kind":"Research report"},
+    {"id":"fk-collapse","path":"projects/3-BioFeaturisers/meta-diffusion/plans/research/hdx_ensemble_guidance_v2_handoff.md","anchor":"### 2.1 Retained: mean-observable losses","length":29,"label":"Mean-observable losses and collapse ambiguity","kind":"Research report"},
+    {"id":"fk-supported","path":"projects/3-BioFeaturisers/meta-diffusion/plans/research/hdx_ensemble_guidance_v2_handoff.md","anchor":"Full-sized confirmation result","length":19,"label":"Supported-pool recovery and missing-support failure","kind":"Research report"},
+    {"id":"fk-maintenance","path":"projects/3-BioFeaturisers/meta-diffusion/plans/research/hdx_ensemble_guidance_v2_handoff.md","anchor":"## 6. Phase B: true-lineage","length":39,"label":"Corrected five-seed maintenance result","kind":"Research report"},
+    {"id":"fk-bpti","path":"projects/3-BioFeaturisers/meta-diffusion/examples/BPTI/README.md","anchor":"# BPTI Case Study","length":7,"label":"BPTI guidance case-study design","kind":"README"},
+    {"id":"ka-status","path":"projects/4-jax-Ka/README.md","anchor":"- **Thesis chapter:","length":8,"label":"jax-Ka chapter status","kind":"README"},
+    {"id":"ka-readme","path":"projects/4-jax-Ka/code/README.md","anchor":"Frozen-structure, soft-sequence","length":6,"label":"PROPKA-parameterised mean-field surrogate","kind":"README"},
+    {"id":"ka-model","path":"projects/4-jax-Ka/code/src/jaxpropka/model.py","anchor":"class CurveResult(","length":46,"label":"Titration and midpoint readouts","kind":"Code"},
+    {"id":"ka-selectivity","path":"projects/4-jax-Ka/code/src/jaxpropka/selectivity.py","anchor":"class SelectivityObjective:","length":21,"label":"Bound/free soft-sequence objective","kind":"Code"},
+    {"id":"ka-validation","path":"projects/4-jax-Ka/code/docs/VALIDATION.md","anchor":"## Executed locally","length":23,"label":"Documented analytic, gradient, and reference checks","kind":"Validation report"},
+    {"id":"ka-limits","path":"projects/4-jax-Ka/code/docs/VALIDATION.md","anchor":"## Production acceptance remains open","length":5,"label":"Scientific calibration and approximation boundaries","kind":"Validation report"},
+    {"id":"ka-preset","path":"projects/4-jax-Ka/code/docs/GRADIENTS.md","anchor":"The preset has passed its CPU numerical promotion gates","length":11,"label":"Opt-in CPU design-preset numerical qualification","kind":"Validation report"}
+  ],
+  "journey": [
+    {"id":"problem","number":"01","title":"Ask what the data can distinguish","kicker":"The inverse problem","text":"HDX reports on exchange through an indirect, ensemble-level measurement. Multiple structural explanations can agree with those measurements.","takeaway":"Compare explanations and their uncertainty.","sources":["val-author"],"basis":"stated"},
+    {"id":"validate","number":"02","title":"Validate the explanation","kicker":"ValDX · Chapter 3","project":"valdx","text":"Test unseen peptide information, quantify changes required during fitting, and compare candidate ensembles rather than relying on uptake error alone.","takeaway":"Agreement needs structural diagnostics.","sources":["val-abstract","val-splits"],"basis":"stated"},
+    {"id":"infer","number":"03","title":"Make inference flexible","kicker":"jaxENT · Chapter 4","project":"jaxent","text":"Use differentiable optimisation to adjust populations and prediction-model parameters, with composable losses, priors, and population benchmarks.","takeaway":"Separate model choices from structural evidence.","sources":["jax-gradients","jax-priors","jax-moprp"],"basis":"stated"},
+    {"id":"observe","number":"04","title":"Differentiate the observables","kicker":"BioFeaturisers · Chapter 5","project":"biofeaturisers","text":"Connect changing atomic coordinates to HDX, SAXS, and solvent-accessibility predictions so experimental objectives can influence structure updates.","takeaway":"Move from weight gradients to coordinate gradients.","sources":["bio-readme","bio-hdx","bio-saxs"],"basis":"inferred"},
+    {"id":"guide","number":"05","title":"Guide generation and test its limits","kicker":"MaxENT-FK · Chapter 5 workstream","project":"maxent-fk","text":"Couple ensemble fitting and coordinate gradients to Boltz sampling. Test identifiability, seeded maintenance, and creation of missing states as separate questions.","takeaway":"A mean fit is not population recovery.","sources":["fk-config","fk-v2","fk-supported","fk-maintenance"],"basis":"stated"},
+    {"id":"titrate","number":"06","title":"Extend differentiable physical modelling","kicker":"jax-Ka · Chapter 6 · related branch","project":"jax-ka","text":"Model titration and charge on frozen structures under soft sequence identities, with gradients for pH-dependent bound/free objectives.","takeaway":"Numerical qualification precedes scientific calibration.","sources":["ka-readme","ka-selectivity","ka-limits"],"basis":"inferred","branch":true}
+  ],
+  "projects": [
+    {
+      "id":"valdx","name":"ValDX","chapter":3,"color":"#227b70","verb":"Validate","status":"Post-review manuscript","status_kind":"manuscript","tagline":"Assess and rank candidate explanations of protein dynamics.",
+      "question":"How can we compare structural hypotheses when uptake agreement alone does not establish population accuracy?",
+      "summary":"A validation framework combining overlap-aware splitting, replicate-based uncertainty estimates, and Work Done diagnostics. It examines the effect of ensemble composition, clustering, fitting order, and kinetic misspecification.",
+      "inputs":"HDX uptake or residue protection factors; candidate structural ensembles from molecular dynamics and AlphaFold-derived sampling.",
+      "outputs":"Held-out predictions, uncertainty estimates, Work Done profiles, and comparative assessments of ensemble representativeness.",
+      "boundary":"Conclusions are comparative across supplied ensembles and the chosen forward model. Reweighting cannot add absent states; good uptake agreement does not validate exchange kinetics.",
+      "next":"Carry the post-review findings and their limits into Chapter 3, with explicit separation of predictive fit and structural inference.",
+      "sources":["val-status","val-abstract","val-limits"],
+      "tags":["HDX-MS","cross-validation","Work Done","uncertainty","clustering","TeaA","BRD4"],
+      "claims":[
+        {"id":"val-fit","title":"Prediction error is insufficient evidence of population accuracy","text":"The manuscript finds that conventional fitting error alone does not establish the accuracy of ensemble populations. Complementary diagnostics support comparison of candidate explanations.","kind":"finding","basis":"stated","sources":["val-abstract","val-author"]},
+        {"id":"val-split","title":"Validate unseen information, accounting for peptide overlap","text":"Sequence-based non-redundant and spatial splits remove overlapping training peptides; repeated splits assess sensitivity to the data partition.","kind":"method","basis":"stated","sources":["val-splits","val-abstract"]},
+        {"id":"val-metrics","title":"Work Done measures changes in model-predicted protection","text":"Shape, scale, and density describe different changes between prior and fitted protection profiles. Their interpretation remains conditional on the empirical forward model.","kind":"method","basis":"stated","sources":["val-work","val-limits"]},
+        {"id":"val-benchmark","title":"The post-review study covers 22 ensembles across six proteins","text":"The abstract reports a multi-system evaluation, retention of performance at 10–20% of the parent ensemble through clustering, and smaller representations that aid interpretation.","kind":"finding","basis":"stated","sources":["val-abstract"]},
+        {"id":"val-order","title":"Fitting order changes population distortion under kinetic mismatch","text":"The synthetic benchmark reports that calibrating forward-model parameters before reweighting limits population distortion. Restored uptake agreement still does not establish population recovery or correct kinetics.","kind":"finding","basis":"stated","sources":["val-protocol","val-limits"]}
+      ],
+      "experiments":[
+        {"id":"val-teaa","title":"TeaA isolated validation","text":"Open/closed reference conformations define a synthetic 40:60 target; bimodal and trimodal candidate ensembles probe population recovery and alternative support.","state":"Synthetic benchmark","sources":["val-iso"]},
+        {"id":"val-panel","title":"Multi-protein ensemble comparison","text":"The post-review manuscript compares predictive agreement, Work Done, clustering, and optimisation protocols across candidate ensembles.","state":"Manuscript findings","sources":["val-abstract"]},
+        {"id":"val-kinetics","title":"Imposed exchange-kinetic mismatch","text":"A controlled departure from the EX2 fitting assumption tests whether model calibration and reweighting distort the generating populations.","state":"Synthetic benchmark","sources":["val-protocol","val-limits"]}
+      ],
+      "modules":[
+        {"id":"val-runner","title":"ValDX / ValidationDX.py","text":"Experiment orchestration around HDXer: predictions, split replicates, training, validation, and reweighting.","sources":["val-code"]}
+      ],
+      "manuscripts":[{"title":"Post-review results and discussion","path":"projects/1-ValDX/manuscript/report/7_results_omc.tex"},{"title":"Materials and methods","path":"projects/1-ValDX/manuscript/report/6_methods_omc.tex"}]
+    },
+    {
+      "id":"jaxent","name":"jaxENT","chapter":4,"color":"#4768ac","verb":"Infer","status":"Implemented platform · draft manuscript","status_kind":"implementation","tagline":"Fit populations and forward models in a flexible inverse-problem framework.",
+      "question":"How can ensemble weights, model parameters, and multiple experimental objectives be fitted efficiently and transparently?",
+      "summary":"A JAX/Optax platform for differentiable ensemble fitting with configurable parameter partitions and registered loss functions. Current examples explore synthetic recovery, prion-state comparisons, model regularisation, alpha-synuclein conditions, and joint HDX/SAXS fitting.",
+      "inputs":"Precomputed structural features; experimental observations; population priors; train/validation splits and observation covariance.",
+      "outputs":"Optimised frame weights and selected model parameters, predictions, optimisation histories, population scores, and model comparisons.",
+      "boundary":"The repository marks manuscript experiments as outdated. Its speedup, recovery-precision, and alpha-synuclein mechanistic claims are historical draft reports, not current validated conclusions in this map. Example workflows and implemented losses do not by themselves prove population recovery.",
+      "next":"Reconcile the manuscript with the current experiments and distinguish observation noise, forward-model discrepancy, and independently defined state-population targets.",
+      "sources":["jax-status","repo-status","jax-readme","jax-gradients"],
+      "tags":["JAX","maximum entropy","joint fitting","MoPrP","alpha-synuclein","SAXS","covariance","population recovery"],
+      "claims":[
+        {"id":"jax-joint","title":"Weights and model parameters have separate trainable partitions","text":"Gradient masks and the optimiser expose frame-weight and forward-model parameter choices, supporting staged or joint optimisation.","kind":"implementation","basis":"stated","sources":["jax-gradients","jax-optimiser"]},
+        {"id":"jax-losses","title":"Inference uses configurable regularisation and observation losses","text":"The code contains entropy/divergence losses and Gaussian observation likelihoods. Physical Gaussian losses explicitly require observation covariance and reject trace-normalised covariance.","kind":"implementation","basis":"stated","sources":["jax-priors","jax-gaussian"]},
+        {"id":"jax-state","title":"Population scoring can be separated from predictive error","text":"State-population analysis includes explicit population estimates and strict Jensen–Shannon recovery scoring against supplied state targets.","kind":"implementation","basis":"stated","sources":["jax-population","jax-moprp"]},
+        {"id":"jax-regularise","title":"MoPrP examples explore a second regularisation axis","text":"A two-dimensional sweep varies MaxEnt strength and BV-parameter regularisation to examine the trade-off between data agreement, prior populations, and model-parameter robustness.","kind":"method","basis":"stated","sources":["jax-bv"]},
+        {"id":"jax-multidata","title":"Calmodulin examples compare HDX-only, SAXS-only, and joint fitting","text":"The example design uses a NeuralPlexer-derived ensemble and two CDZ conditions, with separate observation losses and cross-validation. It is evidence of the integration workflow, not a confirmed gain from combining modalities.","kind":"implementation","basis":"stated","sources":["jax-saxs"]},
+        {"id":"jax-old","title":"Historical manuscript results need reconciliation","text":"The draft abstract reports performance and biological conclusions, while the thesis repository identifies its experiments as outdated. These statements are retained as historical context rather than promoted to current findings.","kind":"historical","basis":"stated","sources":["repo-status","jax-draft"]}
+      ],
+      "experiments":[
+        {"id":"jax-teaa","title":"TeaA known-population inversion","text":"Synthetic open/closed targets test recovery against a supplied 40:60 mixture rather than uptake agreement alone.","state":"Benchmark workflow","sources":["jax-iso"]},
+        {"id":"jax-prion","title":"MoPrP conformational-state comparisons","text":"Folded, PUF1, PUF2, and unfolded categories are assessed using structural features and literature-derived population references.","state":"Experimental-data workflow","sources":["jax-moprp","jax-bv"]},
+        {"id":"jax-syn","title":"Alpha-synuclein across four solution conditions","text":"Residue protection-factor fitting compares Tris-only, extracellular, intracellular, and lysosomal conditions; the documented PF-recovery score is not direct population ground truth.","state":"Condition-wise workflow","sources":["jax-asyn"]},
+        {"id":"jax-cam","title":"Calmodulin with HDX and SAXS","text":"Single-modality and combined fits compare two CDZ conditions and interrogate the balance between their losses.","state":"Multi-observable workflow","sources":["jax-saxs"]}
+      ],
+      "modules":[
+        {"id":"jax-opt","title":"Optax optimiser and gradient masks","text":"Parameter partitions, learning-rate controls, and optimisation histories.","sources":["jax-optimiser","jax-gradients"]},
+        {"id":"jax-likelihood","title":"Registered losses and population analysis","text":"Prior regularisation, Gaussian observation likelihoods, and independently supplied state targets.","sources":["jax-priors","jax-gaussian","jax-population"]}
+      ],
+      "manuscripts":[{"title":"Historical draft results","path":"projects/2-jaxENT/manuscript/report/results.tex"},{"title":"Historical draft introduction","path":"projects/2-jaxENT/manuscript/report/introduction.tex"}]
+    },
+    {
+      "id":"biofeaturisers","name":"BioFeaturisers","chapter":5,"color":"#a66a24","verb":"Observe","status":"Implemented kernels · preliminary research","status_kind":"implementation","tagline":"Turn atomic coordinates into differentiable biophysical predictions.",
+      "question":"How can structural observables carry gradients back to changing coordinates?",
+      "summary":"JAX kernels for HDX protection, SAXS profiles, and solvent-accessible surface area, with fixed-topology APIs and trajectory prediction. This supplies the coordinate-sensitive measurement layer used by experimental guidance.",
+      "inputs":"Atomic coordinates, fixed topology/features, prediction parameters, and optional ensemble weights.",
+      "outputs":"Contact-based protection profiles, HDX predictions, SAXS intensities, solvent accessibility, and coordinate gradients.",
+      "boundary":"A differentiable implementation is not a validation of the underlying physical approximation. The README records outstanding provenance and reference-benchmark work; test sources show checks that exist, not a newly executed test run.",
+      "next":"Benchmark prediction and gradient behaviour against independent references and document approximation and provenance limits.",
+      "sources":["bio-status","bio-readme","bio-provenance"],
+      "tags":["JAX","coordinate gradients","HDX","SAXS","SASA","forward models","fixed topology"],
+      "claims":[
+        {"id":"bio-fixed","title":"Fixed-topology APIs allow coordinates to change","text":"HDX and SAXS expose featurise_from_topology and predict_from_features paths; SASA supplies smooth, exact, and Gaussian-overlap modes with different topology behaviour.","kind":"implementation","basis":"stated","sources":["bio-readme"]},
+        {"id":"bio-protection","title":"HDX kernels map coordinates to contact-based protection","text":"The forward kernel computes heavy-atom and backbone contact contributions and log protection factors under configurable empirical models.","kind":"implementation","basis":"stated","sources":["bio-hdx","bio-predict"]},
+        {"id":"bio-scattering","title":"SAXS predictions support structures and trajectories","text":"The forward dispatch wraps FoXS-style single-structure and ensemble calculations with hydration and ensemble-weight options.","kind":"implementation","basis":"stated","sources":["bio-saxs","bio-readme"]},
+        {"id":"bio-test","title":"Gradient checks are present in the source tree","text":"HDX gradient tests compare directional derivatives with finite differences. Their presence supports an implementation-audit trail; no package test pass is asserted from this map build.","kind":"implementation","basis":"stated","sources":["bio-gradtests"]}
+      ],
+      "experiments":[
+        {"id":"bio-checks","title":"Numerical and gradient verification","text":"The package contains numerical fixtures and directional-gradient tests; independent physical validation remains a separate task.","state":"Test implementations","sources":["bio-gradtests","bio-provenance"]}
+      ],
+      "modules":[
+        {"id":"bio-hdx-module","title":"biofeaturisers.hdx","text":"Featurisation, coordinate-sensitive contact kernels, and prediction.","sources":["bio-hdx","bio-predict"]},
+        {"id":"bio-saxs-module","title":"biofeaturisers.saxs and .sasa","text":"Scattering and solvent-accessibility APIs for differentiable workflows.","sources":["bio-saxs","bio-readme"]}
+      ],
+      "manuscripts":[]
+    },
+    {
+      "id":"maxent-fk","parent":"biofeaturisers","name":"MaxENT-FK","chapter":5,"color":"#aa535a","verb":"Guide","status":"Active guidance experiments","status_kind":"research","tagline":"Guide Boltz ensembles while testing support and identifiability.",
+      "question":"Can experimental objectives improve structural populations during generation, beyond merely improving the mean observable?",
+      "summary":"A Chapter 5 workstream coupling Boltz sampling, BioFeaturisers coordinate gradients, and jaxENT fitting. Guidance modes include resampling, weighted gradients, and baseline controls, with explicit investigation of ensemble collapse and supplied-state support.",
+      "inputs":"Boltz particles, HDX targets, differentiable structural features, and guidance/regularisation schedules; synthetic controls may supply known conformers and moment targets.",
+      "outputs":"Guided structures, particle weights and lineage, observable diagnostics, and registered identifiability/maintenance decisions.",
+      "boundary":"Current governing V2 records do not establish HDX-only equilibrium population recovery or creation of absent basins. Oracle MD-derived variance targets and supplied open conformers must be identified as synthetic controls. Results here are reported by the handoff, not independently rerun or reanalysed.",
+      "next":"Audit which alternative structures reproduce open-like observables before treating better fit as a reason to tune the sampler or claim structural discovery.",
+      "sources":["bio-status","fk-readme","fk-v2","fk-supported","fk-maintenance"],
+      "tags":["Boltz","guided diffusion","Feynman–Kac","particle lineage","identifiability","TeaA","BPTI","negative result","variance"],
+      "claims":[
+        {"id":"fk-modes","title":"Guidance combines fitting, resampling, and coordinate updates","text":"The configuration separates FK resampling, weighted gradients, uniform-gradient guidance, and an unguided mode; the hook returns sampling weights and coordinate updates.","kind":"implementation","basis":"stated","sources":["fk-config","fk-hook"]},
+        {"id":"fk-ambiguity","title":"Mean-observable losses cannot distinguish matched-mean collapse","text":"The V2 analysis explains that ensemble-mean MSE and the current residue-wise mean-curve transport assign the same loss to ensembles with the same weighted mean, even if their particle distributions differ.","kind":"finding","basis":"stated","sources":["fk-collapse","fk-loss"]},
+        {"id":"fk-support","title":"Supplied support permits recovery, but alternative support remains ambiguous","text":"The V2 report records recovery of the synthetic 40:60 mixture with a supplied two-state pool. Its overall verdict is observation_not_identifiable because a pool without open frames still fits below the registered missing-support failure threshold.","kind":"finding","basis":"stated","sources":["fk-supported"]},
+        {"id":"fk-negative","title":"Corrected maintenance experiment: null_or_harmful","text":"The governing true-lineage, five-seed experiment reports no structural maintenance improvement from the tested variance term and worse mean/variance observable errors than mean MSE alone; 0/5 seeds support the intervention.","kind":"negative","basis":"stated","sources":["fk-maintenance"]},
+        {"id":"fk-questions","title":"Identifiability, maintenance, and creation are different tests","text":"Recovering a mixture from supplied states, preserving seeded particle identities, and discovering an unsupported basin have different necessary conditions. Success in one does not establish the others.","kind":"method","basis":"stated","sources":["fk-v2"]}
+      ],
+      "experiments":[
+        {"id":"fk-phase-a","title":"TeaA supported-pool discriminator","text":"Disjoint calibration/confirmation targets and missing-support controls separate conditional two-state recovery from structural ambiguity under alternative support.","state":"Reported V2 result · ambiguity","sources":["fk-supported"]},
+        {"id":"fk-phase-b","title":"TeaA true-lineage SDEdit maintenance","text":"Matched unguided, mean-MSE, and mean-MSE-plus-variance conditions test the same seeded ensemble; the corrected five-seed verdict is null_or_harmful.","state":"Reported V2 result · negative","sources":["fk-maintenance"]},
+        {"id":"fk-bpti-example","title":"BPTI conformational-density case study","text":"The example proposes comparing protection-factor-guided structures with NMR and MD references in disulfide torsion space. The README describes a workflow rather than an established positive result.","state":"Case-study workflow","sources":["fk-bpti"]}
+      ],
+      "modules":[
+        {"id":"fk-assembly","title":"maxent_fk.guidance.builder and .hook","text":"Connects BioFeaturisers and jaxENT to per-step sampling updates.","sources":["fk-builder","fk-hook"]},
+        {"id":"fk-objectives","title":"maxent_fk.guidance.losses and .config","text":"Mean-observable, transport, and variance objectives with explicit baseline modes.","sources":["fk-loss","fk-config"]}
+      ],
+      "manuscripts":[]
+    },
+    {
+      "id":"jax-ka","name":"jax-Ka","chapter":6,"color":"#7a62a6","verb":"Titrate","status":"Numerically qualified components · calibration open","status_kind":"research","tagline":"Differentiate pH-dependent titration under soft sequence identities.",
+      "question":"Can interpretable titration and charge models supply useful sequence gradients for pH-dependent objectives?",
+      "summary":"The current implementation, jaxpropka, is a PROPKA-parameterised mean-field surrogate on frozen candidate geometry. It predicts charge, titration curves, and conditional pKa midpoints, and supplies a bound/free selectivity objective.",
+      "inputs":"Prepared protein structures and frozen candidate geometry, residue-wise amino-acid probabilities, pH grids, and model settings.",
+      "outputs":"Conditional protonation, residue/chain/total charge, pKa midpoints, sequence gradients, and explicit convergence diagnostics.",
+      "boundary":"This is not a numerically faithful PROPKA port or an experimentally calibrated pKa predictor. Frozen geometry, mean-field coupling, and solver-branch behaviour limit interpretation. CPU numerical qualification does not establish a unique equilibrium, experimental accuracy, or accelerator performance.",
+      "next":"Evaluate native and mutant predictions against independent data, validate gradient directions with discrete rescoring, and retain convergence and branch audits in design objectives.",
+      "sources":["ka-status","ka-readme","ka-limits","ka-preset"],
+      "tags":["pKa","pH","titration","PROPKA","JAX","soft sequence","selectivity","implicit gradients","calibration"],
+      "claims":[
+        {"id":"ka-surrogate","title":"The model is a frozen-geometry mean-field surrogate","text":"The README explicitly distinguishes the model from PROPKA's coupled determinant algorithm; geometry is prepared outside the JIT sequence readouts.","kind":"implementation","basis":"stated","sources":["ka-readme"]},
+        {"id":"ka-readouts","title":"Charge, titration curves, and conditional midpoints are exposed","text":"Readouts retain separate conditional identity channels and numerical diagnostics for convergence, bracketing, and root validity.","kind":"implementation","basis":"stated","sources":["ka-model","ka-readme"]},
+        {"id":"ka-design","title":"Bound/free objectives differentiate binder sequence probabilities","text":"The selectivity objective holds structure and target identities fixed, relates bound and isolated environments, and differentiates the soft binder sequence.","kind":"implementation","basis":"stated","sources":["ka-selectivity"]},
+        {"id":"ka-numerical","title":"Numerical and scientific validation remain distinct","text":"The documentation reports analytic and directional-gradient checks and an opt-in CPU design preset that passed numerical gates. It also states that experimental calibration and broader scientific acceptance remain open.","kind":"reported check","basis":"stated","sources":["ka-validation","ka-preset","ka-limits"]}
+      ],
+      "experiments":[
+        {"id":"ka-checks","title":"Analytic, gradient, and external-reference checks","text":"The validation inventory reports independent-site limits, directional finite differences, topology handling, and PROPKA discrepancy tests; these are documented checks rather than experiments rerun for this map.","state":"Documented numerical checks","sources":["ka-validation"]},
+        {"id":"ka-cpu","title":"CPU design-preset qualification","text":"The documentation reports numerical promotion across protein–protein interfaces with explicit failed/nonqualifying samples and caller-controlled branch audits.","state":"Documented numerical qualification","sources":["ka-preset"]}
+      ],
+      "modules":[
+        {"id":"ka-kernels","title":"jaxpropka.model","text":"Sequence-dependent local terms, coupled titration solves, and midpoint readouts.","sources":["ka-model","ka-readme"]},
+        {"id":"ka-boundfree","title":"jaxpropka.selectivity","text":"Bound/free charge objectives and gradients with fixed-environment checks.","sources":["ka-selectivity","ka-preset"]}
+      ],
+      "manuscripts":[]
+    }
+  ],
+  "connections": [
+    {"id":"validation-to-inference","source":"valdx","target":"jaxent","title":"Validation motivates flexible inference","type":"conceptual","basis":"inferred","text":"ValDX exposes the dependence of structural conclusions on splitting, diagnostics, and fitting order. jaxENT provides a flexible platform to investigate those choices; this is the research narrative, not a software-import dependency.","sources":["val-abstract","jax-gradients","jax-bv"]},
+    {"id":"validation-to-guidance","source":"valdx","target":"maxent-fk","title":"The same validation question recurs in generation","type":"conceptual","basis":"inferred","text":"Both workstreams distinguish predictive agreement from a correct structural population. Guidance extends the challenge to particle support, lineage, and missing basins.","sources":["val-limits","fk-v2","fk-supported"]},
+    {"id":"jaxent-to-guidance","source":"jaxent","target":"maxent-fk","title":"Ensemble fitting inside guidance","type":"dependency","basis":"stated","text":"MaxENT-FK lists jax-ent as a dependency and imports its optimisation and dataset interfaces when constructing guidance.","sources":["fk-readme","fk-builder"]},
+    {"id":"observables-to-guidance","source":"biofeaturisers","target":"maxent-fk","title":"Coordinate-sensitive observables supply guidance gradients","type":"dependency","basis":"stated","text":"MaxENT-FK imports BioFeaturisers HDX configuration and features; the guidance hook connects predicted protection/uptake losses to coordinate updates.","sources":["fk-builder","fk-hook","bio-hdx"]},
+    {"id":"fitting-to-observables","source":"jaxent","target":"biofeaturisers","title":"Complementary differentiable layers","type":"conceptual","basis":"inferred","text":"jaxENT fits weights and model parameters around structural features. BioFeaturisers makes the feature/observable calculations responsive to changing coordinates. The map does not assert a direct package dependency between them.","sources":["jax-gradients","bio-readme"]},
+    {"id":"observables-to-titration","source":"biofeaturisers","target":"jax-ka","title":"Shared emphasis on differentiable physical models","type":"conceptual","basis":"inferred","text":"Coordinate-sensitive observables and sequence-sensitive titration share a methodological emphasis on gradients, interpretable approximations, and separate numerical/scientific checks. No HDX-to-pKa coupling is established in the cited code.","sources":["bio-gradtests","ka-readme","ka-limits"]}
+  ],
+  "observations": [
+    {"title":"The thesis is an outline, not a completed results document","text":"Chapters 1–2 provide the agreed introduction/background headings. The project chapters remain placeholders, so scientific content is drawn from the project repositories and manuscripts.","sources":["thesis-identity","repo-status"]},
+    {"title":"Current code and historical manuscripts have different authority","text":"The jaxENT manuscript is labelled outdated in the root README. Implemented capabilities, example designs, and historical manuscript conclusions are presented separately.","sources":["repo-status","jax-draft"]},
+    {"title":"Guidance has a superseding interpretation","text":"The V2 handoff supersedes earlier Stage 3 claims. Supported-pool ambiguity and the corrected null_or_harmful maintenance verdict govern this map.","sources":["fk-v2","fk-supported","fk-maintenance"]},
+    {"title":"jax-Ka has advanced beyond the brief root status label","text":"The project README says preliminary training, while the current code documentation records an implemented surrogate and numerical qualification. Scientific calibration is still explicitly open.","sources":["ka-status","ka-readme","ka-preset","ka-limits"]}
+  ]
+}
