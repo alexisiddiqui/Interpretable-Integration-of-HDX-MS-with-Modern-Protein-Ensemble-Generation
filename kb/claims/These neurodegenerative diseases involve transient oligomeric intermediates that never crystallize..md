@@ -20,7 +20,7 @@ Mukhtasimova et al. study intermediate states priming opening of the nicotinic a
 
 ## Caveats
 
-Likely intended source: @sotoProteinMisfoldingAggregation2018 p2 (^c3, ^c4), which describes misfolded oligomers as heterogeneous and highly dynamic, in equilibrium with monomers and fibrils; it does not mention crystallization. It is not in this claim's cites; the author decides.
+Closest passage found: @sotoProteinMisfoldingAggregation2018 p2 (^c3, ^c4, ^c5), which describes misfolded oligomers as heterogeneous, highly dynamic and in equilibrium with monomers and fibrils, and says high-resolution structural information for them is very difficult to obtain. Soto is not among this sentence's cites, and none of these passages mentions crystallization, so 'never crystallize' remains unsupported. The author decides whether to cite it.
 
 ## Unverified citations
 

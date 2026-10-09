@@ -42,6 +42,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "The oligomeric species are highly dynamic and exist in equilibrium with monomers and fibrils"
   - quote_check: pass
   - reviewed: false
+- Heterogeneity, rapid interconversion between species and a propensity to form higher-order aggregates have made high-resolution structural information for misfolded oligomers very difficult to obtain. ^c5
+  - page: 2
+  - quote: "have made it very difficult to obtain high-resolution structural information for misfolded oligomers"
+  - quote_check: pass
+  - reviewed: false
+- The absence of high-resolution structural information for the scrapie prion protein has limited understanding of the biophysical bases of prion strains. ^c6
+  - page: 5
+  - quote: "The absence of high-resolution structural information for PrPSc has limited our understanding of the biophysical bases of prion strains"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

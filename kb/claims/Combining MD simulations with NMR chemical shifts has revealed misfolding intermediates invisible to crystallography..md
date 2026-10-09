@@ -21,6 +21,10 @@ code: []
 
 Biancaniello et al. used replica-averaged MD simulations restrained with NMR chemical shifts to characterize intermediate states on the prion misfolding pathway, and note that X-ray crystallography, NMR and cryo-EM alone cannot capture dynamic intermediates.
 
+## Caveats
+
+The other cited paper, Lee et al., is an HDXer tutorial with no passage on NMR chemical shifts and is likely a mis-citation.
+
 ## Unverified citations
 
 - [[@leeInterpretingHydrogenDeuteriumExchange2021]]: no passage supporting this claim found

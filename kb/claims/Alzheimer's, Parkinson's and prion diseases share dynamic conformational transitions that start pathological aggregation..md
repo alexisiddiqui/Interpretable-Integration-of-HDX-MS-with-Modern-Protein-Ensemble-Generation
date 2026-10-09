@@ -4,11 +4,11 @@ chapter: 01-introduction
 project:
 basis: stated
 confidence: medium
-status: draft
+status: supported
 origin: milestones/2025-11-confirmation-of-status/introduction/biological_dynamics.tex#L30
 source_state: current
-needs_review: true
-review_reason: Support is partial or indirect
+needs_review: false
+review_reason:
 figures: []
 cites:
   - "[[@sotoProteinMisfoldingAggregation2018#^c1]]"
@@ -18,11 +18,11 @@ code: []
 
 ## Argument
 
-Soto and Pritzkow say these diseases involve proteins that misfold from native states into beta-sheet-rich structures, and that the misfolding process and its intermediates are remarkably similar across them.
+Soto and Pritzkow say the proteins of Alzheimer's, Parkinson's and prion diseases all misfold from their native states into beta-sheet-rich structures, by a process whose intermediates, end-products and main features are remarkably similar.
 
 ## Caveats
 
-The passages describe a shared misfolding process, not 'dynamic conformational transitions' as the initiating event. The other cited paper could not be checked.
+'Dynamic conformational transitions' is the author's gloss on this misfolding; Soto describes the shared misfolding process and its seeding-nucleation mechanism rather than using that wording. The other cited paper (Mukherjee) could not be checked.
 
 ## Unverified citations
 

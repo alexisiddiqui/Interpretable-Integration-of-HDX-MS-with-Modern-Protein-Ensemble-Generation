@@ -19,6 +19,10 @@ code: []
 
 Fisher and Stultz say [[intrinsically disordered protein]]s have relatively flat energy landscapes and so sample a large, diverse set of conformations at room temperature.
 
+## Caveats
+
+The other cited paper, Wan et al., is an apomyoglobin HDX study with no passage on intrinsically disordered proteins and is likely a mis-citation.
+
 ## Unverified citations
 
 - [[@wanReconcilingSimulatedEnsembles2020]]: no passage supporting this claim found
