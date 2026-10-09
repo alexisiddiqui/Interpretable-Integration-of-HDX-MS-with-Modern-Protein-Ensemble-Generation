@@ -32,7 +32,8 @@ A fourth component, **methods**, follows later and must be able to map onto the 
 - Seeds: `projects/1-ValDX/manuscript/` (clean, post-review; `main_omc.tex` inputs `report/1_introduction_omc`; `references.bib` has 779 entries), `milestones/2025-11-confirmation-of-status/introduction/` (`biological_dynamics`, `ensemble_generators`, `measuring_dynamics`, `connect_simulation_experiment`, `thesis_outline`).
 - Code lives in pinned submodules under `projects/*/code`.
 - `examples/*/thesis.json` (schema 2.0.0) already hold page-anchored `claims`, `entities`, `edges`, and `journey` stages for the three reference theses. Source PDFs are gitignored (`*.pdf`).
-- Existing tooling lives in `tools/` (`project-map`, `thesis-map`).
+- Existing tooling lives in `tools/` (`project-map`, `thesis-map`, and `kb-lint` since 2026-10-09).
+- Citekeys (verified 2026-10-09): the ValDX manuscript introduction uses snake_case keys from `report/_references.bib`; the confirmation report uses Better BibTeX keys matching the Zotero 7 library at `~/Zotero` (native `citationKey` field). The two introductions cite 90 keys for 83 distinct papers; all 83 resolve to Zotero keys (ValDX keys by DOI or title), all 83 have entries in `milestones/2025-11-confirmation-of-status/zotero_library.bib`, and about 78 have a PDF in Zotero storage.
 
 ## 3. Trust tiers
 
@@ -175,7 +176,7 @@ Acceptance: a fixture vault passes; one deliberately broken fixture per check in
 
 ### Step 2: ValDX seed
 
-From the ValDX manuscript introduction and the confirmation-of-status introduction: populate `thesis/references.bib` with only the entries those texts cite (deduplicated, keys kept from the 779-entry manuscript bib, not the whole file), create paper stubs, concept notes and ValDX claim notes with `origin`, then run the lint. Ambiguities become `needs_review` with a reason. Literature PDFs the author supplies go in `kb/_pdf/`.
+From the ValDX manuscript introduction and the confirmation-of-status introduction: populate `thesis/references.bib` with only the entries those texts cite. **Zotero/Better BibTeX keys are canonical** (decided 2026-10-09): ValDX manuscript keys are mapped to them by DOI or title, and the mapping is kept in `thesis/citekey-map.tsv` for adapting manuscript text later. Entries come from the Zotero export `zotero_library.bib`; PDFs are copied from Zotero storage to `kb/_pdf/@<citekey>.pdf`. Then create paper stubs, concept notes and claim notes with `origin` for the claims those introductions make, and run the lint. Ambiguities become `needs_review` with a reason. PDFs Zotero lacks are supplied by the author.
 Acceptance: every reference cited in the manuscript introduction has a paper note; every ValDX claim note has an `origin`; the lint is clean apart from flagged review items; `review-queue.md` generated.
 
 ### Step 3: introduction hub
