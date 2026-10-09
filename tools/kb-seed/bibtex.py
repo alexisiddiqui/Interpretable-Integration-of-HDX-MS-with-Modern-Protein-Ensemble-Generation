@@ -47,8 +47,10 @@ def parse_bib(path):
     pos = 0
     while (m := ENTRY_START.search(text, pos)):
         end = _closing_brace(text, text.index("{", m.start()))
+        if end < 0:
+            raise ValueError(f"{path}: entry {m.group(2)} has no closing brace")
         pos = end + 1
-        if m.group(1).lower() in SKIP_TYPES or end < 0:
+        if m.group(1).lower() in SKIP_TYPES:
             continue
         body = text[m.start():end + 1]
         year = _field(body, "year") or (_field(body, "date") or "")[:4]

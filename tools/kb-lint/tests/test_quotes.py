@@ -85,3 +85,18 @@ def test_quote_may_end_at_a_reference_number_glued_to_the_word():
     page = normalise("a link between structure, conformational dynamics and function1. HDX-MS measures")
     assert contains_words(page, normalise("conformational dynamics and function"))
     assert not contains_words(page, normalise("conformational dynamics and funct"))
+
+
+def test_digit_edges_do_not_match_inside_a_number():
+    from quotes import contains_words
+
+    assert not contains_words("only 95% of residues were covered", "5% of residues were covered")
+    assert not contains_words("sampled 120 000 structures", "20 000 structures")
+    assert not contains_words("labelled for 110 ms of labelling", "10 ms of labelling")
+
+
+def test_reference_digit_after_a_word_and_digit_edge_quote_still_match():
+    from quotes import contains_words
+
+    assert contains_words("probes conformational dynamics and function1. hdx", "conformational dynamics and function")
+    assert contains_words("only 95% of residues were", "95% of residues")

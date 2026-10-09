@@ -47,3 +47,28 @@ def test_normalisers():
     assert normalise_title("Hydrogen--Deuterium") == normalise_title("Hydrogen–Deuterium")
     assert normalise_title("Caf\\'{e} r\u00e9sum\u00e9") == "caf e resume"
     assert plain_title("{HDX-MS} and {MD} Simulations") == "HDX-MS and MD Simulations"
+
+
+def _parse_in_process(path, queue):
+    try:
+        parse_bib(path)
+        queue.put("returned")
+    except ValueError as err:
+        queue.put(str(err))
+
+
+def test_unclosed_entry_raises_instead_of_looping(tmp_path):
+    import multiprocessing
+
+    bib = tmp_path / "truncated.bib"
+    bib.write_text("@article{good2020,\n  title = {Fine},\n  year = {2020}\n}\n\n@article{bad2021, title = {Unclosed,\n", encoding="utf-8")
+    queue = multiprocessing.Queue()
+    proc = multiprocessing.Process(target=_parse_in_process, args=(bib, queue))
+    proc.start()
+    proc.join(5)
+    if proc.is_alive():
+        proc.terminate()
+        proc.join()
+        raise AssertionError("parse_bib did not terminate on an unclosed entry")
+    message = queue.get(timeout=2)
+    assert "bad2021" in message and "no closing brace" in message

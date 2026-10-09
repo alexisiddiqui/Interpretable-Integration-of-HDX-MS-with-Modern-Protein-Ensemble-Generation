@@ -44,4 +44,5 @@ Check 10 (phrase echo against the example theses) arrives with the example-thesi
 - PDF text comes from `pdftotext` without `-layout`, which keeps two-column articles in reading order. It is cached in `kb/.cache/pdftext/` by the PDF's SHA-256. Ligatures, line-break hyphens, curly quotes, dashes, case and spacing are normalised before comparing.
 - A code reference is `<submodule path>@<sha>:<file>#L<start>-<end>` (`#L<n>` for one line). Drift is measured against the commit the superproject pins (`git ls-tree HEAD`), or the submodule's checked-out commit when there is no gitlink.
 - A claim can only be `supported` on a machine that has the cited PDFs, because the ladder trusts only quotes checked in the current run.
+- `kb/review-queue.md` also lists, under "Mis-cited papers in supported claims", every supported or in-thesis claim whose body records a cited paper with "no passage supporting this claim found", so those mis-citations stay visible after the claim is promoted.
 - `--write` touches only `quote_check:` lines in paper notes and `kb/review-queue.md`, and only when they change.

@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Promote draft claims to supported when the lint confirms their evidence. See README.md.
 
-A draft claim is a candidate when it is not flagged for review, has at least one figure or cite, and
-has no lint errors. Candidates are set to supported and the lint runs again; any claim the status
+A draft claim is a candidate when it is not flagged for review, has `confidence: high` (the extraction
+protocol gives high only when every cite directly states the claim), has at least one figure or cite,
+and has no lint errors. Candidates are set to supported and the lint runs again; any claim the status
 ladder (check 6) rejects is put back to draft. The ladder stays the single definition of "supported".
 """
 
@@ -33,6 +34,8 @@ def candidates(root):
     for note in load_vault(root).notes:
         meta = note.meta or {}
         if note.type != "claim" or meta.get("status") != "draft" or meta.get("needs_review") is not False:
+            continue
+        if meta.get("confidence") != "high":
             continue
         if not (meta.get("figures") or meta.get("cites")) or note.rel in errors:
             continue

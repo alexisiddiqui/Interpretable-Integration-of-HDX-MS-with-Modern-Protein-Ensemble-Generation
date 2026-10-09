@@ -61,3 +61,9 @@ def test_dry_run_changes_nothing(repo, capsys):
     assert main(["--root", str(repo), "--dry-run"]) == 0
     assert "would promote claims/HDX-MS constrains ensemble reweighting.md" in capsys.readouterr().out
     assert status(repo, CLAIM) == "status: draft"
+
+
+def test_medium_confidence_draft_is_not_promoted(repo):
+    edit(repo, CLAIM, "confidence: high", "confidence: medium")
+    assert promote(repo) == ([], [])
+    assert status(repo, CLAIM) == "status: draft"

@@ -102,3 +102,15 @@ def test_cli_exit_codes(repo):
 def test_generated_review_queue_is_not_linted(repo):
     run(repo, write=True)
     assert [str(i) for i in run(repo).errors] == []
+
+
+def test_review_queue_lists_miscited_papers_in_supported_claims(repo):
+    edit(repo, CLAIM, "## Argument\n", "## Argument\n\n## Unverified citations\n\n- [[@jones2019]]: no passage supporting this claim found\n")
+    run(repo, write=True)
+    queue = (repo / "kb/review-queue.md").read_text(encoding="utf-8")
+    assert "## Mis-cited papers in supported claims\n\n- [[HDX-MS constrains ensemble reweighting]]: [[@jones2019]]\n" in queue
+
+
+def test_review_queue_has_no_miscite_section_when_none(repo):
+    run(repo, write=True)
+    assert "Mis-cited" not in (repo / "kb/review-queue.md").read_text(encoding="utf-8")

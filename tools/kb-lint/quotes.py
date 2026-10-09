@@ -24,10 +24,14 @@ def normalise(text):
 def contains_words(text, quote):
     """True if quote occurs in text without starting or ending inside a word.
 
-    Only letters count as "inside a word": PDFs glue reference numbers to the preceding word
-    ("function1."), and a quote ending at "function" must still match.
+    Where the quote's edge is a letter, only letters count as "inside a word": PDFs glue reference
+    numbers to the preceding word ("function1."), and a quote ending at "function" must still match.
+    Where the edge is a digit, any word character counts, so "5% of residues" never matches inside
+    "95% of residues".
     """
-    return re.search(r"(?<![^\W\d_])" + re.escape(quote) + r"(?![^\W\d_])", text) is not None
+    pre = r"(?<!\w)" if quote[:1].isdigit() else r"(?<![^\W\d_])"
+    post = r"(?!\w)" if quote[-1:].isdigit() else r"(?![^\W\d_])"
+    return re.search(pre + re.escape(quote) + post, text) is not None
 
 
 class PdfText:
