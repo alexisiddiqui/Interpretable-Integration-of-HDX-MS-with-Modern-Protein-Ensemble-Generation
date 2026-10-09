@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Differential HDX reveals ligand-specific changes in the conformational ensemble of the GPCR beta-2 adrenergic receptor. ^c1
+  - page: 1
+  - quote: "Differential HDX reveals ligand-specific alterations in the energy landscape of the receptor’s conformational ensemble"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

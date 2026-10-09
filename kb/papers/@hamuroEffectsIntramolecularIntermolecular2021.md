@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- HDX-MS, with DSC and nanoDSF, was used to investigate the stability and aggregation of a monoclonal antibody (NISTmAb). ^c1
+  - page: 1
+  - quote: "The stability and aggregation of NIST monoclonal antibody (NISTmAb) were investigated by hydrogen/deuterium exchange mass spectrometry (HDX-MS)"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

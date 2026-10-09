@@ -22,6 +22,16 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- HDX-MS results only provide fragment-level resolution. ^c1
+  - page: 8
+  - quote: "since HDX-MS results only provide fragment-level resolution"
+  - quote_check: pass
+  - reviewed: false
+- Atomistic MD simulations complement fragment-resolution HDX-MS data by giving single-residue detail on amide-hydrogen protection. ^c2
+  - page: 7
+  - quote: "atomistic MD simulations complement these data by providing additional details on the protections of amide hydrogens at a single-residue resolution"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

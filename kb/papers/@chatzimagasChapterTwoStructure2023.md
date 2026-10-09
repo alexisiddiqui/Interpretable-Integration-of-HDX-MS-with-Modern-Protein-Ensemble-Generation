@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- The chapter covers SAXS-driven MD ensemble refinement committed to the maximum entropy principle, and a Bayesian formulation of SAXS-driven structure refinement. ^c1
+  - page: 1
+  - quote: "We discuss SAXS-driven parallel-replica ensemble refinement with commitment to the maximum entropy principle as well as a Bayesian formulation of SAXS-driven structure refinement"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

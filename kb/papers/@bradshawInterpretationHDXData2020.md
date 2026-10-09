@@ -22,6 +22,16 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- In the HDXer approach an ensemble of protein conformations is first generated, typically by molecular dynamics simulations. ^c1
+  - page: 2
+  - quote: "an ensemble of protein conformations is first generated, typically using molecular dynamics simulations"
+  - quote_check: pass
+  - reviewed: false
+- HDXer provides a quantitative metric by which candidate structural ensembles can be ranked on their correspondence with target data, or shown to be inadequate. ^c2
+  - page: 2
+  - quote: "a quantitative metric with which candidate structural ensembles can be ranked based on their correspondence with target data, or revealed to be inadequate"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

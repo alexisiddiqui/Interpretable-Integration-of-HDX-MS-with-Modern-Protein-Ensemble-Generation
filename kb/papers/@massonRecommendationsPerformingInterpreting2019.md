@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- HDX-MS is a powerful technique that links protein structure, conformational dynamics and function. ^c1
+  - page: 1
+  - quote: "is a powerful technique that can provide insights into protein behavior by serving as a link between structure, conformational dynamics and function"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

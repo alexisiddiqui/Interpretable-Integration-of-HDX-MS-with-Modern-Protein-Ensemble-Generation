@@ -22,6 +22,16 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- HDX-MS can reveal information about higher-order structure and dynamics throughout a protein. ^c1
+  - page: 1
+  - quote: "HDX-MS can reveal information about higher-order structure and dynamics throughout a protein"
+  - quote_check: pass
+  - reviewed: false
+- HDX-MS can be applied to nearly any protein system, including many that are too large, flexible, heterogeneous or sample limited for other existing structural tools. ^c2
+  - page: 2
+  - quote: "nearly any protein system, many of which are too large, flexible, heterogeneous, or sample limited to be analyzed by other existing structural tools"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

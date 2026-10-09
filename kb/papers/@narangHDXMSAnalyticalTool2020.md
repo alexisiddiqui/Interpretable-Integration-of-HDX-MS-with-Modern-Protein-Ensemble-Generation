@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- HDX-MS is a powerful analytical technique that gives information about protein conformation and dynamics in solution. ^c1
+  - page: 1
+  - quote: "Hydrogen–Deuterium Exchange Mass Spectrometry (HDX-MS) is a powerful analytical technique that can provide useful information about solution phase protein conformation and dynamics"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

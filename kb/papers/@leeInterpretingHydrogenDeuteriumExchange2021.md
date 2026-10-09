@@ -22,6 +22,21 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- In HDX-MS the measured local exchange rates are averaged over oligopeptide fragments. ^c1
+  - page: 2
+  - quote: "averaged over oligopeptide fragments as in the case of HDX-MS data"
+  - quote_check: pass
+  - reviewed: false
+- HDXer reweights the conformational populations in a candidate ensemble, for example from molecular simulations, to conform to experimental exchange data. ^c2
+  - page: 1
+  - quote: "to objectively reweight the conformational populations present in a candidate ensemble to conform to experimental exchange data"
+  - quote_check: pass
+  - reviewed: false
+- Next-generation HDX studies need to derive objective structural ensembles directly from the measurements, which motivated the development of HDXer. ^c3
+  - page: 2
+  - quote: "enable high-resolution, quantitative, robust, and objective structural ensembles to be derived directly from the experimental measurements"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

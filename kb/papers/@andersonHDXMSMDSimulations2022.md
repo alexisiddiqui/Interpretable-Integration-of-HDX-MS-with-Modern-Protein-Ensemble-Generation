@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- For each glycoform of the IgG1–FcγRIα complex, HDX-MS shows distinct H/D exchange rates for Fab, Fc and FcγRIα peptides. ^c1
+  - page: 1
+  - quote: "For each glycoform of the IgG1—FccRIa complex peptic peptides of Fab, Fc and FccRIa report distinct H/D exchange rates"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

@@ -22,6 +22,16 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- HDX-MS complements what NMR and crystallography provide on the conformational ensembles and allosteric changes of GPCRs. ^c1
+  - page: 3
+  - quote: "complementing what can be garnered from other structural techniques such as NMR and crystallography"
+  - quote_check: pass
+  - reviewed: false
+- HDX-MS allows interrogation of large proteins and complexes. ^c2
+  - page: 1
+  - quote: "and interrogation of large proteins and complexes"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

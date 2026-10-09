@@ -22,6 +22,16 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Refining MD-derived structural ensembles against HDX data requires restraining structural observables in simulations so that the ensembles are consistent with experimental measurements. ^c1
+  - page: 1
+  - quote: "restraining these observables in molecular simulations to model ensembles consistent with experimental measurements"
+  - quote_check: pass
+  - reviewed: false
+- The BICePs algorithm is used with an HDX protection factor predictor to infer which thermodynamic ensemble agrees best with experiment and to estimate the populations of each conformational state. ^c2
+  - page: 2
+  - quote: "to infer which thermodynamic ensemble agrees best with experiment, and estimate populations of each conformational state in the MSM"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

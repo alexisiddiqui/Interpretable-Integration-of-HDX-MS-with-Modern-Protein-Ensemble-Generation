@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- HDX-MS has been applied successfully to identify disordered regions in proteins directly, from their characteristically fast isotope exchange. ^c1
+  - page: 3
+  - quote: "One successful application of HDX-MS has been the direct identification of disordered regions in proteins by characteristic fast isotope exchange rate"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

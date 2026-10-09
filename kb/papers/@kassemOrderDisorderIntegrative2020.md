@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- The study combines SAXS, X-ray diffraction and NMR data on individual domains, integrated through MD simulations, to interpret SAXS data on the full-length receptor. ^c1
+  - page: 2
+  - quote: "approach in which we combined SAXS, X-ray diffraction and NMR spectroscopy"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

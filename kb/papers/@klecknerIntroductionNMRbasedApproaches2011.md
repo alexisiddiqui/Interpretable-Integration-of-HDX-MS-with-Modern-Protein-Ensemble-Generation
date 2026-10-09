@@ -22,6 +22,16 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- The review presents eight NMR methods for studying protein dynamics within a common experimental and analytical framework. ^c1
+  - page: 1
+  - quote: "highlighting eight distinct methods with recent examples, contextualized within a common experimental and analytical framework"
+  - quote_check: pass
+  - reviewed: false
+- Protein conformational changes span a broad range of timescales and can be studied with a variety of NMR methods. ^c2
+  - page: 46
+  - quote: "Protein conformational changes over a broad range of timescales enable their biological function. These dynamic processes can be studied with a variety of NMR methods"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 
