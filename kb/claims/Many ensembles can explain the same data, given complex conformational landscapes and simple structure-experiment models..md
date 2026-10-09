@@ -23,3 +23,5 @@ Bradshaw et al. note that HDX data reflect an [[structural ensemble]] and may no
 ## Caveats
 
 Bradshaw et al. do not state that many ensembles fit the same data, and say nothing about the complexity of conformational landscapes or the simplicity of structure-to-experiment models. The passages show insufficient information content and ensemble averaging, which is consistent with non-uniqueness but is not the stated claim. Hummer and Köfinger p2 (block ^c6, inverse problems are underdetermined) is a better match but is not cited here.
+
+See also [[Ensembles have far more degrees of freedom than observables, so any single data source leaves them underdetermined.]], which makes a related claim.

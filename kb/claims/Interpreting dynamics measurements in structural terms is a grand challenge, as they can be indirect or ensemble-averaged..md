@@ -3,12 +3,12 @@ type: claim
 chapter: 01-introduction
 project:
 basis: stated
-confidence: high
-status: supported
+confidence: medium
+status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/connect_simulation_experiment.tex#L87
 source_state: current
-needs_review: false
-review_reason:
+needs_review: true
+review_reason: Support is partial or indirect
 figures: []
 cites:
   - "[[@bradshawInterpretationHDXData2020#^c3]]"
@@ -25,6 +25,8 @@ Bradshaw et al. state that the mechanistic implications of [[HDX-MS]] data are h
 ## Caveats
 
 Bradshaw et al. frame this as the challenge for HDX data specifically, not for structural biology in general. The title is the author's sentence: 'grand challenge' corresponds to the paper's 'major challenge', and 'indirect' to peptide-level averaging and the need for a model to interpret the data.
+
+The word indirect is not stated in the cited passages (it is the author's gloss on peptide-level averaging), the Bradshaw passages concern HDX specifically and not structural biology in general, and McAllister has no PDF so it could not be checked.
 
 ## Unverified citations
 

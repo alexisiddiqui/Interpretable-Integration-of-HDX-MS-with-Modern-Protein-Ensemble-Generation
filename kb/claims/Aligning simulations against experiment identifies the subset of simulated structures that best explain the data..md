@@ -24,3 +24,5 @@ Bradshaw et al. generate an ensemble by MD and reweight it so that the configura
 ## Caveats
 
 The papers describe adjusting the weights of simulated structures, not selecting a subset, and neither says 'best explain'. 'Subset' is the author's gloss on up-weighting consistent configurations. Cesari et al. is a general review of maximum entropy reweighting and does not mention HDX-MS here.
+
+See also [[Successful reweighting shows which conformations fit experiment, giving pseudo-structural models of solution behaviour.]], which makes a related claim.
