@@ -22,6 +22,16 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- AlphaFold's accuracy and speed were unprecedented, which allowed an extensive database of structure predictions to be built. ^c1
+  - page: 2
+  - quote: "The unprecedented accuracy and speed of AlphaFold allowed the creation of an extensive database of structure predictions"
+  - quote_check: pass
+  - reviewed: false
+- AlphaFold is an AI system developed by DeepMind that makes state-of-the-art predictions of protein structures from amino-acid sequences. ^c2
+  - page: 1
+  - quote: "AlphaFold is an AI system developed by DeepMind that makes state-of-the-art predictions of protein structures from their amino-acid sequences"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

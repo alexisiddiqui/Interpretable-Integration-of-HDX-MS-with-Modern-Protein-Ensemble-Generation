@@ -22,6 +22,21 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Frontier expansion sampling (FEXS) is a new enhanced sampling method proposed to improve the sampling efficiency of molecular simulations. ^c1
+  - page: 1
+  - quote: "Here, we proposed a new enhanced sampling method, frontier expansion sampling (FEXS), to improve the sampling efficiency of molecular simulations"
+  - quote_check: pass
+  - reviewed: false
+- The authors' FEXS implementation used only the Cartesian coordinates of backbone or C-alpha atoms. ^c2
+  - page: 7
+  - quote: "In this primitive implementation, we only used the Cartesian coordinates of backbone or Cα atoms"
+  - quote_check: pass
+  - reviewed: false
+- Various coordinate systems could describe the conformational space before dimensionality reduction by PCA or other methods in FEXS. ^c3
+  - page: 7
+  - quote: "various coordinate systems could be used to describe the original conformational space, before the dimensionality reduction by PCA or other methods"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- An AF2 prediction for a ciliary protein was largely correct for separate domains but failed to capture the dynamics of their relative positions. ^c1
+  - page: 7
+  - quote: "the AF2 structure prediction, while largely correct for the separate domains, fails to capture the dynamics of their relative positions for this protein"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- AF2's success comes from a deep-learning network combining multiple sequence alignment and template information, a new Evoformer structure and an equivariant module. ^c1
+  - page: 1
+  - quote: "a combination of multiple sequence alignment and template information, a new Evoformer structure, and an equivariant module to produce structures"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

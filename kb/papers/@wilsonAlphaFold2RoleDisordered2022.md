@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Despite AlphaFold's success, the dynamics of protein folding remains a formidable problem. ^c1
+  - page: 1
+  - quote: "dynamics of protein folding remains a formidable problem"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

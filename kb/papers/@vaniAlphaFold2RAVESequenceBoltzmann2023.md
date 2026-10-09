@@ -22,6 +22,16 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Reducing the size of the input MSA in AlphaFold2 increases the conformational diversity explored. ^c1
+  - page: 2
+  - quote: "This problem was first addressed by simply reducing the size of the input MSA in AlphaFold2, and effectively increasing the conformational diversity explored"
+  - quote_check: pass
+  - reviewed: false
+- AlphaFold2-RAVE uses reduced-MSA AlphaFold2 to generate many possible conformations as initialisation for RAVE molecular dynamics. ^c2
+  - page: 3
+  - quote: "use reduced-MSA AlphaFold2 to generate many possible conformations as the initialization for RAVE"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

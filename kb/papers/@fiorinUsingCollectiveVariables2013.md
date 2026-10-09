@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- The colvars module combines collective variables with biasing methods, including adaptive free-energy biases such as metadynamics and adaptive biasing force. ^c1
+  - page: 2
+  - quote: "adaptive free-energy biases called metadynamics and adaptive biasing force"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

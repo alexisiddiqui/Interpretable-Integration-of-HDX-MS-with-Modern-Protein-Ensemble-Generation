@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- All-atom MD approaches remain limited by high computational cost. ^c1
+  - page: 10
+  - quote: "Current computational approaches utilizing all-atom MD simulations, despite its fruitful aspects, are still limited due to high computational cost"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

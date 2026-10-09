@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- A machine-learned force field is built by training a model on ab initio reference data to predict energies and forces. ^c1
+  - page: 1
+  - quote: "To construct an MLFF, a machine learning (ML) model is trained on ab initio reference data to predict energies and forces"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

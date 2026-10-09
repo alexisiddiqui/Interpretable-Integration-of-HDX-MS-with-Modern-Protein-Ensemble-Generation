@@ -22,6 +22,16 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- In silico mutagenesis of the MSA makes AlphaFold2 predict conformations not seen with the default MSA. ^c1
+  - page: 1
+  - quote: "The approach consistently unveils conformations not seen with the unmodified default MSA"
+  - quote_check: pass
+  - reviewed: false
+- The MSA-mutagenesis results are consistent with AF2 generating multiple conformations rooted in physical principles, not just learning structures. ^c2
+  - page: 13
+  - quote: "AF2 did not just learn structures, but is able to generate multiple conformations rooted in physical principles"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

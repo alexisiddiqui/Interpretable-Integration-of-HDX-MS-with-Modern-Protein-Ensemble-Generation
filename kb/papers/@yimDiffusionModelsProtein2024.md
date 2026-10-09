@@ -22,6 +22,16 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Diffusion models have achieved state-of-the-art results on protein 3D structure generation and small molecule docking. ^c1
+  - page: 1
+  - quote: "they have achieved state-of-the-art results on protein 3D structure generation and small molecule docking"
+  - quote_check: pass
+  - reviewed: false
+- A diffusion process progressively modifies noisy samples toward clean examples. ^c2
+  - page: 3
+  - quote: "process consists of progressively modifying noisy samples toward clean examples"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

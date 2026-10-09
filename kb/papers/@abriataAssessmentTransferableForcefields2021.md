@@ -22,6 +22,16 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- A limitation of most MD studies is the limited timescale of sampling relative to the timescale of relevant molecular motions. ^c1
+  - page: 10
+  - quote: "the limited timescale of sampling relative to the actual timescale of relevant molecular motions"
+  - quote_check: pass
+  - reviewed: false
+- Several forcefields could not accurately describe the dynamical properties of disordered proteins, making them more compact than experiments reported. ^c2
+  - page: 2
+  - quote: "these forcefields could not accurately describe the dynamical properties of disordered proteins, making them substantially more compact than what experimental measurements reported"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 
