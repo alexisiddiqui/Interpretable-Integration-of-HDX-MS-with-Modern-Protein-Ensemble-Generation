@@ -78,3 +78,10 @@ def test_quote_must_match_whole_words(repo, tmp_path):
     edit(repo, PAPER, '"reports on backbone amide protection factors"', '"ports on backbone amide protection fact"')
     _, issues = run_quotes(repo, tmp_path)
     assert ("error", 2, "^c1: quote not found on PDF page 1") in issues
+
+
+def test_quote_may_end_at_a_reference_number_glued_to_the_word():
+    from quotes import contains_words
+    page = normalise("a link between structure, conformational dynamics and function1. HDX-MS measures")
+    assert contains_words(page, normalise("conformational dynamics and function"))
+    assert not contains_words(page, normalise("conformational dynamics and funct"))

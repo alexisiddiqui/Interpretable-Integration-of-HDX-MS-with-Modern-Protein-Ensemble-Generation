@@ -22,8 +22,12 @@ def normalise(text):
 
 
 def contains_words(text, quote):
-    """True if quote occurs in text without starting or ending inside a word."""
-    return re.search(r"(?<!\w)" + re.escape(quote) + r"(?!\w)", text) is not None
+    """True if quote occurs in text without starting or ending inside a word.
+
+    Only letters count as "inside a word": PDFs glue reference numbers to the preceding word
+    ("function1."), and a quote ending at "function" must still match.
+    """
+    return re.search(r"(?<![^\W\d_])" + re.escape(quote) + r"(?![^\W\d_])", text) is not None
 
 
 class PdfText:
