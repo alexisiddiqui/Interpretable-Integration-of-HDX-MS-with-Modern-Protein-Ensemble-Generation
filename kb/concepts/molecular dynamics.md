@@ -15,4 +15,4 @@ Molecular dynamics (MD) simulations integrate Newton's equations of motion numer
 
 ## Why it matters here
 
-Claims that use this term: [[MD simulations are particularly useful beyond resolution because of their flexibility.]], [[MD simulations can model varied conditions such as temperature, pressure, pH and the presence of ligands or other biomolecules.]].
+Claims that use this term: [[MD simulations are particularly useful beyond resolution because of their flexibility.]], [[MD simulations can model varied conditions such as temperature, pressure, pH and the presence of ligands or other biomolecules.]], [[MD simulations numerically integrate Newton's equations of motion, giving atomistic insight into protein dynamics over time.]].

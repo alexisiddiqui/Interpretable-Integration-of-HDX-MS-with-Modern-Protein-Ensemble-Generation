@@ -16,7 +16,7 @@ code: []
 
 ## Argument
 
-Molecular dynamics simulations integrate Newton's equations of motion numerically, which gives atomistic trajectories over time.
+[[molecular dynamics|Molecular dynamics]] simulations integrate Newton's equations of motion numerically, which gives atomistic trajectories over time.
 
 ## Unverified citations
 

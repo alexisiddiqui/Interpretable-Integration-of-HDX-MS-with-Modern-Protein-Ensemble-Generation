@@ -13,4 +13,4 @@ A structural ensemble is a set of conformations, each with a weight, used to des
 
 ## Why it matters here
 
-Claims that use this term: [[Interpreting dynamics measurements in structural terms is a grand challenge, as they can be indirect or ensemble-averaged.]], [[Many ensembles can explain the same data, given complex conformational landscapes and simple structure-experiment models.]].
+Claims that use this term: [[Interpreting dynamics measurements in structural terms is a grand challenge, as they can be indirect or ensemble-averaged.]], [[Many ensembles can explain the same data, given complex conformational landscapes and simple structure-experiment models.]], [[Integrating over time turns individual structures into structural ensembles, a quantitative route to mechanisms.]].
