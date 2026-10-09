@@ -16,7 +16,7 @@ code: []
 
 ## Argument
 
-The sentence says the cost of [[equilibration]] recurs for every new system or starting state, which limits sampling.
+The sentence says the cost of equilibration recurs for every new system or starting state, which limits sampling.
 
 ## Unverified citations
 

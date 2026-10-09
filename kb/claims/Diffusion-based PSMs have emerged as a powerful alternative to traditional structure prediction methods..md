@@ -17,4 +17,4 @@ code: []
 
 ## Argument
 
-Yim et al. review [[diffusion models]] and say they have achieved state-of-the-art results in protein 3D structure generation and small molecule docking.
+Yim et al. review diffusion models and say they have achieved state-of-the-art results in protein 3D structure generation and small molecule docking.

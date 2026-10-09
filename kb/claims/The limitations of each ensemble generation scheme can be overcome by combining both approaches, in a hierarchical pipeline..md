@@ -16,7 +16,7 @@ code: []
 
 ## Argument
 
-The sentence says that physics-based time integration and deep-learning generation each have limitations that combining them overcomes. Henin et al. is a review of [[enhanced sampling]] methods for molecular dynamics and contains no passage about combining physics-based sampling with deep-learning generators.
+The sentence says that physics-based time integration and deep-learning generation each have limitations that combining them overcomes. Henin et al. is a review of enhanced sampling methods for molecular dynamics and contains no passage about combining physics-based sampling with deep-learning generators.
 
 ## Caveats
 

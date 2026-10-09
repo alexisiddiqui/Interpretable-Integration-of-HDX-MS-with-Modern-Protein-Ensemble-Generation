@@ -21,4 +21,4 @@ He et al. say AF2's success comes from a deep-learning network combining multipl
 
 ## Caveats
 
-The passage names [[multiple sequence alignment]] and the Evoformer but does not mention attention mechanisms or local and long-range interactions.
+The passage names multiple sequence alignment and the Evoformer but does not mention attention mechanisms or local and long-range interactions.

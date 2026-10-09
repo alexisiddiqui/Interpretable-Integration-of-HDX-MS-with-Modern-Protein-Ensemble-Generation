@@ -19,7 +19,7 @@ code: []
 
 ## Argument
 
-Each checked review describes [[HDX-MS]] as reporting on protein structure and [[conformational dynamics]]; Narang states explicitly that it gives information on solution-phase conformation and dynamics.
+Each checked review describes [[HDX-MS]] as reporting on protein structure and conformational dynamics; Narang states explicitly that it gives information on solution-phase conformation and dynamics.
 
 ## Unverified citations
 

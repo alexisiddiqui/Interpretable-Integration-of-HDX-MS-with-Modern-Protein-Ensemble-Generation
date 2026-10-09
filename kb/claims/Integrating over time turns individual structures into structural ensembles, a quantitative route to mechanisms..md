@@ -17,7 +17,7 @@ code: []
 
 ## Argument
 
-Hummer and Köfinger treat experimental observables as averages over an ensemble of structures, so a single structure is not the right comparison object. This supports the idea of working with [[structural ensembles]], but not that they are obtained by integrating over time.
+Hummer and Köfinger treat experimental observables as averages over an ensemble of structures, so a single structure is not the right comparison object. This supports the idea of working with structural ensembles, but not that they are obtained by integrating over time.
 
 ## Caveats
 
