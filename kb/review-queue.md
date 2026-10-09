@@ -42,6 +42,7 @@
 ## Support is partial or indirect
 
 - [[Alpha-synuclein is an unfolded monomer, yet cryo-EM has solved its Lewy body fibril structures at atomic resolution.]] (`claims/Alpha-synuclein is an unfolded monomer, yet cryo-EM has solved its Lewy body fibril structures at atomic resolution..md`)
+- [[Alzheimer's, Parkinson's and prion diseases share dynamic conformational transitions that start pathological aggregation.]] (`claims/Alzheimer's, Parkinson's and prion diseases share dynamic conformational transitions that start pathological aggregation..md`)
 - [[Atomic structures of PrP-C and PrP-Sc show an alpha-to-beta transition, yet how monomeric PrP-C traverses it is unclear.]] (`claims/Atomic structures of PrP-C and PrP-Sc show an alpha-to-beta transition, yet how monomeric PrP-C traverses it is unclear..md`)
 - [[Bridging the gap requires a shift toward integrative approaches combining measurements of dynamics with advanced simulations.]] (`claims/Bridging the gap requires a shift toward integrative approaches combining measurements of dynamics with advanced simulations..md`)
 - [[Different methods can measure protein dynamics, depending on the system, timescale and experimental conditions.]] (`claims/Different methods can measure protein dynamics, depending on the system, timescale and experimental conditions..md`)

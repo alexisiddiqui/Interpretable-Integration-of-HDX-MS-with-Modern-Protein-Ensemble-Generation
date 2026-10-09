@@ -4,11 +4,11 @@ chapter: 01-introduction
 project:
 basis: stated
 confidence: medium
-status: supported
+status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/biological_dynamics.tex#L30
 source_state: current
-needs_review: false
-review_reason:
+needs_review: true
+review_reason: Support is partial or indirect
 figures: []
 cites:
   - "[[@sotoProteinMisfoldingAggregation2018#^c1]]"
