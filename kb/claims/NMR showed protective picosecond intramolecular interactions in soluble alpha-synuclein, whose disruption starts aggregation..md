@@ -26,7 +26,7 @@ Line 36 makes the second half of this claim: disruption of these fleeting contac
 
 Also stated in: milestones/2025-11-confirmation-of-status/introduction/biological_dynamics.tex#L38
 
-Line 38 restates the claim, saying the protective interactions occur on picosecond to millisecond timescales while pathology develops over years. Its two cited papers are Hollingsworth (no PDF) and Karplus and McCammon, which says nothing about alpha-synuclein or NMR of such interactions.
+Line 38 restates the claim, saying the protective interactions occur on picosecond to millisecond timescales while pathology develops over years. Its two cited papers are Hollingsworth (no passage found about alpha-synuclein) and Karplus and McCammon, which says nothing about alpha-synuclein or NMR of such interactions.
 
 ## Caveats
 
@@ -36,5 +36,5 @@ Ahmed et al. refine alpha-synuclein ensembles against SAXS data and mention only
 
 - [[@ahmedRefinementASynucleinEnsembles2021]]: no passage supporting this claim found
 - [[@sapienzaUsingNMRStudy2010]]: no passage supporting this claim found
-- [[@hollingsworthMolecularDynamicsSimulation2018]]: no PDF
+- [[@hollingsworthMolecularDynamicsSimulation2018]]: no passage supporting this claim found
 - [[@karplusMolecularDynamicsSimulations2002]]: no passage supporting this claim found

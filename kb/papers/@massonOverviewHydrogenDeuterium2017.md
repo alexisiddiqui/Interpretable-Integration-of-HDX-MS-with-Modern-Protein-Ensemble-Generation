@@ -23,6 +23,25 @@ review_reason:
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
 
+- HDX-MS is a powerful methodology for studying protein dynamics. ^c1
+  - page: 2
+  - quote: "Hydrogen deuterium exchange mass spectrometry (HDX-MS) is a powerful methodology to study protein dynamics, protein folding, protein-protein interactions"
+  - quote_check: pass
+  - reviewed: false
+
+- Backbone amides in secondary structure exchange with solvent. ^c2
+  - page: 3
+  - quote: "Backbone amides engaged in secondary structure exchange with solvent"
+  - quote_check: pass
+  - reviewed: false
+
+- The low protein requirements and sensitivity of HDX-MS suit it to probing ligand binding dynamics. ^c3
+  - page: 7
+  - quote: "The low protein requirements and sensitivity of HDX-MS makes it well suited to probing the dynamics of ligand binding"
+  - quote_check: pass
+  - reviewed: false
+
+
 ## What I use from it
 
 ## Disagreements / limitations

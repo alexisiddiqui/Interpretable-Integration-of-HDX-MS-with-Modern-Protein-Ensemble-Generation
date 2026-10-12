@@ -14,13 +14,10 @@ cites:
   - "[[@massonRecommendationsPerformingInterpreting2019#^c1]]"
   - "[[@narangHDXMSAnalyticalTool2020#^c1]]"
   - "[[@jamesAdvancesHydrogenDeuterium2022#^c1]]"
+  - "[[@massonOverviewHydrogenDeuterium2017#^c1]]"
 code: []
 ---
 
 ## Argument
 
-Each checked review describes [[HDX-MS]] as reporting on protein structure and conformational dynamics; Narang states explicitly that it gives information on solution-phase conformation and dynamics.
-
-## Unverified citations
-
-- [[@massonOverviewHydrogenDeuterium2017]]: no PDF
+Each checked review describes [[HDX-MS]] as reporting on protein structure and conformational dynamics; Narang states explicitly that it gives information on solution-phase conformation and dynamics, and Masson et al. (p2) call it a powerful methodology to study protein dynamics.

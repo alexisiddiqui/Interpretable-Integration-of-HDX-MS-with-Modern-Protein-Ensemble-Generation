@@ -21,8 +21,8 @@ Lisi and Loria say the distinct crystal structures of PKA are now accepted as ti
 
 ## Caveats
 
-This is indirect; the paper does not discuss limits of X-ray, cryo-EM or NMR as such.
+This is indirect; the paper does not discuss limits of X-ray, cryo-EM or NMR as such. Hollingsworth (p2) says capturing every atom's position and motion at every time point is very difficult with any experimental technique, which is related but is not a statement that understanding is restricted to what the techniques measure.
 
 ## Unverified citations
 
-- [[@hollingsworthMolecularDynamicsSimulation2018]]: no PDF
+- [[@hollingsworthMolecularDynamicsSimulation2018]]: no passage supporting this claim found

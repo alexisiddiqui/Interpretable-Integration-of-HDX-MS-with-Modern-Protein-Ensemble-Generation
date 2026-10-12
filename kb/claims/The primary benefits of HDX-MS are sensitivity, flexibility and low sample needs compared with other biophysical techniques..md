@@ -13,6 +13,7 @@ figures: []
 cites:
   - "[[@narangHDXMSAnalyticalTool2020#^c4]]"
   - "[[@narangHDXMSAnalyticalTool2020#^c5]]"
+  - "[[@massonOverviewHydrogenDeuterium2017#^c3]]"
 code: []
 ---
 
@@ -22,8 +23,4 @@ Narang et al. say the protein amount needed for [[HDX-MS]] is a fraction of that
 
 ## Caveats
 
-Sensitivity is not stated as a benefit in the checked passages, and 'flexibility' is matched to Narang's 'versatility', which is a different property from flexibility.
-
-## Unverified citations
-
-- [[@massonOverviewHydrogenDeuterium2017]]: no PDF
+Masson (p7) states low protein requirements and sensitivity. 'Flexibility' is matched only to Narang's 'versatility', which is a different property, and no passage says these are the 'primary' benefits.

@@ -21,8 +21,8 @@ Lisi and Loria say allostery, which depends on dynamics, remains largely unchara
 
 ## Caveats
 
-This concerns allostery rather than protein dynamics in general, and the second cited paper could not be checked.
+This concerns allostery rather than protein dynamics in general. Hollingsworth (p1) says watching the motions of individual atoms is difficult, but does not describe a persistent critical gap in predicting or understanding dynamics.
 
 ## Unverified citations
 
-- [[@hollingsworthMolecularDynamicsSimulation2018]]: no PDF
+- [[@hollingsworthMolecularDynamicsSimulation2018]]: no passage supporting this claim found

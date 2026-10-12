@@ -21,8 +21,8 @@ Kleckner and Foster say protein conformational changes span a broad range of tim
 
 ## Caveats
 
-The passage covers NMR methods only, so the general statement across different techniques is not tested by the checked paper.
+The Kleckner passage covers NMR methods only. Masson (p2) says NMR HDX has drawbacks in protein amount and protein size, which is only indirectly about choosing methods by system, and does not discuss timescales or experimental conditions across methods.
 
 ## Unverified citations
 
-- [[@massonOverviewHydrogenDeuterium2017]]: no PDF
+- [[@massonOverviewHydrogenDeuterium2017]]: no passage supporting this claim found

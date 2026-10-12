@@ -24,8 +24,8 @@ Maveyraud and Mourey name X-ray crystallography, NMR and cryo-EM as the main str
 
 ## Caveats
 
-No checked passage says these techniques give 'static' structures or that the progress is 'tremendous'. One of the four cited papers (Masson 2017) could not be checked.
+No checked passage says these techniques give 'static' structures or that the progress is 'tremendous'. Masson (p2) lists X-ray crystallography, NMR and electron microscopy as complementary high-resolution techniques and (p9) refers to dynamic processes invisible to cryo-EM and X-ray, but does not say they made tremendous strides in static structures.
 
 ## Unverified citations
 
-- [[@massonOverviewHydrogenDeuterium2017]]: no PDF
+- [[@massonOverviewHydrogenDeuterium2017]]: no passage supporting this claim found

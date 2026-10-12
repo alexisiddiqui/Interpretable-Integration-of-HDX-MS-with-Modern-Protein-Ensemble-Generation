@@ -14,6 +14,7 @@
 - [[HDX-MS mapped binding sites on HIV-1 Vif and enabled inhibitor screening where traditional structural characterisation failed.]] (`claims/HDX-MS mapped binding sites on HIV-1 Vif and enabled inhibitor screening where traditional structural characterisation failed..md`)
 - [[NMR relaxation showed the central helix of calmodulin is flexible in solution, though it appears rigid in crystal structures.]] (`claims/NMR relaxation showed the central helix of calmodulin is flexible in solution, though it appears rigid in crystal structures..md`)
 - [[SAXS has been integrated with cross-linking MS and HDX-MS to constrain conformational ensembles across length scales.]] (`claims/SAXS has been integrated with cross-linking MS and HDX-MS to constrain conformational ensembles across length scales..md`)
+- [[Sampling is limited because equilibration must be repeated for each new system or starting conformational state.]] (`claims/Sampling is limited because equilibration must be repeated for each new system or starting conformational state..md`)
 - [[Shifted conformational equilibria are a major reason why most kinases are still undruggable.]] (`claims/Shifted conformational equilibria are a major reason why most kinases are still undruggable..md`)
 - [[Soluble alpha-synuclein stays compact through transient long-range contacts between its charged C-terminus and hydrophobic centre.]] (`claims/Soluble alpha-synuclein stays compact through transient long-range contacts between its charged C-terminus and hydrophobic centre..md`)
 - [[Structure-to-uptake models rely on hydrogen bonding and solvent exposure but add systematic errors that accumulate at peptide level.]] (`claims/Structure-to-uptake models rely on hydrogen bonding and solvent exposure but add systematic errors that accumulate at peptide level..md`)
@@ -21,11 +22,6 @@
 - [[The limitations of each ensemble generation scheme can be overcome by combining both approaches, in a hierarchical pipeline.]] (`claims/The limitations of each ensemble generation scheme can be overcome by combining both approaches, in a hierarchical pipeline..md`)
 - [[These methods can be sampled over specific CVs but are also compatible with generic dimensionality reduction techniques.]] (`claims/These methods can be sampled over specific CVs but are also compatible with generic dimensionality reduction techniques..md`)
 - [[With current models, most single-domain proteins can be predicted to near-experimental accuracy in hours on consumer-grade hardware.]] (`claims/With current models, most single-domain proteins can be predicted to near-experimental accuracy in hours on consumer-grade hardware..md`)
-
-## No PDF for any cited paper
-
-- [[MD lets researchers study how proteins respond to different environments, giving insight into functional mechanisms.]] (`claims/MD lets researchers study how proteins respond to different environments, giving insight into functional mechanisms..md`)
-- [[Sampling is limited because equilibration must be repeated for each new system or starting conformational state.]] (`claims/Sampling is limited because equilibration must be repeated for each new system or starting conformational state..md`)
 
 ## Support is partial or indirect
 
@@ -58,10 +54,8 @@
 - [[Interpreting dynamics measurements in structural terms is a grand challenge, as they can be indirect or ensemble-averaged.]] (`claims/Interpreting dynamics measurements in structural terms is a grand challenge, as they can be indirect or ensemble-averaged..md`)
 - [[Kinases and their inhibitor resistance mutations often preserve drug-binding sites while shifting conformational equilibria.]] (`claims/Kinases and their inhibitor resistance mutations often preserve drug-binding sites while shifting conformational equilibria..md`)
 - [[Linking fast molecular motions to slow pathological processes requires conformational dynamics that static structures cannot capture.]] (`claims/Linking fast molecular motions to slow pathological processes requires conformational dynamics that static structures cannot capture..md`)
-- [[MD is computationally expensive and may only approximate true dynamics due to force-field inaccuracies and limited sampling.]] (`claims/MD is computationally expensive and may only approximate true dynamics due to force-field inaccuracies and limited sampling..md`)
 - [[MD simulations are particularly useful beyond resolution because of their flexibility.]] (`claims/MD simulations are particularly useful beyond resolution because of their flexibility..md`)
 - [[MD simulations can model varied conditions such as temperature, pressure, pH and the presence of ligands or other biomolecules.]] (`claims/MD simulations can model varied conditions such as temperature, pressure, pH and the presence of ligands or other biomolecules..md`)
-- [[MD simulations numerically integrate Newton's equations of motion, giving atomistic insight into protein dynamics over time.]] (`claims/MD simulations numerically integrate Newton's equations of motion, giving atomistic insight into protein dynamics over time..md`)
 - [[MSA-subsampling has been shown to broadly follow a physical energy landscape.]] (`claims/MSA-subsampling has been shown to broadly follow a physical energy landscape..md`)
 - [[Many ensembles can explain the same data, given complex conformational landscapes and simple structure-experiment models.]] (`claims/Many ensembles can explain the same data, given complex conformational landscapes and simple structure-experiment models..md`)
 - [[MaxEnt reweighting avoids overfitting and ensures the resulting ensemble remains physically plausible.]] (`claims/MaxEnt reweighting avoids overfitting and ensures the resulting ensemble remains physically plausible..md`)

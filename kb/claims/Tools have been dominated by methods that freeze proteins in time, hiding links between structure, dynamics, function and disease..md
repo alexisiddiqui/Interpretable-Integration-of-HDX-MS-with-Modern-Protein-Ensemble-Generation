@@ -21,8 +21,8 @@ Amaro et al. say the dynamic nature of drug targets and the complexity of biolog
 
 ## Caveats
 
-No checked passage says tools are dominated by static methods or that the links between structure, dynamics, function and pathology are largely invisible.
+Hollingsworth (p1) says one would like more than a static snapshot, but no checked passage says tools are dominated by static methods or that the links between structure, dynamics, function and pathology are largely invisible.
 
 ## Unverified citations
 
-- [[@hollingsworthMolecularDynamicsSimulation2018]]: no PDF
+- [[@hollingsworthMolecularDynamicsSimulation2018]]: no passage supporting this claim found
