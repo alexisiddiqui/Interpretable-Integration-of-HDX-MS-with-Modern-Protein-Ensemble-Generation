@@ -5,6 +5,7 @@ aliases:
   - maximum entropy
   - MaxEnt principle
 notation: []
+sources: []
 ---
 
 ## Definition

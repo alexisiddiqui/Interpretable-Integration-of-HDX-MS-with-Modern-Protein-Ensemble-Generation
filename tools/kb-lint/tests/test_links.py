@@ -43,3 +43,21 @@ def test_figure_note_id_must_exist(repo):
 def test_figure_id_must_be_a_plain_folder_name(repo, bad_id):
     edit(repo, CLAIM, "  - fig-hdx-uptake", f"  - {bad_id}")
     assert any(c == 3 and "is not a valid figure ID" in m for c, m in messages(repo))
+
+
+CONCEPT = "kb/concepts/Protection factor.md"
+
+
+@pytest.mark.parametrize("entry, check, expected", [
+    ('"[[@smith2020#^c7]]"', 4, "block ^c7 not found in @smith2020"),
+    ('"[[@smith2020]]"', 4, "without a block ID"),
+    ('"[[Gap framing]]"', 5, "example theses are never evidence"),
+])
+def test_concept_sources_resolve_like_cites(repo, entry, check, expected):
+    edit(repo, CONCEPT, "sources: []", f"sources:\n  - {entry}")
+    assert any(c == check and expected in m and m.startswith("sources") for c, m in messages(repo))
+
+
+def test_concept_source_to_a_real_block_is_fine(repo):
+    edit(repo, CONCEPT, "sources: []", 'sources:\n  - "[[@smith2020#^c2]]"')
+    assert messages(repo) == []

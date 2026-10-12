@@ -29,8 +29,8 @@ Exit codes: 0 with no errors, 1 with errors, 2 when there is no `kb/` folder. Wa
 | 1 | Frontmatter matches the schema for the note type; `review_reason` present when `needs_review` is true; paper notes named `@<citekey>` with `pdf` empty or `kb/_pdf/@<citekey>.pdf`; papers without a PDF flagged and their `quote_check` left `unchecked`; claim blocks complete; quotes of 5 to 25 words | error (unexpected fields: warning) |
 | 2 | Each quote appears, as whole words, on its cited PDF page or running onto the next one | error if the block is `reviewed` or cited by a claim, otherwise warning; PDF absent locally: warning |
 | 3 | Figure IDs are plain folder names that exist under `figures/` | error |
-| 4 | `cites` entries resolve to a block in a paper note; citekeys exist in `thesis/references.bib` | error |
-| 5 | No claim cites a note in `ref-theses/` | error |
+| 4 | `cites` (claims) and `sources` (concepts, methods) entries resolve to a block in a paper note; citekeys exist in `thesis/references.bib` | error |
+| 5 | No claim or concept/method `sources` entry points into `ref-theses/` | error |
 | 6 | `supported` / `in-thesis` claims have evidence, are not flagged for review, cite only quotes verified against their PDF in this run (a recorded `pass` is not enough), and outdated sources come with a figure | error |
 | 7 | Code references resolve: commit, file and line range exist in the submodule | error; a real submodule that is not checked out: warning |
 | 8 | The referenced file changed between the recorded commit and the pinned one | warning |

@@ -6,6 +6,7 @@ aliases:
   - intrinsically disordered region
   - IDR
 notation: []
+sources: []
 ---
 
 ## Definition

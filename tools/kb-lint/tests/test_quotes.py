@@ -100,3 +100,10 @@ def test_reference_digit_after_a_word_and_digit_edge_quote_still_match():
 
     assert contains_words("probes conformational dynamics and function1. hdx", "conformational dynamics and function")
     assert contains_words("only 95% of residues were", "95% of residues")
+
+
+def test_failing_quote_relied_on_by_a_concept_source_is_an_error(repo, tmp_path):
+    edit(repo, "kb/concepts/Protection factor.md", "sources: []", 'sources:\n  - "[[@smith2020#^c2]]"')
+    edit(repo, PAPER, '"The effect carries over to the next page"', '"invented text"')
+    _, issues = run_quotes(repo, tmp_path)
+    assert ("error", 2, "^c2: quote not found on PDF page 2") in issues

@@ -110,8 +110,8 @@ SCHEMAS = {
         "status": one_of(*STATUSES), "origin": text, "source_state": one_of("current", "outdated"),
         **REVIEW, "figures": text_list, "cites": text_list, "code": text_list,
     },
-    "concept": {"aliases": text_list, "notation": notation},
-    "method": {"project": text, "status": one_of(*STATUSES), **REVIEW, "code": text_list},
+    "concept": {"aliases": text_list, "notation": notation, "sources": text_list},
+    "method": {"project": text, "status": one_of(*STATUSES), **REVIEW, "code": text_list, "sources": text_list},
     "figure": {
         "fig_id": text, "chapter": optional_text, "source": one_of("script", "reused"),
         "code": text_list,

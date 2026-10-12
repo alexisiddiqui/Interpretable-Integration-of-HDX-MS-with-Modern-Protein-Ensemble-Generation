@@ -4,6 +4,7 @@ aliases:
   - small-angle X-ray scattering
   - small angle X-ray scattering
 notation: []
+sources: []
 ---
 
 ## Definition

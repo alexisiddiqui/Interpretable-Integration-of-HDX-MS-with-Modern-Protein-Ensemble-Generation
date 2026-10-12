@@ -182,6 +182,7 @@ type: concept
 aliases: [PF]
 notation:
   - {symbol: "P_i", meaning: "protection factor of residue i", units: null}
+sources: []
 ---
 
 ## Definition
@@ -195,6 +196,7 @@ needs_review: false
 review_reason:
 code:
   - "projects/demo/code@{sha}:model.py#L1-2"
+sources: []
 ---
 
 ## What it does

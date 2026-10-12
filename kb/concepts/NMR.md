@@ -4,6 +4,7 @@ aliases:
   - nuclear magnetic resonance
   - NMR spectroscopy
 notation: []
+sources: []
 ---
 
 ## Definition

@@ -27,6 +27,7 @@ Obsidian vault for the thesis. Open **this folder** (`kb/`) as the vault, not th
 - Quote wikilinks in frontmatter: `- "[[@smith2020#^c1]]"`.
 - `quote_check` is written only by the lint; `reviewed` only by me.
 - Example-thesis notes (`ref-theses/`) are never cited as evidence; cite the primary paper.
+- Concept and method notes back definitions, equations and derivations with `sources:` block links (`- "[[@key#^c1]]"`), checked like claim `cites`. For an equation, quote the sentence that introduces it and give the equation number and page in the body; quotes cannot capture the maths itself.
 - Method notes link to code as `<submodule>@<sha>:<file>#L<start>-<end>`.
 - Run `python3 tools/kb-lint/lint.py` (from the repository root) before relying on a claim; see [tools/kb-lint](../tools/kb-lint/README.md).
 - Chapter hub notes list claims in argument order, so each hub reads straight through as an outline of the chapter.

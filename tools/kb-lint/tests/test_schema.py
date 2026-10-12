@@ -108,3 +108,8 @@ def test_short_quote_is_rejected(repo):
 def test_note_at_vault_root_is_linted(repo):
     write(repo, "kb/Untitled.md", "Just text\n")
     assert any(m[2] == "kb/Untitled.md" and "missing frontmatter type" in m[3] for m in messages(repo))
+
+
+def test_concept_sources_must_be_a_list(repo):
+    edit(repo, "kb/concepts/Protection factor.md", "sources: []", "sources: oops")
+    assert any("'sources' must be a list" in m[3] for m in messages(repo))

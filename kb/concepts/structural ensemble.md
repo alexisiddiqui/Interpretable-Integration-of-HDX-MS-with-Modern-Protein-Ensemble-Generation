@@ -5,6 +5,7 @@ aliases:
   - conformational ensemble
   - conformational ensembles
 notation: []
+sources: []
 ---
 
 ## Definition

@@ -102,12 +102,13 @@ class Vault:
         return {name: notes for name, notes in self._by_name.items() if len(notes) > 1}
 
     def citations(self):
-        """Map (paper note name, block ID) to the claim notes that cite it."""
+        """Map (paper note name, block ID) to the notes that rely on it: claim cites, concept and method sources."""
         cited = {}
+        fields = {"claim": "cites", "concept": "sources", "method": "sources"}
         for note in self.notes:
-            if note.type != "claim":
+            if note.type not in fields:
                 continue
-            for entry in note.meta.get("cites") or []:
+            for entry in note.meta.get(fields[note.type]) or []:
                 link = parse_wikilink(entry) if isinstance(entry, str) else None
                 if link and link[1]:
                     cited.setdefault(link, []).append(note)

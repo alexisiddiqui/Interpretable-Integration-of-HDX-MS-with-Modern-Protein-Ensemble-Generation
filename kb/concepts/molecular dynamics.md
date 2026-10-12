@@ -7,6 +7,7 @@ aliases:
   - molecular dynamics simulation
   - molecular dynamics simulations
 notation: []
+sources: []
 ---
 
 ## Definition
