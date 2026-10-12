@@ -3,10 +3,10 @@ type: paper
 citekey: karplusMolecularDynamicsSimulations2002
 year: 2002
 read: false
-pdf:
-extraction: none
-needs_review: true
-review_reason: "No PDF in Zotero; add kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto"
+pdf: kb/_pdf/@karplusMolecularDynamicsSimulations2002.pdf
+extraction: auto
+needs_review: false
+review_reason:
 ---
 
 # Molecular Dynamics Simulations of Biomolecules (2002)

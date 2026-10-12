@@ -3,10 +3,10 @@ type: paper
 citekey: mukherjeeProteinMisfoldingAmyloid2024
 year: 2024
 read: false
-pdf:
-extraction: none
-needs_review: true
-review_reason: "No PDF in Zotero; add kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto"
+pdf: kb/_pdf/@mukherjeeProteinMisfoldingAmyloid2024.pdf
+extraction: auto
+needs_review: false
+review_reason:
 ---
 
 # Protein Misfolding and Amyloid Nucleation through Liquid--Liquid Phase Separation (2024)

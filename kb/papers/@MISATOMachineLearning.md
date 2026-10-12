@@ -1,15 +1,17 @@
 ---
 type: paper
 citekey: MISATOMachineLearning
-year: 
+year: 2024
 read: false
-pdf:
-extraction: none
-needs_review: true
-review_reason: "No PDF in Zotero; add kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto"
+pdf: kb/_pdf/@MISATOMachineLearning.pdf
+extraction: auto
+needs_review: false
+review_reason:
 ---
 
 # MISATO: Machine Learning Dataset of Protein--Ligand Complexes for Structure-Based Drug Discovery \textbar Nature Computational Science
+
+PDF note: Nature Computational Science (2024), DOI 10.1038/s43588-024-00627-2. The Zotero entry has no DOI or year; update it in Zotero.
 
 ## Main point
 

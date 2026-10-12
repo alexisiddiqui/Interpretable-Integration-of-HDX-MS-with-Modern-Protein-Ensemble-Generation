@@ -3,10 +3,10 @@ type: paper
 citekey: mcallisterChallengesInterpretationProtein2015
 year: 2015
 read: false
-pdf:
-extraction: none
-needs_review: true
-review_reason: "No PDF in Zotero; add kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto"
+pdf: kb/_pdf/@mcallisterChallengesInterpretationProtein2015.pdf
+extraction: auto
+needs_review: false
+review_reason:
 ---
 
 # Challenges in the Interpretation of Protein H/D Exchange Data: A Molecular Dynamics Simulation Perspective (2015)

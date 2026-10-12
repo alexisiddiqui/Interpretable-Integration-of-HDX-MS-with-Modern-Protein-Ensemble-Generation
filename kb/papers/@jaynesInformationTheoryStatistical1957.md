@@ -3,13 +3,15 @@ type: paper
 citekey: jaynesInformationTheoryStatistical1957
 year: 1957
 read: false
-pdf:
-extraction: none
-needs_review: true
-review_reason: "No PDF in Zotero; add kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto"
+pdf: kb/_pdf/@jaynesInformationTheoryStatistical1957.pdf
+extraction: auto
+needs_review: false
+review_reason:
 ---
 
 # Information Theory and Statistical Mechanics (1957)
+
+PDF note: the original is a scan; kb/_pdf holds a tesseract-OCR copy (text layer). Quotes are checked against the OCR text, which has occasional character errors (e.g. "Tue Puysicat Review"); check quotes against the page image.
 
 ## Main point
 

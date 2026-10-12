@@ -3,10 +3,10 @@ type: paper
 citekey: liConformationalAnalysisProteincoupled2015
 year: 2015
 read: false
-pdf:
-extraction: none
-needs_review: true
-review_reason: "No PDF in Zotero; add kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto"
+pdf: kb/_pdf/@liConformationalAnalysisProteincoupled2015.pdf
+extraction: auto
+needs_review: false
+review_reason:
 ---
 
 # Conformational Analysis of g Protein-Coupled Receptor Signaling by Hydrogen/Deuterium Exchange Mass Spectrometry (2015)

@@ -3,13 +3,15 @@ type: paper
 citekey: kayNMRStudiesProtein2011
 year: 2011
 read: false
-pdf:
-extraction: none
-needs_review: true
-review_reason: "No PDF in Zotero; add kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto"
+pdf: kb/_pdf/@kayNMRStudiesProtein2011.pdf
+extraction: auto
+needs_review: false
+review_reason:
 ---
 
 # NMR Studies of Protein Structure and Dynamics (2011)
+
+PDF note: the PDF's DOI is 10.1016/j.jmr.2011.08.010 ("NMR studies of protein structure and dynamics – A look backwards and forwards", JMR 213, 492–494); the Zotero entry's DOI 10.1016/j.jmr.2011.09.009 looks wrong. Check the Zotero item.
 
 ## Main point
 

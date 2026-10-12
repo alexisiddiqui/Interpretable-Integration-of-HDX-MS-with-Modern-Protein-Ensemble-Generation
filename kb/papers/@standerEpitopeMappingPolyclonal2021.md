@@ -3,10 +3,10 @@ type: paper
 citekey: standerEpitopeMappingPolyclonal2021
 year: 2021
 read: false
-pdf:
-extraction: none
-needs_review: true
-review_reason: "No PDF in Zotero; add kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto"
+pdf: kb/_pdf/@standerEpitopeMappingPolyclonal2021.pdf
+extraction: auto
+needs_review: false
+review_reason:
 ---
 
 # Epitope Mapping of Polyclonal Antibodies by Hydrogen--Deuterium Exchange Mass Spectrometry (HDX-MS) (2021)

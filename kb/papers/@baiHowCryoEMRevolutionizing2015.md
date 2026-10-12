@@ -3,10 +3,10 @@ type: paper
 citekey: baiHowCryoEMRevolutionizing2015
 year: 2015
 read: false
-pdf:
-extraction: none
-needs_review: true
-review_reason: "No PDF in Zotero; add kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto"
+pdf: kb/_pdf/@baiHowCryoEMRevolutionizing2015.pdf
+extraction: auto
+needs_review: false
+review_reason:
 ---
 
 # How Cryo-EM Is Revolutionizing Structural Biology (2015)
