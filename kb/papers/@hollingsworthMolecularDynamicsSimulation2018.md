@@ -3,10 +3,10 @@ type: paper
 citekey: hollingsworthMolecularDynamicsSimulation2018
 year: 2018
 read: false
-pdf:
-extraction: none
-needs_review: true
-review_reason: "PDF in Zotero has no readable text (damaged or scanned); add a text PDF as kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto"
+pdf: kb/_pdf/@hollingsworthMolecularDynamicsSimulation2018.pdf
+extraction: auto
+needs_review: false
+review_reason:
 ---
 
 # Molecular Dynamics Simulation for All (2018)

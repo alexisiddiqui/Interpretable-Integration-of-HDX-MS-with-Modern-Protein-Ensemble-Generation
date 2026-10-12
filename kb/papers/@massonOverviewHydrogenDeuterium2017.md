@@ -3,10 +3,10 @@ type: paper
 citekey: massonOverviewHydrogenDeuterium2017
 year: 2017
 read: false
-pdf:
-extraction: none
-needs_review: true
-review_reason: "No PDF in Zotero; add kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto"
+pdf: kb/_pdf/@massonOverviewHydrogenDeuterium2017.pdf
+extraction: auto
+needs_review: false
+review_reason:
 ---
 
 # An Overview of Hydrogen Deuterium Exchange Mass Spectrometry (HDX-MS) in Drug Discovery (2017)

@@ -27,14 +27,6 @@
 - [[MD lets researchers study how proteins respond to different environments, giving insight into functional mechanisms.]] (`claims/MD lets researchers study how proteins respond to different environments, giving insight into functional mechanisms..md`)
 - [[Sampling is limited because equilibration must be repeated for each new system or starting conformational state.]] (`claims/Sampling is limited because equilibration must be repeated for each new system or starting conformational state..md`)
 
-## No PDF in Zotero; add kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto
-
-- [[@massonOverviewHydrogenDeuterium2017]] (`papers/@massonOverviewHydrogenDeuterium2017.md`)
-
-## PDF in Zotero has no readable text (damaged or scanned); add a text PDF as kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto
-
-- [[@hollingsworthMolecularDynamicsSimulation2018]] (`papers/@hollingsworthMolecularDynamicsSimulation2018.md`)
-
 ## Support is partial or indirect
 
 - [[AF2 uses a network leveraging MSAs and attention to capture local and long-range interactions within the sequence.]] (`claims/AF2 uses a network leveraging MSAs and attention to capture local and long-range interactions within the sequence..md`)
