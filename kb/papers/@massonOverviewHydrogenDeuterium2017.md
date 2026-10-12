@@ -41,6 +41,11 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote_check: pass
   - reviewed: false
 
+- HDX-MS is a highly sensitive aqueous measurement needing only minor amounts of protein. ^c4
+  - page: 11
+  - quote: "an aqueous measurement that is highly sensitive, requiring only minor amounts of protein"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

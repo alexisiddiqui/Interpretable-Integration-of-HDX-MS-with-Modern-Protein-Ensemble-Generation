@@ -14,6 +14,7 @@ cites:
   - "[[@narangHDXMSAnalyticalTool2020#^c4]]"
   - "[[@narangHDXMSAnalyticalTool2020#^c5]]"
   - "[[@massonOverviewHydrogenDeuterium2017#^c3]]"
+  - "[[@massonOverviewHydrogenDeuterium2017#^c4]]"
 code: []
 ---
 

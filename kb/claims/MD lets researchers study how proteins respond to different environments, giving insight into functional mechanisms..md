@@ -13,6 +13,8 @@ figures: []
 cites:
   - "[[@hollingsworthMolecularDynamicsSimulation2018#^c6]]"
   - "[[@hollingsworthMolecularDynamicsSimulation2018#^c7]]"
+  - "[[@hollingsworthMolecularDynamicsSimulation2018#^c8]]"
+  - "[[@hollingsworthMolecularDynamicsSimulation2018#^c9]]"
 code: []
 ---
 

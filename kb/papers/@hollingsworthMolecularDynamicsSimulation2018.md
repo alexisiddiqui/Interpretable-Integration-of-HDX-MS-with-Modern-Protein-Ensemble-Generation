@@ -65,6 +65,17 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote_check: pass
   - reviewed: false
 
+- Simulations can change a protein's molecular environment, such as salt concentration or membrane lipid composition. ^c8
+  - page: 3
+  - quote: "change the molecular environment of a simulated protein, such as the salt concentration or the composition of lipids in a membrane"
+  - quote_check: pass
+  - reviewed: false
+
+- Simulations can predict how biomolecules respond at an atomic level to perturbations such as mutation. ^c9
+  - page: 1
+  - quote: "such simulations can also predict how biomolecules will respond—at an atomic level—to perturbations such as mutation"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

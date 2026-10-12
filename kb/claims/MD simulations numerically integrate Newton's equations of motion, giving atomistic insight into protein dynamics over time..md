@@ -3,12 +3,12 @@ type: claim
 chapter: 01-introduction
 project:
 basis: stated
-confidence: high
-status: supported
+confidence: medium
+status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/ensemble_generators.tex#L21
 source_state: current
-needs_review: false
-review_reason: 
+needs_review: true
+review_reason: Support is partial or indirect
 figures: []
 cites:
   - "[[@karplusMolecularDynamicsSimulations2002#^c1]]"
@@ -23,4 +23,4 @@ Karplus and McCammon say simulations can give the ultimate detail on individual 
 
 ## Caveats
 
-Karplus and McCammon do not mention Newton's equations of motion in the checked text; that part, and the step-by-step integration, rest on Hollingsworth (p2), which describes it without using the words 'numerical integration'.
+Neither paper states 'equations of motion' or 'numerical integration'; Karplus and McCammon do not mention Newton's laws at all; that part, and the step-by-step integration, rest on Hollingsworth (p2), which describes it without using the words 'numerical integration'.
