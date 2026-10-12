@@ -3,7 +3,7 @@ type: claim
 chapter: 01-introduction
 project:
 basis: stated
-confidence: medium
+confidence: low
 status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/ensemble_generators.tex#L21
 source_state: current

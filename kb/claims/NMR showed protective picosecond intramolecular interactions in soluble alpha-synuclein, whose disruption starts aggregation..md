@@ -30,7 +30,7 @@ Line 38 restates the claim, saying the protective interactions occur on picoseco
 
 ## Caveats
 
-Ahmed et al. refine alpha-synuclein ensembles against SAXS data and mention only that its aggregation is linked to Parkinson's disease. Sapienza and Lee review ps-ns NMR relaxation methods and do not discuss alpha-synuclein. Mukherjee describes the autoinhibitory N-/C-terminal interaction (citing other work) but does not say it was shown by NMR or occurs on picosecond timescales. The NMR and picosecond parts of the claim are therefore unsupported by every checked paper.
+Ahmed et al. refine alpha-synuclein ensembles against SAXS data and mention only that its aggregation is linked to Parkinson's disease. Sapienza and Lee review ps-ns NMR relaxation methods and do not discuss alpha-synuclein. Mukherjee describes the autoinhibitory N-/C-terminal interaction (citing other work) but does not say it was shown by NMR or occurs on picosecond timescales. In the neighbouring sentence on the same page, Mukherjee attributes NAC exposure to low pH or high salt in vitro, which weakens the reading of 'protective interactions whose disruption starts aggregation'. The NMR and picosecond parts of the claim are therefore unsupported by every checked paper.
 
 ## Unverified citations
 
