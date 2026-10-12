@@ -8,16 +8,17 @@ status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/ensemble_generators.tex#L23
 source_state: current
 needs_review: true
-review_reason: No PDF for any cited paper
+review_reason: Support is partial or indirect
 figures: []
-cites: []
+cites:
+  - "[[@karplusMolecularDynamicsSimulations2002#^c2]]"
 code: []
 ---
 
 ## Argument
 
-The sentence claims that the flexibility of [[molecular dynamics]] is a strength beyond atomic resolution.
+Karplus and McCammon say that a simulation can be used to create a physical system not accessible in nature, such as one with the protein and the solvent at different temperatures, which resolved a question that experiments could not. This is the closest checked statement to the flexibility of simulations.
 
-## Unverified citations
+## Caveats
 
-- [[@karplusMolecularDynamicsSimulations2002]]: no PDF
+Karplus and McCammon do not use the word flexibility or say simulations are 'particularly useful' beyond resolution; they say simulations give the ultimate detail on individual particle motions and that the potentials are under the control of the user. 'Flexibility' is the author's gloss on this controllability.

@@ -12,17 +12,14 @@ review_reason: Support is partial or indirect
 figures: []
 cites:
   - "[[@martinoIntroductionMaximumEntropy2018#^c1]]"
+  - "[[@jaynesInformationTheoryStatistical1957#^c1]]"
 code: []
 ---
 
 ## Argument
 
-De Martino and De Martino describe the [[maximum entropy principle]] as a recipe for the least biased probability distribution compatible with data-derived constraints.
+De Martino and De Martino describe the [[maximum entropy principle]] as a recipe for the least biased probability distribution compatible with data-derived constraints. Jaynes states that inference from partial information must use the maximum-entropy distribution subject to what is known.
 
 ## Caveats
 
-The sentence says MaxEnt is an approach to the preceding problem of fitting simulations to experiment. De Martino and De Martino is a general introduction to maximum entropy inference in biology (gene networks, metabolism) and does not discuss fitting simulations. Jaynes (1957) has no PDF, so the original statement could not be checked.
-
-## Unverified citations
-
-- [[@jaynesInformationTheoryStatistical1957]]: no PDF
+The sentence says MaxEnt is an approach to the preceding problem of fitting simulations to experiment. De Martino and De Martino is a general introduction to maximum entropy inference in biology (gene networks, metabolism) and does not discuss fitting simulations, and Jaynes (1957) states the principle for statistical inference and statistical mechanics, not for fitting simulated ensembles. Both cites support the principle but not its use as an approach to this fitting problem.

@@ -24,6 +24,11 @@ PDF note: the original is a scan; kb/_pdf holds a tesseract-OCR copy (text layer
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Jaynes states that inference from partial information must use the probability distribution of maximum entropy subject to what is known. ^c1
+  - page: 4
+  - quote: "in making inferences on the basis of partial information we must use that probability distribution which has maximum entropy subject to whatever is known"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

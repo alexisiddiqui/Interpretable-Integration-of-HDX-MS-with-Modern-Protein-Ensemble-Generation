@@ -15,18 +15,15 @@ cites:
   - "[[@andersonHDXMSMDSimulations2022#^c1]]"
   - "[[@hamuroEffectsIntramolecularIntermolecular2021#^c1]]"
   - "[[@mitraEmergingRoleMass2021#^c1]]"
+  - "[[@liConformationalAnalysisProteincoupled2015#^c1]]"
+  - "[[@standerEpitopeMappingPolyclonal2021#^c1]]"
 code: []
 ---
 
 ## Argument
 
-The checked papers are HDX-MS studies of a GPCR (West), of antibodies and antibody complexes (Anderson, Hamuro) and a review of MS methods applied to intrinsically disordered proteins (Mitra), so they show HDX-MS being applied to these target classes.
+The checked papers are HDX-MS studies of a GPCR (West), of antibodies and antibody complexes (Anderson, Hamuro, Ständer) and a review of MS methods applied to intrinsically disordered proteins (Mitra), plus a chapter on HDX-MS for GPCR signalling (Li). Li says GPCR-signalling-molecule interactions are hard to analyse by X-ray crystallography or NMR and that HDX-MS could be useful for them; Ständer says HDX-MS has emerged as a technique of choice for epitope mapping of antibodies. So they show HDX-MS being applied to, and suited to, these target classes.
 
 ## Caveats
 
-None of the checked passages says that flexibility combined with increasing throughput makes HDX-MS well suited to these targets; they are examples of application. Mitra's passage concerns identifying disordered regions, not throughput. The sentence is cited in three groups (GPCRs, antibodies, IDPs); each group is supported only by its own papers.
-
-## Unverified citations
-
-- [[@liConformationalAnalysisProteincoupled2015]]: no PDF
-- [[@standerEpitopeMappingPolyclonal2021]]: no PDF
+None of the checked passages says that flexibility combined with increasing throughput makes HDX-MS well suited to these targets; they are examples of application. Ständer's text also calls HDX-MS relatively fast, but this is not tied to increasing throughput. Mitra's passage concerns identifying disordered regions, not throughput. The sentence is cited in three groups (GPCRs, antibodies, IDPs); each group is supported only by its own papers.

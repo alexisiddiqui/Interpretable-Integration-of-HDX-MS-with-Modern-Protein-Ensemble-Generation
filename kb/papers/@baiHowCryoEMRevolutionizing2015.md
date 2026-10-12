@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Bai et al. say that, with recent advances in electron detection and image processing, cryo-EM resolution is beginning to rival X-ray crystallography. ^c1
+  - page: 1
+  - quote: "With recent advances in electron detection and image processing, the resolution by cryo-EM is now beginning to rival X-ray crystallography"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

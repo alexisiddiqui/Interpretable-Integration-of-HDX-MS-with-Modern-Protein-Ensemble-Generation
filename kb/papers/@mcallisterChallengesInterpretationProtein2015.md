@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- McAllister and Konermann find that interpreting HDX data in a protein conformational context is surprisingly difficult. ^c1
+  - page: 2
+  - quote: "the interpretation of HDX data in a protein conformational context is surprisingly diﬃcult"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

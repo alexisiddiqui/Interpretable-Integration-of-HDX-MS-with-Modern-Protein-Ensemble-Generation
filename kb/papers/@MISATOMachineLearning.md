@@ -24,6 +24,11 @@ PDF note: Nature Computational Science (2024), DOI 10.1038/s43588-024-00627-2. T
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- MISATO provides molecular dynamics simulations of about 20,000 experimental protein-ligand complexes. ^c1
+  - page: 1
+  - quote: "molecular dynamics simulations of ~20,000 experimental protein–ligand complexes"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

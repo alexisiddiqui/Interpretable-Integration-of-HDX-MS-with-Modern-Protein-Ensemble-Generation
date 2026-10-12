@@ -24,6 +24,11 @@ PDF note: the PDF's DOI is 10.1016/j.jmr.2011.08.010 ("NMR studies of protein st
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Kay describes NMR as one of the most powerful tools for studying protein structure and dynamics. ^c1
+  - page: 1
+  - quote: "NMR spectroscopy has evolved to become one of the most powerful tools for the study of protein structure and dynamics"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

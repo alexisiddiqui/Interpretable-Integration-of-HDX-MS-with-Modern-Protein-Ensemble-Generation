@@ -13,17 +13,14 @@ figures: []
 cites:
   - "[[@cesariUsingMaximumEntropy2018#^c6]]"
   - "[[@cesariUsingMaximumEntropy2018#^c9]]"
+  - "[[@jaynesInformationTheoryStatistical1957#^c1]]"
 code: []
 ---
 
 ## Argument
 
-Cesari et al. describe the [[maximum entropy principle]] as giving the distribution satisfying the experimental constraints that is closest to the prior, with closeness measured by the Kullback-Leibler divergence.
+Cesari et al. describe the [[maximum entropy principle]] as giving the distribution satisfying the experimental constraints that is closest to the prior, with closeness measured by the Kullback-Leibler divergence. Jaynes states that inference from partial information must use the maximum-entropy distribution subject to what is known, the principle the sentence says the method adheres to.
 
 ## Caveats
 
-Cesari et al. do not use apparent work (W_app), and the equivalence of W_app with the KL divergence is not stated in the cited papers. Lee et al. p9 (block ^c10) and Bradshaw et al. p9 describe apparent work as the bias cost in HDXer, but neither is cited here. The statement that W_app is related to the Kullback-Leibler divergence (D_KL = W_app / k_e T) is in Bradshaw et al. p9 (@bradshawInterpretationHDXData2020 ^c11), the likely intended source; it is not cited here. Jaynes (1957) has no PDF.
-
-## Unverified citations
-
-- [[@jaynesInformationTheoryStatistical1957]]: no PDF
+Cesari et al. do not use apparent work (W_app), and the equivalence of W_app with the KL divergence is not stated in the cited papers. Jaynes (1957) states the maximum entropy principle but not a KL divergence from a prior or W_app. Lee et al. p9 (block ^c10) and Bradshaw et al. p9 describe apparent work as the bias cost in HDXer, but neither is cited here. The statement that W_app is related to the Kullback-Leibler divergence (D_KL = W_app / k_e T) is in Bradshaw et al. p9 (@bradshawInterpretationHDXData2020 ^c11), the likely intended source; it is not cited here.

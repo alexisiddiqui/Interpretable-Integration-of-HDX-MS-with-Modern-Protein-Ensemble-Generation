@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Li et al. say GPCR-signalling-molecule interactions are hard to analyse by X-ray crystallography or NMR, and that HDX-MS could be useful for analysing the conformational mechanism of GPCR signalling. ^c1
+  - page: 2
+  - quote: "HDX-MS could be useful for analyzing the conformational mechanism of GPCR signaling"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 
