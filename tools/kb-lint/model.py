@@ -7,7 +7,7 @@ import re
 import yaml
 
 SKIP_DIRS = {"_templates", "_pdf"}
-ROOT_FILES = {"README.md", "review-queue.md"}  # kb/ files that are not notes
+ROOT_FILES = {"README.md", "review-queue.md", "notation.md"}  # kb/ files that are not notes
 REF_THESES = "ref-theses"
 QUOTE_STATES = ("pass", "fail", "unchecked")
 BLOCK_FIELDS = ("page", "quote", "quote_check", "reviewed")

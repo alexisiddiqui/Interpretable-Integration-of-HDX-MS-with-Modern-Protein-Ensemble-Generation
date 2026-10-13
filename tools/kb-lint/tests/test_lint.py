@@ -69,7 +69,7 @@ def test_read_only_run_writes_nothing(repo):
 
 def test_write_records_quote_checks_and_builds_review_queue(repo):
     result = run(repo, write=True)
-    assert {p.relative_to(repo).as_posix() for p in result.written} == {PAPER, "kb/review-queue.md"}
+    assert {p.relative_to(repo).as_posix() for p in result.written} == {PAPER, "kb/review-queue.md", "kb/notation.md"}
     assert "quote_check: unchecked" not in (repo / PAPER).read_text(encoding="utf-8")
     queue = (repo / "kb/review-queue.md").read_text(encoding="utf-8")
     assert "## Ambiguous wording in the confirmation report\n\n- [[Ensembles explain exchange]]" in queue
