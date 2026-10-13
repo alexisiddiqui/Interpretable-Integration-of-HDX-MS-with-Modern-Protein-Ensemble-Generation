@@ -43,6 +43,14 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote_check: pass
   - reviewed: false
 
+## Notation
+
+| Source | Meaning in this source | Canonical | Note |
+|---|---|---|---|
+| $k_A$ | acid-catalysed rate constant | $k_\text{acid}$ |  |
+| $k_B$ | base-catalysed rate constant | $k_\text{base}$ | $k_B$ is the Boltzmann constant |
+| $k_W$ | water-catalysed rate constant | $k_\text{water}$ |  |
+
 ## What I use from it
 
 ## Disagreements / limitations

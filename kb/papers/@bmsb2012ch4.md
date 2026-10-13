@@ -65,6 +65,21 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote_check: pass
   - reviewed: false
 
+## Notation
+
+| Source | Meaning in this source | Canonical | Note |
+|---|---|---|---|
+| $X$, $x$ | fine-grained variable | $x$ |  |
+| $Y = m(X)$ | coarse-grained variable | $\xi(x)$ |  |
+| $g(x)$ | approximate pdf (the generator) | $P_0(x)$ |  |
+| $g_1(y)$ | the generator's marginal on $Y$, the reference | $P_0(\xi)$ |  |
+| $g_2(x \mid y)$ | the generator's conditional given $Y$ | — | write $P_0(x \mid \xi)$ |
+| $f_1(y)$ | target pdf of the coarse variable | $P^*(\xi)$ |  |
+| $\hat f(x)$ | reference-ratio pdf | $\hat P(x)$ |  |
+| $\text{KL}[g \Vert h]$ | Kullback-Leibler divergence, generator first | $D_\text{KL}$ | the direction is $D_\text{KL}(P_0 \Vert P)$ |
+| $W(r)$ | potential of mean force | — | $W_\text{app}$ is the apparent work |
+| $\alpha$ | Metropolis-Hastings acceptance | $a(x' \mid x)$ |  |
+
 ## What I use from it
 
 Eq. 4.2 and Theorems 4.1 and 4.2. Used in [[reference ratio method]] as a conceptual precedent for correcting a generator's populations with data. Its KL is taken in the opposite direction to MaxEnt's (see [[Kullback–Leibler divergence]]).

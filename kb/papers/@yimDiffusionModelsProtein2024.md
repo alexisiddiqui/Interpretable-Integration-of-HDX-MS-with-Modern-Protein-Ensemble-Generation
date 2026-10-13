@@ -48,6 +48,17 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote_check: pass
   - reviewed: false
 
+## Notation
+
+| Source | Meaning in this source | Canonical | Note |
+|---|---|---|---|
+| $t$ | diffusion time | $\tau$ | $t$ is labelling time |
+| $f(x,t)$ | drift of the forward SDE | $f(x,\tau)$ |  |
+| $g(t)$ | diffusion coefficient | $g(\tau)$ |  |
+| $\nabla \log p_t(x)$ | score of the marginal density | $\nabla_x \log p_\tau(x)$ |  |
+| $s_\theta(x,t)$ | learned score network with weights $\theta$ | — | $s_i$ and $\theta$ are taken; write $\hat\nabla_x \log p_\tau(x)$ |
+| $B$ | Brownian motion | — |  |
+
 ## What I use from it
 
 ## Disagreements / limitations

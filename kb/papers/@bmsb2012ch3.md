@@ -100,6 +100,33 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote_check: pass
   - reviewed: false
 
+## Notation
+
+| Source | Meaning in this source | Canonical | Note |
+|---|---|---|---|
+| $r$ | atomic positions | $x$ |  |
+| $E(r)$ | conformational energy | $U(x)$ |  |
+| $\beta$ | inverse temperature $1/k_BT$ | — | write $1/k_BT$ |
+| $\beta_s$ | scaling factor of a knowledge-based potential | — |  |
+| $Z$ | configurational partition function | $Z$ |  |
+| $F$ | free energy | $F$ |  |
+| $S$ | entropy; also a structure database | $S$ | the database has no canonical symbol |
+| $\lambda$ | coarse-grained variable (Eqs. 3.30-3.76) | $\xi(x)$ | pdftotext drops this symbol |
+| $\Delta F(\lambda)$ | free energy relative to the reference state | $\Delta F(\xi)$ |  |
+| $p_\beta(\lambda)$ | Boltzmann marginal of the coarse variable | $P(\xi)$ |  |
+| $\tilde p(\lambda)$ | reference-state distribution | $\tilde P(\xi)$ |  |
+| $n_\text{obs}$ | observed counts | $n_\text{obs}(\xi)$ |  |
+| $n_\text{exp}$ | counts expected in the reference state | $n_\text{exp}(\xi)$ |  |
+| $q(r \mid a)$ | prior or sampler for structure given sequence | $P_0(x)$ |  |
+| $\tilde q(\lambda \mid a)$ | the sampler's marginal on the coarse variable, the reference | $P_0(\xi)$ |  |
+| $p(\lambda \mid a)$ | target distribution of the coarse variable | $P^*(\xi)$ |  |
+| $p(r \mid a)$ | reference-ratio distribution (Eq. 3.72) | $\hat P(x)$ |  |
+| $w_{(n)}$ | potential of mean force | — | not a weight; $w_j$ are conformer weights |
+| $s$ | a database state $(r, a)$ | — | $s_i$ is an observable |
+| $U_s$ | knowledge-based potential | — | $U$ is the physical potential energy |
+| $g(r)$ | radial distribution function | — |  |
+| $a$ | amino-acid sequence | — |  |
+
 ## What I use from it
 
 The Boltzmann distribution and free energies (Eqs. 3.1, 3.7, 3.9), the inverse Boltzmann relation (Eq. 3.33), why knowledge-based potentials are not free energies, and the reference ratio derivation (Eqs. 3.66-3.72). Used in [[Boltzmann distribution]], [[knowledge-based potential]] and [[reference ratio method]].

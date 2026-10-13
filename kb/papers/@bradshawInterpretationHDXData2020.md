@@ -118,6 +118,23 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote_check: pass
   - reviewed: false
 
+## Notation
+
+| Source | Meaning in this source | Canonical | Note |
+|---|---|---|---|
+| $X_M$ | simulation frame $M$ | $x$ | frame index $M$ becomes $j$ |
+| $\Omega(X_M)$ | weight of a frame | $w_j$ |  |
+| $U(X_M)$ | potential energy of a frame | $U(x)$ |  |
+| $U_\text{corr}$ | corrected potential | — | write $U(x) + k_BT\sum_i \lambda_i s_i(x)$ |
+| $\lambda_i$ | Lagrange multiplier of residue $i$ | $\lambda_i$ | opposite sign to the thesis (Cesari) convention |
+| $\rho_\text{err}$ | experimental uncertainty model | $\rho_\text{err}$ |  |
+| $W_\text{app}$ | apparent work | $W_\text{app}$ |  |
+| $P_i$ | protection factor of residue $i$ | $P_{f,i}$ |  |
+| $N_{C,i}$ | heavy-atom contacts of residue $i$ | $N_C(i,j)$ |  |
+| $N_{H,i}$ | hydrogen bonds of residue $i$ | $N_H(i,j)$ |  |
+| $N$ | number of frames | — |  |
+| $\epsilon$ | update rate of the optimiser | — |  |
+
 ## What I use from it
 
 ## Disagreements / limitations

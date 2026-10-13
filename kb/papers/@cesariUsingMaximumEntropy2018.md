@@ -108,6 +108,23 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote_check: pass
   - reviewed: false
 
+## Notation
+
+| Source | Meaning in this source | Canonical | Note |
+|---|---|---|---|
+| $q$ | a conformation | $x$ | $q_i(j)$ is the BV feature |
+| $P_0(q)$ | prior distribution | $P_0(x)$ |  |
+| $P_\text{ME}(q)$ | maximum-entropy posterior | $P_\text{ME}(x)$ |  |
+| $s_i(q)$ | observable $i$ | $s_i(x)$ |  |
+| $s_i^\text{exp}$ | experimental value | $s_i^\text{exp}$ |  |
+| $\lambda_i$ | Lagrange multipliers | $\lambda_i$ | same sign as the thesis |
+| $S[P \Vert P_0]$ | relative entropy | $S[P \Vert P_0]$ |  |
+| $V_0(q)$ | potential energy (force field) | $U(x)$ |  |
+| $V_\text{ME}(q)$ | maximum-entropy corrected potential | — | write $U(x) + k_BT\,\lambda \cdot s(x)$ |
+| $\beta$ | $1/k_BT$ | — | write $1/k_BT$ |
+| $F_0(s)$, $F_\text{ME}(s)$ | free energy along the observable, before and after correction | — | write $F(\xi)$ with $\xi = s$ |
+| $\mu$ | normalisation multiplier | — |  |
+
 ## What I use from it
 
 ## Disagreements / limitations

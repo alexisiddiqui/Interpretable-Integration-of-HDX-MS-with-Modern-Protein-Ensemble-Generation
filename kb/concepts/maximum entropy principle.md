@@ -42,7 +42,7 @@ The maximum entropy principle is a recipe for choosing the least biased probabil
 $$ P_\text{ME} = \arg\max_P S[P \Vert P_0] \quad \text{s.t.} \quad \int s_i(x) P(x)\,dx = s_i^\text{exp},\ \ \int P(x)\,dx = 1 $$
 ^eq-maxent-problem
 
-Source: [[@cesariUsingMaximumEntropy2018#^c11]], Eq. (2), p. 2.
+Source: [[@cesariUsingMaximumEntropy2018#^c11]], Eq. (2), p. 2. Cesari writes the conformation as $q$ and the force field as $V_0$ (notation: [[@cesariUsingMaximumEntropy2018#Notation]]).
 
 $$ P_\text{ME}(x) \propto e^{-\sum_i \lambda_i s_i(x)}\, P_0(x) $$
 ^eq-maxent-posterior
@@ -52,7 +52,7 @@ Source: [[@cesariUsingMaximumEntropy2018#^c14]], Eqs. (5)–(6), p. 3.
 $$ w_j = \frac{w_j^0 \exp\!\left(-\sum_i \lambda_i q_i(j)\right)}{\sum_{j'} w_{j'}^0 \exp\!\left(-\sum_i \lambda_i q_i(j')\right)} $$
 ^eq-maxent-weights
 
-Source: [[@bradshawInterpretationHDXData2020#^c18]], Eq. (4), p. 8, with the HDX observables $q_i(j)$ ([[Best–Vendruscolo model#^eq-bv-feature]]). Bradshaw's $\lambda_i$ has the opposite sign to the canonical one used here, which follows Cesari.
+Source: [[@bradshawInterpretationHDXData2020#^c18]], Eq. (4), p. 8, with the HDX observables $q_i(j)$ ([[Best–Vendruscolo model#^eq-bv-feature]]). Bradshaw's $\lambda_i$ has the opposite sign to the canonical one used here, which follows Cesari (notation: [[@bradshawInterpretationHDXData2020#Notation]]).
 Manuscript form: milestones/2025-11-confirmation-of-status/introduction/connect_simulation_experiment.tex#L173 (same sign as here; frames indexed by $k$, observable $\phi_i$).
 
 $$ U_\text{ME}(x) = U(x) + k_BT \sum_i \lambda_i s_i(x) $$

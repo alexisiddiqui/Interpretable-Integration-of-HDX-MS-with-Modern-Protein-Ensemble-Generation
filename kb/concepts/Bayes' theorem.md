@@ -40,7 +40,7 @@ Bayes' theorem updates a prior belief about a hypothesis or model in the light o
 $$ p(x \mid s^\text{exp}) = \frac{p(s^\text{exp} \mid x)\, P_0(x)}{p(s^\text{exp})} \;\propto\; p(s^\text{exp} \mid x)\, P_0(x) $$
 ^eq-bayes
 
-Source: [[@bmsb2012ch1#^c1]], Eq. (1.1), p. 5, written for a hypothesis $h$ and data $d$ (notation: [[@bmsb2012ch1#Notation]]); [[@hummerBayesianEnsembleRefinement2015#^c7]], Eq. (1), p. 2. With nuisance parameters, see [[inverse problem#^eq-isd-posterior]].
+Source: [[@bmsb2012ch1#^c1]], Eq. (1.1), p. 5, written for a hypothesis $h$ and data $d$ (notation: [[@bmsb2012ch1#Notation]]); [[@hummerBayesianEnsembleRefinement2015#^c7]], Eq. (1), p. 2 (notation: [[@hummerBayesianEnsembleRefinement2015#Notation]]). With nuisance parameters, see [[inverse problem#^eq-isd-posterior]].
 Manuscript form: none displayed. The HDXer loss of milestones/2025-11-confirmation-of-status/introduction/connect_simulation_experiment.tex#L142 is a negative log-posterior: apparent work as a log-prior plus a Gaussian error likelihood $\rho_\text{err}$.
 
 $$ B_{12} = \frac{p(s^\text{exp} \mid \mathcal{M}_1)}{p(s^\text{exp} \mid \mathcal{M}_2)} = \frac{\int p(s^\text{exp} \mid \theta_1, \mathcal{M}_1)\, p(\theta_1 \mid \mathcal{M}_1)\, d\theta_1}{\int p(s^\text{exp} \mid \theta_2, \mathcal{M}_2)\, p(\theta_2 \mid \mathcal{M}_2)\, d\theta_2} $$

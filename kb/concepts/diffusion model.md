@@ -28,7 +28,7 @@ A diffusion model learns to generate samples by reversing a noising process. A f
 $$ dx = f(x,\tau)\,d\tau + g(\tau)\,dB_\tau $$
 ^eq-diffusion-forward
 
-Source: [[@yimDiffusionModelsProtein2024#^c3]], Eq. (1), p. 4. Yim writes $t$ for diffusion time; canonical is $\tau$, because $t$ is HDX labelling time.
+Source: [[@yimDiffusionModelsProtein2024#^c3]], Eq. (1), p. 4. Yim writes $t$ for diffusion time; canonical is $\tau$, because $t$ is HDX labelling time (notation: [[@yimDiffusionModelsProtein2024#Notation]]).
 
 $$ dx = \left[f(x,\tau) - g(\tau)^2\, \nabla_x \log p_\tau(x)\right] d\tau + g(\tau)\,dB_\tau $$
 ^eq-diffusion-reverse

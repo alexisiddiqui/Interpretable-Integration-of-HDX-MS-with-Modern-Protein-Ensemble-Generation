@@ -70,6 +70,24 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote_check: pass
   - reviewed: false
 
+## Notation
+
+| Source | Meaning in this source | Canonical | Note |
+|---|---|---|---|
+| $h$ | hypothesis | — | write $x$ for a structure, $\mathcal{M}$ for a model |
+| $d$ | data | $s^\text{exp}$ |  |
+| $\theta$ | parameters of a model | — | the thesis $\theta$ is forward-model parameters only |
+| $M_1, M_2$ | models compared by a Bayes factor | $\mathcal{M}$ | $M$ is also a number of observations (p. 12) |
+| $B$ | Bayes factor | $B_{12}$ |  |
+| $E_k$ | energy of state $k$ | $U(x)$ |  |
+| $U$ | internal (average) energy | — | write $\mathbb{E}_p[U]$; the thesis $U$ is the potential energy |
+| $\beta$ | inverse temperature, $1/T$ or $1/kT$; also a Lagrange multiplier | — | write $1/k_BT$; $\beta_C, \beta_H$ are BV coefficients |
+| $\alpha$ | Lagrange multiplier for normalisation; Dirichlet and Beta parameters | — | MaxEnt multipliers are $\lambda_i$ |
+| $Z$ | partition function | $Z$ |  |
+| $F$ | Helmholtz free energy | $F$ |  |
+| $S$ | entropy | $S$ |  |
+| $L$ | loss function; also the Lagrangian | — |  |
+
 ## What I use from it
 
 Bayes' theorem (Eq. 1.1), marginalisation of nuisance parameters, MAP versus the full posterior, the Bayes factor (Eq. 1.6), and the maximum-entropy route to the Boltzmann distribution. Used in [[Bayes' theorem]], [[nuisance parameter]], [[posterior uncertainty]] and [[Boltzmann distribution]].

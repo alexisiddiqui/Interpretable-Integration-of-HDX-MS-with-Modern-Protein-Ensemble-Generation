@@ -27,7 +27,7 @@ The intrinsic exchange rate $k_{\text{int},i}$ is the rate at which the amide hy
 $$ k_{\text{int},i} = k_\text{acid}[\text{H}^+] + k_\text{base}[\text{OH}^-] + k_\text{water} $$
 ^eq-kint
 
-Source: [[@baiPrimaryStructureEffects1993#^c2]], Eq. (1), p. 3. Bai writes $k_A$, $k_B$ and $k_W$. They are renamed here because $k_B$ is the Boltzmann constant ([[2026-10-13 canonical HDX and ensemble notation]]).
+Source: [[@baiPrimaryStructureEffects1993#^c2]], Eq. (1), p. 3. Bai writes $k_A$, $k_B$ and $k_W$. They are renamed here because $k_B$ is the Boltzmann constant (notation: [[@baiPrimaryStructureEffects1993#Notation]]).
 Manuscript form: milestones/2025-11-confirmation-of-status/jaxENT_paper1/report/methods/HDX.tex#L51.
 
 $$ \log_{10} k_{\text{int},i} = \log_{10} k_{\text{base},\text{ref}} + \log_{10} B_L + \log_{10} B_R + \text{pH} - \text{p}K_W \quad (\text{base-catalysed term}) $$

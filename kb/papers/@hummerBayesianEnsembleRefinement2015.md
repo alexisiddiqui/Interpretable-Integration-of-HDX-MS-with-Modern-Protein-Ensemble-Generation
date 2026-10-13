@@ -63,6 +63,18 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote_check: pass
   - reviewed: false
 
+## Notation
+
+| Source | Meaning in this source | Canonical | Note |
+|---|---|---|---|
+| $x$ | a configuration | $x$ |  |
+| $y_i(x)$ | error-free value of observable $i$ for configuration $x$ | $s_i(x)$ |  |
+| $y_i^\text{(obs)}$ | measured value of observable $i$ | $s_i^\text{exp}$ |  |
+| $p_0(x)$ | reference distribution, the prior | $P_0(x)$ |  |
+| $p(x)$ | ensemble distribution being refined | $P(x)$ |  |
+| $\theta$ | confidence in the reference ensemble | — | weights the prior, like $1/\gamma$; $\theta$ is forward-model parameters |
+| $\sigma$ | experimental error | $\sigma_i$ |  |
+
 ## What I use from it
 
 ## Disagreements / limitations

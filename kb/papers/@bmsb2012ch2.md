@@ -120,6 +120,29 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote_check: pass
   - reviewed: false
 
+## Notation
+
+| Source | Meaning in this source | Canonical | Note |
+|---|---|---|---|
+| $x$ | state | $x$ |  |
+| $p(x) = \omega(x)/Z$ | target distribution, from an unnormalised weight | $P(x)$ |  |
+| $\pi(x)$ | reference distribution; the prior in a Bayes model | $P_0(x)$ |  |
+| $q(x)$ | importance-sampling proposal | $P_0(x)$ | when the samples are frames of a prior |
+| $r_i$, $\tilde r_i$ | importance weights, normalised | $w_j$ | sample index $i$ becomes conformer index $j$ |
+| $E(x)$ | energy, or $-\ln\omega(x)$ (Eq. 2.3) | $U(x)$ | a statistical energy unless $\omega$ is a Boltzmann weight |
+| $\beta$ | inverse temperature | — | write $1/k_BT$ |
+| $k$ | Boltzmann constant | $k_B$ |  |
+| $\mathcal{D}$ | data | $s^\text{exp}$ |  |
+| $W(x' \mid x)$ | transition matrix | $\mathcal{T}(x' \mid x)$ |  |
+| $q(x' \mid x)$ | proposal of a Monte Carlo move | $\mathcal{Q}(x' \mid x)$ |  |
+| $a(x' \mid x)$ | acceptance probability | $a(x' \mid x)$ |  |
+| $f(x)$, $y$ | collective variable and its value | $\xi(x)$ | also written $\lambda$ (p. 6) |
+| $\lambda$ | collective variables (p. 6); a Lagrange parameter (Eq. 2.59) | — | write $\xi$; $\lambda_i$ are MaxEnt multipliers |
+| $p_0(x)$ | initial distribution of the chain | — | not the prior; $P_0$ is the prior |
+| $t$, $T$ | Monte Carlo time, chain length | — | $t$ is labelling time and $T$ temperature |
+| $g(E)$ | density of states | — | $g(\tau)$ is the diffusion coefficient |
+| $\Omega$ | state space | — |  |
+
 ## What I use from it
 
 The reference distribution (Eq. 2.4), importance weights and effective sample size (Eqs. 2.14-2.16), detailed balance and convergence diagnostics, and reweighting of biased samples. Used in [[importance sampling]] and [[Markov chain Monte Carlo]]. The point carried into the thesis: diverse samples are not evidence of correct populations.
