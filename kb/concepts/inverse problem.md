@@ -17,6 +17,11 @@ sources:
   - "[[@bmsb2012ch12#^c14]]"
   - "[[@bmsb2012ch13#^c2]]"
   - "[[@bmsb2012ch13#^c4]]"
+  - "[[@berlinRecoveringRepresentativeConformational2013#^c1]]"
+  - "[[@berlinRecoveringRepresentativeConformational2013#^c2]]"
+  - "[[@hummerBayesianEnsembleRefinement2015#^c6]]"
+  - "[[@bradshawInterpretationHDXData2020#^c8]]"
+  - "[[@siddiquiFrameworkTestingStructural2026#^c1]]"
 ---
 
 ## Definition
@@ -44,9 +49,11 @@ Source: [[@bmsb2012ch12#^c11]], Eq. (12.2), p. 6; Eq. (12.9), p. 9 ([[@bmsb2012c
 - Ill-posedness: when data are low in information, regularisation or a prior is needed to select one solution among the many that fit ([[@bmsb2012ch13#^c4]], p. 9; [[@bmsb2012ch13#^c2]]). See [[regularisation]].
 - Habeck's ISD infers a single structure and its uncertainty. The thesis infers populations, so its posterior spread and its ensemble are different things ([[posterior uncertainty]]).
 - The posterior is only as good as the forward model and the prior. Both enter the result.
+- Population-level non-uniqueness. An ensemble has far more degrees of freedom than there are independent observables, and deconvolving data into a representative ensemble is ill-posed ([[@berlinRecoveringRepresentativeConformational2013#^c1]], [[@berlinRecoveringRepresentativeConformational2013#^c2]]). Inverse problems are also ill-conditioned, sensitive to small changes in the input ([[@hummerBayesianEnsembleRefinement2015#^c6]]). For HDX-MS, one uptake curve can arise from many structural scenarios ([[@siddiquiFrameworkTestingStructural2026#^c1]]), and a peptide set may not hold enough information for a clear interpretation ([[@bradshawInterpretationHDXData2020#^c8]]). The revised ValDX manuscript adds that this holds even with a perfect forward model (`projects/1-ValDX/manuscript/report/1_introduction_omc.tex` L17; not in posted v1).
+- Weights and forward-model parameters can trade off, so fitting them jointly is itself an identifiability question ([[model misspecification]], [[nuisance parameter]]). Held-out data test predictions, not identifiability ([[data splitting]]).
 
 ## Why it matters here
 
 The introduction (§1.4) frames HDX-MS integration as an inverse problem: uptake constrains an ensemble only through a forward model, and the weights and forward-model parameters are inferred together. Identifiability is the reason ValDX validates fits on held-out data and jaxENT reports uncertainty from replicates.
 
-Claims that use this term: [[Many ensembles can explain the same data, given complex conformational landscapes and simple structure-experiment models.]], [[Interpreting dynamics measurements in structural terms is a grand challenge, as they can be indirect or ensemble-averaged.]], [[In a Bayesian description, a prior and a likelihood combine into a posterior over unknown structures and parameters.]], [[A change in HDX-MS uptake shows a change in protection but does not on its own identify the structural mechanism.]], [[Connecting uptake to a structural explanation requires a forward model that predicts exchange from candidate structures or ensembles.]].
+Claims that use this term: [[Many ensembles can explain the same data, given complex conformational landscapes and simple structure-experiment models.]], [[Interpreting dynamics measurements in structural terms is a grand challenge, as they can be indirect or ensemble-averaged.]], [[In a Bayesian description, a prior and a likelihood combine into a posterior over unknown structures and parameters.]], [[A change in HDX-MS uptake shows a change in protection but does not on its own identify the structural mechanism.]], [[Connecting uptake to a structural explanation requires a forward model that predicts exchange from candidate structures or ensembles.]], [[One uptake curve can arise from many different conformational populations, so a good fit does not identify the ensemble.]].

@@ -61,9 +61,10 @@ Source: [[@bmsb2012ch13#^c10]]; Eq. (13.38), p. 27, for entropy regularisation. 
 - The numbers in BMSB ch13 (Shannon channels, $N_g$ for scattering curves) are specific to SAXS and SANS. The general point carried over is that low-information data ([[@bmsb2012ch13#^c2]]) need regularisation, and that the weight decides how much of the fit is data and how much is prior.
 - $N_g$ uses a Gaussian approximation around the optimum.
 - Choosing the weight by evidence (BMSB) and choosing it by held-out validation (ValDX) are different criteria. Both aim to stop the fit absorbing noise.
+- Regularisation picks one solution; it does not validate it. The regularisation weight still has to be chosen by held-out data or by evidence ([[data splitting]], [[Bayes' theorem#^eq-bayes-factor]]), and a regularised fit can still overfit or reflect a poor prior ([[overfitting]]).
 
 ## Why it matters here
 
 The regularisation weight is the one choice every reweighting method must make: MaxEnt's $\gamma$, HDXer's confidence parameter and jaxENT's loss weights. ValDX's validation splits are a way to choose it without overfitting. $N_g$ is a reminder of how few parameters HDX-MS data may determine relative to the number of conformer weights.
 
-Claims that use this term: [[MaxEnt reweighting avoids overfitting and ensures the resulting ensemble remains physically plausible.]], [[SAXS with MD simulations and ensemble refinement gives minimal ensembles consistent with restraints, without overfitting.]], [[Uncertainty in nuisance parameters and regularisation choices can affect structural conclusions from Bayesian analyses of NMR and small-angle scattering.]].
+Claims that use this term: [[MaxEnt reweighting avoids overfitting and ensures the resulting ensemble remains physically plausible.]], [[SAXS with MD simulations and ensemble refinement gives minimal ensembles consistent with restraints, without overfitting.]], [[Uncertainty in nuisance parameters and regularisation choices can affect structural conclusions from Bayesian analyses of NMR and small-angle scattering.]], [[Accounting for experimental error reduces overfitting in MaxEnt reweighting, and minimal correction is a good choice only when the prior is reasonable.]].

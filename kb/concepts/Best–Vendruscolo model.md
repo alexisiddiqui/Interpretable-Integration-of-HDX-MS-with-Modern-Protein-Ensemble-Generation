@@ -17,6 +17,7 @@ sources:
   - "[[@bestStructuralInterpretationHydrogen2006#^c5]]"
   - "[[@bradshawInterpretationHDXData2020#^c12]]"
   - "[[@bradshawInterpretationHDXData2020#^c13]]"
+  - "[[@siddiquiFrameworkTestingStructural2026#^c7]]"
 ---
 
 ## Definition
@@ -43,9 +44,10 @@ Manuscript form: 6_methods_omc.tex#L385; projects/2-jaxENT/manuscript/report/met
 - $\beta_C$ and $\beta_H$ are calibration parameters, not mechanistic quantities ([[@bradshawInterpretationHDXData2020#^c13]]). jaxENT fits them jointly with the weights, which is a jaxENT method, not part of this concept.
 - Hard cutoffs (6.5 Å, 2.4 Å) make the counts discontinuous in the coordinates. Differentiable variants are a Chapter 5 topic.
 - The model's systematic error adds to peptide averaging in [[deuterium uptake]].
+- The β coefficients mainly compensate for differences between the experimental conditions and those the model was calibrated under ([[@siddiquiFrameworkTestingStructural2026#^c7]]), so fitted values can absorb forward-model mismatch ([[model misspecification]]).
 
 ## Why it matters here
 
 BV is the structure-to-observable map shared by HDXer, ValDX and jaxENT. Under [[maximum entropy principle|MaxEnt reweighting]], its linearity in the features is what makes the bias a linear function of $q_i(j)$.
 
-Claims that use this term: [[The Best-Vendruscolo model predicts protection factors from coordinates by counting structural features that impede exchange.]], [[To bridge structural ensembles and experimental HDX data, HDXer employs the Best-Vendruscolo (BV) model.]], [[Structure-to-uptake models rely on hydrogen bonding and solvent exposure but add systematic errors that accumulate at peptide level.]].
+Claims that use this term: [[The Best-Vendruscolo model predicts protection factors from coordinates by counting structural features that impede exchange.]], [[To bridge structural ensembles and experimental HDX data, HDXer employs the Best-Vendruscolo (BV) model.]], [[Structure-to-uptake models rely on hydrogen bonding and solvent exposure but add systematic errors that accumulate at peptide level.]], [[Best–Vendruscolo coefficients are empirical, and their optimal values depend on the protein and experimental conditions.]].
