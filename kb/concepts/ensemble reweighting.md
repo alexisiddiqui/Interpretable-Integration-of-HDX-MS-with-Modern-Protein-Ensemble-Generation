@@ -5,12 +5,16 @@ aliases:
   - ensemble refinement
   - reweighted ensemble
 notation: []
-sources: []
+sources:
+  - "[[@bmsb2012ch2#^c5]]"
+  - "[[@bmsb2012ch2#^c8]]"
 ---
 
 ## Definition
 
 Ensemble reweighting changes the weights (populations) of the conformers in an existing ensemble so that ensemble averages agree better with experimental data, without generating new structures.
+
+Statistically, reweighting is [[importance sampling]]: the conformers are samples of a prior, and the new weights are importance weights towards the posterior ([[@bmsb2012ch2#^c5]], p. 8). It therefore inherits the limits of importance sampling. If the prior covers the posterior poorly, a few conformers take most of the weight and the effective sample size becomes much smaller than the number of conformers ([[@bmsb2012ch2#^c8]], p. 9). The [[maximum entropy principle]] supplies the weights; [[Bayes' theorem]] and [[regularisation]] supply the trade-off between data and prior.
 
 ## Why it matters here
 

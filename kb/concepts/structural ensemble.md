@@ -5,12 +5,16 @@ aliases:
   - conformational ensemble
   - conformational ensembles
 notation: []
-sources: []
+sources:
+  - "[[@bmsb2012ch12#^c3]]"
+  - "[[@bmsb2012ch12#^c7]]"
 ---
 
 ## Definition
 
 A structural ensemble is a set of conformations, each with a weight, used to describe a protein that samples more than one state. Experimental observables such as HDX data are averages over such an ensemble, so no single structure is the right comparison object.
+
+A physical ensemble, whose weights are populations, is different from an inferential one, whose spread describes uncertainty. A bundle of structures sampled from a posterior or from repeated structure calculations is the second kind: an NMR bundle "is not an experimentally determined thermodynamic ensemble" ([[@bmsb2012ch12#^c3]], p. 3), and "a probability quantifies our ignorance about a parameter" ([[@bmsb2012ch12#^c7]], p. 5). See [[posterior uncertainty]]. A generator's output is a third kind: samples from its own distribution, which become populations only after reweighting against experiment ([[importance sampling]]).
 
 ## Why it matters here
 

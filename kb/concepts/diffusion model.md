@@ -15,6 +15,8 @@ sources:
   - "[[@yimDiffusionModelsProtein2024#^c4]]"
   - "[[@yimDiffusionModelsProtein2024#^c5]]"
   - "[[@yimDiffusionModelsProtein2024#^c2]]"
+  - "[[@bmsb2012ch3#^c8]]"
+  - "[[@bmsb2012ch4#^c6]]"
 ---
 
 ## Definition
@@ -37,11 +39,12 @@ Source: [[@yimDiffusionModelsProtein2024#^c4]], Eq. (2), pp. 4–5; [[@yimDiffus
 
 Link to MD (ultra-light; all steps ours):
 1. If the data distribution is Boltzmann, $p_0(x) \propto e^{-U(x)/k_BT}$ ([[Boltzmann distribution#^eq-boltzmann]]), then its score is $\nabla_x \log p_0(x) = -\nabla_x U(x)/k_BT$. That is the MD force divided by $k_BT$ ([[molecular dynamics#^eq-newton]]).
-2. A diffusion model trained on equilibrium structures therefore learns, at $\tau \to 0$, a quantity proportional to a force field. Trained on PDB structures, which are not a Boltzmann sample, it learns a statistical potential instead.
+2. A diffusion model trained on equilibrium structures therefore learns, at $\tau \to 0$, a quantity proportional to a force field. Trained on PDB structures, which are not a Boltzmann sample, it learns a statistical potential instead (step ours). Such potentials are typically only crude approximations of physical potentials of mean force ([[@bmsb2012ch3#^c8]], p. 21) and are better understood as statistical constructs ([[@bmsb2012ch4#^c6]], p. 9); see [[knowledge-based potential]].
 
 ## Assumptions and limits
 
 - The learned distribution is only as good as the training data. Structure databases over-represent crystallisable, low-energy states, so sampled diversity is not evidence of equilibrium populations. Those still have to be checked against experiment, for example by reweighting against [[HDX-MS]].
+- Using generated samples as a candidate ensemble makes the generator's distribution the prior $P_0$. Reweighting them is [[importance sampling]] from that prior. Correcting the generator's coarse-grained statistics while keeping its local detail is the idea of the [[reference ratio method]].
 - Protein models diffuse over frames, torsions or other non-Euclidean spaces. The Euclidean form above is the template.
 
 ## Why it matters here

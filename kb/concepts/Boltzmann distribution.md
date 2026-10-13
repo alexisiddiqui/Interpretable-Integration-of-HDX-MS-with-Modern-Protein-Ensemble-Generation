@@ -20,6 +20,10 @@ sources:
   - "[[@bmsb2012ch3#^c2]]"
   - "[[@bmsb2012ch3#^c3]]"
   - "[[@cesariUsingMaximumEntropy2018#^c15]]"
+  - "[[@bmsb2012ch1#^c7]]"
+  - "[[@bmsb2012ch1#^c8]]"
+  - "[[@bmsb2012ch2#^c2]]"
+  - "[[@bmsb2012ch12#^c13]]"
 ---
 
 ## Definition
@@ -44,11 +48,18 @@ $$ F = \mathbb{E}_p[U] - TS $$
 
 Source: [[@bmsb2012ch3#^c3]], Eq. (3.9), p. 5.
 
+## Derivation
+
+1. Among all distributions over states with a given average energy, the one with maximum entropy is sought. The solution is the distribution that reproduces the average energy and maximises the entropy ([[@bmsb2012ch1#^c7]], p. 28).
+2. A Lagrangian with multipliers for normalisation and for the average energy gives $p_k \propto e^{-E_k/k_BT}$, the Boltzmann distribution, with the energy multiplier identified as $1/k_BT$ (p. 29, unnumbered). This is the [[maximum entropy principle]] with a single constraint.
+3. Conversely, any distribution can be written in Boltzmann form by defining its energy as $-k_BT \ln p$ ([[@bmsb2012ch1#^c8]], p. 29; [[@bmsb2012ch2#^c2]], Eq. 2.3, p. 3). Such an "energy" is a statistical quantity unless the distribution is a physical equilibrium one ([[knowledge-based potential]]).
+
 ## Assumptions and limits
 
 - The system is at equilibrium at fixed $T$ (canonical ensemble).
 - In practice $U(x)$ is an approximate force field, so the "Boltzmann prior" of a simulation inherits force-field error.
-- BMSB uses $\beta = 1/k_BT$. The thesis writes $1/k_BT$ explicitly, because $\beta_C$ and $\beta_H$ already use $\beta$ ([[2026-10-13 canonical HDX and ensemble notation]]).
+- In structure determination, the force field's Boltzmann distribution serves as the prior over structures ([[@bmsb2012ch12#^c13]], Eq. 12.7, p. 8; [[inverse problem]]).
+- BMSB uses $\beta = 1/k_BT$, and $E$ for the energy ([[@bmsb2012ch3#Notation]], [[@bmsb2012ch1#Notation]]). The thesis writes $1/k_BT$ explicitly, because $\beta_C$ and $\beta_H$ already use $\beta$ ([[2026-10-13 canonical HDX and ensemble notation]]).
 
 ## Why it matters here
 

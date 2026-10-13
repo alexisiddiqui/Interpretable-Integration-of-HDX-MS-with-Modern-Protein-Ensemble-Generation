@@ -29,6 +29,8 @@ sources:
   - "[[@bradshawInterpretationHDXData2020#^c18]]"
   - "[[@bradshawInterpretationHDXData2020#^c19]]"
   - "[[@bradshawInterpretationHDXData2020#^c11]]"
+  - "[[@bmsb2012ch1#^c7]]"
+  - "[[@bmsb2012ch13#^c5]]"
 ---
 
 ## Definition
@@ -77,7 +79,10 @@ Manuscript form: projects/1-ValDX/manuscript/report/6_methods_omc.tex#L418 (as $
 
 ## Assumptions and limits
 
-- Reweighting can only redistribute weight among states the prior contains.
+- Reweighting can only redistribute weight among states the prior contains. It is [[importance sampling]] from the prior, with the same overlap and effective-sample-size limits.
+- The Boltzmann distribution is itself the maximum-entropy distribution under a single average-energy constraint ([[@bmsb2012ch1#^c7]], p. 28; [[Boltzmann distribution]], derivation).
+- In SAXS, MaxEnt is used as a regulariser with a prior estimate ([[@bmsb2012ch13#^c5]], Eq. 13.16), which is the same relative-entropy prior ([[regularisation]], step 4).
+- Constraining a whole coarse-grained marginal instead of a few averages turns the MaxEnt solution into the [[reference ratio method]] (step 6 there).
 - Exact constraints overfit noisy data. Errors must enter through $\rho_\text{err}$ or a regulariser ([[@cesariUsingMaximumEntropy2018#^c2]]).
 - The linear bias is in the forward-model features $q_i$, so forward-model error is absorbed into the weights.
 

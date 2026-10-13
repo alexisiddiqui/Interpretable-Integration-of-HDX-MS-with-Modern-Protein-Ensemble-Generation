@@ -6,6 +6,7 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 
 | Symbol | Meaning | Units | Defined in | Written in sources |
 |---|---|---|---|---|
+| $B_{12}$ | Bayes factor of model 1 against model 2 | — | [[Bayes' theorem]] | — |
 | $D_\text{KL}$ | Kullback–Leibler divergence of a posterior from its prior | — | [[Kullback–Leibler divergence]] | — |
 | $D_\text{corr}$ | back-exchange corrected fractional deuterium level | — | [[deuterium uptake]] | — |
 | $D_i(t)$ | fractional deuterium uptake of residue i at labelling time t | — | [[deuterium uptake]] | — |
@@ -15,6 +16,11 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $K_\text{op}$ | opening equilibrium constant, k_op / k_cl | — | [[Linderstrøm–Lang model]] | — |
 | $N_C(i,j)$ | heavy atoms within 6.5 Å of the amide N of residue i in conformer j, excluding residues i-2 to i+2 | — | [[Best–Vendruscolo model]] | — |
 | $N_H(i,j)$ | hydrogen bonds to the amide H of residue i in conformer j | — | [[Best–Vendruscolo model]] | — |
+| $N_g$ | number of good parameters: parameter directions determined by the data | — | [[regularisation]] | — |
+| $P(\xi)$ | marginal of the target distribution on the coarse-grained variable xi | — | [[knowledge-based potential]] | — |
+| $P(x)$ | target distribution over conformations | — | [[importance sampling]] | — |
+| $P^*(\xi)$ | target distribution of the coarse-grained variable xi | — | [[reference ratio method]] | — |
+| $P_0(\xi)$ | marginal of the prior on the coarse-grained variable xi | — | [[reference ratio method]] | — |
 | $P_0(x)$ | prior distribution over conformations | — | [[maximum entropy principle]] | — |
 | $P_\text{ME}(x)$ | maximum-entropy posterior distribution over conformations | — | [[maximum entropy principle]] | — |
 | $P_{f,i}$ | protection factor of residue i | — | [[protection factor]] | — |
@@ -25,12 +31,27 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $U(x)$ | potential energy of conformation x | kJ mol^-1 | [[Boltzmann distribution]] | — |
 | $W_\text{app}$ | apparent work of reweighting | kJ mol^-1 | [[maximum entropy principle]] | — |
 | $Z$ | configurational partition function | — | [[Boltzmann distribution]] | — |
+| $\Delta F(\xi)$ | free energy along xi relative to a reference state | kJ mol^-1 | [[knowledge-based potential]] | — |
 | $\Delta G_\text{op}$ | free energy of the opening reaction | kJ mol^-1 | [[protection factor]] | — |
 | $\beta_C$ | BV coefficient for heavy-atom contacts | — | [[Best–Vendruscolo model]] | — |
 | $\beta_H$ | BV coefficient for amide hydrogen bonds | — | [[Best–Vendruscolo model]] | — |
+| $\chi^2$ | sum of squared residuals, each divided by its error variance | — | [[regularisation]] | — |
+| $\gamma$ | weight of the data term relative to the prior | — | [[nuisance parameter]] | — |
+| $\hat P(x)$ | reference-ratio distribution over conformations | — | [[reference ratio method]] | — |
 | $\lambda_i$ | Lagrange multiplier for the i-th constraint | — | [[maximum entropy principle]] | — |
+| $\mathcal{M}$ | a model or hypothesis under comparison | — | [[Bayes' theorem]] | — |
+| $\mathcal{Q}(x' \mid x)$ | proposal distribution of a Monte Carlo move from x to x' | — | [[Markov chain Monte Carlo]] | — |
+| $\mathcal{R}$ | regularisation functional | — | [[regularisation]] | — |
+| $\mathcal{T}(x' \mid x)$ | Markov-chain transition probability from x to x' | — | [[Markov chain Monte Carlo]] | — |
+| $\mu_k$ | k-th eigenvalue of the curvature (Hessian) of chi^2/2 | — | [[regularisation]] | — |
 | $\nabla_x \log p_\tau(x)$ | score of the marginal density at diffusion time tau | — | [[diffusion model]] | — |
+| $\rho_\text{err}$ | error model: probability of a measured value given its prediction | — | [[forward model]] | — |
+| $\sigma_i$ | error scale (standard deviation) of observable i | — | [[forward model]] | — |
 | $\tau$ | diffusion time, from data (0) to noise (1) | — | [[diffusion model]] | — |
+| $\theta$ | forward-model parameters | — | [[forward model]] | — |
+| $\tilde P(\xi)$ | reference-state distribution of xi | — | [[knowledge-based potential]] | — |
+| $\xi(x)$ | coarse-grained variable of conformation x | — | [[knowledge-based potential]], [[reference ratio method]] | — |
+| $a(x' \mid x)$ | Metropolis–Hastings acceptance probability of a move from x to x' | — | [[Markov chain Monte Carlo]] | — |
 | $f(x,\tau)$ | drift of the forward diffusion SDE | — | [[diffusion model]] | — |
 | $g(\tau)$ | diffusion coefficient of the forward SDE | — | [[diffusion model]] | — |
 | $k_B$ | Boltzmann constant | J K^-1 | [[Boltzmann distribution]] | — |
@@ -42,8 +63,13 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $k_\text{op}$ | opening rate constant of an amide | s^-1 | [[Linderstrøm–Lang model]] | — |
 | $k_\text{water}$ | rate constant for water-catalysed exchange | s^-1 | [[intrinsic exchange rate]] | — |
 | $m_a$ | mass of atom a | g mol^-1 | [[molecular dynamics]] | — |
+| $n_\text{exp}(\xi)$ | count of xi expected in the reference state | — | [[knowledge-based potential]] | — |
+| $n_\text{obs}(\xi)$ | observed count of xi in a structure database | — | [[knowledge-based potential]] | — |
+| $p(s^\text{exp} \mid \mathcal{M})$ | evidence (marginal likelihood) of model M | — | [[Bayes' theorem]] | — |
 | $q_i(j)$ | BV feature (predicted ln protection) of residue i in conformer j | — | [[Best–Vendruscolo model]] | — |
+| $s^\text{exp}$ | all measured values (the data) | — | [[Bayes' theorem]] | — |
 | $s_i(x)$ | i-th constrained observable as a function of conformation | — | [[maximum entropy principle]] | — |
+| $s_i(x;\theta)$ | forward-model prediction of observable i for conformation x and forward-model parameters theta | — | [[forward model]] | — |
 | $s_i^\text{exp}$ | experimental value of the i-th constrained observable | — | [[maximum entropy principle]] | — |
 | $t$ | labelling time | s | [[deuterium uptake]] | — |
 | $w_j$ | weight of conformer j in the reweighted ensemble | — | [[maximum entropy principle]] | — |

@@ -14,6 +14,9 @@ sources:
   - "[[@cesariUsingMaximumEntropy2018#^c12]]"
   - "[[@cesariUsingMaximumEntropy2018#^c9]]"
   - "[[@bradshawInterpretationHDXData2020#^c11]]"
+  - "[[@bmsb2012ch4#^c3]]"
+  - "[[@bmsb2012ch13#^c5]]"
+  - "[[@bmsb2012ch12#^c19]]"
 ---
 
 ## Definition
@@ -36,6 +39,8 @@ Manuscript form: projects/2-jaxENT/manuscript/report/methods/general_procedures.
 ## Assumptions and limits
 
 - The prior must be non-zero wherever the posterior is: reweighting cannot create states the prior lacks. A small $D_\text{KL}$ can therefore hide a missing state, which ValDX's Work Done metrics are designed to expose.
+- **Direction.** $D_\text{KL}$ is not symmetric, so always state which distribution comes first. MaxEnt reweighting minimises $D_\text{KL}(P \Vert P_0)$. The reference ratio method is proved optimal for $D_\text{KL}(P_0 \Vert P)$ ([[@bmsb2012ch4#^c3]], Theorem 4.2). Under a full-marginal constraint the two directions agree ([[reference ratio method]], step 5).
+- **Three places it appears.** As the prior side of reweighting (above). As the maximum-entropy regulariser of SAXS, which is a generalised KL divergence to a prior estimate ([[@bmsb2012ch13#^c5]]; [[regularisation#^eq-maxent-regulariser]]). And on the likelihood side: maximum likelihood minimises the cross-entropy, or equivalently the KL divergence, between the empirical distribution of the data and the model ([[@bmsb2012ch12#^c19]], Eqs. 12.5–12.6, p. 7).
 - The divergence is measured in weight space, not structure space. Two ensembles with similar $D_\text{KL}$ can differ greatly in structure.
 
 ## Why it matters here
