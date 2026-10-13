@@ -23,8 +23,4 @@ Biancaniello et al. used replica-averaged MD simulations restrained with NMR che
 
 ## Caveats
 
-The other cited paper, Lee et al., is an HDXer tutorial with no passage on NMR chemical shifts and is likely a mis-citation.
-
-## Unverified citations
-
-- [[@leeInterpretingHydrogenDeuteriumExchange2021]]: no passage supporting this claim found
+The manuscript also cited Lee et al. (2021), an HDXer tutorial with no passage on NMR chemical shifts. That citation was removed from the manuscript as unsupported.

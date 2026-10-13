@@ -7,8 +7,8 @@ confidence: low
 status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/connect_simulation_experiment.tex#L95
 source_state: current
-needs_review: true
-review_reason: Support is partial or indirect
+needs_review: false
+review_reason:
 figures: []
 cites:
   - "[[@cesariUsingMaximumEntropy2018#^c2]]"

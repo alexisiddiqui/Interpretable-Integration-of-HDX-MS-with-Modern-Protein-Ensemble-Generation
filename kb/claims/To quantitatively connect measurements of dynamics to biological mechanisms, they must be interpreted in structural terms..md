@@ -7,8 +7,8 @@ confidence: medium
 status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/connect_simulation_experiment.tex#L87
 source_state: current
-needs_review: true
-review_reason: Support is partial or indirect
+needs_review: false
+review_reason:
 figures: []
 cites:
   - "[[@leeInterpretingHydrogenDeuteriumExchange2021#^c3]]"
