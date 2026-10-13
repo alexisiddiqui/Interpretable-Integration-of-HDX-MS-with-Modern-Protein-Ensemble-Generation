@@ -18,7 +18,7 @@ code: []
 
 ## Argument
 
-Sutto and Gervasio find the T790M resistance mutation in EGFR acts by stabilizing the active conformation rather than by blocking the drug site, and Lisi and Loria describe a PKA mutation that leaves structure intact but changes catalysis.
+Sutto and Gervasio find the T790M resistance mutation in EGFR acts by [[population shift|stabilizing the active conformation]] rather than by blocking the drug site, and Lisi and Loria describe a PKA mutation that leaves structure intact but changes catalysis.
 
 ## Caveats
 

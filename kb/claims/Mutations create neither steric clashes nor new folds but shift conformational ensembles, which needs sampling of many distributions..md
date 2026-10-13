@@ -18,7 +18,7 @@ code: []
 
 ## Argument
 
-Lisi and Loria describe a PKA mutation that leaves the crystal structure and NMR shifts nearly unchanged but disrupts catalysis, and IGPS activation driven by millisecond dynamics without large structural rearrangements.
+Lisi and Loria describe a PKA mutation that leaves the crystal structure and NMR shifts nearly unchanged but disrupts catalysis, and IGPS activation driven by millisecond [[protein dynamics|dynamics]] without large structural rearrangements.
 
 ## Caveats
 

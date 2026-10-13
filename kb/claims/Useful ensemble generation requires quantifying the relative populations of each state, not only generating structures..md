@@ -18,7 +18,7 @@ code: []
 
 ## Argument
 
-Cesari et al. note that bulk experiments average over heterogeneous structures that contribute with different weights, and Köfinger et al. show reweighting of an [[ensemble reweighting]] kind changing conformer populations of a simulated ensemble.
+Cesari et al. note that bulk experiments average over heterogeneous structures that contribute with different weights, and Köfinger et al. show reweighting of an [[ensemble reweighting]] kind changing [[population shift|conformer populations]] of a simulated ensemble.
 
 ## Caveats
 

@@ -20,7 +20,7 @@ code: []
 
 ## Argument
 
-Hummer and Koefinger say dynamic and partially disordered systems play central roles in biology and disease, Lee et al. note that single structures underuse the information in HDX measurements, Lisi and Loria say allostery has an expanding role in disease and drug discovery, and Karplus and McCammon say the view of proteins as rigid structures has been replaced by a dynamic model in which internal motions and conformational changes are essential to function.
+Hummer and Koefinger say dynamic and partially disordered systems play central roles in biology and disease, Lee et al. note that single structures underuse the information in HDX measurements, Lisi and Loria say [[allostery]] has an expanding role in disease and drug discovery, and Karplus and McCammon say the view of proteins as rigid structures has been replaced by a dynamic model in which internal motions and conformational changes are essential to function.
 
 ## Caveats
 

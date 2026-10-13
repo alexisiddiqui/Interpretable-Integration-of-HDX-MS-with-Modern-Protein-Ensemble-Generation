@@ -17,7 +17,7 @@ code: []
 
 ## Argument
 
-Fisher and Stultz say [[intrinsically disordered protein]]s have relatively flat energy landscapes and so sample a large, diverse set of conformations at room temperature.
+Fisher and Stultz say [[intrinsically disordered protein]]s have relatively flat [[conformational free-energy landscape|energy landscapes]] and so sample a large, diverse set of conformations at room temperature.
 
 ## Caveats
 

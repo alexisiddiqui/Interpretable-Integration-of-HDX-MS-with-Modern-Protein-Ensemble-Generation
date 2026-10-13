@@ -18,7 +18,7 @@ code: []
 
 ## Argument
 
-Sutto and Gervasio find all mutants shift toward the active conformation and L858R rigidifies the alphaC-helix.
+Sutto and Gervasio find all mutants [[population shift|shift]] toward the active conformation and L858R rigidifies the alphaC-helix.
 
 ## Caveats
 

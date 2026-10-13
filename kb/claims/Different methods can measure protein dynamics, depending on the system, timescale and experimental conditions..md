@@ -17,7 +17,7 @@ code: []
 
 ## Argument
 
-Kleckner and Foster say protein conformational changes span a broad range of timescales and can be studied with a variety of [[NMR]] methods.
+Kleckner and Foster say [[protein dynamics|protein conformational changes]] span a broad range of timescales and can be studied with a variety of [[NMR]] methods.
 
 ## Caveats
 

@@ -37,6 +37,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "these contacts may be associated with important functional properties"
   - quote_check: pass
   - reviewed: false
+- The probability of each conformation a protein adopts is determined by the topography of its underlying energy landscape. ^c4
+  - page: 1
+  - quote: "where the probability of each conformation is determined by the topography of the underlying energy landscape"
+  - quote_check: pass
+  - reviewed: false
+- Folded proteins have energy landscapes with a well-defined global energy minimum. ^c5
+  - page: 1
+  - quote: "Folded proteins exhibit energy landscapes that have a well-defined global energy minimum"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

@@ -17,7 +17,7 @@ code: []
 
 ## Argument
 
-Lisi and Loria say allostery, which depends on dynamics, remains largely uncharacterized in most biological systems.
+Lisi and Loria say [[allostery]], which depends on [[protein dynamics|dynamics]], remains largely uncharacterized in most biological systems.
 
 ## Caveats
 

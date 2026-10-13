@@ -42,6 +42,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "it reshapes the free-energy landscape in a complex manner"
   - quote_check: pass
   - reviewed: false
+- Changes in the equilibrium between EGFR's active and inactive conformations have been linked to its oncogenic potential. ^c5
+  - page: 1
+  - quote: "changes in the equilibrium between its active and inactive conformations are linked to its oncogenic potential"
+  - quote_check: pass
+  - reviewed: false
+- The oncogenic mutations alter the conformational free-energy landscape of EGFR kinase globally. ^c6
+  - page: 2
+  - quote: "the investigated oncogenic mutations alter the free-energy landscape in a global way"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

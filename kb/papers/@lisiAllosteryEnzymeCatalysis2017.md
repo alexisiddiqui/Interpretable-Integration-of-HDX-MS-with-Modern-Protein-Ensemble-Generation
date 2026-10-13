@@ -57,6 +57,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "in the absence of large structural rearrangements, IGPS activation is driven by millisecond dynamics that are essential for propagating the allosteric signal"
   - quote_check: pass
   - reviewed: false
+- Allostery is the mechanism by which chemical information is propagated between spatially distinct sites within a protein. ^c8
+  - page: 1
+  - quote: "Allostery, the mechanism by which chemical information is propagated between spatially distinct sites within a protein"
+  - quote_check: pass
+  - reviewed: false
+- Allostery in the PKA cAMP-binding domain operates by a conformational selection mechanism. ^c9
+  - page: 6
+  - quote: "allostery in the PKA cAMP binding domain operates by a conformational selection mechanism"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

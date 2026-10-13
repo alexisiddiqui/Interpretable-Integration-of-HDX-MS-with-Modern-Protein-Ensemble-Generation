@@ -18,7 +18,7 @@ code: []
 
 ## Argument
 
-Sutto and Gervasio computed the free-energy landscape of the EGFR kinase domain and found a clear shift toward the active conformation for all oncogenic mutants, with the double mutant reshaping the landscape in a complex manner.
+Sutto and Gervasio computed the [[conformational free-energy landscape|free-energy landscape]] of the EGFR kinase domain and found a clear [[population shift|shift]] toward the active conformation for all oncogenic mutants, with the double mutant reshaping the landscape in a complex manner.
 
 ## Caveats
 

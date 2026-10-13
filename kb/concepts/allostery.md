@@ -1,0 +1,21 @@
+---
+type: concept
+aliases:
+  - allosteric
+  - allosteric regulation
+notation: []
+sources:
+  - "[[@lisiAllosteryEnzymeCatalysis2017#^c8]]"
+  - "[[@lisiAllosteryEnzymeCatalysis2017#^c1]]"
+  - "[[@lisiAllosteryEnzymeCatalysis2017#^c7]]"
+---
+
+## Definition
+
+Allostery is the mechanism by which chemical information is propagated between spatially distinct sites within a protein, so binding at one site changes activity at another. Enzymes use dynamic allosteric pathways to transmit long-range binding information and control catalysis. In some systems, such as IGPS, activation is driven by millisecond motions without any large structural rearrangement.
+
+## Why it matters here
+
+Allostery is the standard example of function encoded in [[protein dynamics]] and [[population shift|state populations]] rather than in a single structure. Section 1.1 uses it to argue that static structures miss mechanisms.
+
+Claims that use this term: [[Static structures alone cannot explain many biological phenomena; dynamics underlie disease mechanisms and drug response.]], [[There is a persistent, critical gap in our ability to predict and understand protein dynamics.]], [[Linking fast molecular motions to slow pathological processes requires conformational dynamics that static structures cannot capture.]], [[Mutations create neither steric clashes nor new folds but shift conformational ensembles, which needs sampling of many distributions.]].

@@ -18,7 +18,7 @@ code: []
 
 ## Argument
 
-Lisi and Loria say enzymes rely on dynamic allosteric pathways that transmit information to control catalysis, and Hummer and Koefinger say experimental observables report on ensemble averages rather than single structures.
+Lisi and Loria say enzymes rely on dynamic [[allostery|allosteric]] pathways that transmit information to control catalysis, and Hummer and Koefinger say experimental observables report on ensemble averages rather than single structures.
 
 ## Caveats
 
