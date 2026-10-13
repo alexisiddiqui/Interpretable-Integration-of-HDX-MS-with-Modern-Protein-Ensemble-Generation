@@ -13,6 +13,8 @@ review_reason:
 
 ## Main point
 
+An overview of HDX-MS and its use in drug discovery and biopharmaceutical characterisation. It notes that the exchange equations are long established, while the molecular basis of protection is not fully settled.
+
 ## Claims
 
 <!-- One bullet per claim, ending in a block ID. page is the 1-based PDF page index.
@@ -46,7 +48,21 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "an aqueous measurement that is highly sensitive, requiring only minor amounts of protein"
   - quote_check: pass
   - reviewed: false
+- The intrinsic (chemical) exchange rate of an open amide is set by neighbouring residues, the residue itself, pH and temperature. ^c5
+  - page: 3
+  - quote: "governed by the steric and electrostatic effects of surrounding residues, the residue itself, the pH (or pD) of the solution, and the temperature"
+  - quote_check: pass
+  - reviewed: false
+- Although the exchange equations are long established, the exact molecular reasons why an amide exchanges at a given rate remain unclear. ^c6
+  - page: 4
+  - quote: "the exact molecular underpinnings determining why amide hydrogens exchange at a given rate are still not exactly clear"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
+
+- §1.2, what sets the rate: the intrinsic rate depends on neighbouring residues, the residue itself, pH and temperature (^c5).
+- §1.2, caution: why an amide exchanges at a given rate is still not exactly clear (^c6). So uptake reports protection, not "flexibility" directly.
+- §1.2, why it is useful: sensitivity and low sample needs (^c3, ^c4).
 
 ## Disagreements / limitations

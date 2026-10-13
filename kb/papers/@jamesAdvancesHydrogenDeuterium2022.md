@@ -13,6 +13,8 @@ review_reason:
 
 ## Main point
 
+A review of HDX-MS theory, methods and applications. It covers the chemistry that sets exchange rates, EX1 and EX2 kinetics, how deuterium shows up as a peptide mass shift, and the range of systems HDX-MS can study.
+
 ## Claims
 
 <!-- One bullet per claim, ending in a block ID. page is the 1-based PDF page index.
@@ -52,7 +54,17 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "have fallen behind advances in structureresolving techniques such as cryoEM"
   - quote_check: pass
   - reviewed: false
+- When reclosing is much faster than the chemical exchange rate (EX2), an amide opens many times before it becomes deuterated. ^c7
+  - page: 2
+  - quote: "the amide will have to undergo many opening motions before it becomes deuterated (EX2 kinetics)"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
+
+- §1.2, what is recorded: deuterium incorporation is a mass shift of about 1 Da per site, seen gradually at the peptide level under EX2 (^c3, ^c4).
+- §1.2, what sets the rate: under EX2 an amide opens many times before it exchanges (^c7).
+- §1.2, what HDX-MS cannot give: atomic positions (^c5).
+- §1.2, why it is useful: it applies to many systems too large, flexible, heterogeneous or sample-limited for other structural tools (^c2). Cite this, not "without size limits".
 
 ## Disagreements / limitations
