@@ -23,6 +23,19 @@
 - [[These methods can be sampled over specific CVs but are also compatible with generic dimensionality reduction techniques.]] (`claims/These methods can be sampled over specific CVs but are also compatible with generic dimensionality reduction techniques..md`)
 - [[With current models, most single-domain proteins can be predicted to near-experimental accuracy in hours on consumer-grade hardware.]] (`claims/With current models, most single-domain proteins can be predicted to near-experimental accuracy in hours on consumer-grade hardware..md`)
 
+## No PDF in Zotero; add kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto
+
+- [[@HydrogenExchangeProteins1966]] (`papers/@HydrogenExchangeProteins1966.md`)
+- [[@ReferenceParametersProtein]] (`papers/@ReferenceParametersProtein.md`)
+- [[@hvidtExchangeHydrogenAtoms1954]] (`papers/@hvidtExchangeHydrogenAtoms1954.md`)
+- [[@kimHydrogenExchangeIdentifies1993]] (`papers/@kimHydrogenExchangeIdentifies1993.md`)
+- [[@smithProbingNoncovalentStructure1997]] (`papers/@smithProbingNoncovalentStructure1997.md`)
+- [[@vendruscoloRareFluctuationsNative2003]] (`papers/@vendruscoloRareFluctuationsNative2003.md`)
+
+## PDF in Zotero has no readable text (damaged or scanned); add a text PDF as kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto
+
+- [[@parkEstimationHydrogenExchangeProtection2015]] (`papers/@parkEstimationHydrogenExchangeProtection2015.md`)
+
 ## Support is partial or indirect
 
 - [[Alpha-synuclein is an unfolded monomer, yet cryo-EM has solved its Lewy body fibril structures at atomic resolution.]] (`claims/Alpha-synuclein is an unfolded monomer, yet cryo-EM has solved its Lewy body fibril structures at atomic resolution..md`)
