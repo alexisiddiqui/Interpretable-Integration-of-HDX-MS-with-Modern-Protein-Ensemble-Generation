@@ -82,11 +82,67 @@ Why [[population shift|conformational populations]] matter for function and dise
 
 ## 1.2 Measuring Protein Dynamics
 
-**Thread for 1.2–1.5.** Sections 1.2 to 1.5 share one thread: HDX-MS constrains ensembles only through an indirect [[forward model]], so the inferred populations depend on the candidate ensemble, the forward model and their uncertainties. The grounding comes mainly from BMSB (Hamelryck et al. 2012) chapters 1–4, 12 and 13. Only the claims that carry this thread are listed so far. The section's other citations (Masson, Bradshaw, Lee, Karplus) are not yet assembled into claims.
+**Thread for 1.2–1.5.** Sections 1.2 to 1.5 share one thread: HDX-MS constrains ensembles only through an indirect [[forward model]], so the inferred populations depend on the candidate ensemble, the forward model and their uncertainties. The grounding for 1.3–1.5 comes mainly from BMSB (Hamelryck et al. 2012) chapters 1–4, 12 and 13.
 
-[[HDX-MS]] reports on structure only through a model of exchange, which makes its interpretation an [[inverse problem]].
-- [[HDX-MS reports deuterium uptake at the peptide level, not the residue level.]]
+§1.2 says what [[HDX-MS]] measures and where measurement ends and structural inference begins. It does this in six steps. Exchange theory stays in Chapter 2 (see below).
+
+**1. What is recorded.** Backbone amides exchange with solvent deuterium, and MS reads this as a mass increase of peptides over labelling time ([[deuterium uptake]]).
+- [[Different methods can measure protein dynamics, depending on the system, timescale and experimental conditions.]]
+- [[HDX-MS measures protein conformational dynamics in solution.]] (supported)
+- [[HDX-MS measures the exchange of backbone amide hydrogens with deuterium in the solvent.]] (supported)
+- [[Measuring the mass increase of peptides over time lets HDX-MS report on protein dynamics and conformational changes.]] (supported)
+
+**2. What sets the rate.** Intrinsic chemistry ([[intrinsic exchange rate]]) and local protection from hydrogen bonding, burial and transient opening ([[Linderstrøm–Lang model]], [[protection factor]]).
+- [[Amide exchange rates depend on intrinsic chemistry and on local protection from hydrogen bonding, burial and transient opening.]] (supported)
+- [[Under EX2 an amide opens and closes many times before it exchanges, so the observed rate combines intrinsic chemistry with the opening equilibrium.]] (supported)
+- [[The HDX rate depends on the local environment of the amide hydrogen, with more exposed and flexible regions exchanging faster.]] (supported; read it with the second caution in group 4)
+
+**3. What the readout resolves.** Overlapping peptides, not residues or atoms.
+- [[HDX-MS reports deuterium uptake at the peptide level, not the residue level.]] (supported)
+- [[HDX-MS data alone do not give the atomic positions that NMR, crystallography and cryo-EM provide.]] (supported)
+
+**4. Why interpretation is ambiguous.** Different local environments or populations can give the same uptake. A change in uptake shows a change in protection, not a mechanism. Two cautions follow.
+- [[A change in HDX-MS uptake shows a change in protection but does not on its own identify the structural mechanism.]] (supported)
 - [[Interpreting dynamics measurements in structural terms is a grand challenge, as they can be indirect or ensemble-averaged.]]
+- [[Greater deuterium uptake indicates less protection from exchange, not directly greater flexibility.]] (partial)
+- [[Labelling time measures accumulated exchange, not the duration of a conformational motion.]] (partial)
+- [[Ensembles have far more degrees of freedom than observables, so any single data source leaves them underdetermined.]] (partial). The general form is in §1.5: [[Many ensembles can explain the same data, given complex conformational landscapes and simple structure-experiment models.]]
+
+**5. Why it is useful.** Keep this to a sentence or two.
+- [[HDX-MS can study many systems that are too large, flexible, heterogeneous or sample-limited for other structural tools.]] (supported)
+- [[The primary benefits of HDX-MS are sensitivity, flexibility and low sample needs compared with other biophysical techniques.]]
+- [[HDX-MS flexibility and increasing throughput make it well suited to challenging targets such as GPCRs, antibodies and IDPs.]]
+- Optional example: [[Millisecond HDX-MS showed tau hyperphosphorylation releases the global fold and exposes the aggregation-prone H2 region.]] (supported)
+
+**6. Handoff to §1.3–1.4.** Connecting uptake to structure needs a model that predicts exchange from candidate structures ([[forward model]]), which makes interpretation an [[inverse problem]].
+- [[To quantitatively connect measurements of dynamics to biological mechanisms, they must be interpreted in structural terms.]]
+- [[Connecting uptake to a structural explanation requires a forward model that predicts exchange from candidate structures or ensembles.]] (supported)
+- [[Predicted protection factors are transformed into theoretical deuterium uptake for direct comparison with HDX-MS data.]] (supported)
+- [[To address this ambiguity, researchers increasingly turn to molecular simulations for structural hypotheses.]] (partial)
+
+**Drafting sources.**
+- ValDX intro: `projects/1-ValDX/manuscript/report/1_introduction_omc.tex` L8 (scope and targets) and L14 (peptide-level ambiguity).
+- ValDX theory: `2_hdx_theory_omc.tex` L5 (local environment and intrinsic rate) and L9 (labelling time).
+- jaxENT intro: `milestones/2025-11-confirmation-of-status/jaxENT_paper1/report/introduction.tex` L4 (inverse problem).
+- Confirmation: `milestones/2025-11-confirmation-of-status/introduction/measuring_dynamics.tex` L9–11, a plain-language description and benefits. Its NMR and SAXS paragraphs are broader than §1.2 needs.
+
+**Kept for Chapter 2:**
+- intrinsic-rate equations ([[intrinsic exchange rate]]);
+- EX1/EX2 kinetics ([[Linderstrøm–Lang model]]);
+- $P_f$ and $\Delta G_\text{op}$ ([[protection factor]]);
+- back-exchange and peptide averaging ([[deuterium uptake]]);
+- the [[Best–Vendruscolo model]].
+
+**Wording to avoid:**
+- "chemical potential" for $P_f$ (confirmation `measuring_dynamics.tex` L22). $P_f$ is a ratio of rates ([[protection factor]]).
+- "without size limitations" (ValDX intro L8). Use the group 5 claim; [[Orthogonal to X-ray, cryo-EM and NMR, HDX-MS probes without size limits and uniquely unravels dynamics in diverse conditions.]] is flagged for review.
+
+### Gaps (1.2)
+- The two cautions are inferred, not stated by a source:
+  - [[Greater deuterium uptake indicates less protection from exchange, not directly greater flexibility.]]
+  - [[Labelling time measures accumulated exchange, not the duration of a conformational motion.]]
+  - Either find a source that states each one, or present it as the thesis's own reading of EX2 kinetics.
+- Masson (2017, 2019), Narang, Vinciauskaite, James, Lee, Englander and Skinner are all still `read: false`. Their quotes pass the lint, but check the papers before relying on finer points.
 
 ## 1.3 Estimating Protein Dynamics
 
@@ -114,7 +170,7 @@ A good fit does not make the inferred populations unique ([[inverse problem]], i
 BMSB ch13's quantitative results (Shannon channels, number of good parameters) are specific to SAXS and SANS. Cite them as an example of low-information data, not as facts about HDX-MS.
 
 ### Gaps (1.2–1.5)
-- The generated-diversity sentence (`01-introduction.tex`, L118) has no citation. BMSB ch2 supports the sampling half of it; consider `\supercite{bmsb2012ch2}`.
+- The generated-diversity sentence had no citation in the earlier draft. If it returns, BMSB ch2 supports the sampling half of it; consider `\supercite{bmsb2012ch2}`.
 - The generator-distribution claim needs a source on learned generators. BMSB's example is a local fragment model (TORUSDBN).
 - The nuisance-parameter claim needs a passage showing a changed structural conclusion: Habeck Fig. 12.10 (pp. 22–23) or Hansen Fig. 13.8.
 - BMSB chapters 5–11 (statistical-potential learning, directional statistics, alignment, local structure models, side chains) are not yet used. They are background or methods material if needed.

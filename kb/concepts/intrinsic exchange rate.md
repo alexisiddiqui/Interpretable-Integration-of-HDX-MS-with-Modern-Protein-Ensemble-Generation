@@ -51,3 +51,5 @@ Manuscript form: none. **Gap:** no manuscript applies a temperature correction.
 ## Why it matters here
 
 $k_{\text{int},i}$ is the reference against which every [[protection factor]] is measured, and it enters every [[deuterium uptake]] prediction. An error here propagates to every residue regardless of the structural ensemble. This is one reason forward-model error and ensemble error are hard to separate.
+
+Claims that use this term: [[Amide exchange rates depend on intrinsic chemistry and on local protection from hydrogen bonding, burial and transient opening.]].

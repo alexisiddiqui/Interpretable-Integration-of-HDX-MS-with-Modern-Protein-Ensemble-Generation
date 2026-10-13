@@ -20,6 +20,8 @@ sources:
   - "[[@skinnerProteinHydrogenExchange2012#^c5]]"
   - "[[@englanderHydrogenExchangeModern1997#^c1]]"
   - "[[@englanderHydrogenExchangeModern1997#^c2]]"
+  - "[[@jamesAdvancesHydrogenDeuterium2022#^c7]]"
+  - "[[@vinciauskaiteFundamentalsHDXMS2023#^c4]]"
 ---
 
 ## Definition
@@ -45,7 +47,7 @@ Manuscript form: jaxENT_paper1/report/methods/HDX.tex#L21 drops $k_\text{op}$ fr
 $$ \text{EX2 } (k_\text{cl} \gg k_{\text{int},i},\ k_\text{cl} \gg k_\text{op}):\quad k_{\text{obs},i} \approx K_\text{op}\, k_{\text{int},i}, \qquad K_\text{op} = \frac{k_\text{op}}{k_\text{cl}} $$
 ^eq-ex2
 
-Source: [[@skinnerProteinHydrogenExchange2012#^c3]], Eq. (2), p. 8; [[@englanderHydrogenExchangeModern1997#^c2]], p. 2.
+Source: [[@skinnerProteinHydrogenExchange2012#^c3]], Eq. (2), p. 8; [[@englanderHydrogenExchangeModern1997#^c2]], p. 2. In words, an EX2 amide opens many times before it exchanges ([[@jamesAdvancesHydrogenDeuterium2022#^c7]], p. 2), and each opening is only a chance to exchange ([[@vinciauskaiteFundamentalsHDXMS2023#^c4]], p. 3).
 Manuscript form: jaxENT_paper1/report/methods/HDX.tex#L31.
 
 $$ \text{EX1 } (k_{\text{int},i} \gg k_\text{cl}):\quad k_{\text{obs},i} \approx k_\text{op} $$
@@ -71,3 +73,5 @@ Manuscript form: jaxENT_paper1/report/methods/HDX.tex (EX1 paragraph after L37).
 ## Why it matters here
 
 Every structure-to-uptake model in the thesis assumes EX2. This note is where that assumption and its limits are stated, before [[protection factor|protection factors]] and [[deuterium uptake]] build on it.
+
+Claims that use this term: [[Under EX2 an amide opens and closes many times before it exchanges, so the observed rate combines intrinsic chemistry with the opening equilibrium.]], [[Labelling time measures accumulated exchange, not the duration of a conformational motion.]].

@@ -42,10 +42,11 @@ Manuscript form: 2_hdx_theory_omc.tex#L11 (writes $\Delta G_\text{open} \approx 
 ## Assumptions and limits
 
 - The free-energy reading holds only in EX2, and only for the opening that limits exchange of that amide. It is not a barrier height.
+- $P_f$ is a ratio of rate constants, and it is dimensionless. It is not a "chemical potential", the wording in the confirmation draft (`milestones/2025-11-confirmation-of-status/introduction/measuring_dynamics.tex#L22`); do not carry that wording forward. Only $RT \ln P_f$ has energy units, and only under EX2 is it the free energy of opening.
 - Protection factors are residue-level, but HDX-MS measures peptides. Going back from peptide uptake to residue $P_f$ is underdetermined (see [[deuterium uptake]]).
 
 ## Why it matters here
 
 $P_f$ is the quantity a structural forward model predicts ([[Best–Vendruscolo model]]) and the hinge between structure and [[deuterium uptake]]. It is also the level at which ValDX's Work Done metrics are computed. Those metrics are ValDX method notes, not this concept.
 
-Claims that use this term: [[The Best-Vendruscolo model predicts protection factors from coordinates by counting structural features that impede exchange.]], [[Predicted protection factors are transformed into theoretical deuterium uptake for direct comparison with HDX-MS data.]].
+Claims that use this term: [[The Best-Vendruscolo model predicts protection factors from coordinates by counting structural features that impede exchange.]], [[Predicted protection factors are transformed into theoretical deuterium uptake for direct comparison with HDX-MS data.]], [[Amide exchange rates depend on intrinsic chemistry and on local protection from hydrogen bonding, burial and transient opening.]], [[Greater deuterium uptake indicates less protection from exchange, not directly greater flexibility.]].

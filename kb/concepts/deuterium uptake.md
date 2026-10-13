@@ -18,11 +18,14 @@ sources:
   - "[[@bradshawInterpretationHDXData2020#^c5]]"
   - "[[@massonRecommendationsPerformingInterpreting2019#^c2]]"
   - "[[@massonRecommendationsPerformingInterpreting2019#^c3]]"
+  - "[[@vinciauskaiteFundamentalsHDXMS2023#^c5]]"
+  - "[[@jamesAdvancesHydrogenDeuterium2022#^c7]]"
+  - "[[@vinciauskaiteFundamentalsHDXMS2023#^c4]]"
 ---
 
 ## Definition
 
-Deuterium uptake is the fraction of exchangeable amide hydrogens replaced by deuterium after a labelling time $t$. For one residue under EX2, uptake follows first-order kinetics at the observed rate $k_{\text{int},i}/P_{f,i}$. HDX-MS measures peptides, so the observable is an average over the peptide's exchangeable residues. Prolines are excluded, and so is the first residue, whose N-terminal hydrogens are lost after digestion. Measured uptake is normalised to non-deuterated and maximally deuterated controls, to correct for the D₂O fraction and for back-exchange during analysis.
+Deuterium uptake is the fraction of exchangeable amide hydrogens replaced by deuterium after a labelling time $t$. For one residue under EX2, uptake follows first-order kinetics at the observed rate $k_{\text{int},i}/P_{f,i}$. HDX-MS measures peptides, typically overlapping fragments of 5–30 residues ([[@vinciauskaiteFundamentalsHDXMS2023#^c5]]), so the observable is an average over the peptide's exchangeable residues. Prolines are excluded, and so is the first residue, whose N-terminal hydrogens are lost after digestion. Measured uptake is normalised to non-deuterated and maximally deuterated controls, to correct for the D₂O fraction and for back-exchange during analysis.
 
 ## Equations
 
@@ -48,6 +51,7 @@ Manuscript form: jaxENT_paper1/report/methods/HDX.tex#L117 and #L123 ($f_\text{b
 
 - EX2 is assumed for every residue (see [[Linderstrøm–Lang model]]).
 - Residues are independent within a peptide.
+- Labelling time $t$ measures accumulated exchange, not the duration of a conformational motion. Under EX2 an amide opens many times before it exchanges, and each opening is only a chance to exchange ([[@jamesAdvancesHydrogenDeuterium2022#^c7]], [[@vinciauskaiteFundamentalsHDXMS2023#^c4]]). Slow uptake can therefore mean rarely populated exchange-competent states rather than a slow motion (ours). The data constrain $k_{\text{obs},i}$ most where $k_{\text{obs},i}\, t \sim 1$.
 - Averaging over residues is many-to-one: different residue-level patterns give the same peptide curve. This is the resolution limit behind the reweighting ambiguity ([[@bradshawInterpretationHDXData2020#^c5]]).
 - Comparing predictions with uptake that is not corrected for back-exchange biases the fitted scale.
 
@@ -55,4 +59,4 @@ Manuscript form: jaxENT_paper1/report/methods/HDX.tex#L117 and #L123 ($f_\text{b
 
 This is the forward model's last step, from predicted [[protection factor|protection factors]] to the numbers HDX-MS reports. Its averaging is why overlapping peptides leak information between training and validation splits in ValDX.
 
-Claims that use this term: [[Predicted protection factors are transformed into theoretical deuterium uptake for direct comparison with HDX-MS data.]], [[HDX-MS reports deuterium uptake at the peptide level, not the residue level.]], [[Measuring the mass increase of peptides over time lets HDX-MS report on protein dynamics and conformational changes.]].
+Claims that use this term: [[Predicted protection factors are transformed into theoretical deuterium uptake for direct comparison with HDX-MS data.]], [[HDX-MS reports deuterium uptake at the peptide level, not the residue level.]], [[Measuring the mass increase of peptides over time lets HDX-MS report on protein dynamics and conformational changes.]], [[Labelling time measures accumulated exchange, not the duration of a conformational motion.]], [[Greater deuterium uptake indicates less protection from exchange, not directly greater flexibility.]].
