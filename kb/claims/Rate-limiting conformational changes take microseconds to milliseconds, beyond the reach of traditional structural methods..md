@@ -18,7 +18,7 @@ code: []
 
 ## Argument
 
-Lane et al. say protein folding needs resolution beyond the limits of most experimental techniques, and Biancaniello et al. say X-ray crystallography, NMR and cryo-EM cannot capture dynamic intermediate species.
+Lane et al. say protein folding needs resolution beyond the limits of most experimental techniques, and Biancaniello et al. say [[X-ray crystallography]], NMR and [[cryo-EM]] cannot capture dynamic intermediate species.
 
 ## Caveats
 

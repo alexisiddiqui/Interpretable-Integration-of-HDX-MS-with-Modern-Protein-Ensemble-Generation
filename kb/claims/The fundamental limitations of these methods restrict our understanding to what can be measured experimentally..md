@@ -17,7 +17,7 @@ code: []
 
 ## Argument
 
-Lisi and Loria say the distinct crystal structures of PKA are now accepted as time-averaged snapshots of a structural ensemble, which hints at a limit of crystallography.
+Lisi and Loria say the distinct [[X-ray crystallography|crystal structures]] of PKA are now accepted as time-averaged snapshots of a structural ensemble, which hints at a limit of crystallography.
 
 ## Caveats
 

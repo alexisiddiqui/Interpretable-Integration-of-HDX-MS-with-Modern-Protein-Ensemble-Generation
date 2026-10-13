@@ -20,7 +20,7 @@ code: []
 
 ## Argument
 
-Maveyraud and Mourey name X-ray crystallography, NMR and cryo-EM as the main structure-determination tools, and James et al. describe them as giving exact atomic positions and cryo-EM as having advanced. Bai et al. say cryo-EM resolution is now beginning to rival X-ray crystallography, thanks to recent advances in electron detection and image processing.
+Maveyraud and Mourey name [[X-ray crystallography]], [[NMR]] and [[cryo-EM]] as the main structure-determination tools, and James et al. describe them as giving exact atomic positions and cryo-EM as having advanced. Bai et al. say cryo-EM resolution is now beginning to rival X-ray crystallography, thanks to recent advances in electron detection and image processing.
 
 ## Caveats
 

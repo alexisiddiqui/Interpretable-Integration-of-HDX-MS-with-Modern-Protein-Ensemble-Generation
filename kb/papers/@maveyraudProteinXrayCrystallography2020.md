@@ -27,6 +27,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "but nuclear magnetic resonance (NMR) and, more recently, cryo-electron microscopy (cryo-EM) are also important players in the field"
   - quote_check: pass
   - reviewed: false
+- In X-ray crystallography, a monochromatic X-ray beam interacting with a three-dimensional crystal generates a diffraction pattern. ^c2
+  - page: 3
+  - quote: "The interaction of a monochromatic X-ray beam with an ordered and periodic molecular object, such as a three-dimensional crystal, will generate a diffraction pattern"
+  - quote_check: pass
+  - reviewed: false
+- From the diffraction data an electron density map is computed and the structure determined. ^c3
+  - page: 3
+  - quote: "electron density map can be computed and the corresponding structure can be determined"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

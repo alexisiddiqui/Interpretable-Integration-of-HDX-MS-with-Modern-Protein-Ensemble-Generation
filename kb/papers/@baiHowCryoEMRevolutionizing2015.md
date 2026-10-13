@@ -27,6 +27,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "With recent advances in electron detection and image processing, the resolution by cryo-EM is now beginning to rival X-ray crystallography"
   - quote_check: pass
   - reviewed: false
+- In single-particle cryo-EM, individual macromolecular complexes frozen in a thin layer of vitreous ice are imaged. ^c2
+  - page: 1
+  - quote: "a cryo-EM procedure where individual macromolecular complexes that are frozen in a thin layer of vitreous ice are imaged"
+  - quote_check: pass
+  - reviewed: false
+- The 3D structure is reconstructed from projection images of individual complexes in different orientations. ^c3
+  - page: 1
+  - quote: "The 3D structure of the complex is reconstructed from projection images of individual complexes"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

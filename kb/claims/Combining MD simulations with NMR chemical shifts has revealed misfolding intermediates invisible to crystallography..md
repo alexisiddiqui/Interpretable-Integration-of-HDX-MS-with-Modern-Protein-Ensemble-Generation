@@ -19,7 +19,7 @@ code: []
 
 ## Argument
 
-Biancaniello et al. used replica-averaged MD simulations restrained with NMR chemical shifts to characterize [[high-energy intermediate|intermediate states]] on the [[prion protein|prion]] misfolding pathway, and note that X-ray crystallography, NMR and cryo-EM alone cannot capture dynamic intermediates.
+Biancaniello et al. used replica-averaged MD simulations restrained with NMR chemical shifts to characterize [[high-energy intermediate|intermediate states]] on the [[prion protein|prion]] misfolding pathway, and note that [[X-ray crystallography]], NMR and [[cryo-EM]] alone cannot capture dynamic intermediates.
 
 ## Caveats
 
