@@ -20,6 +20,8 @@ Obsidian vault for the thesis. Open **this folder** (`kb/`) as the vault, not th
 
 `notation.md` is generated the same way: every symbol in a concept's `notation:` field. One symbol has one meaning across the vault (lint check 10); the canonical choices are recorded in `decisions/`. Do not edit it by hand.
 
+Sources write their own notation. A paper note records it once, in a `## Notation` table: `| Source | Meaning in this source | Canonical | Note |`, where Canonical is one `$symbol$` declared by a concept, or `—` with the Note saying how the thesis writes it. Concepts always write canonical notation and point at the map from their `Source:` line, e.g. `(notation: [[@bmsb2012ch12#Notation]])`. Write `\mid` and `\Vert`, not a bare `|`, inside table cells.
+
 [tools/kb-seed](../tools/kb-seed/README.md) seeds paper notes and PDFs from Zotero, finds quotes in PDFs, checks that every citation in a `.tex` file is accounted for, and promotes verified claims.
 
 ## Rules
