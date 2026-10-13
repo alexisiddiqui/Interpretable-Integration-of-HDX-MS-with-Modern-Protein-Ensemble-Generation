@@ -34,18 +34,18 @@ Inference and reference-distribution terms come mostly from BMSB (Hamelryck et a
 | Forward-model parameters | $\theta$ | $\alpha$ (ch12; ch12's $\theta$ collects all nuisance parameters) |
 | Error model | $\rho_\text{err}$ (Bradshaw's symbol) | $g(y\mid\hat y,\sigma)$ (ch12) |
 | Weight of the data relative to the prior | $\gamma$ (as in HDXer) | $w_\text{data} = 1/\sigma^2$ (ch12); ch13 weights the prior by $\alpha$, i.e. $1/\gamma$ |
-| Prior, reference or generator distribution | $P_0(x)$, marginal $P_0(\xi)$ | $\pi$ (ch2, ch12), $q$ and $\tilde q$ (ch3), $g$ and $g_1$ (ch4) |
+| Prior, reference or generator distribution | $P_0(x)$, marginal $P_0(\xi)$ | $\pi$ (ch2, ch12), $q(r\mid a)$ and $\tilde q(\lambda\mid a)$ (ch3), $g$ and $g_1$ (ch4) |
 | Target distribution | $P(x)$ | $p$ (ch2, ch3), $f$ (ch4) |
-| Coarse-grained variable | $\xi(x)$ | $y = f(x)$ (ch2), $\xi$ (ch3), $Y = m(X)$ (ch4) |
+| Coarse-grained variable | $\xi(x)$ | $y = f(x)$ or $\lambda$ (ch2), $\lambda(r)$ (ch3), $Y = m(X)$ (ch4) |
 | Target and reference-ratio distributions | $P^*(\xi)$, $\hat P(x)$ | $f_1(y)$, $\hat f(x)$ (ch4) |
-| Free energy along $\xi$ relative to a reference state | $\Delta F(\xi)$, reference $\tilde P(\xi)$ | $\Delta F$, $\tilde p$ (ch3) |
+| Free energy along $\xi$ relative to a reference state | $\Delta F(\xi)$, reference $\tilde P(\xi)$ | $\Delta F(\lambda)$, $\tilde p(\lambda)$ (ch3) |
 | Markov-chain transition kernel | $\mathcal{T}(x'\mid x)$ | $W(x'\mid x)$ (ch2) |
 | Model, evidence, Bayes factor | $\mathcal{M}$, $p(s^\text{exp}\mid\mathcal{M})$, $B_{12}$ | $M$ or $H_i$, $p(d)$, $B$ (ch1, ch13) |
 | Importance weights | $w_j$ (they are the reweighting weights) | $r_i$ (ch2) |
 | Inverse temperature | written $1/k_BT$ | $\beta$ (ch1, ch2, ch3, ch12) |
 | Energy | $U(x)$ | $E(x)$ (ch2, ch3, ch12); ch1's $U$ is the *average* energy |
 
-KL direction: MaxEnt reweighting minimises $D_\text{KL}(P \Vert P_0)$. The reference ratio method minimises $D_\text{KL}(P_0 \Vert P)$ (BMSB ch4, Theorem 4.2), the reverse direction. This is one reason the reference ratio is a precedent for MaxEnt, not its derivation.
+KL direction: MaxEnt reweighting minimises $D_\text{KL}(P \Vert P_0)$. BMSB ch4 (Theorem 4.2) proves the reference ratio optimal for the reverse direction, $D_\text{KL}(P_0 \Vert P)$. When a whole marginal $P^*(\xi)$ is imposed, both directions give the same solution (see [[reference ratio method]]). The difference from MaxEnt reweighting is the constraint, not the direction: HDX-MS fixes a few ensemble averages, not a full marginal. Always write which direction is meant.
 
 Logarithms are natural (`\ln`) unless base 10 is written (`\log_{10}`).
 
@@ -54,6 +54,7 @@ Logarithms are natural (`\ln`) unless base 10 is written (`\log_{10}`).
 - Keep each project's own notation and translate at chapter boundaries. Rejected: Chapter 2 defines the symbols once for Chapters 3 to 6.
 - Keep Bai's $k_A, k_B, k_W$. Rejected: $k_B$ is the Boltzmann constant. Lint check 10 caught the clash.
 - Name the forward model $f_i(x;\theta)$ as Habeck does. Rejected: $f(x,\tau)$ is the diffusion drift, and MaxEnt already writes the observable as $s_i(x)$.
+- Write the coarse-grained variable as $\lambda$, as BMSB ch2 and ch3 do. Rejected: $\lambda_i$ are the MaxEnt Lagrange multipliers.
 - Write the reference distribution as $q$ or $g$, as BMSB ch3 and ch4 do. Rejected: $q_i(j)$ is the BV feature, and $g$ means four different things across BMSB. The thesis point is that the generator *is* the prior, so both are $P_0$.
 - Write data as $d$ or $D$. Rejected: $D_i(t)$ and $D_p(t)$ are uptake.
 - Use $\beta = 1/k_BT$. Rejected: $\beta_C$ and $\beta_H$ already use $\beta$ for the BV coefficients, so inverse temperature is written as $1/k_BT$.
