@@ -32,6 +32,21 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "process consists of progressively modifying noisy samples toward clean examples"
   - quote_check: pass
   - reviewed: false
+- The forward noising process from data to noise is characterised by an SDE (Eq. 1). ^c3
+  - page: 4
+  - quote: "from data to noise is then characterized by the following SDE"
+  - quote_check: pass
+  - reviewed: false
+- Anderson showed the forward SDE can be reversed by another SDE that starts from noise and reconstitutes the same marginals (Eq. 2). ^c4
+  - page: 4
+  - quote: "showed that Equation (1) can be reversed by another SDE that starts from noise and reconstitutes the same"
+  - quote_check: pass
+  - reviewed: false
+- The gradient of the log marginal density is known as the Stein score. ^c5
+  - page: 5
+  - quote: "is known as the stein score of the marginal density"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

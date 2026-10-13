@@ -28,6 +28,10 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $\beta_C$ | BV coefficient for heavy-atom contacts | — | [[Best–Vendruscolo model]] |
 | $\beta_H$ | BV coefficient for amide hydrogen bonds | — | [[Best–Vendruscolo model]] |
 | $\lambda_i$ | Lagrange multiplier for the i-th constraint | — | [[maximum entropy principle]] |
+| $\nabla_x \log p_\tau(x)$ | score of the marginal density at diffusion time tau | — | [[diffusion model]] |
+| $\tau$ | diffusion time, from data (0) to noise (1) | — | [[diffusion model]] |
+| $f(x,\tau)$ | drift of the forward diffusion SDE | — | [[diffusion model]] |
+| $g(\tau)$ | diffusion coefficient of the forward SDE | — | [[diffusion model]] |
 | $k_B$ | Boltzmann constant | J K^-1 | [[Boltzmann distribution]] |
 | $k_\text{acid}$ | second-order rate constant for acid-catalysed exchange | M^-1 s^-1 | [[intrinsic exchange rate]] |
 | $k_\text{base}$ | second-order rate constant for base-catalysed exchange | M^-1 s^-1 | [[intrinsic exchange rate]] |
@@ -36,6 +40,7 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $k_{\text{obs},i}$ | observed exchange rate of residue i | s^-1 | [[Linderstrøm–Lang model]] |
 | $k_\text{op}$ | opening rate constant of an amide | s^-1 | [[Linderstrøm–Lang model]] |
 | $k_\text{water}$ | rate constant for water-catalysed exchange | s^-1 | [[intrinsic exchange rate]] |
+| $m_a$ | mass of atom a | g mol^-1 | [[molecular dynamics]] |
 | $q_i(j)$ | BV feature (predicted ln protection) of residue i in conformer j | — | [[Best–Vendruscolo model]] |
 | $s_i(x)$ | i-th constrained observable as a function of conformation | — | [[maximum entropy principle]] |
 | $s_i^\text{exp}$ | experimental value of the i-th constrained observable | — | [[maximum entropy principle]] |
@@ -43,3 +48,4 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $w_j$ | weight of conformer j in the reweighted ensemble | — | [[maximum entropy principle]] |
 | $w_j^0$ | prior weight of conformer j | — | [[maximum entropy principle]] |
 | $x$ | a molecular conformation (atomic coordinates) | — | [[Boltzmann distribution]] |
+| $x_a(t)$ | position of atom a at simulation time t | nm | [[molecular dynamics]] |
