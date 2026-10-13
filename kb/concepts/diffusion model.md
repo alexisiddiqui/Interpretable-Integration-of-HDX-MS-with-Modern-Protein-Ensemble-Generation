@@ -15,13 +15,16 @@ sources:
   - "[[@yimDiffusionModelsProtein2024#^c4]]"
   - "[[@yimDiffusionModelsProtein2024#^c5]]"
   - "[[@yimDiffusionModelsProtein2024#^c2]]"
+  - "[[@yimDiffusionModelsProtein2024#^c6]]"
+  - "[[@abramsonAccurateStructurePrediction2024#^c5]]"
+  - "[[@abramsonAccurateStructurePrediction2024#^c7]]"
   - "[[@bmsb2012ch3#^c8]]"
   - "[[@bmsb2012ch4#^c6]]"
 ---
 
 ## Definition
 
-A diffusion model learns to generate samples by reversing a noising process. A forward stochastic differential equation gradually corrupts data into simple noise, usually Gaussian. A reverse SDE, which needs the score (the gradient of the log density) at every noise level, carries noise back to data. A neural network is trained to estimate that score. Generation then integrates the reverse SDE, progressively modifying noisy samples toward clean examples.
+A diffusion model learns to generate samples by reversing a noising process. In words: training corrupts example structures with noise until they are pure noise, and a network learns to undo each step; generation starts from random noise and denoises it step by step ([[@yimDiffusionModelsProtein2024#^c6]], [[@yimDiffusionModelsProtein2024#^c2]]). Formally, a forward stochastic differential equation gradually corrupts data into simple noise, usually Gaussian. A reverse SDE, which needs the score (the gradient of the log density) at every noise level, carries noise back to data. A neural network is trained to estimate that score. Generation then integrates the reverse SDE, progressively modifying noisy samples toward clean examples.
 
 ## Equations
 
@@ -45,10 +48,12 @@ Link to MD (ultra-light; all steps ours):
 
 - The learned distribution is only as good as the training data. Structure databases over-represent crystallisable, low-energy states, so sampled diversity is not evidence of equilibrium populations. Those still have to be checked against experiment, for example by reweighting against [[HDX-MS]].
 - Using generated samples as a candidate ensemble makes the generator's distribution the prior $P_0$. Reweighting them is [[importance sampling]] from that prior. Correcting the generator's coarse-grained statistics while keeping its local detail is the idea of the [[reference ratio method]].
+- Diffusion steps are not physical simulation time (ours). The diffusion time $\tau$ runs along an artificial noising process, so a denoising trajectory says nothing about kinetics ([[sampling coverage]]).
+- A diffusion-based predictor is generative but not an ensemble sampler. AF3's diffusion training "produces a distribution of answers" ([[@abramsonAccurateStructurePrediction2024#^c5]]), yet repeated random seeds "do not produce an approximation of the solution ensemble" ([[@abramsonAccurateStructurePrediction2024#^c7]]). Compare [[MSA subsampling]], which perturbs a predictor's input, and the [[Boltzmann generator]], which is trained toward the Boltzmann distribution and reweighted.
 - Protein models diffuse over frames, torsions or other non-Euclidean spaces. The Euclidean form above is the template.
 
 ## Why it matters here
 
 Diffusion models are the "modern ensemble generation" in the thesis title. Chapter 2 needs this one equation pair to explain how they generate structures, and step 1 above to connect them to MD and to the populations that reweighting estimates. Experimental guidance of diffusion is a later chapter's method.
 
-Claims that use this term: [[Diffusion-based PSMs have emerged as a powerful alternative to traditional structure prediction methods.]], [[Diffusion PSMs use end-to-end training to learn the distribution of complexes across proteins, ligands and nucleic acids.]], [[To stay efficient at the atomic level, diffusion PSMs iteratively refine structure representations into final coordinates.]], [[A generator's sampling distribution is a reference distribution, not automatically the physical equilibrium distribution.]].
+Claims that use this term: [[Diffusion-based PSMs have emerged as a powerful alternative to traditional structure prediction methods.]], [[Diffusion PSMs use end-to-end training to learn the distribution of complexes across proteins, ligands and nucleic acids.]], [[To stay efficient at the atomic level, diffusion PSMs iteratively refine structure representations into final coordinates.]], [[A generator's sampling distribution is a reference distribution, not automatically the physical equilibrium distribution.]], [[Diffusion models are trained to reverse a noising process and generate structures by progressively denoising random samples.]], [[Diffusion steps are not physical simulation time.]], [[Repeated random seeds of AlphaFold 3 do not approximate the solution ensemble.]].

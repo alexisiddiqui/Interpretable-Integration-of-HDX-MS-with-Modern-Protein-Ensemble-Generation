@@ -19,6 +19,8 @@ sources:
 
 The conformational free-energy landscape gives a protein's free energy as a function of its conformation. Its topography sets the probability of each conformation: basins are the populated states, and barriers between them control how often the protein moves from one to another. Folded proteins have a well-defined global minimum. [[intrinsically disordered protein|Intrinsically disordered proteins]] have relatively flat landscapes and so sample a large, diverse set of conformations. Mutations can reshape the landscape, for example by globally altering it in oncogenic EGFR kinase mutants.
 
+The landscape fixes three things a sampled ensemble can get right or wrong separately: which basins exist (coverage), how deep they are (populations) and how high the barriers between them are (kinetics). See [[sampling coverage]].
+
 ## Why it matters here
 
 A [[structural ensemble]] is a discrete sample of this landscape, and its weights stand in for the populations of the basins. Mutations and disease states act by reshaping the landscape ([[population shift]]). Both generating structures and reweighting them against [[HDX-MS]] are attempts to recover the landscape's populated regions.

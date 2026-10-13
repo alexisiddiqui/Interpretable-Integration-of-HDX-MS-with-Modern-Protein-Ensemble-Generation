@@ -24,6 +24,7 @@ sources:
   - "[[@bmsb2012ch1#^c8]]"
   - "[[@bmsb2012ch2#^c2]]"
   - "[[@bmsb2012ch12#^c13]]"
+  - "[[@heninEnhancedSamplingMethods2022#^c7]]"
 ---
 
 ## Definition
@@ -57,7 +58,8 @@ Source: [[@bmsb2012ch3#^c3]], Eq. (3.9), p. 5.
 ## Assumptions and limits
 
 - The system is at equilibrium at fixed $T$ (canonical ensemble).
-- In practice $U(x)$ is an approximate force field, so the "Boltzmann prior" of a simulation inherits force-field error.
+- In practice $U(x)$ is an approximate [[force field]], so the "Boltzmann prior" of a simulation inherits force-field error. A converged simulation samples the Boltzmann distribution of its force field, not of the real protein (ours).
+- Biased simulations sample a modified distribution and return to this one only by reweighting, which needs overlap between the two ([[@heninEnhancedSamplingMethods2022#^c7]]; [[enhanced sampling]]).
 - In structure determination, the force field's Boltzmann distribution serves as the prior over structures ([[@bmsb2012ch12#^c13]], Eq. 12.7, p. 8; [[inverse problem]]).
 - BMSB uses $\beta = 1/k_BT$, and $E$ for the energy ([[@bmsb2012ch3#Notation]], [[@bmsb2012ch1#Notation]]). The thesis writes $1/k_BT$ explicitly, because $\beta_C$ and $\beta_H$ already use $\beta$ ([[2026-10-13 canonical HDX and ensemble notation]]).
 

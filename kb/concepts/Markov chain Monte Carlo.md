@@ -7,7 +7,6 @@ aliases:
   - Metropolis–Hastings
   - detailed balance
   - ergodicity
-  - convergence
   - extended ensemble
 notation:
   - {symbol: '\mathcal{T}(x'' \mid x)', meaning: 'Markov-chain transition probability from x to x''', units: null}
@@ -27,7 +26,7 @@ sources:
 
 ## Definition
 
-Markov chain Monte Carlo (MCMC) samples a distribution known only up to its normalisation by running a random walk whose long-run distribution is the target. If every state can be reached (ergodicity) and the transition rule satisfies detailed balance with respect to the target, the chain converges to the target. The Metropolis–Hastings algorithm builds such a rule from any proposal by accepting or rejecting moves. Convergence is never guaranteed in finite time: slow mixing makes consecutive samples redundant and leaves results dependent on where the chain started. Extended ensembles (parallel tempering, multicanonical sampling) sample an easier artificial distribution and recover target averages by reweighting.
+Markov chain Monte Carlo (MCMC) samples a distribution known only up to its normalisation by running a random walk whose long-run distribution is the target. If every state can be reached (ergodicity) and the transition rule satisfies detailed balance with respect to the target, the chain converges to the target. The Metropolis–Hastings algorithm builds such a rule from any proposal by accepting or rejecting moves. Convergence ([[equilibration and convergence]]) is never guaranteed in finite time: slow mixing makes consecutive samples redundant and leaves results dependent on where the chain started. Extended ensembles (parallel tempering, multicanonical sampling), one family of [[enhanced sampling]], sample an easier artificial distribution and recover target averages by reweighting.
 
 ## Equations
 
