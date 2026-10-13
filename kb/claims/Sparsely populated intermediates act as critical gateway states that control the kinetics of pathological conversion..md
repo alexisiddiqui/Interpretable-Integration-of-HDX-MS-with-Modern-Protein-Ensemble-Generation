@@ -18,7 +18,7 @@ code: []
 
 ## Argument
 
-Mukherjee et al. say a partially folded pre-molten-globule-like conformation is a key intermediate that quickly initiates nucleation, and that conformational conversion of oligomers may act as a rate-limiting bottleneck in aggregation.
+Mukherjee et al. say a partially folded pre-molten-globule-like conformation is a key [[high-energy intermediate|intermediate]] that quickly initiates nucleation, and that conformational conversion of oligomers may act as a rate-limiting bottleneck in aggregation.
 
 ## Caveats
 

@@ -17,7 +17,7 @@ code: []
 
 ## Argument
 
-Mukherjee et al. say amyloid nucleation is poorly understood because instruments have a spatial and temporal resolution limit for detecting transient events, which supports the idea that aggregation-prone states can escape standard methods.
+Mukherjee et al. say [[protein misfolding and aggregation|amyloid nucleation]] is poorly understood because instruments have a spatial and temporal resolution limit for detecting transient events, which supports the idea that aggregation-prone states can escape standard methods.
 
 ## Caveats
 

@@ -20,7 +20,7 @@ code: []
 
 ## Argument
 
-Soto and Pritzkow say the proteins of Alzheimer's, Parkinson's and prion diseases all misfold from their native states into beta-sheet-rich structures, by a process whose intermediates, end-products and main features are remarkably similar. Mukherjee et al. say aggregates of misfolded proteins are a common pathological hallmark of all neurodegenerative diseases, and that a partially folded pre-molten-globule-like conformation is a key intermediate that quickly initiates nucleation.
+Soto and Pritzkow say the proteins of Alzheimer's, Parkinson's and prion diseases all [[protein misfolding and aggregation|misfold]] from their native states into beta-sheet-rich structures, by a process whose intermediates, end-products and main features are remarkably similar. Mukherjee et al. say aggregates of misfolded proteins are a common pathological hallmark of all neurodegenerative diseases, and that a partially folded pre-molten-globule-like conformation is a key intermediate that quickly initiates nucleation.
 
 ## Caveats
 

@@ -17,7 +17,7 @@ code: []
 
 ## Argument
 
-Ahmed et al. say monomeric alpha-synuclein is disordered and populates multiple conformational states.
+Ahmed et al. say monomeric [[alpha-synuclein]] is disordered and populates multiple conformational states.
 
 ## Caveats
 

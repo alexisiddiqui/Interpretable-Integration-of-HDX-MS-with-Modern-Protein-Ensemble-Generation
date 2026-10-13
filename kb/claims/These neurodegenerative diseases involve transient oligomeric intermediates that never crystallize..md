@@ -17,7 +17,7 @@ code: []
 
 ## Argument
 
-Mukhtasimova et al. study intermediate states priming opening of the nicotinic acetylcholine receptor channel, not neurodegenerative oligomers. Mukherjee et al. say early aggregation is hard to study because oligomers are heterogeneous and transient, which supports the first half of the sentence.
+Mukhtasimova et al. study intermediate states priming opening of the nicotinic acetylcholine receptor channel, not neurodegenerative oligomers. Mukherjee et al. say early [[protein misfolding and aggregation|aggregation]] is hard to study because oligomers are heterogeneous and transient, which supports the first half of the sentence.
 
 ## Caveats
 

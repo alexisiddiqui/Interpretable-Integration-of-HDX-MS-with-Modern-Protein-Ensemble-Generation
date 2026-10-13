@@ -47,6 +47,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "in its monomeric state is known to be disordered and populate multiple conformational states"
   - quote_check: pass
   - reviewed: false
+- Alpha-synuclein aggregation into amyloid fibrils is linked to Parkinson's disease and dementia with Lewy bodies. ^c6
+  - page: 2
+  - quote: "aggregation into amyloid fibrils is linked to Parkinson’s disease and dementia with Lewy bodies"
+  - quote_check: pass
+  - reviewed: false
+- Alpha-synuclein is an intrinsically disordered protein expressed mainly in the brain. ^c7
+  - page: 2
+  - quote: "IDP that is primarily expressed in the brain"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

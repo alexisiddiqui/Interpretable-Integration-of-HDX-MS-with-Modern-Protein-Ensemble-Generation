@@ -16,7 +16,7 @@ code: []
 
 ## Argument
 
-Ahmed et al. do not discuss pathogenic mutations of alpha-synuclein.
+Ahmed et al. do not discuss pathogenic mutations of [[alpha-synuclein]].
 
 ## Unverified citations
 

@@ -18,7 +18,7 @@ code: []
 
 ## Argument
 
-Biancaniello et al. find enhanced conformational heterogeneity in the T183A prion variant's ensembles and say amyloid-pathway intermediates are hard to isolate and study at high resolution.
+Biancaniello et al. find enhanced conformational heterogeneity in the T183A [[prion protein|prion]] variant's ensembles and say amyloid-pathway [[high-energy intermediate|intermediates]] are hard to isolate and study at high resolution.
 
 ## Caveats
 

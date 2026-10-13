@@ -17,7 +17,7 @@ code: []
 
 ## Argument
 
-Paissoni et al. note that differences in conformational dynamics can play a role in the aggregation of amyloidogenic immunoglobulin light chains.
+Paissoni et al. note that differences in conformational dynamics can play a role in the [[protein misfolding and aggregation|aggregation]] of amyloidogenic immunoglobulin light chains.
 
 ## Caveats
 

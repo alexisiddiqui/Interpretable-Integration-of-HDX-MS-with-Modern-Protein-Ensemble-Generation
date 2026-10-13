@@ -1,0 +1,27 @@
+---
+type: concept
+aliases:
+  - PrP
+  - PrP-C
+  - PrP-Sc
+  - MoPrP
+  - mouse prion protein
+notation: []
+sources:
+  - "[[@biancanielloStructureDynamicsMisfolding2025#^c7]]"
+  - "[[@biancanielloStructureDynamicsMisfolding2025#^c5]]"
+  - "[[@biancanielloStructureDynamicsMisfolding2025#^c10]]"
+  - "[[@sotoProteinMisfoldingAggregation2018#^c6]]"
+---
+
+## Definition
+
+The prion protein (PrP) exists in a cellular form, PrP^C, that can misfold into the scrapie fibrillar form, PrP^Sc. That misfolding is associated with the transmissible spongiform encephalopathies, the prion diseases. Conversion passes through intermediate states, which Biancaniello et al. characterised for the pathogenic T183A variant. Its partially misfolded states are thermally accessible, which explains the lack of a lag phase in that mutant's aggregation kinetics. The lack of high-resolution structural information for PrP^Sc has limited understanding of prion strains.
+
+## Why it matters here
+
+PrP is the case study that closes Section 1.1. Both end states can be described, but conversion runs through [[high-energy intermediate|intermediates]], so understanding it needs the whole [[structural ensemble]]. The mouse prion protein (MoPrP) and its partially unfolded forms at pH 4 are also a test system in the jaxENT chapter and appear in the Chapter 5 draft. The same protein therefore links the biological motivation to the results.
+
+The confirmation intro says atomic structures exist for both PrP^C and PrP^Sc. Soto and Pritzkow (2018) describe PrP^Sc as lacking high-resolution structural information. Check which statement is current before using either in the thesis.
+
+Claims that use this term: [[Atomic structures of PrP-C and PrP-Sc show an alpha-to-beta transition, yet how monomeric PrP-C traverses it is unclear.]], [[High-energy intermediates with enhanced conformational heterogeneity precede aggregation but resist crystallization.]], [[Combining MD simulations with NMR chemical shifts has revealed misfolding intermediates invisible to crystallography.]], [[Understanding prion conversion requires the complete conformational ensemble, not just the ground and fully misfolded states.]], [[Alzheimer's, Parkinson's and prion diseases share dynamic conformational transitions that start pathological aggregation.]].

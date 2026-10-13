@@ -18,7 +18,7 @@ code: []
 
 ## Argument
 
-Mukherjee et al. say alpha-synuclein has an autoinhibitory conformation, held by an electrostatic interaction between its N- and C-termini, that protects the aggregation-prone NAC domain, and that disrupting it exposes NAC and is likely to lower the nucleation barrier. This supports the second half of the claim (disruption of the protective intramolecular interactions starts aggregation). No checked passage reports NMR evidence of picosecond protective interactions in alpha-synuclein.
+Mukherjee et al. say [[alpha-synuclein]] has an autoinhibitory conformation, held by an electrostatic interaction between its N- and C-termini, that protects the aggregation-prone NAC domain, and that disrupting it exposes NAC and is likely to lower the nucleation barrier. This supports the second half of the claim (disruption of the protective intramolecular interactions starts aggregation). No checked passage reports NMR evidence of picosecond protective interactions in alpha-synuclein.
 
 Also stated in: milestones/2025-11-confirmation-of-status/introduction/biological_dynamics.tex#L36
 

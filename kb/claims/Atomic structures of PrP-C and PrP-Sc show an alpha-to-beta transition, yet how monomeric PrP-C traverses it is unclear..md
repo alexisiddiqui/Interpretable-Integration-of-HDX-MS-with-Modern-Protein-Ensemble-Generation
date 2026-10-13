@@ -18,7 +18,7 @@ code: []
 
 ## Argument
 
-Biancaniello et al. say misfolding of cellular PrP into the scrapie form causes prion disease and that characterizing the intermediate structure is critical to elucidating the conversion mechanism.
+Biancaniello et al. say misfolding of cellular [[prion protein|PrP]] into the scrapie form causes prion disease and that characterizing the [[high-energy intermediate|intermediate]] structure is critical to elucidating the conversion mechanism.
 
 ## Caveats
 

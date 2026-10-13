@@ -16,7 +16,7 @@ code: []
 
 ## Argument
 
-Ahmed et al. use paramagnetic relaxation data to test alpha-synuclein ensembles for long-range contacts and compaction, but they do not describe the C-terminus and hydrophobic centre contacts.
+Ahmed et al. use paramagnetic relaxation data to test [[alpha-synuclein]] ensembles for long-range contacts and compaction, but they do not describe the C-terminus and hydrophobic centre contacts.
 
 ## Unverified citations
 

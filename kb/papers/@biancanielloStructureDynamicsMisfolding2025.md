@@ -72,6 +72,11 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "The thermal accessibility to these misfolded states provides a mechanistic explanation for the lack of lag-phase in the aggregation kinetics"
   - quote_check: pass
   - reviewed: false
+- Characterizing high-energy conformations is crucial to understanding the dynamic processes that underlie biological activity. ^c11
+  - page: 1
+  - quote: "Characterizing high-energy conformations in protein molecules is crucial to delineate the nature of dynamic processes that underlie biological activity"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 
