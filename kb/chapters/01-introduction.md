@@ -82,19 +82,42 @@ Why [[population shift|conformational populations]] matter for function and dise
 
 ## 1.2 Measuring Protein Dynamics
 
-Not yet assembled.
+**Thread for 1.2–1.5.** Sections 1.2 to 1.5 share one thread: HDX-MS constrains ensembles only through an indirect [[forward model]], so the inferred populations depend on the candidate ensemble, the forward model and their uncertainties. The grounding comes mainly from BMSB (Hamelryck et al. 2012) chapters 1–4, 12 and 13. Only the claims that carry this thread are listed so far. The section's other citations (Masson, Bradshaw, Lee, Karplus) are not yet assembled into claims.
+
+[[HDX-MS]] reports on structure only through a model of exchange, which makes its interpretation an [[inverse problem]].
+- [[HDX-MS reports deuterium uptake at the peptide level, not the residue level.]]
+- [[Interpreting dynamics measurements in structural terms is a grand challenge, as they can be indirect or ensemble-averaged.]]
 
 ## 1.3 Estimating Protein Dynamics
 
-Not yet assembled.
+Generating candidate structures and estimating their populations are different tasks. Samplers need convergence ([[Markov chain Monte Carlo]]), and a generator's distribution is a prior, not an equilibrium result ([[diffusion model]], [[knowledge-based potential]]).
+- [[MD is computationally expensive and may only approximate true dynamics due to force-field inaccuracies and limited sampling.]]
+- [[Deep-learning models rapidly generate structures and ensembles by sampling a learned distribution of conformational space.]]
+- [[A generator's sampling distribution is a reference distribution, not automatically the physical equilibrium distribution.]] (partial)
+- [[A knowledge-based potential is not a thermodynamic free energy unless its probabilistic model and reference distribution are defined.]] (supported)
 
 ## 1.4 Integrating Experiment and Ensembles
 
-Not yet assembled.
+Data update a prior ensemble; they do not determine it uniquely ([[Bayes' theorem]], [[ensemble reweighting]], [[maximum entropy principle]]). Reweighting is [[importance sampling]] from the candidate ensemble, so it cannot add missing states. The [[reference ratio method]] is a conceptual precedent: impose coarse-grained statistics while keeping a generator's fine-grained structure.
+- [[In a Bayesian description, a prior and a likelihood combine into a posterior over unknown structures and parameters.]] (supported)
+- [[MaxEnt reweighting seeks new weights that minimise the discrepancy with experimental uptake while staying close to the prior.]]
+- [[The meaning of a statistical correction depends on the reference distribution implied by the model or sampling procedure.]] (supported)
 
 ## 1.5 Trusting Integrative Ensemble Models
 
-Not yet assembled.
+A good fit does not make the inferred populations unique ([[inverse problem]], identifiability). Posterior spread is not dynamics ([[posterior uncertainty]]), and the data weight and forward-model parameters are [[nuisance parameter]]s that change the result ([[regularisation]]). Competing models can be compared by their evidence ([[Bayes' theorem#^eq-bayes-factor]]) or by validation, as in ValDX.
+- [[Many ensembles can explain the same data, given complex conformational landscapes and simple structure-experiment models.]]
+- [[Posterior uncertainty about a structure or its parameters is not the same quantity as a protein's physical conformational populations.]] (supported)
+- [[Diversity among generated structures is not on its own evidence that their frequencies represent an equilibrium ensemble.]] (partial)
+- [[Uncertainty in nuisance parameters and regularisation choices can affect structural conclusions from Bayesian analyses of NMR and small-angle scattering.]] (partial)
+
+BMSB ch13's quantitative results (Shannon channels, number of good parameters) are specific to SAXS and SANS. Cite them as an example of low-information data, not as facts about HDX-MS.
+
+### Gaps (1.2–1.5)
+- The generated-diversity sentence (`01-introduction.tex`, L118) has no citation. BMSB ch2 supports the sampling half of it; consider `\supercite{bmsb2012ch2}`.
+- The generator-distribution claim needs a source on learned generators. BMSB's example is a local fragment model (TORUSDBN).
+- The nuisance-parameter claim needs a passage showing a changed structural conclusion: Habeck Fig. 12.10 (pp. 22–23) or Hansen Fig. 13.8.
+- BMSB chapters 5–11 (statistical-potential learning, directional statistics, alignment, local structure models, side chains) are not yet used. They are background or methods material if needed.
 
 ## 1.6 Research Questions and Objectives
 

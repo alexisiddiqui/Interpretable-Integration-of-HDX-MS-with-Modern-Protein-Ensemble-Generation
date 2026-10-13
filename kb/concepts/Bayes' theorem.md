@@ -66,4 +66,4 @@ Source: [[@bmsb2012ch1#^c6]], Eq. (1.6), p. 25, written there with data $\mathbf
 
 The Bayesian reading turns reweighting into inference: the fitted weights become a posterior, so uncertainty in them is meaningful. That is the frame for the jaxENT chapter's replicate-based uncertainty and for comparing MaxEnt with Bayesian refinement in Chapter 2. The Bayes factor is the Bayesian answer to comparing candidate ensembles or forward models, which ValDX approaches through validation instead.
 
-Claims that use this term: [[SAXS ensembles have been refined against scattering profiles using Bayesian inference and maximum entropy reweighting.]].
+Claims that use this term: [[SAXS ensembles have been refined against scattering profiles using Bayesian inference and maximum entropy reweighting.]], [[In a Bayesian description, a prior and a likelihood combine into a posterior over unknown structures and parameters.]].

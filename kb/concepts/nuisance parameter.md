@@ -62,4 +62,4 @@ Source: [[@bmsb2012ch12#^c17]], p. 22 ($w_\text{data} = 1/\sigma^2$), from Eqs. 
 
 The forward-model coefficients ($\beta_C$, $\beta_H$) and the data weight are nuisance parameters for the quantity of interest, the populations. ValDX chooses the data weight by validation. jaxENT infers forward-model parameters jointly with the weights. The introduction (§1.5) cites Bayesian NMR and SAXS analyses for the point that these choices change structural conclusions.
 
-Claims that use this term: [[MaxEnt reweighting seeks new weights that minimise the discrepancy with experimental uptake while staying close to the prior.]].
+Claims that use this term: [[MaxEnt reweighting seeks new weights that minimise the discrepancy with experimental uptake while staying close to the prior.]], [[Uncertainty in nuisance parameters and regularisation choices can affect structural conclusions from Bayesian analyses of NMR and small-angle scattering.]].
