@@ -238,19 +238,77 @@ Data update a prior ensemble; they do not determine it uniquely ([[Bayes' theore
 
 ## 1.5 Trusting Integrative Ensemble Models
 
-A good fit does not make the inferred populations unique ([[inverse problem]], identifiability). Posterior spread is not dynamics ([[posterior uncertainty]]), and the data weight and forward-model parameters are [[nuisance parameter]]s that change the result ([[regularisation]]). Competing models can be compared by their evidence ([[Bayes' theorem#^eq-bayes-factor]]) or by validation, as in ValDX.
-- [[Many ensembles can explain the same data, given complex conformational landscapes and simple structure-experiment models.]]
+**Argument:** matching uptake does not establish the populations. Trust in a fitted ensemble comes from three things:
+- predictive performance on data it was not fitted to;
+- how sensitive it is to modelling and data choices;
+- interpretable evidence for the inferred states.
+
+ValDX supplies the central argument; jaxENT adds joint fitting and mapped uncertainty, but has no citable version yet.
+
+**1. Non-uniqueness.** Pick up the §1.4 handoff. Different populations can produce the same uptake, so a good fit does not identify the ensemble ([[inverse problem]], identifiability). Keep posterior spread apart from physical populations ([[posterior uncertainty]]).
+- [[One uptake curve can arise from many different conformational populations, so a good fit does not identify the ensemble.]] (supported)
+- [[Ensembles have far more degrees of freedom than observables, so any single data source leaves them underdetermined.]] (partial)
+- [[Many ensembles can explain the same data, given complex conformational landscapes and simple structure-experiment models.]] (partial; prefer the first claim)
 - [[Posterior uncertainty about a structure or its parameters is not the same quantity as a protein's physical conformational populations.]] (supported)
+- Revised ValDX only (`1_introduction_omc.tex` L17, not in v1): this holds even with a perfect forward model. Present it as the thesis's own statement.
+
+**2. Candidate coverage and decoys.** The fit can only weight what the candidates contain ([[sampling coverage]]). Missing states cannot be created; plausible but unpopulated or implausible candidates can absorb weight ([[ensemble reweighting]]).
+- [[Reweighting cannot create conformational states absent from the candidate ensemble.]] (partial)
+- [[Plausible but unpopulated candidate structures can absorb weight and prevent population recovery even when uptake matches.]] (supported)
 - [[Diversity among generated structures is not on its own evidence that their frequencies represent an equilibrium ensemble.]] (partial)
+- [[Seeding simulations from rarely visited states broadens exploration but does not by itself give accurate populations.]] (supported)
+
+**3. Compensation between model and populations.** If the forward model or the exchange assumptions are wrong, weights and parameters absorb the error ([[model misspecification]]). Calibration can restore agreement without validating kinetics or populations.
+- [[Best–Vendruscolo coefficients are empirical, and their optimal values depend on the protein and experimental conditions.]] (supported)
+- [[When fitting points to calibration mismatch, the forward model should be recalibrated before the ensemble hypothesis is rejected.]] (supported)
+- [[Fitted populations can compensate for errors in assumed exchange kinetics, and restoring uptake agreement by calibration does not validate kinetics or populations.]] (revised ValDX only)
 - [[Uncertainty in nuisance parameters and regularisation choices can affect structural conclusions from Bayesian analyses of NMR and small-angle scattering.]] (partial)
 
-BMSB ch13's quantitative results (Shannon channels, number of good parameters) are specific to SAXS and SANS. Cite them as an example of low-information data, not as facts about HDX-MS.
+**4. Generalisation and regularisation.** Training error is insufficient ([[overfitting]]). Regularisation and error models reduce overfitting but leave a validation problem ([[regularisation]], [[maximum entropy principle]]). Held-out peptides test prediction, but only as far as the split is independent ([[data splitting]]). [[Work Done]] adds how much fitting changed the starting hypothesis.
+- [[Similar uptake agreement can coexist with different population recovery, so training error cannot verify populations.]] (supported)
+- [[Accounting for experimental error reduces overfitting in MaxEnt reweighting, and minimal correction is a good choice only when the prior is reasonable.]] (supported)
+- [[Overlapping peptides share residue information, so random splits leak information between training and validation sets.]] (supported)
+- [[Structured splits reduce dependence between training and validation peptides but do not guarantee independence.]] (revised ValDX only)
+- [[Work Done quantifies how much an ensemble must be modified to match experiment.]] (supported)
+- [[Low validation error with high Work Done signals agreement reached by excessive modification of the ensemble.]] (supported)
+- [[Work Done measures distance from the prior, not from the true ensemble, and small values can also mean too little fitting.]] (revised ValDX only)
+- [[MaxEnt reweighting avoids overfitting and ensures the resulting ensemble remains physically plausible.]] (partial; do not reuse)
 
-### Gaps (1.2–1.5)
-- The generated-diversity sentence had no citation in the earlier draft. If it returns, BMSB ch2 supports the sampling half of it; consider `\supercite{bmsb2012ch2}`.
-- The generator-distribution claim needs a source on learned generators. BMSB's example is a local fragment model (TORUSDBN).
-- The nuisance-parameter claim needs a passage showing a changed structural conclusion: Habeck Fig. 12.10 (pp. 22–23) or Hansen Fig. 13.8.
-- BMSB chapters 5–11 (statistical-potential learning, directional statistics, alignment, local structure models, side chains) are not yet used. They are background or methods material if needed.
+**5. Uncertainty, interpretation and testing structural hypotheses.** Variation across replicate fits shows which conclusions depend on the data chosen ([[replicate uncertainty]]). It locates instability but does not identify its cause. Representative structures make the inferred states inspectable, if conclusions survive a change of representation. End on integration as hypothesis testing, which hands over to the research questions (§1.6).
+- [[Fitting outcomes depend on which peptides and time points are used, and replicate fits quantify this dependence.]] (supported)
+- [[Replicate uncertainty locates where a model is unstable but does not by itself separate sampling, structural and forward-model deficiencies.]] (revised ValDX only)
+- [[Clustering into representative structures gives compact, interpretable ensembles with little loss of accuracy.]] (supported)
+- [[Conclusions drawn from representative structures should be checked for stability across cluster sizes.]] (revised ValDX only)
+- [[A fitting metric can rank candidate ensembles against data or reveal them as inadequate, so integration becomes structural hypothesis testing.]] (supported)
+- [[Validation should progress from synthetic data with known populations to an orthogonal experimental reference to systems without ground truth.]] (jaxENT, draft)
+
+**Drafting sources.**
+- ValDX revised manuscript (`projects/1-ValDX/manuscript/report/`):
+  - `1_introduction_omc.tex` L11–37;
+  - `7_results_omc.tex` L4–30 (the Work Done framework), L42–60 (TeaA), L189–211 and L248 (kinetic misspecification), L235–248 (clustering and limitations);
+  - `6_methods_omc.tex` L52, L70, L510.
+- ValDX posted v1: [[@siddiquiFrameworkTestingStructural2026]]. This is the version to cite; its wording differs from the revision.
+- jaxENT (`projects/2-jaxENT/manuscript/report/`): `introduction.tex` L4–10; `results.tex` L29 (validation regimes), L63 and L130 (decoys), L173–197 (uncertainty maps).
+- Confirmation: `milestones/2025-11-confirmation-of-status/introduction/connect_simulation_experiment.tex` L87–95. Most of it belongs in §1.4. Here it explains why regularisation still leaves a validation problem.
+
+**Wording to avoid:**
+- "Small Work Done means the ensemble is correct". v1 p. 4 reads it that way; the revision says it is distance from the prior, not to the truth.
+- "Structured splits give independent validation" or "ensure that validation error reflects true predictive performance" (v1; revised `1_introduction_omc.tex` L26, `7_results_omc.tex` L28).
+- "Uncertainty distinguishes sampling from force-field limitations" (jaxENT Fig. 5 caption, `results.tex` L203–207). This conflicts with ValDX.
+- "Work Done allows precise statements about structural hypotheses" (v1).
+- "Systematic errors accumulate at the peptide level" (ValDX `1_introduction_omc.tex` L20). Its four citations do not support it; use the BV-coefficient claim.
+- "MaxEnt avoids overfitting and ensures physical plausibility" (confirmation L95).
+- BMSB ch13's quantitative results (Shannon channels, number of good parameters) are specific to SAXS and SANS. Cite them as an example of low-information data, not as facts about HDX-MS.
+
+### Gaps (1.5)
+- **Revised-only claims:** five claims and the perfect-forward-model sentence are only in the revised ValDX manuscript. They become supported once a revised preprint is posted and its PDF replaces v1 in `kb/_pdf/`.
+- **jaxENT:** no citable version, so the decoy, joint-uncertainty and validation-regime points stay draft.
+- **Missing-state claim:** it is inferred from how reweighting works (Lee ^c7, Bradshaw ^c7). The revised ValDX states it without a citation.
+- **Nuisance-parameter claim:** it still needs a passage showing a changed structural conclusion, from Habeck Fig. 12.10 (pp. 22–23) or Hansen Fig. 13.8.
+- **Generated-diversity sentence:** it had no citation in the earlier draft. If it returns, BMSB ch2 supports the sampling half of it; consider `\supercite{bmsb2012ch2}`. The generator-distribution claim needs a source on learned generators; BMSB's example is a local fragment model (TORUSDBN).
+- **Bib entry:** `siddiquiFrameworkTestingStructural2026` was appended by hand to `thesis/references.bib`. Add it in Zotero too, or the next Better BibTeX export will drop it.
+- **Review status:** all papers are `read: false`, and all quotes are `reviewed: false`, including the ValDX ones.
+- **Unused BMSB chapters:** chapters 5–11 (statistical-potential learning, directional statistics, alignment, local structure models, side chains) are not yet used. They are background or methods material if needed.
 
 ## 1.6 Research Questions and Objectives
 

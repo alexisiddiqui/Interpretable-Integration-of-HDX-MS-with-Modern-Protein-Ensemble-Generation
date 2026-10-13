@@ -7,8 +7,8 @@ confidence: medium
 status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/measuring_dynamics.tex#L28
 source_state: current
-needs_review: false
-review_reason:
+needs_review: true
+review_reason: The sources say error modelling reduces over-fitting, not that refinement is free of it; minimal ensembles are not stated.
 figures: []
 cites:
   - "[[@hummerBayesianEnsembleRefinement2015#^c3]]"
@@ -26,3 +26,5 @@ Ahmed et al. integrate new SAXS data with MD simulations by Bayesian and [[maxim
 ## Caveats
 
 None of the checked papers describes 'minimal ensembles' in the sense of a small set of structures (Hummer and Köfinger explicitly exclude minimal-set refinement), and the claim about capturing essential biological dynamics is not directly stated. The support is for the combination of SAXS, MD and maximum-entropy reweighting with error treatment.
+
+Drop "without overfitting" when reusing this ([[overfitting]]).

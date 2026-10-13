@@ -7,8 +7,8 @@ confidence: low
 status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/connect_simulation_experiment.tex#L95
 source_state: current
-needs_review: false
-review_reason:
+needs_review: true
+review_reason: Stronger than Cesari, who says modelling experimental error reduces over-fitting. Use the narrower experimental-error claim instead.
 figures: []
 cites:
   - "[[@cesariUsingMaximumEntropy2018#^c2]]"
@@ -23,3 +23,5 @@ Cesari et al. say that modelling experimental errors in the [[maximum entropy pr
 ## Caveats
 
 The paper does not say MaxEnt itself avoids overfitting or ensures physical plausibility. Overfitting is reduced only when experimental errors are modelled, and the paper warns that the principle should be used with care when force fields perform poorly (p19) and that enforcing data inconsistent with the prior can severely distort the posterior (p11). 'Physically plausible' is not used.
+
+Use [[Accounting for experimental error reduces overfitting in MaxEnt reweighting, and minimal correction is a good choice only when the prior is reasonable.]] instead. ValDX shows fitted ensembles can match uptake with the wrong populations ([[Similar uptake agreement can coexist with different population recovery, so training error cannot verify populations.]]).

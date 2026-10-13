@@ -7,10 +7,13 @@ confidence: medium
 status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/connect_simulation_experiment.tex#L93
 source_state: current
-needs_review: false
-review_reason:
+needs_review: true
+review_reason: Non-uniqueness itself is stated by Berlin and Hummer; the two reasons given (complex landscapes, simple models) are not stated by any cited source.
 figures: []
 cites:
+  - "[[@berlinRecoveringRepresentativeConformational2013#^c1]]"
+  - "[[@berlinRecoveringRepresentativeConformational2013#^c2]]"
+  - "[[@hummerBayesianEnsembleRefinement2015#^c6]]"
   - "[[@bradshawInterpretationHDXData2020#^c6]]"
   - "[[@bradshawInterpretationHDXData2020#^c8]]"
 code: []
@@ -25,3 +28,5 @@ Bradshaw et al. note that HDX data reflect an [[structural ensemble]] and may no
 Bradshaw et al. do not state that many ensembles fit the same data, and say nothing about the complexity of conformational landscapes or the simplicity of structure-to-experiment models. The passages show insufficient information content and ensemble averaging, which is consistent with non-uniqueness but is not the stated claim. Hummer and Köfinger p2 (block ^c6, inverse problems are underdetermined) is a better match but is not cited here.
 
 See also [[Ensembles have far more degrees of freedom than observables, so any single data source leaves them underdetermined.]], which makes a related claim.
+
+Berlin ^c1, ^c2 and Hummer ^c6 now carry the non-uniqueness. For §1.5 prefer [[One uptake curve can arise from many different conformational populations, so a good fit does not identify the ensemble.]], which is supported as worded.
