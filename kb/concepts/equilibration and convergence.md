@@ -26,7 +26,7 @@ A simulation's statistics describe the equilibrium ensemble only once it has for
 - Equilibration has to be repeated for each new system or starting state, and conformational changes often take longer than all-atom MD can reach ([[@hollingsworthMolecularDynamicsSimulation2018#^c1]], [[@hollingsworthMolecularDynamicsSimulation2018#^c3]]). This is the cost that [[enhanced sampling]] and learned generators try to avoid.
 - Enhanced sampling does not remove the need to assess convergence ([[@bmsb2012ch2#^c17]]).
 - The same idea for Monte Carlo is in [[Markov chain Monte Carlo]]; MD with a thermostat is a sampler of the same kind (ours).
-- **Gap:** the confirmation cites Lazim et al. (2020) for the cost of equilibration; that paper is not in the KB.
+- **Gap:** the confirmation cites Lazim et al. (2020) for the cost of equilibration, but the one Lazim quote in the KB is about the cost of all-atom MD in general ([[@lazimAdvancesMolecularDynamics2020#^c1]]). A passage on equilibration itself is still needed.
 
 ## Why it matters here
 

@@ -146,11 +146,88 @@ Why [[population shift|conformational populations]] matter for function and dise
 
 ## 1.3 Estimating Protein Dynamics
 
-Generating candidate structures and estimating their populations are different tasks. Samplers need convergence ([[Markov chain Monte Carlo]]), and a generator's distribution is a prior, not an equilibrium result ([[diffusion model]], [[knowledge-based potential]]).
-- [[MD is computationally expensive and may only approximate true dynamics due to force-field inaccuracies and limited sampling.]]
-- [[Deep-learning models rapidly generate structures and ensembles by sampling a learned distribution of conformational space.]]
+§1.3 says where candidate structures come from and what each source can and cannot tell us. Generating candidates and estimating their populations are different tasks. Keep three things apart throughout: which states are present (coverage), how much weight each has (populations) and how fast they interconvert (kinetics) ([[sampling coverage]]). Five paragraphs, as in the outline; equations and algorithms stay in Chapter 2.
+
+**1. Candidate ensembles.** A [[structural ensemble]] is a set of candidate conformations. A sampler can get coverage, populations and kinetics right or wrong separately ([[conformational free-energy landscape]]).
+- [[Modern computational methods allow protein structures to be generated at an unprecedented rate.]]
+- [[A complete picture of dynamics requires sampling in between these states.]] (partial)
+- Already in §1.1 group 10: [[Useful ensemble generation requires quantifying the relative populations of each state, not only generating structures.]]
+
+**2. MD and its limits.** [[molecular dynamics]] gives physically grounded trajectories, but only for its approximate [[force field]] and only once sampling has converged ([[equilibration and convergence]]).
+- [[MD simulations numerically integrate Newton's equations of motion, giving atomistic insight into protein dynamics over time.]]
+- [[MD simulations can model varied conditions such as temperature, pressure, pH and the presence of ligands or other biomolecules.]]
+- [[MD lets researchers study how proteins respond to different environments, giving insight into functional mechanisms.]] (supported)
+- [[MD is computationally expensive and may only approximate true dynamics due to force-field inaccuracies and limited sampling.]] (supported)
+- [[Sufficiently sampled equilibrium MD targets the Boltzmann distribution of its approximate force field, not the protein's true distribution.]] (partial)
+- [[Until MD has converged, its statistics depend on the starting structures; reproducibility across independent starts is the basic check.]] (supported)
+- [[Physics-based methods are useful for detailed analysis but limited by the computational cost of equilibration.]]
+- [[Sampling is limited because equilibration must be repeated for each new system or starting conformational state.]] (partial)
+
+**3. Enhanced sampling.** Two families ([[enhanced sampling]]). Biasing the energy recovers equilibrium probabilities by reweighting but usually loses kinetics. Adaptive seeding broadens exploration, but pooled frames are not populations. Neither gives populations for free.
+- [[Metadynamics enhances sampling by adding a history-dependent biasing potential to the system's energy landscape.]] (supported)
+- [[The metadynamics bias encourages exploring new states by discouraging revisits to previously sampled configurations.]] (supported)
+- [[Many enhanced sampling schemes alter kinetics; equilibrium probabilities are recovered by reweighting, which needs good overlap between biased and unbiased distributions.]] (supported)
+- [[Seeding simulations from rarely visited states broadens exploration but does not by itself give accurate populations.]] (supported)
+- [[Frontier-Expansion Sampling is a promising avenue for enhanced sampling of conformational space.]] (supported)
+- [[As FES only requires Cartesian coordinates to select new simulation seeds, it is flexible to the underlying topology.]]
+- Reword before use (see Wording to avoid): [[Metadynamics is limited by the need for appropriate CVs, complex computational requirements and loss of equilibrium properties.]], [[Offline biasing methods can be used to preserve equilibria while enhancing sampling.]], [[Offline methods adaptively seed new simulations from underexplored regions, sampling efficiently without distorting the landscape.]]
+- Optional detail: [[Online analysis of collective variables can adaptively guide sampling towards underexplored regions of conformational space.]], [[These methods can be sampled over specific CVs but are also compatible with generic dimensionality reduction techniques.]]
+
+**4. Learned generators, including diffusion.** Three kinds of model, which the confirmation runs together:
+- **Structure predictors adapted for diversity.** Perturb the input ([[MSA subsampling]]) or the seed. Output frequencies have no defined target distribution.
+  - [[Protein structure models have recently emerged as a powerful tool for structural biology.]] (supported)
+  - [[Leveraging large structure and sequence corpora, protein structure models predict structures rapidly and with high accuracy.]] (supported)
+  - [[As protein structure models are primarily trained on static structures, their ability to predict dynamics is limited.]]
+  - [[Repeated random seeds of AlphaFold 3 do not approximate the solution ensemble.]] (supported)
+  - [[Sub-sampling multiple sequence alignments alters the contacts described to the model, leading to diverse structural predictions.]] (partial)
+  - [[Generating many sub-sampled predictions creates a conformational ensemble that captures the protein's dynamic nature.]]
+  - [[MSA-subsampling has been shown to broadly follow a physical energy landscape.]] (partial)
+- **Generators trained to sample a distribution.** A [[diffusion model]] learns the training-data distribution by learning to denoise; a [[Boltzmann generator]] is trained toward the Boltzmann distribution and reweighted to it.
+  - [[Deep-learning models rapidly generate structures and ensembles by sampling a learned distribution of conformational space.]] (supported)
+  - [[Deep-learning models trained on large structural datasets learn conformation distributions, and sampling them yields ensembles.]]
+  - [[Diffusion models are trained to reverse a noising process and generate structures by progressively denoising random samples.]] (supported)
+  - [[Diffusion steps are not physical simulation time.]] (partial)
+  - [[Diffusion-based PSMs have emerged as a powerful alternative to traditional structure prediction methods.]]
+  - [[Learning the physical landscape can reduce the cost of sampling new states while retaining the accuracy of the underlying physics.]] (supported) (Boltzmann generators only)
+- **Learned force fields inside MD.** An MLFF improves the [[force field]], not the sampling.
+  - [[Machine-learned force fields learn energies and forces for simulation, whereas Boltzmann generators generate configurations and reweight them to the Boltzmann distribution.]] (supported)
+  - [[Ensembles can be generated by learning the physical landscape of protein systems directly from existing simulations.]] (partial)
+- **Combining generators with MD.** Generators broaden coverage and MD relaxes the candidates; whether the result is representative still has to be assessed.
+  - [[Learned generators are used to seed MD simulations, combining broad coverage with physics-based sampling.]] (supported)
+  - [[By providing multiple plausible starting structures, deep learning has bridged the gap for diverse physics-based sampling.]] (partial)
+  - [[By combining physics-based and statistics-based simulations we can fill in gaps in sampling and accuracy.]] (partial)
+  - [[The limitations of each ensemble generation scheme can be overcome by combining both approaches, in a hierarchical pipeline.]] (partial)
+
+**5. Handoff to §1.4: populations need experimental constraints.** Every source above gives candidates whose frequencies are a prior, not populations ([[importance sampling]]). Experiment is needed to weight them.
 - [[A generator's sampling distribution is a reference distribution, not automatically the physical equilibrium distribution.]] (partial)
 - [[A knowledge-based potential is not a thermodynamic free energy unless its probabilistic model and reference distribution are defined.]] (supported)
+- [[The emerging bottleneck is scoring generated structures against in vitro and in vivo behaviour.]]
+- Also in §1.5: [[Diversity among generated structures is not on its own evidence that their frequencies represent an equilibrium ensemble.]] (partial)
+
+**Drafting sources.**
+- ValDX methods: `projects/1-ValDX/manuscript/report/6_methods_omc.tex` L85. Ensembles are framed as competing structural hypotheses, and the concrete examples are single-start MD, multiple-start MD, T-FES, and filtered and unfiltered AF2.
+- jaxENT intro: `projects/2-jaxENT/manuscript/report/introduction.tex` L6. MD recovers dominant states for folded proteins but cannot guarantee representativeness. AF2 sub-sampling includes implausible structures. Wider sampling creates opportunities for integration.
+- Confirmation: `milestones/2025-11-confirmation-of-status/introduction/ensemble_generators.tex` L15–84, which has most of the explanatory prose. Use it with the corrections below.
+
+**Kept for Chapter 2:**
+- diffusion SDEs and score matching ([[diffusion model]]);
+- bias potentials, reweighting estimators and MSMs ([[enhanced sampling]]);
+- detailed balance ([[Markov chain Monte Carlo]]);
+- Boltzmann-generator weights ([[Boltzmann generator#^eq-bg-weight]]);
+- force-field functional forms;
+- knowledge-based potentials and the [[reference ratio method]].
+
+**Wording to avoid** (confirmation `ensemble_generators.tex`):
+- "no approaches to generate conformational ensembles" (L42). Use the AF3 seeds claim instead.
+- "loss of equilibrium properties" for metadynamics (L76). Biased sampling loses kinetics, and recovers equilibrium by reweighting.
+- "preserve equilibria", "without distorting the landscape" or "preserving the equilibrium distribution" for adaptive seeding and FES (L80–82). Seeding broadens exploration; pooled frames still need a model or reweighting.
+- Unke and Noé cited together as "learned force fields" (L67). An MLFF is a force field; a Boltzmann generator is a sampler.
+
+### Gaps (1.3)
+- **Inferred claims:** [[Sufficiently sampled equilibrium MD targets the Boltzmann distribution of its approximate force field, not the protein's true distribution.]] and [[Diffusion steps are not physical simulation time.]] need a source, or should be presented as the thesis's own statements.
+- **Equilibration cost:** the confirmation cites Lazim et al. (2020), but the only KB quote from it is about the cost of all-atom MD in general. The two equilibration claims in group 2 need a passage.
+- **Unchecked PDFs:** Karplus, Barducci, Casadevall, Wilson, Varadi and He are cited in the confirmation for this section but not yet checked.
+- **Unread papers:** Hénin, Zhang, Zheng, Stein, Vani, Unke, Noé, Abramson and Yim are all `read: false`. Their quotes pass the lint.
 
 ## 1.4 Integrating Experiment and Ensembles
 

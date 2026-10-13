@@ -22,4 +22,6 @@ Noé et al. say Boltzmann generators generate unbiased equilibrium samples in on
 
 ## Caveats
 
+This is a statement about [[Boltzmann generator|Boltzmann generators]], not machine-learned force fields; do not cite Unke for it. The accuracy is retained only after reweighting ([[@noeBoltzmannGeneratorsSampling2019#^c3]]).
+
 Boltzmann generators are trained on the energy function of the system, not on existing simulations.
