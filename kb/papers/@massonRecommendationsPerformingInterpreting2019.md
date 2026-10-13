@@ -27,6 +27,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "is a powerful technique that can provide insights into protein behavior by serving as a link between structure, conformational dynamics and function"
   - quote_check: pass
   - reviewed: false
+- A back-exchange corrected fractional deuterium level is estimated from non-deuterated and maximally labelled controls. ^c2
+  - page: 5
+  - quote: "From this information, a back-exchange corrected fractional deuterium level"
+  - quote_check: pass
+  - reviewed: false
+- The back-exchange of a model system's peptides can be calculated with a given equation. ^c3
+  - page: 5
+  - quote: "The back-exchange of peptides of the model system used can be calculated using the following equation"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

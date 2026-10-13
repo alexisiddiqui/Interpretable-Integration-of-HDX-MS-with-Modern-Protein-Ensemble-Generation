@@ -1,0 +1,58 @@
+---
+type: concept
+aliases:
+  - uptake
+  - deuterium uptake curve
+  - deuterated fraction
+  - fractional uptake
+  - back-exchange
+notation:
+  - {symbol: 'D_i(t)', meaning: 'fractional deuterium uptake of residue i at labelling time t', units: null}
+  - {symbol: 'D_p(t)', meaning: 'fractional deuterium uptake of peptide p at labelling time t', units: null}
+  - {symbol: 'D_\text{corr}', meaning: 'back-exchange corrected fractional deuterium level', units: null}
+  - {symbol: 't', meaning: 'labelling time', units: 's'}
+sources:
+  - "[[@bradshawInterpretationHDXData2020#^c14]]"
+  - "[[@bradshawInterpretationHDXData2020#^c15]]"
+  - "[[@bradshawInterpretationHDXData2020#^c16]]"
+  - "[[@bradshawInterpretationHDXData2020#^c5]]"
+  - "[[@massonRecommendationsPerformingInterpreting2019#^c2]]"
+  - "[[@massonRecommendationsPerformingInterpreting2019#^c3]]"
+---
+
+## Definition
+
+Deuterium uptake is the fraction of exchangeable amide hydrogens replaced by deuterium after a labelling time $t$. For one residue under EX2, uptake follows first-order kinetics at the observed rate $k_{\text{int},i}/P_{f,i}$. HDX-MS measures peptides, so the observable is an average over the peptide's exchangeable residues. Prolines are excluded, and so is the first residue, whose N-terminal hydrogens are lost after digestion. Measured uptake is normalised to non-deuterated and maximally deuterated controls, to correct for the D₂O fraction and for back-exchange during analysis.
+
+## Equations
+
+$$ D_i(t) = 1 - \exp\!\left(-\frac{k_{\text{int},i}}{P_{f,i}}\, t\right) $$
+^eq-uptake-residue
+
+Source: first-order kinetics at $k_{\text{obs},i}$ ([[protection factor#^eq-pf]]); [[@bradshawInterpretationHDXData2020#^c14]], p. 7.
+Manuscript form: projects/1-ValDX/manuscript/report/6_methods_omc.tex#L48; projects/2-jaxENT/manuscript/report/methods/HDX.tex#L43.
+
+$$ D_p(t) = \frac{1}{|p|} \sum_{i \in p} D_i(t), \qquad p = \{m_p + 1, \dots, n_p\} \setminus \{\text{Pro}\} $$
+^eq-uptake-peptide
+
+Source: [[@bradshawInterpretationHDXData2020#^c14]], Eq. (2), p. 7; [[@bradshawInterpretationHDXData2020#^c15]] (first residue omitted).
+Manuscript form: projects/2-jaxENT/manuscript/report/methods/HDX.tex#L53 writes the unnormalised sum $D_\text{peptide}(t) = \sum_i [\dots]$ (absolute deuterium). Canonical: the fractional average, which matches Bradshaw and ValDX.
+
+$$ D_\text{corr} = \frac{m - m_{0\%}}{m_{100\%} - m_{0\%}} $$
+^eq-uptake-corr
+
+Source: [[@massonRecommendationsPerformingInterpreting2019#^c2]], p. 5. $m$, $m_{0\%}$ and $m_{100\%}$ are the observed, non-deuterated and maximally labelled peptide centroid masses. The back-exchange of a model system has its own equation, [[@massonRecommendationsPerformingInterpreting2019#^c3]].
+Manuscript form: jaxENT_paper1/report/methods/HDX.tex#L117 and #L123 ($f_\text{back}$, $D_\text{corrected}$). These lines are commented out in the current projects/2-jaxENT/manuscript/report/methods/HDX.tex#L61. **Needs decision:** whether Chapter 2 presents back-exchange correction as an equation or only in prose.
+
+## Assumptions and limits
+
+- EX2 is assumed for every residue (see [[Linderstrøm–Lang model]]).
+- Residues are independent within a peptide.
+- Averaging over residues is many-to-one: different residue-level patterns give the same peptide curve. This is the resolution limit behind the reweighting ambiguity ([[@bradshawInterpretationHDXData2020#^c5]]).
+- Comparing predictions with uptake that is not corrected for back-exchange biases the fitted scale.
+
+## Why it matters here
+
+This is the forward model's last step, from predicted [[protection factor|protection factors]] to the numbers HDX-MS reports. Its averaging is why overlapping peptides leak information between training and validation splits in ValDX.
+
+Claims that use this term: [[Predicted protection factors are transformed into theoretical deuterium uptake for direct comparison with HDX-MS data.]], [[HDX-MS reports deuterium uptake at the peptide level, not the residue level.]], [[Measuring the mass increase of peptides over time lets HDX-MS report on protein dynamics and conformational changes.]].

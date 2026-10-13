@@ -42,6 +42,11 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "sum of the contributions from burial (measured as the number of heavy atoms within a distance of 6.5 Å from the amide nitrogen"
   - quote_check: pass
   - reviewed: false
+- The experimental protection factor is compared with the average over an ensemble of conformations representing the protein's state. ^c5
+  - page: 2
+  - quote: "The experimental protection factor can be compared to the average over an ensemble of conformations representing the state occupied by the protein"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

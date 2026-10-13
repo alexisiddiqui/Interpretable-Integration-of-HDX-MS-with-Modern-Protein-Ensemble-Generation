@@ -77,6 +77,46 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "is related to the Kullback-Leibler divergence between the initial and corrected ensembles"
   - quote_check: pass
   - reviewed: false
+- In the BV model, the free-energy difference between exchange-competent and non-competent states is a linear function of H-bond and contact counts (Eq. 1). ^c12
+  - page: 7
+  - quote: "the free-energy difference between exchange-competent and non-competent states of a residue is approximated by a linear function"
+  - quote_check: pass
+  - reviewed: false
+- The optimal BV scaling factors depend on the protein or experimental conditions. ^c13
+  - page: 7
+  - quote: "their optimal value depends on the protein or experimental conditions"
+  - quote_check: pass
+  - reviewed: false
+- Peptide deuterated fractions are computed from each residue's exchange rate constants with first-order kinetics (Eq. 2). ^c14
+  - page: 7
+  - quote: "using the exchange rate constants of each individual residue and according to first-order kinetics"
+  - quote_check: pass
+  - reviewed: false
+- The first residue of each peptide is omitted because its N-terminal hydrogens are labile after digestion. ^c15
+  - page: 7
+  - quote: "hydrogens in the amine N-terminus are labile after proteolytic fragmentation"
+  - quote_check: pass
+  - reviewed: false
+- Corrections for D2O fraction and back-exchange are made by normalising to maximally deuterated controls. ^c16
+  - page: 8
+  - quote: "Both corrections can be achieved by normalizing to deuterated fractions observed in identical control experiments performed under maximal deuteration conditions"
+  - quote_check: pass
+  - reviewed: false
+- The minimal bias that corrects the mean of observables is a linear function of those observables added to the energy (Eq. 3). ^c17
+  - page: 8
+  - quote: "the minimal bias needed to correct the mean value of one or more observables of interest is provided by a linear function of those observables"
+  - quote_check: pass
+  - reviewed: false
+- The weight adjustments are a Boltzmann factor of the linear bias term (Eq. 4). ^c18
+  - page: 8
+  - quote: "are therefore simply a Boltzmann factor of the linear term of Eq. 3"
+  - quote_check: pass
+  - reviewed: false
+- The optimal multipliers minimise a Kullback-Leibler likelihood function (Eq. 5). ^c19
+  - page: 8
+  - quote: "is at the global minimum of the following (Kullback-Leibler) likelihood function"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 
