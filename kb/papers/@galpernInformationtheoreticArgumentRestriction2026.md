@@ -81,6 +81,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "the evolution of the genetic code may be seen as largely complete"
   - quote_check: pass
   - reviewed: false
+- Biopolymer structures are coded in linear sequences, many of which fold rapidly and spontaneously under appropriate conditions. ^c12
+  - page: 1
+  - quote: "the functional structures of these molecules can be coded in linear strings of units, many of which, in the appropriate conditions, rapidly and spontaneously fold"
+  - quote_check: pass
+  - reviewed: false
+- The information gained per site on folding quantifies the entropic challenge of Levinthal's paradox. ^c13
+  - page: 1
+  - quote: "is a quantification of the entropic challenge in Levinthal’s paradox"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

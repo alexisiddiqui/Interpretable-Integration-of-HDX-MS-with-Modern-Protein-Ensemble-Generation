@@ -22,3 +22,7 @@ Neither cited paper discusses p53: Sutto and Gervasio study EGFR kinase mutation
 
 - [[@suttoEffectsOncogenicMutations2013]]: no passage supporting this claim found
 - [[@lisiAllosteryEnzymeCatalysis2017]]: no passage supporting this claim found
+
+## Superseded
+
+In the §1.1 hub this is replaced by [[A single mutation can leave the crystal structure unchanged yet strongly alter function.]] (PKA, Lisi ^c6). Keep this note until a primary p53 source is found.

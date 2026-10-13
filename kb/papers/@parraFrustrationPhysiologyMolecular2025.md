@@ -176,6 +176,21 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "the highly frustrated signal that is observed comes from the fact that the Ca2+ ion is not in place to compensate the energetics"
   - quote_check: pass
   - reviewed: false
+- Energy landscape theory postulates that natural proteins navigate a rough, funnel-shaped energy landscape. ^c31
+  - page: 3
+  - quote: "the energy landscape navigated by natural proteins has the form of a rough funnel"
+  - quote_check: pass
+  - reviewed: false
+- The folded state is still a large ensemble of structures. ^c32
+  - page: 3
+  - quote: "This folded state is still a large ensemble of structures, resembling a hazy memory recall."
+  - quote_check: pass
+  - reviewed: false
+- A completely frozen hemoglobin, like its crystal structure, could not let oxygen in to bind. ^c33
+  - page: 3
+  - quote: "if hemoglobin were a completely frozen structure like the one revealed by X-ray crystallography, oxygen couldn’t get in to bind"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

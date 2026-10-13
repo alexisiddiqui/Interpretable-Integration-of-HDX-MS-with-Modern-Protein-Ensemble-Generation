@@ -52,6 +52,11 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "has a computed free energy equal to global unfolding"
   - quote_check: pass
   - reviewed: false
+- The fluctuations that determine hydrogen exchange are rare, unlike the fast fluctuations that most dynamics studies address. ^c7
+  - page: 4
+  - quote: "unlike the rapid dynamic fluctuations that have received much attention in recent years, the fluctuations that determine HX behavior are rare"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

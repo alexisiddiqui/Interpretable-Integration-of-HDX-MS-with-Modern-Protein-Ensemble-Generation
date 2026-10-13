@@ -10,75 +10,139 @@ Markers:
 
 ## 1.1 Proteins as Dynamic Ensembles
 
-Why [[population shift|conformational populations]] matter for function and disease. The order follows the confirmation intro (`biological_dynamics.tex`). The ValDX opener ("understanding protein dynamics is crucial to understanding biological function, and therefore disease") and the jaxENT synthesis map onto groups 1 and 9.
+Why [[population shift|conformational populations]] matter for function and disease. The arc follows `01-introduction.tex` L7: proteins are dynamic polypeptides → the protein folding grand challenge → folding versus function → case studies showing why populations must be measured and modelled, and where structural methods fall short. The opening is deliberately broad. Energy landscape and frustration theory (Galpern et al.; Parra et al.) supply the abstract anchors, so that the disease cases read as consequences of one principle rather than as a list. The ValDX opener ("understanding protein dynamics is crucial to understanding biological function, and therefore disease", `projects/1-ValDX/manuscript/report/1_introduction_omc.tex` L8) closes group C, and the jaxENT synthesis belongs in group F.
 
-**1. Static structures are not enough.** Function, disease and drug response depend on [[protein dynamics]], and the tools have mostly frozen proteins in time.
-- [[Static structures alone cannot explain many biological phenomena; dynamics underlie disease mechanisms and drug response.]]
-- [[Mounting evidence suggests that understanding dynamics is the key to novel therapeutic strategies.]]
-- [[There is a persistent, critical gap in our ability to predict and understand protein dynamics.]]
-- [[Tools have been dominated by methods that freeze proteins in time, hiding links between structure, dynamics, function and disease.]]
+**A. Proteins are dynamic polypeptides.** A protein is a sequence before it is a structure, and its structure is something the chain does. The rigid picture has given way to [[protein dynamics|motions]] from picoseconds to days. A crystal structure is one member, or a time average, of what the protein populates, and folded and disordered proteins sit at two ends of one [[conformational free-energy landscape|landscape]].
+- [[Proteins are linear polymers whose sequences encode structures that fold rapidly and spontaneously.]]
+- [[The rigid view of proteins has given way to one in which motions spanning picoseconds to days are essential to function.]]
+- [[Even a folded protein is an ensemble of structures, and distinct crystal structures can be time-averaged members of one ensemble.]]
+- [[NMR relaxation showed the central helix of calmodulin is flexible in solution, though it appears rigid in crystal structures.]]
+- [[Folded and disordered proteins lie at two ends of one energy landscape, from a well-defined minimum to a flat surface.]] (partial)
 
-**2. The gap is one of scale.** Dynamic structural data are scarce next to static structures.
-- [[Only about 12,000 experimental structural ensembles exist, covering 21% of CATH superfamilies, so dynamic data are scarce.]]
-- [[Tools to estimate protein dynamics are decades old, but public datasets hold only thousands to tens of thousands of entries.]] (supported)
-
-**3. Mutations shift populations, not structures.** Disease mutations can leave the crystal structure unchanged while reshaping the [[conformational free-energy landscape]].
-- [[Cancer-causing p53 mutants have crystal structures nearly identical to wild type but very different DNA binding and pathologies.]] (gap)
-- [[Oncogenic mutations alter conformational free-energy landscapes and shift the equilibrium between active and inactive states.]]
-- [[Mutations create neither steric clashes nor new folds but shift conformational ensembles, which needs sampling of many distributions.]] (partial)
-
-**4. Static methods and their limits.** [[X-ray crystallography]], [[cryo-EM]] and [[NMR]] have transformed structural biology, but they restrict understanding to what they can measure.
+**B. The protein folding grand challenge.** Folding is an entropic search (Levinthal) that evolved sequences carry just enough information to solve. They can solve it because they are minimally frustrated and fold down a rough funnel. Structure prediction has largely solved the static half of the problem. The dynamic half remains open, and native-state hydrogen exchange shows why it matters: partially unfolded forms are real but too sparsely populated to see in a structure.
+- [[Folding poses an entropic search problem, and evolved sequences carry just enough information to solve it.]]
+- [[Folding is possible because evolved sequences are minimally frustrated, giving a rough, funnel-shaped energy landscape.]]
 - [[Structural biology has made tremendous strides in solving static protein structures by X-ray crystallography, cryo-EM and NMR.]]
-- [[The fundamental limitations of these methods restrict our understanding to what can be measured experimentally.]]
-- [[Across disease categories, high-resolution structures exist but mechanisms remain unclear.]] (gap)
+- [[Leveraging large structure and sequence corpora, protein structure models predict structures rapidly and with high accuracy.]] (supported; also in §1.3 group 4). For the scale, Varadi ^c5 compares about 220 million sequences with just over 180,000 PDB structures.
+- [[Despite huge advances in accuracy and speed, protein structure models have limitations.]] (supported)
+- [[Despite structure prediction, the dynamics of folding remains a formidable problem that predictors and most experiments cannot resolve.]]
+- [[Native-state hydrogen exchange reveals sparsely populated partially unfolded forms that are otherwise invisible.]]
 
-**5. Kinases: drug sites preserved, equilibria shifted.** An example of [[allostery]] and [[population shift]].
+**C. Folding versus function.** Minimal frustration is a global property; function puts frustration back locally. The frustrated sites are where proteins bind, catalyse and switch, and where the sequence pays for function in stability. The same sites drive interconversion between native conformations, so function depends on how the native [[structural ensemble]] is populated, often through slow, sparsely populated states. For an [[intrinsically disordered protein]], the ensemble is the whole description.
+- [[Folded proteins retain a minority of highly frustrated contacts, clustered at the surface.]]
+- [[Highly frustrated sites mark where proteins bind partners, catalyse reactions and switch allosteric states.]]
+- [[Function conflicts with folding, so sequences encode function locally at sites that sacrifice stability.]]
+- [[Local frustration drives interconversion between native conformations, coupling function to slow, high-energy states.]] (partial)
+- [[Intrinsically disordered proteins lack stable structures and exist as heterogeneous conformational ensembles.]] (supported)
+- [[The conformational heterogeneity of IDPs is not a limitation but the functional mechanism by which they carry out their roles.]]
+- Alt: [[For intrinsically disordered proteins, the failure of static structural biology becomes apparent.]] (overlaps the first IDP claim; it could instead open group E)
+- Summary into D: [[Static structures alone cannot explain many biological phenomena; dynamics underlie disease mechanisms and drug response.]], [[Mounting evidence suggests that understanding dynamics is the key to novel therapeutic strategies.]]
+
+**D. Case studies: disease as a change in populations.** A [[dynamic disease mechanism]] changes which states a protein populates; it need not change the structure. The cases are ordered by how much a single structure can show. They start from a clean two-state [[population shift]] and end with ensembles that only make sense as a whole.
+
+*D0. Framing.*
+- [[Disease mutations can destabilise the functional state or over-stabilise the wrong one.]] (partial)
+- [[Disease-associated variants perturb local frustration more than benign variants.]] (partial; replaces the "Across disease categories" gap claim)
+
+*D1. Two-state shifts: structure preserved, function changed* ([[allostery]]). Mutations reshape the [[conformational free-energy landscape]] without changing the fold.
+- [[A single mutation can leave the crystal structure unchanged yet strongly alter function.]] (replaces the p53 gap claim)
+- [[Mutations create neither steric clashes nor new folds but shift conformational ensembles, which needs sampling of many distributions.]] (partial)
+- [[Oncogenic mutations alter conformational free-energy landscapes and shift the equilibrium between active and inactive states.]]
 - [[Kinases and their inhibitor resistance mutations often preserve drug-binding sites while shifting conformational equilibria.]]
-- [[Shifted conformational equilibria are a major reason why most kinases are still undruggable.]] (gap)
 - [[EGFR L858R and T790M mutations rigidify sub-domains and shift equilibria toward active states, preserving active-site geometry.]]
 
-**6. Misfolding diseases share a dynamic mechanism.** [[protein misfolding and aggregation|Misfolding]] runs through transient [[high-energy intermediate|intermediates]].
+*D2. Misfolding: the kinetic extreme.* [[protein misfolding and aggregation|Misfolding]] runs through sparsely populated [[high-energy intermediate|intermediates]]. Chaperones that recognise frustrated sites (Parra ^c12) are one cellular response to that risk.
 - [[Diseases involving protein misfolding are prime case studies that highlight the limitations of structural biology.]]
 - [[Alzheimer's, Parkinson's and prion diseases share dynamic conformational transitions that start pathological aggregation.]]
 - [[The conformational dynamics underlying pathogenic aggregation are central to understanding these diseases.]] (partial)
-- [[These neurodegenerative diseases involve transient oligomeric intermediates that never crystallize.]] (partial)
 - [[High-energy intermediates are sparsely populated yet play critical roles in disease pathogenesis.]] (partial)
+- Alt: [[These neurodegenerative diseases involve transient oligomeric intermediates that never crystallize.]] (partial)
+- [[Millisecond HDX-MS showed tau hyperphosphorylation releases the global fold and exposes the aggregation-prone H2 region.]] (supported; moved from §1.2 group 5)
+- [[Differences in conformational dynamics relate to the aggregation of amyloidogenic light chains.]]
 
-**7. α-Synuclein: dynamics hidden in plain sight.** In [[alpha-synuclein]], the fibril is solved but the protective solution state is an ensemble.
+*D3. α-Synuclein: the solution ensemble behind a solved fibril.* In [[alpha-synuclein]], the fibril is solved but the protective solution state is an ensemble. Keep this to one paragraph.
 - [[Alpha-synuclein is an unfolded monomer, yet cryo-EM has solved its Lewy body fibril structures at atomic resolution.]] (partial)
 - [[Cryo-EM fibrils are helical but the solution state is disordered, so aggregation-prone states can escape standard methods.]] (partial)
-- [[Soluble alpha-synuclein stays compact through transient long-range contacts between its charged C-terminus and hydrophobic centre.]] (gap)
-- [[Conformational heterogeneity from pathogenic mutations fundamentally alters alpha-synuclein's protective intramolecular interactions.]] (gap)
+- [[Soluble alpha-synuclein adopts an autoinhibitory conformation in which N- to C-terminal contacts protect the aggregation-prone NAC domain.]] (replaces a gap claim)
+- [[Disrupting alpha-synuclein's autoinhibitory conformation exposes the NAC domain and is likely to lower the nucleation barrier for aggregation.]] (replaces a gap claim)
 - [[NMR showed protective picosecond intramolecular interactions in soluble alpha-synuclein, whose disruption starts aggregation.]] (partial)
 - [[Linking fast molecular motions to slow pathological processes requires conformational dynamics that static structures cannot capture.]]
 
-**8. IDPs: heterogeneity is the function.** For an [[intrinsically disordered protein]], the ensemble is the description.
-- [[For intrinsically disordered proteins, the failure of static structural biology becomes apparent.]]
-- [[Intrinsically disordered proteins lack stable structures and exist as heterogeneous conformational ensembles.]] (supported)
-- [[The conformational heterogeneity of IDPs is not a limitation but the functional mechanism by which they carry out their roles.]]
-
-**9. Prion protein: the full ensemble is needed.** The [[prion protein]] case study links to the MoPrP test system used in jaxENT.
+*D4. Prion protein: the full ensemble is needed.* The [[prion protein]] case study links to the MoPrP test system in jaxENT.
 - [[Atomic structures of PrP-C and PrP-Sc show an alpha-to-beta transition, yet how monomeric PrP-C traverses it is unclear.]] (partial)
+- [[A familial prion-disease variant populates a more heterogeneous ensemble with thermally accessible misfolded states.]]
 - [[Rate-limiting conformational changes take microseconds to milliseconds, beyond the reach of traditional structural methods.]] (partial)
 - [[High-energy intermediates with enhanced conformational heterogeneity precede aggregation but resist crystallization.]] (partial)
 - [[Sparsely populated intermediates act as critical gateway states that control the kinetics of pathological conversion.]]
 - [[Combining MD simulations with NMR chemical shifts has revealed misfolding intermediates invisible to crystallography.]] (supported)
 - [[Understanding prion conversion requires the complete conformational ensemble, not just the ground and fully misfolded states.]] (partial)
 
-**10. Bridge to 1.2: ensembles need populations, and populations need measurements.** A [[structural ensemble]] is only useful once its weights are known.
+**E. Where static methods fall short.** (Old group 1, moved down.) [[X-ray crystallography]], [[cryo-EM]] and [[NMR]] transformed structural biology, but they record ground states and time averages, and few dynamic data exist. Populations also depend on the molecular environment, so they have to be measured under stated conditions.
+- [[There is a persistent, critical gap in our ability to predict and understand protein dynamics.]]
+- [[Tools have been dominated by methods that freeze proteins in time, hiding links between structure, dynamics, function and disease.]]
+- [[The fundamental limitations of these methods restrict our understanding to what can be measured experimentally.]]
+- [[Only about 12,000 experimental structural ensembles exist, covering 21% of CATH superfamilies, so dynamic data are scarce.]]
+- [[Tools to estimate protein dynamics are decades old, but public datasets hold only thousands to tens of thousands of entries.]] (supported)
+- Cross-reference to §1.5: [[Posterior uncertainty about a structure or its parameters is not the same quantity as a protein's physical conformational populations.]] (supported). An NMR ensemble is not a thermodynamic ensemble ([[@bmsb2012ch12#^c3]]), so the 12,000 count overstates what is known about populations.
+- [[Conformational populations depend on molecular context, so they are defined only for a stated environment.]] (partial)
+- Further evidence for the limitation claims, not yet added to their notes: Biancaniello ^c2 and ^c9 (current techniques target rigid states and cannot capture intermediates), Pelikan ^c4, Li ^c1 (GPCRs), James ^c6.
+
+**F. Bridge to §1.2: ensembles need populations, and populations need measurements.** A [[structural ensemble]] is useful only once its weights are known. HDX reports on ensembles in solution. Frustration analysis, by its authors' own account, needs generated ensembles rather than one structure (Parra ^c25, ^c27), which points ahead to §1.3–1.4.
 - [[Integrating over time turns individual structures into structural ensembles, a quantitative route to mechanisms.]]
 - [[Useful ensemble generation requires quantifying the relative populations of each state, not only generating structures.]]
-- [[Without experimental measurements of protein dynamics, the biological mechanism of misfunction can remain unclear.]]
 - [[Quantifying state populations requires experimental measurements of protein dynamics.]]
+- Alt: [[Without experimental measurements of protein dynamics, the biological mechanism of misfunction can remain unclear.]]
+- [[HDX data report on ensembles and can reveal conformational landscapes that differ from the crystal structure.]]
 - [[Bridging the gap requires a shift toward integrative approaches combining measurements of dynamics with advanced simulations.]]
+
+**Drafting sources.**
+- Anchors:
+  - [[@galpernInformationtheoreticArgumentRestriction2026]] for A and B;
+  - [[@parraFrustrationPhysiologyMolecular2025]] for B to E;
+  - [[@galpernProbingDarkEnergy2026]] for B and C;
+  - the [[dynamic disease mechanism]] concept for D and E.
+- Confirmation `milestones/2025-11-confirmation-of-status/introduction/biological_dynamics.tex`:
+  - the database-size figure (`figures/database_sizes.png`) fits group B or E;
+  - its disease paragraphs map onto D;
+  - reorder its material; do not reuse its opening.
+
+**Wording to avoid.**
+- Intensifiers from the confirmation: "paradigm shift", "simply", "critical", "fundamental". Several existing claim titles use them, so reword when drafting.
+- Parra's gene-network and psychiatry analogies (§§13–14). They are analogies, not evidence.
+- The hemoglobin sentence as a result. It is a framing image.
+- Parra as the citation for specific disease results. Cite the primary studies (see Gaps).
 
 ### Gaps
 - **No claim yet** for the jaxENT synthesis: "Protein conformational dynamics govern biological function and modulate disease-associated conformational states, necessitating their representation as diverse structural ensembles rather than single static models" (`projects/2-jaxENT/manuscript/report/introduction.tex` ¶1). Two of its citations are not yet in `thesis/references.bib` or `kb/papers/`: `moulickPartiallyUnfoldedForms2015` and `bonomiPrinciplesProteinStructural2017`.
-- **gap** claims above need a source that supports them, or rewording to what the checked source says:
-  - p53: neither cited paper covers it.
-  - Kinase druggability: Lisi and Loria's remark concerns phosphatases.
-  - α-synuclein contacts and mutations: Mukherjee describes an N- to C-terminal contact protecting NAC.
-  - "Across disease categories": Lee et al. does not address it.
+- **Folding theory has no primary sources in the KB.** There are no notes for Anfinsen, Levinthal, Bryngelson and Wolynes (1987) or Onuchic et al. (1997), so groups A and B rest on Galpern and Parra.
+- **Stubs without PDFs** that would strengthen A to C: [[@vendruscoloRareFluctuationsNative2003]] (rare native fluctuations) and [[@kimHydrogenExchangeIdentifies1993]] (native-state motional domains). Add `kb/_pdf/@<citekey>.pdf` for each.
+- **Primary sources behind Parra-level claims**, to import into Zotero:
+  - Ferreiro et al. 2007 and 2011
+  - Freiberger et al. 2019
+  - Fuglestad et al. 2013
+  - Kumar et al. 2016
+  - Bizzarri 2022
+  - Bisello et al. 2022
+  - Dixit and Verkhivker 2011
+  - Marques et al. 2021
+  - Frauenfelder et al. 1991
+- **Replaced or dropped claims.** Their notes are kept, each with a "Superseded" section:
+  - [[Cancer-causing p53 mutants have crystal structures nearly identical to wild type but very different DNA binding and pathologies.]] is replaced by the PKA claim. It can return once there is a primary p53 source.
+  - [[Across disease categories, high-resolution structures exist but mechanisms remain unclear.]] is replaced by the frustration-variant claim.
+  - [[Soluble alpha-synuclein stays compact through transient long-range contacts between its charged C-terminus and hydrophobic centre.]] and [[Conformational heterogeneity from pathogenic mutations fundamentally alters alpha-synuclein's protective intramolecular interactions.]] are replaced by the two Mukherjee rewordings.
+  - [[Shifted conformational equilibria are a major reason why most kinases are still undruggable.]] is dropped, because Lisi and Loria's remark concerns phosphatases.
+- **Near-duplicates.** When drafting, use one claim from each set:
+  - "Static structures alone…" / "Tools have been dominated…"
+  - "Only about 12,000…" / "Tools to estimate…"
+  - the high-energy-intermediate claims in D2 and D4
+  - "Quantifying state populations…" / "Without experimental measurements…"
+  - the IDP claims
+  - "Linking fast molecular motions…" / "Rate-limiting conformational changes…"
+- **Mis-cited claims found in passing, not fixed here:**
+  - the GPCR ¹⁹F-NMR claim cites Fan and Yen, which cover GPR52 and β1AR;
+  - the HIV Vif claim cites Appadurai, which is the wrong paper;
+  - the SARS-CoV-2 spike claim cites Puchades and Stander, which do not support it;
+  - "With current models, most single-domain proteins…" likely mis-cites Varadi.
 
 ## 1.2 Measuring Protein Dynamics
 
@@ -112,7 +176,7 @@ Why [[population shift|conformational populations]] matter for function and dise
 - [[HDX-MS can study many systems that are too large, flexible, heterogeneous or sample-limited for other structural tools.]] (supported)
 - [[The primary benefits of HDX-MS are sensitivity, flexibility and low sample needs compared with other biophysical techniques.]]
 - [[HDX-MS flexibility and increasing throughput make it well suited to challenging targets such as GPCRs, antibodies and IDPs.]]
-- Optional example: [[Millisecond HDX-MS showed tau hyperphosphorylation releases the global fold and exposes the aggregation-prone H2 region.]] (supported)
+- Optional example: the tau HDX-MS claim, now in §1.1 group D2 ([[Millisecond HDX-MS showed tau hyperphosphorylation releases the global fold and exposes the aggregation-prone H2 region.]]). Refer back to it here; do not present it twice.
 
 **6. Handoff to §1.3–1.4.** Connecting uptake to structure needs a model that predicts exchange from candidate structures ([[forward model]]), which makes interpretation an [[inverse problem]].
 - [[To quantitatively connect measurements of dynamics to biological mechanisms, they must be interpreted in structural terms.]]

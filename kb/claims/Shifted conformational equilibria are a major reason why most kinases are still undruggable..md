@@ -21,3 +21,7 @@ Lisi and Loria do not discuss kinase druggability. Their druggability remark con
 ## Unverified citations
 
 - [[@lisiAllosteryEnzymeCatalysis2017]]: no passage supporting this claim found
+
+## Superseded
+
+Dropped from the §1.1 hub: Lisi and Loria's remark concerns phosphatases. The point that kinase mutations act by stabilising states is carried by [[EGFR L858R and T790M mutations rigidify sub-domains and shift equilibria toward active states, preserving active-site geometry.]]

@@ -39,6 +39,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "The measured exchange does not directly distinguish between these alternative interpretations"
   - quote_check: pass
   - reviewed: false
+- Native-state hydrogen exchange reveals cooperative substructure and intermediate forms spanning the folding pathway. ^c4
+  - page: 7
+  - quote: "The native-state HX experiment defines a new and previously unsuspected level of cooperative protein substructure"
+  - quote_check: pass
+  - reviewed: false
+- Partially unfolded intermediates are normally invisible because they are so sparsely populated. ^c5
+  - page: 7
+  - quote: "The intermediates are normally invisible however due to their minimal population."
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

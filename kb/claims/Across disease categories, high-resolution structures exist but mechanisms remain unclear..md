@@ -21,3 +21,7 @@ The Lee et al. paper is a tutorial on HDX ensemble reweighting and does not disc
 ## Unverified citations
 
 - [[@leeInterpretingHydrogenDeuteriumExchange2021]]: no passage supporting this claim found
+
+## Superseded
+
+In the §1.1 hub this is replaced by [[Disease-associated variants perturb local frustration more than benign variants.]] (Parra ^c23; primary Kumar et al. 2016).

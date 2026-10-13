@@ -21,3 +21,7 @@ Ahmed et al. use paramagnetic relaxation data to test [[alpha-synuclein]] ensemb
 ## Unverified citations
 
 - [[@ahmedRefinementASynucleinEnsembles2021]]: no passage supporting this claim found
+
+## Superseded
+
+In the §1.1 hub this is replaced by [[Soluble alpha-synuclein adopts an autoinhibitory conformation in which N- to C-terminal contacts protect the aggregation-prone NAC domain.]], reworded to what Mukherjee ^c6 supports.
