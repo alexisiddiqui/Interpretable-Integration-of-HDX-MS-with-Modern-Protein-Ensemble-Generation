@@ -7,8 +7,8 @@ confidence: medium
 status: draft
 origin: projects/1-ValDX/manuscript/report/1_introduction_omc.tex#L8
 source_state: current
-needs_review: false
-review_reason:
+needs_review: true
+review_reason: Absolute wording ('without size limits', 'uniquely') is not supported; use the claim 'HDX-MS can study many systems that are too large, flexible, heterogeneous or sample-limited for other structural tools.'
 figures: []
 cites:
   - "[[@jamesAdvancesHydrogenDeuterium2022#^c2]]"

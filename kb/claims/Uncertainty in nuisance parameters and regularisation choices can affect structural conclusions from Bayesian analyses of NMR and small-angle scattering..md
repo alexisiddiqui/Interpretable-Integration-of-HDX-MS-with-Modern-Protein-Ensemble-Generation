@@ -5,7 +5,7 @@ project:
 basis: stated
 confidence: medium
 status: draft
-origin: thesis/chapters/01-introduction.tex#L126
+origin: thesis/chapters/01-introduction.tex#L18
 source_state: current
 needs_review: true
 review_reason: The quoted passages show these parameters are estimated and weight data against prior; no quote yet shows how much they change the structure (see ch12 Fig. 12.10, pp. 22-23)

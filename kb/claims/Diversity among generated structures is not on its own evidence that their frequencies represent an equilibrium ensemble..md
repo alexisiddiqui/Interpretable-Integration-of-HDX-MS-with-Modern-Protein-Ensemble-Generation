@@ -5,7 +5,7 @@ project:
 basis: inferred
 confidence: medium
 status: draft
-origin: thesis/chapters/01-introduction.tex#L118
+origin: thesis/chapters/01-introduction.tex#L18
 source_state: current
 needs_review: true
 review_reason: The supporting passages concern MCMC convergence; applying them to learned generators is our inference, and the .tex sentence has no citation yet

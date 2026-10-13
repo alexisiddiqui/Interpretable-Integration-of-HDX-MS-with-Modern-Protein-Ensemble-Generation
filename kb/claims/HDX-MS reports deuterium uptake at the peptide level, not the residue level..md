@@ -13,9 +13,10 @@ figures: []
 cites:
   - "[[@leeInterpretingHydrogenDeuteriumExchange2021#^c1]]"
   - "[[@mohammadiaraniInterpretingHydrogenDeuteriumExchange2018#^c1]]"
+  - "[[@vinciauskaiteFundamentalsHDXMS2023#^c5]]"
 code: []
 ---
 
 ## Argument
 
-Lee et al. describe HDX-MS exchange rates as averaged over oligopeptide fragments, and Mohammadiarani et al. state that HDX-MS results only provide fragment-level resolution.
+Lee et al. describe HDX-MS exchange rates as averaged over oligopeptide fragments, and Mohammadiarani et al. state that HDX-MS results only provide fragment-level resolution. Vinciauskaite et al. describe the digestion as giving numerous overlapping peptides of 5 to 30 residues.
