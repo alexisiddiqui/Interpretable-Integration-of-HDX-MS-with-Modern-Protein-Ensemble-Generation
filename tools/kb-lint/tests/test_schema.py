@@ -72,9 +72,10 @@ def test_long_quote_is_rejected(repo):
 def test_untyped_note_outside_chapters_and_inbox(repo):
     write(repo, "kb/concepts/Loose note.md", "Just text\n")
     write(repo, "kb/inbox/Idea.md", "Just text\n")
+    write(repo, "kb/voice/style.md", "Just text\n")
     found = messages(repo)
     assert any(m[2] == "kb/concepts/Loose note.md" and "missing frontmatter type" in m[3] for m in found)
-    assert not any(m[2] == "kb/inbox/Idea.md" for m in found)
+    assert not any(m[2] in ("kb/inbox/Idea.md", "kb/voice/style.md") for m in found)
 
 
 def test_duplicate_note_names(repo):

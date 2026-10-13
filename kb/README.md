@@ -12,6 +12,7 @@ Obsidian vault for the thesis. Open **this folder** (`kb/`) as the vault, not th
 | `papers/` | Literature notes | `@<citekey>` (matches `thesis/references.bib`) |
 | `decisions/` | Why a method, parameter or dataset was chosen | `YYYY-MM-DD <decision>` |
 | `inbox/` | Unsorted notes; triage weekly | anything |
+| `voice/` | How to write in my voice: `style`, `spag` (spelling, punctuation, grammar), `examples`. Guides drafting; never evidence | fixed |
 | `ref-theses/` | Notes generated from the example theses: hubs, rhetorical moves, concept candidates. Never evidence | `<author>/<note>` |
 | `_pdf/` | Local PDFs for paper notes (gitignored) | `@<citekey>.pdf` |
 | `_templates/` | Note templates (set as the Templates folder in Obsidian) | — |

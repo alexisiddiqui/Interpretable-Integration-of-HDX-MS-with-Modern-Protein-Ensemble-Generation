@@ -231,10 +231,45 @@ Why [[population shift|conformational populations]] matter for function and dise
 
 ## 1.4 Integrating Experiment and Ensembles
 
-Data update a prior ensemble; they do not determine it uniquely ([[Bayes' theorem]], [[ensemble reweighting]], [[maximum entropy principle]]). Reweighting is [[importance sampling]] from the candidate ensemble, so it cannot add missing states. The [[reference ratio method]] is a conceptual precedent: impose coarse-grained statistics while keeping a generator's fine-grained structure.
+**Argument:** the measurements introduced in §1.2 can constrain the candidates generated in §1.3 through a structural forward model. Integration fits their contributions relative to a starting ensemble, with assumptions about exchange and uncertainty. The resulting ensemble model is a structural hypothesis whose reliability is the subject of §1.5.
+
+**1. From candidate structures to a testable hypothesis.** Pick up the handoff from §1.3: the candidates need relative contributions before they can explain a solution measurement. Frame the task as an [[inverse problem]]: infer an ensemble from its measured effects. Recall the ambiguity from §1.2 briefly; use it to motivate forward prediction rather than repeating the measurement limitations.
+- [[Connecting uptake to a structural explanation requires a forward model that predicts exchange from candidate structures or ensembles.]] (supported)
+- [[To address this ambiguity, researchers increasingly turn to molecular simulations for structural hypotheses.]] (partial)
+
+**2. Predict what the experiment would measure.** Define a [[forward model]] as the link from a proposed ensemble to an observable. Give the HDX example in words: structural hydrogen bonding and burial features → predicted residue protection factors → exchange rates under EX2 → peptide uptake. Introduce the [[Best–Vendruscolo model]] as the concrete example shared by the research chapters. The prediction depends on ensemble weights and empirical model parameters.
+- [[The Best-Vendruscolo model predicts protection factors from coordinates by counting structural features that impede exchange.]]
+- [[Predicted protection factors are transformed into theoretical deuterium uptake for direct comparison with HDX-MS data.]] (supported)
+- Drafting caution: BV/HDXer averages log protection factors before calculating uptake. Averaging separate conformer uptake curves would describe a different model; see [[Best–Vendruscolo model#^eq-bv-ensemble]] and [[deuterium uptake#^eq-uptake-peptide]].
+
+**3. Fit the contributions of the sampled conformations.** Explain [[ensemble reweighting]] physically: adjust how much each candidate contributes so the ensemble prediction agrees better with experiment. The initial weights define the reference ensemble. Reweighting changes contributions within the sampled candidates; states absent from that set require further sampling ([[importance sampling]]). Name HDXer as an established implementation after explaining the operation.
+- [[Ensemble reweighting adjusts structural contributions so proposed conformational states can be tested against experiment.]]
+- [[HDXer is a Python package that implements a MaxEnt reweighting scheme to fit simulated ensembles to experimental HDX-MS data.]]
+
+**4. Balance experimental agreement with the reference ensemble.** The data generally permit several fits, so explain why closeness to a prior matters ([[regularisation]]). Introduce relative [[maximum entropy principle|MaxEnt]] as seeking agreement with minimal departure from the reference weights, accounting for uncertainty. Give the Bayesian reading briefly: the prior and an error-model likelihood jointly determine inference. Equal initial frame weights preserve the sampled distribution as the reference; they do not establish its physical accuracy.
+- [[MaxEnt reweighting seeks new weights that minimise the discrepancy with experimental uptake while staying close to the prior.]] (draft; its current citations establish the general principle, so use Bradshaw or Lee for the HDX application)
 - [[In a Bayesian description, a prior and a likelihood combine into a posterior over unknown structures and parameters.]] (supported)
-- [[MaxEnt reweighting seeks new weights that minimise the discrepancy with experimental uptake while staying close to the prior.]]
-- [[The meaning of a statistical correction depends on the reference distribution implied by the model or sampling procedure.]] (supported)
+- Do not identify a fitted optimum with a full posterior uncertainty distribution, or say that MaxEnt guarantees physical plausibility or prevents overfitting.
+
+**5. Fit the ensemble and calibrate its forward model.** Distinguish the two adjustable parts of an ensemble model: frame weights determine structural contributions, while the BV coefficients calibrate the mapping from structural features to protection. Introduce fixed-parameter, staged and joint fitting as choices about these unknowns ([[nuisance parameter]]). This motivates the unified fitting problem addressed by jaxENT; detailed objectives and results belong in its research chapter.
+- Ground this paragraph in ValDX's optimisation protocols and jaxENT's introduction; a dedicated claim note for the joint fitting motivation has not yet been assembled.
+- HDXer already optimises BV parameters. Describe jaxENT's contribution through its unified optimisation workflow and composable objectives, rather than claiming parameter fitting itself is new.
+
+**6. Handoff to §1.5: fitting produces a hypothesis that needs validation.** Finish with the dependence on the candidate ensemble, the forward model and the fitting assumptions. Agreement with uptake supports consistency under those choices; it does not establish unique conformational populations. Let §1.5 develop identifiability, model error, overfitting, uncertainty and interpretability.
+- [[Many ensembles can explain the same data, given complex conformational landscapes and simple structure-experiment models.]]
+
+**Drafting sources, in trust order.**
+- ValDX: `projects/1-ValDX/manuscript/report/1_introduction_omc.tex` L11–20 (inverse problem, reweighting and model dependence); `2_hdx_theory_omc.tex` (EX2 assumption); `6_methods_omc.tex` L356–465 (weight/parameter fitting, BV averaging, regularisation and Bayesian interpretation).
+- jaxENT: `projects/2-jaxENT/manuscript/report/introduction.tex` L4 and L10 (prior dependence and unified weight–parameter fitting). Check the broader novelty claims at L8 against the earlier HDXer literature before reusing them.
+- Confirmation: `milestones/2025-11-confirmation-of-status/introduction/connect_simulation_experiment.tex` L83 onward (expository sequence and equations). Reuse its explanations with the qualifications above.
+- KB papers: [[@bradshawInterpretationHDXData2020]] and [[@leeInterpretingHydrogenDeuteriumExchange2021]] for HDXer; [[@berlinRecoveringRepresentativeConformational2013]] and [[@hummerBayesianEnsembleRefinement2015]] for underdetermination; [[@cesariUsingMaximumEntropy2018]] for relative MaxEnt and treatment of error; [[@bmsb2012ch12]] for forward/error models and parameter inference.
+
+**Kept for Chapter 2:** BV and uptake equations, the likelihood, KL divergence and Lagrange-multiplier derivations, importance-sampling diagnostics, and comparisons with experimentally restrained simulations. The [[reference ratio method]] is an optional conceptual precedent there; [[The meaning of a statistical correction depends on the reference distribution implied by the model or sampling procedure.]] is supported but need not carry the introductory argument.
+
+### Gaps (1.4)
+- Assemble a claim note for why both ensemble weights and forward-model parameters must be considered during fitting, using the ValDX/jaxENT formulations and the relevant primary literature.
+- The existing reweighting claim includes mis-cited papers; use Bradshaw and Lee for the operation described in group 3.
+- Support the HDX-specific MaxEnt statement in group 4 with Bradshaw/Lee, rather than relying only on general MaxEnt or NMR sources. Use Berlin/Hummer for underdetermination instead of the confirmation introduction's Lee/Cesari citations.
 
 ## 1.5 Trusting Integrative Ensemble Models
 

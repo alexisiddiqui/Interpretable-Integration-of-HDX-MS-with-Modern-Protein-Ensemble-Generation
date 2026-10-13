@@ -13,6 +13,8 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $D_p(t)$ | fractional deuterium uptake of peptide p at labelling time t | — | [[deuterium uptake]] | — |
 | $E_a$ | activation energy of a catalysed exchange rate constant | kcal mol^-1 | [[intrinsic exchange rate]] | — |
 | $F$ | Helmholtz free energy | kJ mol^-1 | [[Boltzmann distribution]] | $F$ ([[@bmsb2012ch1]], [[@bmsb2012ch3]]) |
+| $G_A$ | free energy of conformational state A, -k_BT ln of its partial partition function | kJ mol^-1 | [[dynamic disease mechanism]] | — |
+| $K_{L,A}$ | association constant of species L for conformational state A | M^-1 | [[dynamic disease mechanism]] | — |
 | $K_\text{op}$ | opening equilibrium constant, k_op / k_cl | — | [[Linderstrøm–Lang model]] | — |
 | $N_C(i,j)$ | heavy atoms within 6.5 Å of the amide N of residue i in conformer j, excluding residues i-2 to i+2 | — | [[Best–Vendruscolo model]] | $N_{C,i}$ ([[@bradshawInterpretationHDXData2020]]) |
 | $N_H(i,j)$ | hydrogen bonds to the amide H of residue i in conformer j | — | [[Best–Vendruscolo model]] | $N_{H,i}$ ([[@bradshawInterpretationHDXData2020]]) |
@@ -31,8 +33,11 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $U(x)$ | potential energy of conformation x | kJ mol^-1 | [[Boltzmann distribution]] | $E_k$ ([[@bmsb2012ch1]]), $E(x)$ ([[@bmsb2012ch12]], [[@bmsb2012ch2]]), $E(r)$ ([[@bmsb2012ch3]]), $U(X_M)$ ([[@bradshawInterpretationHDXData2020]]), $V_0(q)$ ([[@cesariUsingMaximumEntropy2018]]) |
 | $W_\text{app}$ | apparent work of reweighting | kJ mol^-1 | [[maximum entropy principle]] | $W_\text{app}$ ([[@bradshawInterpretationHDXData2020]]) |
 | $Z$ | configurational partition function | — | [[Boltzmann distribution]] | $Z$ ([[@bmsb2012ch1]], [[@bmsb2012ch3]]), $Z(\beta)$ ([[@bmsb2012ch12]]) |
+| $[L]$ | free concentration of a binding species L in the environment | M | [[dynamic disease mechanism]] | — |
 | $\Delta F(\xi)$ | free energy along xi relative to a reference state | kJ mol^-1 | [[knowledge-based potential]] | $\Delta F(\lambda)$ ([[@bmsb2012ch3]]) |
+| $\Delta G_{AB}$ | free-energy difference between conformational states, G_B - G_A | kJ mol^-1 | [[dynamic disease mechanism]] | — |
 | $\Delta G_\text{op}$ | free energy of the opening reaction | kJ mol^-1 | [[protection factor]] | — |
+| $\Delta\Delta G_{AB}$ | change in Delta G_AB caused by a perturbation such as a mutation, ligand or change of environment | kJ mol^-1 | [[dynamic disease mechanism]] | — |
 | $\beta_C$ | BV coefficient for heavy-atom contacts | — | [[Best–Vendruscolo model]] | — |
 | $\beta_H$ | BV coefficient for amide hydrogen bonds | — | [[Best–Vendruscolo model]] | — |
 | $\chi^2$ | sum of squared residuals, each divided by its error variance | — | [[regularisation]] | $\chi^2$ ([[@bmsb2012ch13]]) |
@@ -45,6 +50,7 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $\mathcal{T}(x' \mid x)$ | Markov-chain transition probability from x to x' | — | [[Markov chain Monte Carlo]] | $W(x' \mid x)$ ([[@bmsb2012ch2]]) |
 | $\mu_k$ | k-th eigenvalue of the curvature (Hessian) of chi^2/2 | — | [[regularisation]] | $\lambda_j$ ([[@bmsb2012ch13]]) |
 | $\nabla_x \log p_\tau(x)$ | score of the marginal density at diffusion time tau | — | [[diffusion model]] | $\nabla \log p_t(x)$ ([[@yimDiffusionModelsProtein2024]]) |
+| $\pi_A$ | equilibrium population of conformational state A | — | [[dynamic disease mechanism]] | — |
 | $\rho_\text{err}$ | error model: probability of a measured value given its prediction | — | [[forward model]] | $g(y \mid \hat y, \sigma)$ ([[@bmsb2012ch12]]), $\rho_\text{err}$ ([[@bradshawInterpretationHDXData2020]]) |
 | $\sigma_i$ | error scale (standard deviation) of observable i | — | [[forward model]] | $\sigma$ ([[@bmsb2012ch12]], [[@hummerBayesianEnsembleRefinement2015]]), $\sigma_i$ ([[@bmsb2012ch13]]) |
 | $\tau$ | diffusion time, from data (0) to noise (1) | — | [[diffusion model]] | $t$ ([[@yimDiffusionModelsProtein2024]]) |

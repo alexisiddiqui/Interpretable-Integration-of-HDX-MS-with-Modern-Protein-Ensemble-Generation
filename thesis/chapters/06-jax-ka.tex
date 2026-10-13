@@ -1,3 +1,7 @@
 \chapter{jax-Ka}
 \label{ch:jax-ka}
 
+%  In this chapter we introduce jax-Ka, a pKa prediction model. Neural-baesd, it is natively differentiable. Supporting both backbone and all-atom representations, it is designed to be used in a variety of applications including binder design and protein engineering workflows. To train this model we collect complex databases and curate them to remove low-quality datapoints. We annotate the data using an MLP network (pKAI). We train the model using a siamese loss in order to better capture binding-induced pKa shifts. We first retrain pKAI to demonstrate the effectiveness of the siamese loss, we show that the siamese loss improves the performance of binding-shifts, particularly at larger shifts. Our ablations show that the pKAI's site-level features can capture atomistic pKa effects, but fall short when using a backbone-only representation. From pH 6.1 to 7.4 we find that the all-atom representation achieves Kd ratio with <9% error, while the backbone-only representation achieves 30%. We then train a transformer model on the same dataset and we show performance improvements over pKAI, reaching <20% error for the backbone-only representation. 
+
+% Define pKMOD and Binding-PKMOD shift state definitions → dataset and masks → Siamese pKAI → backbone transformer → binding readout.
+
