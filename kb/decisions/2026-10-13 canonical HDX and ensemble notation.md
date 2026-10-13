@@ -22,6 +22,7 @@ The thesis uses one notation for HDX kinetics, forward models and reweighting. E
 | Ensemble weights, prior weights | $w_j$, $w_j^0$ | weights of $\hat X$ | $\omega_i$ |
 | Lagrange multipliers | $\lambda_i$ | $\hat\lambda(i)$ | — |
 | KL divergence | $D_\text{KL}(w \Vert w^0)$ | — | $D_{KL}(\omega \Vert U)$ |
+| Acid, base and water catalysis constants (Bai 1993) | $k_\text{acid}$, $k_\text{base}$, $k_\text{water}$ | — | $k_a, k_b, k_w$ (SI) |
 | Potential energy, thermal energy | $U(x)$, $k_BT$ (per molecule) or $RT$ (per mole) | $k_BT$ | — |
 
 Logarithms are natural (`\ln`) unless base 10 is written (`\log_{10}`).
@@ -29,6 +30,7 @@ Logarithms are natural (`\ln`) unless base 10 is written (`\log_{10}`).
 ## Alternatives considered
 
 - Keep each project's own notation and translate at chapter boundaries. Rejected: Chapter 2 defines the symbols once for Chapters 3 to 6.
+- Keep Bai's $k_A, k_B, k_W$. Rejected: $k_B$ is the Boltzmann constant. Lint check 10 caught the clash.
 - Use $\beta = 1/k_BT$. Rejected: $\beta_C$ and $\beta_H$ already use $\beta$ for the BV coefficients, so inverse temperature is written as $1/k_BT$.
 
 ## Why

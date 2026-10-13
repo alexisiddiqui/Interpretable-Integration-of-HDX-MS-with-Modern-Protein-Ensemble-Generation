@@ -27,6 +27,21 @@ PDF note: the PDF holds this chapter only, so PDF page = printed page − 96. Th
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- The probability of a conformation and its momenta is given by the Boltzmann distribution (Eq. 3.1). ^c1
+  - page: 3
+  - quote: "The probability that a molecule with N atoms adopts a specific conformation"
+  - quote_check: pass
+  - reviewed: false
+- The thermodynamic potential associated with the partition function is the Helmholtz free energy (Eq. 3.7). ^c2
+  - page: 4
+  - quote: "The thermodynamic potential associated with Z is the Helmholtz free energy"
+  - quote_check: pass
+  - reviewed: false
+- The free energy is a sum of contributions from the average energy and the entropy (Eq. 3.9). ^c3
+  - page: 5
+  - quote: "the free energy can be viewed as a sum of contributions from the average energy and entropy"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

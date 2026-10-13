@@ -52,6 +52,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "Inverse problems are typically ill-conditioned, i.e., sensitive to input parameter variations, and underdetermined"
   - quote_check: pass
   - reviewed: false
+- Bayes' theorem for model refinement is written as a proportionality without the normalising factor (Eq. 1). ^c7
+  - page: 2
+  - quote: "written as a proportionality without the normalizing factor"
+  - quote_check: pass
+  - reviewed: false
+- The optimal Bayesian ensemble density is derived by variational maximisation of the posterior functional over ensemble densities. ^c8
+  - page: 2
+  - quote: "By variational maximization of the Bayesian posterior functional over the ensemble probability densities"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

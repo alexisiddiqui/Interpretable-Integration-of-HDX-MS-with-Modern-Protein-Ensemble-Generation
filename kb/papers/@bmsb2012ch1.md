@@ -27,6 +27,16 @@ PDF note: the PDF holds this chapter only, so PDF page = printed page − 2. The
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Bayesian probability calculus uses Bayes' theorem (Eq. 1.1). ^c1
+  - page: 5
+  - quote: "The Bayesian probability calculus makes use of Bayes’ theorem"
+  - quote_check: pass
+  - reviewed: false
+- The posterior is proportional to the likelihood, which brings in the data, times the prior. ^c2
+  - page: 5
+  - quote: "The posterior distribution is proportional to the product of the likelihood, which brings in the information in the data"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

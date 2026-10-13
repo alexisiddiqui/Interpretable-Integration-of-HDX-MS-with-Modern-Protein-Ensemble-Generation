@@ -5,23 +5,41 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 
 | Symbol | Meaning | Units | Defined in |
 |---|---|---|---|
+| $D_\text{KL}$ | Kullback–Leibler divergence of a posterior from its prior | — | [[Kullback–Leibler divergence]] |
 | $D_\text{corr}$ | back-exchange corrected fractional deuterium level | — | [[deuterium uptake]] |
 | $D_i(t)$ | fractional deuterium uptake of residue i at labelling time t | — | [[deuterium uptake]] |
 | $D_p(t)$ | fractional deuterium uptake of peptide p at labelling time t | — | [[deuterium uptake]] |
 | $E_a$ | activation energy of a catalysed exchange rate constant | kcal mol^-1 | [[intrinsic exchange rate]] |
+| $F$ | Helmholtz free energy | kJ mol^-1 | [[Boltzmann distribution]] |
 | $K_\text{op}$ | opening equilibrium constant, k_op / k_cl | — | [[Linderstrøm–Lang model]] |
 | $N_C(i,j)$ | heavy atoms within 6.5 Å of the amide N of residue i in conformer j, excluding residues i-2 to i+2 | — | [[Best–Vendruscolo model]] |
 | $N_H(i,j)$ | hydrogen bonds to the amide H of residue i in conformer j | — | [[Best–Vendruscolo model]] |
+| $P_0(x)$ | prior distribution over conformations | — | [[maximum entropy principle]] |
+| $P_\text{ME}(x)$ | maximum-entropy posterior distribution over conformations | — | [[maximum entropy principle]] |
 | $P_{f,i}$ | protection factor of residue i | — | [[protection factor]] |
+| $R$ | molar gas constant | J mol^-1 K^-1 | [[Boltzmann distribution]] |
+| $S$ | thermodynamic entropy of the ensemble | J K^-1 | [[Boltzmann distribution]] |
+| $S[P \Vert P_0]$ | relative entropy of P with respect to P_0 | — | [[Kullback–Leibler divergence]] |
+| $T$ | absolute temperature | K | [[Boltzmann distribution]] |
+| $U(x)$ | potential energy of conformation x | kJ mol^-1 | [[Boltzmann distribution]] |
+| $W_\text{app}$ | apparent work of reweighting | kJ mol^-1 | [[maximum entropy principle]] |
+| $Z$ | configurational partition function | — | [[Boltzmann distribution]] |
 | $\Delta G_\text{op}$ | free energy of the opening reaction | kJ mol^-1 | [[protection factor]] |
 | $\beta_C$ | BV coefficient for heavy-atom contacts | — | [[Best–Vendruscolo model]] |
 | $\beta_H$ | BV coefficient for amide hydrogen bonds | — | [[Best–Vendruscolo model]] |
-| $k_A$ | second-order rate constant for acid-catalysed exchange | M^-1 s^-1 | [[intrinsic exchange rate]] |
-| $k_B$ | second-order rate constant for base-catalysed exchange | M^-1 s^-1 | [[intrinsic exchange rate]] |
-| $k_W$ | rate constant for water-catalysed exchange | s^-1 | [[intrinsic exchange rate]] |
+| $\lambda_i$ | Lagrange multiplier for the i-th constraint | — | [[maximum entropy principle]] |
+| $k_B$ | Boltzmann constant | J K^-1 | [[Boltzmann distribution]] |
+| $k_\text{acid}$ | second-order rate constant for acid-catalysed exchange | M^-1 s^-1 | [[intrinsic exchange rate]] |
+| $k_\text{base}$ | second-order rate constant for base-catalysed exchange | M^-1 s^-1 | [[intrinsic exchange rate]] |
 | $k_\text{cl}$ | closing rate constant of an amide | s^-1 | [[Linderstrøm–Lang model]] |
 | $k_{\text{int},i}$ | intrinsic (random-coil) exchange rate of residue i | s^-1 | [[intrinsic exchange rate]] |
 | $k_{\text{obs},i}$ | observed exchange rate of residue i | s^-1 | [[Linderstrøm–Lang model]] |
 | $k_\text{op}$ | opening rate constant of an amide | s^-1 | [[Linderstrøm–Lang model]] |
+| $k_\text{water}$ | rate constant for water-catalysed exchange | s^-1 | [[intrinsic exchange rate]] |
 | $q_i(j)$ | BV feature (predicted ln protection) of residue i in conformer j | — | [[Best–Vendruscolo model]] |
+| $s_i(x)$ | i-th constrained observable as a function of conformation | — | [[maximum entropy principle]] |
+| $s_i^\text{exp}$ | experimental value of the i-th constrained observable | — | [[maximum entropy principle]] |
 | $t$ | labelling time | s | [[deuterium uptake]] |
+| $w_j$ | weight of conformer j in the reweighted ensemble | — | [[maximum entropy principle]] |
+| $w_j^0$ | prior weight of conformer j | — | [[maximum entropy principle]] |
+| $x$ | a molecular conformation (atomic coordinates) | — | [[Boltzmann distribution]] |
