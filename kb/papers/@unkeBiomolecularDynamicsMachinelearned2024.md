@@ -13,6 +13,8 @@ review_reason:
 
 ## Main point
 
+GEMS trains machine-learned force fields on "bottom-up" and "top-down" chemical fragments, allowing nanosecond MD of more than 25,000 atoms (for example solvated crambin) at essentially ab initio quality. Empirical force fields are efficient but less reliable; earlier MLFFs struggled with long-range interactions.
+
 ## Claims
 
 <!-- One bullet per claim, ending in a block ID. page is the 1-based PDF page index.
@@ -27,7 +29,14 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "To construct an MLFF, a machine learning (ML) model is trained on ab initio reference data to predict energies and forces"
   - quote_check: pass
   - reviewed: false
+- For larger systems, empirical force fields are used because they are efficient, though less reliable than quantum-mechanical calculations. ^c2
+  - page: 1
+  - quote: "For larger systems, efficient but less reliable empirical force fields are used"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
+
+Introduction §1.3 and [[force field]]: an MLFF learns energies and forces and is used inside MD (^c1). It improves the force field, not the sampling; it is not a Boltzmann generator.
 
 ## Disagreements / limitations

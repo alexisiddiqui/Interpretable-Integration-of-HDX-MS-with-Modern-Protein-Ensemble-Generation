@@ -13,6 +13,8 @@ review_reason:
 
 ## Main point
 
+A tutorial review of diffusion models for structural biology: forward noising SDE, reverse SDE via the score, denoising score matching, diffusion on Riemannian manifolds, and applications to protein structure generation and docking.
+
 ## Claims
 
 <!-- One bullet per claim, ending in a block ID. page is the 1-based PDF page index.
@@ -47,6 +49,11 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "is known as the stein score of the marginal density"
   - quote_check: pass
   - reviewed: false
+- Diffusion models are learned by corrupting examples with additive noise and training a neural network to reverse the corruption steps. ^c6
+  - page: 3
+  - quote: "sequentially corrupting examples with additive noise until samples are just noise. A deep neural network is then trained to reverse such corruption steps"
+  - quote_check: pass
+  - reviewed: false
 
 ## Notation
 
@@ -60,5 +67,7 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
 | $B$ | Brownian motion | — |  |
 
 ## What I use from it
+
+Introduction §1.3 and [[diffusion model]]: training corrupts structures with noise and learns to reverse it (^c6); generation progressively denoises (^c2). The SDE pair (^c3, ^c4) is Chapter 2 material.
 
 ## Disagreements / limitations

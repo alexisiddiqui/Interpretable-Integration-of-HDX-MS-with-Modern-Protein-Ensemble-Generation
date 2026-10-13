@@ -13,6 +13,8 @@ review_reason:
 
 ## Main point
 
+Boltzmann generators train an invertible network to map a simple latent distribution to configurations with high Boltzmann probability. Samples are then reweighted to the Boltzmann distribution, giving one-shot equilibrium samples without long MD.
+
 ## Claims
 
 <!-- One bullet per claim, ending in a block ID. page is the 1-based PDF page index.
@@ -32,7 +34,14 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "vast computational effort is invested for simulating these systems in small steps, e.g., using molecular dynamics"
   - quote_check: pass
   - reviewed: false
+- To compute thermodynamics, Boltzmann generator samples must be reweighted to the Boltzmann distribution. ^c3
+  - page: 3
+  - quote: "To compute thermodynamics, such as configurational free energies, the samples must be reweighted to the Boltzmann distribution"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
+
+Introduction §1.3 and [[Boltzmann generator]]: a generator trained toward the Boltzmann distribution still needs statistical reweighting (^c3). It is a different idea from a machine-learned force field ([[force field]]), and should not be cited together with Unke as one approach.
 
 ## Disagreements / limitations

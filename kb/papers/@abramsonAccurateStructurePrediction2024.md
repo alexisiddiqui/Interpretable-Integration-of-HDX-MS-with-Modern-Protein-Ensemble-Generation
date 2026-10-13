@@ -13,6 +13,8 @@ review_reason:
 
 ## Main point
 
+AlphaFold 3 replaces AF2's structure module with a diffusion module and predicts complexes of nearly all molecular types in the PDB. The authors state that it still predicts static, PDB-like structures, and that repeated random seeds do not approximate the solution ensemble.
+
 ## Claims
 
 <!-- One bullet per claim, ending in a block ID. page is the 1-based PDF page index.
@@ -47,7 +49,19 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "this is a generative training procedure that produces a distribution of answers"
   - quote_check: pass
   - reviewed: false
+- Structure prediction models typically predict static PDB-like structures, not the dynamical behaviour of biomolecular systems in solution. ^c6
+  - page: 6
+  - quote: "typically predict static structures as seen in the PDB, not the dynamical behaviour of biomolecular systems in solution"
+  - quote_check: pass
+  - reviewed: false
+- In AF3, multiple random seeds for the diffusion head or the whole network do not approximate the solution ensemble. ^c7
+  - page: 6
+  - quote: "multiple random seeds for either the diffusion head or the overall network do not produce an approximation of the solution ensemble"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
+
+Introduction §1.3: a diffusion-based structure predictor is generative but is not an ensemble sampler (^c5, ^c7). This is the precise limitation to cite in place of "no approaches generate ensembles". See [[diffusion model]], [[MSA subsampling]].
 
 ## Disagreements / limitations
