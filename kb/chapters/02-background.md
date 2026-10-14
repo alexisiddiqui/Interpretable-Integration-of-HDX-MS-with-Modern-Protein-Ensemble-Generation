@@ -177,9 +177,8 @@ Grounding concepts (from BMSB): [[posterior uncertainty]]; [[regularisation]], w
 - Radou et al. 2014 is needed for the switch-function BV model. Add it to Zotero or `kb/_pdf/`.
 - The original metainference paper (Bonomi et al. 2016, Sci Adv) is not in the library. Bonomi 2016 Sci Rep and the 2017 review carry the definition for now.
 - All new paper notes are `read: false`, and all quotes are `reviewed: false`.
-- BICePs v2.0 (Raddi, Ge & Voelz 2023) and forward-model learning (Raddi, Marshall & Voelz 2024) are cited in revised ValDX but are not in Zotero. BICePs is sourced from Wan et al. 2020 for now.
-- Merge the three Better BibTeX duplicates of Melo et al. 2020 in Zotero.
+- BICePs v2.0 (Raddi, Ge & Voelz 2023) is in Zotero as `raddiBICePsV20Software2023c`, because trashed copies hold the base key. Empty the trash and refresh the key, then seed it. Raddi et al. 2025 (forward-model learning) is seeded.
 - A citable source for the Wasserstein-1 definition, if the chapter needs more than the SciPy documentation.
 - jaxENT `methods/analysis.tex` L10 should state that JSD is in base 2. Its MoPrP caption (`results.tex` L82) says "ground-truth MoPrP populations" for an HDX-NMR-derived reference.
-- ValDX Work Done. The density weights multiply rather than divide by their sum, in both manuscript and code ([[Work Done (ValDX)]]). The SI $W_1$ equation does not match the implementation, and the correlation code does not align frames itself ([[Structural comparison metrics (ValDX)]]).
+- ValDX structural metrics. The SI $W_1$ equation does not match the implementation, and the correlation code does not align frames itself ([[Structural comparison metrics (ValDX)]]).
 - Chapter 3 must define the Work metrics, HDXer apparent work and the BICePs score side by side (`thesis/chapters/03-valdx.tex` L9).

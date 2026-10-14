@@ -55,4 +55,4 @@ The limit of linear displacement correlation ([[positional covariance]]): Pearso
 
 ## Disagreements / limitations
 
-The local PDF is the bioRxiv preprint. Zotero holds three duplicate entries for this paper (Better BibTeX keys ending 2020, none and a); merge them.
+The local PDF is the bioRxiv preprint. The project bibliographies also hold the keys `meloGeneralizedCorrelationbasedDynamical` and `meloGeneralizedCorrelationbasedDynamicala` (Melo and Bernardi only). They are not in the current Zotero library, so treat them as stale and cite the 2020 key.

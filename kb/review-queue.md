@@ -117,10 +117,6 @@
 
 - [[@parkEstimationHydrogenExchangeProtection2015]] (`papers/@parkEstimationHydrogenExchangeProtection2015.md`)
 
-## Residue weights in Work_density are multiplied by, not divided by, their sum in both the manuscript and the code; confirm the intended definition before quoting values.
-
-- [[Work Done (ValDX)]] (`methods/Work Done (ValDX).md`)
-
 ## Review-level source; import and cite Kumar et al. (2016) as the primary.
 
 - [[Disease-associated variants perturb local frustration more than benign variants.]] (`claims/Disease-associated variants perturb local frustration more than benign variants..md`)

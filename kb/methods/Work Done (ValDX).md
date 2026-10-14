@@ -2,10 +2,12 @@
 type: method
 project: 1-ValDX
 status: draft
-needs_review: true
-review_reason: Residue weights in Work_density are multiplied by, not divided by, their sum in both the manuscript and the code; confirm the intended definition before quoting values.
+needs_review: false
+review_reason:
 code:
   - projects/1-ValDX/analyses@1d78b96:notebooks/Figure-0_IsoValidation/TeaA_Compare_RW_ensembles.ipynb#L96997-L97035
+  - projects/2-jaxENT/code@37043b5:jaxent/examples/ATLAS_BV/CHECKPOINT18_THERMODYNAMIC_POPULATION.md#L8-L46
+  - projects/2-jaxENT/code@37043b5:jaxent/examples/ATLAS_BV/CHECKPOINT17_KDE_POPULATION.md#L36-L40
 sources:
   - "[[@siddiquiFrameworkTestingStructural2026#^c9]]"
   - "[[@siddiquiFrameworkTestingStructural2026#^c15]]"
@@ -34,7 +36,7 @@ Manuscript form: projects/1-ValDX/manuscript/report/6_methods_omc.tex#L547 (Eq. 
 $$ w_\text{opt}(X;i) = e^{-a_i}\sum_{j} e^{-a_j}, \qquad S_\text{opt}(X;i) = -R\,w_\text{opt}(X;i)\ln w_\text{opt}(X;i), \qquad \text{Work}_\text{density} = \frac{T}{1000N}\sum_{i=1}^{N}\left| S_\text{opt}(\hat X;i) - S_\text{opt}(X;i) \right| $$
 ^eq-work-density
 
-Manuscript form: projects/1-ValDX/manuscript/report/6_methods_omc.tex#L555 (Eq. `work_density`), written exactly as here. See implementation notes on the product.
+Manuscript form: projects/1-ValDX/manuscript/report/6_methods_omc.tex#L555 (Eq. `work_density`), written exactly as here. The weights are multiplied by their sum on purpose, so they are not probabilities and $S_\text{opt}$ is not an entropy (implementation notes).
 
 $$ \text{Work}_\text{opt} = \frac{1}{1000N}\sum_{i=1}^{N}\left| \left[H_\text{opt}(\hat X;i) - T S_\text{opt}(\hat X;i)\right] - \left[H_\text{opt}(X;i) - T S_\text{opt}(X;i)\right] \right| $$
 ^eq-work-opt
@@ -54,7 +56,8 @@ Claim: [[Distinct protection profiles can give zero Work Done, so Work Done is n
 
 ## Implementation notes
 
-- **The density weights are not normalised.** The manuscript writes $w_\text{opt} = e^{-a_i}\sum_j e^{-a_j}$, and every ValDX comparison notebook computes `Pi_opt = Z_opt * exp(-H_opt/RT)` with `Z_opt` the sum of $e^{-a_j}$ (TeaA notebook at the pinned lines; the same line appears in `BPTI_Compare_RW_ensembles.ipynb` and `Compare_RW_ensembles.ipynb`). A normalised weight would divide by the sum. In the numerical check the product weights summed to about 370, 39 of 40 exceeded 1, and those residues' "entropy" contributions were negative. Work_density and Work_opt are still well-defined differences, but the entropy reading of them does not hold as written. Decide whether the product is intended, and if not, correct the code and recompute before quoting values.
+- **The density weights are unnormalised by design.** $w_\text{opt} = Z\,e^{-a_i}$ with $Z = \sum_j e^{-a_j}$, in the manuscript and in every ValDX comparison notebook (`Pi_opt = Z_opt * exp(-H_opt/RT)`). The weights are therefore not probabilities. In a 40-residue test they summed to about 370 and most $S_\text{opt}$ terms were negative, so Work_density is not a Shannon or Gibbs entropy and should not be described as one. "Entropy-like" names the functional form only.
+- **Why the product form.** jaxENT's ATLAS analysis (checkpoint 18, 111 systems) asked how well each Work metric, as a frame-pair distance, predicts the change in population between structurally similar frames, scored by JSD recovery. The product form recovered 60.2% (mean, per-system scale), against 41.3% for unnormalised $q = e^{-a_i}$ and 38.6% for normalised $q/Z$. Work Shape (35.9%) sat near absolute L1 and L2 distances between log-protection profiles (about 36% and 37%, checkpoint 17), and Work Scale was strongest (69.5%). The checkpoint attributes the gain to the profile- and residue-count-dependent amplitude that $Z$ introduces. This is a project result in code documentation, not yet in a manuscript.
 - **Units are an analogy.** kJ/mol and the $H - TS$ form make Work Done look like thermodynamic work. It is not physical work and not a Bayesian evidence ([[BICePs]]).
 - The code also computes `H_conf`, `H_interaction`, `G_quasi` and Boltzmann-like "likelihoods" from these quantities. The manuscript does not use them; ignore them unless they enter a figure.
 - Full equations and the comparison with HDXer apparent work and the BICePs score belong in Chapter 3 (`thesis/chapters/03-valdx.tex` L9).

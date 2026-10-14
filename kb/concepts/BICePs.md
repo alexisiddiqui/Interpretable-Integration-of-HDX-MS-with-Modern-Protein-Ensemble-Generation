@@ -16,13 +16,23 @@ sources:
   - "[[@wanReconcilingSimulatedEnsembles2020#^c9]]"
   - "[[@wanReconcilingSimulatedEnsembles2020#^c10]]"
   - "[[@wanReconcilingSimulatedEnsembles2020#^c11]]"
+  - "[[@raddiAutomaticForwardModel2025#^c1]]"
+  - "[[@raddiAutomaticForwardModel2025#^c2]]"
+  - "[[@raddiAutomaticForwardModel2025#^c3]]"
+  - "[[@raddiAutomaticForwardModel2025#^c5]]"
+  - "[[@raddiAutomaticForwardModel2025#^c6]]"
+  - "[[@raddiAutomaticForwardModel2025#^c7]]"
+  - "[[@raddiAutomaticForwardModel2025#^c8]]"
+  - "[[@raddiAutomaticForwardModel2025#^c9]]"
 ---
 
 ## Definition
 
 BICePs (Bayesian Inference of Conformational Populations) estimates conformational populations by combining a theoretical prior, usually from simulation, with ensemble-averaged experimental observables ([[@wanReconcilingSimulatedEnsembles2020#^c3]]). It samples a posterior over populations and over nuisance parameters $\sigma$ that represent the unknown experimental uncertainty and ensemble heterogeneity ([[@wanReconcilingSimulatedEnsembles2020#^c4]]). It belongs to the same family as ISD and [[metainference]] ([[@wanReconcilingSimulatedEnsembles2020#^c5]]).
 
-Its distinctive use is model selection. Each candidate prior, for example one Markov state model per simulation condition, is ranked by how well its populations agree with the data ([[@wanReconcilingSimulatedEnsembles2020#^c6]]). The BICePs score is a [[Bayes' theorem#^eq-bayes-factor|Bayes factor]] of the model's total evidence against a null model with uniform populations ([[@wanReconcilingSimulatedEnsembles2020#^c7]]). It can be read as a free energy of each model, and lower is better ([[@wanReconcilingSimulatedEnsembles2020#^c8]], [[@wanReconcilingSimulatedEnsembles2020#^c9]]).
+Its distinctive use is model selection. Each candidate prior, for example one Markov state model per simulation condition, is ranked by how well its populations agree with the data ([[@wanReconcilingSimulatedEnsembles2020#^c6]]). The BICePs score is a [[Bayes' theorem#^eq-bayes-factor|Bayes factor]] of the model's total evidence against a null model with uniform populations ([[@wanReconcilingSimulatedEnsembles2020#^c7]]). It can be read as a free energy of each model, and lower is better ([[@wanReconcilingSimulatedEnsembles2020#^c8]], [[@wanReconcilingSimulatedEnsembles2020#^c9]]). Raddi et al. describe it as the free energy of turning on the experimental restraints ([[@raddiAutomaticForwardModel2025#^c3]]).
+
+Later versions infer every source of error by MCMC ([[@raddiAutomaticForwardModel2025#^c5]]). With replica averaging, BICePs becomes a MaxEnt reweighting method that needs no adjustable regularisation parameter ([[@raddiAutomaticForwardModel2025#^c6]]). Forward-model parameters can then be learned with the ensemble, either sampled as nuisance parameters ([[@raddiAutomaticForwardModel2025#^c1]]) or optimised by minimising the BICePs score ([[@raddiAutomaticForwardModel2025#^c2]], [[@raddiAutomaticForwardModel2025#^c7]]).
 
 ## Equations
 
@@ -42,7 +52,8 @@ Source: [[@wanReconcilingSimulatedEnsembles2020#^c7]], Eqs. (14)–(15), p. 25. 
   - The BICePs score is an evidence ratio over the full posterior.
   - The derivation and its limits are worked through in `projects/1-ValDX/manuscript/assessments/BiCePs_positioning_handoff.md` (§§2–3; working note, not evidence).
 - **HDX coverage.** Wan et al. used BICePs with an HDX protection-factor predictor to choose among apomyoglobin ensembles ([[@wanReconcilingSimulatedEnsembles2020#^c2]]). They first inferred that predictor's parameters, including BV-like $\beta_c$ and $\beta_h$, by sampling a posterior trained on ubiquitin and [[BPTI]] protection factors ([[@wanReconcilingSimulatedEnsembles2020#^c10]]). That work uses residue protection factors, not peptide uptake. No BICePs study benchmarks HDX-MS uptake through the Best–Vendruscolo model against held-out peptides.
-- **gap.** Raddi, Ge & Voelz 2023 (BICePs v2.0) and Raddi, Marshall & Voelz 2024 (forward-model parameter learning within the evidence) are cited in the revised ValDX manuscript but are not in Zotero or the KB. Their claims are summarised only in `projects/1-ValDX/manuscript/assessments/supporting_research/` (not evidence).
+- **Forward-model learning is shown for Karplus only.** Raddi et al. refine Karplus-relation parameters ([[@raddiAutomaticForwardModel2025#^c8]]) and state that the method generalises to any differentiable forward model ([[@raddiAutomaticForwardModel2025#^c9]]). No BV or uptake model is fitted, so it is the closest published analogue to jaxENT's joint weight and BV-coefficient fitting, not a benchmark against it.
+- **gap.** BICePs v2.0 (Raddi, Ge & Voelz 2023) is in Zotero but not yet in the KB. Its live item has the key `raddiBICePsV20Software2023c` because trashed copies hold the base key; seed it once the key is clean.
 
 ## Why it matters here
 
