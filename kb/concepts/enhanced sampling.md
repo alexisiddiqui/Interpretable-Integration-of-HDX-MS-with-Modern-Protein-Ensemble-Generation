@@ -26,6 +26,7 @@ sources:
   - "[[@zhangFrontierExpansionSampling2020#^c2]]"
   - "[[@bmsb2012ch2#^c16]]"
   - "[[@bmsb2012ch2#^c17]]"
+  - "[[@bonomiMetadynamicMetainferenceEnhanced2016#^c8]]"
 ---
 
 ## Definition
@@ -42,6 +43,7 @@ Enhanced sampling methods reach states that plain [[molecular dynamics|MD]] visi
 - Results depend on the CVs or seeding criterion chosen ([[@heninEnhancedSamplingMethods2022#^c6]] for seeding).
 - Extended ensembles (replica exchange, multicanonical) are a third route through an artificial distribution ([[@bmsb2012ch2#^c16]]; [[Markov chain Monte Carlo]]). None of these removes the need to assess convergence ([[@bmsb2012ch2#^c17]]; [[equilibration and convergence]]).
 - Bias potentials, estimators and MSM construction are Chapter 2 material.
+- Experimental restraints do not solve sampling. Metadynamic [[metainference]] adds a metadynamics bias because restrained replicas alone were not ergodic even for alanine dipeptide ([[@bonomiMetadynamicMetainferenceEnhanced2016#^c8]]).
 
 ## Why it matters here
 

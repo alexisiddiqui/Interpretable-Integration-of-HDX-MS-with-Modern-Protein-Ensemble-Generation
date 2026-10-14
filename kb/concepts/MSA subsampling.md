@@ -18,6 +18,14 @@ sources:
   - "[[@abramsonAccurateStructurePrediction2024#^c7]]"
   - "[[@mccaffertyDoesAlphaFold2Model2023#^c1]]"
   - "[[@zhengMachineLearningGeneration2023#^c5]]"
+  - "[[@monteirodasilvaHighthroughputPredictionProtein2024#^c1]]"
+  - "[[@monteirodasilvaHighthroughputPredictionProtein2024#^c3]]"
+  - "[[@monteirodasilvaHighthroughputPredictionProtein2024#^c7]]"
+  - "[[@monteirodasilvaHighthroughputPredictionProtein2024#^c8]]"
+  - "[[@wayment-steelePredictingMultipleConformations2024#^c1]]"
+  - "[[@wayment-steelePredictingMultipleConformations2024#^c7]]"
+  - "[[@schaferSequenceClusteringConfounds2024#^c1]]"
+  - "[[@schaferSequenceClusteringConfounds2024#^c8]]"
 ---
 
 ## Definition
@@ -32,9 +40,12 @@ This is different from a generator trained to sample a distribution, such as a [
 - Stein et al. read their results as AF2 generating conformations rooted in physical principles ([[@steinSPEACH_AFSamplingProtein2022#^c2]]). That is a claim about which states appear, not how populated they are ([[sampling coverage]]).
 - Predictions can be right per domain and wrong about relative domain motion ([[@mccaffertyDoesAlphaFold2Model2023#^c1]]), and sub-sampled ensembles include implausible structures (jaxENT intro L6), hence ValDX's filtered AF2 ensembles.
 - The usual use is seeding MD, which adds physics but not populations ([[@vaniAlphaFold2RAVESequenceBoltzmann2023#^c2]], [[@zhengMachineLearningGeneration2023#^c5]]; [[enhanced sampling]]).
+- **Population claims are qualitative at best.** Monteiro da Silva et al. claim subsampled AF2 can directly predict relative populations ([[@monteirodasilvaHighthroughputPredictionProtein2024#^c1]]), but it works best qualitatively ([[@monteirodasilvaHighthroughputPredictionProtein2024#^c3]]). Whether it gives Boltzmann ratios quantitatively "remains to be shown" ([[@monteirodasilvaHighthroughputPredictionProtein2024#^c7]]), and predicted populations can depend on the subsampling level ([[@monteirodasilvaHighthroughputPredictionProtein2024#^c8]]).
+- **MSA clustering is contested.** Clustering the MSA lets AF2 sample alternative states of metamorphic proteins ([[@wayment-steelePredictingMultipleConformations2024#^c1]]), but model counts reflect family abundance, not Boltzmann weights ([[@wayment-steelePredictingMultipleConformations2024#^c7]]). Schafer et al. find random sampling beats clustering ([[@schaferSequenceClusteringConfounds2024#^c1]]) and that neither predicts fold switching reliably ([[@schaferSequenceClusteringConfounds2024#^c8]]). Word "captures dynamics" or "follows an energy landscape" as the authors' claim, not a result.
+- The general predictor is [[protein structure predictor]].
 
 ## Why it matters here
 
 ValDX's AF2-MSAss and AF2-Filtered ensembles are this method. They test whether HDX-MS can choose between coverage obtained from evolutionary information and coverage from simulation, and why their frame counts are a prior, not populations ([[importance sampling]]).
 
-Claims that use this term: [[Sub-sampling multiple sequence alignments alters the contacts described to the model, leading to diverse structural predictions.]], [[Generating many sub-sampled predictions creates a conformational ensemble that captures the protein's dynamic nature.]], [[MSA-subsampling has been shown to broadly follow a physical energy landscape.]], [[Repeated random seeds of AlphaFold 3 do not approximate the solution ensemble.]], [[Learned generators are used to seed MD simulations, combining broad coverage with physics-based sampling.]], [[Diversity among generated structures is not on its own evidence that their frequencies represent an equilibrium ensemble.]].
+Claims that use this term: [[Sub-sampling multiple sequence alignments alters the contacts described to the model, leading to diverse structural predictions.]], [[Generating many sub-sampled predictions creates a conformational ensemble that captures the protein's dynamic nature.]], [[MSA-subsampling has been shown to broadly follow a physical energy landscape.]], [[Repeated random seeds of AlphaFold 3 do not approximate the solution ensemble.]], [[Learned generators are used to seed MD simulations, combining broad coverage with physics-based sampling.]], [[Diversity among generated structures is not on its own evidence that their frequencies represent an equilibrium ensemble.]], [[Subsampled AlphaFold2 can predict the direction of population shifts qualitatively, but quantitative Boltzmann ratios have not been shown.]], [[Frequencies of states in MSA-clustered AlphaFold2 predictions reflect family abundance, not Boltzmann weights.]], [[Whether MSA clustering recovers alternative states through evolutionary couplings is contested.]].

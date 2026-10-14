@@ -52,6 +52,7 @@ Source: the continuous form is the MaxEnt constraint of [[@cesariUsingMaximumEnt
 - $\sigma_i$ models random error. Systematic forward-model error is not covered unless it is modelled, for example through $\theta$ ([[nuisance parameter]]). Habeck lists neglected dynamics and averaging among the sources of discrepancy (p. 6).
 - Structure-based NMR calculations rarely model data as ensemble averages ([[@bmsb2012ch12#^c4]]). HDX-MS and SAXS data are averages, so the comparison object is the ensemble, not a structure.
 - When the forward model is wrong, the inferred weights and parameters absorb the mismatch and the fit can still look good ([[model misspecification]]).
+- Sampling-time methods need its gradient as well as its value. A [[restrained simulation]] applies forces through it, [[metainference]] does the same with inferred errors, and [[guided diffusion]] differentiates it at each denoising step. Reweighting needs only values ([[HDX protection-factor model]] covers the HDX case).
 
 ## Why it matters here
 

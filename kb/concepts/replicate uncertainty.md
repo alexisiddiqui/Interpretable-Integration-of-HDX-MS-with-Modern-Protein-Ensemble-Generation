@@ -6,8 +6,6 @@ aliases:
   - fitting instability
   - robustness
   - sensitivity to data selection
-  - representative structures
-  - clustering
 notation: []
 sources:
   - "[[@siddiquiFrameworkTestingStructural2026#^c12]]"
@@ -20,7 +18,7 @@ sources:
 
 Replicate uncertainty is the spread of results across repeated fits that use different selections of the data, such as different training splits. Fitting outcomes depend strongly on which peptides and time points are used, and replicates quantify this ([[@siddiquiFrameworkTestingStructural2026#^c12]]). A conclusion that changes between replicates depends on the data selection, not only on the protein.
 
-The same test applies to the representation. Clustering an ensemble into representative structures gives compact, interpretable ensembles with little loss of accuracy ([[@siddiquiFrameworkTestingStructural2026#^c13]]), and a conclusion read off representatives should not depend on how many there are. Stable conclusions let a fitted ensemble be treated as a structural hypothesis that can be ranked against data or rejected ([[@bradshawInterpretationHDXData2020#^c2]], [[@siddiquiFrameworkTestingStructural2026#^c14]]).
+The same test applies to the representation ([[clustering]]). Clustering an ensemble into representative structures gives compact, interpretable ensembles with little loss of accuracy ([[@siddiquiFrameworkTestingStructural2026#^c13]]), and a conclusion read off representatives should not depend on how many there are. Stable conclusions let a fitted ensemble be treated as a structural hypothesis that can be ranked against data or rejected ([[@bradshawInterpretationHDXData2020#^c2]], [[@siddiquiFrameworkTestingStructural2026#^c14]]).
 
 ## Assumptions and limits
 

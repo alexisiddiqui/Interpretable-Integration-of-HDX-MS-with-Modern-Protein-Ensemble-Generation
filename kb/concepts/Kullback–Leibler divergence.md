@@ -42,6 +42,7 @@ Manuscript form: projects/2-jaxENT/manuscript/report/methods/general_procedures.
 - **Direction.** $D_\text{KL}$ is not symmetric, so always state which distribution comes first. MaxEnt reweighting minimises $D_\text{KL}(P \Vert P_0)$. The reference ratio method is proved optimal for $D_\text{KL}(P_0 \Vert P)$ ([[@bmsb2012ch4#^c3]], Theorem 4.2). Under a full-marginal constraint the two directions agree ([[reference ratio method]], step 5).
 - **Three places it appears.** As the prior side of reweighting (above). As the maximum-entropy regulariser of SAXS, which is a generalised KL divergence to a prior estimate ([[@bmsb2012ch13#^c5]]; [[regularisation#^eq-maxent-regulariser]]). And on the likelihood side: maximum likelihood minimises the cross-entropy, or equivalently the KL divergence, between the empirical distribution of the data and the model ([[@bmsb2012ch12#^c19]], Eqs. 12.5–12.6, p. 7).
 - The divergence is measured in weight space, not structure space. Two ensembles with similar $D_\text{KL}$ can differ greatly in structure.
+- To compare two ensembles rather than a posterior with its prior, use the symmetric, bounded Jensen–Shannon divergence ([[ensemble comparison#^eq-jsd]]), which is built from two KL terms against the mixture.
 
 ## Why it matters here
 

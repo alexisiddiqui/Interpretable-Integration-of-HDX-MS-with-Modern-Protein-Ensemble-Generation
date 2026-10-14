@@ -52,6 +52,7 @@ Source: [[@bmsb2012ch4#^c3]], Theorem 4.2, p. 3 (proof p. 4), written $\arg\min_
 - $P_0(\xi)$ is rarely known in closed form. It is estimated from samples, iteratively when $\xi$ is high-dimensional (Eq. 3.76, p. 27).
 - The construction assumes the generator is right locally and wrong globally ([[@bmsb2012ch4#^c7]], p. 10). Samples from the local generator TORUSDBN alone are not compact native-like structures ([[@bmsb2012ch4#^c4]], p. 6).
 - In BMSB ch2 the same word "reference distribution" means any distribution against which a target is measured, as in a ratio of partition functions $Z/Z_\pi$ ([[@bmsb2012ch2#^c3]], Eq. 2.4, p. 5).
+- Guided diffusion faces the same problem from the other side: it biases a learned prior towards data or energy without a principled correction of the remaining statistics ([[guided diffusion]]).
 
 ## Why it matters here
 

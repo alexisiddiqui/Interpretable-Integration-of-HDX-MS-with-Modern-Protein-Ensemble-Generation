@@ -45,6 +45,7 @@ Manuscript form: 6_methods_omc.tex#L385; projects/2-jaxENT/manuscript/report/met
 - Hard cutoffs (6.5 Å, 2.4 Å) make the counts discontinuous in the coordinates. Differentiable variants are a Chapter 5 topic.
 - The model's systematic error adds to peptide averaging in [[deuterium uptake]].
 - The β coefficients mainly compensate for differences between the experimental conditions and those the model was calibrated under ([[@siddiquiFrameworkTestingStructural2026#^c7]]), so fitted values can absorb forward-model mismatch ([[model misspecification]]).
+- **Variants.** The original counts contacts with a hard cutoff. A switch-function variant smooths the cutoff (Radou et al. 2014; not yet in the KB), which makes the count differentiable. ValDX generated synthetic targets with the switch form and fitted with the hard cutoff, a deliberate mismatch (`projects/1-ValDX/manuscript/report/6_methods_omc.tex` L624). Other model families are in [[HDX protection-factor model]].
 
 ## Why it matters here
 
