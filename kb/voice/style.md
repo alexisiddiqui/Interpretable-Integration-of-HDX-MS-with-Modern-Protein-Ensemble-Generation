@@ -14,7 +14,7 @@ The profile was built from three documents. When they disagree, the higher one w
 
 ## The core move
 
-Write towards the conditions under which an interpretation becomes defensible. The recurring paragraph shape is:
+Write towards the conditions under which an interpretation becomes defensible. The recurring shape of an argument, usually spread over two or three paragraphs, is:
 
 1. State an observable result.
 2. Give its possible explanations.
@@ -45,17 +45,38 @@ Each analysis answers a deficiency exposed by the one before it:
 5. Interpret the joint behaviour.
 6. State the remaining uncertainty or practical consequence.
 
-Make the dependency between analyses explicit in the transition: "We therefore examined", "To distinguish", "Given the limitations of", "Having established". A transition must say *why* the next analysis is needed. Do not use transitions that carry no logical obligation ("Importantly", "Furthermore", "Additionally", "Notably").
+Each step is usually its own paragraph. Make the dependency between analyses explicit in the transition: "We therefore examined", "To distinguish", "Given the limitations of", "Having established". A transition must say *why* the next analysis is needed. Do not use transitions that carry no logical obligation ("Importantly", "Furthermore", "Additionally", "Notably").
+
+## One finding per paragraph
+
+A results paragraph can take on several jobs. It can motivate a comparison, define a metric, decode a figure, report statistics, explain the result and qualify the explanation. Each job is legitimate, and they are connected. Done together in one paragraph, they bury the finding the paragraph exists to report.
+
+Give each job a home.
+
+| Job | Home |
+|---|---|
+| Motivate the comparison | The transition that opens the paragraph, or the end of the previous one |
+| Define the metric | Methods or background; in results, a one-clause reminder |
+| Decode the figure | The caption |
+| Report statistics | Parentheses after the claim they support |
+| Explain the result | The body of the paragraph |
+| Qualify the explanation | One qualification, the one that changes the advice; others go to the discussion |
+
+The paragraph keeps its finding, the explanation and one bound. Before keeping a paragraph, state its finding in one sentence. That sentence should appear near the start, and nothing before it except the transition should be needed to understand it. Setup and methods paragraphs follow the same rule, with the design decision as the finding ([[examples]] 9).
+
+Draft the accumulation if that is how the reasoning arrives. Separate the jobs on revision.
 
 ## Give every method an interpretive purpose
 
 Do not just name a procedure and report its output. Say what choosing it lets the experiment test, and put that purpose before the algorithm. (The peptide-splitting methods first explain how overlapping peptides create apparent knowledge, give the example of one residue appearing in five peptides, then distinguish what each split asks; the algorithm comes last.)
 
-Within a paragraph, move between three levels:
+Around a single finding, move between three levels:
 
 - **Operation**: what is calculated or changed.
 - **Physical interpretation**: what that operation corresponds to in the system.
 - **Inferential consequence**: what its outcome lets the reader conclude.
+
+These are three sentences about one finding, not three findings.
 
 ## State the level at which a statement is true
 
@@ -77,7 +98,7 @@ Long sentences assemble the object, comparison, qualification and interpretation
 
 > It does not measure the distance to a ground truth structure.
 
-Use the short sentence after dense explanation, not as a habit. Prose made only of long sentences, or only of short ones, is not this voice.
+Use the short sentence after dense explanation, not as a habit. Prose made only of long sentences, or only of short ones, is not this voice. Accumulate within a sentence, not across a paragraph.
 
 ## Introduce concepts through actions
 
@@ -91,6 +112,8 @@ Preferred verbs: *compare, distinguish, assess, quantify, constrain, recover, re
 
 The typical sentence describes something being changed, measures that change, and asks what it reveals about the starting explanation. "Success" always needs elaborating: by which measure, against which reference, at which level?
 
+Choose clean, standard terms that the target audience already uses, never an abstract or decorative phrase standing in for one (word list in [[spag]]). How tightly a term is fixed scales with how often it is reused. A quantity mentioned once can be described in plain words. A quantity reused across a section or chapter earns a short fixed name, built from standard terminology so its meaning is still obvious on first reading (*validation error*, *candidate ensemble*, *Work Done*).
+
 Keep a technical noun once introduced. Write "validation error", "Work Done", "candidate ensemble" again in the next sentence rather than switching to a synonym; a stable referent matters more than variety. If repetition becomes heavy, restructure the sentence rather than introducing a synonym.
 
 ## Authorial presence
@@ -102,7 +125,7 @@ Keep a technical noun once introduced. Write "validation error", "Work Done", "c
 
 ## Figures are part of the argument
 
-In results prose, teach the reader how to read the encoding before asking them to accept the interpretation: what a colour represents, what a reference structure means, why a distribution is normalised, how a panel relates to an earlier comparison. Describe what a successful outcome should look like (in jaxENT MoPrP: structural position and weight).
+Teach the reader how to read the encoding before asking them to accept the interpretation. The caption does most of this decoding: what a colour represents, what a reference structure means, why a distribution is normalised, how a panel relates to an earlier comparison. In the body, decode only what the interpretation depends on, in a clause, then interpret. Describe what a successful outcome should look like (in jaxENT MoPrP: structural position and weight).
 
 Captions are compact arguments: name the comparison, decode the panels, give the numbers, state the implication, so the figure can be read on its own. Keep the body text from simply repeating the caption; the body interprets, the caption decodes.
 
@@ -114,7 +137,17 @@ Breadth examples (several disease cases showing that static structures leave que
 
 ## End on a better decision
 
-Paragraphs and sections should end with what the reader should compare, investigate, retain, reject or test next. Interpretability matters because it makes those decisions possible. Return computational results to the choices that matter in an experimental investigation. A result earns its place by changing how a hypothesis can be assessed.
+Sections should end with what the reader should compare, investigate, retain, reject or test next. A paragraph ends on its finding or the boundary of that finding. Interpretability matters because it makes those decisions possible. Return computational results to the choices that matter in an experimental investigation. A result earns its place by changing how a hypothesis can be assessed.
+
+## When a passage carries weight
+
+Contribution statements, section conclusions and recommendations are where the wish to secure both the significance of a result and the conditions of its validity runs ahead of the argument. The excess takes three forms.
+
+- Extra explanation. A method or metric already defined is explained again.
+- Repetition. The result just reported returns as "These results establish that…", or one sentence lists every component of the analysis again.
+- Stronger wording. *robust, systematically, critically, blueprint, adequately*.
+
+They share a cause and a fix. Return to the controlled form, which is the claim, the condition it holds under, and a short sentence that bounds it ([[examples]] 5, 6 and 10).
 
 ## Registers in the thesis
 
@@ -125,14 +158,27 @@ Paragraphs and sections should end with what the reader should compare, investig
 | Results chapters (ch. 3–6) | ValDX register by default; jaxENT compression for contribution statements and chapter openings |
 | Discussion and conclusions | ValDX discussion paragraphs: concern, bounded response, comparison, open extension |
 
+## Revising without losing the voice
+
+Splitting paragraphs and cutting excess must not remove the features that make the reasoning recognisable.
+
+- Explicit analytical transitions that say why the next analysis is needed
+- Stable technical vocabulary
+- Movement between physical and statistical interpretations of the same quantity
+- Short sentences that bound a conclusion
+
+If a revision loses one of these, restore it and cut something else.
+
 ## Before handing back a draft
 
-- Does each paragraph move from a result to what it can and cannot support?
+- Does each paragraph report one finding, stated near its start, with what it can and cannot support?
+- Does the caption decode the figure, leaving the body to interpret?
 - Does every transition say why the next analysis is needed?
 - Is every methodological choice given a purpose before its mechanics?
 - Is the level (residue, peptide, ensemble-average, frame) stated wherever it changes what can be known?
 - Does each caveat name a concrete condition, and does it change any advice?
 - Is there a short declarative where a boundary needs settling, and not elsewhere?
-- Are technical nouns kept constant across adjacent sentences?
+- Are technical nouns kept constant across adjacent sentences, and are they standard terms the audience will recognise?
 - Does the section end on a decision or consequence, not a summary?
+- In conclusions, contribution statements and recommendations, is anything re-explained, restated or upgraded?
 - Does it pass [[spag]]?

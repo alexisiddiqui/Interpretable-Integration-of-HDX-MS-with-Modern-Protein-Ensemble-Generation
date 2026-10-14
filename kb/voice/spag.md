@@ -13,8 +13,8 @@ The single most characteristic habit: **place a claim alongside the condition go
 ## Punctuation
 
 - **Commas organise layered reasoning.** Open with a purpose or condition ("To distinguish…", "Given…", "While…", "Within a single ensemble,"), then give the main claim, then attach qualifications. Avoid comma splices: drafts occasionally produce them, and the finished manuscripts do not. Join independent clauses with a conjunction, a semicolon, or a full stop.
-- **Parentheses carry supporting precision**: abbreviations, numerical results, figure references, brief definitions. Keep the main clause for interpretation. Do not put the claim itself in parentheses.
-- **Colons introduce structured explanation**: named alternatives, component lists, specifications. Paired colons in consecutive sentences can set up matching structures (evidence, then the claims it tests).
+- **Parentheses carry supporting precision**: abbreviations, numerical results and test statistics, figure references, brief definitions. Keep the main clause for interpretation. Do not put the claim itself in parentheses.
+- **No colons in running prose.** Where a colon would introduce named alternatives, a list or a specification, end the sentence and let the next one open with its subject ("These are…", "Each regime tests whether…"), or fold the list into the sentence. Colons remain fine in displayed lists, titles and notes.
 - **Semicolons** connect closely related clauses, sparingly.
 - **Hyphens bind technical compounds** used attributively: *ensemble-average, residue-level, forward-model, peptide-level, individual-frame, ground-truth availability*. Hyphenate consistently within a document.
 - **Questions** only to expose an unresolved scientific distinction or frame a research objective. No rhetorical questions for effect.
@@ -35,4 +35,15 @@ The single most characteristic habit: **place a claim alongside the condition go
 - Intensifiers and unconditional claims: *simply, clearly, ensures, successfully, fundamental, robust, novel, powerful, crucial*.
 - Synonym-swapping a technical noun for variety.
 - Comma splices and run-on qualifier chains; split into a long sentence plus a short one instead.
-- Abhor em-dashes and colons. Use any other punctuation to seperate clauses. Multiple sentences of various lengths are best.
+- Abhor em-dashes and colons in running prose. Separate clauses with a full stop, comma, semicolon or parentheses. Several sentences of varied length are best.
+
+## Drafting tells
+
+Patterns that enter prose drafted by a model, or drafted from compressed `kb/` notes. Remove them on revision.
+
+- **Decorative -ing tails.** "…, highlighting the need for", "…, reflecting lack of regularisation". If the participle states a cause, make it a *because* clause; otherwise cut it.
+- **Abstract or inflated words** standing in for a standard term: *serves as* (for "is"), *utilise, facilitate, leverage, underscore, showcase, blueprint, paradigm, interplay, intricate, pivotal, delve*. Use the plain or standard term ([[style]], vocabulary). *Landscape* is fine for an energy landscape.
+- **Adverbs propping up a verb**: *systematically, substantially, critically*. Give the number or a stronger verb. Keep *significantly* for statistical significance.
+- **Stacked hedges**: *may potentially, could possibly suggest*. One named condition does the job ([[style]], caution is specific).
+- **Vague attribution**: "studies have shown", "it is widely accepted". Cite the source from `kb/papers/` or cut the sentence.
+- **Note shorthand in prose**: arrows, dropped articles, verbless fragments, `kb/` abbreviations. Write whole sentences.

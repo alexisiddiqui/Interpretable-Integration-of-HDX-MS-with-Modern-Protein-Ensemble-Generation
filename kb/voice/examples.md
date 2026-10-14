@@ -4,6 +4,8 @@ Passages to model sentences on, each with what makes it work. Read [[style]] and
 
 Imitate the structure, not the content: do not reuse these sentences or their specific claims in new text.
 
+Examples 9 and 10 are counter-examples from the same manuscript. Read them for the failure they show, not as models.
+
 ## 1. Phrases that set up an analytical relationship
 
 - "To distinguish relative protection-factor pattern changes from distributional reorganisation…"
@@ -53,7 +55,7 @@ Source: `projects/1-ValDX/manuscript/report/7_results_omc.tex:237`
 
 > We validate jaxENT across three regimes of decreasing ground-truth availability: a synthetic benchmark with exact populations, a real system with an orthogonal HDX-NMR reference, and an α-synuclein case study with no structural ground truth. We also compare runtime against competing methods on commodity hardware. Each regime tests a different claim: that the objective recovers known populations, that it beats a Lagrangian baseline on real data, and that its uncertainty estimates remain interpretable when no reference exists.
 
-Two colons introduce matching structures: the evidence, then the claims it tests. Repeated "that" keeps the list parallel. The study is organised by decreasing access to ground truth, giving the reader an evidential map.
+The two sentences set up matching structures, the evidence and then the claims it tests. Repeated "that" keeps the list parallel. The study is organised by decreasing access to ground truth, giving the reader an evidential map. The draft uses colons here; in thesis prose end the sentence at each colon and open the list with its own subject ([[spag]], colons).
 Source: `projects/2-jaxENT/manuscript/report/results.tex:29`
 
 ## 8. Broad explanatory register (introduction only)
@@ -68,3 +70,26 @@ Source: `milestones/2025-11-confirmation-of-status/introduction/biological_dynam
 - "It does not measure the distance to a ground truth structure." (`7_results_omc.tex:12`)
 - "The metric does not by itself identify which cause is operating." (`7_results_omc.tex:18`)
 - "Generating a consensus from multiple splits does not inherently produce a representative candidate ensemble." (`7_results_omc.tex:60`)
+
+## 9. Counter-example: one setup paragraph, eight jobs
+
+The synthetic-benchmark setup paragraph runs to 14 sentences. Read it in place. By sentence, its jobs are:
+
+- 1: purpose (controlled conditions for measuring accuracy)
+- 2–3: data generation, and why known populations matter
+- 4–7: the forward-model mismatch between generation and fitting
+- 8–10: the two structural hypotheses and what each can recover
+- 11: the γ sweep, with literature
+- 12: split types, with colours
+- 13: definition of training error
+- 14: figure encoding (axes, point size)
+
+The design decision the reader must retain sits in sentence 9. ISO-Bimodal contains only structures present in the target, so its populations can in principle be recovered, and ISO-Trimodal cannot. "Critically" is doing the work that position should do. Three paragraphs would serve: the synthetic design and why it gives a ground truth (1–7), the two hypotheses opening with sentence 9 (8–10), and the fitting protocol (11–13). Colours and point sizes go to the caption, and the colons in sentences 8 and 12 go with the split.
+Source: `projects/1-ValDX/manuscript/report/7_results_omc.tex:44`
+
+## 10. Counter-example: a conclusion under pressure
+
+> These results establish that quantitative comparison across multiple ensembles enables robust structural hypothesis evaluation without requiring detailed prior system knowledge or direct pairwise ensemble comparisons.
+
+The paragraph closes the BPTI section. It restates the section's result ("These results establish"), upgrades it (*robust, systematically, practical blueprint*), and lists every partition and metric again in a 69-word second sentence. The qualification that BPTI has a literature reference is present, but it sits inside a sentence whose main clause carries the claim to systems without ground truth. Compare example 6, which handles the same kind of claim with one job per sentence. The controlled form gives the finding, the condition it was shown under, and a short sentence bounding the extension.
+Source: `projects/1-ValDX/manuscript/report/7_results_omc.tex:99`
