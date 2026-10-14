@@ -72,6 +72,31 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "HDXer iteratively minimizes a distance function that balances the bias applied, quantified across the whole ensemble as an apparent work"
   - quote_check: pass
   - reviewed: false
+- BPTI, the tutorial system, is a small, compact globular protein that has been studied extensively, including by HDX. ^c11
+  - page: 16
+  - quote: "BPTI is a small and compact globular protein and has been studied extensively, including using HDX methodologies"
+  - quote_check: pass
+  - reviewed: false
+- The BPTI exchange data were first measured by NMR as rate constants for individual backbone amides. ^c12
+  - page: 17
+  - quote: "first reported as observed H-D exchange rate constants for discrete backbone amides, measured by NMR"
+  - quote_check: pass
+  - reviewed: false
+- The tutorial converts the NMR protection factors into residue fractional deuteration, as if the data were HDX-MS. ^c13
+  - page: 18
+  - quote: "we will further convert the experimental protection factors into fractional deuteration values for each residue, as if the data had been recorded by HDX-MS experiments"
+  - quote_check: pass
+  - reviewed: false
+- The experimental protection factors do not cover every residue of BPTI. ^c14
+  - page: 18
+  - quote: "the experimental HDX protection factor data for BPTI does not cover every residue in the protein"
+  - quote_check: pass
+  - reviewed: false
+- The candidate ensemble is five 500 ns MD replicas of BPTI in solution. ^c15
+  - page: 19
+  - quote: "five replica trajectories, each 500 ns long, from five separate simulations of BPTI in solution"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 
