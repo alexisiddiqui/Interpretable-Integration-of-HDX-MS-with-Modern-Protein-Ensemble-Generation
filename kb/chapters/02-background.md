@@ -47,14 +47,15 @@ Introductory equations: [[protection factor#^eq-pf]] and [[deuterium uptake#^eq-
 - [[molecular dynamics]]: [[molecular dynamics#^eq-newton]] (very light).
 - [[Boltzmann distribution]]: [[Boltzmann distribution#^eq-boltzmann]].
 - **gap**: a displayed-equation source for Newton's or Langevin's equation.
+- [[force field]] potential energy $U(x)$ as a score for one conformation. A low energy flags a plausible structure under the model, not a populated state, because population depends on the free energy of the whole basin.
 
 ### Enhanced Sampling
 - [[Markov chain Monte Carlo]]: detailed balance [[Markov chain Monte Carlo#^eq-detailed-balance]] and Metropolis–Hastings [[Markov chain Monte Carlo#^eq-metropolis-hastings]], if the chapter needs them. Extended ensembles and reweighting back to the target are in the note's limits.
 - Claims: [[Metadynamics enhances sampling by adding a history-dependent biasing potential to the system's energy landscape.]]
 
 ### Learned Structure Predictors and Ensemble Generators
-- Very light equation: **gap**. No source is chosen yet for a learned-distribution equation. The [[diffusion model]] note may cover it.
-- The caution that a learned score is a statistical potential, not a free energy: [[knowledge-based potential#^eq-inverse-boltzmann]] and the [[knowledge-based potential]] derivation.
+- Very light equation. [[statistical potential#^eq-statistical-potential]] writes any model density as an energy. This answers the `.tex` stub "Discuss statistical potentials" (L41).
+- [[statistical potential]] is the general idea, and [[knowledge-based potential]] is its database-count case ([[knowledge-based potential#^eq-inverse-boltzmann]]). Such an energy is a statistical quantity unless its density is the physical equilibrium one. AF2 exposes no normalised density, so ValDX's "AF2 generates structures according to a statistical potential" is an analogy.
 - [[protein structure predictor]] is trained for one PDB-like structure and reports accuracy, not population.
   - [[Structure predictors are trained to return the single structure most likely to appear in the PDB.]] (supported)
   - [[A structure predictor's confidence score measures expected accuracy, not the free energy or population of a conformation.]] (supported)
@@ -137,11 +138,18 @@ Grounding concepts (from BMSB): [[posterior uncertainty]]; [[regularisation]], w
 - [[BPTI]] is the contrast case. Its residue-level NMR data have no peptide overlap, but neighbouring residues can still be correlated.
 
 ### Identifiability and Competing Structural Hypotheses
-- [[inverse problem]] states the non-uniqueness. Berlin et al. 2013 give the count argument, and Bonomi et al. 2017 call ensemble determination ill-defined because different ensembles fit the same averaged data.
+- Open with [[identifiability]]. Structural non-identifiability holds even with ideal data and a perfect forward model. Practical ambiguity comes from coverage, noise and model discrepancy, and better data can reduce it. [[inverse problem]] holds the general frame, with Berlin et al. 2013 for the count argument and Bonomi et al. 2017 for ensembles that fit the same averages.
   - [[One uptake curve can arise from many different conformational populations, so a good fit does not identify the ensemble.]] (supported)
   - [[Similar uptake agreement can coexist with different population recovery, so training error cannot verify populations.]] (supported)
+- Two levels of ambiguity. Uptake may not fix residue protection factors (Skinner et al. 2019, depending on peptide number, overlap and length), and protection factors may not fix populations. Say which level a result addresses.
+- Distinguishability. Hypotheses can be told apart only where their predicted observables differ by more than measurement and model error. An orthogonal measurement earns its place by constraining what uptake leaves open.
+  - [[Two structural hypotheses can be distinguished only where their predicted observables differ by more than measurement and model error.]] (draft, inferred)
+- References of decreasing certainty. A synthetic benchmark has exact populations (TeaA). An experimental reference such as the HDX-NMR-derived MoPrP target depends on its own state assignments and thermodynamic assumptions. A system with no structural reference allows only prediction and stability to be assessed (α-synuclein).
+- Validation answers narrower questions. Held-out error tests prediction, replicate spread tests sensitivity, and [[controlled perturbation]] tests attribution. None of them shows that the populations are unique.
+- Ranking rather than identifying. [[BICePs]] ranks candidate priors by an evidence ratio while inferring the error scale. ValDX instead asks whether a fit generalises and how much it changed the prior.
   - [[A fitting metric can rank candidate ensembles against data or reveal them as inadequate, so integration becomes structural hypothesis testing.]] (supported)
-- [[controlled perturbation]] turns competing explanations into tests. Change one suspected cause, keep the rest fixed, and compare. Close the subsection on the hand-off to Work Done in the next subsection.
+  - [[BICePs ranks candidate priors by an evidence ratio while inferring the experimental uncertainty as a nuisance parameter.]] (supported)
+- Close on the hand-off to the next subsection. Once the data cannot pick one ensemble, the comparison between candidates has to be made in representations the reader can inspect.
 
 ### Ensemble Comparison and Interpretable Representations
 - [[ensemble comparison]] gives the Jensen–Shannon divergence [[ensemble comparison#^eq-jsd]], built from [[Kullback–Leibler divergence#^eq-kl]].
@@ -149,17 +157,29 @@ Grounding concepts (from BMSB): [[posterior uncertainty]]; [[regularisation]], w
   - [[The Jensen–Shannon divergence is a symmetric, bounded measure of ensemble similarity that stays defined where one ensemble has no density.]] (supported)
   - [[Dimensionality reduction by PCA or MDS assumes a linear conformational space.]] (supported)
   - [[Ensemble similarity scores compare equilibrium distributions and do not capture changes in dynamics or transition rates.]] (supported)
-- [[conformational kinetics]] marks how far a weighted ensemble reaches towards mechanism. Under EX2 the data report the fraction of time open, not the opening rate.
-  - [[Weighted conformational ensembles describe which states are occupied, not the order, rates or causal pathways of transitions between them.]] (draft, inferred)
-- [[clustering]] covers representatives and resolution.
+- Structural distributions. [[positional covariance]] gives RMSF and dynamic cross-correlation, and [[Wasserstein distance]] compares whole distributions in the units of the variable. ValDX's residue-averaged pair-distance $W_1$ and neighbourhood LCC are its own constructions ([[Structural comparison metrics (ValDX)]]).
+  - [[Superposition can introduce artefactual correlations into atomic covariance estimates.]] (supported)
+  - [[Linear displacement correlation misses non-linear and perpendicular coupled motions.]] (supported)
+  - [[Agreement of per-residue pair-distance distributions does not establish that two ensembles share the same joint conformational distribution.]] (draft, inferred)
+- Populations. JSD between state populations, with the log base stated. jaxENT's recovery score needs base 2 ([[Ground-truth recovery (jaxENT)]]).
+- Change induced by fitting. [[Work Done]] measures how far fitting moved the protection profile from the prior, and apparent work measures how far it moved the weights ([[Kullback–Leibler divergence]]). High Work Done shows substantial modification with several possible causes, not overfitting by itself. Full equations stay in Chapter 3 ([[Work Done (ValDX)]]).
+  - [[Distinct protection profiles can give zero Work Done, so Work Done is not a distance between profiles.]] (draft, inferred)
+- Compact representations. [[clustering]] covers representatives and resolution. Rule-based states (jaxENT MoPrP) and shape-space GMM clusters (jaxENT α-synuclein) are also chosen resolutions, so conclusions should be checked across them.
   - [[Clustering sets the resolution of an ensemble comparison and ignores differences within clusters and similarities across them.]] (supported)
   - [[Clustering into representative structures gives compact, interpretable ensembles with little loss of accuracy.]] (supported)
   - [[Conclusions drawn from representative structures should be checked for stability across cluster sizes.]] (revised ValDX only)
-- The subsection then presents ValDX's [[Work Done]] metrics. Covariance-weighted MSE, Wasserstein-1, RMSF and correlated motion become method notes for ValDX and jaxENT.
-- **gap**. No general source yet for Wasserstein-1, RMSF or correlated motion. jaxENT's JSD recovery score, ternary shape space and GMM clustering are manuscript-only.
+- Close on the boundary. [[conformational kinetics]] marks how far a weighted ensemble reaches towards mechanism. Under EX2 the data report the fraction of time open, not the opening rate.
+  - [[Weighted conformational ensembles describe which states are occupied, not the order, rates or causal pathways of transitions between them.]] (draft, inferred)
+- **gap**. No citable source yet for the general $W_1$ definition (SciPy documentation only). jaxENT's ternary shape space and GMM clustering are manuscript-only.
 
 ## Gaps (Chapter 2 literature)
 - Add to Zotero the two hand-added bib entries, `lindorff-larsenSimilarityMeasuresProtein2009` and `tibertiENCORESoftwareQuantitative2015`. Otherwise the next Better BibTeX export drops them.
 - Radou et al. 2014 is needed for the switch-function BV model. Add it to Zotero or `kb/_pdf/`.
 - The original metainference paper (Bonomi et al. 2016, Sci Adv) is not in the library. Bonomi 2016 Sci Rep and the 2017 review carry the definition for now.
 - All new paper notes are `read: false`, and all quotes are `reviewed: false`.
+- BICePs v2.0 (Raddi, Ge & Voelz 2023) and forward-model learning (Raddi, Marshall & Voelz 2024) are cited in revised ValDX but are not in Zotero. BICePs is sourced from Wan et al. 2020 for now.
+- Merge the three Better BibTeX duplicates of Melo et al. 2020 in Zotero.
+- A citable source for the Wasserstein-1 definition, if the chapter needs more than the SciPy documentation.
+- jaxENT `methods/analysis.tex` L10 should state that JSD is in base 2. Its MoPrP caption (`results.tex` L82) says "ground-truth MoPrP populations" for an HDX-NMR-derived reference.
+- ValDX Work Done. The density weights multiply rather than divide by their sum, in both manuscript and code ([[Work Done (ValDX)]]). The SI $W_1$ equation does not match the implementation, and the correlation code does not align frames itself ([[Structural comparison metrics (ValDX)]]).
+- Chapter 3 must define the Work metrics, HDXer apparent work and the BICePs score side by side (`thesis/chapters/03-valdx.tex` L9).
