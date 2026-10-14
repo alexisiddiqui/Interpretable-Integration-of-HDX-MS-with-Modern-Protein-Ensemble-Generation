@@ -118,6 +118,11 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote_check: pass
   - reviewed: false
 
+- HDXer could cross-validate the HDX data themselves by separating time points into training and validation sets. ^c20
+  - page: 24
+  - quote: "Deuteration levels measured at different timepoints could be separated into training and validation sets"
+  - quote_check: pass
+  - reviewed: false
 ## Notation
 
 | Source | Meaning in this source | Canonical | Note |

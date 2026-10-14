@@ -65,6 +65,11 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote_check: pass
   - reviewed: false
 
+- Least squares is corrected for uneven variances and correlated observations by weighting with the inverse of the covariance matrix. ^c8
+  - page: 5
+  - quote: "for uneven variances and correlations by weighting by the inverse of the covariance matrix"
+  - quote_check: pass
+  - reviewed: false
 ## What I use from it
 
 Atomic covariance and correlation as the general frame for RMSF and dynamic cross-correlation, and the warning that the superposition used to remove rigid-body motion can itself create apparent correlations ([[positional covariance]]).

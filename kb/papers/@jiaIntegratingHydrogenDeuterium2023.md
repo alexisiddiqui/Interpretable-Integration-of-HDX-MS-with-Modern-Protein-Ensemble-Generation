@@ -38,6 +38,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote_check: pass
   - reviewed: false
 
+- Robustness was assessed by re-optimising the Best–Vendruscolo scaling parameters and reweighting again. ^c4
+  - page: 4
+  - quote: "sensitivity of the reweighted conformational populations to changes in the scaling parameters"
+  - quote_check: pass
+  - reviewed: false
+- The authors conclude that the XylE structural interpretation is relatively robust to small forward-model uncertainties. ^c5
+  - page: 4
+  - quote: "relatively robust to small uncertainties in the forward model"
+  - quote_check: pass
+  - reviewed: false
 ## What I use from it
 
 ## Disagreements / limitations

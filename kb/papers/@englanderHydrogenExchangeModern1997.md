@@ -50,6 +50,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote_check: pass
   - reviewed: false
 
+- Native protein molecules are composed of cooperative units that are smaller than the whole protein. ^c6
+  - page: 5
+  - quote: "cooperative units that are smaller than the whole protein"
+  - quote_check: pass
+  - reviewed: false
+- The hydrogens on the global unfolding isotherm of cytochrome c belong to the N- and C-terminal helices, which unfold as one unit although they are far apart in sequence. ^c7
+  - page: 4
+  - quote: "Hydrogens that join the highest energy global unfolding isotherm represent the amino and carboxyl-terminal helices of cyt c"
+  - quote_check: pass
+  - reviewed: false
 ## What I use from it
 
 - Chapter 2: the Linderstrøm–Lang basis and the EX2 condition (^c1, ^c2).

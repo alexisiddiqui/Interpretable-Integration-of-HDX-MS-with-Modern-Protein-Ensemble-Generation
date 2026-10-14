@@ -19,7 +19,7 @@ sources:
   - "[[@bmsb2012ch8#^c2]]"
   - "[[@bmsb2012ch8#^c3]]"
   - "[[@bmsb2012ch8#^c5]]"
-  - "[[@bmsb2012ch8#^c6]]"
+  - "[[@bmsb2012ch8#^c7]]"
   - "[[@bmsb2012ch8#^c1]]"
   - "[[@bmsb2012ch8#^c4]]"
   - "[[@kasaharaNovelApproachDynamic2014#^c1]]"
@@ -59,7 +59,7 @@ Manuscript form: projects/1-ValDX/manuscript/report/Extended_SI.tex#L580 ($\delt
 ## Assumptions and limits
 
 - **A reference frame must be chosen first.** Fluctuations are measured after rigid-body motion is removed by superposition, and the MDAnalysis RMSF routine performs none itself, so the trajectory must already be aligned and molecules made whole (documentation pointer). Least-squares superposition assumes that every atom has the same variance and that atoms move independently ([[@bmsb2012ch8#^c1]]). Neither holds. Regions of a simulated protein can undergo large changes ([[@bmsb2012ch8#^c2]]), and adjacent main-chain atoms covary through covalent bonds ([[@bmsb2012ch8#^c3]]).
-- **Superposition can create correlation.** Covariance estimated after least-squares superposition was biased and showed a strong artefactual pattern of correlation ([[@bmsb2012ch8#^c6]]). Which regions are excluded from the fit also changes the result ([[@bmsb2012ch8#^c4]]). A DCC map therefore depends on the alignment as well as the motion.
+- **Superposition can create correlation.** Covariance estimated after least-squares superposition was biased and showed a strong artefactual pattern of correlation ([[@bmsb2012ch8#^c7]]). Which regions are excluded from the fit also changes the result ([[@bmsb2012ch8#^c4]]). A DCC map therefore depends on the alignment as well as the motion.
 - **One mean per atom.** DCC uses displacements from a single average position, so it can miss correlations in multi-modal motion and is well defined only for a unimodal coordinate ([[@kasaharaNovelApproachDynamic2014#^c3]], [[@kasaharaNovelApproachDynamic2014#^c4]]). An ensemble with two distinct states can show strong apparent correlation that only reflects switching between them (ours).
 - **Linear only.** Pearson-type correlation misses non-linear contributions and correlated motion in perpendicular directions. Generalised correlation based on mutual information addresses this ([[@meloGeneralizedCorrelationbasedDynamical2020#^c2]], [[@meloGeneralizedCorrelationbasedDynamical2020#^c3]]).
 - **Correlation is not a pathway.** Correlation maps are read as communication between regions ([[@appaduraiDynamicalNetworkHIV12016#^c4]]; [[@bunzelEvolutionDynamicalNetworks2021#^c1]] compares them between ground- and transition-state ensembles). These are equilibrium second moments. They do not give the order or rate of transitions ([[conformational kinetics]], [[allostery]]).

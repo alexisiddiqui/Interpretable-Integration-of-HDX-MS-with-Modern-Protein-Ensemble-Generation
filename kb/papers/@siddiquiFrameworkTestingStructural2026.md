@@ -107,6 +107,11 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote_check: pass
   - reviewed: false
 
+- On experimental peptide datasets, Random and Sequential splits gave no discrimination between candidate ensembles beyond training error. ^c16
+  - page: 14
+  - quote: "Random and Sequential splits provided no additional discriminatory power beyond training error"
+  - quote_check: pass
+  - reviewed: false
 ## What I use from it
 
 Introduction §1.5 is built on this paper:

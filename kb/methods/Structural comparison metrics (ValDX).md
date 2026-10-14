@@ -9,7 +9,7 @@ code:
   - projects/1-ValDX/analyses@1d78b96:notebooks/SI-Fig-1_AF_MD_PCA_Space/SI-Fig1-T-FES.py#L1647-L1730
 sources:
   - "[[@kasaharaNovelApproachDynamic2014#^c2]]"
-  - "[[@bmsb2012ch8#^c6]]"
+  - "[[@bmsb2012ch8#^c7]]"
   - "[[@lindorff-larsenSimilarityMeasuresProtein2009#^c10]]"
 ---
 
@@ -42,6 +42,6 @@ Manuscript form: projects/1-ValDX/manuscript/report/Extended_SI.tex#L580 (Eqs. `
 
 - **W1 code versus SI equation.** The code pools, for residue $i$, all Cα distances to every Cα over all frames, smooths each ensemble's pool with `scipy.stats.gaussian_kde` (Scott's rule), evaluates both densities on a common 1,000-point grid, and passes the grid and densities to `scipy.stats.wasserstein_distance` (pinned lines L1887–1985). That is a standard 1-D $W_1$ between smoothed marginals. The SI equation (`Extended_SI.tex` L469–483) instead writes an infimum over couplings named $\gamma_\text{HDXer}$, sets $\gamma \equiv 1$, and adds a harmonic-mean factor $\alpha(x_1,x_2)$ that the code does not use. Rewrite the SI equation to match the code.
 - In the code each residue's pool includes its zero distance to itself in every frame, and frames are unweighted. State whether reweighted ensembles were compared with weights; the manuscript says weighting schemes are in the SI.
-- **Alignment.** `calculate_local_correlations` computes fluctuations from raw positions and does not superpose frames itself (pinned lines L1647–1730). Unless trajectories were aligned upstream, rigid-body motion enters $C_{ij}$, and least-squares alignment can itself add artefactual correlation ([[@bmsb2012ch8#^c6]]). Record the alignment used.
+- **Alignment.** `calculate_local_correlations` computes fluctuations from raw positions and does not superpose frames itself (pinned lines L1647–1730). Unless trajectories were aligned upstream, rigid-body motion enters $C_{ij}$, and least-squares alignment can itself add artefactual correlation ([[@bmsb2012ch8#^c7]]). Record the alignment used.
 - **Boundary for interpretation.** Per-residue $W_1$ agreement is agreement of marginals, not of the joint distribution ([[Agreement of per-residue pair-distance distributions does not establish that two ensembles share the same joint conformational distribution.]]).
 - These scripts live in an SI figure notebook. Confirm they are the versions behind the published figures before citing line numbers in the thesis.

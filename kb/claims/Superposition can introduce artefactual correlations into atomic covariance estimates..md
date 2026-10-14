@@ -11,14 +11,14 @@ needs_review: false
 review_reason: 
 figures: []
 cites:
-  - "[[@bmsb2012ch8#^c6]]"
+  - "[[@bmsb2012ch8#^c7]]"
   - "[[@bmsb2012ch8#^c1]]"
 code: []
 ---
 
 ## Argument
 
-Ordinary least-squares superposition assumes equal atomic variances and independent atoms, and can be inaccurate when either fails ([[@bmsb2012ch8#^c1]]). In simulated ensembles with known covariance, the covariance estimated after least-squares superposition was biased and showed a strong artefactual pattern of correlation ([[@bmsb2012ch8#^c6]]). RMSF and dynamic cross-correlation are computed after such an alignment ([[positional covariance]]).
+Ordinary least-squares superposition assumes equal atomic variances and independent atoms, and can be inaccurate when either fails ([[@bmsb2012ch8#^c1]]). In simulated ensembles with known covariance, the covariance estimated after least-squares superposition was biased and showed a strong artefactual pattern of correlation ([[@bmsb2012ch8#^c7]]). RMSF and dynamic cross-correlation are computed after such an alignment ([[positional covariance]]).
 
 ## Caveats
 
