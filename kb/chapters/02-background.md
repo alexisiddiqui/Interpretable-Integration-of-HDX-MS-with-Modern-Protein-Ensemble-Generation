@@ -33,7 +33,13 @@ Introductory equations: [[protection factor#^eq-pf]] and [[deuterium uptake#^eq-
 - [[Best–Vendruscolo model]]: [[Best–Vendruscolo model#^eq-bv-feature]] and [[Best–Vendruscolo model#^eq-bv-ensemble]].
 - [[The Best-Vendruscolo model predicts protection factors from coordinates by counting structural features that impede exchange.]]
 - [[Structure-to-uptake models rely on hydrogen bonding and solvent exposure but add systematic errors that accumulate at peptide level.]]
-- **gap**: alternative forward models are not yet concept notes. Skinner 2012 and Park 2015 are seeded; the Park PDF is unreadable.
+- [[HDX protection-factor model]] gives the alternatives and their shared assumptions (EX2, independent residues, calibration to conditions). It has no equation of its own, because BV carries the displayed form.
+- Order the subsection from what structure predicts to what data can determine. Structure-based models predict a protection factor per residue. Peptide data generally cannot recover those values, which is why the thesis compares at the uptake level.
+  - [[Residue protection factors are generally underdetermined by peptide-level uptake.]] (supported)
+  - [[A single protection factor per residue cannot describe a residue whose environment differs between populated conformers.]] (supported)
+  - [[Residue protection factors test structural models more stringently than peptide uptake alone.]] (supported)
+- **gap**. The switch-function variant needs Radou et al. 2014 (Biophys J 107, 983–990), which could not be downloaded. Park 2015's PDF is unreadable.
+- **decision**. ValDX `6_methods_omc.tex` L624 cites Skinner 2019 for the switch-function BV model. Skinner 2019 describes no such model and cites Radou 2014, so the manuscript citation should change.
 
 ## 2.2 Protein Conformational Ensembles and Their Generation
 
@@ -49,9 +55,19 @@ Introductory equations: [[protection factor#^eq-pf]] and [[deuterium uptake#^eq-
 ### Learned Structure Predictors and Ensemble Generators
 - Very light equation: **gap**. No source is chosen yet for a learned-distribution equation. The [[diffusion model]] note may cover it.
 - The caution that a learned score is a statistical potential, not a free energy: [[knowledge-based potential#^eq-inverse-boltzmann]] and the [[knowledge-based potential]] derivation.
+- [[protein structure predictor]] is trained for one PDB-like structure and reports accuracy, not population.
+  - [[Structure predictors are trained to return the single structure most likely to appear in the PDB.]] (supported)
+  - [[A structure predictor's confidence score measures expected accuracy, not the free energy or population of a conformation.]] (supported)
+  - [[Repeated random seeds of AlphaFold 3 do not approximate the solution ensemble.]] (supported)
+- [[MSA subsampling]] turns a predictor into a source of candidates. Present the population evidence as qualitative and the mechanism as contested.
+  - [[Subsampled AlphaFold2 can predict the direction of population shifts qualitatively, but quantitative Boltzmann ratios have not been shown.]] (supported)
+  - [[Frequencies of states in MSA-clustered AlphaFold2 predictions reflect family abundance, not Boltzmann weights.]] (supported)
+  - [[Whether MSA clustering recovers alternative states through evolutionary couplings is contested.]] (supported)
+  - Do not reuse [[MSA-subsampling has been shown to broadly follow a physical energy landscape.]] (partial) as worded.
 
 ### Diffusion Models for Protein Structure Generation
 - [[diffusion model]]: [[diffusion model#^eq-diffusion-forward]] and [[diffusion model#^eq-diffusion-reverse]]. The link back to MD (Boltzmann score = force / $k_BT$) is in the note's derivation.
+- [[Diffusion models trained on PDB structures learn a distribution concentrated on folded, low-energy states rather than the equilibrium distribution.]] (supported)
 
 ### Sampling Coverage and Ensemble Populations
 - [[conformational free-energy landscape]], [[population shift]], [[structural ensemble]].
@@ -85,13 +101,47 @@ Introductory equations: [[protection factor#^eq-pf]] and [[deuterium uptake#^eq-
 - [[Minimising apparent work and KL divergence gives a reweighted ensemble that satisfies the constraints with minimal deviation.]]
 
 ### Experimentally Restrained Simulations and Metainference
-- Not yet assembled. The tilted landscape ([[maximum entropy principle#^eq-maxent-potential]]) is the bridge to restrained MD.
+- Open from the tilted landscape ([[maximum entropy principle#^eq-maxent-potential]]). Reweighting applies the tilt to fixed frames, and a restrained simulation applies it while sampling, so it can reach states the prior lacked.
+- [[restrained simulation]] gives the replica restraint [[restrained simulation#^eq-replica-restraint]] and the derivation of its maximum-entropy limit.
+  - [[Restraining replica-averaged observables in MD reproduces the maximum-entropy ensemble in the limit of many replicas.]] (supported)
+  - [[Several groups have restrained simulations or pruned ensembles post hoc with HDX-MS data, mainly for simpler systems.]] (supported)
+- [[metainference]] gives the energy [[metainference#^eq-metainference-energy]], with a per-datum uncertainty sampled as a [[nuisance parameter]].
+  - [[Metainference infers an uncertainty for each datum alongside the structures, so the restraint weakens where data or forward model are unreliable.]] (supported)
+  - [[Without errors in data or forward model, metainference reduces to replica-averaged maximum-entropy restraints.]] (supported)
+- End on what HDX lacks. Every restraint needs a forward model with forces, and no HDX collective variable is published (ValDX `8_future_work.tex` L36–40). The project's differentiable formulation stays in its research chapter.
 
 ### Experimental Guidance of Diffusion Models
-- Not yet assembled. This section reviews existing approaches; the project's formulation stays in its research chapter.
+- [[guided diffusion]] gives the guided score [[guided diffusion#^eq-guided-score]], ExEnDiff's restraint approximation [[guided diffusion#^eq-guidance-restraint]] and ConfDiff's energy tilt [[guided diffusion#^eq-energy-tilt]].
+  - [[Experimental guidance adds the gradient of a data likelihood to a pretrained diffusion score at sampling time.]] (supported)
+  - [[Too strong an experimental guidance term makes diffusion sampling noisy and produces unphysical structures.]] (supported)
+  - [[Guided diffusion samples are not equilibrium-weighted unless a correction such as reweighting is applied.]] (draft, inferred)
+- Set guidance beside the restraint, since both add a bias to a prior. ExEnDiff restrains single structures, while HDX data are ensemble averages. That mismatch motivates the project's approach without describing it here.
+- **gap**. Both papers test small proteins, and ExEnDiff guides only with synthetic observables taken from the MD it is scored against.
 
 ## 2.4 Validation, Uncertainty, and Interpretability
 
 Grounding concepts (from BMSB): [[posterior uncertainty]]; [[regularisation]], with $\chi^2$ [[regularisation#^eq-chi2]], the regularised objective [[regularisation#^eq-regularised-objective]] and good parameters [[regularisation#^eq-good-parameters]]; model comparison with [[Bayes' theorem#^eq-bayes-factor]].
 
-The rest is not yet assembled. Covariance-weighted MSE, Wasserstein-1, RMSF and Work Done become method notes for ValDX and jaxENT. `02-background.tex` places the new Work Done metrics in ValDX.
+### Experimental Uncertainty and Forward-Model Discrepancy
+- [[Experimental error estimates are usually lower bounds because they miss systematic errors.]] (supported)
+- [[Noise in the data and structural heterogeneity are difficult to tell apart.]] (supported)
+- [[model misspecification]] carries the forward-model side.
+
+### Ensemble Comparison and Interpretable Representations
+- [[ensemble comparison]] gives the Jensen–Shannon divergence [[ensemble comparison#^eq-jsd]], built from [[Kullback–Leibler divergence#^eq-kl]].
+  - [[Comparing ensembles requires comparing probability distributions over conformations, not single-structure RMSD.]] (supported)
+  - [[The Jensen–Shannon divergence is a symmetric, bounded measure of ensemble similarity that stays defined where one ensemble has no density.]] (supported)
+  - [[Dimensionality reduction by PCA or MDS assumes a linear conformational space.]] (supported)
+  - [[Ensemble similarity scores compare equilibrium distributions and do not capture changes in dynamics or transition rates.]] (supported)
+- [[clustering]] covers representatives and resolution.
+  - [[Clustering sets the resolution of an ensemble comparison and ignores differences within clusters and similarities across them.]] (supported)
+  - [[Clustering into representative structures gives compact, interpretable ensembles with little loss of accuracy.]] (supported)
+  - [[Conclusions drawn from representative structures should be checked for stability across cluster sizes.]] (revised ValDX only)
+- The subsection then presents ValDX's [[Work Done]] metrics. Covariance-weighted MSE, Wasserstein-1, RMSF and correlated motion become method notes for ValDX and jaxENT.
+- **gap**. No general source yet for Wasserstein-1, RMSF or correlated motion. jaxENT's JSD recovery score, ternary shape space and GMM clustering are manuscript-only.
+
+## Gaps (Chapter 2 literature)
+- Add to Zotero the two hand-added bib entries, `lindorff-larsenSimilarityMeasuresProtein2009` and `tibertiENCORESoftwareQuantitative2015`. Otherwise the next Better BibTeX export drops them.
+- Radou et al. 2014 is needed for the switch-function BV model. Add it to Zotero or `kb/_pdf/`.
+- The original metainference paper (Bonomi et al. 2016, Sci Adv) is not in the library. Bonomi 2016 Sci Rep and the 2017 review carry the definition for now.
+- All new paper notes are `read: false`, and all quotes are `reviewed: false`.

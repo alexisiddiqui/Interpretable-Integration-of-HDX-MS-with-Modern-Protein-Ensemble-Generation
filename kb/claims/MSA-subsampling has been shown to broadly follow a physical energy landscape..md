@@ -22,3 +22,5 @@ Stein and Mchaourab conclude from their MSA mutagenesis results that AF2 can gen
 ## Caveats
 
 The statement is about their MSA mutagenesis method, not MSA sub-sampling, and does not mention an energy landscape.
+
+Do not reuse as worded. Subsampled AF2 has been shown to predict population shifts qualitatively, not Boltzmann ratios ([[Subsampled AlphaFold2 can predict the direction of population shifts qualitatively, but quantitative Boltzmann ratios have not been shown.]]), and model frequencies are not Boltzmann weights ([[Frequencies of states in MSA-clustered AlphaFold2 predictions reflect family abundance, not Boltzmann weights.]]).

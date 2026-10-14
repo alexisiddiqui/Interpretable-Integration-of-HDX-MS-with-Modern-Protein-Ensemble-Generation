@@ -23,3 +23,5 @@ Vani et al. say that reducing the size of the input MSA in AlphaFold2 increases 
 ## Caveats
 
 Stein and Mchaourab use in silico mutagenesis of the MSA, not sub-sampling.
+
+That reduced MSA depth gives ensemble predictions is also stated by Monteiro da Silva et al. (^c4). The contact mechanism is contested ([[Whether MSA clustering recovers alternative states through evolutionary couplings is contested.]]).
