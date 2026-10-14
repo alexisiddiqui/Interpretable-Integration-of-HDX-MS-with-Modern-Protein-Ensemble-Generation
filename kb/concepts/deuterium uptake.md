@@ -53,7 +53,9 @@ Manuscript form: jaxENT_paper1/report/methods/HDX.tex#L117 and #L123 ($f_\text{b
 - Residues are independent within a peptide.
 - Labelling time $t$ measures accumulated exchange, not the duration of a conformational motion. Under EX2 an amide opens many times before it exchanges, and each opening is only a chance to exchange ([[@jamesAdvancesHydrogenDeuterium2022#^c7]], [[@vinciauskaiteFundamentalsHDXMS2023#^c4]]). Slow uptake can therefore mean rarely populated exchange-competent states rather than a slow motion (ours). The data constrain $k_{\text{obs},i}$ most where $k_{\text{obs},i}\, t \sim 1$.
 - Averaging over residues is many-to-one: different residue-level patterns give the same peptide curve. This is the resolution limit behind the reweighting ambiguity ([[@bradshawInterpretationHDXData2020#^c5]]).
-- Comparing predictions with uptake that is not corrected for back-exchange biases the fitted scale.
+- Comparing predictions with uptake that is not corrected for back-exchange biases the fitted scale. Scaling to the last measured time point does not correct back-exchange. ValDX's MBP data lack a fully deuterated control and were scaled this way, so their absolute uptake may be underestimated and peptide-specific deuterium loss may distort relative uptake as well (`projects/1-ValDX/manuscript/report/6_methods_omc.tex` L39, L58). A global scale term cannot repair a peptide-specific loss.
+- The correction itself carries uncertainty. The fully deuterated control is a peptide-level measurement with its own precision, so corrected uptake inherits it ([[experimental uncertainty]]).
+- Residue-level references are derived, not measured. ValDX converts BPTI's NMR protection factors into residue uptake curves through the intrinsic rate and the EX2 kinetics of [[#^eq-uptake-residue]] (`6_methods_omc.tex` L47). The reference therefore carries the intrinsic-rate and EX2 assumptions, and peptide-overlap leakage does not arise for it ([[data splitting]]).
 
 ## Why it matters here
 

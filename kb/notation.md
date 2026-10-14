@@ -48,6 +48,7 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $\Delta G_\text{op}$ | free energy of the opening reaction | kJ mol^-1 | [[protection factor]] | — |
 | $\Delta\Delta G_{AB}$ | change in Delta G_AB caused by a perturbation such as a mutation, ligand or change of environment | kJ mol^-1 | [[dynamic disease mechanism]] | — |
 | $\Delta\mathbf{r}_i(x)$ | displacement of atom or residue i from its ensemble-mean position | Å | [[positional covariance]] | — |
+| $\Sigma$ | covariance matrix of the observation errors across peptides | — | [[error covariance]] | — |
 | $\beta_C$ | BV coefficient for heavy-atom contacts | — | [[Best–Vendruscolo model]] | — |
 | $\beta_H$ | BV coefficient for amide hydrogen bonds | — | [[Best–Vendruscolo model]] | — |
 | $\chi^2$ | sum of squared residuals, each divided by its error variance | — | [[regularisation]] | $\chi^2$ ([[@bmsb2012ch13]]) |
@@ -90,6 +91,7 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $p(s^\text{exp} \mid \mathcal{M})$ | evidence (marginal likelihood) of model M | — | [[Bayes' theorem]] | — |
 | $p_\text{model}(x)$ | probability density over conformations defined by a statistical or learned model | — | [[statistical potential]] | — |
 | $q_i(j)$ | BV feature (predicted ln protection) of residue i in conformer j | — | [[Best–Vendruscolo model]] | — |
+| $r_t$ | vector of residuals between predicted and measured peptide uptake at labelling time t | — | [[error covariance]] | — |
 | $s^\text{exp}$ | all measured values (the data) | — | [[Bayes' theorem]] | $d$ ([[@bmsb2012ch1]]), $\mathbf{d} = \{y_i\}$ ([[@bmsb2012ch12]]), $D$ ([[@bmsb2012ch13]]), $\mathcal{D}$ ([[@bmsb2012ch2]]), $\mathbf{y} = [y_1, \dots, y_m]$ ([[@liuExEnDiffExperimentGuidedDiffusion2025]]) |
 | $s_i(x)$ | i-th constrained observable as a function of conformation | — | [[maximum entropy principle]] | $s_i(q)$ ([[@cesariUsingMaximumEntropy2018]]), $y_i(x)$ ([[@hummerBayesianEnsembleRefinement2015]]), $A(\mathbf{x}_0)$, $A_i(\mathbf{x}_0)$ ([[@liuExEnDiffExperimentGuidedDiffusion2025]]) |
 | $s_i(x;\theta)$ | forward-model prediction of observable i for conformation x and forward-model parameters theta | — | [[forward model]] | $f_i(x;\alpha)$ ([[@bmsb2012ch12]]), $I(q_i)$ ([[@bmsb2012ch13]]), $f_i(X_r)$ ([[@bonomiMetadynamicMetainferenceEnhanced2016]]) |

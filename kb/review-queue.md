@@ -121,6 +121,10 @@
 
 - [[Disease-associated variants perturb local frustration more than benign variants.]] (`claims/Disease-associated variants perturb local frustration more than benign variants..md`)
 
+## Revised manuscript only, and no figure or notebook compares the consensus with single-replicate fits; supply a figure ID or keep the principle on the general averaging source.
+
+- [[Averaging reweighting fits across split replicates stabilises the consensus and reduces overfitting to particular peptide subsets.]] (`claims/Averaging reweighting fits across split replicates stabilises the consensus and reduces overfitting to particular peptide subsets..md`)
+
 ## Stronger than Cesari, who says modelling experimental error reduces over-fitting. Use the narrower experimental-error claim instead.
 
 - [[MaxEnt reweighting avoids overfitting and ensures the resulting ensemble remains physically plausible.]] (`claims/MaxEnt reweighting avoids overfitting and ensures the resulting ensemble remains physically plausible..md`)

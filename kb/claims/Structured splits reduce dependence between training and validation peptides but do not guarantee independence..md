@@ -16,7 +16,7 @@ code: []
 
 ## Argument
 
-The revised ValDX manuscript says structured splits "reduce dependence and minimise overlap without guaranteeing statistical independence" (`1_introduction_omc.tex` L37; also `6_methods_omc.tex` L52).
+The revised ValDX manuscript says structured splits "reduce dependence and minimise overlap without guaranteeing statistical independence" (`1_introduction_omc.tex` L37). The methods give the two reasons. Residue-wise BPTI observations have no peptide overlap yet can remain correlated through shared structural environments, and "neither strategy guarantees the absence of correlations between sets" (`6_methods_omc.tex` L52). Peptides that still overlap across the boundary are dropped after partitioning, which changes the realised training fraction (L73, L81). The physical route is cooperative opening ([[cooperative unfolding unit]]).
 
 ## Caveats
 

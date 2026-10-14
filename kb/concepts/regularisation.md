@@ -61,6 +61,7 @@ Source: [[@bmsb2012ch13#^c10]]; Eq. (13.38), p. 27, for entropy regularisation. 
 - The numbers in BMSB ch13 (Shannon channels, $N_g$ for scattering curves) are specific to SAXS and SANS. The general point carried over is that low-information data ([[@bmsb2012ch13#^c2]]) need regularisation, and that the weight decides how much of the fit is data and how much is prior.
 - $N_g$ uses a Gaussian approximation around the optimum.
 - Choosing the weight by evidence (BMSB) and choosing it by held-out validation (ValDX) are different criteria. Both aim to stop the fit absorbing noise.
+- Choosing the weight by held-out validation is a [[model selection]] step. The validation error at the chosen weight is then optimistic unless a further held-out set, or an outer evaluation, is kept apart.
 - Regularisation picks one solution; it does not validate it. The regularisation weight still has to be chosen by held-out data or by evidence ([[data splitting]], [[Bayes' theorem#^eq-bayes-factor]]), and a regularised fit can still overfit or reflect a poor prior ([[overfitting]]).
 
 ## Why it matters here

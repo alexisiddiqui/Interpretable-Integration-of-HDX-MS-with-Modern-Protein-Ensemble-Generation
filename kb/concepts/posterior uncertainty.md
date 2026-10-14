@@ -30,7 +30,7 @@ Posterior uncertainty is the spread of a posterior distribution over structures 
 - **Sampling the posterior.** In Bayesian structure determination, the posterior over structures is represented by sampling an ensemble of structures ([[@bmsb2012ch1#^c3]], p. 4). Such an ensemble shows how precisely the structure is determined.
 - **Point estimates.** A MAP or minimum-energy structure finds one optimum but says nothing about its quality ([[@bmsb2012ch12#^c6]], p. 4; [[@bmsb2012ch12#^c16]], p. 13). Point estimates make most sense when the posterior is sharply peaked and unimodal ([[@bmsb2012ch1#^c5]], p. 11).
 - **Two layers for ensemble-averaged data** (ours). When the data are ensemble averages, as in HDX-MS, the physical heterogeneity is in the weights $w_j$ of a [[structural ensemble]]. Posterior uncertainty is then a distribution over those weights and over the forward-model parameters. A wide posterior over $w$ means the data do not determine the populations, not that the protein is more dynamic.
-- A third quantity is the spread across replicate fits to different data selections. It measures sensitivity to the data chosen; it is neither posterior uncertainty under one model nor physical heterogeneity ([[replicate uncertainty]]).
+- A third quantity is the spread across replicate fits to different data selections. It measures sensitivity to the data chosen; it is neither posterior uncertainty under one model nor physical heterogeneity ([[replicate uncertainty]]). [[experimental uncertainty]] tabulates these alongside measurement repeatability, systematic bias and forward-model discrepancy.
 
 ## Why it matters here
 

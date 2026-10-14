@@ -48,7 +48,7 @@ Source: the continuous form is the MaxEnt constraint of [[@cesariUsingMaximumEnt
 
 ## Assumptions and limits
 
-- Independence of measurements is an assumption. HDX peptides overlap, so their errors are correlated.
+- Independence of measurements is an assumption ([[@bmsb2012ch12#^c14]]). HDX peptides overlap, so their predictions share residues and their errors are correlated. The correction is to weight residuals by the inverse error covariance ([[error covariance#^eq-gls]]); which covariance is meant has to be stated.
 - $\sigma_i$ models random error. Systematic forward-model error is not covered unless it is modelled, for example through $\theta$ ([[nuisance parameter]]). Habeck lists neglected dynamics and averaging among the sources of discrepancy (p. 6).
 - Structure-based NMR calculations rarely model data as ensemble averages ([[@bmsb2012ch12#^c4]]). HDX-MS and SAXS data are averages, so the comparison object is the ensemble, not a structure.
 - When the forward model is wrong, the inferred weights and parameters absorb the mismatch and the fit can still look good ([[model misspecification]]).
@@ -58,7 +58,7 @@ Source: the continuous form is the MaxEnt constraint of [[@cesariUsingMaximumEnt
 
 The forward model is where structure meets HDX-MS. Its form and parameters are part of the inference, not a neutral translation, which is the point of introduction §1.4 and of the joint ensemble–parameter inference in jaxENT. The [[Best–Vendruscolo model]] is the HDX instance, and [[inverse problem]] places it inside Bayesian inference.
 
-jaxENT weights peptide errors by their covariance to account for overlap (`projects/2-jaxENT/manuscript/report/results.tex` L37–72), and computes uptake in an additive interval-hazard form that avoids repeated frame-wise uptake calculation (`projects/2-jaxENT/code/docs/bv_uptake_models.md`). Both are project methods for method notes, not evidence.
+jaxENT's covariance weighting is a selection-time weighting of validation residuals by a geometric peptide covariance, recorded in [[Observation weighting and selection (jaxENT)]]; the manuscript's fitted covariance-weighted MSE (`projects/2-jaxENT/manuscript/report/results.tex` L37–72) is the legacy path. jaxENT also computes uptake in an additive interval-hazard form that avoids repeated frame-wise uptake calculation (`projects/2-jaxENT/code/docs/bv_uptake_models.md`). Both are project methods for method notes, not evidence.
 
 
 Claims that use this term: [[Predicted protection factors are transformed into theoretical deuterium uptake for direct comparison with HDX-MS data.]], [[Structure-to-uptake models rely on hydrogen bonding and solvent exposure but add systematic errors that accumulate at peptide level.]], [[The Best-Vendruscolo model predicts protection factors from coordinates by counting structural features that impede exchange.]], [[In a Bayesian description, a prior and a likelihood combine into a posterior over unknown structures and parameters.]], [[Connecting uptake to a structural explanation requires a forward model that predicts exchange from candidate structures or ensembles.]], [[Fitted populations can compensate for errors in assumed exchange kinetics, and restoring uptake agreement by calibration does not validate kinetics or populations.]], [[Best–Vendruscolo coefficients are empirical, and their optimal values depend on the protein and experimental conditions.]].
