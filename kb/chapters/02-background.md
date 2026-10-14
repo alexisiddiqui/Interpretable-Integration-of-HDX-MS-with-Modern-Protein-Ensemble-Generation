@@ -124,18 +124,57 @@ Introductory equations: [[protection factor#^eq-pf]] and [[deuterium uptake#^eq-
 Grounding concepts (from BMSB): [[posterior uncertainty]]; [[regularisation]], with $\chi^2$ [[regularisation#^eq-chi2]], the regularised objective [[regularisation#^eq-regularised-objective]] and good parameters [[regularisation#^eq-good-parameters]]; model comparison with [[Bayes' theorem#^eq-bayes-factor]].
 
 ### Experimental Uncertainty and Forward-Model Discrepancy
-- [[Experimental error estimates are usually lower bounds because they miss systematic errors.]] (supported)
-- [[Noise in the data and structural heterogeneity are difficult to tell apart.]] (supported)
-- [[model misspecification]] carries the forward-model side.
-- Overlapping peptides share residues, so their errors are correlated and a product likelihood over peptides is an approximation ([[forward model]], [[nuisance parameter]]). jaxENT's covariance-weighted MSE is the project response and belongs in a method note.
+- Three layers run through this subsection and the next: the statistical principle, what integrative practice does with it, and what ValDX and jaxENT add ([[2026-10-14 layered presentation of validation and uncertainty]]). The citation shows the layer. One general source carries a principle, primary papers carry practice, and a manuscript line or figure carries ours.
+- Open on the taxonomy in [[experimental uncertainty]]. Six quantities are called uncertainty; the table says what moves each, what reduces it and what does not.
+  - [[HDX-MS precision differs between repeat measurements in one laboratory and measurements across laboratories.]] (supported)
+  - [[Replicate precision bounds only the random part of measurement error, so a precision threshold does not bound systematic bias.]] (draft, inferred)
+  - [[Experimental error estimates are usually lower bounds because they miss systematic errors.]] (supported)
+  - [[Noise in the data and structural heterogeneity are difficult to tell apart.]] (supported)
+- Systematic bias and processing. Back-exchange correction with a fully deuterated control ([[deuterium uptake#^eq-uptake-corr]]). Scaling to the last time point leaves the bias in place, the control has its own precision, and residue-level references are derived through the intrinsic rate and EX2 ([[deuterium uptake]]). These stay as concept bullets; promote one to a claim only if a chapter paragraph cites it.
+- Forward-model discrepancy, in three failures that are easily conflated ([[model misspecification]]): parameter uncertainty, miscalibration and an inadequate functional form. The failure that is operating decides the advice.
+  - [[Best–Vendruscolo coefficients are empirical, and their optimal values depend on the protein and experimental conditions.]] (supported)
+  - [[Recalibrating forward-model coefficients can correct a miscalibration but not an inadequate functional form.]] (draft, inferred; the kinetic benchmark is revised ValDX only)
+  - [[Averaging log protection factors, exchange rates or uptake over frames are different forward models, and held-out uptake error and population recovery can favour different choices.]] (jaxENT, draft)
+- What inferring the error scale resolves and what it does not ([[metainference]], [[nuisance parameter]]).
+  - [[Metainference folds experimental, systematic, forward-model and finite-replica errors into one effective uncertainty per datum, so the inferred value does not say which source dominates.]] (draft, inferred)
+- Posterior uncertainty against partition sensitivity ([[posterior uncertainty]], [[replicate uncertainty]]).
+  - [[Split replicates measure sensitivity to peptide partitioning, not independent replication of the measurement.]] (revised ValDX only)
+- Hand off to [[error covariance]]. The product likelihood assumes independent errors, overlap breaks the assumption at the prediction level, and the correction is inverse-covariance weighting.
+  - [[Weighting residuals by the inverse error covariance corrects least squares for unequal variances and correlated errors.]] (supported; stated by Theobald for superposition)
+  - [[Correlations between overlapping peptides are recognised in HDX-MS statistics but left unmodelled.]] (supported)
+  - [[A covariance built from candidate-ensemble coordinates describes how peptides are expected to co-vary structurally, so weighting residuals by it assumes their errors co-vary in the same way.]] (jaxENT, draft, inferred)
+- **decision**. jaxENT's Σ is presented as the current policy, the geometric selection-time weighting in [[Observation weighting and selection (jaxENT)]], and the manuscript's fitted covariance-weighted MSE as history. The ISO closed-label circularity and the validation block used are stated with any number quoted.
+- Wording to avoid. "Accounts for experimental uncertainty and correlations between fragments" (jaxENT `methods/analysis.tex` L31) until Σ does; "robust success metrics" and "guards against overfitting" (`results.tex` L13); the Fig. 5 caption on sampling against force-field limitations (`results.tex` L203); "systematic errors accumulate at the peptide level" (confirmation, unsupported).
 
 ### Cross-Validation with Overlapping Measurements
-- [[data splitting]] carries the definitions and the overlap problem.
+- The principle first ([[data splitting]]). Held-out error is informative only when the withheld unit is not predictable from the retained data, so the partition has to follow the dependence.
+  - [[When observations are dependent, a random partition gives optimistic validation error, so the partition should follow the dependence.]] (draft until the general source is seeded)
+  - [[Repeating a random split reduces dependence on one partition but not the leakage within each partition.]] (draft, inferred)
+- HDX dependence has two routes, one direct and one physical.
   - [[Overlapping peptides share residue information, so random splits leak information between training and validation sets.]] (supported)
+  - [[Native proteins contain cooperative unfolding units smaller than the whole protein, which hydrogen exchange can identify.]] (supported; [[cooperative unfolding unit]])
+  - [[Cooperative unfolding couples exchange at residues that share no peptide, so removing peptide overlap does not make training and validation peptides independent.]] (draft, inferred)
   - [[Structured splits reduce dependence between training and validation peptides but do not guarantee independence.]] (revised ValDX only)
+- The unit withheld decides the question asked (table in [[data splitting]]). [[BPTI]] is the contrast case: residue-level data without peptide overlap, still correlated through shared openings.
+  - [[Withholding a time point, a peptide, a sequence region or a structural region asks different predictive questions.]] (draft, inferred)
+- Field practice, credited then bounded ([[model selection]] for the free R value; [[data splitting]], "In integrative practice"). Skinner et al. 2019 show from the data side why splits interact with information content; coverage, overlap and peptide length decide how far residue protection factors are determined ([[HDX protection-factor model]]).
   - [[A large change in the inferred ensemble when part of the data is removed signals poor accuracy.]] (supported)
-- Skinner et al. 2019 show from the data side why splits interact with information content. Coverage, overlap and peptide length decide how far residue protection factors are determined ([[HDX protection-factor model]]).
-- [[BPTI]] is the contrast case. Its residue-level NMR data have no peptide overlap, but neighbouring residues can still be correlated.
+  - [[In the HDX ensemble-integration studies examined, robustness is assessed by removing selected peptides, refitting forward-model parameters or comparing with orthogonal data, not by partitions designed around peptide dependence.]] (draft, inferred)
+- Our partitions, replicates, consensus and selection ([[Peptide splitting and consensus (ValDX)]]).
+  - [[Random and sequential splits gave no discrimination between candidate ensembles beyond training error.]] (supported)
+  - [[Fitting outcomes depend on which peptides and time points are used, and replicate fits quantify this dependence.]] (supported)
+  - [[Averaging models fitted to different subsets of the data reduces variance due to data selection, most for unstable fitting procedures.]] (draft until the general source is seeded; [[model averaging]])
+  - [[Averaging fitted models reduces their variance but retains any error they share.]] (draft, inferred)
+  - [[Averaging frame weights across fits averages their predicted log protection factors only while forward-model coefficients are held fixed.]] (draft, step ours)
+  - [[Averaging reweighting fits across split replicates stabilises the consensus and reduces overfitting to particular peptide subsets.]] (revised ValDX only; needs a figure)
+  - [[A consensus over split replicates does not by itself make the candidate ensemble representative.]] (revised ValDX only)
+  - [[Selecting a model by its validation error makes that error optimistic, so performance must be estimated on data unused in selection.]] (draft until the general source is seeded)
+- jaxENT's complement: selection on HDX-MS validation with evaluation against the reference ([[Evaluation design (jaxENT)]]), and weighting instead of partitioning for the dependence that structured splits leave behind.
+  - [[Weighting validation residuals by the conditional precision given the training peptides discounts held-out peptides whose information is redundant with the training set.]] (jaxENT, draft, inferred; holds for the conditional selector only)
+- **decision**. The HDX-NMR layer is described as "selection on HDX-MS validation and evaluation against HDX-NMR, nested in structure with a single outer evaluation". "Nested cross-validation" is kept for a resampled outer loop.
+- **decision**. The jaxENT splitter's overlap behaviour is flagged in [[Evaluation design (jaxENT)]] and not changed in this pass.
+- Close on the limit. Validation tests prediction of uptake and stability under partitioning; it does not show that the populations are unique, which is the next subsection ([[identifiability]]).
+- Wording to avoid. "Ensure" and "genuinely withheld" (posted v1); "powerful diagnostic tool" (`7_results_omc.tex` L55); "statistically rigorous framework" (`1_introduction_omc.tex` L33); "selected by test error minimisation" (jaxENT `protocols.tex` L325, legacy); "integrative biophysics never splits data".
 
 ### Identifiability and Competing Structural Hypotheses
 - Open with [[identifiability]]. Structural non-identifiability holds even with ideal data and a perfect forward model. Practical ambiguity comes from coverage, noise and model discrepancy, and better data can reduce it. [[inverse problem]] holds the general frame, with Berlin et al. 2013 for the count argument and Bonomi et al. 2017 for ensembles that fit the same averages.
@@ -173,6 +212,11 @@ Grounding concepts (from BMSB): [[posterior uncertainty]]; [[regularisation]], w
 - **gap**. No citable source yet for the general $W_1$ definition (SciPy documentation only). jaxENT's ternary shape space and GMM clustering are manuscript-only.
 
 ## Gaps (Chapter 2 literature)
+- Two general sources for layer 1b of §2.4: a statistical-learning text (Hastie, Tibshirani and Friedman, ch. 7 for selection and §8.7 for bagging) and Roberts et al. 2017 on validation with dependent observations. Four draft claims wait on them. Optional: Breiman 1996, Cawley and Talbot 2010, Maity 2005 for the foldon term, MDRefine and DynaXL as held-out-restraint comparators.
+- A figure or notebook ID comparing the ValDX consensus with single-replicate fits; without it the consensus claim stays draft.
+- jaxENT: record which validation block the reported selections used, the provenance of `moprp.weights`, and the splitter's overlap behaviour; update the manuscript's covariance and selection wording to the current policy ([[Observation weighting and selection (jaxENT)]], [[Evaluation design (jaxENT)]]).
+- The pinned ValDX package lacks the Non-Redundant and Spatial split code and the consensus mean that the benchmarks used ([[Peptide splitting and consensus (ValDX)]]).
+- Hudgens 2019, Crook 2022, Moulick 2015 and Burnley 2012 are seeded with PDFs; all `read: false`, all quotes `reviewed: false`.
 - Add to Zotero the two hand-added bib entries, `lindorff-larsenSimilarityMeasuresProtein2009` and `tibertiENCORESoftwareQuantitative2015`. Otherwise the next Better BibTeX export drops them.
 - Radou et al. 2014 is needed for the switch-function BV model. Add it to Zotero or `kb/_pdf/`.
 - The original metainference paper (Bonomi et al. 2016, Sci Adv) is not in the library. Bonomi 2016 Sci Rep and the 2017 review carry the definition for now.

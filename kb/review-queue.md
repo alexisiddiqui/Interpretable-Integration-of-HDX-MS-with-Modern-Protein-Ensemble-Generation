@@ -163,6 +163,10 @@
 
 - [[Structural comparison metrics (ValDX)]] (`methods/Structural comparison metrics (ValDX).md`)
 
+## The evaluation structure is documented in code and project docs only. The splitter can leave a partly overlapping peptide in both sets when overlap removal is on, the train/validation disjointness assert is commented out, and the manuscript's "selected by test error minimisation" is legacy wording.
+
+- [[Evaluation design (jaxENT)]] (`methods/Evaluation design (jaxENT).md`)
+
 ## The manuscript does not state the logarithm base, and the 0–100% range holds only in base 2; add the base to analysis.tex.
 
 - [[Ground-truth recovery (jaxENT)]] (`methods/Ground-truth recovery (jaxENT).md`)
@@ -170,6 +174,14 @@
 ## The phrase without distorting the landscape is too strong. Seeding leaves the dynamics unbiased, but pooled frames are not populations (Hénin ^c9).
 
 - [[Offline methods adaptively seed new simulations from underexplored regions, sampling efficiently without distorting the landscape.]] (`claims/Offline methods adaptively seed new simulations from underexplored regions, sampling efficiently without distorting the landscape..md`)
+
+## The pinned ValDX package implements only the random split; the Non-Redundant (R3) and Spatial (Sp) modes that the benchmark scripts request are not in the pinned code, and no code for the staged consensus mean was located. Pin both before Chapter 3 cites this note.
+
+- [[Peptide splitting and consensus (ValDX)]] (`methods/Peptide splitting and consensus (ValDX).md`)
+
+## The policy adopted on 2026-10-04 is documented in code and project plans only; the manuscript describes the legacy fitted covariance-weighted MSE. The provenance of moprp.weights is unverified, and which validation block (conditional or marginal) the reported selections used is not recorded.
+
+- [[Observation weighting and selection (jaxENT)]] (`methods/Observation weighting and selection (jaxENT).md`)
 
 ## The quoted passages show these parameters are estimated and weight data against prior; no quote yet shows how much they change the structure (see ch12 Fig. 12.10, pp. 22-23)
 
