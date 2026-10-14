@@ -7,13 +7,16 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | Symbol | Meaning | Units | Defined in | Written in sources |
 |---|---|---|---|---|
 | $B_{12}$ | Bayes factor of model 1 against model 2 | — | [[Bayes' theorem]] | $B$ ([[@bmsb2012ch1]]) |
+| $C_{ij}$ | dynamic cross-correlation of the displacements of i and j | — | [[positional covariance]] | — |
 | $D_\text{JS}$ | Jensen–Shannon divergence between two distributions | — | [[ensemble comparison]] | $D_{JS}(p_A, p_B)$ ([[@lindorff-larsenSimilarityMeasuresProtein2009]]) |
 | $D_\text{KL}$ | Kullback–Leibler divergence of a posterior from its prior | — | [[Kullback–Leibler divergence]] | $\text{KL}[g \Vert h]$ ([[@bmsb2012ch4]]), $D_{KL}(p_A, p_B)$ ([[@lindorff-larsenSimilarityMeasuresProtein2009]]) |
 | $D_\text{corr}$ | back-exchange corrected fractional deuterium level | — | [[deuterium uptake]] | — |
 | $D_i(t)$ | fractional deuterium uptake of residue i at labelling time t | — | [[deuterium uptake]] | — |
 | $D_p(t)$ | fractional deuterium uptake of peptide p at labelling time t | — | [[deuterium uptake]] | — |
 | $E_a$ | activation energy of a catalysed exchange rate constant | kcal mol^-1 | [[intrinsic exchange rate]] | — |
+| $E_\text{stat}(x)$ | statistical potential of conformation x, -k_BT ln p_model(x) up to a constant | kJ mol^-1 | [[statistical potential]] | — |
 | $F$ | Helmholtz free energy | kJ mol^-1 | [[Boltzmann distribution]] | $F$ ([[@bmsb2012ch1]], [[@bmsb2012ch3]]) |
+| $F_A(t)$ | cumulative distribution function of distribution A at value t | — | [[Wasserstein distance]] | — |
 | $G_A$ | free energy of conformational state A, -k_BT ln of its partial partition function | kJ mol^-1 | [[dynamic disease mechanism]] | — |
 | $K_{L,A}$ | association constant of species L for conformational state A | M^-1 | [[dynamic disease mechanism]] | — |
 | $K_\text{op}$ | opening equilibrium constant, k_op / k_cl | — | [[Linderstrøm–Lang model]] | — |
@@ -29,12 +32,14 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $P_\text{ME}(x)$ | maximum-entropy posterior distribution over conformations | — | [[maximum entropy principle]] | $P_\text{ME}(q)$ ([[@cesariUsingMaximumEntropy2018]]) |
 | $P_{f,i}$ | protection factor of residue i | — | [[protection factor]] | $P_i$ ([[@bradshawInterpretationHDXData2020]]) |
 | $R$ | molar gas constant | J mol^-1 K^-1 | [[Boltzmann distribution]] | — |
+| $\text{RMSF}_i$ | root-mean-square fluctuation of atom or residue i about its mean position | Å | [[positional covariance]] | — |
 | $S$ | thermodynamic entropy of the ensemble | J K^-1 | [[Boltzmann distribution]] | $S$ ([[@bmsb2012ch1]], [[@bmsb2012ch3]]) |
 | $S[P \Vert P_0]$ | relative entropy of P with respect to P_0 | — | [[Kullback–Leibler divergence]] | $S[P \Vert P_0]$ ([[@cesariUsingMaximumEntropy2018]]) |
 | $T$ | absolute temperature | K | [[Boltzmann distribution]] | — |
 | $U(x)$ | potential energy of conformation x | kJ mol^-1 | [[Boltzmann distribution]] | $E_k$ ([[@bmsb2012ch1]]), $E(x)$ ([[@bmsb2012ch12]], [[@bmsb2012ch2]]), $E(r)$ ([[@bmsb2012ch3]]), $U(X_M)$ ([[@bradshawInterpretationHDXData2020]]), $V_0(q)$ ([[@cesariUsingMaximumEntropy2018]]), $\mathcal{E}_0(\mathbf{x}_0)$ ([[@wangProteinConformationGeneration2024]]) |
 | $U_\text{MI}$ | metainference energy, the negative log posterior over replicas and error parameters | kJ mol^-1 | [[metainference]] | — |
 | $U_\text{RE}$ | potential energy of a replica-restrained ensemble simulation | kJ mol^-1 | [[restrained simulation]] | — |
+| $W_1$ | Wasserstein-1 (earth mover's) distance between two distributions | units of the compared variable | [[Wasserstein distance]] | — |
 | $W_\text{app}$ | apparent work of reweighting | kJ mol^-1 | [[maximum entropy principle]] | $W_\text{app}$ ([[@bradshawInterpretationHDXData2020]]) |
 | $Z$ | configurational partition function | — | [[Boltzmann distribution]] | $Z$ ([[@bmsb2012ch1]], [[@bmsb2012ch3]]), $Z(\beta)$ ([[@bmsb2012ch12]]) |
 | $[L]$ | free concentration of a binding species L in the environment | M | [[dynamic disease mechanism]] | — |
@@ -42,6 +47,7 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $\Delta G_{AB}$ | free-energy difference between conformational states, G_B - G_A | kJ mol^-1 | [[dynamic disease mechanism]] | — |
 | $\Delta G_\text{op}$ | free energy of the opening reaction | kJ mol^-1 | [[protection factor]] | — |
 | $\Delta\Delta G_{AB}$ | change in Delta G_AB caused by a perturbation such as a mutation, ligand or change of environment | kJ mol^-1 | [[dynamic disease mechanism]] | — |
+| $\Delta\mathbf{r}_i(x)$ | displacement of atom or residue i from its ensemble-mean position | Å | [[positional covariance]] | — |
 | $\beta_C$ | BV coefficient for heavy-atom contacts | — | [[Best–Vendruscolo model]] | — |
 | $\beta_H$ | BV coefficient for amide hydrogen bonds | — | [[Best–Vendruscolo model]] | — |
 | $\chi^2$ | sum of squared residuals, each divided by its error variance | — | [[regularisation]] | $\chi^2$ ([[@bmsb2012ch13]]) |
@@ -51,6 +57,7 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $\hat x_0$ | posterior-mean estimate of the clean structure given a noisy one at diffusion time tau | — | [[guided diffusion]] | — |
 | $\kappa$ | force constant of a restraint on replica-averaged observables | — | [[restrained simulation]] | — |
 | $\lambda_i$ | Lagrange multiplier for the i-th constraint | — | [[maximum entropy principle]] | $\lambda_i$ ([[@bradshawInterpretationHDXData2020]], [[@cesariUsingMaximumEntropy2018]]) |
+| $\mathbf{r}_i(x)$ | position of atom or residue i in conformation x | Å | [[positional covariance]] | — |
 | $\mathcal{M}$ | a model or hypothesis under comparison | — | [[Bayes' theorem]] | $M_1, M_2$ ([[@bmsb2012ch1]]), $H_i$ ([[@bmsb2012ch13]]) |
 | $\mathcal{Q}(x' \mid x)$ | proposal distribution of a Monte Carlo move from x to x' | — | [[Markov chain Monte Carlo]] | $q(x' \mid x)$ ([[@bmsb2012ch2]]) |
 | $\mathcal{R}$ | regularisation functional | — | [[regularisation]] | $K$ ([[@bmsb2012ch13]]) |
@@ -67,6 +74,7 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $\xi(x)$ | coarse-grained variable of conformation x | — | [[knowledge-based potential]], [[reference ratio method]] | $f(x)$, $y$ ([[@bmsb2012ch2]]), $\lambda$ ([[@bmsb2012ch3]]), $Y = m(X)$ ([[@bmsb2012ch4]]), $S(X)$ ([[@bonomiMetadynamicMetainferenceEnhanced2016]]) |
 | $a(x' \mid x)$ | Metropolis–Hastings acceptance probability of a move from x to x' | — | [[Markov chain Monte Carlo]] | $a(x' \mid x)$ ([[@bmsb2012ch2]]), $\alpha$ ([[@bmsb2012ch4]]) |
 | $f(x,\tau)$ | drift of the forward diffusion SDE | — | [[diffusion model]] | $f(x,t)$ ([[@yimDiffusionModelsProtein2024]]) |
+| $f^{(k)}$ | BICePs score of model k, minus the log ratio of its evidence to that of a uniform-population null model | — | [[BICePs]] | — |
 | $g(\tau)$ | diffusion coefficient of the forward SDE | — | [[diffusion model]] | $g(t)$ ([[@yimDiffusionModelsProtein2024]]) |
 | $k_B$ | Boltzmann constant | J K^-1 | [[Boltzmann distribution]] | $k$ ([[@bmsb2012ch2]]) |
 | $k_\text{acid}$ | second-order rate constant for acid-catalysed exchange | M^-1 s^-1 | [[intrinsic exchange rate]] | $k_A$ ([[@baiPrimaryStructureEffects1993]]) |
@@ -80,6 +88,7 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $n_\text{exp}(\xi)$ | count of xi expected in the reference state | — | [[knowledge-based potential]] | $n_\text{exp}$ ([[@bmsb2012ch3]]) |
 | $n_\text{obs}(\xi)$ | observed count of xi in a structure database | — | [[knowledge-based potential]] | $n_\text{obs}$ ([[@bmsb2012ch3]]) |
 | $p(s^\text{exp} \mid \mathcal{M})$ | evidence (marginal likelihood) of model M | — | [[Bayes' theorem]] | — |
+| $p_\text{model}(x)$ | probability density over conformations defined by a statistical or learned model | — | [[statistical potential]] | — |
 | $q_i(j)$ | BV feature (predicted ln protection) of residue i in conformer j | — | [[Best–Vendruscolo model]] | — |
 | $s^\text{exp}$ | all measured values (the data) | — | [[Bayes' theorem]] | $d$ ([[@bmsb2012ch1]]), $\mathbf{d} = \{y_i\}$ ([[@bmsb2012ch12]]), $D$ ([[@bmsb2012ch13]]), $\mathcal{D}$ ([[@bmsb2012ch2]]), $\mathbf{y} = [y_1, \dots, y_m]$ ([[@liuExEnDiffExperimentGuidedDiffusion2025]]) |
 | $s_i(x)$ | i-th constrained observable as a function of conformation | — | [[maximum entropy principle]] | $s_i(q)$ ([[@cesariUsingMaximumEntropy2018]]), $y_i(x)$ ([[@hummerBayesianEnsembleRefinement2015]]), $A(\mathbf{x}_0)$, $A_i(\mathbf{x}_0)$ ([[@liuExEnDiffExperimentGuidedDiffusion2025]]) |

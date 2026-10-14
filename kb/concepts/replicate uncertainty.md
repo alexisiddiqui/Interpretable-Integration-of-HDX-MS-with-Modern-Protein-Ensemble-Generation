@@ -24,6 +24,7 @@ The same test applies to the representation ([[clustering]]). Clustering an ense
 
 - Replicate spread is not [[posterior uncertainty]] (what the data leave undetermined under one model) and not physical heterogeneity (the populations). It measures sensitivity to the data chosen.
 - It locates where a model is unstable but does not by itself say whether sampling, structure or the forward model is at fault (revised ValDX, `projects/1-ValDX/manuscript/report/7_results_omc.tex` L18, L242). Attributing the instability needs a [[controlled perturbation]] that changes one suspected cause. The jaxENT Fig. 5 caption claims uncertainty separates sampling from force-field limitations (`projects/2-jaxENT/manuscript/report/results.tex` L203); that conflicts with ValDX and should not be reused.
+- Small spread shows stability, not uniqueness. Replicates can agree on one of several ensembles that fit equally well ([[identifiability]]).
 - Agreement between replicates is necessary, not sufficient: all replicates can share the same missing state or forward-model error ([[sampling coverage]], [[model misspecification]]). The same logic applies to MD replicates ([[equilibration and convergence]]).
 - Stability across cluster sizes is in the revised manuscript only (`7_results_omc.tex` L235).
 - jaxENT maps replicate uncertainty onto weights, protection factors and structure (`results.tex` L173, L195, L197). It is useful for interpretation, but not yet citable. It belongs in a jaxENT method note, not yet written.

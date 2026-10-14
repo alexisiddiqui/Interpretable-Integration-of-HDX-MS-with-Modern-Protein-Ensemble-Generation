@@ -61,6 +61,7 @@ Source: [[@bmsb2012ch1#^c6]], Eq. (1.6), p. 25, written there with data $\mathbf
 
 - Results depend on the prior (the force field, or the generator) and on the error model in the likelihood (typically Gaussian, uncorrelated). Hummer and Köfinger assume uncorrelated errors in their Eq. (4).
 - The confidence parameter that trades prior against likelihood ($\gamma$ in the HDXer loss above) is not set by the theorem. It has to be chosen, and ValDX uses validation to choose it.
+- Evidence ranking in practice. [[BICePs]] scores each candidate prior by a Bayes factor of its evidence against a uniform-population null, which ranks structural hypotheses without claiming that any is unique ([[identifiability]]).
 - Two sampling-time uses: [[metainference]] samples the posterior over structures and error parameters with replicas, and [[guided diffusion]] splits the conditional score into prior score plus likelihood gradient ([[guided diffusion#^eq-guided-score]]).
 
 ## Why it matters here

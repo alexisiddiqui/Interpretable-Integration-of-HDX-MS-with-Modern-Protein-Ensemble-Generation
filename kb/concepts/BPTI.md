@@ -28,5 +28,6 @@ BPTI appears in three chapters, each asking a different question of the same pro
 - ValDX (ch. 3) compares AF2-Filtered and MD-1Start ensembles under global and local splits. AF2 MSA subsampling captures a rare hairpin-opening state, and Work Done asks whether the candidates represent local opening differently at similar uptake agreement (`projects/1-ValDX/manuscript/report/7_results_omc.tex` L68–93; NMR conversion in `6_methods_omc.tex` L36–52). Manuscript pointer, not evidence.
 - BioFeaturisers (ch. 5) restrains sampling against the 1 ms Anton trajectory as a controlled reference.
 - Lee et al. use it as the HDXer reference system, which is why it is a convenient common benchmark.
+- Wan et al. trained a Bayesian protection-factor model with BV-like coefficients on ubiquitin and BPTI protection factors ([[@wanReconcilingSimulatedEnsembles2020#^c10]]; [[BICePs]]), so BPTI also anchors forward-model calibration.
 
 Claims that use this term: [[Overlapping peptides share residue information, so random splits leak information between training and validation sets.]].

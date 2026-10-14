@@ -26,6 +26,7 @@ A force field is the model of the potential energy $U(x)$ of a conformation, and
 - A converged equilibrium simulation samples the [[Boltzmann distribution]] of its force field, not of the real protein (ours). Force-field error therefore becomes error in the populations of the simulated ensemble, and in the prior that reweighting starts from ([[@bmsb2012ch12#^c13]]).
 - An MLFF improves accuracy, not coverage. The sampling problem ([[equilibration and convergence]], [[sampling coverage]]) is unchanged.
 - An MLFF is not a [[Boltzmann generator]]. The first learns energies and forces for simulation; the second generates configurations and must reweight them to the Boltzmann distribution ([[@noeBoltzmannGeneratorsSampling2019#^c3]]). The confirmation cites the two together; keep them apart.
+- **Potential energy as a score.** $U(x)$ scores one conformation under the model, for example to flag clashes or strained geometry after minimisation. A low $U(x)$ does not make a state populated, because population depends on the free energy of the whole basin, entropy included ([[Boltzmann distribution#^eq-free-energy-entropy]]). Energies are comparable only within one system, force field and protonation state (ours). Unlike a [[statistical potential]], $U(x)$ is a physical model, but it inherits every approximation of the force field.
 - Functional forms, parameterisation and water models are Chapter 2 material, if needed at all.
 
 ## Why it matters here

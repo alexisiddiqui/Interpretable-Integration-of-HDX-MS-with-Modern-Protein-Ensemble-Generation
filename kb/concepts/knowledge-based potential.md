@@ -3,8 +3,6 @@ type: concept
 aliases:
   - knowledge-based potentials
   - KBP
-  - statistical potential
-  - statistical potentials
   - inverse Boltzmann
   - potential of mean force
   - reference state
@@ -32,7 +30,7 @@ sources:
 
 ## Definition
 
-A knowledge-based potential (KBP) turns statistics of known protein structures into an "energy" by inverting the Boltzmann distribution: features seen more often than expected get low energy. The expectation comes from a reference state. In statistical mechanics, a free energy along a coarse-grained variable relative to an interaction-free reference is well defined, and Eq. 3.33 gives it as a probability ratio. KBPs use the same formula with database statistics pooled across different proteins, so their reference state is ill-defined and their "energies" are not physical free energies. They are statistical constructs, and their meaning depends on the reference distribution they imply.
+A knowledge-based potential (KBP) is a [[statistical potential]] built from counts in a structure database. It turns statistics of known protein structures into an "energy" by inverting the Boltzmann distribution: features seen more often than expected get low energy. The expectation comes from a reference state. In statistical mechanics, a free energy along a coarse-grained variable relative to an interaction-free reference is well defined, and Eq. 3.33 gives it as a probability ratio. KBPs use the same formula with database statistics pooled across different proteins, so their reference state is ill-defined and their "energies" are not physical free energies. They are statistical constructs, and their meaning depends on the reference distribution they imply.
 
 ## Equations
 

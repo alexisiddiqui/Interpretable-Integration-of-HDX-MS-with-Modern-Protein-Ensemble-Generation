@@ -28,7 +28,7 @@ For ensemble reweighting, an ensemble of incorrect structures can reach low trai
 
 - Regularisation and error models *reduce* overfitting. Cesari et al. call modelling experimental error fundamental to reduce it ([[@cesariUsingMaximumEntropy2018#^c2]]), and minimal correction is a good choice only if the prior is reasonable ([[@cesariUsingMaximumEntropy2018#^c7]]). Neither guarantees a correct ensemble ([[regularisation]], [[maximum entropy principle]]).
 - Held-out error is only as independent as the split. Overlapping peptides leak information ([[data splitting]]).
-- Low validation error together with high [[Work Done]] signals agreement reached by excessive modification ([[@siddiquiFrameworkTestingStructural2026#^c11]]). This is a diagnostic pattern, not a threshold.
+- Low validation error together with high [[Work Done]] signals agreement reached by excessive modification ([[@siddiquiFrameworkTestingStructural2026#^c11]]). This is a diagnostic pattern, not a threshold. The pattern is consistent with overfitting without establishing it, because calibration mismatch and missing states can also force large changes ([[Work Done]]).
 - Overfitting is one way a fit misleads. [[model misspecification]] and missing candidates ([[sampling coverage]]) can also give a good fit to the wrong ensemble, and held-out error does not tell these apart.
 
 ## Why it matters here

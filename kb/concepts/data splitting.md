@@ -27,7 +27,7 @@ HDX-MS peptides overlap, so the same residues appear in several peptides. A rand
 - Overlap also correlates the errors of neighbouring peptides, which most likelihoods treat as independent ([[forward model]]).
 - Removing data is also a test of accuracy. A large change in the ensemble when a fraction of the data is removed is a typical sign of poor accuracy ([[@bonomiPrinciplesProteinStructural2017#^c10]]). This is the data-side case of a [[controlled perturbation]].
 - Withholding peptides reduces the data available for fitting. With few peptides the validation error itself is noisy.
-- Validation tests prediction of uptake. It does not test populations directly, which is why ValDX adds [[Work Done]] and reference benchmarks.
+- Validation tests prediction of uptake. It does not show that the populations are unique ([[identifiability]]), and it does not test them directly, which is why ValDX adds [[Work Done]] and reference benchmarks.
 
 ## Why it matters here
 

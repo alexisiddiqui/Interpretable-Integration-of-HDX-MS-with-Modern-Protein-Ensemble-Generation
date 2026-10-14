@@ -40,6 +40,7 @@ The training target sets what the output means. AlphaFold2 is trained on PDB str
 - **Confidence is not population.** pLDDT measures expected accuracy. It cannot be used as a measure of free energy ([[@wayment-steelePredictingMultipleConformations2024#^c6]]).
 - **Diversity is a side effect of the input.** Accuracy drops sharply below about 30 MSA sequences ([[@jumperHighlyAccurateProtein2021#^c6]]). A new seed can pick different MSA cluster centres and give a different structure ([[@mirditaColabFoldMakingProtein2022#^c7]]). Dropout gives an ensemble "for the uncertain parts" ([[@mirditaColabFoldMakingProtein2022#^c8]]), which is model uncertainty, not conformational heterogeneity. Deliberate input changes are [[MSA subsampling]].
 - **Seeds do not give the solution ensemble.** AF3 predictions are static, PDB-like states ([[@abramsonAccurateStructurePrediction2024#^c6]]), and repeated seeds do not approximate the solution ensemble ([[@abramsonAccurateStructurePrediction2024#^c7]]).
+- **"Statistical potential" is an analogy here.** ValDX writes that AF2 generates structures according to a statistical potential (`projects/1-ValDX/manuscript/report/6_methods_omc.tex` L176). AF2 exposes no normalised density, so no [[statistical potential]] can be computed from its output. The phrase describes learned, data-derived preferences, not an energy.
 - Jumper et al. say nothing about dynamics or alternative states. A claim that AF2 "cannot predict multiple states" needs later sources (above).
 
 ## Why it matters here
