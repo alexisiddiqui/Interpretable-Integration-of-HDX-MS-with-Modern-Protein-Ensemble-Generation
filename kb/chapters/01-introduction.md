@@ -373,7 +373,7 @@ ValDX supplies the central argument; jaxENT adds joint fitting and mapped uncert
 - [[Work Done measures distance from the prior, not from the true ensemble, and small values can also mean too little fitting.]] (revised ValDX only)
 - [[MaxEnt reweighting avoids overfitting and ensures the resulting ensemble remains physically plausible.]] (partial; do not reuse)
 
-**5. Uncertainty, interpretation and testing structural hypotheses.** Variation across replicate fits shows which conclusions depend on the data chosen ([[replicate uncertainty]]). It locates instability but does not identify its cause. Representative structures make the inferred states inspectable, if conclusions survive a change of representation. End on integration as hypothesis testing, which hands over to the research questions (§1.6).
+**5. Uncertainty, interpretation and testing structural hypotheses.** Variation across replicate fits shows which conclusions depend on the data chosen ([[replicate uncertainty]]). It locates instability but does not identify its cause. Changing one suspected cause at a time is how a cause is tested ([[controlled perturbation]]). Representative structures make the inferred states inspectable, if conclusions survive a change of representation. End on integration as hypothesis testing, which hands over to the research questions (§1.6).
 - [[Fitting outcomes depend on which peptides and time points are used, and replicate fits quantify this dependence.]] (supported)
 - [[Replicate uncertainty locates where a model is unstable but does not by itself separate sampling, structural and forward-model deficiencies.]] (revised ValDX only)
 - [[Clustering into representative structures gives compact, interpretable ensembles with little loss of accuracy.]] (supported)
@@ -411,10 +411,51 @@ ValDX supplies the central argument; jaxENT adds joint fitting and mapped uncert
 
 ## 1.6 Research Questions and Objectives
 
+**Argument.** §1.5 named three conditions for trusting a fitted ensemble. Each question turns one of them into a problem the research chapters can test. Under each, list the Chapter 2 concepts it draws on, the claims it rests on, and what stays open. §1.7 maps the chapters to the questions, and ch. 7 answers them.
+
 - **Q1.** How can we reliably assess integration in cases where there is no ground-truth? How can we leverage uncertainty to identify the sources of instability in structural hypotheses?
+  - Concepts. [[inverse problem]], [[data splitting]], [[Work Done]], [[replicate uncertainty]], [[posterior uncertainty]], [[controlled perturbation]].
+  - [[One uptake curve can arise from many different conformational populations, so a good fit does not identify the ensemble.]] (supported)
+  - [[Similar uptake agreement can coexist with different population recovery, so training error cannot verify populations.]] (supported)
+  - [[Work Done quantifies how much an ensemble must be modified to match experiment.]] (supported)
+  - [[Fitting outcomes depend on which peptides and time points are used, and replicate fits quantify this dependence.]] (supported)
+  - [[A large change in the inferred ensemble when part of the data is removed signals poor accuracy.]] (supported)
+  - [[Replicate uncertainty locates where a model is unstable but does not by itself separate sampling, structural and forward-model deficiencies.]] (revised ValDX only)
+  - Open. Uncertainty localises instability. Attributing it to sampling, structure or the forward model needs controlled perturbations, one suspected cause at a time.
 - **Q2.** How can we integrate knowledge, statistics and physics during integration to improve the reliability of structural hypotheses?
+  - Concepts. [[maximum entropy principle]], [[Bayes' theorem]], [[nuisance parameter]], [[regularisation]], [[forward model]], [[knowledge-based potential]], [[force field]], [[metainference]].
+  - Roles. Physics proposes candidate conformations and sets the exchange assumptions. Knowledge supplies prior weights, parameter ranges and structural filters. Statistics models data errors and their correlations, balances fit against modification, and tests generalisation. The forward model connects structure to the observable, and its parameters are inferred with the weights.
+  - [[Best–Vendruscolo coefficients are empirical, and their optimal values depend on the protein and experimental conditions.]] (supported)
+  - [[When fitting points to calibration mismatch, the forward model should be recalibrated before the ensemble hypothesis is rejected.]] (supported)
+  - [[Fitted populations can compensate for errors in assumed exchange kinetics, and restoring uptake agreement by calibration does not validate kinetics or populations.]] (revised ValDX only)
+  - [[Metainference infers an uncertainty for each datum alongside the structures, so the restraint weakens where data or forward model are unreliable.]] (supported)
+  - Open. When an added constraint improves structural inference rather than absorbing error. Fitting order is conditional on the suspected mismatch.
 - **Q3.** How can we improve the efficiency of integration to enable its application to larger and more complex systems?
+  - Concepts. [[clustering]], [[enhanced sampling]], [[Boltzmann generator]], [[guided diffusion]], [[importance sampling]].
+  - Three costs, each reduced differently. Representation (fewer structures to fit and inspect), fitting (differentiable, compiled joint optimisation), and sampling (effort spent where it adds information).
+  - [[Clustering into representative structures gives compact, interpretable ensembles with little loss of accuracy.]] (supported)
+  - [[Seeding simulations from rarely visited states broadens exploration but does not by itself give accurate populations.]] (supported)
+  - [[Guided diffusion samples are not equilibrium-weighted unless a correction such as reweighting is applied.]] (draft, inferred)
+  - Open. Efficiency of the whole workflow, from feature calculation through generation to validation and uncertainty. jaxENT's speedups are provisional until re-run on the current code.
 - **Q4.** How can we build interpretable models for protein dynamics that allow us to answer mechanistic questions about their dynamics?
+  - Concepts. [[population shift]], [[conformational free-energy landscape]], [[high-energy intermediate]], [[allostery]], [[clustering]], [[conformational kinetics]]. Systems [[BPTI]], [[prion protein]], [[alpha-synuclein]].
+  - [[Ensemble similarity scores compare equilibrium distributions and do not capture changes in dynamics or transition rates.]] (supported)
+  - [[Under EX2 an amide opens and closes many times before it exchanges, so the observed rate combines intrinsic chemistry with the opening equilibrium.]] (supported)
+  - [[Weighted conformational ensembles describe which states are occupied, not the order, rates or causal pathways of transitions between them.]] (draft, inferred)
+  - Open. Weighted states support statements about what is occupied and what it looks like. Causal mechanisms, transition order and rates need kinetic evidence.
+
+**Wording to avoid.**
+- "Uncertainty distinguishes sampling from force-field limitations" (jaxENT `results.tex` L203–207).
+- A recommended fitting order stated without its condition.
+- Pathways, transition order or rates read off fitted weights.
+- The α-synuclein Tris interpretation as an established mechanism.
+- jaxENT speedups from the outdated experiments.
+
+### Gaps (1.6)
+- The questions are draft wording. Keep the numbers if they are reworded.
+- BPTI has no primary HDX source in the KB. Kim et al. 1993 needs a PDF.
+- No method notes exist yet for jaxENT's covariance weighting, parameter penalty, interval-hazard uptake, graph-Laplacian regulariser or uncertainty maps. Until they do, the Q2 and Q3 bullets point to manuscript and code.
+- No source on Markov state models or other kinetic methods supports the Q4 boundary from the kinetic side.
 
 ## 1.7 Thesis Outline and Contributions
 
@@ -431,7 +472,7 @@ Register: jaxENT compression for contribution statements, each bounded by its va
 - Work Done measures how much the ensemble was modified to reach agreement, independent of uptake error, and is a distance from the prior rather than from the truth: [[Work Done quantifies how much an ensemble must be modified to match experiment.]], [[Low validation error with high Work Done signals agreement reached by excessive modification of the ensemble.]], [[Work Done measures distance from the prior, not from the true ensemble, and small values can also mean too little fitting.]].
 - Result. Across 22 ensembles of six proteins (58 to 480 residues), conventional error did not establish population accuracy on its own, and Work Done ranked candidate hypotheses: [[Similar uptake agreement can coexist with different population recovery, so training error cannot verify populations.]], [[A fitting metric can rank candidate ensembles against data or reveal them as inadequate, so integration becomes structural hypothesis testing.]].
 - Representation. Clustering to 10 to 20% of the parent ensemble preserved performance, and smaller sets aid interpretation when the conclusion survives a change of cluster size: [[Clustering into representative structures gives compact, interpretable ensembles with little loss of accuracy.]], [[Conclusions drawn from representative structures should be checked for stability across cluster sizes.]].
-- Protocol. Under an imposed kinetic mismatch, fitting forward-model parameters before reweighting limited population distortion: [[Fitted populations can compensate for errors in assumed exchange kinetics, and restoring uptake agreement by calibration does not validate kinetics or populations.]], [[When fitting points to calibration mismatch, the forward model should be recalibrated before the ensemble hypothesis is rejected.]].
+- Protocol. Under an imposed kinetic mismatch, fitting forward-model parameters before reweighting limited population distortion. The advice is conditional on the suspected mismatch, not a general fitting order: [[Fitted populations can compensate for errors in assumed exchange kinetics, and restoring uptake agreement by calibration does not validate kinetics or populations.]], [[When fitting points to calibration mismatch, the forward model should be recalibrated before the ensemble hypothesis is rejected.]].
 - Decoys. Artificial and decoy conformations probe what the BV model can and cannot distinguish: [[Plausible but unpopulated candidate structures can absorb weight and prevent population recovery even when uptake matches.]].
 - BiCePs beside Work Done (`03-valdx.tex` comment): a full Bayesian score as the comparison. Not in the preprint; stub.
 - Boundary, handed to ch. 4 and 5. Conclusions are comparative across the candidates supplied, reweighting cannot add states, and replicate uncertainty does not name its cause: [[Reweighting cannot create conformational states absent from the candidate ensemble.]], [[Replicate uncertainty locates where a model is unstable but does not by itself separate sampling, structural and forward-model deficiencies.]].
@@ -444,13 +485,14 @@ Register: jaxENT compression for contribution statements, each bounded by its va
 - Graph-Laplacian regularisation of the weights towards the candidates' pairwise-distance distribution, for candidate sets that do not carry Boltzmann weights (statistical potentials, enhanced sampling), where the uniform-prior KL term breaks down. Any pairwise distance serves, so physics or knowledge-based terms enter the regulariser.
 - Covariance-weighted and peptide-timepoint-weighted error terms.
 - Validation across three regimes of decreasing ground truth, and runtime against HDXer: [[Validation should progress from synthetic data with known populations to an orthogonal experimental reference to systems without ground truth.]] (draft). The draft abstract's figures (populations within 20 to 25% of experimental precision; 1.5 to 400× faster) come from outdated experiments (project README) and are re-derived before they appear here.
+- Uncertainty maps localise instability. Comparisons across simulation lengths and a control ensemble are what attribute it to sampling ([[controlled perturbation]]). The α-synuclein Tris reading stays a hypothesis bounded by sampling and forward model.
 - Boundary: jaxENT still reweights fixed candidates. The states it cannot reach are ch. 5's problem.
 - Status sentence: analyses complete; manuscript in draft. Due 14 Nov.
 
 **5. Chapter 5, BioFeaturisers, answers Q2 and Q3 during sampling, and Q4 through two mechanistic cases.** Open on the §1.5 limit (missing states) and the §2.3 gap (no HDX collective variable with forces is published). The contribution that can be claimed now is the library and the pipeline. The case results are in progress and are written as what each case tests, in order of decreasing ground truth ([[examples]] 7).
 - A library of differentiable forward models (JAX, with PyTorch wrappers): a Heaviside-contact BV model with usable gradients and an FFT SAXS model. One forward-model definition serves reweighting (jaxENT), restrained sampling (metadynamics–metainference) and guided generation (metadiffusion). Stub.
-- BPTI against the 1 ms Anton trajectory, by metainference–metadynamics: tests that restrained sampling recovers the populations a long reference simulation shows. Controlled reference.
-- MoPrP at pH 4 and pH 7: candidates from metadynamics–metainference, then unrestrained short apo simulations from decorrelated structures: tests whether pH-dependent unfolding pathways appear. Mechanistic question; depends on protonation (ch. 6).
+- [[BPTI]] against the 1 ms Anton trajectory, by metainference–metadynamics: tests that restrained sampling recovers the populations a long reference simulation shows. Controlled reference.
+- MoPrP at pH 4 and pH 7: candidates from metadynamics–metainference, then unrestrained short apo simulations from decorrelated structures: tests whether pH-dependent partially unfolded states appear. Reading a pathway from them needs the trajectories, not the weights ([[conformational kinetics]]). Mechanistic question; depends on protonation (ch. 6).
 - RORγ with agonist, partial-agonist and antagonist ligands, by metadiffusion against metadynamics with the same forward models: tests that guided generation of complexes gives ligand-dependent dynamics consistent with restrained sampling. No reference.
 - Boundary (from the §2.3 hub): [[Guided diffusion samples are not equilibrium-weighted unless a correction such as reweighting is applied.]], and a restraint is only as good as the forward model where the data are.
 - Status sentence: work in progress. Preliminary experiments; metadiffusion under development. Due 28 Nov ("metadynamics" in `DEADLINES.md`).
@@ -460,7 +502,7 @@ Register: jaxENT compression for contribution statements, each bounded by its va
 - What the preliminary results test: that the siamese loss improves binding-shift recovery, most at large shifts; that site-level features capture atomistic effects a backbone representation misses (Kd-ratio error under 9% all-atom against 30% backbone over pH 6.1 to 7.4, from the tex comment); that a transformer closes part of that gap (under 20% backbone-only). All preliminary.
 - Status sentence: preliminary training. **decision**: full research chapter, short chapter, or appendix. `DEADLINES.md` has no entry for it.
 
-**7. Chapter 7 returns to the questions.** The conclusion answers Q1 to Q4 with the chapter evidence, names what stays open (equilibrium weighting of guided samples; forward-model error where data are sparse; the posted ValDX revision), and places the confirmation's future work (AlphaFold3 confidence benchmarking; jaxENT with SAXS and NMR) as extensions, not chapters.
+**7. Chapter 7 returns to the questions.** The conclusion answers Q1 to Q4 with the chapter evidence, names what stays open (equilibrium weighting of guided samples; forward-model error where data are sparse; the posted ValDX revision; and one item per question from §1.6, namely attributing instability, when added constraints help, whole-workflow efficiency, and kinetic or causal interpretation), and places the confirmation's future work (AlphaFold3 confidence benchmarking; jaxENT with SAXS and NMR) as extensions, not chapters.
 
 **Map.**
 

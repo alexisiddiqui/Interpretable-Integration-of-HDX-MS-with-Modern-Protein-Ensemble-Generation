@@ -76,6 +76,10 @@
 
 - [[Guided diffusion samples are not equilibrium-weighted unless a correction such as reweighting is applied.]] (`claims/Guided diffusion samples are not equilibrium-weighted unless a correction such as reweighting is applied..md`)
 
+## Inferred from what weights and EX2 rates encode; no cited passage states it for reweighted ensembles.
+
+- [[Weighted conformational ensembles describe which states are occupied, not the order, rates or causal pathways of transitions between them.]] (`claims/Weighted conformational ensembles describe which states are occupied, not the order, rates or causal pathways of transitions between them..md`)
+
 ## Inferred. Hollingsworth states force fields are approximate and BMSB uses the force field's Boltzmann distribution as the prior; neither states the combination.
 
 - [[Sufficiently sampled equilibrium MD targets the Boltzmann distribution of its approximate force field, not the protein's true distribution.]] (`claims/Sufficiently sampled equilibrium MD targets the Boltzmann distribution of its approximate force field, not the protein's true distribution..md`)

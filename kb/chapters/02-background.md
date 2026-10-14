@@ -126,6 +126,22 @@ Grounding concepts (from BMSB): [[posterior uncertainty]]; [[regularisation]], w
 - [[Experimental error estimates are usually lower bounds because they miss systematic errors.]] (supported)
 - [[Noise in the data and structural heterogeneity are difficult to tell apart.]] (supported)
 - [[model misspecification]] carries the forward-model side.
+- Overlapping peptides share residues, so their errors are correlated and a product likelihood over peptides is an approximation ([[forward model]], [[nuisance parameter]]). jaxENT's covariance-weighted MSE is the project response and belongs in a method note.
+
+### Cross-Validation with Overlapping Measurements
+- [[data splitting]] carries the definitions and the overlap problem.
+  - [[Overlapping peptides share residue information, so random splits leak information between training and validation sets.]] (supported)
+  - [[Structured splits reduce dependence between training and validation peptides but do not guarantee independence.]] (revised ValDX only)
+  - [[A large change in the inferred ensemble when part of the data is removed signals poor accuracy.]] (supported)
+- Skinner et al. 2019 show from the data side why splits interact with information content. Coverage, overlap and peptide length decide how far residue protection factors are determined ([[HDX protection-factor model]]).
+- [[BPTI]] is the contrast case. Its residue-level NMR data have no peptide overlap, but neighbouring residues can still be correlated.
+
+### Identifiability and Competing Structural Hypotheses
+- [[inverse problem]] states the non-uniqueness. Berlin et al. 2013 give the count argument, and Bonomi et al. 2017 call ensemble determination ill-defined because different ensembles fit the same averaged data.
+  - [[One uptake curve can arise from many different conformational populations, so a good fit does not identify the ensemble.]] (supported)
+  - [[Similar uptake agreement can coexist with different population recovery, so training error cannot verify populations.]] (supported)
+  - [[A fitting metric can rank candidate ensembles against data or reveal them as inadequate, so integration becomes structural hypothesis testing.]] (supported)
+- [[controlled perturbation]] turns competing explanations into tests. Change one suspected cause, keep the rest fixed, and compare. Close the subsection on the hand-off to Work Done in the next subsection.
 
 ### Ensemble Comparison and Interpretable Representations
 - [[ensemble comparison]] gives the Jensen–Shannon divergence [[ensemble comparison#^eq-jsd]], built from [[Kullback–Leibler divergence#^eq-kl]].
@@ -133,6 +149,8 @@ Grounding concepts (from BMSB): [[posterior uncertainty]]; [[regularisation]], w
   - [[The Jensen–Shannon divergence is a symmetric, bounded measure of ensemble similarity that stays defined where one ensemble has no density.]] (supported)
   - [[Dimensionality reduction by PCA or MDS assumes a linear conformational space.]] (supported)
   - [[Ensemble similarity scores compare equilibrium distributions and do not capture changes in dynamics or transition rates.]] (supported)
+- [[conformational kinetics]] marks how far a weighted ensemble reaches towards mechanism. Under EX2 the data report the fraction of time open, not the opening rate.
+  - [[Weighted conformational ensembles describe which states are occupied, not the order, rates or causal pathways of transitions between them.]] (draft, inferred)
 - [[clustering]] covers representatives and resolution.
   - [[Clustering sets the resolution of an ensemble comparison and ignores differences within clusters and similarities across them.]] (supported)
   - [[Clustering into representative structures gives compact, interpretable ensembles with little loss of accuracy.]] (supported)
