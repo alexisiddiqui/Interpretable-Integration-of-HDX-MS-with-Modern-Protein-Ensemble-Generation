@@ -7,7 +7,8 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | Symbol | Meaning | Units | Defined in | Written in sources |
 |---|---|---|---|---|
 | $B_{12}$ | Bayes factor of model 1 against model 2 | — | [[Bayes' theorem]] | $B$ ([[@bmsb2012ch1]]) |
-| $D_\text{KL}$ | Kullback–Leibler divergence of a posterior from its prior | — | [[Kullback–Leibler divergence]] | $\text{KL}[g \Vert h]$ ([[@bmsb2012ch4]]) |
+| $D_\text{JS}$ | Jensen–Shannon divergence between two distributions | — | [[ensemble comparison]] | $D_{JS}(p_A, p_B)$ ([[@lindorff-larsenSimilarityMeasuresProtein2009]]) |
+| $D_\text{KL}$ | Kullback–Leibler divergence of a posterior from its prior | — | [[Kullback–Leibler divergence]] | $\text{KL}[g \Vert h]$ ([[@bmsb2012ch4]]), $D_{KL}(p_A, p_B)$ ([[@lindorff-larsenSimilarityMeasuresProtein2009]]) |
 | $D_\text{corr}$ | back-exchange corrected fractional deuterium level | — | [[deuterium uptake]] | — |
 | $D_i(t)$ | fractional deuterium uptake of residue i at labelling time t | — | [[deuterium uptake]] | — |
 | $D_p(t)$ | fractional deuterium uptake of peptide p at labelling time t | — | [[deuterium uptake]] | — |
@@ -19,18 +20,21 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $N_C(i,j)$ | heavy atoms within 6.5 Å of the amide N of residue i in conformer j, excluding residues i-2 to i+2 | — | [[Best–Vendruscolo model]] | $N_{C,i}$ ([[@bradshawInterpretationHDXData2020]]) |
 | $N_H(i,j)$ | hydrogen bonds to the amide H of residue i in conformer j | — | [[Best–Vendruscolo model]] | $N_{H,i}$ ([[@bradshawInterpretationHDXData2020]]) |
 | $N_g$ | number of good parameters: parameter directions determined by the data | — | [[regularisation]] | $N_g$ ([[@bmsb2012ch13]]) |
+| $N_\text{rep}$ | number of replicas simulated in parallel | — | [[restrained simulation]] | — |
 | $P(\xi)$ | marginal of the target distribution on the coarse-grained variable xi | — | [[knowledge-based potential]] | $p_\beta(\lambda)$ ([[@bmsb2012ch3]]) |
-| $P(x)$ | target distribution over conformations | — | [[importance sampling]] | $p(x) = \omega(x)/Z$ ([[@bmsb2012ch2]]), $p(x)$ ([[@hummerBayesianEnsembleRefinement2015]]) |
+| $P(x)$ | target distribution over conformations | — | [[importance sampling]] | $p(x) = \omega(x)/Z$ ([[@bmsb2012ch2]]), $p(x)$ ([[@hummerBayesianEnsembleRefinement2015]]), $p_0(\mathbf{x}_0) = q_0(\mathbf{x}_0) e^{-k\mathcal{E}_0(\mathbf{x}_0)}/Z$ ([[@wangProteinConformationGeneration2024]]) |
 | $P^*(\xi)$ | target distribution of the coarse-grained variable xi | — | [[reference ratio method]] | $p(\lambda \mid a)$ ([[@bmsb2012ch3]]), $f_1(y)$ ([[@bmsb2012ch4]]) |
 | $P_0(\xi)$ | marginal of the prior on the coarse-grained variable xi | — | [[reference ratio method]] | $\tilde q(\lambda \mid a)$ ([[@bmsb2012ch3]]), $g_1(y)$ ([[@bmsb2012ch4]]) |
-| $P_0(x)$ | prior distribution over conformations | — | [[maximum entropy principle]] | $\pi(x)$ ([[@bmsb2012ch12]], [[@bmsb2012ch2]]), $q(x)$ ([[@bmsb2012ch2]]), $q(r \mid a)$ ([[@bmsb2012ch3]]), $g(x)$ ([[@bmsb2012ch4]]), $P_0(q)$ ([[@cesariUsingMaximumEntropy2018]]), $p_0(x)$ ([[@hummerBayesianEnsembleRefinement2015]]) |
+| $P_0(x)$ | prior distribution over conformations | — | [[maximum entropy principle]] | $\pi(x)$ ([[@bmsb2012ch12]], [[@bmsb2012ch2]]), $q(x)$ ([[@bmsb2012ch2]]), $q(r \mid a)$ ([[@bmsb2012ch3]]), $g(x)$ ([[@bmsb2012ch4]]), $p(X_r)$ ([[@bonomiMetadynamicMetainferenceEnhanced2016]]), $P_0(q)$ ([[@cesariUsingMaximumEntropy2018]]), $p_0(x)$ ([[@hummerBayesianEnsembleRefinement2015]]), $q_0(\mathbf{x}_0)$ ([[@wangProteinConformationGeneration2024]]) |
 | $P_\text{ME}(x)$ | maximum-entropy posterior distribution over conformations | — | [[maximum entropy principle]] | $P_\text{ME}(q)$ ([[@cesariUsingMaximumEntropy2018]]) |
 | $P_{f,i}$ | protection factor of residue i | — | [[protection factor]] | $P_i$ ([[@bradshawInterpretationHDXData2020]]) |
 | $R$ | molar gas constant | J mol^-1 K^-1 | [[Boltzmann distribution]] | — |
 | $S$ | thermodynamic entropy of the ensemble | J K^-1 | [[Boltzmann distribution]] | $S$ ([[@bmsb2012ch1]], [[@bmsb2012ch3]]) |
 | $S[P \Vert P_0]$ | relative entropy of P with respect to P_0 | — | [[Kullback–Leibler divergence]] | $S[P \Vert P_0]$ ([[@cesariUsingMaximumEntropy2018]]) |
 | $T$ | absolute temperature | K | [[Boltzmann distribution]] | — |
-| $U(x)$ | potential energy of conformation x | kJ mol^-1 | [[Boltzmann distribution]] | $E_k$ ([[@bmsb2012ch1]]), $E(x)$ ([[@bmsb2012ch12]], [[@bmsb2012ch2]]), $E(r)$ ([[@bmsb2012ch3]]), $U(X_M)$ ([[@bradshawInterpretationHDXData2020]]), $V_0(q)$ ([[@cesariUsingMaximumEntropy2018]]) |
+| $U(x)$ | potential energy of conformation x | kJ mol^-1 | [[Boltzmann distribution]] | $E_k$ ([[@bmsb2012ch1]]), $E(x)$ ([[@bmsb2012ch12]], [[@bmsb2012ch2]]), $E(r)$ ([[@bmsb2012ch3]]), $U(X_M)$ ([[@bradshawInterpretationHDXData2020]]), $V_0(q)$ ([[@cesariUsingMaximumEntropy2018]]), $\mathcal{E}_0(\mathbf{x}_0)$ ([[@wangProteinConformationGeneration2024]]) |
+| $U_\text{MI}$ | metainference energy, the negative log posterior over replicas and error parameters | kJ mol^-1 | [[metainference]] | — |
+| $U_\text{RE}$ | potential energy of a replica-restrained ensemble simulation | kJ mol^-1 | [[restrained simulation]] | — |
 | $W_\text{app}$ | apparent work of reweighting | kJ mol^-1 | [[maximum entropy principle]] | $W_\text{app}$ ([[@bradshawInterpretationHDXData2020]]) |
 | $Z$ | configurational partition function | — | [[Boltzmann distribution]] | $Z$ ([[@bmsb2012ch1]], [[@bmsb2012ch3]]), $Z(\beta)$ ([[@bmsb2012ch12]]) |
 | $[L]$ | free concentration of a binding species L in the environment | M | [[dynamic disease mechanism]] | — |
@@ -41,22 +45,26 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $\beta_C$ | BV coefficient for heavy-atom contacts | — | [[Best–Vendruscolo model]] | — |
 | $\beta_H$ | BV coefficient for amide hydrogen bonds | — | [[Best–Vendruscolo model]] | — |
 | $\chi^2$ | sum of squared residuals, each divided by its error variance | — | [[regularisation]] | $\chi^2$ ([[@bmsb2012ch13]]) |
+| $\eta$ | guidance strength | — | [[guided diffusion]] | — |
 | $\gamma$ | weight of the data term relative to the prior | — | [[nuisance parameter]] | $w_\text{data}$ ([[@bmsb2012ch12]]) |
 | $\hat P(x)$ | reference-ratio distribution over conformations | — | [[reference ratio method]] | $p(r \mid a)$ ([[@bmsb2012ch3]]), $\hat f(x)$ ([[@bmsb2012ch4]]) |
+| $\hat x_0$ | posterior-mean estimate of the clean structure given a noisy one at diffusion time tau | — | [[guided diffusion]] | — |
+| $\kappa$ | force constant of a restraint on replica-averaged observables | — | [[restrained simulation]] | — |
 | $\lambda_i$ | Lagrange multiplier for the i-th constraint | — | [[maximum entropy principle]] | $\lambda_i$ ([[@bradshawInterpretationHDXData2020]], [[@cesariUsingMaximumEntropy2018]]) |
 | $\mathcal{M}$ | a model or hypothesis under comparison | — | [[Bayes' theorem]] | $M_1, M_2$ ([[@bmsb2012ch1]]), $H_i$ ([[@bmsb2012ch13]]) |
 | $\mathcal{Q}(x' \mid x)$ | proposal distribution of a Monte Carlo move from x to x' | — | [[Markov chain Monte Carlo]] | $q(x' \mid x)$ ([[@bmsb2012ch2]]) |
 | $\mathcal{R}$ | regularisation functional | — | [[regularisation]] | $K$ ([[@bmsb2012ch13]]) |
 | $\mathcal{T}(x' \mid x)$ | Markov-chain transition probability from x to x' | — | [[Markov chain Monte Carlo]] | $W(x' \mid x)$ ([[@bmsb2012ch2]]) |
 | $\mu_k$ | k-th eigenvalue of the curvature (Hessian) of chi^2/2 | — | [[regularisation]] | $\lambda_j$ ([[@bmsb2012ch13]]) |
-| $\nabla_x \log p_\tau(x)$ | score of the marginal density at diffusion time tau | — | [[diffusion model]] | $\nabla \log p_t(x)$ ([[@yimDiffusionModelsProtein2024]]) |
+| $\nabla_x \log p_\tau(x)$ | score of the marginal density at diffusion time tau | — | [[diffusion model]] | $\nabla_{\mathbf{x}_t} \log p_t(\mathbf{x}_t)$ ([[@liuExEnDiffExperimentGuidedDiffusion2025]]), $\nabla \log p_t(x)$ ([[@yimDiffusionModelsProtein2024]]) |
 | $\pi_A$ | equilibrium population of conformational state A | — | [[dynamic disease mechanism]] | — |
 | $\rho_\text{err}$ | error model: probability of a measured value given its prediction | — | [[forward model]] | $g(y \mid \hat y, \sigma)$ ([[@bmsb2012ch12]]), $\rho_\text{err}$ ([[@bradshawInterpretationHDXData2020]]) |
-| $\sigma_i$ | error scale (standard deviation) of observable i | — | [[forward model]] | $\sigma$ ([[@bmsb2012ch12]], [[@hummerBayesianEnsembleRefinement2015]]), $\sigma_i$ ([[@bmsb2012ch13]]) |
-| $\tau$ | diffusion time, from data (0) to noise (1) | — | [[diffusion model]] | $t$ ([[@yimDiffusionModelsProtein2024]]) |
+| $\sigma_i$ | error scale (standard deviation) of observable i | — | [[forward model]] | $\sigma$ ([[@bmsb2012ch12]], [[@hummerBayesianEnsembleRefinement2015]]), $\sigma_i$ ([[@bmsb2012ch13]]), $\sigma_{r,i}$ ([[@bonomiMetadynamicMetainferenceEnhanced2016]]), $\sigma$, $\sigma_i$ ([[@liuExEnDiffExperimentGuidedDiffusion2025]]) |
+| $\sigma_{r,i}$ | effective uncertainty of datum i in replica r, combining finite-replica and data/forward-model error | — | [[metainference]] | — |
+| $\tau$ | diffusion time, from data (0) to noise (1) | — | [[diffusion model]] | $t$ ([[@liuExEnDiffExperimentGuidedDiffusion2025]], [[@wangProteinConformationGeneration2024]], [[@yimDiffusionModelsProtein2024]]) |
 | $\theta$ | forward-model parameters | — | [[forward model]] | $\alpha$ ([[@bmsb2012ch12]]) |
 | $\tilde P(\xi)$ | reference-state distribution of xi | — | [[knowledge-based potential]] | $\tilde p(\lambda)$ ([[@bmsb2012ch3]]) |
-| $\xi(x)$ | coarse-grained variable of conformation x | — | [[knowledge-based potential]], [[reference ratio method]] | $f(x)$, $y$ ([[@bmsb2012ch2]]), $\lambda$ ([[@bmsb2012ch3]]), $Y = m(X)$ ([[@bmsb2012ch4]]) |
+| $\xi(x)$ | coarse-grained variable of conformation x | — | [[knowledge-based potential]], [[reference ratio method]] | $f(x)$, $y$ ([[@bmsb2012ch2]]), $\lambda$ ([[@bmsb2012ch3]]), $Y = m(X)$ ([[@bmsb2012ch4]]), $S(X)$ ([[@bonomiMetadynamicMetainferenceEnhanced2016]]) |
 | $a(x' \mid x)$ | Metropolis–Hastings acceptance probability of a move from x to x' | — | [[Markov chain Monte Carlo]] | $a(x' \mid x)$ ([[@bmsb2012ch2]]), $\alpha$ ([[@bmsb2012ch4]]) |
 | $f(x,\tau)$ | drift of the forward diffusion SDE | — | [[diffusion model]] | $f(x,t)$ ([[@yimDiffusionModelsProtein2024]]) |
 | $g(\tau)$ | diffusion coefficient of the forward SDE | — | [[diffusion model]] | $g(t)$ ([[@yimDiffusionModelsProtein2024]]) |
@@ -73,12 +81,12 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $n_\text{obs}(\xi)$ | observed count of xi in a structure database | — | [[knowledge-based potential]] | $n_\text{obs}$ ([[@bmsb2012ch3]]) |
 | $p(s^\text{exp} \mid \mathcal{M})$ | evidence (marginal likelihood) of model M | — | [[Bayes' theorem]] | — |
 | $q_i(j)$ | BV feature (predicted ln protection) of residue i in conformer j | — | [[Best–Vendruscolo model]] | — |
-| $s^\text{exp}$ | all measured values (the data) | — | [[Bayes' theorem]] | $d$ ([[@bmsb2012ch1]]), $\mathbf{d} = \{y_i\}$ ([[@bmsb2012ch12]]), $D$ ([[@bmsb2012ch13]]), $\mathcal{D}$ ([[@bmsb2012ch2]]) |
-| $s_i(x)$ | i-th constrained observable as a function of conformation | — | [[maximum entropy principle]] | $s_i(q)$ ([[@cesariUsingMaximumEntropy2018]]), $y_i(x)$ ([[@hummerBayesianEnsembleRefinement2015]]) |
-| $s_i(x;\theta)$ | forward-model prediction of observable i for conformation x and forward-model parameters theta | — | [[forward model]] | $f_i(x;\alpha)$ ([[@bmsb2012ch12]]), $I(q_i)$ ([[@bmsb2012ch13]]) |
-| $s_i^\text{exp}$ | experimental value of the i-th constrained observable | — | [[maximum entropy principle]] | $y_i$ ([[@bmsb2012ch12]]), $I_m(q_i)$ ([[@bmsb2012ch13]]), $s_i^\text{exp}$ ([[@cesariUsingMaximumEntropy2018]]), $y_i^\text{(obs)}$ ([[@hummerBayesianEnsembleRefinement2015]]) |
+| $s^\text{exp}$ | all measured values (the data) | — | [[Bayes' theorem]] | $d$ ([[@bmsb2012ch1]]), $\mathbf{d} = \{y_i\}$ ([[@bmsb2012ch12]]), $D$ ([[@bmsb2012ch13]]), $\mathcal{D}$ ([[@bmsb2012ch2]]), $\mathbf{y} = [y_1, \dots, y_m]$ ([[@liuExEnDiffExperimentGuidedDiffusion2025]]) |
+| $s_i(x)$ | i-th constrained observable as a function of conformation | — | [[maximum entropy principle]] | $s_i(q)$ ([[@cesariUsingMaximumEntropy2018]]), $y_i(x)$ ([[@hummerBayesianEnsembleRefinement2015]]), $A(\mathbf{x}_0)$, $A_i(\mathbf{x}_0)$ ([[@liuExEnDiffExperimentGuidedDiffusion2025]]) |
+| $s_i(x;\theta)$ | forward-model prediction of observable i for conformation x and forward-model parameters theta | — | [[forward model]] | $f_i(x;\alpha)$ ([[@bmsb2012ch12]]), $I(q_i)$ ([[@bmsb2012ch13]]), $f_i(X_r)$ ([[@bonomiMetadynamicMetainferenceEnhanced2016]]) |
+| $s_i^\text{exp}$ | experimental value of the i-th constrained observable | — | [[maximum entropy principle]] | $y_i$ ([[@bmsb2012ch12]]), $I_m(q_i)$ ([[@bmsb2012ch13]]), $d_i$ ([[@bonomiMetadynamicMetainferenceEnhanced2016]]), $s_i^\text{exp}$ ([[@cesariUsingMaximumEntropy2018]]), $y_i^\text{(obs)}$ ([[@hummerBayesianEnsembleRefinement2015]]) |
 | $t$ | labelling time | s | [[deuterium uptake]] | — |
 | $w_j$ | weight of conformer j in the reweighted ensemble | — | [[maximum entropy principle]] | $p_j$ ([[@bmsb2012ch13]]), $r_i$, $\tilde r_i$ ([[@bmsb2012ch2]]), $\Omega(X_M)$ ([[@bradshawInterpretationHDXData2020]]) |
 | $w_j^0$ | prior weight of conformer j | — | [[maximum entropy principle]] | $m_j$ ([[@bmsb2012ch13]]) |
-| $x$ | a molecular conformation (atomic coordinates) | — | [[Boltzmann distribution]] | $x$ ([[@bmsb2012ch12]], [[@bmsb2012ch2]], [[@hummerBayesianEnsembleRefinement2015]]), $r$ ([[@bmsb2012ch3]]), $X$, $x$ ([[@bmsb2012ch4]]), $X_M$ ([[@bradshawInterpretationHDXData2020]]), $q$ ([[@cesariUsingMaximumEntropy2018]]) |
+| $x$ | a molecular conformation (atomic coordinates) | — | [[Boltzmann distribution]] | $x$ ([[@bmsb2012ch12]], [[@bmsb2012ch2]], [[@hummerBayesianEnsembleRefinement2015]]), $r$ ([[@bmsb2012ch3]]), $X$, $x$ ([[@bmsb2012ch4]]), $X_r$ ([[@bonomiMetadynamicMetainferenceEnhanced2016]]), $X_M$ ([[@bradshawInterpretationHDXData2020]]), $q$ ([[@cesariUsingMaximumEntropy2018]]) |
 | $x_a(t)$ | position of atom a at simulation time t | nm | [[molecular dynamics]] | — |

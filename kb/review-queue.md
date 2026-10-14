@@ -72,6 +72,10 @@
 
 - [[Diffusion steps are not physical simulation time.]] (`claims/Diffusion steps are not physical simulation time..md`)
 
+## Inferred from what the methods compute; neither paper states it, and ExEnDiff's abstract claims the opposite.
+
+- [[Guided diffusion samples are not equilibrium-weighted unless a correction such as reweighting is applied.]] (`claims/Guided diffusion samples are not equilibrium-weighted unless a correction such as reweighting is applied..md`)
+
 ## Inferred. Hollingsworth states force fields are approximate and BMSB uses the force field's Boltzmann distribution as the prior; neither states the combination.
 
 - [[Sufficiently sampled equilibrium MD targets the Boltzmann distribution of its approximate force field, not the protein's true distribution.]] (`claims/Sufficiently sampled equilibrium MD targets the Boltzmann distribution of its approximate force field, not the protein's true distribution..md`)

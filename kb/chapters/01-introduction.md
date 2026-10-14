@@ -411,8 +411,91 @@ ValDX supplies the central argument; jaxENT adds joint fitting and mapped uncert
 
 ## 1.6 Research Questions and Objectives
 
-Not yet assembled.
+- **Q1.** How can we reliably assess integration in cases where there is no ground-truth? How can we leverage uncertainty to identify the sources of instability in structural hypotheses?
+- **Q2.** How can we integrate knowledge, statistics and physics during integration to improve the reliability of structural hypotheses?
+- **Q3.** How can we improve the efficiency of integration to enable its application to larger and more complex systems?
+- **Q4.** How can we build interpretable models for protein dynamics that allow us to answer mechanistic questions about their dynamics?
 
 ## 1.7 Thesis Outline and Contributions
 
-Not yet assembled.
+**Argument:** the four questions in §1.6 are taken up by four research chapters that move from assessing an integration (ch. 3) to performing it jointly and quickly (ch. 4), then to letting the data act during sampling and generation (ch. 5), with a differentiable protonation model (ch. 6) that the pH-dependent cases need. One paragraph per chapter names the question it answers, the contribution, the regime that tests it, and what it leaves to the next chapter. A fixed status sentence in each paragraph separates finished work from work in progress, so the examiner knows which results the thesis is held to.
+
+Register: jaxENT compression for contribution statements, each bounded by its validation regime ([[style]] §Registers; [[examples]] 7). There are no literature markers here. A contribution is a claim about the thesis's own results and leaves `draft` only with a figure ID, or with a quote from the posted ValDX preprint. Chapter 3's contributions already exist as §1.5 claims and are reused; chapters 4 to 6 need new claim notes (`project:` set, `figures:` filled).
+
+**1. The arc, in one paragraph.** §1.5 named three conditions for trusting a fitted ensemble, and §1.6 turned them into questions. The chapters answer them in order of decreasing control over the candidates. ValDX scores fits to fixed candidate ensembles where references exist (Q1). jaxENT fits weights and forward-model parameters together, fast enough to repeat the fit across splits and replicates (Q2, Q3). BioFeaturisers moves the same forward models into sampling and generation, so the data can reach states the candidates lacked, which §1.5 group 2 set as the limit of reweighting (Q2, Q3, Q4). jax-Ka extends the differentiable forward-model idea to protonation (Q2, Q4). From chapter 4 onward one technical thread holds. A forward model with gradients can score, reweight, restrain and guide, so one definition serves every stage. End on the boundary: chapters 3 and 4 reweight what they are given, and only chapter 5 can add states.
+
+**2. Chapter 2 supplies, it does not contribute.** One sentence per block on what the research chapters draw from it (exchange kinetics and forward models; generators and their sampling distributions; MaxEnt, Bayesian refinement, restraints and guidance; validation and ensemble comparison; protonation, in proportion to ch. 6). The thesis's own formulations (Work Done, linear-additive uptake, graph-Laplacian regularisation, Heaviside-contact BV, metadiffusion) stay in their chapters ([[02-background]]).
+
+**3. Chapter 3, ValDX, answers Q1 (assessment without ground truth; uncertainty that locates instability) and opens Q4 through representative structures.** Lead with the problem the §1.5 claims set up, then the tools, the benchmark result, and the boundary.
+- Tools. Overlap-aware splits and replicate fits give a validation error that reflects prediction beyond the training peptides, and reduce rather than remove dependence between splits: [[Overlapping peptides share residue information, so random splits leak information between training and validation sets.]], [[Structured splits reduce dependence between training and validation peptides but do not guarantee independence.]], [[Fitting outcomes depend on which peptides and time points are used, and replicate fits quantify this dependence.]].
+- Work Done measures how much the ensemble was modified to reach agreement, independent of uptake error, and is a distance from the prior rather than from the truth: [[Work Done quantifies how much an ensemble must be modified to match experiment.]], [[Low validation error with high Work Done signals agreement reached by excessive modification of the ensemble.]], [[Work Done measures distance from the prior, not from the true ensemble, and small values can also mean too little fitting.]].
+- Result. Across 22 ensembles of six proteins (58 to 480 residues), conventional error did not establish population accuracy on its own, and Work Done ranked candidate hypotheses: [[Similar uptake agreement can coexist with different population recovery, so training error cannot verify populations.]], [[A fitting metric can rank candidate ensembles against data or reveal them as inadequate, so integration becomes structural hypothesis testing.]].
+- Representation. Clustering to 10 to 20% of the parent ensemble preserved performance, and smaller sets aid interpretation when the conclusion survives a change of cluster size: [[Clustering into representative structures gives compact, interpretable ensembles with little loss of accuracy.]], [[Conclusions drawn from representative structures should be checked for stability across cluster sizes.]].
+- Protocol. Under an imposed kinetic mismatch, fitting forward-model parameters before reweighting limited population distortion: [[Fitted populations can compensate for errors in assumed exchange kinetics, and restoring uptake agreement by calibration does not validate kinetics or populations.]], [[When fitting points to calibration mismatch, the forward model should be recalibrated before the ensemble hypothesis is rejected.]].
+- Decoys. Artificial and decoy conformations probe what the BV model can and cannot distinguish: [[Plausible but unpopulated candidate structures can absorb weight and prevent population recovery even when uptake matches.]].
+- BiCePs beside Work Done (`03-valdx.tex` comment): a full Bayesian score as the comparison. Not in the preprint; stub.
+- Boundary, handed to ch. 4 and 5. Conclusions are comparative across the candidates supplied, reweighting cannot add states, and replicate uncertainty does not name its cause: [[Reweighting cannot create conformational states absent from the candidate ensemble.]], [[Replicate uncertainty locates where a model is unstable but does not by itself separate sampling, structural and forward-model deficiencies.]].
+- Status sentence: complete. Manuscript post-review; preprint v1 posted ([[@siddiquiFrameworkTestingStructural2026]]). The five "revised ValDX only" claims in §1.5 become supported once the revision is posted.
+
+**4. Chapter 4, jaxENT, answers Q2 (knowledge, statistics and physics in the fit) and Q3 (efficiency), and returns to Q1 with uncertainty traced to individual structures.** Open on what ch. 3 could not do with HDXer: fit parameters and weights at once, and change the plausibility constraint. Every bullet is a stub (new claim, `project: 2-jaxENT`, figure ID needed).
+- A differentiable MaxEnt engine in which plausibility constraints are loss terms rather than architecture, with splits and replicates built into the fit.
+- Joint inference of weights and forward-model parameters, with an L1 penalty on the deviation of parameters from their prior values. Non-standard conditions such as low pH require this.
+- A linear-additive protection-to-uptake forward model in interval-hazard form. It is an approximation, since protection factors add and uptake does not, and the frame-wise versus ensemble-average inequality remains. It holds for most cases tested and costs O(fragments × timepoints) rather than O(fragments × timepoints × frames).
+- Graph-Laplacian regularisation of the weights towards the candidates' pairwise-distance distribution, for candidate sets that do not carry Boltzmann weights (statistical potentials, enhanced sampling), where the uniform-prior KL term breaks down. Any pairwise distance serves, so physics or knowledge-based terms enter the regulariser.
+- Covariance-weighted and peptide-timepoint-weighted error terms.
+- Validation across three regimes of decreasing ground truth, and runtime against HDXer: [[Validation should progress from synthetic data with known populations to an orthogonal experimental reference to systems without ground truth.]] (draft). The draft abstract's figures (populations within 20 to 25% of experimental precision; 1.5 to 400× faster) come from outdated experiments (project README) and are re-derived before they appear here.
+- Boundary: jaxENT still reweights fixed candidates. The states it cannot reach are ch. 5's problem.
+- Status sentence: analyses complete; manuscript in draft. Due 14 Nov.
+
+**5. Chapter 5, BioFeaturisers, answers Q2 and Q3 during sampling, and Q4 through two mechanistic cases.** Open on the §1.5 limit (missing states) and the §2.3 gap (no HDX collective variable with forces is published). The contribution that can be claimed now is the library and the pipeline. The case results are in progress and are written as what each case tests, in order of decreasing ground truth ([[examples]] 7).
+- A library of differentiable forward models (JAX, with PyTorch wrappers): a Heaviside-contact BV model with usable gradients and an FFT SAXS model. One forward-model definition serves reweighting (jaxENT), restrained sampling (metadynamics–metainference) and guided generation (metadiffusion). Stub.
+- BPTI against the 1 ms Anton trajectory, by metainference–metadynamics: tests that restrained sampling recovers the populations a long reference simulation shows. Controlled reference.
+- MoPrP at pH 4 and pH 7: candidates from metadynamics–metainference, then unrestrained short apo simulations from decorrelated structures: tests whether pH-dependent unfolding pathways appear. Mechanistic question; depends on protonation (ch. 6).
+- RORγ with agonist, partial-agonist and antagonist ligands, by metadiffusion against metadynamics with the same forward models: tests that guided generation of complexes gives ligand-dependent dynamics consistent with restrained sampling. No reference.
+- Boundary (from the §2.3 hub): [[Guided diffusion samples are not equilibrium-weighted unless a correction such as reweighting is applied.]], and a restraint is only as good as the forward model where the data are.
+- Status sentence: work in progress. Preliminary experiments; metadiffusion under development. Due 28 Nov ("metadynamics" in `DEADLINES.md`).
+
+**6. Chapter 6, jax-Ka, answers Q2 and Q4 for protonation.** Its place is the pH thread. Intrinsic exchange rates and the MoPrP simulations at pH 4 both need protonation states, and a differentiable pKa model is a second forward model of the kind ch. 5 builds. Keep the paragraph proportional to the final chapter (`02-background.tex` §2.5 comment).
+- A differentiable neural pKa predictor with backbone-only and all-atom representations, trained on curated complex databases annotated with pKAI, with a siamese loss for binding-induced shifts. Stub.
+- What the preliminary results test: that the siamese loss improves binding-shift recovery, most at large shifts; that site-level features capture atomistic effects a backbone representation misses (Kd-ratio error under 9% all-atom against 30% backbone over pH 6.1 to 7.4, from the tex comment); that a transformer closes part of that gap (under 20% backbone-only). All preliminary.
+- Status sentence: preliminary training. **decision**: full research chapter, short chapter, or appendix. `DEADLINES.md` has no entry for it.
+
+**7. Chapter 7 returns to the questions.** The conclusion answers Q1 to Q4 with the chapter evidence, names what stays open (equilibrium weighting of guided samples; forward-model error where data are sparse; the posted ValDX revision), and places the confirmation's future work (AlphaFold3 confidence benchmarking; jaxENT with SAXS and NMR) as extensions, not chapters.
+
+**Map.**
+
+| Chapter | Questions | Contribution, one line | Tested on | Status |
+|---|---|---|---|---|
+| 3 ValDX | Q1, Q4 | Splits, replicates and Work Done make integration a comparison of candidate hypotheses | 22 ensembles, six proteins; synthetic kinetic mismatch; decoys | complete; preprint v1, revision post-review |
+| 4 jaxENT | Q2, Q3, Q1 | Joint differentiable fit with plausibility as loss terms; linear-additive uptake; graph-Laplacian regularisation | synthetic, HDX-NMR reference, α-synuclein; runtime vs HDXer | analyses complete; manuscript draft |
+| 5 BioFeaturisers | Q2, Q3, Q4 | Differentiable forward models shared by reweighting, restrained sampling and guided generation | BPTI (Anton), MoPrP pH 4 and 7, RORγ ligand series | in progress |
+| 6 jax-Ka | Q2, Q4 | Differentiable pKa model with a siamese binding-shift loss | pKAI retraining, ablations, transformer | preliminary |
+
+**decision**: contributions inline, one per chapter paragraph, closed by a four-sentence paragraph keyed to Q1 to Q4; or a separate bulleted list as in the confirmation and Crook §1.7. Inline is recommended; a list invites the unconditional phrasing below.
+**decision**: chapter titles. The tex titles are project names; the outline reads better if each chapter carries a descriptive title that §1.7 can quote.
+**decision**: one fixed status sentence per state, used verbatim across chapters ("This chapter is complete and posted as a preprint." / "This chapter reports completed analyses whose manuscript is in draft." / "This chapter reports work in progress.").
+
+**Drafting sources.**
+- Confirmation `milestones/2025-11-confirmation-of-status/introduction/thesis_outline.tex` (chapter summaries and contributions; its numbering is stale, ValDX was chapter 2) and `future_work/future_work.tex` (what moves to ch. 7).
+- ValDX `0_abstract_omc.tex` and `1_introduction_omc.tex` L25–37; preprint note [[@siddiquiFrameworkTestingStructural2026]].
+- jaxENT `abstract.tex`, `introduction.tex` final two paragraphs, `results.tex` L29 (validation regimes), `meta_analysis.tex` L1–10.
+- Chapter tex comments (`03-valdx.tex` to `06-jax-ka.tex`) for ch. 4 to 6; the README project table and `DEADLINES.md` for status.
+- Crook §1.7 "Thesis outline and contributions" (`examples/crook-map`) for the shape: chapter by chapter, each tied to the question it answers.
+
+**Wording to avoid** (confirmation `thesis_outline.tex` and the jaxENT draft):
+- "comprehensive workflow", "rigorous uncertainty quantification", "thermodynamically grounded", "robust indicators", "key innovation", "significantly improve", "high-performance".
+- "Proof that differential HDX-MS experiments are no longer strictly required" and "absolute dynamics can be quantified from a single experiment". ValDX supports ranking candidates, not absolute dynamics.
+- "Successful recovery of MoPrP misfolding intermediates and their populations". MoPrP is now a ch. 5 case in progress.
+- "fundamental problem", "critical obstacles", "great synergy", "establish jaxENT as" (jaxENT draft).
+- "4D visualisation" as a contribution. No chapter carries it.
+- "heavy-side" (tex comments) is Heaviside.
+- Stale chapter numbers from the confirmation.
+
+### Gaps (1.7)
+- §1.6 is draft wording, now numbered Q1 to Q4 so that §1.7 can map to it. If the questions are reworded, keep the numbers.
+- No claim notes exist for the thesis's own ch. 4 to 6 results. Every stub above stays draft until a claim note with a figure ID exists. Ch. 3 reuses the §1.5 ValDX claims, five of which are "revised ValDX only".
+- jaxENT's quantitative figures are from outdated experiments.
+- Ch. 5 and 6 results are not yet obtained; their paragraphs claim the method and name what each case tests.
+- jax-Ka scope is undecided and has no deadline.
+- `thesis/frontmatter/abstract.tex` is empty; the abstract should reuse the four closing sentences.
+- Publications and data collaborations: whether to list the preprint and collaborator data here or in the front matter.

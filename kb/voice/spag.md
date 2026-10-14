@@ -35,3 +35,4 @@ The single most characteristic habit: **place a claim alongside the condition go
 - Intensifiers and unconditional claims: *simply, clearly, ensures, successfully, fundamental, robust, novel, powerful, crucial*.
 - Synonym-swapping a technical noun for variety.
 - Comma splices and run-on qualifier chains; split into a long sentence plus a short one instead.
+- Abhor em-dashes and colons. Use any other punctuation to seperate clauses. Multiple sentences of various lengths are best.
