@@ -67,4 +67,7 @@ Source: [[@bmsb2012ch13#^c10]]; Eq. (13.38), p. 27, for entropy regularisation. 
 
 The regularisation weight is the one choice every reweighting method must make: MaxEnt's $\gamma$, HDXer's confidence parameter and jaxENT's loss weights. ValDX's validation splits are a way to choose it without overfitting. $N_g$ is a reminder of how few parameters HDX-MS data may determine relative to the number of conformer weights.
 
+jaxENT is developing a graph-Laplacian regulariser that pulls weights towards the pairwise-distance structure of the candidates, for candidate sets that do not carry Boltzmann weights, where the KL term to a uniform prior breaks down (code only, `projects/2-jaxENT/code/jaxent/tests/unit/opt/test_graph_laplacian_loss.py`). Present it as developing work.
+
+
 Claims that use this term: [[MaxEnt reweighting avoids overfitting and ensures the resulting ensemble remains physically plausible.]], [[SAXS with MD simulations and ensemble refinement gives minimal ensembles consistent with restraints, without overfitting.]], [[Uncertainty in nuisance parameters and regularisation choices can affect structural conclusions from Bayesian analyses of NMR and small-angle scattering.]], [[Accounting for experimental error reduces overfitting in MaxEnt reweighting, and minimal correction is a good choice only when the prior is reasonable.]].

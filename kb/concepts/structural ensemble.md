@@ -18,4 +18,7 @@ A physical ensemble, whose weights are populations, is different from an inferen
 
 ## Why it matters here
 
+Its weights say which states are occupied and how much. They carry no information about the order or rates of transitions ([[conformational kinetics]]). Representative structures make a large ensemble inspectable ([[clustering]]).
+
+
 Claims that use this term: [[Interpreting dynamics measurements in structural terms is a grand challenge, as they can be indirect or ensemble-averaged.]], [[Many ensembles can explain the same data, given complex conformational landscapes and simple structure-experiment models.]], [[Integrating over time turns individual structures into structural ensembles, a quantitative route to mechanisms.]].

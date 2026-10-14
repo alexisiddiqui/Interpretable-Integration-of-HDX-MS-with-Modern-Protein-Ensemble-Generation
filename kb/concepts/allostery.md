@@ -18,4 +18,7 @@ Allostery is the mechanism by which chemical information is propagated between s
 
 Allostery is the standard example of function encoded in [[protein dynamics]] and [[population shift|state populations]] rather than in a single structure. Section 1.1 uses it to argue that static structures miss mechanisms.
 
+Where allostery acts through populations, a weighted ensemble can show the shift. Where it acts through millisecond dynamics without large rearrangement, as in IGPS, populations alone can miss it ([[conformational kinetics]]).
+
+
 Claims that use this term: [[Static structures alone cannot explain many biological phenomena; dynamics underlie disease mechanisms and drug response.]], [[There is a persistent, critical gap in our ability to predict and understand protein dynamics.]], [[Linking fast molecular motions to slow pathological processes requires conformational dynamics that static structures cannot capture.]], [[Mutations create neither steric clashes nor new folds but shift conformational ensembles, which needs sampling of many distributions.]].

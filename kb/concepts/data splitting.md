@@ -12,6 +12,7 @@ notation: []
 sources:
   - "[[@siddiquiFrameworkTestingStructural2026#^c8]]"
   - "[[@siddiquiFrameworkTestingStructural2026#^c12]]"
+  - "[[@bonomiPrinciplesProteinStructural2017#^c10]]"
 ---
 
 ## Definition
@@ -24,6 +25,7 @@ HDX-MS peptides overlap, so the same residues appear in several peptides. A rand
 
 - Structured splits reduce dependence between the sets but do not guarantee independence (revised ValDX, `projects/1-ValDX/manuscript/report/1_introduction_omc.tex` L37; `6_methods_omc.tex` L52). Posted v1 says they "ensure" that validation error reflects true predictive performance; do not reuse that wording.
 - Overlap also correlates the errors of neighbouring peptides, which most likelihoods treat as independent ([[forward model]]).
+- Removing data is also a test of accuracy. A large change in the ensemble when a fraction of the data is removed is a typical sign of poor accuracy ([[@bonomiPrinciplesProteinStructural2017#^c10]]). This is the data-side case of a [[controlled perturbation]].
 - Withholding peptides reduces the data available for fitting. With few peptides the validation error itself is noisy.
 - Validation tests prediction of uptake. It does not test populations directly, which is why ValDX adds [[Work Done]] and reference benchmarks.
 
@@ -31,4 +33,4 @@ HDX-MS peptides overlap, so the same residues appear in several peptides. A rand
 
 Introduction §1.5, paragraph 4, and the ValDX chapter's splitting protocol. Bayesian model comparison by evidence is the alternative for choosing a regularisation weight ([[Bayes' theorem#^eq-bayes-factor]], [[regularisation]]).
 
-Claims that use this term: [[Overlapping peptides share residue information, so random splits leak information between training and validation sets.]], [[Structured splits reduce dependence between training and validation peptides but do not guarantee independence.]], [[Fitting outcomes depend on which peptides and time points are used, and replicate fits quantify this dependence.]].
+Claims that use this term: [[Overlapping peptides share residue information, so random splits leak information between training and validation sets.]], [[Structured splits reduce dependence between training and validation peptides but do not guarantee independence.]], [[Fitting outcomes depend on which peptides and time points are used, and replicate fits quantify this dependence.]], [[A large change in the inferred ensemble when part of the data is removed signals poor accuracy.]].

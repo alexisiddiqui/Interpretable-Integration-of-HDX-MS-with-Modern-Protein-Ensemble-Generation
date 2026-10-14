@@ -5,6 +5,8 @@ aliases:
   - ill-posed problem
   - ill-posed
   - identifiability
+  - underdetermination
+  - underdetermined
   - inferential structure determination
   - ISD
 notation: []
@@ -22,6 +24,7 @@ sources:
   - "[[@hummerBayesianEnsembleRefinement2015#^c6]]"
   - "[[@bradshawInterpretationHDXData2020#^c8]]"
   - "[[@siddiquiFrameworkTestingStructural2026#^c1]]"
+  - "[[@bonomiPrinciplesProteinStructural2017#^c8]]"
 ---
 
 ## Definition
@@ -49,8 +52,8 @@ Source: [[@bmsb2012ch12#^c11]], Eq. (12.2), p. 6; Eq. (12.9), p. 9 ([[@bmsb2012c
 - Ill-posedness: when data are low in information, regularisation or a prior is needed to select one solution among the many that fit ([[@bmsb2012ch13#^c4]], p. 9; [[@bmsb2012ch13#^c2]]). See [[regularisation]].
 - Habeck's ISD infers a single structure and its uncertainty. The thesis infers populations, so its posterior spread and its ensemble are different things ([[posterior uncertainty]]).
 - The posterior is only as good as the forward model and the prior. Both enter the result.
-- Population-level non-uniqueness. An ensemble has far more degrees of freedom than there are independent observables, and deconvolving data into a representative ensemble is ill-posed ([[@berlinRecoveringRepresentativeConformational2013#^c1]], [[@berlinRecoveringRepresentativeConformational2013#^c2]]). Inverse problems are also ill-conditioned, sensitive to small changes in the input ([[@hummerBayesianEnsembleRefinement2015#^c6]]). For HDX-MS, one uptake curve can arise from many structural scenarios ([[@siddiquiFrameworkTestingStructural2026#^c1]]), and a peptide set may not hold enough information for a clear interpretation ([[@bradshawInterpretationHDXData2020#^c8]]). The revised ValDX manuscript adds that this holds even with a perfect forward model (`projects/1-ValDX/manuscript/report/1_introduction_omc.tex` L17; not in posted v1).
-- Weights and forward-model parameters can trade off, so fitting them jointly is itself an identifiability question ([[model misspecification]], [[nuisance parameter]]). Held-out data test predictions, not identifiability ([[data splitting]]).
+- Population-level non-uniqueness. An ensemble has far more degrees of freedom than there are independent observables, and deconvolving data into a representative ensemble is ill-posed ([[@berlinRecoveringRepresentativeConformational2013#^c1]], [[@berlinRecoveringRepresentativeConformational2013#^c2]]). Bonomi et al. call ensemble determination ill-defined, because different structural ensembles can fit the same averaged data ([[@bonomiPrinciplesProteinStructural2017#^c8]]). Inverse problems are also ill-conditioned, sensitive to small changes in the input ([[@hummerBayesianEnsembleRefinement2015#^c6]]). For HDX-MS, one uptake curve can arise from many structural scenarios ([[@siddiquiFrameworkTestingStructural2026#^c1]]), and a peptide set may not hold enough information for a clear interpretation ([[@bradshawInterpretationHDXData2020#^c8]]). The revised ValDX manuscript adds that this holds even with a perfect forward model (`projects/1-ValDX/manuscript/report/1_introduction_omc.tex` L17; not in posted v1).
+- Weights and forward-model parameters can trade off, so fitting them jointly is itself an identifiability question ([[model misspecification]], [[nuisance parameter]]). Held-out data test predictions, not identifiability ([[data splitting]]). Changing one suspected cause at a time is how a trade-off is exposed ([[controlled perturbation]]).
 
 ## Why it matters here
 
