@@ -107,6 +107,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "the effect of the corrective potential in Equation (7) is just to tilt the free-energy landscape"
   - quote_check: pass
   - reviewed: false
+- Restrained-ensemble simulations, with a harmonic restraint on the replica average, produce the same ensemble as the maximum entropy approach in the limit of a large number of replicas. ^c18
+  - page: 7
+  - quote: "same ensemble as the maximum entropy approach in the limit of large"
+  - quote_check: pass
+  - reviewed: false
+- To enforce the experimental average exactly, the restraint force constant should grow faster than the number of replicas. ^c19
+  - page: 7
+  - quote: "in order to enforce the desired average, k should grow faster than Nrep"
+  - quote_check: pass
+  - reviewed: false
 
 ## Notation
 

@@ -54,6 +54,21 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "sequentially corrupting examples with additive noise until samples are just noise. A deep neural network is then trained to reverse such corruption steps"
   - quote_check: pass
   - reviewed: false
+- SMCDiff conditioned a pretrained unconditional backbone model on a motif by sequential Monte Carlo, without further training. ^c7
+  - page: 10
+  - quote: "utilized a pretrained unconditional backbone generation model with sequential Monte Carlo (SMC) to scaffold small motifs without any additional training"
+  - quote_check: pass
+  - reviewed: false
+- The crystal structures that prediction networks train on capture proteins in their lowest-energy states, although proteins are highly dynamic. ^c8
+  - page: 11
+  - quote: "structures that capture proteins in their lowest energy states. However, proteins are highly dynamic"
+  - quote_check: pass
+  - reviewed: false
+- Boltzmann generators pair a generative model with MCMC and reweighting to sample equilibrium states of small proteins. ^c9
+  - page: 11
+  - quote: "an example of a generative model paired with Markov Chain Monte Carlo (MCMC) and reweighting techniques to efficiently sample equilibrium states of small proteins"
+  - quote_check: pass
+  - reviewed: false
 
 ## Notation
 

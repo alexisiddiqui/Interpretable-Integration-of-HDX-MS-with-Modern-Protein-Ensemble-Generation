@@ -57,6 +57,21 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "IDP that is primarily expressed in the brain"
   - quote_check: pass
   - reviewed: false
+- The study applies both metainference and Bayesian/Maximum Entropy reweighting to integrate prior knowledge with experimental data. ^c8
+  - page: 1
+  - quote: "Here, we apply metainference and Bayesian/Maximum Entropy reweighting approaches to integrate prior knowledge of the system with experimental data"
+  - quote_check: pass
+  - reviewed: false
+- Metainference was used to restrain the SAXS data during MD simulations with an implicit solvent model. ^c9
+  - page: 2
+  - quote: "metainference was applied to restrain experimental SAXS data during MD simulations with an implicit solvent model"
+  - quote_check: pass
+  - reviewed: false
+- The SAXS-restrained simulation used metainference metadynamics with the parallel-bias form of well-tempered metadynamics. ^c10
+  - page: 3
+  - quote: "using the metainference metadynamics (M&M) method, where we employed the parallel-bias (PBMetaD) flavor of well-tempered metadynamics"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

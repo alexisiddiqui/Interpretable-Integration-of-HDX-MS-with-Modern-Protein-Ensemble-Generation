@@ -62,6 +62,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "By variational maximization of the Bayesian posterior functional over the ensemble probability densities"
   - quote_check: pass
   - reviewed: false
+- For replica refinement to converge to the optimal Bayesian ensemble as the number of replicas goes to infinity, the restraint should scale linearly with the number of replicas. ^c9
+  - page: 1
+  - quote: "should scale linearly with the number of replicas to ensure convergence to the optimal Bayesian result in the limit of infinitely many replicas"
+  - quote_check: pass
+  - reviewed: false
+- The authors cite Roux and Weare, who found for a Gaussian model with strict constraints that the replica spring constant had to grow faster than linearly in N. ^c10
+  - page: 7
+  - quote: "the effective spring constant in the biasing potential had to grow faster than linearly in N"
+  - quote_check: pass
+  - reviewed: false
 
 ## Notation
 
