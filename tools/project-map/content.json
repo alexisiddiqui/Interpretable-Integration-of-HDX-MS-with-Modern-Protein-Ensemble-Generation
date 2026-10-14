@@ -52,12 +52,13 @@
     {"id":"fk-maintenance","path":"projects/3-BioFeaturisers/meta-diffusion/plans/research/hdx_ensemble_guidance_v2_handoff.md","anchor":"## 6. Phase B: true-lineage","length":39,"label":"Corrected five-seed maintenance result","kind":"Research report"},
     {"id":"fk-bpti","path":"projects/3-BioFeaturisers/meta-diffusion/examples/BPTI/README.md","anchor":"# BPTI Case Study","length":7,"label":"BPTI guidance case-study design","kind":"README"},
     {"id":"ka-status","path":"projects/4-jax-Ka/README.md","anchor":"- **Thesis chapter:","length":8,"label":"jax-Ka chapter status","kind":"README"},
-    {"id":"ka-readme","path":"projects/4-jax-Ka/code/README.md","anchor":"Frozen-structure, soft-sequence","length":6,"label":"PROPKA-parameterised mean-field surrogate","kind":"README"},
-    {"id":"ka-model","path":"projects/4-jax-Ka/code/src/jaxpropka/model.py","anchor":"class CurveResult(","length":46,"label":"Titration and midpoint readouts","kind":"Code"},
-    {"id":"ka-selectivity","path":"projects/4-jax-Ka/code/src/jaxpropka/selectivity.py","anchor":"class SelectivityObjective:","length":21,"label":"Bound/free soft-sequence objective","kind":"Code"},
-    {"id":"ka-validation","path":"projects/4-jax-Ka/code/docs/VALIDATION.md","anchor":"## Executed locally","length":23,"label":"Documented analytic, gradient, and reference checks","kind":"Validation report"},
-    {"id":"ka-limits","path":"projects/4-jax-Ka/code/docs/VALIDATION.md","anchor":"## Production acceptance remains open","length":5,"label":"Scientific calibration and approximation boundaries","kind":"Validation report"},
-    {"id":"ka-preset","path":"projects/4-jax-Ka/code/docs/GRADIENTS.md","anchor":"The preset has passed its CPU numerical promotion gates","length":11,"label":"Opt-in CPU design-preset numerical qualification","kind":"Validation report"}
+    {"id":"ka-readme","path":"projects/4-jax-Ka/code/README.md","anchor":"## Default frozen GQT checkpoint","length":12,"label":"Default frozen relational GQT","kind":"README"},
+    {"id":"ka-ogqt","path":"projects/4-jax-Ka/code/docs/OGQT.md","anchor":"The orientation Graph Query Transformer","length":7,"label":"oGQT architecture","kind":"Documentation"},
+    {"id":"ka-card","path":"projects/4-jax-Ka/code/models/ogqt-relational-50-frozen/README.md","anchor":"Pinned experiment backbone","length":6,"label":"Relational checkpoint model card","kind":"README"},
+    {"id":"ka-relations","path":"projects/4-jax-Ka/code/src/pkatrain/production_position.py","anchor":"def relation_index(graph):","length":8,"label":"Six relation types on graph edges","kind":"Code"},
+    {"id":"ka-evidence","path":"projects/4-jax-Ka/code/experiments/4_backbone/08_frozen_relational.md","anchor":"## Completed evidence","length":20,"label":"Relational and frozen-interface results","kind":"Experiment report"},
+    {"id":"ka-ph","path":"projects/4-jax-Ka/code/experiments/4_backbone/07_handoff.md","anchor":"| ph01 / ph1 |","length":4,"label":"Experimental-pH auxiliary (no gain)","kind":"Experiment report"},
+    {"id":"ka-torch","path":"projects/4-jax-Ka/code/docs/TORCH_STRUCTURES.md","anchor":"## Default frozen relational GQT","length":26,"label":"Coordinate-differentiable structural readout","kind":"Documentation"}
   ],
   "journey": [
     {"id":"problem","number":"01","title":"Ask what the data can distinguish","kicker":"The inverse problem","text":"HDX reports on exchange through an indirect, ensemble-level measurement. Multiple structural explanations can agree with those measurements.","takeaway":"Compare explanations and their uncertainty.","sources":["val-author"],"basis":"stated"},
@@ -65,7 +66,7 @@
     {"id":"infer","number":"03","title":"Make inference flexible","kicker":"jaxENT · Chapter 4","project":"jaxent","text":"Use differentiable optimisation to adjust populations and prediction-model parameters, with composable losses, priors, and population benchmarks.","takeaway":"Separate model choices from structural evidence.","sources":["jax-gradients","jax-priors","jax-moprp"],"basis":"stated"},
     {"id":"observe","number":"04","title":"Differentiate the observables","kicker":"BioFeaturisers · Chapter 5","project":"biofeaturisers","text":"Connect changing atomic coordinates to HDX, SAXS, and solvent-accessibility predictions so experimental objectives can influence structure updates.","takeaway":"Move from weight gradients to coordinate gradients.","sources":["bio-readme","bio-hdx","bio-saxs"],"basis":"inferred"},
     {"id":"guide","number":"05","title":"Guide generation and test its limits","kicker":"MaxENT-FK · Chapter 5 workstream","project":"maxent-fk","text":"Couple ensemble fitting and coordinate gradients to Boltz sampling. Test identifiability, seeded maintenance, and creation of missing states as separate questions.","takeaway":"A mean fit is not population recovery.","sources":["fk-config","fk-v2","fk-supported","fk-maintenance"],"basis":"stated"},
-    {"id":"titrate","number":"06","title":"Extend differentiable physical modelling","kicker":"jax-Ka · Chapter 6 · related branch","project":"jax-ka","text":"Model titration and charge on frozen structures under soft sequence identities, with gradients for pH-dependent bound/free objectives.","takeaway":"Numerical qualification precedes scientific calibration.","sources":["ka-readme","ka-selectivity","ka-limits"],"basis":"inferred","branch":true}
+    {"id":"titrate","number":"06","title":"Extend differentiable physical modelling","kicker":"jax-Ka · Chapter 6 · related branch","project":"jax-ka","text":"Predict site pKas and binding-induced shifts from the backbone alone, with gradients through coordinates, for pH-dependent cases such as MoPrP at pH 4 and pH 7.","takeaway":"A pKa readout can be a forward model like any other.","sources":["ka-readme","ka-evidence","ka-torch"],"basis":"inferred","branch":true}
   ],
   "projects": [
     {
@@ -179,28 +180,27 @@
       "manuscripts":[]
     },
     {
-      "id":"jax-ka","name":"jax-Ka","chapter":6,"color":"#7a62a6","verb":"Titrate","status":"Numerically qualified components · calibration open","status_kind":"research","tagline":"Differentiate pH-dependent titration under soft sequence identities.",
-      "question":"Can interpretable titration and charge models supply useful sequence gradients for pH-dependent objectives?",
-      "summary":"The current implementation, jaxpropka, is a PROPKA-parameterised mean-field surrogate on frozen candidate geometry. It predicts charge, titration curves, and conditional pKa midpoints, and supplies a bound/free selectivity objective.",
-      "inputs":"Prepared protein structures and frozen candidate geometry, residue-wise amino-acid probabilities, pH grids, and model settings.",
-      "outputs":"Conditional protonation, residue/chain/total charge, pKa midpoints, sequence gradients, and explicit convergence diagnostics.",
-      "boundary":"This is not a numerically faithful PROPKA port or an experimentally calibrated pKa predictor. Frozen geometry, mean-field coupling, and solver-branch behaviour limit interpretation. CPU numerical qualification does not establish a unique equilibrium, experimental accuracy, or accelerator performance.",
-      "next":"Evaluate native and mutant predictions against independent data, validate gradient directions with discrete rescoring, and retain convergence and branch audits in design objectives.",
-      "sources":["ka-status","ka-readme","ka-limits","ka-preset"],
-      "tags":["pKa","pH","titration","PROPKA","JAX","soft sequence","selectivity","implicit gradients","calibration"],
+      "id":"jax-ka","name":"jax-Ka","chapter":6,"color":"#7a62a6","verb":"Titrate","status":"Frozen relational oGQT default · interface experiments open","status_kind":"research","tagline":"Predict pKas and binding-induced shifts from the backbone, with coordinate gradients.",
+      "question":"Can a backbone-only, differentiable pKa model supply protonation information to pH-dependent ensemble and design problems?",
+      "summary":"The default model is the orientation Graph Query Transformer (oGQT) with relational edges: a spatial residue graph with explicit sequence-offset edges and relation-specific attention projections, read by titratable-site query tokens that predict bounded shifts from group reference pKas. It is trained on PypKa-labelled pKPDB and pKAI-labelled PINDER complexes in bound and free states.",
+      "inputs":"Backbone coordinates, residue identities and chain membership; bound and free (partner-removed) states for complexes.",
+      "outputs":"Site pKas or shifts from reference pKas, bound-minus-free binding shifts, frozen site embeddings, and gradients with respect to sequence and backbone coordinates.",
+      "boundary":"Labels come from PypKa and pKAI, not experiment, so accuracy is bounded by the teachers; PKAD gives the experimental check. Backbone-only input gives zero side-chain derivatives, the free state is partner removal at the bound conformation, and frozen-interface probes were evaluated without an independent test set.",
+      "next":"Apply the frozen readout to MoPrP ensembles at pH 4 and pH 7, report PKAD accuracy for the default checkpoint, and decide the chapter's scope.",
+      "sources":["ka-status","ka-readme","ka-card","ka-evidence"],
+      "tags":["pKa","pH","protonation","graph transformer","relational edges","backbone-only","PypKa","pKAI","PINDER","binding shift","MoPrP"],
       "claims":[
-        {"id":"ka-surrogate","title":"The model is a frozen-geometry mean-field surrogate","text":"The README explicitly distinguishes the model from PROPKA's coupled determinant algorithm; geometry is prepared outside the JIT sequence readouts.","kind":"implementation","basis":"stated","sources":["ka-readme"]},
-        {"id":"ka-readouts","title":"Charge, titration curves, and conditional midpoints are exposed","text":"Readouts retain separate conditional identity channels and numerical diagnostics for convergence, bracketing, and root validity.","kind":"implementation","basis":"stated","sources":["ka-model","ka-readme"]},
-        {"id":"ka-design","title":"Bound/free objectives differentiate binder sequence probabilities","text":"The selectivity objective holds structure and target identities fixed, relates bound and isolated environments, and differentiates the soft binder sequence.","kind":"implementation","basis":"stated","sources":["ka-selectivity"]},
-        {"id":"ka-numerical","title":"Numerical and scientific validation remain distinct","text":"The documentation reports analytic and directional-gradient checks and an opt-in CPU design preset that passed numerical gates. It also states that experimental calibration and broader scientific acceptance remain open.","kind":"reported check","basis":"stated","sources":["ka-validation","ka-preset","ka-limits"]}
+        {"id":"ka-relational","title":"Relational edges improve backbone-only pKa prediction","text":"At 50% of the training pool, the relational variant lowered mean selection error from 0.649 to 0.632 across three seeds; global site-query attention gave no consistent improvement.","kind":"reported check","basis":"stated","sources":["ka-evidence","ka-relations"]},
+        {"id":"ka-architecture","title":"Site queries read a geometric residue graph","text":"Residue edges carry distance, local-frame direction and relative orientation; nodes carry backbone dihedrals; each titratable site is a query token whose bounded output shift is added to a group reference pKa.","kind":"implementation","basis":"stated","sources":["ka-ogqt","ka-card"]},
+        {"id":"ka-gradients","title":"The frozen readout differentiates through coordinates","text":"The structural endpoint rebuilds features from supplied coordinates and returns pKa or binding shift with input gradients while weights stay fixed.","kind":"implementation","basis":"stated","sources":["ka-torch"]},
+        {"id":"ka-noph","title":"An experimental-pH auxiliary target gave no gain","text":"Adding structure-level experimental pH as an auxiliary target did not improve pKa selection; the head separated crystal from EM structures rather than pH.","kind":"reported check","basis":"stated","sources":["ka-ph"]}
       ],
       "experiments":[
-        {"id":"ka-checks","title":"Analytic, gradient, and external-reference checks","text":"The validation inventory reports independent-site limits, directional finite differences, topology handling, and PROPKA discrepancy tests; these are documented checks rather than experiments rerun for this map.","state":"Documented numerical checks","sources":["ka-validation"]},
-        {"id":"ka-cpu","title":"CPU design-preset qualification","text":"The documentation reports numerical promotion across protein–protein interfaces with explicit failed/nonqualifying samples and caller-controlled branch audits.","state":"Documented numerical qualification","sources":["ka-preset"]}
+        {"id":"ka-frozen-interface","title":"Frozen interface probes","text":"Per-site, pair, transformer, Siamese and distillation heads on frozen relational embeddings were compared by per-complex average precision for interface sites; none exceeded the small per-site MLP on free input.","state":"Completed, no independent test set","sources":["ka-evidence"]}
       ],
       "modules":[
-        {"id":"ka-kernels","title":"jaxpropka.model","text":"Sequence-dependent local terms, coupled titration solves, and midpoint readouts.","sources":["ka-model","ka-readme"]},
-        {"id":"ka-boundfree","title":"jaxpropka.selectivity","text":"Bound/free charge objectives and gradients with fixed-environment checks.","sources":["ka-selectivity","ka-preset"]}
+        {"id":"ka-ogqt-module","title":"pkanet.ogqt","text":"oGQT encoder, site tokens and shift head.","sources":["ka-ogqt"]},
+        {"id":"ka-torch-module","title":"pkanet.torch.TorchStructureReadout","text":"Frozen bound and free readouts with gradients through sequence and backbone inputs.","sources":["ka-torch"]}
       ],
       "manuscripts":[]
     }
@@ -211,12 +211,12 @@
     {"id":"jaxent-to-guidance","source":"jaxent","target":"maxent-fk","title":"Ensemble fitting inside guidance","type":"dependency","basis":"stated","text":"MaxENT-FK lists jax-ent as a dependency and imports its optimisation and dataset interfaces when constructing guidance.","sources":["fk-readme","fk-builder"]},
     {"id":"observables-to-guidance","source":"biofeaturisers","target":"maxent-fk","title":"Coordinate-sensitive observables supply guidance gradients","type":"dependency","basis":"stated","text":"MaxENT-FK imports BioFeaturisers HDX configuration and features; the guidance hook connects predicted protection/uptake losses to coordinate updates.","sources":["fk-builder","fk-hook","bio-hdx"]},
     {"id":"fitting-to-observables","source":"jaxent","target":"biofeaturisers","title":"Complementary differentiable layers","type":"conceptual","basis":"inferred","text":"jaxENT fits weights and model parameters around structural features. BioFeaturisers makes the feature/observable calculations responsive to changing coordinates. The map does not assert a direct package dependency between them.","sources":["jax-gradients","bio-readme"]},
-    {"id":"observables-to-titration","source":"biofeaturisers","target":"jax-ka","title":"Shared emphasis on differentiable physical models","type":"conceptual","basis":"inferred","text":"Coordinate-sensitive observables and sequence-sensitive titration share a methodological emphasis on gradients, interpretable approximations, and separate numerical/scientific checks. No HDX-to-pKa coupling is established in the cited code.","sources":["bio-gradtests","ka-readme","ka-limits"]}
+    {"id":"observables-to-titration","source":"biofeaturisers","target":"jax-ka","title":"Protonation for pH-dependent ensembles","type":"conceptual","basis":"inferred","text":"BioFeaturisers runs MoPrP at pH 4 and pH 7, which needs protonation states at each pH; jax-Ka predicts site pKas from the backbone with coordinate gradients, so it can act as a forward model alongside the HDX and SAXS models. No code dependency is established yet.","sources":["ka-torch","ka-readme"]}
   ],
   "observations": [
     {"title":"The thesis is an outline, not a completed results document","text":"Chapters 1–2 provide the agreed introduction/background headings. The project chapters remain placeholders, so scientific content is drawn from the project repositories and manuscripts.","sources":["thesis-identity","repo-status"]},
     {"title":"Current code and historical manuscripts have different authority","text":"The jaxENT manuscript is labelled outdated in the root README. Implemented capabilities, example designs, and historical manuscript conclusions are presented separately.","sources":["repo-status","jax-draft"]},
     {"title":"Guidance has a superseding interpretation","text":"The V2 handoff supersedes earlier Stage 3 claims. Supported-pool ambiguity and the corrected null_or_harmful maintenance verdict govern this map.","sources":["fk-v2","fk-supported","fk-maintenance"]},
-    {"title":"jax-Ka has advanced beyond the brief root status label","text":"The project README says preliminary training, while the current code documentation records an implemented surrogate and numerical qualification. Scientific calibration is still explicitly open.","sources":["ka-status","ka-readme","ka-preset","ka-limits"]}
+    {"title":"jax-Ka moved from a PROPKA surrogate to a learned graph model","text":"The earlier jaxpropka mean-field surrogate remains in the repository, but the default model is now the frozen relational oGQT checkpoint.","sources":["ka-readme","ka-card"]}
   ]
 }

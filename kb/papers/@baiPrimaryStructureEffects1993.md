@@ -42,6 +42,11 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "To predict HX rates at other temperatures, each rate or reference rate constant in Eq. (2) should be modified according to Eq. (3)"
   - quote_check: pass
   - reviewed: false
+- His, Asp and Glu neighbours need separate rate constants for their protonated and unprotonated forms, so their side-chain factors change with pH around their side-chain pKa (pKa,read in D2O at 5 °C: His 7.02, Glu 4.53, Asp 4.08; Table II footnote). ^c5
+  - page: 14
+  - quote: "His, Asp, and Glu require additional rate constants for both the protonated and unprotonated forms"
+  - quote_check: pass
+  - reviewed: false
 
 ## Notation
 

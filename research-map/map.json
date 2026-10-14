@@ -9,7 +9,7 @@
     "summary": "A programme connecting validation, flexible ensemble inference, differentiable observables, and experimental guidance. Protein titration extends the same emphasis on interpretable, differentiable physical models into pH-dependent sequence objectives.",
     "narrative_basis": "The programme-level narrative and conceptual connections are a synthesis of the repository sources, rather than a completed thesis argument.",
     "source_method": "Curated interpretation of local READMEs, code, reports, and LaTeX; excerpts and headings extracted directly from files.",
-    "source_count": 48,
+    "source_count": 49,
     "claim_count": 24,
     "review_note": "Source records substantiate capabilities and reported findings. Research experiments and package test suites were not rerun to build this map."
   },
@@ -92,12 +92,12 @@
       "title": "Extend differentiable physical modelling",
       "kicker": "jax-Ka · Chapter 6 · related branch",
       "project": "jax-ka",
-      "text": "Model titration and charge on frozen structures under soft sequence identities, with gradients for pH-dependent bound/free objectives.",
-      "takeaway": "Numerical qualification precedes scientific calibration.",
+      "text": "Predict site pKas and binding-induced shifts from the backbone alone, with gradients through coordinates, for pH-dependent cases such as MoPrP at pH 4 and pH 7.",
+      "takeaway": "A pKa readout can be a forward model like any other.",
       "sources": [
         "ka-readme",
-        "ka-selectivity",
-        "ka-limits"
+        "ka-evidence",
+        "ka-torch"
       ],
       "basis": "inferred",
       "branch": true
@@ -1188,114 +1188,104 @@
       "chapter": 6,
       "color": "#7a62a6",
       "verb": "Titrate",
-      "status": "Numerically qualified components · calibration open",
+      "status": "Frozen relational oGQT default · interface experiments open",
       "status_kind": "research",
-      "tagline": "Differentiate pH-dependent titration under soft sequence identities.",
-      "question": "Can interpretable titration and charge models supply useful sequence gradients for pH-dependent objectives?",
-      "summary": "The current implementation, jaxpropka, is a PROPKA-parameterised mean-field surrogate on frozen candidate geometry. It predicts charge, titration curves, and conditional pKa midpoints, and supplies a bound/free selectivity objective.",
-      "inputs": "Prepared protein structures and frozen candidate geometry, residue-wise amino-acid probabilities, pH grids, and model settings.",
-      "outputs": "Conditional protonation, residue/chain/total charge, pKa midpoints, sequence gradients, and explicit convergence diagnostics.",
-      "boundary": "This is not a numerically faithful PROPKA port or an experimentally calibrated pKa predictor. Frozen geometry, mean-field coupling, and solver-branch behaviour limit interpretation. CPU numerical qualification does not establish a unique equilibrium, experimental accuracy, or accelerator performance.",
-      "next": "Evaluate native and mutant predictions against independent data, validate gradient directions with discrete rescoring, and retain convergence and branch audits in design objectives.",
+      "tagline": "Predict pKas and binding-induced shifts from the backbone, with coordinate gradients.",
+      "question": "Can a backbone-only, differentiable pKa model supply protonation information to pH-dependent ensemble and design problems?",
+      "summary": "The default model is the orientation Graph Query Transformer (oGQT) with relational edges: a spatial residue graph with explicit sequence-offset edges and relation-specific attention projections, read by titratable-site query tokens that predict bounded shifts from group reference pKas. It is trained on PypKa-labelled pKPDB and pKAI-labelled PINDER complexes in bound and free states.",
+      "inputs": "Backbone coordinates, residue identities and chain membership; bound and free (partner-removed) states for complexes.",
+      "outputs": "Site pKas or shifts from reference pKas, bound-minus-free binding shifts, frozen site embeddings, and gradients with respect to sequence and backbone coordinates.",
+      "boundary": "Labels come from PypKa and pKAI, not experiment, so accuracy is bounded by the teachers; PKAD gives the experimental check. Backbone-only input gives zero side-chain derivatives, the free state is partner removal at the bound conformation, and frozen-interface probes were evaluated without an independent test set.",
+      "next": "Apply the frozen readout to MoPrP ensembles at pH 4 and pH 7, report PKAD accuracy for the default checkpoint, and decide the chapter's scope.",
       "sources": [
         "ka-status",
         "ka-readme",
-        "ka-limits",
-        "ka-preset"
+        "ka-card",
+        "ka-evidence"
       ],
       "tags": [
         "pKa",
         "pH",
-        "titration",
-        "PROPKA",
-        "JAX",
-        "soft sequence",
-        "selectivity",
-        "implicit gradients",
-        "calibration"
+        "protonation",
+        "graph transformer",
+        "relational edges",
+        "backbone-only",
+        "PypKa",
+        "pKAI",
+        "PINDER",
+        "binding shift",
+        "MoPrP"
       ],
       "claims": [
         {
-          "id": "ka-surrogate",
-          "title": "The model is a frozen-geometry mean-field surrogate",
-          "text": "The README explicitly distinguishes the model from PROPKA's coupled determinant algorithm; geometry is prepared outside the JIT sequence readouts.",
-          "kind": "implementation",
-          "basis": "stated",
-          "sources": [
-            "ka-readme"
-          ]
-        },
-        {
-          "id": "ka-readouts",
-          "title": "Charge, titration curves, and conditional midpoints are exposed",
-          "text": "Readouts retain separate conditional identity channels and numerical diagnostics for convergence, bracketing, and root validity.",
-          "kind": "implementation",
-          "basis": "stated",
-          "sources": [
-            "ka-model",
-            "ka-readme"
-          ]
-        },
-        {
-          "id": "ka-design",
-          "title": "Bound/free objectives differentiate binder sequence probabilities",
-          "text": "The selectivity objective holds structure and target identities fixed, relates bound and isolated environments, and differentiates the soft binder sequence.",
-          "kind": "implementation",
-          "basis": "stated",
-          "sources": [
-            "ka-selectivity"
-          ]
-        },
-        {
-          "id": "ka-numerical",
-          "title": "Numerical and scientific validation remain distinct",
-          "text": "The documentation reports analytic and directional-gradient checks and an opt-in CPU design preset that passed numerical gates. It also states that experimental calibration and broader scientific acceptance remain open.",
+          "id": "ka-relational",
+          "title": "Relational edges improve backbone-only pKa prediction",
+          "text": "At 50% of the training pool, the relational variant lowered mean selection error from 0.649 to 0.632 across three seeds; global site-query attention gave no consistent improvement.",
           "kind": "reported check",
           "basis": "stated",
           "sources": [
-            "ka-validation",
-            "ka-preset",
-            "ka-limits"
+            "ka-evidence",
+            "ka-relations"
+          ]
+        },
+        {
+          "id": "ka-architecture",
+          "title": "Site queries read a geometric residue graph",
+          "text": "Residue edges carry distance, local-frame direction and relative orientation; nodes carry backbone dihedrals; each titratable site is a query token whose bounded output shift is added to a group reference pKa.",
+          "kind": "implementation",
+          "basis": "stated",
+          "sources": [
+            "ka-ogqt",
+            "ka-card"
+          ]
+        },
+        {
+          "id": "ka-gradients",
+          "title": "The frozen readout differentiates through coordinates",
+          "text": "The structural endpoint rebuilds features from supplied coordinates and returns pKa or binding shift with input gradients while weights stay fixed.",
+          "kind": "implementation",
+          "basis": "stated",
+          "sources": [
+            "ka-torch"
+          ]
+        },
+        {
+          "id": "ka-noph",
+          "title": "An experimental-pH auxiliary target gave no gain",
+          "text": "Adding structure-level experimental pH as an auxiliary target did not improve pKa selection; the head separated crystal from EM structures rather than pH.",
+          "kind": "reported check",
+          "basis": "stated",
+          "sources": [
+            "ka-ph"
           ]
         }
       ],
       "experiments": [
         {
-          "id": "ka-checks",
-          "title": "Analytic, gradient, and external-reference checks",
-          "text": "The validation inventory reports independent-site limits, directional finite differences, topology handling, and PROPKA discrepancy tests; these are documented checks rather than experiments rerun for this map.",
-          "state": "Documented numerical checks",
+          "id": "ka-frozen-interface",
+          "title": "Frozen interface probes",
+          "text": "Per-site, pair, transformer, Siamese and distillation heads on frozen relational embeddings were compared by per-complex average precision for interface sites; none exceeded the small per-site MLP on free input.",
+          "state": "Completed, no independent test set",
           "sources": [
-            "ka-validation"
-          ]
-        },
-        {
-          "id": "ka-cpu",
-          "title": "CPU design-preset qualification",
-          "text": "The documentation reports numerical promotion across protein–protein interfaces with explicit failed/nonqualifying samples and caller-controlled branch audits.",
-          "state": "Documented numerical qualification",
-          "sources": [
-            "ka-preset"
+            "ka-evidence"
           ]
         }
       ],
       "modules": [
         {
-          "id": "ka-kernels",
-          "title": "jaxpropka.model",
-          "text": "Sequence-dependent local terms, coupled titration solves, and midpoint readouts.",
+          "id": "ka-ogqt-module",
+          "title": "pkanet.ogqt",
+          "text": "oGQT encoder, site tokens and shift head.",
           "sources": [
-            "ka-model",
-            "ka-readme"
+            "ka-ogqt"
           ]
         },
         {
-          "id": "ka-boundfree",
-          "title": "jaxpropka.selectivity",
-          "text": "Bound/free charge objectives and gradients with fixed-environment checks.",
+          "id": "ka-torch-module",
+          "title": "pkanet.torch.TorchStructureReadout",
+          "text": "Frozen bound and free readouts with gradients through sequence and backbone inputs.",
           "sources": [
-            "ka-selectivity",
-            "ka-preset"
+            "ka-torch"
           ]
         }
       ],
@@ -1375,14 +1365,13 @@
       "id": "observables-to-titration",
       "source": "biofeaturisers",
       "target": "jax-ka",
-      "title": "Shared emphasis on differentiable physical models",
+      "title": "Protonation for pH-dependent ensembles",
       "type": "conceptual",
       "basis": "inferred",
-      "text": "Coordinate-sensitive observables and sequence-sensitive titration share a methodological emphasis on gradients, interpretable approximations, and separate numerical/scientific checks. No HDX-to-pKa coupling is established in the cited code.",
+      "text": "BioFeaturisers runs MoPrP at pH 4 and pH 7, which needs protonation states at each pH; jax-Ka predicts site pKas from the backbone with coordinate gradients, so it can act as a forward model alongside the HDX and SAXS models. No code dependency is established yet.",
       "sources": [
-        "bio-gradtests",
-        "ka-readme",
-        "ka-limits"
+        "ka-torch",
+        "ka-readme"
       ]
     }
   ],
@@ -1413,13 +1402,11 @@
       ]
     },
     {
-      "title": "jax-Ka has advanced beyond the brief root status label",
-      "text": "The project README says preliminary training, while the current code documentation records an implemented surrogate and numerical qualification. Scientific calibration is still explicitly open.",
+      "title": "jax-Ka moved from a PROPKA surrogate to a learned graph model",
+      "text": "The earlier jaxpropka mean-field surrogate remains in the repository, but the default model is now the frozen relational oGQT checkpoint.",
       "sources": [
-        "ka-status",
         "ka-readme",
-        "ka-preset",
-        "ka-limits"
+        "ka-card"
       ]
     }
   ],
@@ -2259,11 +2246,6 @@
           "project": "biofeaturisers",
           "record": "bio-checks",
           "title": "Numerical and gradient verification"
-        },
-        {
-          "project": "jax-ka",
-          "record": "observables-to-titration",
-          "title": "Shared emphasis on differentiable physical models"
         }
       ]
     },
@@ -2613,34 +2595,28 @@
       "kind": "README",
       "start": 3,
       "end": 8,
-      "excerpt": "- **Thesis chapter:** `thesis/chapters/06-jax-ka.tex`\n- **Status:** preliminary training\n\n| Folder | Submodule | Pinned commit |\n|---|---|---|\n| `code/` | [jax-Ka](https://github.com/alexisiddiqui/jax-Ka) (preliminary training) | `3efe0a1` |",
-      "sha256": "951ddff3a2cb7b018f13711d734be6a167dda722d4d9c4d74e6e91395b19b843",
+      "excerpt": "- **Thesis chapter:** `thesis/chapters/06-jax-ka.tex`\n- **Status:** frozen relational oGQT (backbone-only) is the default model; interface and binding-head experiments in progress\n\n| Folder | Submodule | Pinned commit |\n|---|---|---|\n| `code/` | [jax-Ka](https://github.com/alexisiddiqui/jax-Ka) (relational oGQT, `models/ogqt-relational-50-frozen`) | `f744071` |",
+      "sha256": "b8efa4710f6d2cb34b6de3abb2c20633b3b471ef9d8bd70f92a1c129672a9bcb",
       "href": "../projects/4-jax-Ka/README.md",
       "uses": [
         {
           "project": "jax-ka",
           "record": "jax-ka",
           "title": "jax-Ka"
-        },
-        {
-          "project": "valdx",
-          "record": "observation-3",
-          "title": "jax-Ka has advanced beyond the brief root status label",
-          "view": "evidence"
         }
       ]
     },
     "ka-readme": {
       "id": "ka-readme",
       "path": "projects/4-jax-Ka/code/README.md",
-      "anchor": "Frozen-structure, soft-sequence",
-      "length": 6,
-      "label": "PROPKA-parameterised mean-field surrogate",
+      "anchor": "## Default frozen GQT checkpoint",
+      "length": 12,
+      "label": "Default frozen relational GQT",
       "kind": "README",
-      "start": 3,
-      "end": 8,
-      "excerpt": "Frozen-structure, soft-sequence titration in JAX, with Biotite topology handling.\n\n**Scientific status:** this is a PROPKA-3.0/Nov30-parameterized **mean-field surrogate**, not a numerically faithful port of PROPKA's coupled determinant algorithm. The structural pipeline, differentiable outputs, reference adapters, tests, CLI and benchmarks are implemented. Biotite integration, pinned pip PROPKA primitives, the full reference path and float32 MPS execution are exercised by the test suite. CUDA remains a future channel. See [validation status](docs/VALIDATION.md).\n\nThe compiled readouts accept only `P[N,20]`. Geometry, candidate side chains, residue identities/keys, terminal masks, neighbor graphs and geometric kernels are prepared once outside JIT. An output selection never removes the other residues or chains from the physical environment.\n",
-      "sha256": "517a6e00b08f2f61df2195bad98a83947b4e752b8fa3e230e2e4df6aa0c8a6be",
+      "start": 9,
+      "end": 20,
+      "excerpt": "## Default frozen GQT checkpoint\n\nFor representation and auxiliary-head experiments, use the frozen **50% relational\nGQT, seed 17, epoch 18**, via\n`pkatrain.production_defaults.load_frozen_default()`. The pinned export is\n[`models/ogqt-relational-50-frozen`](models/ogqt-relational-50-frozen).\nFor differentiable structural inputs, use\n`TorchStructureReadout.from_default(features, state=\"bound\" | \"free\")`; see\n[the structural endpoint](docs/TORCH_STRUCTURES.md#default-frozen-relational-gqt).\nNew experiments start with one seed; the three-seed relational baseline is already\navailable. See [the current experiment summary](experiments/4_backbone/08_frozen_relational.md).\nThe standalone `ogqt predict` CLI remains a separate inference path.",
+      "sha256": "47c9d6fe668d0684ae8b819ea60b816c5a78cad10d40d4225cf5ef2c4863c01b",
       "href": "../projects/4-jax-Ka/code/README.md",
       "uses": [
         {
@@ -2650,23 +2626,8 @@
         },
         {
           "project": "jax-ka",
-          "record": "ka-surrogate",
-          "title": "The model is a frozen-geometry mean-field surrogate"
-        },
-        {
-          "project": "jax-ka",
-          "record": "ka-readouts",
-          "title": "Charge, titration curves, and conditional midpoints are exposed"
-        },
-        {
-          "project": "jax-ka",
-          "record": "ka-kernels",
-          "title": "jaxpropka.model"
-        },
-        {
-          "project": "jax-ka",
           "record": "observables-to-titration",
-          "title": "Shared emphasis on differentiable physical models"
+          "title": "Protonation for pH-dependent ensembles"
         },
         {
           "project": "jax-ka",
@@ -2677,104 +2638,48 @@
         {
           "project": "valdx",
           "record": "observation-3",
-          "title": "jax-Ka has advanced beyond the brief root status label",
+          "title": "jax-Ka moved from a PROPKA surrogate to a learned graph model",
           "view": "evidence"
         }
       ]
     },
-    "ka-model": {
-      "id": "ka-model",
-      "path": "projects/4-jax-Ka/code/src/jaxpropka/model.py",
-      "anchor": "class CurveResult(",
-      "length": 46,
-      "label": "Titration and midpoint readouts",
-      "kind": "Code",
-      "start": 24,
-      "end": 69,
-      "excerpt": "class CurveResult(NamedTuple):\n    ph: jax.Array\n    protonated: jax.Array      # [H,R,9], conditional on identity, not multiplied by P\n    site_charge: jax.Array     # [H,R,9], already multiplied by identity probability\n    residue_charge: jax.Array  # [H,R], includes termini at their owner residue\n    chain_charge: jax.Array    # [H,C], ALWAYS all residues in the full environment\n    total_charge: jax.Array    # [H], ALWAYS full environment\n    probability: jax.Array     # [R,9]\n    intrinsic_pka: jax.Array    # [R,9]\n    effective_pka: jax.Array    # [H,R,9], pH-dependent field, NOT midpoint pKa\n    residual: jax.Array        # [H], undamped full-state fixed-point residual\n    weighted_residual: jax.Array  # [H]\n    converged: jax.Array       # [H]\n\n\nclass PkaResult(NamedTuple):\n    value: jax.Array           # [R,G] or [Q] for pka_sites()\n    valid: jax.Array           # bracket, slope, convergence, crossing all pass\n    bracketed: jax.Array\n    probability: jax.Array     # identity probability; zero does not make conditional pKa invalid\n    slope: jax.Array           # dh/dpH at the root\n    crossing_error: jax.Array  # |h - 0.5|\n    residual: jax.Array        # full-state fixed-point residual at root pH\n\n\n\nclass GridPkaResult(NamedTuple):\n    value: jax.Array           # [R,G], midpoint of interpolated titration curve\n    valid: jax.Array           # bracketed, sampled-monotone, converged grid\n    bracketed: jax.Array\n    probability: jax.Array\n    slope: jax.Array           # local piecewise-linear dh/dpH\n    bracket_width: jax.Array   # resolution, not an independently measured error\n    sampled_monotone: jax.Array\n    grid_residual: jax.Array   # maximum full-state residual across the pH grid\n\n\nclass SiteCurveResult(NamedTuple):\n    \"\"\"Full numerical curves; residue labels and chain aggregation stay outside JIT.\"\"\"\n    ph: jax.Array\n    protonated: jax.Array\n    site_charge: jax.Array\n    residue_charge: jax.Array\n    total_charge: jax.Array\n    probability: jax.Array\n    intrinsic_pka: jax.Array",
-      "sha256": "59699348548915ce64358431ddb823687295ffa9c29f271325ec6931a16796fe",
-      "href": "../projects/4-jax-Ka/code/src/jaxpropka/model.py",
-      "uses": [
-        {
-          "project": "jax-ka",
-          "record": "ka-readouts",
-          "title": "Charge, titration curves, and conditional midpoints are exposed"
-        },
-        {
-          "project": "jax-ka",
-          "record": "ka-kernels",
-          "title": "jaxpropka.model"
-        }
-      ]
-    },
-    "ka-selectivity": {
-      "id": "ka-selectivity",
-      "path": "projects/4-jax-Ka/code/src/jaxpropka/selectivity.py",
-      "anchor": "class SelectivityObjective:",
-      "length": 21,
-      "label": "Bound/free soft-sequence objective",
-      "kind": "Code",
-      "start": 105,
-      "end": 125,
-      "excerpt": "class SelectivityObjective:\n    \"\"\"Only binder probabilities are variable; environments are immutable.\n\n    ``binder_keys`` determines the row order of P_binder. All free-binder sites\n    must be represented. Fixed target probabilities use free-target row order.\n    Input P must be floating, finite and row-stochastic; use validate_probabilities\n    outside JIT. Structural geometry must be prepared consistently by the caller.\n    \"\"\"\n    def __init__(self, bound, free_binder, free_target, ph_grid, *,\n                 binder_keys=None, target_probabilities=None,\n                 required_log10_ratio=1., tau=.1, ph_chunk_size=1):\n        self.bound,self.free_binder,self.free_target = bound,free_binder,free_target\n        self.ph_grid = np.array(ph_grid,dtype=float,copy=True)\n        self.weights = trapezoid_weights(self.ph_grid)\n        if not np.isfinite(required_log10_ratio) or not np.isfinite(tau) or tau <= 0:\n            raise ValueError('required_log10_ratio must be finite and tau must be finite and positive')\n        if isinstance(ph_chunk_size,bool) or not isinstance(ph_chunk_size,int) or ph_chunk_size < 1:\n            raise ValueError('ph_chunk_size must be a positive Python int')\n        self.required_log10_ratio,self.tau,self.ph_chunk_size = required_log10_ratio,tau,ph_chunk_size\n        keys = (free_binder.cache.keys if binder_keys is None else\n                tuple(x if isinstance(x,ResidueKey) else ResidueKey.from_value(x) for x in binder_keys))",
-      "sha256": "b304b79d92d6cccac0fdcd65d3cde690d85a8ae51fd8bb0b2a1c51ef2aa475e4",
-      "href": "../projects/4-jax-Ka/code/src/jaxpropka/selectivity.py",
-      "uses": [
-        {
-          "project": "jax-ka",
-          "record": "ka-design",
-          "title": "Bound/free objectives differentiate binder sequence probabilities"
-        },
-        {
-          "project": "jax-ka",
-          "record": "ka-boundfree",
-          "title": "jaxpropka.selectivity"
-        },
-        {
-          "project": "jax-ka",
-          "record": "titrate",
-          "title": "Extend differentiable physical modelling",
-          "view": "journey"
-        }
-      ]
-    },
-    "ka-validation": {
-      "id": "ka-validation",
-      "path": "projects/4-jax-Ka/code/docs/VALIDATION.md",
-      "anchor": "## Executed locally",
-      "length": 23,
-      "label": "Documented analytic, gradient, and reference checks",
-      "kind": "Validation report",
+    "ka-ogqt": {
+      "id": "ka-ogqt",
+      "path": "projects/4-jax-Ka/code/docs/OGQT.md",
+      "anchor": "The orientation Graph Query Transformer",
+      "length": 7,
+      "label": "oGQT architecture",
+      "kind": "Documentation",
       "start": 3,
-      "end": 25,
-      "excerpt": "## Executed locally\n\nThe dependency-enforced CPU suite reports **57 passed** using Python 3.13.2, JAX/JAXLIB 0.11.1, Biotite 1.7.1 and the pinned PROPKA 3.5.1 package. The dedicated `jax-mps==0.11.0` test also passes on an Apple Silicon MPS device. Numerical finite-difference tests enable JAX float64 on CPU; MPS inputs are float32 because Metal does not support float64.\n\nThe included benchmark reports preserve the earlier benchmark environment and package versions recorded in their JSON files.\n\n| Area | Executed coverage |\n|---|---|\n| Analytic response | Independent-site Henderson–Hasselbalch curves, model pKa midpoints, charge limits and acid/base signs |\n| Differentiation | Charge, titration curves, direct midpoint and grid-interpolated midpoint gradients checked by directional finite differences; JVP/reverse-mode agreement |\n| Conditional identity | No premature acid/base averaging, soft-sequence dependence, presence probabilities, fixed-covalent gradient clamps |\n| Multiple chains, numerical layer | Separate terminal sites; full-environment charge accounting; cross-chain messages; selection leaves the environment intact |\n| Sparse kernels | Radial volume/count cutoffs, H-bond direction/distance factor, conservative graph coverage, overflow rejection, reciprocal blocks |\n| Numerical safety | Finite padded gathers, padding invariance, unavailable sites, unbracketed pKas, validation flags, iteration-count sensitivity |\n| Cache/CLI | Serialization, fingerprints, identity selection, invalid inputs and numerical prediction-file output |\n| Regression machinery | Summary parsing, mapped chain/insertion identity, report construction against analytic independent sites, missing-site and soft-sequence rejection, baseline drift checks |\n| Molecular integration | Biotite topology, CCD candidates, PDB/mmCIF handling, gaps, disulfides, reference export and molecular gradient smoke coverage |\n| External reference | Pinned pip PROPKA 3.5.1 live two-chain discrepancy report and default CLI regression path |\n| Implementation snapshots | Recorded hard/soft sequence outputs from the synthetic numerical graph, explicitly not an external reference |\n| Performance | Synchronized warm CPU timings for charge, curves, gradients, direct/grid pKas and sequence batching |\n\nThe source-distribution wheel was built, and the source tree was byte-compiled. Packaging and synthetic execution do not validate the molecular implementation.\n",
-      "sha256": "8a8c503e9408909920981757bcc2a3d15b056974950e4b9f28936092f2f269e8",
-      "href": "../projects/4-jax-Ka/code/docs/VALIDATION.md",
+      "end": 9,
+      "excerpt": "The orientation Graph Query Transformer (**oGQT**) is the default backbone-only\nGQT architecture for new experiments. It retains the residue graph encoder and\nadds explicit titratable-site tokens, 20 A site-to-site attention, local-frame\ndirection features, and relative backbone orientation. ARG is retained as an\nunlabelled context token.\n\nThe canonical code interface is `pkanet.ogqt`. Historical experiments retain",
+      "sha256": "3a686acf642868766886ffda7b4c24081dd44a2b94223caedf939b1093501bdd",
+      "href": "../projects/4-jax-Ka/code/docs/OGQT.md",
       "uses": [
         {
           "project": "jax-ka",
-          "record": "ka-numerical",
-          "title": "Numerical and scientific validation remain distinct"
+          "record": "ka-architecture",
+          "title": "Site queries read a geometric residue graph"
         },
         {
           "project": "jax-ka",
-          "record": "ka-checks",
-          "title": "Analytic, gradient, and external-reference checks"
+          "record": "ka-ogqt-module",
+          "title": "pkanet.ogqt"
         }
       ]
     },
-    "ka-limits": {
-      "id": "ka-limits",
-      "path": "projects/4-jax-Ka/code/docs/VALIDATION.md",
-      "anchor": "## Production acceptance remains open",
-      "length": 5,
-      "label": "Scientific calibration and approximation boundaries",
-      "kind": "Validation report",
-      "start": 90,
-      "end": 94,
-      "excerpt": "## Production acceptance remains open\n\nBefore using this model to select sequences, complete the real Biotite/pinned-PROPKA test runs; evaluate native and mutant structures representative of the target design domain; measure pKa and charge-curve errors; validate mutation-gradient direction against discrete rescoring; examine iteration and grid-resolution sensitivity; and measure actual accelerator throughput/memory with realistic graph degrees. Any acceptance threshold should be chosen for the scientific use, not inferred from this package's unit tests.\n\nThe model has one frozen candidate conformation per identity, simplified protonation-state H bonds, a fractional mean-field coupling model and a smoothed burial eligibility gate. Its predictions have not been calibrated against experimental pKas. It should not be described as a reference-faithful PROPKA 3.0 replacement, a folding-energy model, or a demonstrated speedup over PROPKA.",
-      "sha256": "8a8c503e9408909920981757bcc2a3d15b056974950e4b9f28936092f2f269e8",
-      "href": "../projects/4-jax-Ka/code/docs/VALIDATION.md",
+    "ka-card": {
+      "id": "ka-card",
+      "path": "projects/4-jax-Ka/code/models/ogqt-relational-50-frozen/README.md",
+      "anchor": "Pinned experiment backbone",
+      "length": 6,
+      "label": "Relational checkpoint model card",
+      "kind": "README",
+      "start": 3,
+      "end": 8,
+      "excerpt": "Pinned experiment backbone: `control-v2-50-relations-s17`, selected epoch 18,\n50% training fraction, seed 17. 189,730 parameters; width 64, orientation and\nbackbone dihedrals, relation projections, unweighted pKa objectives and burial\nauxiliary supervision. No learned interface head is included.\n\nUse `pkatrain.production_defaults.load_frozen_default()` for frozen embedding and",
+      "sha256": "edb3cfaaf89ce13a6aa2ce6afbe4ddb53b981ee541e9b6da5e188728408a8e9a",
+      "href": "../projects/4-jax-Ka/code/models/ogqt-relational-50-frozen/README.md",
       "uses": [
         {
           "project": "jax-ka",
@@ -2783,66 +2688,126 @@
         },
         {
           "project": "jax-ka",
-          "record": "ka-numerical",
-          "title": "Numerical and scientific validation remain distinct"
+          "record": "ka-architecture",
+          "title": "Site queries read a geometric residue graph"
+        },
+        {
+          "project": "valdx",
+          "record": "observation-3",
+          "title": "jax-Ka moved from a PROPKA surrogate to a learned graph model",
+          "view": "evidence"
+        }
+      ]
+    },
+    "ka-relations": {
+      "id": "ka-relations",
+      "path": "projects/4-jax-Ka/code/src/pkatrain/production_position.py",
+      "anchor": "def relation_index(graph):",
+      "length": 8,
+      "label": "Six relation types on graph edges",
+      "kind": "Code",
+      "start": 67,
+      "end": 74,
+      "excerpt": "def relation_index(graph):\n    nb=graph['neighbors'];chain=graph['position_chain'];pos=graph['position_seq'];seg=graph['position_segment']\n    same=chain[:,None]==chain[nb];diff=pos[nb]-pos[:,None]\n    rel=jnp.where(same,4,5)\n    for k,offset in enumerate((-2,-1,1,2)):\n        rel=jnp.where(same&(seg[:,None]==seg[nb])&(diff==offset),k,rel)\n    return rel.astype(jnp.int32)\n",
+      "sha256": "3b576888bcba43fdf18e3e6b77d5b585e51e88c8e939c1ded7666cc5519cc540",
+      "href": "../projects/4-jax-Ka/code/src/pkatrain/production_position.py",
+      "uses": [
+        {
+          "project": "jax-ka",
+          "record": "ka-relational",
+          "title": "Relational edges improve backbone-only pKa prediction"
+        }
+      ]
+    },
+    "ka-evidence": {
+      "id": "ka-evidence",
+      "path": "projects/4-jax-Ka/code/experiments/4_backbone/08_frozen_relational.md",
+      "anchor": "## Completed evidence",
+      "length": 20,
+      "label": "Relational and frozen-interface results",
+      "kind": "Experiment report",
+      "start": 32,
+      "end": 51,
+      "excerpt": "## Completed evidence\n\nThe 50% relational model improved mean pKa selection from 0.649432 to 0.632378\nacross three seeds. Global site-query attention scored 0.649714 and did not give a\nconsistent improvement. Inverse-square-root shift weighting worsened overall\nselection, despite some middle-tail bin improvements.\n\nFrozen interface validation, three-seed mean per-complex average precision:\n\n| Experiment | Free-input AP |\n|---|---:|\n| Small per-site MLP | 0.471052 |\n| Partner free-token pair head | 0.450024 |\n| Capacity-matched per-site MLP | 0.465217 |\n| Shallow same-chain transformer | 0.461502 |\n| Shared bound/free Siamese small MLP | 0.431700 |\n| Shared bound/free Siamese matched MLP | 0.428007 |\n| Shared bound/free Siamese transformer | 0.445017 |\n| Separate fixed teacher, student weight 0.1 | 0.470135 |\n| Separate fixed teacher, student weight 1 | 0.460716 |",
+      "sha256": "93916662c269eb024dd1275eab6ae077d836768389ed50e0d9241c770336c31f",
+      "href": "../projects/4-jax-Ka/code/experiments/4_backbone/08_frozen_relational.md",
+      "uses": [
+        {
+          "project": "jax-ka",
+          "record": "jax-ka",
+          "title": "jax-Ka"
         },
         {
           "project": "jax-ka",
-          "record": "observables-to-titration",
-          "title": "Shared emphasis on differentiable physical models"
+          "record": "ka-relational",
+          "title": "Relational edges improve backbone-only pKa prediction"
+        },
+        {
+          "project": "jax-ka",
+          "record": "ka-frozen-interface",
+          "title": "Frozen interface probes"
         },
         {
           "project": "jax-ka",
           "record": "titrate",
           "title": "Extend differentiable physical modelling",
           "view": "journey"
-        },
-        {
-          "project": "valdx",
-          "record": "observation-3",
-          "title": "jax-Ka has advanced beyond the brief root status label",
-          "view": "evidence"
         }
       ]
     },
-    "ka-preset": {
-      "id": "ka-preset",
-      "path": "projects/4-jax-Ka/code/docs/GRADIENTS.md",
-      "anchor": "The preset has passed its CPU numerical promotion gates",
-      "length": 11,
-      "label": "Opt-in CPU design-preset numerical qualification",
-      "kind": "Validation report",
-      "start": 73,
-      "end": 83,
-      "excerpt": "The preset has passed its CPU numerical promotion gates and is recommended as\nthe **opt-in CPU design workflow**, with validity checks and explicit audits as\ndescribed above. Ordinary package defaults remain unchanged. The completed\n[CPU report](../reports/design_preset_cpu.json) covers 182 unit tests, 260 forward\ninterfaces, 24 gradient interfaces, five scaling cases and four sensitive-case\nregressions. It retains all convergence and audit failures: qualification does\nnot mean every sequence has a usable equilibrium result. See the\n[measured outcomes and limitations](BENCHMARKS.md#adaptive-design-preset-cpu-proteinprotein-panel).\nCUDA/MPS performance and the endpoint objective are not promoted by CPU results;\nexperimental calibration also remains open.\n",
-      "sha256": "caf2bb0e157811a7cbc2501daf921f16d5863b835be6ab6a61cc9fd607a2d2cf",
-      "href": "../projects/4-jax-Ka/code/docs/GRADIENTS.md",
+    "ka-ph": {
+      "id": "ka-ph",
+      "path": "projects/4-jax-Ka/code/experiments/4_backbone/07_handoff.md",
+      "anchor": "| ph01 / ph1 |",
+      "length": 4,
+      "label": "Experimental-pH auxiliary (no gain)",
+      "kind": "Experiment report",
+      "start": 70,
+      "end": 73,
+      "excerpt": "| ph01 / ph1 | A + experimental-pH auxiliary (all sources), weight 0.1 / 1 | 148,583 | 0.6230 / 0.6359 | 0.3943 / 0.4041 | 0.2288 / 0.2318 | 0.4767 / 0.4918 | 0.4959 / 0.5091 | +0.0018 neutral / +0.0147 real, worse |\n| phx01 | A + pH auxiliary, crystal targets only, weight 0.1 | 148,583 | 0.6219 | 0.3943 | 0.2276 | 0.4781 | 0.4970 | +0.0006, not real |\n| phx-probe | A + crystal-pH stop-gradient probe (trunk untouched) | 148,583 | 0.6231 | 0.3922 | 0.2308 | 0.4738 | 0.4982 | +0.0018, not real (expected 0) |\n| bind-prod / bind-diff | A + paired binding head (token-weighted Hadamard product / difference), weight 1 | | 0.6211 / 0.6187 | 0.3936 / 0.3900 | 0.2275 / 0.2287 | 0.4775 / 0.4774 | 0.4942 / 0.4998 | -0.0002 / -0.0025, not real |",
+      "sha256": "737a9523a1f30beac807211a30a9cc2a51b116b037dbf22a7c96335e1b7a351f",
+      "href": "../projects/4-jax-Ka/code/experiments/4_backbone/07_handoff.md",
       "uses": [
         {
           "project": "jax-ka",
-          "record": "jax-ka",
-          "title": "jax-Ka"
+          "record": "ka-noph",
+          "title": "An experimental-pH auxiliary target gave no gain"
+        }
+      ]
+    },
+    "ka-torch": {
+      "id": "ka-torch",
+      "path": "projects/4-jax-Ka/code/docs/TORCH_STRUCTURES.md",
+      "anchor": "## Default frozen relational GQT",
+      "length": 26,
+      "label": "Coordinate-differentiable structural readout",
+      "kind": "Documentation",
+      "start": 10,
+      "end": 35,
+      "excerpt": "## Default frozen relational GQT\n\nUse the pinned 50% relational checkpoint (seed 17, epoch 18) for new structural\nreadouts. This adapter rebuilds the backbone table, orientation/dihedral inputs\nand relation edges from the supplied coordinates:\n\n```python\nfrom pkanet.differentiable import StructureFeatures\nfrom pkanet.torch import TorchStructureReadout\n\nfeatures, arrays, metadata = StructureFeatures.from_file(\"protein.pdb\")\nbound = TorchStructureReadout.from_default(features, state=\"bound\")\nfree = TorchStructureReadout.from_default(features, state=\"free\")\n# sequence, backbone, sidechains are Torch tensors constructed from arrays.\nbinding_shift = bound(sequence, backbone, sidechains) - free(sequence, backbone, sidechains)\n```\n\nThe default output is absolute pKa; `output=\"shift\"` returns the model-compound\nshift instead. Both branches use identical fixed weights and site ordering.\nFree-state residue, site-query and site attention exclude partner chains. This\nis partner removal at the supplied conformation, not unbound structure prediction.\nThe model is backbone-only: side-chain input derivatives are zero. Discrete site\nidentities and chain membership stay fixed as in the standard adapter.\n\nThe portable forward retains sequence and coordinate gradients, including the\nattention switch derivatives. Weights are captured and the Torch module exposes",
+      "sha256": "0098c582872222387a44d2339ea3e08146e952147e6b76dd39e41c9583c9e49e",
+      "href": "../projects/4-jax-Ka/code/docs/TORCH_STRUCTURES.md",
+      "uses": [
+        {
+          "project": "jax-ka",
+          "record": "ka-gradients",
+          "title": "The frozen readout differentiates through coordinates"
         },
         {
           "project": "jax-ka",
-          "record": "ka-numerical",
-          "title": "Numerical and scientific validation remain distinct"
+          "record": "ka-torch-module",
+          "title": "pkanet.torch.TorchStructureReadout"
         },
         {
           "project": "jax-ka",
-          "record": "ka-cpu",
-          "title": "CPU design-preset qualification"
+          "record": "observables-to-titration",
+          "title": "Protonation for pH-dependent ensembles"
         },
         {
           "project": "jax-ka",
-          "record": "ka-boundfree",
-          "title": "jaxpropka.selectivity"
-        },
-        {
-          "project": "valdx",
-          "record": "observation-3",
-          "title": "jax-Ka has advanced beyond the brief root status label",
-          "view": "evidence"
+          "record": "titrate",
+          "title": "Extend differentiable physical modelling",
+          "view": "journey"
         }
       ]
     }
@@ -2856,7 +2821,7 @@
       "state": "Outline",
       "headings": [
         {
-          "title": "Protein Conformational Ensembles and Biological Function",
+          "title": "Proteins as Dynamic Ensembles",
           "level": 0,
           "number": "1",
           "line": 5,
@@ -2864,34 +2829,34 @@
           "href": "../thesis/chapters/01-introduction.tex"
         },
         {
-          "title": "Measuring Protein Dynamics with HDX-MS",
+          "title": "Measuring Protein Dynamics",
           "level": 0,
           "number": "2",
-          "line": 8,
+          "line": 10,
           "path": "thesis/chapters/01-introduction.tex",
           "href": "../thesis/chapters/01-introduction.tex"
         },
         {
-          "title": "Generating Protein Conformational Ensembles",
+          "title": "Estimating Protein Dynamics",
           "level": 0,
           "number": "3",
-          "line": 11,
+          "line": 15,
           "path": "thesis/chapters/01-introduction.tex",
           "href": "../thesis/chapters/01-introduction.tex"
         },
         {
-          "title": "Inferring Structural Ensembles from HDX-MS",
+          "title": "Integrating Experiment and Ensembles",
           "level": 0,
           "number": "4",
-          "line": 14,
+          "line": 19,
           "path": "thesis/chapters/01-introduction.tex",
           "href": "../thesis/chapters/01-introduction.tex"
         },
         {
-          "title": "Challenges in Ensemble Inference and Validation",
+          "title": "Trusting Integrative Ensemble Models",
           "level": 0,
           "number": "5",
-          "line": 17,
+          "line": 23,
           "path": "thesis/chapters/01-introduction.tex",
           "href": "../thesis/chapters/01-introduction.tex"
         },
@@ -2899,7 +2864,7 @@
           "title": "Research Questions and Objectives",
           "level": 0,
           "number": "6",
-          "line": 20,
+          "line": 27,
           "path": "thesis/chapters/01-introduction.tex",
           "href": "../thesis/chapters/01-introduction.tex"
         },
@@ -2907,7 +2872,7 @@
           "title": "Thesis Outline and Contributions",
           "level": 0,
           "number": "7",
-          "line": 23,
+          "line": 30,
           "path": "thesis/chapters/01-introduction.tex",
           "href": "../thesis/chapters/01-introduction.tex"
         }
@@ -2933,7 +2898,7 @@
           "title": "Experimental Workflow and Measurement Limitations",
           "level": 1,
           "number": "1.1",
-          "line": 7,
+          "line": 9,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
@@ -2941,7 +2906,7 @@
           "title": "Intrinsic Exchange Rates",
           "level": 1,
           "number": "1.2",
-          "line": 10,
+          "line": 12,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
@@ -2949,7 +2914,7 @@
           "title": "Linderstrøm–Lang Exchange Kinetics and EX1/EX2 Regimes",
           "level": 1,
           "number": "1.3",
-          "line": 13,
+          "line": 18,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
@@ -2957,7 +2922,7 @@
           "title": "Protection Factors and Peptide Uptake",
           "level": 1,
           "number": "1.4",
-          "line": 16,
+          "line": 23,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
@@ -2965,7 +2930,7 @@
           "title": "Structural Forward Models for HDX",
           "level": 1,
           "number": "1.5",
-          "line": 19,
+          "line": 27,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
@@ -2973,7 +2938,7 @@
           "title": "Protein Conformational Ensembles and Their Generation",
           "level": 0,
           "number": "2",
-          "line": 22,
+          "line": 32,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
@@ -2981,7 +2946,7 @@
           "title": "Molecular Dynamics and Empirical Force Fields",
           "level": 1,
           "number": "2.1",
-          "line": 24,
+          "line": 34,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
@@ -2989,7 +2954,7 @@
           "title": "Enhanced Sampling",
           "level": 1,
           "number": "2.2",
-          "line": 26,
+          "line": 38,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
@@ -2997,7 +2962,7 @@
           "title": "Learned Structure Predictors and Ensemble Generators",
           "level": 1,
           "number": "2.3",
-          "line": 28,
+          "line": 40,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
@@ -3005,7 +2970,7 @@
           "title": "Diffusion Models for Protein Structure Generation",
           "level": 1,
           "number": "2.4",
-          "line": 31,
+          "line": 45,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
@@ -3013,7 +2978,7 @@
           "title": "Sampling Coverage and Ensemble Populations",
           "level": 1,
           "number": "2.5",
-          "line": 33,
+          "line": 49,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
@@ -3021,7 +2986,7 @@
           "title": "Integrating Biophysical Data with Structural Ensembles",
           "level": 0,
           "number": "3",
-          "line": 36,
+          "line": 52,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
@@ -3029,7 +2994,7 @@
           "title": "The Inverse Problem and Forward Modelling",
           "level": 1,
           "number": "3.1",
-          "line": 38,
+          "line": 54,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
@@ -3037,31 +3002,23 @@
           "title": "Maximum-Entropy and Bayesian Ensemble Refinement",
           "level": 1,
           "number": "3.2",
-          "line": 41,
-          "path": "thesis/chapters/02-background.tex",
-          "href": "../thesis/chapters/02-background.tex"
-        },
-        {
-          "title": "Joint Inference of Populations and Forward-Model Parameters",
-          "level": 1,
-          "number": "3.3",
-          "line": 43,
+          "line": 57,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
         {
           "title": "Experimentally Restrained Simulations and Metainference",
           "level": 1,
-          "number": "3.4",
-          "line": 46,
+          "number": "3.3",
+          "line": 63,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
         {
           "title": "Experimental Guidance of Diffusion Models",
           "level": 1,
-          "number": "3.5",
-          "line": 48,
+          "number": "3.4",
+          "line": 66,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
@@ -3069,7 +3026,7 @@
           "title": "Validation, Uncertainty, and Interpretability",
           "level": 0,
           "number": "4",
-          "line": 51,
+          "line": 70,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
@@ -3077,7 +3034,7 @@
           "title": "Experimental Uncertainty and Forward-Model Discrepancy",
           "level": 1,
           "number": "4.1",
-          "line": 53,
+          "line": 72,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
@@ -3085,7 +3042,7 @@
           "title": "Cross-Validation with Overlapping Measurements",
           "level": 1,
           "number": "4.2",
-          "line": 55,
+          "line": 74,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
@@ -3093,7 +3050,7 @@
           "title": "Identifiability and Competing Structural Hypotheses",
           "level": 1,
           "number": "4.3",
-          "line": 57,
+          "line": 76,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
@@ -3101,7 +3058,7 @@
           "title": "Ensemble Comparison and Interpretable Representations",
           "level": 1,
           "number": "4.4",
-          "line": 60,
+          "line": 79,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
@@ -3109,7 +3066,7 @@
           "title": "Protein Protonation and pH-Dependent Properties",
           "level": 0,
           "number": "5",
-          "line": 63,
+          "line": 82,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
@@ -3117,7 +3074,7 @@
           "title": "Acid–Base Equilibria and Protein Charge",
           "level": 1,
           "number": "5.1",
-          "line": 66,
+          "line": 86,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         },
@@ -3125,15 +3082,7 @@
           "title": "Structural Influences on pKa",
           "level": 1,
           "number": "5.2",
-          "line": 68,
-          "path": "thesis/chapters/02-background.tex",
-          "href": "../thesis/chapters/02-background.tex"
-        },
-        {
-          "title": "Computational Titration Models",
-          "level": 1,
-          "number": "5.3",
-          "line": 70,
+          "line": 91,
           "path": "thesis/chapters/02-background.tex",
           "href": "../thesis/chapters/02-background.tex"
         }
