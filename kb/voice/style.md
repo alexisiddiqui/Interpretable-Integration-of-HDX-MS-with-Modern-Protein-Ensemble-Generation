@@ -47,7 +47,7 @@ Each analysis answers a deficiency exposed by the one before it:
 
 Each step is usually its own paragraph. Make the dependency between analyses explicit in the transition: "We therefore examined", "To distinguish", "Given the limitations of", "Having established". A transition must say *why* the next analysis is needed. Do not use transitions that carry no logical obligation ("Importantly", "Furthermore", "Additionally", "Notably").
 
-## One finding per paragraph
+## One finding per results paragraph
 
 A results paragraph can take on several jobs. It can motivate a comparison, define a metric, decode a figure, report statistics, explain the result and qualify the explanation. Each job is legitimate, and they are connected. Done together in one paragraph, they bury the finding the paragraph exists to report.
 
@@ -94,11 +94,15 @@ Avoid unconditional verbs and adjectives: *ensures, successfully resolves, funda
 
 ## Rhythm: accumulate, then interrupt
 
-Long sentences assemble the object, comparison, qualification and interpretation. Then a short declarative settles the meaning or draws a boundary:
+Elegant sentences assemble the object, comparison, qualification and interpretation. Then a short declarative settles the meaning or draws a boundary:
 
 > It does not measure the distance to a ground truth structure.
 
 Use the short sentence after dense explanation, not as a habit. Prose made only of long sentences, or only of short ones, is not this voice. Accumulate within a sentence, not across a paragraph.
+
+## Carry the narrative through paragraphs
+
+In the introduction, background and conclusions a paragraph opens on what the previous one left unresolved, so the same concepts recur from paragraph to paragraph while the argument moves. Results chapters can have clearer boundaries. A check that works for both: read only the first sentence of each paragraph, and the section's argument should be there ([[examples]] 11). The last sentence of a paragraph should hint at the next, or what the reader should be thinking.
 
 ## Introduce concepts through actions
 

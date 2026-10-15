@@ -65,6 +65,18 @@ Source: `projects/2-jaxENT/manuscript/report/results.tex:29`
 The parallel "fast molecular motions" / "slow pathological processes" makes the scale gap immediately clear; "requires" turns it into a research need. Suitable for motivating the programme in the introduction chapter. Drop "simply" in thesis prose.
 Source: `milestones/2025-11-confirmation-of-status/introduction/biological_dynamics.tex:38`
 
+## 11. Paragraphs that hand the problem forward
+
+Four consecutive paragraphs of the ValDX introduction, by closing and opening sentence:
+
+> …determining which conformational states give rise to an observed uptake pattern is fundamentally ambiguous.
+> To address this ambiguity, researchers increasingly turn to molecular simulations for structural hypotheses. […] This fundamental degeneracy means that reweighting cannot prove a single structural hypothesis correct.
+> Current implementations of ensemble reweighting face an additional validation problem that compounds this degeneracy. […] ensemble reweighting cannot reliably discriminate between competing structural hypotheses.
+> A second, related problem is overfitting.
+
+Each opening sentence names what it inherits (this ambiguity, this degeneracy, a second related problem) before adding its step, so ambiguity, degeneracy and validation overlap across paragraphs while the argument still moves. Read the four opening sentences alone and the section's argument is present. Drop "fundamentally" and "fundamental" in thesis prose.
+Source: `projects/1-ValDX/manuscript/report/1_introduction_omc.tex:14`, `:17`, `:20`, `:23`
+
 ## More short boundary sentences
 
 - "It does not measure the distance to a ground truth structure." (`7_results_omc.tex:12`)
