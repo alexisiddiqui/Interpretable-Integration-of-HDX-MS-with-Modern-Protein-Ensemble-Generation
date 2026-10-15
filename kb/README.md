@@ -38,4 +38,5 @@ Sources write their own notation. A paper note records it once, in a `## Notatio
 - Method notes link to code as `<submodule>@<sha>:<file>#L<start>-<end>`.
 - Run `python3 tools/kb-lint/lint.py` (from the repository root) before relying on a claim; see [tools/kb-lint](../tools/kb-lint/README.md).
 - Chapter hub notes list claims in argument order, so each hub reads straight through as an outline of the chapter.
+- Source trust order, hub upkeep and what belongs in a hub's Gaps section are set in `AGENTS.md` ("Sources and hub upkeep"). In short: my manuscripts are checked sources, hub lines are never cut for weak citations, and Gaps list only what blocks writing.
 - Figures are referred to by their ID (the folder name under `figures/`) everywhere: KB, `.tex` and analyses.

@@ -7,8 +7,8 @@ confidence: low
 status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/measuring_dynamics.tex#L20
 source_state: current
-needs_review: false
-review_reason: 
+needs_review: true
+review_reason: cites Fan and Yen, which cover GPR52 and beta1AR, not beta2AR
 figures: []
 cites: []
 code: []

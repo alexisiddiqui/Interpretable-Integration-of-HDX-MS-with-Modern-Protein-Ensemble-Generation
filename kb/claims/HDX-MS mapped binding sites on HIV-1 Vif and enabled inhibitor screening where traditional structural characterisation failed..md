@@ -7,8 +7,8 @@ confidence: low
 status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/measuring_dynamics.tex#L13
 source_state: current
-needs_review: false
-review_reason: 
+needs_review: true
+review_reason: cites Appadurai, which is the wrong paper
 figures: []
 cites: []
 code: []
