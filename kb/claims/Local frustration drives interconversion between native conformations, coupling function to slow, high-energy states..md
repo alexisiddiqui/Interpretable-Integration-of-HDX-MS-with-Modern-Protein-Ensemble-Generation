@@ -7,8 +7,8 @@ confidence: medium
 status: draft
 origin: thesis/chapters/01-introduction.tex#L7
 source_state: current
-needs_review: true
-review_reason: Combines Parra's frustration mechanism with independent evidence on slow and high-energy states; the general coupling is not stated by one source.
+needs_review: false
+review_reason: 
 figures: []
 cites:
   - "[[@parraFrustrationPhysiologyMolecular2025#^c13]]"

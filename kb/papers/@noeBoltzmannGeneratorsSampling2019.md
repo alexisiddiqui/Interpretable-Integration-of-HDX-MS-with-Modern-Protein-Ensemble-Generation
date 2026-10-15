@@ -39,6 +39,11 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "To compute thermodynamics, such as configurational free energies, the samples must be reweighted to the Boltzmann distribution"
   - quote_check: pass
   - reviewed: false
+- Boltzmann generators are trained by combining training by energy with training by example. ^c4
+  - page: 3
+  - quote: "Boltzmann generators are trained by combining two modes: training by energy and training by example"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

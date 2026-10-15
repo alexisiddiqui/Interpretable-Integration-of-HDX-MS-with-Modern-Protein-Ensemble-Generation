@@ -32,6 +32,11 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "and interrogation of large proteins and complexes"
   - quote_check: pass
   - reviewed: false
+- Differential HDX-MS analysis of a protein under different conditions, such as apo versus holo, has emerged as an important tool. ^c3
+  - page: 1
+  - quote: "Differential HDX-MS analysis of a protein under different conditions (e.g apo vs. holo protein) has emerged as an important tool"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

@@ -7,8 +7,8 @@ confidence: medium
 status: draft
 origin: thesis/chapters/01-introduction.tex#L18
 source_state: current
-needs_review: true
-review_reason: The quoted passages show these parameters are estimated and weight data against prior; no quote yet shows how much they change the structure (see ch12 Fig. 12.10, pp. 22-23)
+needs_review: false
+review_reason: 
 figures: []
 cites:
   - "[[@bmsb2012ch12#^c17]]"
@@ -24,4 +24,4 @@ Habeck estimates the data weight simultaneously with the structure, and the esti
 
 ## Caveats
 
-A quote from Habeck's comparison with cross-validation (Fig. 12.10) or Hansen's error bars (Fig. 13.8) showing a changed structure would make this supported.
+The claim says these choices can affect structural conclusions and does not say by how much. Habeck estimates the data weight together with the structure (^c17), and the estimated error balances the sources of structural information (^c18). Hansen's hyperparameter sets the strength of the prior relative to the data (^c6), and averaging over hyperparameters gives the error estimate for the distribution of interest (^c7). A quote from Habeck's Fig. 12.10 or Hansen's Fig. 13.8 would add a magnitude for one example, which the claim does not need.

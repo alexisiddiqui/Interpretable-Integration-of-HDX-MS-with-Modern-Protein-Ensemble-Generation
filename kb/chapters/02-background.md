@@ -32,7 +32,6 @@ Introductory equations: [[protection factor#^eq-pf]] and [[deuterium uptake#^eq-
 ### Structural Forward Models for HDX
 - [[Best–Vendruscolo model]]: [[Best–Vendruscolo model#^eq-bv-feature]] and [[Best–Vendruscolo model#^eq-bv-ensemble]].
 - [[The Best-Vendruscolo model predicts protection factors from coordinates by counting structural features that impede exchange.]]
-- [[Structure-to-uptake models rely on hydrogen bonding and solvent exposure but add systematic errors that accumulate at peptide level.]]
 - [[HDX protection-factor model]] gives the alternatives and their shared assumptions (EX2, independent residues, calibration to conditions). It has no equation of its own, because BV carries the displayed form.
 - Order the subsection from what structure predicts to what data can determine. Structure-based models predict a protection factor per residue. Peptide data generally cannot recover those values, which is why the thesis compares at the uptake level.
   - [[Residue protection factors are generally underdetermined by peptide-level uptake.]] (supported)
@@ -64,7 +63,7 @@ Introductory equations: [[protection factor#^eq-pf]] and [[deuterium uptake#^eq-
   - [[Subsampled AlphaFold2 can predict the direction of population shifts qualitatively, but quantitative Boltzmann ratios have not been shown.]] (supported)
   - [[Frequencies of states in MSA-clustered AlphaFold2 predictions reflect family abundance, not Boltzmann weights.]] (supported)
   - [[Whether MSA clustering recovers alternative states through evolutionary couplings is contested.]] (supported)
-  - Do not reuse [[MSA-subsampling has been shown to broadly follow a physical energy landscape.]] (partial) as worded.
+  - Do not reuse [[MSA-subsampling has been shown to broadly follow a physical energy landscape.]] as worded.
 
 ### Diffusion Models for Protein Structure Generation
 - [[diffusion model]]: [[diffusion model#^eq-diffusion-forward]] and [[diffusion model#^eq-diffusion-reverse]]. The link back to MD (Boltzmann score = force / $k_BT$) is in the note's derivation.
@@ -240,6 +239,7 @@ Short section, two to three pages. [[prion protein|MoPrP]] carries it. The jaxEN
 - Optional, cut first if space is short: coupled sites and titration that does not follow Henderson–Hasselbalch (Onufriev, Case & Ullmann 2001; Ullmann 2003; not seeded).
 
 ## Gaps (Chapter 2 literature)
+- Removed (2026-10-15): the claim that structure-to-uptake models rely on hydrogen bonding and solvent exposure but add systematic errors that accumulate at peptide level. No checked passage evaluated those models or their errors. A source is needed if §2.1 keeps the point.
 - §2.5 and ch. 6 papers all have PDFs and blocks. Yang & Honig 1993 and Hvidt 1954 are OCR text, so check their quotes against the page.
 - ValDX `2_hdx_theory_omc.tex` L7 cites Kim, Fuchs & Woodward 1993 for "the protection factor reports on the free energy of local unfolding"; Kim does not say this (no protection factors, no EX2). Cite Vendruscolo et al. 2003 (^c2) instead.
 - `vendruscoloRareFluctuationsNative2003` has two Zotero duplicates (`…2003a`, `…2003b`); merge them.
@@ -250,7 +250,7 @@ Short section, two to three pages. [[prion protein|MoPrP]] carries it. The jaxEN
 - Two general sources for layer 1b of §2.4: a statistical-learning text (Hastie, Tibshirani and Friedman, ch. 7 for selection and §8.7 for bagging) and Roberts et al. 2017 on validation with dependent observations. Four draft claims wait on them. Optional: Breiman 1996, Cawley and Talbot 2010, Maity 2005 for the foldon term, MDRefine and DynaXL as held-out-restraint comparators.
 - A figure or notebook ID comparing the ValDX consensus with single-replicate fits; without it the consensus claim stays draft.
 - jaxENT: record which validation block the reported selections used, the provenance of `moprp.weights`, and the splitter's overlap behaviour; update the manuscript's covariance and selection wording to the current policy ([[Observation weighting and selection (jaxENT)]], [[Evaluation design (jaxENT)]]).
-- The pinned ValDX package lacks the Non-Redundant and Spatial split code and the consensus mean that the benchmarks used ([[Peptide splitting and consensus (ValDX)]]).
+- The ValDX submodule is pinned to `origin/GSD-stats-HPC` at 0b79aad, which has the Non-Redundant and Spatial split code and the consensus mean. Settle the median against mean for the BV constants and the peptide dropout wording before Chapter 3 cites the note ([[Peptide splitting and consensus (ValDX)]]).
 - Hudgens 2019, Crook 2022, Moulick 2015 and Burnley 2012 are seeded with PDFs; all `read: false`, all quotes `reviewed: false`.
 - Add to Zotero the two hand-added bib entries, `lindorff-larsenSimilarityMeasuresProtein2009` and `tibertiENCORESoftwareQuantitative2015`. Otherwise the next Better BibTeX export drops them.
 - Radou et al. 2014 is needed for the switch-function BV model. Add it to Zotero or `kb/_pdf/`.

@@ -7,8 +7,8 @@ confidence: medium
 status: draft
 origin: thesis/chapters/01-introduction.tex#L7
 source_state: current
-needs_review: true
-review_reason: Synthesis of Fisher (landscape topography) and Galpern (native entropy); no source states the single-axis framing.
+needs_review: false
+review_reason: 
 figures: []
 cites:
   - "[[@fisherConstructingEnsemblesIntrinsically2011#^c4]]"

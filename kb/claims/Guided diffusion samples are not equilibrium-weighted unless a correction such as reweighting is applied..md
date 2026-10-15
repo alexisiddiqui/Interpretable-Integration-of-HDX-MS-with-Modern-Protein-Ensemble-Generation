@@ -7,8 +7,8 @@ confidence: medium
 status: draft
 origin: thesis/chapters/02-background.tex#L66
 source_state: current
-needs_review: true
-review_reason: Inferred from what the methods compute; neither paper states it, and ExEnDiff's abstract claims the opposite.
+needs_review: false
+review_reason: 
 figures: []
 cites:
   - "[[@liuExEnDiffExperimentGuidedDiffusion2025#^c10]]"

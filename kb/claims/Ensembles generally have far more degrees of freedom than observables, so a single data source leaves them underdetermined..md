@@ -7,8 +7,8 @@ confidence: medium
 status: draft
 origin: projects/1-ValDX/manuscript/report/1_introduction_omc.tex#L11
 source_state: current
-needs_review: true
-review_reason: Support is partial or indirect
+needs_review: false
+review_reason: 
 figures: []
 cites:
   - "[[@berlinRecoveringRepresentativeConformational2013#^c1]]"
@@ -22,7 +22,7 @@ Berlin et al. state that the number of ensemble degrees of freedom generally gre
 
 ## Caveats
 
-The manuscript says 'in every case' and 'any single data source'; Berlin et al. say 'generally' and work with NMR (residual dipolar coupling) data on diubiquitin. The general statement is theirs, but the universal wording is stronger.
+The manuscript wording ('in every case', 'any single data source') was stronger than Berlin et al., who say 'generally' and work with NMR (residual dipolar coupling) data on diubiquitin. The claim now says 'generally', which is theirs.
 
 Also stated in: milestones/2025-11-confirmation-of-status/introduction/connect_simulation_experiment.tex#L87
 Also stated in: milestones/2025-11-confirmation-of-status/introduction/connect_simulation_experiment.tex#L93

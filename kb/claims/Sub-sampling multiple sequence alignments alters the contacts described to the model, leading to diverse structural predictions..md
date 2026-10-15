@@ -7,21 +7,21 @@ confidence: medium
 status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/ensemble_generators.tex#L63
 source_state: current
-needs_review: true
-review_reason: Support is partial or indirect
+needs_review: false
+review_reason: 
 figures: []
 cites:
-  - "[[@steinSPEACH_AFSamplingProtein2022#^c1]]"
+  - "[[@monteirodasilvaHighthroughputPredictionProtein2024#^c4]]"
   - "[[@vaniAlphaFold2RAVESequenceBoltzmann2023#^c1]]"
 code: []
 ---
 
 ## Argument
 
-Vani et al. say that reducing the size of the input MSA in AlphaFold2 increases the conformational diversity explored. Stein and Mchaourab mutate the MSA in silico and obtain conformations not seen with the default MSA.
+Vani et al. say that reducing the size of the input MSA in AlphaFold2 increases the conformational diversity explored. Monteiro da Silva et al. say that earlier work achieved ensemble prediction by cutting max_seq and extra_seq well below their defaults.
 
 ## Caveats
 
-Stein and Mchaourab use in silico mutagenesis of the MSA, not sub-sampling.
+Stein and Mchaourab were cited here before but use in silico mutagenesis of the MSA, not sub-sampling.
 
-That reduced MSA depth gives ensemble predictions is also stated by Monteiro da Silva et al. (^c4). The contact mechanism is contested ([[Whether MSA clustering recovers alternative states through evolutionary couplings is contested.]]).
+Neither cited passage states the contact mechanism in the title, and it is contested ([[Whether MSA clustering recovers alternative states through evolutionary couplings is contested.]]).

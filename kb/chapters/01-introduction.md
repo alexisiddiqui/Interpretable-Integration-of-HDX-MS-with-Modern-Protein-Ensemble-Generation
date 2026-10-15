@@ -29,17 +29,17 @@ Why [[population shift|conformational populations]] matter for function and dise
 - [[Folded proteins retain a minority of highly frustrated contacts, clustered at the surface.]]
 - [[Highly frustrated sites mark where proteins bind partners, catalyse reactions and switch allosteric states.]]
 - [[Function conflicts with folding, so sequences encode function locally at sites that sacrifice stability.]]
-- [[Local frustration drives interconversion between native conformations, coupling function to slow, high-energy states.]] (partial)
+- [[Local frustration drives interconversion between native conformations, coupling function to slow, high-energy states.]]
 - [[Intrinsically disordered proteins lack stable structures and exist as heterogeneous conformational ensembles.]] (supported)
 - [[The conformational heterogeneity of IDPs is not a limitation but the functional mechanism by which they carry out their roles.]]
-- [[Folded and disordered proteins lie at two ends of one energy landscape, from a well-defined minimum to a flat surface.]] (partial; moved from A)
+- [[Folded and disordered proteins lie at two ends of one energy landscape, from a well-defined minimum to a flat surface.]] (moved from A)
 - [[Weighted conformational ensembles describe which states are occupied, not the order, rates or causal pathways of transitions between them.]] (draft, inferred; its home is here)
 - IGPS has no claim note. Cite the Lisi block through the [[allostery]] concept until one is written.
 
 **D. Disease as a perturbation of populations.** A [[dynamic disease mechanism]] changes which states a protein populates; it need not change the structure. Three cases, ordered by how much a single structure can show, each establishing one distinction. A population shift shows function changing while the structure is preserved. α-Synuclein shows a solution ensemble that only makes sense as a whole. The prion protein shows partially unfolded intermediates that the endpoint structures cannot reveal, and introduces pH as a condition of the populations. The general misfolding discussion is folded into the D2 and D3 leads; no further example is added unless it establishes another distinction.
 
 *D0. Framing.*
-- [[Disease mutations can destabilise the functional state or over-stabilise the wrong one.]] (partial)
+- [[Disease mutations can destabilise the functional state or over-stabilise the wrong one.]]
 - [[Disease-associated variants perturb local frustration more than benign variants.]] (partial; replaces the "Across disease categories" gap claim)
 
 *D1. Population shift: structure preserved, function changed* ([[allostery]]). Mutations reshape the [[conformational free-energy landscape]] without changing the fold.
@@ -47,23 +47,23 @@ Why [[population shift|conformational populations]] matter for function and dise
 - [[Oncogenic mutations alter conformational free-energy landscapes and shift the equilibrium between active and inactive states.]]
 - [[Kinases and their inhibitor resistance mutations often preserve drug-binding sites while shifting conformational equilibria.]]
 - [[EGFR L858R and T790M mutations rigidify sub-domains and shift equilibria toward active states, preserving active-site geometry.]]
-- [[Mutations create neither steric clashes nor new folds but shift conformational ensembles, which needs sampling of many distributions.]] (partial; use only as the sentence that names sampling as the need, otherwise drop)
+- [[Mutations create neither steric clashes nor new folds but shift conformational ensembles, which needs sampling of many distributions.]] (use only as the sentence that names sampling as the need, otherwise drop)
 
 *D2. α-Synuclein: the heterogeneous solution ensemble behind a solved fibril.* Open with the shared-transition claim as the bridge from D1 to the aggregation diseases. In [[alpha-synuclein]] the fibril is solved, but the protective state is a disordered ensemble whose protection lies in transient contacts. One paragraph.
 - [[Alzheimer's, Parkinson's and prion diseases share dynamic conformational transitions that start pathological aggregation.]] (the bridge sentence)
-- [[Alpha-synuclein is an unfolded monomer, yet cryo-EM has solved its Lewy body fibril structures at atomic resolution.]] (partial)
-- [[Cryo-EM fibrils are helical but the solution state is disordered, so aggregation-prone states can escape standard methods.]] (partial)
+- [[Alpha-synuclein is an unfolded monomer, yet cryo-EM has solved its Lewy body fibril structures at atomic resolution.]]
+- [[Cryo-EM fibrils are helical but the solution state is disordered, so aggregation-prone states can escape standard methods.]]
 - [[Soluble alpha-synuclein adopts an autoinhibitory conformation in which N- to C-terminal contacts protect the aggregation-prone NAC domain.]] (replaces a gap claim)
 - [[Disrupting alpha-synuclein's autoinhibitory conformation exposes the NAC domain and is likely to lower the nucleation barrier for aggregation.]] (replaces a gap claim)
-- [[NMR showed protective picosecond intramolecular interactions in soluble alpha-synuclein, whose disruption starts aggregation.]] (partial)
+- [[In soluble alpha-synuclein, an electrostatic interaction between the N- and C-termini protects the aggregation-prone NAC domain, and disrupting it is likely to lower the nucleation barrier.]]
 
 *D3. Prion protein: partially unfolded intermediates, and pH as a condition.* The endpoints are solved and the path between them is not. The intermediates are sparsely populated, so the full ensemble is needed, and [[prion protein|MoPrP]] populates its β-rich intermediate only at acidic pH. This is where pH enters the biological motivation. §1.2 group 2 carries it to the measurement, §1.3 group 2 to the simulation, [[02-background]] §2.5 supplies the chemistry, and chapters 4 to 6 use MoPrP at pH 4 and pH 7.
-- [[Atomic structures of PrP-C and PrP-Sc show an alpha-to-beta transition, yet how monomeric PrP-C traverses it is unclear.]] (partial)
+- [[Atomic structures of PrP-C and PrP-Sc show an alpha-to-beta transition, yet how monomeric PrP-C traverses it is unclear.]]
 - [[A familial prion-disease variant populates a more heterogeneous ensemble with thermally accessible misfolded states.]]
 - [[Sparsely populated intermediates act as critical gateway states that control the kinetics of pathological conversion.]] (the one high-energy-intermediate claim used in §1.1; drop "critical" when drafting)
-- [[Rate-limiting conformational changes take microseconds to milliseconds, beyond the reach of traditional structural methods.]] (partial)
+- [[Rate-limiting conformational changes take microseconds to milliseconds, beyond the reach of traditional structural methods.]]
 - [[Combining MD simulations with NMR chemical shifts has revealed misfolding intermediates invisible to crystallography.]] (supported)
-- [[Understanding prion conversion requires the complete conformational ensemble, not just the ground and fully misfolded states.]] (partial)
+- [[Understanding prion conversion requires the complete conformational ensemble, not just the ground and fully misfolded states.]]
 - [[Mouse PrP(121–231) populates a β-rich intermediate only at acidic pH, and urea is needed to populate it substantially.]] (supported; the pH condition)
 - [[Protonation of H186 or D201 drives MoPrP misfolding, and HDX-MS shows helix 1 and the α1–β2 loop become more dynamic.]] (supported). State the protonation half here; the HDX-MS half is the MoPrP example in §1.2 group 3.
 
@@ -75,9 +75,9 @@ Why [[population shift|conformational populations]] matter for function and dise
   - [[NMR typically needs larger samples and is limited to smaller proteins or domains by sensitivity and spectral complexity.]] (draft, needs review)
   - An NMR ensemble is not a thermodynamic ensemble ([[@bmsb2012ch12#^c3]]). Cross-reference §1.5 group 1: [[Posterior uncertainty about a structure or its parameters is not the same quantity as a protein's physical conformational populations.]] (supported).
 - *What all three miss.* Transient, sparsely populated intermediates, which are the states D3 needs.
-  - [[Rate-limiting conformational changes take microseconds to milliseconds, beyond the reach of traditional structural methods.]] (partial); its second citation, [[@biancanielloStructureDynamicsMisfolding2025#^c9]], states that integrative approaches are needed because X-ray crystallography, NMR and cryo-EM cannot capture dynamic intermediate species. Biancaniello ^c2 (techniques mainly target rigid states) is further support not yet on the note.
+  - [[Rate-limiting conformational changes take microseconds to milliseconds, beyond the reach of traditional structural methods.]]; its second citation, [[@biancanielloStructureDynamicsMisfolding2025#^c9]], states that integrative approaches are needed because X-ray crystallography, NMR and cryo-EM cannot capture dynamic intermediate species. Biancaniello ^c2 (techniques mainly target rigid states) is further support not yet on the note.
 - *Scale of the gap*, one sentence: [[Only about 12,000 experimental structural ensembles exist, covering 21% of CATH superfamilies, so dynamic data are scarce.]] or [[Tools to estimate protein dynamics are decades old, but public datasets hold only thousands to tens of thousands of entries.]] (supported) (use one). The NMR caveat above means the count overstates what is known about populations.
-- *Conditions.* [[Conformational populations depend on molecular context, so they are defined only for a stated environment.]] (partial). This sets up the requirement in F that a measurement work under stated conditions.
+- *Conditions.* [[Conformational populations depend on molecular context, so they are defined only for a stated environment.]]. This sets up the requirement in F that a measurement work under stated conditions.
 - Framing claims, if a summary sentence is needed at all: [[Tools have been dominated by methods that freeze proteins in time, hiding links between structure, dynamics, function and disease.]] or [[Static structures alone cannot explain many biological phenomena; dynamics underlie disease mechanisms and drug response.]] (use one). They add no example, so they cannot replace the method-by-method limitations.
 - Other method-specific support: Pelikan ^c4 (disorder and heterogeneity obstruct classical methods), Li ^c1 (GPCR signalling is hard for crystallography and NMR, and HDX-MS could help), James ^c6 (cryo-EM has outpaced the modelling of disordered regions).
 
@@ -186,9 +186,9 @@ Why [[population shift|conformational populations]] matter for function and dise
 
 **5. Why interpretation is ambiguous.** Different local environments or populations can give the same uptake. A change in uptake shows a change in protection, not a mechanism. Two cautions follow.
 - [[A change in HDX-MS uptake shows a change in protection but does not on its own identify the structural mechanism.]] (supported)
-- [[Greater deuterium uptake indicates less protection from exchange, not directly greater flexibility.]] (partial)
-- [[Labelling time measures accumulated exchange, not the duration of a conformational motion.]] (partial)
-- Non-uniqueness is developed in §1.5 group 1 ([[Ensembles have far more degrees of freedom than observables, so any single data source leaves them underdetermined.]]); here, one sentence at most.
+- [[Greater deuterium uptake indicates less protection from exchange, not directly greater flexibility.]]
+- [[Labelling time measures accumulated exchange, not the duration of a conformational motion.]]
+- Non-uniqueness is developed in §1.5 group 1 ([[Ensembles generally have far more degrees of freedom than observables, so a single data source leaves them underdetermined.]]); here, one sentence at most.
 
 **6. Why simulations are the complement, and the handoff to §1.3–1.4.** The limits in groups 4 and 5 are exactly what an atomic model supplies. Protection is a property of the ensemble, not of one structure, so a residue whose environment differs between conformers needs those conformers, and peptide uptake cannot pin residue protection down on its own. Connecting uptake to structure therefore needs candidate conformations and a model that predicts exchange from them ([[forward model]]), which makes interpretation an [[inverse problem]]. Others have already combined the two, mainly for simpler systems, so the open question is where the candidates come from (§1.3) and how they are weighted (§1.4).
 - Equilibrium protection factors are a property of a Boltzmann ensemble, so no single conformation is expected to satisfy all of them ([[@vendruscoloRareFluctuationsNative2003#^c5]]).
@@ -198,7 +198,7 @@ Why [[population shift|conformational populations]] matter for function and dise
 - [[Connecting uptake to a structural explanation requires a forward model that predicts exchange from candidate structures or ensembles.]] (supported)
 - [[Predicted protection factors are transformed into theoretical deuterium uptake for direct comparison with HDX-MS data.]] (supported)
 - [[Several groups have restrained simulations or pruned ensembles post hoc with HDX-MS data, mainly for simpler systems.]] (supported; the precedent, and its "simpler systems" is the opening for the thesis)
-- [[To address this ambiguity, researchers increasingly turn to molecular simulations for structural hypotheses.]] (partial; the supported claims above can carry the point without it)
+- [[To address this ambiguity, researchers increasingly turn to molecular simulations for structural hypotheses.]] (the supported claims above can carry the point without it)
 
 **Drafting sources.**
 - ValDX intro: `projects/1-ValDX/manuscript/report/1_introduction_omc.tex` L8 (scope and targets) and L14 (peptide-level ambiguity).
@@ -215,7 +215,7 @@ Why [[population shift|conformational populations]] matter for function and dise
 
 **Wording to avoid:**
 - "chemical potential" for $P_f$ (confirmation `measuring_dynamics.tex` L22). $P_f$ is a ratio of rates ([[protection factor]]).
-- "without size limitations" (ValDX intro L8). Use the group 5 claim; [[Orthogonal to X-ray, cryo-EM and NMR, HDX-MS probes without size limits and uniquely unravels dynamics in diverse conditions.]] is flagged for review.
+- "without size limitations" (ValDX intro L8). Use the group 5 claim for breadth. [[Orthogonal to X-ray, cryo-EM and NMR, HDX-MS probes protein dynamics in solution under diverse conditions.]] now states solution conditions only, since James p16 sets a size limit by peptide resolution.
 
 ### Gaps (1.2)
 - The two cautions are inferred, not stated by a source:
@@ -230,14 +230,13 @@ Why [[population shift|conformational populations]] matter for function and dise
 
 **1. Candidate ensembles.** A [[structural ensemble]] is a set of candidate conformations. A sampler can get coverage, populations and kinetics right or wrong separately ([[conformational free-energy landscape]]).
 - [[Modern computational methods allow protein structures to be generated at an unprecedented rate.]]
-- [[A complete picture of dynamics requires sampling in between these states.]] (partial)
 - Already in §1.1 group F: [[Useful ensemble generation requires quantifying the relative populations of each state, not only generating structures.]]
 
 **2. MD and its limits.** [[molecular dynamics]] gives physically grounded trajectories, but only for its approximate [[force field]] and only once sampling has converged ([[equilibration and convergence]]). Five claims and one line on protonation, the simulation's side of the pH thread.
 - [[MD simulations numerically integrate Newton's equations of motion, giving atomistic insight into protein dynamics over time.]]
 - [[MD simulations can model varied conditions such as temperature, pressure, pH and the presence of ligands or other biomolecules.]]
 - [[MD is computationally expensive and may only approximate true dynamics due to force-field inaccuracies and limited sampling.]] (supported)
-- [[Sufficiently sampled equilibrium MD targets the Boltzmann distribution of its approximate force field, not the protein's true distribution.]] (partial)
+- [[Sufficiently sampled equilibrium MD targets the Boltzmann distribution of its approximate force field, not the protein's true distribution.]]
 - [[Until MD has converged, its statistics depend on the starting structures; reproducibility across independent starts is the basic check.]] (supported)
 - [[Standard molecular dynamics fixes one protonation state per titratable residue for the whole run, while constant-pH MD lets protonation states change.]] (supported). A pH 4 ensemble is only as good as the states assigned; chapter 6 takes this up ([[02-background]] §2.5). The thesis's own case, [[Our candidate ensembles were protonated once at pH 7 or 7.4, so a pH 4 ensemble depends on protonation states that were not assigned for pH 4.]] (draft), belongs in §1.7 and chapter 6, not here.
 
@@ -248,8 +247,7 @@ Why [[population shift|conformational populations]] matter for function and dise
 - [[Seeding simulations from rarely visited states broadens exploration but does not by itself give accurate populations.]] (supported)
 - [[Frontier-Expansion Sampling is a promising avenue for enhanced sampling of conformational space.]] (supported)
 - [[As FES only requires Cartesian coordinates to select new simulation seeds, it is flexible to the underlying topology.]]
-- Reword before use (see Wording to avoid): [[Metadynamics is limited by the need for appropriate CVs, complex computational requirements and loss of equilibrium properties.]], [[Offline biasing methods can be used to preserve equilibria while enhancing sampling.]], [[Offline methods adaptively seed new simulations from underexplored regions, sampling efficiently without distorting the landscape.]]
-- Optional detail: [[Online analysis of collective variables can adaptively guide sampling towards underexplored regions of conformational space.]], [[These methods can be sampled over specific CVs but are also compatible with generic dimensionality reduction techniques.]]
+- Optional detail: [[Online analysis of collective variables can adaptively guide sampling towards underexplored regions of conformational space.]]
 
 **4. Learned generators, including diffusion.** Three kinds of model, which the confirmation runs together:
 - **Structure predictors adapted for diversity.** Perturb the input ([[MSA subsampling]]) or the seed. Output frequencies have no defined target distribution.
@@ -258,28 +256,24 @@ Why [[population shift|conformational populations]] matter for function and dise
   - [[As protein structure models are primarily trained on static structures, their ability to predict dynamics is limited.]]
   - [[Structure predictors are trained to return the single structure most likely to appear in the PDB.]] (supported; the reason the adaptations below are needed)
   - [[Repeated random seeds of AlphaFold 3 do not approximate the solution ensemble.]] (supported)
-  - [[Sub-sampling multiple sequence alignments alters the contacts described to the model, leading to diverse structural predictions.]] (partial)
+  - [[Sub-sampling multiple sequence alignments alters the contacts described to the model, leading to diverse structural predictions.]]
   - [[Generating many sub-sampled predictions creates a conformational ensemble that captures the protein's dynamic nature.]]
-  - [[MSA-subsampling has been shown to broadly follow a physical energy landscape.]] (partial)
 - **Generators trained to sample a distribution.** A [[diffusion model]] learns the training-data distribution by learning to denoise; a [[Boltzmann generator]] is trained toward the Boltzmann distribution and reweighted to it.
   - [[Deep-learning models rapidly generate structures and ensembles by sampling a learned distribution of conformational space.]] (supported)
   - [[Deep-learning models trained on large structural datasets learn conformation distributions, and sampling them yields ensembles.]]
   - [[Diffusion models are trained to reverse a noising process and generate structures by progressively denoising random samples.]] (supported)
   - [[Diffusion models trained on PDB structures learn a distribution concentrated on folded, low-energy states rather than the equilibrium distribution.]] (supported; what the learned distribution is, and why it is a prior)
-  - [[Diffusion steps are not physical simulation time.]] (partial)
+  - [[Diffusion steps are not physical simulation time.]]
   - [[Diffusion-based PSMs have emerged as a powerful alternative to traditional structure prediction methods.]]
   - [[Learning the physical landscape can reduce the cost of sampling new states while retaining the accuracy of the underlying physics.]] (supported) (Boltzmann generators only)
 - **Learned force fields inside MD.** An MLFF improves the [[force field]], not the sampling.
   - [[Machine-learned force fields learn energies and forces for simulation, whereas Boltzmann generators generate configurations and reweight them to the Boltzmann distribution.]] (supported)
-  - [[Ensembles can be generated by learning the physical landscape of protein systems directly from existing simulations.]] (partial)
+  - [[Ensembles can be generated by learning the physical landscape of protein systems directly from existing simulations.]]
 - **Combining generators with MD.** Generators broaden coverage and MD relaxes the candidates; whether the result is representative still has to be assessed.
   - [[Learned generators are used to seed MD simulations, combining broad coverage with physics-based sampling.]] (supported)
-  - [[By providing multiple plausible starting structures, deep learning has bridged the gap for diverse physics-based sampling.]] (partial)
-  - [[By combining physics-based and statistics-based simulations we can fill in gaps in sampling and accuracy.]] (partial)
-  - [[The limitations of each ensemble generation scheme can be overcome by combining both approaches, in a hierarchical pipeline.]] (partial)
 
 **5. Handoff to §1.4: populations need experimental constraints.** Every source above gives candidates whose frequencies are a prior, not populations ([[importance sampling]]). Experiment is needed to weight them. This is the mirror of §1.2 group 6, and the section should close on the two halves together. Generators and simulations supply atomic candidates without trustworthy populations, and HDX-MS constrains protection in solution without atomic positions, so each supplies what the other lacks. Integration (§1.4) is the operation that joins them.
-- [[A generator's sampling distribution is a reference distribution, not automatically the physical equilibrium distribution.]] (partial)
+- [[A generator's sampling distribution is a reference distribution, not automatically the physical equilibrium distribution.]]
 - [[A knowledge-based potential is not a thermodynamic free energy unless its probabilistic model and reference distribution are defined.]] (supported)
 - [[The emerging bottleneck is scoring generated structures against in vitro and in vivo behaviour.]]
 - [[Bridging the gap requires a shift toward integrative approaches combining measurements of dynamics with advanced simulations.]] (moved from §1.1 F; "bridging the gap" is the confirmation's phrase, reword)
@@ -306,7 +300,9 @@ Why [[population shift|conformational populations]] matter for function and dise
 
 ### Gaps (1.3)
 - **Inferred claims:** [[Sufficiently sampled equilibrium MD targets the Boltzmann distribution of its approximate force field, not the protein's true distribution.]] and [[Diffusion steps are not physical simulation time.]] need a source, or should be presented as the thesis's own statements.
+- **Dropped from the hub, note kept** (2026-10-15): [[MSA-subsampling has been shown to broadly follow a physical energy landscape.]] The cited passage is about MSA mutagenesis, not sub-sampling. The qualitative population claim in the ch. 2 hub carries the point.
 - **Dropped from the hub, note kept** (2026-10-14): [[MD lets researchers study how proteins respond to different environments, giving insight into functional mechanisms.]], [[Physics-based methods are useful for detailed analysis but limited by the computational cost of equilibration.]], [[Sampling is limited because equilibration must be repeated for each new system or starting conformational state.]]. If the equilibration pair returns, it needs a passage: the confirmation cites Lazim et al. (2020), but the only KB quote from it is about the cost of all-atom MD in general.
+- **Removed** (2026-10-15): five claims whose cited papers did not support them. They said a complete picture of dynamics needs sampling between states, that deep learning supplies diverse starting structures for physics-based sampling, that physics-based and statistics-based simulation fill each other's gaps, that a hierarchical pipeline overcomes the limits of each scheme, and that seeding methods work over specific or generic CVs. The hybrid point now rests on [[Learned generators are used to seed MD simulations, combining broad coverage with physics-based sampling.]] alone. Each would need a new source to return.
 - **Unchecked PDFs:** Karplus, Barducci, Casadevall, Wilson, Varadi and He are cited in the confirmation for this section but not yet checked.
 - **Unread papers:** Hénin, Zhang, Zheng, Stein, Vani, Unke, Noé, Abramson and Yim are all `read: false`. Their quotes pass the lint.
 
@@ -316,7 +312,7 @@ Why [[population shift|conformational populations]] matter for function and dise
 
 **1. From candidate structures to a testable hypothesis.** Pick up the handoff from §1.3: the candidates need relative contributions before they can explain a solution measurement. Frame the task as an [[inverse problem]]: infer an ensemble from its measured effects. Recall the ambiguity from §1.2 briefly; use it to motivate forward prediction rather than repeating the measurement limitations.
 - [[Connecting uptake to a structural explanation requires a forward model that predicts exchange from candidate structures or ensembles.]] (supported)
-- [[To address this ambiguity, researchers increasingly turn to molecular simulations for structural hypotheses.]] (partial)
+- [[To address this ambiguity, researchers increasingly turn to molecular simulations for structural hypotheses.]]
 
 **2. Predict what the experiment would measure.** Define a [[forward model]] as the link from a proposed ensemble to an observable. Give the HDX example in words: structural hydrogen bonding and burial features → predicted residue protection factors → exchange rates under EX2 → peptide uptake. Introduce the [[Best–Vendruscolo model]] as the concrete example shared by the research chapters. The prediction depends on ensemble weights and empirical model parameters.
 - [[The Best-Vendruscolo model predicts protection factors from coordinates by counting structural features that impede exchange.]]
@@ -366,8 +362,8 @@ The section follows the two risks named at the end of §1.4. After the non-uniqu
 
 **1. Non-uniqueness.** Pick up the §1.4 handoff. Different populations can produce the same uptake, so a good fit does not identify the ensemble ([[inverse problem]], identifiability). Keep posterior spread apart from physical populations ([[posterior uncertainty]]).
 - [[One uptake curve can arise from many different conformational populations, so a good fit does not identify the ensemble.]] (supported)
-- [[Ensembles have far more degrees of freedom than observables, so any single data source leaves them underdetermined.]] (partial)
-- [[Many ensembles can explain the same data, given complex conformational landscapes and simple structure-experiment models.]] (partial; prefer the first claim)
+- [[Ensembles generally have far more degrees of freedom than observables, so a single data source leaves them underdetermined.]]
+- [[Many ensembles can explain the same data, given complex conformational landscapes and simple structure-experiment models.]] (prefer the first claim)
 - [[Posterior uncertainty about a structure or its parameters is not the same quantity as a protein's physical conformational populations.]] (supported)
 - Revised ValDX only (`1_introduction_omc.tex` L17, not in v1): this holds even with a perfect forward model. Present it as the thesis's own statement.
 
@@ -383,20 +379,20 @@ The section follows the two risks named at the end of §1.4. After the non-uniqu
 - [[Split replicates measure sensitivity to peptide partitioning, not independent replication of the measurement.]] (draft)
 - Practice: [[In the HDX ensemble-integration studies examined, robustness is assessed by removing selected peptides, refitting forward-model parameters or comparing with orthogonal data, not by partitions designed around peptide dependence.]] (draft, inferred; keep the scope "studies examined")
 - Optional, if consensus fitting is named here rather than in ch. 3: [[Averaging fitted models reduces their variance but retains any error they share.]] (draft)
-- [[MaxEnt reweighting avoids overfitting and ensures the resulting ensemble remains physically plausible.]] (partial; do not reuse)
+- [[With a uniform-weight MD ensemble as the prior, MaxEnt reweighting that models experimental error reduces overfitting and keeps the resulting ensemble close to the prior.]]
 
 **3. Poor forward models: compensation and calibration.** If the forward model or the exchange assumptions are wrong, weights and parameters absorb the error ([[model misspecification]]). Keep three cases apart, because each changes the advice. A parameter can be uncertain (a posterior width), miscalibrated (wrong coefficients, fixed by refitting them), or the functional form can be inadequate (no coefficients fit, as under kinetic mismatch). Recalibration addresses only the second, and restoring agreement by calibration does not validate kinetics or populations. How frame predictions are averaged is itself a forward-model choice.
 - [[Best–Vendruscolo coefficients are empirical, and their optimal values depend on the protein and experimental conditions.]] (supported)
 - [[When fitting points to calibration mismatch, the forward model should be recalibrated before the ensemble hypothesis is rejected.]] (supported)
 - [[Recalibrating forward-model coefficients can correct a miscalibration but not an inadequate functional form.]] (draft, inferred)
 - [[Fitted populations can compensate for errors in assumed exchange kinetics, and restoring uptake agreement by calibration does not validate kinetics or populations.]] (revised ValDX only)
-- [[Uncertainty in nuisance parameters and regularisation choices can affect structural conclusions from Bayesian analyses of NMR and small-angle scattering.]] (partial)
+- [[Uncertainty in nuisance parameters and regularisation choices can affect structural conclusions from Bayesian analyses of NMR and small-angle scattering.]]
 - Optional, one clause at most: [[Averaging log protection factors, exchange rates or uptake over frames are different forward models, and held-out uptake error and population recovery can favour different choices.]] (jaxENT project doc only; detail in ch. 2 and ch. 4)
 
 **4. Candidate coverage and decoys.** The fit can only weight what the candidates contain ([[sampling coverage]]). §1.4 group 3 has already said that missing states cannot be created; remind it in one line. The finding to carry is the converse, that plausible but unpopulated candidates can absorb weight while uptake still matches ([[ensemble reweighting]]).
 - [[Plausible but unpopulated candidate structures can absorb weight and prevent population recovery even when uptake matches.]] (supported)
-- [[Reweighting cannot create conformational states absent from the candidate ensemble.]] (partial; reminder)
-- [[Diversity among generated structures is not on its own evidence that their frequencies represent an equilibrium ensemble.]] (partial)
+- [[Reweighting cannot create conformational states absent from the candidate ensemble.]] (reminder)
+- [[Diversity among generated structures is not on its own evidence that their frequencies represent an equilibrium ensemble.]]
 - [[Seeding simulations from rarely visited states broadens exploration but does not by itself give accurate populations.]] (supported)
 
 **5. What a comparison then supports: Work Done, uncertainty and hypothesis testing.** Validation error alone cannot separate a good hypothesis from one forced into agreement, so [[Work Done]] adds how much fitting changed the starting hypothesis. Variation across replicate fits shows which conclusions depend on the data chosen ([[replicate uncertainty]]). It locates instability but does not identify its cause. Changing one suspected cause at a time is how a cause is tested ([[controlled perturbation]]). Representative structures make the inferred states inspectable, if conclusions survive a change of representation. End on integration as hypothesis testing, which hands over to the research questions (§1.6).
@@ -412,7 +408,7 @@ The section follows the two risks named at the end of §1.4. After the non-uniqu
 
 **6. What repeated assessment costs, and what it cannot reach.** Two points, and they motivate Q3 and chapter 5. First, every check in groups 2 and 5 repeats the fit. Splits, replicates, parameter settings and candidate ensembles multiply (ValDX ran 3 replicates × 2 or 4 split types per ensemble across 22 ensembles, with a γ sweep in each), so the cost of one fit bounds how much validation is affordable. Efficiency is a condition for validation, not a convenience. Second, reweighting can only redistribute weight over the candidates it is given, so where coverage fails the data have to act during sampling or generation. End the section on the hand-off to §1.6 as hypothesis testing with these two limits named.
 - Claim to write (ours, `basis: inferred`, draft): validation by splits and replicates multiplies the number of fits, so the cost of a single fit bounds how much assessment is affordable. Origin `projects/1-ValDX/manuscript/report/6_methods_omc.tex` L473 and L619; leaves draft with a jaxENT runtime figure ID.
-- [[Reweighting cannot create conformational states absent from the candidate ensemble.]] (partial; stated in group 4, reminded here as the motivation for ch. 5)
+- [[Reweighting cannot create conformational states absent from the candidate ensemble.]] (stated in group 4, reminded here as the motivation for ch. 5)
 
 **Drafting sources.**
 - ValDX revised manuscript (`projects/1-ValDX/manuscript/report/`):

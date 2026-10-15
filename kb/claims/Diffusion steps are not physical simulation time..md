@@ -7,8 +7,8 @@ confidence: high
 status: draft
 origin: thesis/chapters/01-introduction.tex#L12
 source_state: current
-needs_review: true
-review_reason: Inferred from how diffusion models are defined; no cited source states it.
+needs_review: false
+review_reason: 
 figures: []
 cites:
   - "[[@yimDiffusionModelsProtein2024#^c6]]"

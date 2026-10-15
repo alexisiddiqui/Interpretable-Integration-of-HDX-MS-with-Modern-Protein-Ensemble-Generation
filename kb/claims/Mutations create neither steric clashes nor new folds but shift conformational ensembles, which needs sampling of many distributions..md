@@ -7,10 +7,11 @@ confidence: low
 status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/biological_dynamics.tex#L19
 source_state: current
-needs_review: true
-review_reason: Support is partial or indirect
+needs_review: false
+review_reason: 
 figures: []
 cites:
+  - "[[@suttoEffectsOncogenicMutations2013#^c3]]"
   - "[[@lisiAllosteryEnzymeCatalysis2017#^c6]]"
   - "[[@lisiAllosteryEnzymeCatalysis2017#^c7]]"
 code: []
@@ -18,8 +19,8 @@ code: []
 
 ## Argument
 
-Lisi and Loria describe a PKA mutation that leaves the crystal structure and NMR shifts nearly unchanged but disrupts catalysis, and IGPS activation driven by millisecond [[protein dynamics|dynamics]] without large structural rearrangements.
+Sutto and Gervasio report that the T790M gatekeeper mutation in EGFR does not appear to act by steric hindrance with ATP-competitive inhibitors, but by stabilising the active conformation. Lisi and Loria describe a PKA mutation that leaves the crystal structure and NMR shifts nearly unchanged but disrupts catalysis, and IGPS activation driven by millisecond [[protein dynamics|dynamics]] without large structural rearrangements.
 
 ## Caveats
 
-The Lisi passages cover two enzymes and do not mention steric clashes or the need to sample multiple structural distributions. Likely intended source: @suttoEffectsOncogenicMutations2013 p4 (^c3), which says the T790M mutation does not act by steric hindrance but by stabilizing the active conformation. It is not in this claim's cites; the author decides.
+No cited passage states that these cases need sampling of many distributions. That clause is the thesis's own inference from the cases. The Lisi passages cover two enzymes and the Sutto passage one EGFR mutation, so the sentence generalises from three examples.

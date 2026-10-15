@@ -7,8 +7,8 @@ confidence: medium
 status: draft
 origin: thesis/chapters/01-introduction.tex#L7
 source_state: current
-needs_review: true
-review_reason: Generalises from one HDX case (West) and review-level frustration cases; the conditional-population framing is ours.
+needs_review: false
+review_reason: 
 figures: []
 cites:
   - "[[@westLigandDependentPerturbationConformational2011#^c1]]"

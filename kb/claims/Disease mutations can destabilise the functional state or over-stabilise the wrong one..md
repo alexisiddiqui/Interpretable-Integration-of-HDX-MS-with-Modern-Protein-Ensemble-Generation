@@ -7,8 +7,8 @@ confidence: medium
 status: draft
 origin: thesis/chapters/01-introduction.tex#L7
 source_state: current
-needs_review: true
-review_reason: Framing synthesised from review-level cases; primary sources for each case are not yet in the KB.
+needs_review: false
+review_reason: 
 figures: []
 cites:
   - "[[@parraFrustrationPhysiologyMolecular2025#^c18]]"

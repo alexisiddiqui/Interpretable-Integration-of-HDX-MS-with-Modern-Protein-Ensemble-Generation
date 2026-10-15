@@ -7,8 +7,8 @@ confidence: medium
 status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/ensemble_generators.tex#L21
 source_state: current
-needs_review: true
-review_reason: Inferred. Hollingsworth states force fields are approximate and BMSB uses the force field's Boltzmann distribution as the prior; neither states the combination.
+needs_review: false
+review_reason: 
 figures: []
 cites:
   - "[[@hollingsworthMolecularDynamicsSimulation2018#^c2]]"

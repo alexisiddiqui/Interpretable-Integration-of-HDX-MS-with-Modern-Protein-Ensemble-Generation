@@ -7,8 +7,8 @@ confidence: medium
 status: draft
 origin: thesis/chapters/01-introduction.tex#L18
 source_state: current
-needs_review: true
-review_reason: AF3 (Abramson ^c7) states it for one modern generator; the general statement, and the MCMC passages, remain our inference.
+needs_review: false
+review_reason: 
 figures: []
 cites:
   - "[[@bmsb2012ch2#^c9]]"

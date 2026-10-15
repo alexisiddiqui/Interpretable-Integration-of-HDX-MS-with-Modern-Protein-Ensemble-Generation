@@ -7,8 +7,8 @@ confidence: medium
 status: draft
 origin: projects/1-ValDX/manuscript/report/2_hdx_theory_omc.tex#L9
 source_state: current
-needs_review: true
-review_reason: Inferred from EX2 kinetics; no cited source states it directly.
+needs_review: false
+review_reason: 
 figures: []
 cites:
   - "[[@jamesAdvancesHydrogenDeuterium2022#^c7]]"

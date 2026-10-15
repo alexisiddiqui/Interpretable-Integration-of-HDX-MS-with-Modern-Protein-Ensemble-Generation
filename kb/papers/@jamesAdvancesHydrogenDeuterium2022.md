@@ -59,6 +59,16 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "the amide will have to undergo many opening motions before it becomes deuterated (EX2 kinetics)"
   - quote_check: pass
   - reviewed: false
+- HDX-MS studies typically take a protein under native conditions in aqueous buffer and transfer it to a deuterium-rich buffer. ^c8
+  - page: 2
+  - quote: "A protein, typically under native conditions, is transferred from an aqueous buffer to a deuterium-rich buffer and allowed to undergo exchange"
+  - quote_check: pass
+  - reviewed: false
+- Internal exchange reporters enable more robust comparisons where solution conditions are not matched, for example with chaotropes or buffer additives. ^c9
+  - page: 35
+  - quote: "enable more robust comparisons where solution conditions are not matched, for example, looking at the effects of high concentrations of chaotropes or buffer additives"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

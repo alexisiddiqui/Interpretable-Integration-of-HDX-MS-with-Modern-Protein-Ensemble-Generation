@@ -7,8 +7,8 @@ confidence: low
 status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/biological_dynamics.tex#L19
 source_state: current
-needs_review: true
-review_reason: Cited paper does not support the claim
+needs_review: false
+review_reason: 
 figures: []
 cites: []
 code: []

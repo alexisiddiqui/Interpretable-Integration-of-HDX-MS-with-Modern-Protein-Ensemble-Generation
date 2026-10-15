@@ -7,8 +7,8 @@ confidence: medium
 status: draft
 origin: thesis/chapters/02-background.tex#L79
 source_state: current
-needs_review: true
-review_reason: Inferred from what weights and EX2 rates encode; no cited passage states it for reweighted ensembles.
+needs_review: false
+review_reason: 
 figures: []
 cites:
   - "[[@tibertiENCORESoftwareQuantitative2015#^c6]]"

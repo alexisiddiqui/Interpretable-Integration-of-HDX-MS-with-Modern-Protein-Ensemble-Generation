@@ -7,8 +7,8 @@ confidence: medium
 status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/ensemble_generators.tex#L80
 source_state: current
-needs_review: true
-review_reason: The phrase without distorting the landscape is too strong. Seeding leaves the dynamics unbiased, but pooled frames are not populations (Hénin ^c9).
+needs_review: false
+review_reason: 
 figures: []
 cites:
   - "[[@heninEnhancedSamplingMethods2022#^c1]]"
@@ -26,4 +26,4 @@ Henin et al. describe adaptive seeding as starting simulations from regions like
 
 Hénin et al. state that seeding from low-population states enhances exploration but not necessarily the estimate of the probability distribution. See [[Seeding simulations from rarely visited states broadens exploration but does not by itself give accurate populations.]].
 
-Henin et al. describe adaptive seeding but do not state that it samples more efficiently or leaves the energy landscape undistorted, and they do not use the term offline biasing. The wording of the sentence (offline methods) is the author's term for what Henin et al. call adaptive seeding.
+Each seeded simulation runs without bias, since the simulations are instantiated and not restrained (^c3), so equilibrium conditions describe the dynamics. They do not describe the pooled frames, whose frequencies are not populations (^c9). Henin et al. do not state that seeding samples more efficiently, and they do not use the term offline biasing. That term is the author's for what they call adaptive seeding.

@@ -7,20 +7,21 @@ confidence: medium
 status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/ensemble_generators.tex#L67
 source_state: current
-needs_review: true
-review_reason: Conflates machine-learned force fields (Unke) with Boltzmann generators (Noé); see the MLFF vs Boltzmann generator claim.
+needs_review: false
+review_reason: 
 figures: []
 cites:
-  - "[[@unkeBiomolecularDynamicsMachinelearned2024#^c1]]"
+  - "[[@noeBoltzmannGeneratorsSampling2019#^c1]]"
+  - "[[@noeBoltzmannGeneratorsSampling2019#^c4]]"
 code: []
 ---
 
 ## Argument
 
-Unke et al. build machine-learned force fields by training on ab initio reference data to predict energies and forces, which is a learned physical energy surface.
+Noé et al. say Boltzmann generators are trained by combining training by energy and training by example, and generate unbiased one-shot equilibrium samples of proteins.
 
 ## Caveats
 
-Use [[Machine-learned force fields learn energies and forces for simulation, whereas Boltzmann generators generate configurations and reweight them to the Boltzmann distribution.]] to keep the two apart.
+Unke et al. were cited here before. Their machine-learned force fields predict energies and forces from ab initio reference data for use in MD, which is a different object from a Boltzmann generator ([[Machine-learned force fields learn energies and forces for simulation, whereas Boltzmann generators generate configurations and reweight them to the Boltzmann distribution.]]).
 
-The training data are quantum-chemical reference data on molecular fragments, not existing simulations, and the paper is about force fields for MD rather than ensemble generation.
+In Noé et al. training by energy is the main principle, so "from existing simulations" holds only for training by example. The samples must be reweighted to the Boltzmann distribution to compute thermodynamics (^c3).

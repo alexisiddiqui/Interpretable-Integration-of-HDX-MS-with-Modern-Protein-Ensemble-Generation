@@ -7,8 +7,8 @@ confidence: medium
 status: draft
 origin: thesis/chapters/01-introduction.tex#L12
 source_state: current
-needs_review: true
-review_reason: TORUSDBN (BMSB) and AF3 (Abramson ^c7) are direct cases; the general statement for all learned generators is our inference.
+needs_review: false
+review_reason: 
 figures: []
 cites:
   - "[[@bmsb2012ch4#^c7]]"

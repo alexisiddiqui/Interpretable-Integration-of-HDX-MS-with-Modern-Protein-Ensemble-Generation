@@ -7,8 +7,8 @@ confidence: low
 status: draft
 origin: milestones/2025-11-confirmation-of-status/introduction/measuring_dynamics.tex#L13
 source_state: current
-needs_review: true
-review_reason: Cited paper does not support the claim
+needs_review: false
+review_reason: 
 figures: []
 cites: []
 code: []

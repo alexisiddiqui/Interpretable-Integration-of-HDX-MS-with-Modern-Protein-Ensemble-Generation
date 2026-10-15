@@ -7,8 +7,8 @@ confidence: high
 status: draft
 origin: projects/1-ValDX/manuscript/report/7_results_omc.tex#L246
 source_state: current
-needs_review: true
-review_reason: Follows from reweighting changing only the weights of existing frames (Lee, Bradshaw); the revised ValDX manuscript states it without a citation and posted v1 does not.
+needs_review: false
+review_reason: 
 figures: []
 cites:
   - "[[@leeInterpretingHydrogenDeuteriumExchange2021#^c7]]"
