@@ -37,6 +37,7 @@ Manuscript form: none. **Gap:** for a displayed equation, a textbook or methods 
 - MD time $t$ is physical simulation time. It is not HDX labelling time, and not the diffusion time $\tau$ of a [[diffusion model]].
 - [[enhanced sampling]] reaches rare states faster, but usually at the cost of kinetics, and recovers populations only by reweighting ([[sampling coverage]]).
 - Thermostats and barostats (which give Langevin-type dynamics) are needed to sample the canonical ensemble. They are not covered here.
+- Protonation states are assigned once, before the run, for one pH, and stay fixed ([[Standard molecular dynamics fixes one protonation state per titratable residue for the whole run, while constant-pH MD lets protonation states change.]]). A simulation "at pH 4" is therefore a simulation with the states someone chose for pH 4 ([[pKa]]).
 - Experimental data can enter during the simulation rather than afterwards, through a [[restrained simulation]] or [[metainference]].
 
 ## Why it matters here

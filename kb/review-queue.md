@@ -56,6 +56,10 @@
 
 - [[Distinct protection profiles can give zero Work Done, so Work Done is not a distance between profiles.]] (`claims/Distinct protection profiles can give zero Work Done, so Work Done is not a distance between profiles..md`)
 
+## Evidence pending: Hornemann 1998 has no PDF in the KB.
+
+- [[Mouse PrP(121–231) populates a β-rich intermediate only at acidic pH, substantially at pH 4.]] (`claims/Mouse PrP(121–231) populates a β-rich intermediate only at acidic pH, substantially at pH 4..md`)
+
 ## Follows from marginals versus joint distributions; no source states it for pair-distance W1.
 
 - [[Agreement of per-residue pair-distance distributions does not establish that two ensembles share the same joint conformational distribution.]] (`claims/Agreement of per-residue pair-distance distributions does not establish that two ensembles share the same joint conformational distribution..md`)
@@ -100,9 +104,18 @@
 
 - [[@HydrogenExchangeProteins1966]] (`papers/@HydrogenExchangeProteins1966.md`)
 - [[@ReferenceParametersProtein]] (`papers/@ReferenceParametersProtein.md`)
+- [[@chenPKADRCuratedRedesigned2025]] (`papers/@chenPKADRCuratedRedesigned2025.md`)
+- [[@hornemannScrapielikeUnfoldingIntermediate1998]] (`papers/@hornemannScrapielikeUnfoldingIntermediate1998.md`)
 - [[@hvidtExchangeHydrogenAtoms1954]] (`papers/@hvidtExchangeHydrogenAtoms1954.md`)
 - [[@kimHydrogenExchangeIdentifies1993]] (`papers/@kimHydrogenExchangeIdentifies1993.md`)
+- [[@kovtunPINDERProteinInteraction2024]] (`papers/@kovtunPINDERProteinInteraction2024.md`)
+- [[@nguyenReferenceParametersProtein2018]] (`papers/@nguyenReferenceParametersProtein2018.md`)
+- [[@pahariPKADDatabaseExperimentally2019]] (`papers/@pahariPKADDatabaseExperimentally2019.md`)
+- [[@reisFastInterpretableDeep2022]] (`papers/@reisFastInterpretableDeep2022.md`)
+- [[@reisPypKaServerOnline2024]] (`papers/@reisPypKaServerOnline2024.md`)
+- [[@shenKaMLsPredictingProtein2025]] (`papers/@shenKaMLsPredictingProtein2025.md`)
 - [[@smithProbingNoncovalentStructure1997]] (`papers/@smithProbingNoncovalentStructure1997.md`)
+- [[@sondergaardImprovedTreatmentLigands2011]] (`papers/@sondergaardImprovedTreatmentLigands2011.md`)
 - [[@vendruscoloRareFluctuationsNative2003]] (`papers/@vendruscoloRareFluctuationsNative2003.md`)
 
 ## Non-uniqueness itself is stated by Berlin and Hummer; the two reasons given (complex landscapes, simple models) are not stated by any cited source.

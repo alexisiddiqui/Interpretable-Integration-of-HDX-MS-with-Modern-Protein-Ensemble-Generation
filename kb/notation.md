@@ -31,6 +31,7 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $P_0(x)$ | prior distribution over conformations | — | [[maximum entropy principle]] | $\pi(x)$ ([[@bmsb2012ch12]], [[@bmsb2012ch2]]), $q(x)$ ([[@bmsb2012ch2]]), $q(r \mid a)$ ([[@bmsb2012ch3]]), $g(x)$ ([[@bmsb2012ch4]]), $p(X_r)$ ([[@bonomiMetadynamicMetainferenceEnhanced2016]]), $P_0(q)$ ([[@cesariUsingMaximumEntropy2018]]), $p_0(x)$ ([[@hummerBayesianEnsembleRefinement2015]]), $q_0(\mathbf{x}_0)$ ([[@wangProteinConformationGeneration2024]]) |
 | $P_\text{ME}(x)$ | maximum-entropy posterior distribution over conformations | — | [[maximum entropy principle]] | $P_\text{ME}(q)$ ([[@cesariUsingMaximumEntropy2018]]) |
 | $P_{f,i}$ | protection factor of residue i | — | [[protection factor]] | $P_i$ ([[@bradshawInterpretationHDXData2020]]) |
+| $Q$ | net charge of a protein at a given pH, in units of the elementary charge | — | [[pKa]] | — |
 | $R$ | molar gas constant | J mol^-1 K^-1 | [[Boltzmann distribution]] | — |
 | $\text{RMSF}_i$ | root-mean-square fluctuation of atom or residue i about its mean position | Å | [[positional covariance]] | — |
 | $S$ | thermodynamic entropy of the ensemble | J K^-1 | [[Boltzmann distribution]] | $S$ ([[@bmsb2012ch1]], [[@bmsb2012ch3]]) |
@@ -48,7 +49,12 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $\Delta G_\text{op}$ | free energy of the opening reaction | kJ mol^-1 | [[protection factor]] | — |
 | $\Delta\Delta G_{AB}$ | change in Delta G_AB caused by a perturbation such as a mutation, ligand or change of environment | kJ mol^-1 | [[dynamic disease mechanism]] | — |
 | $\Delta\mathbf{r}_i(x)$ | displacement of atom or residue i from its ensemble-mean position | Å | [[positional covariance]] | — |
+| $\Delta\text{p}K_{\text{Coul},i}$ | charge–charge (Coulomb) contribution to the pKa shift of site i (PROPKA term) | — | [[pKa shift]] | — |
+| $\Delta\text{p}K_{\text{HB},i}$ | hydrogen-bond contribution to the pKa shift of site i (PROPKA term) | — | [[pKa shift]] | — |
+| $\Delta\text{p}K_{a,i}$ | pKa shift of site i: its pKa in the protein minus the model-compound pKa of its group | — | [[pKa shift]] | $\Delta\text{p}K_{a,i}^{\text{Water}\to\text{Protein}}$ ([[@olssonPROPKA3ConsistentTreatment2011]]) |
+| $\Delta\text{p}K_{\text{desolv},i}$ | desolvation contribution to the pKa shift of site i (PROPKA term) | — | [[pKa shift]] | — |
 | $\Sigma$ | covariance matrix of the observation errors across peptides | — | [[error covariance]] | — |
+| $\alpha_i$ | protonated fraction of titratable site i at a given pH | — | [[pKa]] | — |
 | $\beta_C$ | BV coefficient for heavy-atom contacts | — | [[Best–Vendruscolo model]] | — |
 | $\beta_H$ | BV coefficient for amide hydrogen bonds | — | [[Best–Vendruscolo model]] | — |
 | $\chi^2$ | sum of squared residuals, each divided by its error variance | — | [[regularisation]] | $\chi^2$ ([[@bmsb2012ch13]]) |
@@ -89,6 +95,10 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $n_\text{exp}(\xi)$ | count of xi expected in the reference state | — | [[knowledge-based potential]] | $n_\text{exp}$ ([[@bmsb2012ch3]]) |
 | $n_\text{obs}(\xi)$ | observed count of xi in a structure database | — | [[knowledge-based potential]] | $n_\text{obs}$ ([[@bmsb2012ch3]]) |
 | $p(s^\text{exp} \mid \mathcal{M})$ | evidence (marginal likelihood) of model M | — | [[Bayes' theorem]] | — |
+| $\text{pD}$ | acidity of a D2O solution, -log10 of the deuterium-ion activity | — | [[intrinsic exchange rate]] | pD ([[@glasoeUseGlassElectrodes1960]]) |
+| $\text{pH}_\text{read}$ | reading of a glass electrode calibrated in H2O and placed in a D2O solution | — | [[intrinsic exchange rate]] | pH meter reading ([[@glasoeUseGlassElectrodes1960]]) |
+| $\text{p}K_{a,i}$ | pKa of titratable site i: the pH at which the site is half protonated | — | [[pKa]] | $\text{p}K_{a,i}^\text{Protein}$ ([[@olssonPROPKA3ConsistentTreatment2011]]) |
+| $\text{p}K_{a,\text{model}}$ | model-compound pKa of a titratable group, measured in an unstructured peptide | — | [[pKa]] | $\text{p}K_{a,i}^\text{Water}$ ([[@olssonPROPKA3ConsistentTreatment2011]]), pK ([[@thurlkillPKValuesIonizable2006]]) |
 | $p_\text{model}(x)$ | probability density over conformations defined by a statistical or learned model | — | [[statistical potential]] | — |
 | $q_i(j)$ | BV feature (predicted ln protection) of residue i in conformer j | — | [[Best–Vendruscolo model]] | — |
 | $r_t$ | vector of residuals between predicted and measured peptide uptake at labelling time t | — | [[error covariance]] | — |

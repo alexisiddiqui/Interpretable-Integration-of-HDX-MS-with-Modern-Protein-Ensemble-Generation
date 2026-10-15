@@ -213,30 +213,36 @@ Grounding concepts (from BMSB): [[posterior uncertainty]]; [[regularisation]], w
 
 ## 2.5 Protein Protonation and pH-Dependent Properties
 
-Short section, two to three pages. [[prion protein|MoPrP]] carries it. The jaxENT HDX-MS data for its partially unfolded forms were taken at pD 4 ([[@moulickPartiallyUnfoldedForms2015]]), and Chapter 5 simulates MoPrP at pH 4 and pH 7. Both depend on which groups are protonated, which is what this section supplies. The computational titration models (PROPKA, PypKa, constant-pH MD, pKAI, KaML) are introduced in the Chapter 6 preface, not here.
-
-Nothing below exists in the KB yet. Concepts and claims are listed as text until written, and the papers are in `kb/inbox/2026-10-14 pKa background (2.5).bib` waiting for Zotero import and seeding. The keys there are provisional, and Better BibTeX may change them.
+Short section, two to three pages. [[prion protein|MoPrP]] carries it. The jaxENT HDX-MS data for its partially unfolded forms were taken at pD 4 ([[@moulickPartiallyUnfoldedForms2015]]), and Chapter 5 simulates MoPrP at pH 4 and pH 7. Both depend on which groups are protonated, which is what this section supplies. The computational titration models (PROPKA, PypKa, constant-pH MD, pKAI, KaML) are introduced in the Chapter 6 preface ([[06-jax-ka]]), not here.
 
 ### Acid–Base Equilibria and Protein Charge
-- Concept to write: **pKa**, with the Henderson–Hasselbalch equation for the protonated fraction of one site and net charge as a sum over sites. Declare $\text{p}K_a$ in the same style as $\text{p}K_W$ in [[intrinsic exchange rate]]. Model-compound values from Thurlkill et al. 2006 (`thurlkillPKValuesIonizable2006`).
-- Open on MoPrP. Lowering the pH from 7 to 4 crosses the model pKa of His (about 6.5) and approaches those of Asp and Glu (about 3.7 to 4.3), so His becomes protonated, Asp and Glu partly protonated, and the net charge more positive. Claim to write (inferred from the model pKa values).
-- Linkage. A group whose pKa differs between two states makes the equilibrium between those states pH-dependent. Yang & Honig 1993 for folding stability (`yangPHDependenceProtein1993`); Onufriev & Alexov 2013 for binding (optional, `onufrievProtonationPKChanges2013`), which is the readout ch. 6 uses.
-- Prion protein at acidic pH, one paragraph. Mouse PrP(121–231) populates a β-rich intermediate only at acidic pH, significantly at pH 4.0 (Hornemann & Glockshuber 1998, `hornemannScrapielikeUnfoldingIntermediate1998`). Protonation of H186 or D201 drives MoPrP misfolding, and HDX-MS shows helix 1 and the α1–β2 loop become more dynamic (Singh & Udgaonkar 2016, `singhUnravelingMolecularMechanism2016`). Optional: Moulick et al. 2019 for the pH 7 against pH 4 landscape (`moulickRuggednessFreeEnergy2019`); Malevanets et al. 2017 for a buried His pKa of about 5 in hamster and rabbit PrP. Use mouse numbering (H186 = human H187).
-- HDX link, back-referring to §2.1 rather than repeating it. The intrinsic rate depends on pH ([[intrinsic exchange rate]]), and His, Asp and Glu neighbours need separate rate constants for their protonated and unprotonated forms ([[@baiPrimaryStructureEffects1993#^c5]]), so at pD 4 the neighbour factors themselves change. pD is a glass-electrode reading plus 0.4 (Glasoe & Long 1960, `glasoeUseGlassElectrodes1960`); D₂O isotope effects from Connelly et al. 1993 (`connellyIsotopeEffectsPeptide1993`).
-- **decision**: whether the pD correction and the ionisable-neighbour factors belong here or in §2.1 Intrinsic Exchange Rates. Recommended: §2.1 states them and §2.5 points back.
+- Open on [[pKa]]: the Henderson–Hasselbalch protonated fraction [[pKa#^eq-hh]] and net charge [[pKa#^eq-net-charge]], with model-compound values from alanine pentapeptides.
+- MoPrP framing. Lowering the pH from 7 to 4 crosses the model pKa of His and approaches those of Asp and Glu.
+  - [[Between pH 7 and pH 4, His side chains become protonated and Asp and Glu partly protonated, so a protein's net charge becomes more positive.]] (supported, inferred)
+- Linkage, which is why charge changes alter stability and binding.
+  - [[A group whose pKa differs between two states makes the equilibrium between those states pH-dependent.]] (supported)
+- The prion protein at acidic pH, one paragraph. Use mouse numbering (H186 = human H187).
+  - [[Mouse PrP(121–231) populates a β-rich intermediate only at acidic pH, substantially at pH 4.]] (draft; no PDF)
+  - [[Protonation of H186 or D201 drives MoPrP misfolding, and HDX-MS shows helix 1 and the α1–β2 loop become more dynamic.]] (supported)
+  - Optional: MoPrP folds and unfolds by one pathway at pH 7 and by distinct pathways at pH 4 ([[@moulickRuggednessFreeEnergy2019#^c1]]); Malevanets et al. 2017 for a buried His pKa near 5 ([[@malevanetsInterplayBuriedHistidine2017]]).
+- HDX link, pointing back to §2.1 rather than repeating it ([[intrinsic exchange rate#^eq-pd]] for pD; ionisable neighbours in the same note).
+  - [[His, Asp and Glu neighbours change intrinsic exchange rates with pH through their own ionisation.]] (supported)
+- **decision** (recommended, applied in the KB): the pD correction and the ionisable-neighbour factors are stated in §2.1 Intrinsic Exchange Rates, and §2.5 points back.
 
 ### Structural Influences on pKa
-- Concept to write: **pKa shift**, with PROPKA's decomposition as the one light equation, pKa = model pKa + desolvation + hydrogen-bond + Coulomb terms (Olsson et al. 2011, `olssonPROPKA3ConsistentTreatment2011`; Li et al. 2005 for the origin). The equation is vocabulary for the determinants here; PROPKA as a method is introduced in ch. 6.
-- Claims to write:
-  - Most measured pKa values in folded proteins lie close to model values, and large shifts occur mainly for buried or interacting groups (Grimsley et al. 2009, `grimsleySummaryMeasuredPK2009`; optional extreme case, Isom et al. 2011, buried Lys).
-  - Standard molecular dynamics assigns one protonation state per residue for the whole run, so it cannot represent titration during the simulation; constant-pH MD lets states change (Martins de Oliveira et al. 2022, already in Zotero as `deoliveiraConstantPHMolecular2022`).
-  - For PrP, constant-pH MD at low pH populates a β-rich form in which His187 protonation separates the subdomains (Campos et al. 2010, optional, human PrP).
-- Close on the hand-off. Our own ensembles were protonated once, at pH 7 (ValDX, pdb2gmx, `6_methods_omc.tex` L194) and pH 7.4 (jaxENT, propka, `protocols.tex` L98), and the pD 4 MoPrP fit used structures with no pH-specific protonation. A pH 4 ensemble is only as good as the states assigned, which is the question Chapter 6 takes up.
-- Optional, cut first if space is short: coupled sites and titration that does not follow Henderson–Hasselbalch (Onufriev, Case & Ullmann 2001; Ullmann 2003).
+- [[pKa shift]], with PROPKA's decomposition as the one light equation [[pKa shift#^eq-propka]]. The equation is vocabulary for the determinants; PROPKA as a method is in the ch. 6 preface.
+  - [[Most measured pKa values in folded proteins lie close to model-compound values, and large shifts occur for buried or interacting groups.]] (draft)
+- Consequence for simulation.
+  - [[Standard molecular dynamics fixes one protonation state per titratable residue for the whole run, while constant-pH MD lets protonation states change.]] (supported)
+  - [[Constant-pH MD of human PrP at low pH populates a β-rich form in which His187 protonation separates the subdomains.]] (draft, optional; the β-rich form was at pH 2)
+- Close on the hand-off to Chapter 6.
+  - [[Our candidate ensembles were protonated once at pH 7 or 7.4, so a pH 4 ensemble depends on protonation states that were not assigned for pH 4.]] (draft, inferred)
+- Optional, cut first if space is short: coupled sites and titration that does not follow Henderson–Hasselbalch (Onufriev, Case & Ullmann 2001; Ullmann 2003; not seeded).
 
 ## Gaps (Chapter 2 literature)
-- §2.5: import `kb/inbox/2026-10-14 pKa background (2.5).bib` into Zotero, re-export, seed the required set (Thurlkill 2006, Grimsley 2009, Yang & Honig 1993, Olsson 2011, Glasoe & Long 1960, Connelly 1993, Hornemann & Glockshuber 1998, Singh & Udgaonkar 2016), then write the pKa and pKa-shift concepts. Bai 1993 and Nguyen 2018 are in Zotero only as webpage snapshots and need proper article entries. Several of these have no open-access PDF (Yang & Honig, Glasoe & Long, Connelly, Olsson), so they will need institutional copies in `kb/_pdf/`.
-- Ch. 6 preface papers are in `kb/inbox/2026-10-14 pKa chapter 6 preface.bib`. The required set: PROPKA (Li 2005, Olsson 2011, Søndergaard 2011), PypKa (2020) and the PypKa server (2024), pKAI/pKAI+ (Reis et al. 2022), KaML with PKAD-3 (Shen et al. 2025), PKAD and PKAD-R, pKPDB, PINDER (bioRxiv only), Stanton & Houk 2008 for the null model, and the architecture sources (Vaswani 2017, Ingraham 2019, Schlichtkrull 2018, Jumper 2021, Bromley 1993, Atilgan 2001).
+- §2.5 and ch. 6 papers are seeded (32 notes). Still without a PDF: Hornemann 1998 (needed for its §2.5 claim), Nguyen 2018, and the ch. 6 papers Søndergaard 2011, PypKa server 2024, pKAI 2022, KaML 2025, PKAD, PKAD-R and PINDER. When a PDF lands in `kb/_pdf/@<key>.pdf`, set `pdf`, `extraction: auto` and `needs_review: false` in the note and add blocks. Yang & Honig 1993 is an OCR'd scan, so check its quotes against the page.
+- `baiPrimaryStructureEffects1993` is duplicated in Zotero (two items, one key); merge them.
+- ValDX `2_hdx_theory_omc.tex` L5 cites Nguyen 2018 as the webpage snapshot `ReferenceParametersProtein`; re-key to `nguyenReferenceParametersProtein2018` when adapting into ch. 3 and retire `kb/papers/@ReferenceParametersProtein.md`.
 - The jaxENT SI (`si_figures.tex` L225) cites `wuConformationalHeterogeneitySavinase2020` for "Nguyen et al." reference parameters; the correct paper is Nguyen, Mayne, Phillips & Englander 2018 (JASMS 29:1936).
 - No published pH 4 against pH 7 simulation of mouse PrP was found (human and bovine only), so the Chapter 5 MoPrP runs would be the first mouse-specific comparison. Check again before claiming it.
 - Two general sources for layer 1b of §2.4: a statistical-learning text (Hastie, Tibshirani and Friedman, ch. 7 for selection and §8.7 for bagging) and Roberts et al. 2017 on validation with dependent observations. Four draft claims wait on them. Optional: Breiman 1996, Cawley and Talbot 2010, Maity 2005 for the foldon term, MDRefine and DynaXL as held-out-restraint comparators.

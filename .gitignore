@@ -252,3 +252,6 @@ kb/.cache/
 /tools/thesis-map/tests/test-results/
 
 
+
+# Better BibTeX auto-export of the whole Zotero library (seeder input, local only)
+/thesis/zotero_auto.bib

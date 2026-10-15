@@ -64,6 +64,11 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote: "We inference the five trained models and use the predicted confidence score to select the best model per target"
   - quote_check: pass
   - reviewed: false
+- The structure module represents each residue's backbone as an independent rotation and translation (the "residue gas"), which encodes the geometry of its N, Cα and C atoms. ^c9
+  - page: 4
+  - quote: "independent rotations and translations, each with respect to the global frame (residue gas) (Fig. 3e). These rotations and translations—representing the geometry of the N-Cα-C"
+  - quote_check: pass
+  - reviewed: false
 
 ## What I use from it
 

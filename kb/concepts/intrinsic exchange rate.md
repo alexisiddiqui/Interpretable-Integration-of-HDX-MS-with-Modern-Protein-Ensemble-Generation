@@ -12,10 +12,15 @@ notation:
   - {symbol: 'k_\text{base}', meaning: 'second-order rate constant for base-catalysed exchange', units: 'M^-1 s^-1'}
   - {symbol: 'k_\text{water}', meaning: 'rate constant for water-catalysed exchange', units: 's^-1'}
   - {symbol: 'E_a', meaning: 'activation energy of a catalysed exchange rate constant', units: 'kcal mol^-1'}
+  - {symbol: '\text{pD}', meaning: 'acidity of a D2O solution, -log10 of the deuterium-ion activity', units: null}
+  - {symbol: '\text{pH}_\text{read}', meaning: 'reading of a glass electrode calibrated in H2O and placed in a D2O solution', units: null}
 sources:
   - "[[@baiPrimaryStructureEffects1993#^c2]]"
   - "[[@baiPrimaryStructureEffects1993#^c3]]"
   - "[[@baiPrimaryStructureEffects1993#^c4]]"
+  - "[[@baiPrimaryStructureEffects1993#^c5]]"
+  - "[[@glasoeUseGlassElectrodes1960#^c1]]"
+  - "[[@connellyIsotopeEffectsPeptide1993#^c1]]"
 ---
 
 ## Definition
@@ -42,14 +47,26 @@ $$ k(T) = k(293\,\text{K}) \exp\!\left[-\frac{E_a}{R}\left(\frac{1}{T} - \frac{1
 Source: [[@baiPrimaryStructureEffects1993#^c4]], Eq. (3), p. 8. Eq. (3) is an image in the PDF, so this is the standard Arrhenius form; check it against the page. Bai recommends $E_a$ = 14, 17 and 19 kcal mol⁻¹ for $k_\text{acid}$, $k_\text{base}$ and $k_\text{water}$ (below Table III). The reference temperature of 20 °C is from the same page.
 Manuscript form: none. **Gap:** no manuscript applies a temperature correction.
 
+$$ \text{pD} = \text{pH}_\text{read} + 0.40 $$
+^eq-pd
+
+Source: [[@glasoeUseGlassElectrodes1960#^c1]]. HDX labelling is done in D₂O, so the "pD 4" of the MoPrP data (jaxENT) is a corrected glass-electrode reading. Whether the reported value is $\text{pH}_\text{read}$ or pD changes the intrinsic rates by a factor of about 2.5 in the base-catalysed regime (step ours, from Eq. ^eq-kint-sequence).
+Manuscript form: none. jaxENT computes intrinsic rates "at pD 4" (`protocols.tex` L185) without saying whether the correction was applied.
+
+### Ionisable neighbours
+
+His, Asp and Glu neighbours need separate rate constants for their protonated and unprotonated forms, so their side-chain factors themselves depend on pH around the side-chain pKa ([[@baiPrimaryStructureEffects1993#^c5]]; pKa,read in D₂O at 5 °C: His 7.02, Glu 4.53, Asp 4.08). Between pD 7 and pD 4 every His neighbour and part of the Asp and Glu neighbours change form, so a single factor per residue type is wrong across that range. Exchange rate constants also differ between H₂O and D₂O ([[@connellyIsotopeEffectsPeptide1993#^c1]]).
+
 ## Assumptions and limits
 
 - The reference rates are for unstructured peptides in low salt. Real disordered regions may deviate.
 - Side-chain effects are assumed additive between nearest neighbours.
-- Bai et al. treat D₂O/H₂O isotope effects in the companion paper, which is not yet in the KB.
+- D₂O/H₂O isotope effects are treated by Connelly et al. ([[@connellyIsotopeEffectsPeptide1993]]), the companion paper. Updated reference parameters are in Nguyen et al. 2018 ([[@nguyenReferenceParametersProtein2018]]).
 
 ## Why it matters here
 
 $k_{\text{int},i}$ is the reference against which every [[protection factor]] is measured, and it enters every [[deuterium uptake]] prediction. An error here propagates to every residue regardless of the structural ensemble. This is one reason forward-model error and ensemble error are hard to separate.
 
-Claims that use this term: [[Amide exchange rates depend on intrinsic chemistry and on local protection from hydrogen bonding, burial and transient opening.]].
+The pH dependence links this concept to [[pKa]]: §2.5 points back here for the pD correction and the ionisable neighbours, rather than repeating them.
+
+Claims that use this term: [[Amide exchange rates depend on intrinsic chemistry and on local protection from hydrogen bonding, burial and transient opening.]], [[His, Asp and Glu neighbours change intrinsic exchange rates with pH through their own ionisation.]].
