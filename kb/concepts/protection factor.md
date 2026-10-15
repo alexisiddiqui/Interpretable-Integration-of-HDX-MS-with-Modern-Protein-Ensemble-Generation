@@ -13,6 +13,8 @@ sources:
   - "[[@skinnerProteinHydrogenExchange2012#^c6]]"
   - "[[@baiPrimaryStructureEffects1993#^c1]]"
   - "[[@bestStructuralInterpretationHydrogen2006#^c1]]"
+  - "[[@smithProbingNoncovalentStructure1997#^c1]]"
+  - "[[@vendruscoloRareFluctuationsNative2003#^c2]]"
 ---
 
 ## Definition
@@ -24,13 +26,13 @@ A protection factor is the ratio of the [[intrinsic exchange rate]] of an amide 
 $$ P_{f,i} = \frac{k_{\text{int},i}}{k_{\text{obs},i}} $$
 ^eq-pf
 
-Source: [[@skinnerProteinHydrogenExchange2012#^c4]], Eq. (3), p. 8; [[@baiPrimaryStructureEffects1993#^c1]], p. 1 (as $P = k_\text{rc}/k_\text{prot}$).
+Source: [[@skinnerProteinHydrogenExchange2012#^c4]], Eq. (3), p. 8; [[@baiPrimaryStructureEffects1993#^c1]], p. 1 (as $P = k_\text{rc}/k_\text{prot}$); [[@smithProbingNoncovalentStructure1997#^c1]] (the definition ValDX `2_hdx_theory_omc.tex` L5 cites).
 Manuscript form: projects/1-ValDX/manuscript/report/2_hdx_theory_omc.tex#L5; jaxENT_paper1/report/methods/HDX.tex#L37 (writes $P_f$); projects/2-jaxENT/manuscript/report/methods/HDX.tex#L19 (writes $\text{PF}_i$).
 
 $$ \text{EX2:}\quad P_{f,i} = \frac{1}{K_\text{op}} \qquad \Delta G_\text{op} = -RT \ln K_\text{op} = RT \ln P_{f,i} $$
 ^eq-dgop
 
-Source: [[@skinnerProteinHydrogenExchange2012#^c4]] ($P_f = (K_\text{op}+1)/K_\text{op}$, Eq. 3, p. 8, which reduces to $1/K_\text{op}$ when $K_\text{op} \ll 1$); [[@skinnerProteinHydrogenExchange2012#^c6]] ($\Delta G_\text{op}$, p. 3).
+Source: [[@vendruscoloRareFluctuationsNative2003#^c2]] ($\Delta G = RT \ln P$ under EX2, the reference ValDX L7 should use for this step); [[@skinnerProteinHydrogenExchange2012#^c4]] ($P_f = (K_\text{op}+1)/K_\text{op}$, Eq. 3, p. 8, which reduces to $1/K_\text{op}$ when $K_\text{op} \ll 1$); [[@skinnerProteinHydrogenExchange2012#^c6]] ($\Delta G_\text{op}$, p. 3).
 Manuscript form: 2_hdx_theory_omc.tex#L11 (writes $\Delta G_\text{open} \approx RT\ln P_f$, with 5.7 kJ mol⁻¹ per tenfold at 300 K); jaxENT_paper1/report/methods/HDX.tex#L37 (writes $k_BT\log P_f$, per molecule). Canonical: $RT \ln$, per mole ([[2026-10-13 canonical HDX and ensemble notation]]).
 
 ## Derivation

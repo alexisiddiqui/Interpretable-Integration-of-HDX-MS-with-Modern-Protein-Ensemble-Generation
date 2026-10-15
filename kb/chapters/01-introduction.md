@@ -117,7 +117,7 @@ Why [[population shift|conformational populations]] matter for function and dise
 - **No claim yet** for the jaxENT synthesis: "Protein conformational dynamics govern biological function and modulate disease-associated conformational states, necessitating their representation as diverse structural ensembles rather than single static models" (`projects/2-jaxENT/manuscript/report/introduction.tex` ¶1). Two of its citations are not yet in `thesis/references.bib` or `kb/papers/`: `moulickPartiallyUnfoldedForms2015` and `bonomiPrinciplesProteinStructural2017`.
 - **No claim for IGPS.** Group C cites Lisi ^c7 through the [[allostery]] concept. Write a claim note once the block is reviewed.
 - **Folding theory has no primary sources in the KB.** There are no notes for Anfinsen, Levinthal, Bryngelson and Wolynes (1987) or Onuchic et al. (1997), so groups A and B rest on Galpern and Parra.
-- **Stubs without PDFs** that would strengthen A to C: [[@vendruscoloRareFluctuationsNative2003]] (rare native fluctuations) and [[@kimHydrogenExchangeIdentifies1993]] (native-state motional domains). Add `kb/_pdf/@<citekey>.pdf` for each.
+- **Now with PDFs and blocks**, available to strengthen A to C: [[@vendruscoloRareFluctuationsNative2003]] (rare native fluctuations, ^c1 and ^c7) and [[@kimHydrogenExchangeIdentifies1993]] (native-state motional domains, ^c1).
 - **Primary sources behind Parra-level claims**, to import into Zotero:
   - Ferreiro et al. 2007 and 2011
   - Freiberger et al. 2019

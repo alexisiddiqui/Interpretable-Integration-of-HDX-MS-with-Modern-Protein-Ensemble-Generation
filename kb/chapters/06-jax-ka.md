@@ -12,15 +12,15 @@ Markers:
 
 Argument: the methods form a ladder of cost against physical detail, and jax-Ka sits at the fast end while being trained on a slower method. The preface ends on what that means for how jax-Ka can be assessed.
 
-- **Empirical.** PROPKA estimates the [[pKa shift]] as a sum of desolvation, hydrogen-bond and charge–charge terms from one structure, in seconds ([[@liVeryFastEmpirical2005#^c1]]; PROPKA3, [[@olssonPROPKA3ConsistentTreatment2011#^c1]]; ligands and coupling, Søndergaard et al. 2011, [[@sondergaardImprovedTreatmentLigands2011]], no PDF). The earlier jaxpropka surrogate in the jax-Ka repository is a PROPKA-parameterised mean-field model (`docs/MODEL.md`); one sentence at most.
+- **Empirical.** PROPKA estimates the [[pKa shift]] as a sum of desolvation, hydrogen-bond and charge–charge terms from one structure, in seconds ([[@liVeryFastEmpirical2005#^c1]]; PROPKA3, [[@olssonPROPKA3ConsistentTreatment2011#^c1]]; ligands and coupled residues in PROPKA 3.1, [[@sondergaardImprovedTreatmentLigands2011#^c1]], [[@sondergaardImprovedTreatmentLigands2011#^c2]]). The earlier jaxpropka surrogate in the jax-Ka repository is a PROPKA-parameterised mean-field model (`docs/MODEL.md`); one sentence at most.
 - **Poisson–Boltzmann with Monte Carlo.** Continuum electrostatics for the state energies, sampled over protonation states.
   - [[PypKa computes protein pKa values with Poisson–Boltzmann electrostatics and Monte Carlo sampling of protonation states.]]
-  - The PypKa server and its precomputed PDB and AlphaFold DB values ([[@reisPypKaServerOnline2024]], no PDF). Historical anchors if wanted: Bashford & Karplus 1990, Yang et al. 1993, MCCE (not seeded).
+  - The PypKa server precomputes values for over 200,000 PDB and AlphaFold DB structures ([[@reisPypKaServerOnline2024#^c2]]) and falls back to pKAI above 1,500 residues ([[@reisPypKaServerOnline2024#^c4]]). Historical anchors if wanted: Bashford & Karplus 1990, Yang et al. 1993, MCCE (not seeded).
 - **Constant-pH MD.** Protonation and conformation sampled together; the reference that fixed-protonation MD approximates ([[Standard molecular dynamics fixes one protonation state per titratable residue for the whole run, while constant-pH MD lets protonation states change.]]). Cost limits it to single proteins.
-- **Machine-learned predictors.** pKAI and pKAI+ predict pKas from the residue environment with a small network ([[@reisFastInterpretableDeep2022]], no PDF; check their training data before writing); KaML uses tree models and a graph attention network and introduces PKAD-3 ([[@shenKaMLsPredictingProtein2025]], no PDF).
+- **Machine-learned predictors.** pKAI is a three-layer network on the N, O and S atoms within 15 Å, trained on PypKa shifts ([[@reisFastInterpretableDeep2022#^c1]], [[@reisFastInterpretableDeep2022#^c2]]); pKAI+ adds a penalty on large shifts and uses the same theoretical data ([[@reisFastInterpretableDeep2022#^c3]]). KaML uses a CatBoost tree model and the first graph attention network for protein pKa, with trees ahead ([[@shenKaMLsPredictingProtein2025#^c1]], [[@shenKaMLsPredictingProtein2025#^c3]]), and introduces PKAD-3: 1,167 pKas in 247 proteins ([[@shenKaMLsPredictingProtein2025#^c2]]).
 - **Data.** Training labels are computed; experiment enters at validation.
   - [[pKPDB holds PypKa pKa estimates for structures across the PDB, so a model trained on it learns PypKa's pKas, not experimental ones.]]
-  - PINDER supplies bound and unbound complexes ([[@kovtunPINDERProteinInteraction2024]], no PDF). Experimental sets: PKAD ([[@pahariPKADDatabaseExperimentally2019]]), PKAD-R ([[@chenPKADRCuratedRedesigned2025]]) and PKAD-3 (in KaML); none has a PDF yet.
+  - PINDER supplies about 2.3 million dimers with holo, apo and predicted structures and interface-clustered splits ([[@kovtunPINDERProteinInteraction2024#^c1]], [[@kovtunPINDERProteinInteraction2024#^c2]], [[@kovtunPINDERProteinInteraction2024#^c3]]). jax-Ka's free state is partner removal at the bound conformation, not PINDER's apo structures. Experimental sets: PKAD, 1,350 wild-type and 232 mutant residues ([[@pahariPKADDatabaseExperimentally2019#^c2]]); PKAD-R, its curated successor ([[@chenPKADRCuratedRedesigned2025#^c1]], [[@chenPKADRCuratedRedesigned2025#^c3]]); PKAD-3 (in KaML).
 - **Assessment.** Overall error rewards predicting no shift.
   - [[A null model that assigns model-compound pKa values is hard to beat on experimental protein pKas.]]
 - **Architecture.** Attention over a protein graph, in local frames, with relation types.
@@ -30,7 +30,6 @@ Argument: the methods form a ladder of cost against physical detail, and jax-Ka 
   - Shared-weight bound and free branches ([[@bromleySignatureVerificationUsing1993#^c1]]); ANM perturbations for augmentation ([[@atilganAnisotropyFluctuationDynamics2001#^c1]]).
 - Close on the hand-off to the research sections: jax-Ka is a fast, differentiable student of PypKa and pKAI, so its accuracy is bounded by theirs on the training distribution and is measured against experiment only on PKAD-R and PKAD-3.
 
-- **gap**: PDFs for Søndergaard 2011, PypKa server 2024, pKAI 2022, KaML 2025, PKAD, PKAD-R and PINDER, so their blocks can be added.
 
 ## Detail moved from §1.7
 

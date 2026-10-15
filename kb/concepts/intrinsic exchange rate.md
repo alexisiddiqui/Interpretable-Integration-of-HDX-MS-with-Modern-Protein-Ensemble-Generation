@@ -21,6 +21,9 @@ sources:
   - "[[@baiPrimaryStructureEffects1993#^c5]]"
   - "[[@glasoeUseGlassElectrodes1960#^c1]]"
   - "[[@connellyIsotopeEffectsPeptide1993#^c1]]"
+  - "[[@connellyIsotopeEffectsPeptide1993#^c2]]"
+  - "[[@nguyenReferenceParametersProtein2018#^c1]]"
+  - "[[@nguyenReferenceParametersProtein2018#^c2]]"
 ---
 
 ## Definition
@@ -50,7 +53,7 @@ Manuscript form: none. **Gap:** no manuscript applies a temperature correction.
 $$ \text{pD} = \text{pH}_\text{read} + 0.40 $$
 ^eq-pd
 
-Source: [[@glasoeUseGlassElectrodes1960#^c1]]. HDX labelling is done in D₂O, so the "pD 4" of the MoPrP data (jaxENT) is a corrected glass-electrode reading. Whether the reported value is $\text{pH}_\text{read}$ or pD changes the intrinsic rates by a factor of about 2.5 in the base-catalysed regime (step ours, from Eq. ^eq-kint-sequence).
+Source: [[@glasoeUseGlassElectrodes1960#^c1]]; used for HX by Connelly et al. ([[@connellyIsotopeEffectsPeptide1993#^c2]]). Nguyen et al. give +0.36 instead of +0.40 for 90% D₂O ([[@nguyenReferenceParametersProtein2018#^c2]]), so the offset depends on the D₂O fraction of the labelling buffer. HDX labelling is done in D₂O, so the "pD 4" of the MoPrP data (jaxENT) is a corrected glass-electrode reading. Whether the reported value is $\text{pH}_\text{read}$ or pD changes the intrinsic rates by a factor of about 2.5 in the base-catalysed regime (step ours, from Eq. ^eq-kint-sequence).
 Manuscript form: none. jaxENT computes intrinsic rates "at pD 4" (`protocols.tex` L185) without saying whether the correction was applied.
 
 ### Ionisable neighbours
@@ -61,7 +64,7 @@ His, Asp and Glu neighbours need separate rate constants for their protonated an
 
 - The reference rates are for unstructured peptides in low salt. Real disordered regions may deviate.
 - Side-chain effects are assumed additive between nearest neighbours.
-- D₂O/H₂O isotope effects are treated by Connelly et al. ([[@connellyIsotopeEffectsPeptide1993]]), the companion paper. Updated reference parameters are in Nguyen et al. 2018 ([[@nguyenReferenceParametersProtein2018]]).
+- D₂O/H₂O isotope effects are treated by Connelly et al. ([[@connellyIsotopeEffectsPeptide1993]]), the companion paper. Nguyen et al. 2018 raise the Ala–Ala reference rate by a factor of 1.35 relative to Bai and Connelly ([[@nguyenReferenceParametersProtein2018#^c1]]).
 
 ## Why it matters here
 

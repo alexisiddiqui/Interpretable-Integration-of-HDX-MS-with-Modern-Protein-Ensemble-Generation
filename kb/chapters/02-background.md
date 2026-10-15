@@ -222,7 +222,7 @@ Short section, two to three pages. [[prion protein|MoPrP]] carries it. The jaxEN
 - Linkage, which is why charge changes alter stability and binding.
   - [[A group whose pKa differs between two states makes the equilibrium between those states pH-dependent.]] (supported)
 - The prion protein at acidic pH, one paragraph. Use mouse numbering (H186 = human H187).
-  - [[Mouse PrP(121–231) populates a β-rich intermediate only at acidic pH, substantially at pH 4.]] (draft; no PDF)
+  - [[Mouse PrP(121–231) populates a β-rich intermediate only at acidic pH, and urea is needed to populate it substantially.]] (supported)
   - [[Protonation of H186 or D201 drives MoPrP misfolding, and HDX-MS shows helix 1 and the α1–β2 loop become more dynamic.]] (supported)
   - Optional: MoPrP folds and unfolds by one pathway at pH 7 and by distinct pathways at pH 4 ([[@moulickRuggednessFreeEnergy2019#^c1]]); Malevanets et al. 2017 for a buried His pKa near 5 ([[@malevanetsInterplayBuriedHistidine2017]]).
 - HDX link, pointing back to §2.1 rather than repeating it ([[intrinsic exchange rate#^eq-pd]] for pD; ionisable neighbours in the same note).
@@ -240,7 +240,9 @@ Short section, two to three pages. [[prion protein|MoPrP]] carries it. The jaxEN
 - Optional, cut first if space is short: coupled sites and titration that does not follow Henderson–Hasselbalch (Onufriev, Case & Ullmann 2001; Ullmann 2003; not seeded).
 
 ## Gaps (Chapter 2 literature)
-- §2.5 and ch. 6 papers are seeded (32 notes). Still without a PDF: Hornemann 1998 (needed for its §2.5 claim), Nguyen 2018, and the ch. 6 papers Søndergaard 2011, PypKa server 2024, pKAI 2022, KaML 2025, PKAD, PKAD-R and PINDER. When a PDF lands in `kb/_pdf/@<key>.pdf`, set `pdf`, `extraction: auto` and `needs_review: false` in the note and add blocks. Yang & Honig 1993 is an OCR'd scan, so check its quotes against the page.
+- §2.5 and ch. 6 papers all have PDFs and blocks. Yang & Honig 1993 and Hvidt 1954 are OCR text, so check their quotes against the page.
+- ValDX `2_hdx_theory_omc.tex` L7 cites Kim, Fuchs & Woodward 1993 for "the protection factor reports on the free energy of local unfolding"; Kim does not say this (no protection factors, no EX2). Cite Vendruscolo et al. 2003 (^c2) instead.
+- `vendruscoloRareFluctuationsNative2003` has two Zotero duplicates (`…2003a`, `…2003b`); merge them.
 - `baiPrimaryStructureEffects1993` is duplicated in Zotero (two items, one key); merge them.
 - ValDX `2_hdx_theory_omc.tex` L5 cites Nguyen 2018 as the webpage snapshot `ReferenceParametersProtein`; re-key to `nguyenReferenceParametersProtein2018` when adapting into ch. 3 and retire `kb/papers/@ReferenceParametersProtein.md`.
 - The jaxENT SI (`si_figures.tex` L225) cites `wuConformationalHeterogeneitySavinase2020` for "Nguyen et al." reference parameters; the correct paper is Nguyen, Mayne, Phillips & Englander 2018 (JASMS 29:1936).
