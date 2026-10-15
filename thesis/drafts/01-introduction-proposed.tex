@@ -1,0 +1,256 @@
+% Proposed chapter for review. This file is not included by thesis/main.tex.
+% Drafted from kb/chapters/01-introduction.md and the complete claim notes.
+% Source comments retain manuscript provenance where no posted version exists.
+% Visible [citation needed] markers preserve the hub's unresolved citations.
+
+\chapter{Introduction}
+\label{ch:introduction}
+
+\section{Proteins as Dynamic Ensembles}
+\label{sec:intro-ensembles}
+
+% KB claims: Proteins are linear polymers...; The rigid view of proteins...;
+% Even a folded protein is an ensemble of structures...
+Proteins are polypeptide chains whose sequences spontaneously fold into structures that give rise to functional behaviour. Even when folded, a protein occupies an ensemble of conformations, with motions spanning picoseconds to days.\cite{parraFrustrationPhysiologyMolecular2025,sapienzaUsingNMRStudy2010} These motions allow proteins to bind partners, catalyse reactions and respond to changes in their environment.\cite{karplusMolecularDynamicsSimulations2002} Understanding how a protein functions therefore requires knowing which conformations it occupies, how their populations change and how it moves between them.
+
+% KB claims: Folding poses an entropic search problem...; Folding is possible...
+% Galpern information-theoretic argument used only for the folding/function distinction.
+Folding constrains this conformational freedom. The number of arrangements available to a polypeptide makes an exhaustive search for its native structure impractical, yet many proteins fold rapidly under appropriate conditions. Energy landscape theory explains this behaviour through minimal frustration, whereby the interactions stabilising the native fold are sufficiently compatible to produce a rough, funnel-shaped landscape.\cite{parraFrustrationPhysiologyMolecular2025} Evolved sequences appear to carry just enough information to solve this entropic search, however, solving this does specify all the information required for function.\cite{galpernInformationtheoreticArgumentRestriction2026}
+
+% KB claims: Leveraging large structure and sequence corpora...;
+% AlphaFold2 can predict individual domains accurately...; Native-state hydrogen exchange...
+In order to build structural hypotheses of functionality, we rely on experimental and computational methods. X-ray crystallography, cryo-electron microscopy (cryo-EM) and nuclear magnetic resonance (NMR) provide high-resolution structures of proteins,\supercite{maveyraudProteinXrayCrystallography2020,baiHowCryoEMRevolutionizing2015,jamesAdvancesHydrogenDeuterium2022} and structure predictors trained on large sequence and structure corpora now predict structures rapidly and with high accuracy.\supercite{varadiAlphaFoldProteinStructure2022} Accurate elucidation of the native structure does not establish the populations of alternative conformations. Acurate domain structures can coexist with an incomplete description of their relative motion.\cite{mccaffertyDoesAlphaFold2Model2023} 
+
+Despite substantial advancements in structural biology, the dynamics of folding remain a problem that predictors and most experiments cannot tractably resolve.\supercite{laneMillisecondsChallengesSimulation2013,wilsonAlphaFold2RoleDisordered2022,mccaffertyDoesAlphaFold2Model2023} Complicating matters, within an apparently stable folds, native-state hydrogen exchange has revealed sparsely populated, partially unfolded forms that are otherwise difficult to observe.\cite{englanderHydrogenExchangeModern1997} These states belong to the protein's accessible landscape even when its dominant structure gives little indication of them.
+
+% KB claims: Folded proteins retain a minority...; Highly frustrated sites...;
+% Function conflicts with folding...; Local frustration drives interconversion...
+
+The crux is that interactions required for function can conflict locally with those that stabilise the fold. Functional proteins retain highly frustrated contacts, often in surface patches associated with binding, catalysis and allosteric switching.\cite{parraFrustrationPhysiologyMolecular2025, lisiAllosteryEnzymeCatalysis2017} While native folding is a global pressure, additional evolutionary constraints concentrate at functional sites, where maintaining function can sacrifice stability.\cite{galpernProbingDarkEnergy2026} Local frustration can therefore support interconversion between native conformations within a globally stable protein.\cite{parraFrustrationPhysiologyMolecular2025} The relevant structural description includes how these conformations are populated.
+
+% KB concept: allostery; lisi ^c8, ^c9 and ^c7.
+% KB claim: Weighted conformational ensembles describe which states are occupied...
+Allostery shows why both populations and motions matter. Binding at one site can alter activity at another through changes in the conformational ensemble, as in the conformational-selection mechanism described for the cAMP-binding domain of protein kinase A (PKA).\cite{lisiAllosteryEnzymeCatalysis2017} In imidazole glycerol phosphate synthase, activation instead depends on millisecond motions without a large structural rearrangement.\cite{lisiAllosteryEnzymeCatalysis2017} A weighted ensemble describes which states are occupied. The order, rates and pathways of transitions between them require kinetic evidence. This distinction sets the scope of the ensemble interpretations developed in this thesis.
+
+% KB claims: Intrinsically disordered proteins require an ensemble description...;
+% Folded proteins have well-defined free-energy minima...
+At the extreme end of this axis lie intrinsically disordered proteins. For this class, an ensemble is the principal structural description. Their relatively flat free-energy landscapes permit heterogeneous conformations without a single stable fold, and long-range contacts within some ensembles may contribute to function.\cite{fisherConstructingEnsemblesIntrinsically2011} Folded and disordered proteins occupy different regions of a continuum of conformational restriction.\cite{galpernInformationtheoreticArgumentRestriction2026} In both cases, a structure becomes biologically informative through its contribution to the ensemble under the conditions in which the protein functions. Long-range communication within proteins remains poorly characterised in most biological systems.\supercite{lisiAllosteryEnzymeCatalysis2017} Understanding protein dynamics is a condition of understanding biological function, and therefore disease.
+
+% KB claims: A single mutation can leave the crystal structure unchanged...;
+% Oncogenic mutations alter conformational free-energy landscapes...;
+% Mutations create neither steric clashes nor new folds...
+
+From this lens, disease-causing dynamics can be described as a perturbation of populations. Deleterious mutations can destabilise functional states or over-stabilise states that impair function,\supercite{parraFrustrationPhysiologyMolecular2025,suttoEffectsOncogenicMutations2013} and conformational dynamics can therefore inform therapeutic strategies, from allosteric regulation to the control of aggregation.\supercite{lisiAllosteryEnzymeCatalysis2017,mukherjeeProteinMisfoldingAmyloid2024} From a structural perspective, changes in function can occur while the overall fold is preserved. In PKA, a single tyrosine mutation leaves the crystal structure, NMR chemical shifts and nucleotide binding nearly unchanged, yet strongly reduces substrate affinity.\cite{lisiAllosteryEnzymeCatalysis2017} A disease-associated example is the epidermal growth factor receptor (EGFR), for which simulations of oncogenic kinase variants reveal shifts towards active conformations. Sutto and Gervasio interpret the inhibitor-resistance mutation T790M through stabilisation of the active state, without requiring steric obstruction of the inhibitor-binding site.\cite{suttoEffectsOncogenicMutations2013} Here, the populations of familiar structures help explain behaviour that comparison of the structures alone leaves unresolved.
+
+% KB claims: Soluble alpha-synuclein adopts an autoinhibitory conformation...;
+% Disrupting alpha-synuclein's autoinhibitory conformation...
+% Hub gap: a citation for Lewy-body fibril cryo-EM structures is still required.
+Aggregation introduces a further distinction between a solved endpoint and the solution ensemble from which it forms. Cryo-electron microscopy (cryo-EM) has resolved ordered $\alpha$-synuclein fibrils from Lewy bodies. \textit{[Citation needed.]} Soluble monomeric $\alpha$-synuclein is disordered and populates multiple conformations.\cite{ahmedRefinementASynucleinEnsembles2021} Within this ensemble, N- to C-terminal contacts can protect the aggregation-prone non-amyloid-$\beta$ component (NAC) region. Disrupting this autoinhibitory conformation exposes the NAC region and is likely to lower the nucleation barrier for aggregation.\cite{mukherjeeProteinMisfoldingAmyloid2024} The structural question concerns the populations that protect or expose this region before a fibril forms.
+
+% KB claims: A familial prion-disease variant populates...;
+% Mouse PrP(121–231) populates a beta-rich intermediate...;
+% Protonation of H186 or D201 drives MoPrP misfolding...
+Prion misfolding makes the conditions governing intermediate populations explicit. Simulations restrained by experimental data reveal a more heterogeneous ensemble for the familial disease-associated T183A variant, including thermally accessible, partially misfolded states.\cite{biancanielloStructureDynamicsMisfolding2025} In the mouse prion protein domain PrP(121--231), a $\beta$-rich intermediate is populated at acidic pH, although substantial accumulation requires urea.\cite{hornemannScrapielikeUnfoldingIntermediate1998} Protonation of H186, or disruption of the R155--D201 salt bridge associated with D201 protonation, destabilises mouse prion protein (MoPrP) and accelerates misfolding.\cite{singhUnravelingMolecularMechanism2016} An ensemble proposed to explain this behaviour must therefore be assessed for the stated pH and solution conditions.
+
+% KB claims: NMR relaxation showed the central helix of calmodulin...;
+% NMR works in solution...; NMR typically needs larger samples...
+% BMSB ch12 ^c3 concerns conventional NMR structure ensembles.
+Structural methods reveal different parts of these ensembles. X-ray crystallography describes time-averaged structural features within an ordered lattice.\cite{lisiAllosteryEnzymeCatalysis2017} In calmodulin, the central helix appears rigid in the crystal structure, while NMR relaxation reveals flexibility in solution that permits the two lobes to approach one another.\cite{sapienzaUsingNMRStudy2010} The crystal structure provides a reference conformation without specifying the distribution of these motions in solution.
+
+Cryo-EM removes the requirement for a crystal and can resolve ordered assemblies at high resolution.\cite{baiHowCryoEMRevolutionizing2015} The resolved $\alpha$-synuclein fibril illustrates the structural information this provides about an aggregation endpoint. It leaves a separate question about the heterogeneous soluble ensemble and the transient states through which aggregation proceeds.
+
+NMR can probe structure and motion in solution over a wide range of timescales, although sensitivity imposes costs in sample quantity and acquisition time and constrains the systems accessible to a given experiment.\cite{klecknerIntroductionNMRbasedApproaches2011} Its structural outputs also require care in interpretation. The structures returned by conventional NMR structure calculations describe solutions to a structure-determination problem and are not, by construction, a thermodynamic ensemble.\cite{bmsb2012ch12} Sensitivity to motion in a measurement does not establish that the spread of deposited structures represents physical populations.
+
+% KB claims: HDX-MS can study many systems...; Useful ensemble generation...;
+% HDX data report on ensembles...; native-state hydrogen exchange, above.
+To obtain useful structural hypotheses about disease-related conformational populations, measurements must be sensitive to the ensemble in solution under the conditions of interest. Hydrogen--deuterium exchange mass spectrometry (HDX-MS) provides access to many systems impractical for other structural approaches.\cite{jamesAdvancesHydrogenDeuterium2022} Besides its ability to detect conformational dynamics, HDX-MS can do so at a wide range of solution conditions.\cite{skinnerProteinHydrogenExchange2012} These measurements offer a practical way to probe disease-casusing dynamics. The challenge is that HDX-MS interpretation relies on candidate structures and ensembkes This thesis examines how to integrate HDX-MS with conformational ensembles and assess the structural explanations that result.
+
+\section{Measuring Protein Dynamics}
+\label{sec:intro-measurement}
+
+% KB claims: HDX-MS measures the exchange of backbone amide hydrogens...;
+% Measuring the mass increase of peptides over time...
+HDX-MS records how backbone amide hydrogens exchange with deuterium in the solvent. A protein is exposed to deuterated solvent for a series of labelling times, and the mass increase of peptide fragments reports accumulated deuterium incorporation.\cite{massonOverviewHydrogenDeuterium2017,jamesAdvancesHydrogenDeuterium2022} The resulting uptake curves locate differences in exchange along the protein sequence, allowing comparisons between conditions, variants or binding partners.
+
+% KB claims: Amide exchange rates depend on intrinsic chemistry...;
+% His, Asp and Glu neighbours change intrinsic exchange rates...
+The exchange rate depends on both intrinsic chemistry and structural protection. For an exposed, unstructured amide, the intrinsic rate depends on its neighbouring residues, temperature and solvent acidity.\cite{baiPrimaryStructureEffects1993} Within a protein, hydrogen bonding, burial and transient opening determine whether the amide can exchange. The protection factor expresses the slowing of exchange as the intrinsic rate divided by the observed rate.\cite{skinnerProteinHydrogenExchange2012} Changes in pH can therefore affect the conformational ensemble and the exchange chemistry used to observe it. In deuterated solvent, the stated pD and temperature are part of the definition of the measurement.
+
+% KB claim: Under EX2 an amide opens and closes many times...
+% ValDX: projects/1-ValDX/manuscript/report/2_hdx_theory_omc.tex:7,9.
+Under EX2 conditions, an amide opens and closes many times before exchange occurs, so the observed rate combines its intrinsic chemistry with the fraction of time it is exchange-competent.\cite{skinnerProteinHydrogenExchange2012} A slowly exchanging amide can therefore report a rarely populated opening without that opening itself being slow. Labelling time measures accumulated exchange. Under this regime, it does not give the duration of a conformational motion.
+
+% KB claims: Millisecond HDX-MS showed tau hyperphosphorylation...;
+% Protonation of H186 or D201 drives MoPrP misfolding... (measurement half).
+Differences in uptake can identify regions whose protection changes during a biologically relevant process. Millisecond HDX-MS measurements of tau showed that hyperphosphorylation releases terminal interactions and exposes the aggregation-associated H2 hexapeptide.\cite{narangHDXMSAnalyticalTool2020} In MoPrP, HDX-MS associated perturbation of the H186 and D201 protonation states with increased dynamics in helix 1 and the loop between helix 1 and $\beta$-strand 2.\cite{singhUnravelingMolecularMechanism2016} Such comparisons identify regions that a structural explanation must account for.
+
+% KB claims: The primary benefits of HDX-MS...; HDX-MS flexibility...
+The low sample requirements and versatility of HDX-MS make these comparisons practical across different classes of protein, and do so at scale.\cite{narangHDXMSAnalyticalTool2020} Applications include ligand-dependent changes in G protein-coupled receptors,\cite{westLigandDependentPerturbationConformational2011} antibody interactions\cite{andersonHDXMSMDSimulations2022} and disordered regions.\cite{mitraEmergingRoleMass2021} HDX-MS can be performed without specialised equipment and can be readily automated. Its value lies in measuring protection under experimentally accessible solution conditions, including conditions in which a high-resolution structure is difficult to obtain.
+
+% KB claims: HDX-MS reports deuterium uptake at the peptide level...;
+% A change in HDX-MS uptake shows a change in protection...;
+% Greater deuterium uptake indicates less protection...
+For most HDX-MS experiments, the conventional readout is peptide-level uptake, averaged over the exchangeable amides within each fragment.\cite{leeInterpretingHydrogenDeuteriumExchange2021} An uptake change identifies altered protection under matched exchange conditions, but does not locate atomic positions or identify the structural event responsible.\cite{massonRecommendationsPerformingInterpreting2019} Increased exposure, loss of hydrogen bonding or a change in the populations of partially protected conformations can contribute to the observation. Greater uptake is therefore not a direct measure of greater flexibility.
+
+% KB claims: Residue protection factors are generally underdetermined...;
+% Connecting uptake to a structural explanation requires a forward model...
+To distinguish these explanations, protection-factors and uptake-curves must be interpreted in tandem with candidate structural hypotheses. Even residue protection factors are generally underdetermined by peptide uptake,\cite{skinnerEstimatingConstraintsProtection2019} and the measurement need not be explained by a single conformation.\cite{bradshawInterpretationHDXData2020} Candidate ensembles supply the atomic environments missing from the readout. A model that predicts exchange from those environments then allows the candidates to be compared with the experiment. The first hurdle is a way to generate them.
+
+\section{Estimating Protein Dynamics}
+\label{sec:intro-estimation}
+
+% Hub 1.3 group 1; KB concept: sampling coverage.
+Computational methods propose conformations with which to interpret solution measurements. Their usefulness depends on whether they include relevant states, assign appropriate populations and describe transitions between those states. Coverage, populations and kinetics are distinct properties of a candidate ensemble. Different generation methods address them with different assumptions.
+
+% KB claims: MD simulations numerically integrate Newton's equations...;
+% MD is computationally expensive...; Until MD has converged...;
+% Sufficiently sampled equilibrium MD targets the Boltzmann distribution...
+Molecular dynamics (MD) estimates atomic positions over time by integrating equations of motion under a force field. It gives access to structural fluctuations and responses to ligands or changes in the molecular environment. Its accuracy is limited by the approximate interactions in the force field and by the simulation time available to explore the landscape.\cite{hollingsworthMolecularDynamicsSimulation2018} In a converged equilibrium simulation, populations follow the distribution defined by that force field.\cite{bmsb2012ch12} Before convergence, they also depend on the starting structures, so reproducibility across independent starts is a necessary sampling check.\cite{bmsb2012ch2} Conventional MD fixes protonation states before simulation; constant-pH methods instead permit them to change with pH and conformation.\cite{deoliveiraConstantPHMolecular2022} Fixed-protonation candidates used to interpret acidic conditions therefore depend on the states assigned at preparation.
+
+% KB claims: Metadynamics enhances sampling...; Many enhanced sampling schemes...;
+% Seeding simulations from rarely visited states...; Frontier Expansion Sampling...
+Enhanced sampling directs computational effort towards regions that ordinary trajectories visit infrequently. Metadynamics adds a history-dependent bias that discourages repeated visits and promotes exploration along selected collective variables.\cite{barducciMetadynamics2011} Equilibrium probabilities can be recovered by reweighting where biased and unbiased distributions overlap sufficiently, although many such schemes alter the kinetics.\cite{heninEnhancedSamplingMethods2022} Adaptive seeding takes a different route by restarting simulations from selected conformations, as in Frontier Expansion Sampling.\cite{zhangFrontierExpansionSampling2020} Seeding rarely visited states broadens exploration, but pooled frame counts do not by themselves provide equilibrium populations.\cite{heninEnhancedSamplingMethods2022}
+
+% KB claims: Structure predictors are trained to return the single structure...;
+% MSA subsampling generates candidate conformations...; Repeated random seeds of AF3...
+Learned statistical models can generate candidate structures without simulating each transition between them. AlphaFold2 was trained to predict structures represented in the Protein Data Bank (PDB),\cite{jumperHighlyAccurateProtein2021} and reducing the input multiple sequence alignment can increase the diversity of its predictions. The resulting candidates include thermodynamically improbable structures and have no accompanying estimate of relative populations.\cite{vaniAlphaFold2RAVESequenceBoltzmann2023} Repeated random seeds in AlphaFold3 likewise do not approximate the solution ensemble.\cite{abramsonAccurateStructurePrediction2024} These procedures supply alternative structural hypotheses whose frequencies need further assessment.
+
+% KB claims: Diffusion models are trained to reverse a noising process...;
+% Diffusion models trained on PDB structures...; Diffusion steps are not physical time.
+Diffusion models efficiently generate structures by learning to reverse a process that progressively corrupts training examples with noise. Generation starts from noise and iteratively denoises it towards the learned distribution.\cite{yimDiffusionModelsProtein2024} When training examples are PDB structures, that distribution reflects the conformations represented in a structural database, rather than the equilibrium populations of a protein under specified solution conditions.\cite{wangProteinConformationGeneration2024} Despite the stochastic connection to MD, the denoising sequence is also not a trajectory in physical time. Its intermediate steps cannot be read as a conformational pathway.
+
+% KB claims: Machine-learned force fields learn energies and forces...;
+% Learned generators are used to seed MD simulations...
+The distribution a model learns determines how its output can be used. Boltzmann generators learn to generate configurations that can be reweighted to a specified Boltzmann distribution,\cite{noeBoltzmannGeneratorsSampling2019} while machine-learned force fields predict energies and forces for use within a simulation.\cite{unkeBiomolecularDynamicsMachinelearned2024} Learned generators can also supply starting structures for MD, combining broad conformational coverage with subsequent physics-based sampling.\cite{zhengMachineLearningGeneration2023} Each combination still requires a definition of how its samples contribute to an ensemble prediction.
+
+% KB claim: A generator's sampling distribution is a reference distribution...
+% BMSB ch4 supports the reference-distribution argument, not modern generator performance.
+A sampler's output frequencies define a reference distribution. Whether those frequencies approximate physical populations depends on the sampling method, its target and its convergence.\cite{bmsb2012ch4} Simulations and learned generators therefore supply structural candidates whose populations require assessment, while HDX-MS constrains protection in solution without specifying atomic coordinates. Integrating the two allows the proposed structures and their contributions to be tested against a measurement.
+
+\section{Integrating Experiment and Ensembles}
+\label{sec:intro-integration}
+
+% BMSB ch12 ^c8--14; KB claim: In a Bayesian description, a prior and a likelihood...
+Inferring an ensemble from its measured observables is a classic inverse problem. It can be approached by predicting what a proposed ensemble would produce, then adjusting the unknowns to improve agreement with the observations. A forward model supplies this prediction, and an error model describes the discrepancies between prediction and measurement.\cite{bmsb2012ch12} For HDX-MS, the unknowns include both the contributions of candidate conformations and parameters connecting structural features to exchange.
+
+% KB concept: Best–Vendruscolo model, eq-bv-feature and eq-bv-ensemble.
+% ValDX: projects/1-ValDX/manuscript/report/6_methods_omc.tex:378--403.
+The Best--Vendruscolo (BV) model provides a concrete structure-to-exchange relationship. It estimates the logarithm of each residue's protection factor from counts of heavy-atom contacts and hydrogen bonds to the amide, scaled by two empirical coefficients.\cite{bestStructuralInterpretationHydrogen2006} In the formulation used by HDXer, these log protection factors are averaged over conformations before conversion to exchange rates and peptide uptake under EX2 assumptions.\cite{bradshawInterpretationHDXData2020} Averaging separate conformer uptake curves would define a different forward model. The order of these operations is part of the structural hypothesis being tested.
+
+% KB claims: Ensemble reweighting adjusts structural contributions...;
+% HDXer is a Python package...; Reweighting cannot create conformational states...
+Given a candidate ensemble, fitting can adjust how much each conformation contributes to the ensemble-average prediction. This operation, ensemble reweighting, changes populations within the supplied candidates. HDXer implements it for HDX-MS using maximum-entropy refinement.\cite{leeInterpretingHydrogenDeuteriumExchange2021} The initial weights define the reference ensemble against which those changes are assessed. Reweighting cannot create conformational states that the candidates lack.
+
+% KB claims: MaxEnt reweighting seeks new weights...;
+% Accounting for experimental error reduces overfitting...; Bayesian description...
+Because several solutions can agree with the same data, the fit needs a rule for selecting between them. Relative maximum entropy (MaxEnt) seeks agreement with minimal departure from the reference distribution, with experimental uncertainty determining the agreement that should be demanded.\cite{cesariUsingMaximumEntropy2018} In a Bayesian description, prior information and a likelihood combine into a posterior over the unknowns; the likelihood requires both a forward model and an error model.\cite{bmsb2012ch12} These descriptions make the starting assumptions explicit. Equal initial frame weights preserve the sampler's frequencies as the reference, without establishing that those frequencies are physically accurate.
+
+% ValDX: projects/1-ValDX/manuscript/report/6_methods_omc.tex:356--465.
+% jaxENT: projects/2-jaxENT/manuscript/report/introduction.tex:10.
+The weights and forward-model parameters have different interpretive roles. Changing weights redistributes population between conformations. Changing the BV coefficients recalibrates the relationship between structural contacts and predicted protection, as well as absorbing forward-model defects. HDXer already permits unregularised optimisation of these coefficients,\cite{bradshawInterpretationHDXData2020} and the ValDX protocols examine weight and parameter fitting in stages.\cite{siddiquiFrameworkTestingStructural2026} Fixed-parameter, staged and joint fitting therefore make different choices about which unknowns can compensate for disagreement. Constrained fitting of both ensembles and parameters within one optimisation is a methodological question developed in \cref{ch:jaxent}.
+
+% Hub 1.4 group 6; KB claim: In the HDX ensemble-integration studies examined...
+Existing integration methods establish that conformational hypotheses can be refined and compared against exchange data. HDX studies have tested sensitivity by changing forward-model coefficients, omitting data or comparing with other measurements.\cite{jiaIntegratingHydrogenDeuterium2023,bradshawInterpretationHDXData2020} Yet none of these provide a rigourous basis for evaluating structural hypotheses when orthogonal information is sparse. When the true populations are unknown, traditional refinement methods leave unresolved the confidence that can be placed in the resulting ensemble-model. Assessing the various dependencies determines which structural conclusions the fit can support.
+
+\section{Trusting Integrative Ensemble Models}
+\label{sec:intro-trust}
+
+% KB claims: One uptake curve can arise from many different conformational populations...;
+% Ensembles generally have far more degrees of freedom...; Posterior uncertainty...
+Agreement with uptake does not uniquely identify a conformational ensemble. Ensembles generally have more degrees of freedom than there are independent observables,\cite{berlinRecoveringRepresentativeConformational2013} and distinct populations can produce similar peptide uptake curves.\cite{bradshawInterpretationHDXData2020,siddiquiFrameworkTestingStructural2026} An exact forward model would not, by itself, remove this underdetermination. Uncertainty about the inferred weights must also be distinguished from physical heterogeneity. The weights describe conformational populations, while a posterior distribution over those weights describes uncertainty in their inference.\cite{bmsb2012ch12}
+
+% KB claims: Accounting for experimental error reduces overfitting...;
+% Similar uptake agreement can coexist with different population recovery...
+The first assessment is whether the fitted model predicts data withheld from optimisation. Regularisation and treatment of experimental error reduce overfitting,\cite{cesariUsingMaximumEntropy2018} but training agreement alone cannot verify populations. In a synthetic ValDX benchmark, candidate ensembles reached similar uptake agreement while recovering different populations.\cite{siddiquiFrameworkTestingStructural2026} Held-out observations test whether the fit extends beyond the particular constraints it was given. They do not supply a structural ground truth.
+
+% KB claims: Overlapping peptides share residue information...;
+% Cooperative unfolding couples exchange...; Structured splits reduce dependence...
+For this test to be informative, the data partitions must account for dependence between data points. In HDX-MS, overlapping peptides share residue information, so a random split can place much of the same information in training and validation sets.\cite{siddiquiFrameworkTestingStructural2026} Cooperative unfolding also couples exchange in regions that share no peptide.\cite{englanderHydrogenExchangeModern1997,moulickPartiallyUnfoldedForms2015} Partitions based on sequence coverage or structural regions reduce dependence and ask different predictive questions. They do not guarantee statistical independence.
+% Revised qualification: projects/1-ValDX/manuscript/report/1_introduction_omc.tex:37;
+% projects/1-ValDX/manuscript/report/6_methods_omc.tex:52,70--81.
+
+% KB claim: Selecting a model by its validation error makes that error optimistic...
+% Hub gap: general model-selection citation remains absent from the KB.
+Selection and evaluation must also be kept distinct. If validation error is used to choose a model, its subsequent assessment requires information that played no part in that choice. \textit{[Citation needed.]} This principle already has a structural precedent in crystallographic ensemble refinement, where a score value is used to select refinement parameters.\cite{burnleyModellingDynamicsProtein2012} The HDX-specific problem is designing partitions around peptide dependence, then stating which prediction each partition tests.
+
+% KB claims: Best–Vendruscolo coefficients are empirical...;
+% Recalibrating forward-model coefficients...; Fitted populations can compensate...
+Predictive assessment must also account for forward-model error. BV coefficients are empirical, and their optimal values depend on the protein and experimental conditions.\cite{bradshawInterpretationHDXData2020} Uncertain coefficients, miscalibrated coefficients and an inadequate model form require different responses. Recalibration can address incorrect coefficients, but cannot establish that the exchange assumptions or averaging rule are appropriate. The kinetic-mismatch benchmark in \cref{ch:valdx} shows how population changes can compensate for incorrect exchange assumptions even when calibration restores uptake agreement. A good fit can therefore preserve the wrong structural interpretation.
+% Revised benchmark: projects/1-ValDX/manuscript/report/7_results_omc.tex:189--211,248.
+
+% KB claims: Plausible but unpopulated candidate structures can absorb weight...;
+% Reweighting cannot create conformational states...; Diversity among generated structures...
+Candidate coverage imposes a separate limit. Missing states cannot be recovered by reweighting, but adding plausible structures does not necessarily improve inference. In the synthetic TeaA benchmark, intermediate conformations absent from the target ensemble absorbed weight and prevented accurate population recovery despite agreement with uptake.\cite{siddiquiFrameworkTestingStructural2026} Structural plausibility is therefore insufficient to establish that a state is populated under the experimental conditions. Broader generation must be assessed for the explanations it adds to the fit.
+
+% KB claims: Work Done quantifies how much an ensemble...; Low validation error...;
+% Work Done measures distance from the prior...
+To distinguish agreement reached with different degrees of correction, HDXer measures the change induced by fitting alongside uptake error. Its Work Done metrics quantify changes in the ensemble-average protection-factor profile.\cite{bradshawInterpretationHDXData2020} Low validation error with high Work Done identifies agreement reached through substantial modification of the starting prediction. The cause can include an inadequate prior, calibration mismatch or overfitting. Work Done measures distance from the prior, not from the true ensemble, and small values can also reflect insufficient fitting. Its interpretation depends on the joint behaviour of fit, modification and consistency across comparisons.
+% Revised interpretation: projects/1-ValDX/manuscript/report/7_results_omc.tex:12--28,83;
+% metric definition: projects/1-ValDX/manuscript/report/6_methods_omc.tex:510.
+
+% KB claims: Fitting outcomes depend on which peptides...; Split replicates measure...;
+% Replicate uncertainty locates where a model is unstable...
+Repeating fits across data partitions reveals which conclusions depend on the observations selected.\cite{siddiquiFrameworkTestingStructural2026} This variation measures sensitivity to partitioning, rather than independent replication of measurement noise. Mapping it to residues or candidate structures can locate unstable parts of an interpretation, but does not identify whether the cause is sampling, structural error or the forward model. Attribution requires controlled comparisons in which a suspected cause is changed. Uncertainty guides the next test.
+% Revised bounds: projects/1-ValDX/manuscript/report/6_methods_omc.tex:693;
+% projects/1-ValDX/manuscript/report/7_results_omc.tex:18,242;
+% jaxENT uncertainty maps: projects/2-jaxENT/manuscript/report/results.tex:173--197.
+
+% KB claims: Clustering into representative structures...; Conclusions drawn from...;
+% A fitting metric can rank candidate ensembles against data...
+Interpretation also requires states that can be inspected. Clustering can reduce a large trajectory to representative structures with little loss of predictive accuracy for the systems studied in ValDX,\cite{siddiquiFrameworkTestingStructural2026} provided conclusions are checked for stability across cluster sizes. Together, representative states, predictive error, Work Done and sensitivity across fits make integration a comparison of structural hypotheses. The conclusion remains comparative across the candidate ensembles supplied.
+% Revised clustering condition and boundary:
+% projects/1-ValDX/manuscript/report/7_results_omc.tex:235--246.
+
+% Hub 1.5 group 6; ValDX methods: 6_methods_omc.tex:473,619.
+The extent of this assessment depends on computational cost. Each data partition, fitting strength, parameter choice and candidate ensemble can require another optimisation. Faster fitting would permit more extensive comparisons, while compact representations would reduce the number of structures that must be processed and inspected. Where candidate coverage fails, however, repeating the fit is insufficient. Experimental information must also be able to act during sampling or generation, so that the comparison can include states missing from the starting ensemble.
+
+\section{Research Questions and Objectives}
+\label{sec:intro-questions}
+
+This thesis asks how HDX-MS integration can support interpretable structural hypotheses when conformational populations are not independently known. The objective is to make the conditions supporting an interpretation explicit, from the generation of candidates to the assessment of their fitted populations. Four questions organise this work.
+
+\begin{enumerate}
+    \item \textit{How can we assess fitted ensembles when conformational populations are not independently known, and how can variation across fits guide controlled comparisons of possible causes of instability?}
+
+    We examine prediction on withheld data, modification of the starting hypothesis and sensitivity across data partitions. The objective is to compare candidate explanations at similar uptake agreement and identify where further investigation is needed. Variation across fits is used to locate instability; assigning its cause requires a separate comparison.
+
+    \item \textit{How can we integrate knowledge, statistics and physics to improve the reliability of structural hypotheses?}
+
+    We investigate how ensemble weights and forward-model parameters should be fitted, and how additional constraints affect the resulting structural interpretation. Physics supplies interactions and exchange assumptions, prior knowledge constrains the candidates and parameters, and statistics describes errors and tests predictions. The objective is to distinguish constraints that improve inference from those that permit one source of mismatch to compensate for another.
+
+    \item \textit{How can we improve the efficiency of integration to enable its application to larger and more complex systems?}
+
+    We address the costs of representation, fitting and sampling through representative structures, differentiable optimisation and experimental guidance during generation. Efficiency is assessed for its effect on the comparisons and uncertainty analyses that can be performed. Broader or faster sampling still requires assessment of the populations assigned to its output.
+
+    \item \textit{How can interpretable ensemble models help answer mechanistic questions about protein dynamics?}
+
+    We examine whether inferred states and their populations distinguish hypotheses about conformational protection, misfolding and ligand-dependent changes. The objective is to connect predictions to inspectable structural states under stated conditions. Claims about transition order, rates or causal pathways require kinetic evidence beyond the weights.
+\end{enumerate}
+
+\section{Thesis Outline and Contributions}
+\label{sec:intro-outline}
+
+The research chapters develop methods for assessing, fitting and generating ensembles under experimental constraints. The progression begins with comparison of fixed candidate ensembles, then brings population and forward-model fitting into one optimisation, before moving the forward models into sampling and generation. A differentiable forward model connects these stages because it can supply both predictions and gradients for fitting or structural modification. The fixed-candidate methods in \cref{ch:valdx,ch:jaxent} redistribute populations; the methods developed in \cref{ch:biofeaturisers} can add conformations.
+
+\Cref{ch:background} supplies the theory and critical review used by the research chapters. It relates exchange chemistry and structural protection to peptide uptake, distinguishes generation methods by their sampling distributions, and develops the statistical basis of ensemble refinement and experimental restraints. It also establishes how validation, uncertainty and ensemble comparison constrain interpretation. Acid--base chemistry and structural determinants of protonation supply the background for the pH-dependent applications.
+
+% Sources: kb/chapters/03-valdx.md; ValDX 0_abstract_omc.tex;
+% 1_introduction_omc.tex:26--37; 7_results_omc.tex:189--211,235--248.
+\Cref{ch:valdx} presents ValDX, a framework for comparing structural hypotheses through held-out prediction, Work Done and consistency across replicate fits. It introduces partitions that account for peptide overlap and examines how reweighting, forward-model calibration and conformational representation affect interpretation. The analyses cover 22 ensembles of six proteins, from 58 to 480 residues, with synthetic references, additional candidate conformations and an imposed kinetic mismatch testing different failure modes. They establish why similar uptake agreement can coexist with different population recovery and why diagnostic metrics must be read together. The analyses are reported in a posted preprint,\cite{siddiquiFrameworkTestingStructural2026} and the revised manuscript is post-review. The conclusions remain comparative across supplied candidates, while repeated assessment exposes the cost of fitting them.
+
+% Sources: kb/chapters/04-jaxent.md;
+% projects/2-jaxENT/manuscript/report/introduction.tex:10; results.tex:29.
+% No runtime or accuracy figures are taken from the outdated abstract.
+\Cref{ch:jaxent} introduces jaxENT, a differentiable framework for fitting ensemble weights and forward-model parameters within one optimisation. Plausibility constraints are expressed as loss terms, allowing fixed, staged and joint fits to be compared and permitting constraints suited to candidates whose sampling frequencies are not equilibrium populations. Data partitions and replicate fits are built into the workflow. Assessment progresses from synthetic data with known populations, through MoPrP with an orthogonal HDX-NMR reference, to $\alpha$-synuclein without structural ground truth, alongside runtime comparison with HDXer. The analyses are complete and the manuscript is in draft. jaxENT still acts on fixed candidates, so its uncertainty estimates locate sensitivity without resolving missing-state coverage.
+
+% Sources: kb/chapters/05-biofeaturisers.md;
+% thesis/chapters/05-biofeaturisers.tex:4--5.
+\Cref{ch:biofeaturisers} develops BioFeaturisers, a library of differentiable forward models shared by reweighting, experimentally restrained sampling and guided generation. The contribution is the library and the pipeline through which one model definition can serve these operations. The planned assessments have decreasing access to reference information. Bovine pancreatic trypsin inhibitor (BPTI) is compared with a 1~ms Anton trajectory; MoPrP at pH~4 and pH~7 tests for condition-dependent partially unfolded states; and ROR$\gamma$ complexes with agonist, partial-agonist and antagonist ligands test ligand-dependent generation without a structural population reference. The library is implemented, the case studies are in progress and guided diffusion is under development. Guided samples require a separate assessment or correction of their populations, and any inferred MoPrP pathway must be supported by trajectories.
+
+% Sources: kb/chapters/06-jax-ka.md; thesis/chapters/06-jax-ka.tex:4--8.
+% Provenance of neutral-pH preparation:
+% projects/1-ValDX/manuscript/report/6_methods_omc.tex:194;
+% projects/2-jaxENT/manuscript/report/protocols.tex:98,183--185.
+\Cref{ch:jax-ka} develops jax-Ka, a backbone-only p$K_a$ predictor whose output differentiates through coordinates. jax-Ka is trained on computed labels from PypKa and pKAI, with experimental p$K_a$ measurements reserved for assessment. The proposed MoPrP application asks which sites change protonation between pH~4 and pH~7 and whether they lie in regions that unfold. The predictor is implemented, while interface experiments and the MoPrP application remain in progress. Agreement with computed training labels alone does not establish experimental accuracy.
+
+\Cref{ch:conclusion} returns to the four research questions using the evidence established in each chapter. It considers which structural comparisons are supported, which uncertainties remain unresolved and which further measurements or controlled calculations would distinguish the competing explanations.
