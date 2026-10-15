@@ -12,11 +12,10 @@ Markers:
 
 Why [[population shift|conformational populations]] matter for function and disease. The arc follows `01-introduction.tex` L7 in six groups: proteins are dynamic polypeptides → folding constrains the landscape globally → function frustrates it locally, and the consequence is dynamics → disease as a perturbation of populations → what structural methods record → the thesis problem. Folding versus function is the organising argument. Galpern and Parra supply its abstract anchors, allostery shows its dynamic consequence, and the three disease cases read as perturbations of one principle rather than as a list. The ValDX opener ("understanding protein dynamics is crucial to understanding biological function, and therefore disease", `projects/1-ValDX/manuscript/report/1_introduction_omc.tex` L8) closes group C, and the jaxENT synthesis belongs in group F. Each later section answers a need this section exposes, so a limitation is developed once, in its home section, and only reminded elsewhere.
 
-**A. Proteins are dynamic polypeptides.** A protein is a sequence before it is a structure, and its structure is something the chain does. The rigid picture has given way to [[protein dynamics|motions]] from picoseconds to days, and a crystal structure is one member, or a time average, of what the protein populates. Three claims and one example.
+**A. Proteins are dynamic polypeptides.** A protein is a sequence before it is a structure, and its structure is something the chain does. The rigid picture has given way to [[protein dynamics|motions]] from picoseconds to days, and a crystal structure is one member, or a time average, of what the protein populates. Three claims; the calmodulin example moved to group E, where it shows what crystallography misses.
 - [[Proteins are linear polymers whose sequences encode structures that fold rapidly and spontaneously.]]
 - [[The rigid view of proteins has given way to one in which motions spanning picoseconds to days are essential to function.]]
 - [[Even a folded protein is an ensemble of structures, and distinct crystal structures can be time-averaged members of one ensemble.]]
-- [[NMR relaxation showed the central helix of calmodulin is flexible in solution, though it appears rigid in crystal structures.]] (the example)
 
 **B. Folding constrains the landscape globally.** Folding is an entropic search (Levinthal) that evolved sequences solve because they are minimally frustrated and fold down a rough funnel ([[conformational free-energy landscape]]). Structure prediction has largely solved the static half of the problem. The dynamic half remains open, and native-state hydrogen exchange shows why it matters, because partially unfolded forms are real but too sparsely populated to appear in a structure. Use Galpern for two conclusions only, that function needs information beyond folding ([[@galpernInformationtheoreticArgumentRestriction2026#^c9]]) and that folded and disordered proteins lie on one axis. The information-theoretic derivation (Eqs. 1 to 5, bits per site) stays in the paper note and does not enter the chapter.
 - [[Folding poses an entropic search problem, and evolved sequences carry just enough information to solve it.]]
@@ -65,20 +64,32 @@ Why [[population shift|conformational populations]] matter for function and dise
 - [[Rate-limiting conformational changes take microseconds to milliseconds, beyond the reach of traditional structural methods.]] (partial)
 - [[Combining MD simulations with NMR chemical shifts has revealed misfolding intermediates invisible to crystallography.]] (supported)
 - [[Understanding prion conversion requires the complete conformational ensemble, not just the ground and fully misfolded states.]] (partial)
-- Claim to write (see [[02-background]] §2.5): mouse PrP(121–231) populates a β-rich intermediate only at acidic pH, and protonation of H186 or D201 drives MoPrP misfolding (Hornemann & Glockshuber 1998; Singh & Udgaonkar 2016). Depends on the §2.5 seeding.
+- [[Mouse PrP(121–231) populates a β-rich intermediate only at acidic pH, and urea is needed to populate it substantially.]] (supported; the pH condition)
+- [[Protonation of H186 or D201 drives MoPrP misfolding, and HDX-MS shows helix 1 and the α1–β2 loop become more dynamic.]] (supported). State the protonation half here; the HDX-MS half is the MoPrP example in §1.2 group 3.
 
-**E. What structural methods record.** One paragraph. [[X-ray crystallography]], [[cryo-EM]] and [[NMR]] record ground states and time averages. The few experimental ensembles that exist are mostly not thermodynamic ensembles. Populations also depend on the molecular environment, so they are defined only for stated conditions. Use one claim from each of the first two pairs.
-- [[Tools have been dominated by methods that freeze proteins in time, hiding links between structure, dynamics, function and disease.]] or [[Static structures alone cannot explain many biological phenomena; dynamics underlie disease mechanisms and drug response.]] (use one)
-- [[Only about 12,000 experimental structural ensembles exist, covering 21% of CATH superfamilies, so dynamic data are scarce.]] or [[Tools to estimate protein dynamics are decades old, but public datasets hold only thousands to tens of thousands of entries.]] (supported) (use one). An NMR ensemble is not a thermodynamic ensemble ([[@bmsb2012ch12#^c3]]), so the count overstates what is known about populations. Cross-reference §1.5 group 1: [[Posterior uncertainty about a structure or its parameters is not the same quantity as a protein's physical conformational populations.]] (supported).
-- [[Conformational populations depend on molecular context, so they are defined only for a stated environment.]] (partial)
-- Further evidence for the limitation claims, not yet added to their notes: Biancaniello ^c2 and ^c9 (current techniques target rigid states and cannot capture intermediates), Pelikan ^c4, Li ^c1 (GPCRs), James ^c6.
+**E. What structural methods record, method by method.** This is the home of the structural-method limitations, so each method gets its own limitation and one example rather than a shared generic sentence. The disease cases in D already show some of these; recall them in a clause rather than re-explaining.
+- *[[X-ray crystallography]].* A crystal structure is a time average of an ordered lattice. Example: [[NMR relaxation showed the central helix of calmodulin is flexible in solution, though it appears rigid in crystal structures.]] (moved from A). The PKA time-average reading ([[@lisiAllosteryEnzymeCatalysis2017#^c5]]) is already in group A, and the unchanged crystal structure under a functional mutation is D1.
+- *[[cryo-EM]].* It removes the need for a crystal but still reconstructs well-populated end states. Example: the α-synuclein fibril against its disordered solution state (D2, one clause).
+- *[[NMR]].* It works in solution and across timescales, so it is the closest of the three to a measurement of populations, but sensitivity and spectral complexity limit the size of system it can study, and its deposited structural ensembles are not thermodynamic ensembles.
+  - [[NMR works in solution like HDX-MS but also gives structural information and is sensitive over a wide range of timescales.]] (supported)
+  - [[NMR typically needs larger samples and is limited to smaller proteins or domains by sensitivity and spectral complexity.]] (draft, needs review)
+  - An NMR ensemble is not a thermodynamic ensemble ([[@bmsb2012ch12#^c3]]). Cross-reference §1.5 group 1: [[Posterior uncertainty about a structure or its parameters is not the same quantity as a protein's physical conformational populations.]] (supported).
+- *What all three miss.* Transient, sparsely populated intermediates, which are the states D3 needs.
+  - [[Rate-limiting conformational changes take microseconds to milliseconds, beyond the reach of traditional structural methods.]] (partial); its second citation, [[@biancanielloStructureDynamicsMisfolding2025#^c9]], states that integrative approaches are needed because X-ray crystallography, NMR and cryo-EM cannot capture dynamic intermediate species. Biancaniello ^c2 (techniques mainly target rigid states) is further support not yet on the note.
+- *Scale of the gap*, one sentence: [[Only about 12,000 experimental structural ensembles exist, covering 21% of CATH superfamilies, so dynamic data are scarce.]] or [[Tools to estimate protein dynamics are decades old, but public datasets hold only thousands to tens of thousands of entries.]] (supported) (use one). The NMR caveat above means the count overstates what is known about populations.
+- *Conditions.* [[Conformational populations depend on molecular context, so they are defined only for a stated environment.]] (partial). This sets up the requirement in F that a measurement work under stated conditions.
+- Framing claims, if a summary sentence is needed at all: [[Tools have been dominated by methods that freeze proteins in time, hiding links between structure, dynamics, function and disease.]] or [[Static structures alone cannot explain many biological phenomena; dynamics underlie disease mechanisms and drug response.]] (use one). They add no example, so they cannot replace the method-by-method limitations.
+- Other method-specific support: Pelikan ^c4 (disorder and heterogeneity obstruct classical methods), Li ^c1 (GPCR signalling is hard for crystallography and NMR, and HDX-MS could help), James ^c6 (cryo-EM has outpaced the modelling of disordered regions).
 
-**F. The thesis problem.** A [[structural ensemble]] is useful only once its weights are known, and the weights need a measurement of dynamics in solution. HDX reports on such ensembles, and frustration analysis, by its authors' own account, needs generated ensembles rather than one structure (Parra ^c25, ^c27). End on the problem as the thesis's own statement, with no claim behind it. Generated ensembles can be constrained by solution measurements, and the question the thesis takes up is how to assess the explanation that results. §1.2 asks what the measurement records, §1.3 where the candidates come from, §1.4 how they are fitted, and §1.5 what the fit can be trusted to mean.
+**F. What a measurement must offer, and the thesis problem.** E leaves a set of requirements. A [[structural ensemble]] is useful only once its weights are known, and the weights need a measurement made in solution, under stated conditions, on systems of realistic size, and sensitive to sparsely populated states. [[HDX-MS]] meets these requirements, which is why it is the measurement the thesis integrates. Name it here with what it can see; §1.2 explains how. Frustration analysis, by its authors' own account, also needs generated ensembles rather than one structure (Parra ^c25, ^c27). End on the problem as the thesis's own statement, with no claim behind it. Generated ensembles can be constrained by solution measurements, and the question the thesis takes up is how to assess the explanation that results. §1.2 asks what the measurement records, §1.3 where the candidates come from, §1.4 how they are fitted, and §1.5 what the fit can be trusted to mean.
 - [[Integrating over time turns individual structures into structural ensembles, a quantitative route to mechanisms.]]
 - [[Useful ensemble generation requires quantifying the relative populations of each state, not only generating structures.]]
 - [[Quantifying state populations requires experimental measurements of protein dynamics.]] or [[Without experimental measurements of protein dynamics, the biological mechanism of misfunction can remain unclear.]] (use one)
-- [[HDX data report on ensembles and can reveal conformational landscapes that differ from the crystal structure.]]
-- [[Bridging the gap requires a shift toward integrative approaches combining measurements of dynamics with advanced simulations.]] (optional; "bridging the gap" is the confirmation's phrase, reword)
+- What HDX-MS offers against E:
+  - scope: [[HDX-MS can study many systems that are too large, flexible, heterogeneous or sample-limited for other structural tools.]] (supported; [[@jamesAdvancesHydrogenDeuterium2022#^c2]]);
+  - rare states: exchange of otherwise inaccessible amides needs rarely populated open conformations, so hydrogen exchange reports on them ([[@vendruscoloRareFluctuationsNative2003#^c7]]), which links back to [[Native-state hydrogen exchange reveals sparsely populated partially unfolded forms that are otherwise invisible.]] in group B;
+  - ensembles: [[HDX data report on ensembles and can reveal conformational landscapes that differ from the crystal structure.]]
+- [[Bridging the gap requires a shift toward integrative approaches combining measurements of dynamics with advanced simulations.]] moved to §1.3 group 5, where both halves of the complementarity have been shown.
 
 **Drafting sources.**
 - Anchors:
@@ -112,12 +123,11 @@ Why [[population shift|conformational populations]] matter for function and dise
   - [[Linking fast molecular motions to slow pathological processes requires conformational dynamics that static structures cannot capture.]] (its sentence shape remains the model in [[examples]] 8)
   - [[There is a persistent, critical gap in our ability to predict and understand protein dynamics.]]
   - [[The fundamental limitations of these methods restrict our understanding to what can be measured experimentally.]]
-  - [[Millisecond HDX-MS showed tau hyperphosphorylation releases the global fold and exposes the aggregation-prone H2 region.]] moved to §1.2 group 5.
-- **pH claims depend on the §2.5 seeding.** Hornemann & Glockshuber 1998 and Singh & Udgaonkar 2016 are in `kb/inbox/2026-10-14 pKa background (2.5).bib`; the D3 line stays text until they are seeded and a claim note exists.
-- **No claim yet** for the jaxENT synthesis: "Protein conformational dynamics govern biological function and modulate disease-associated conformational states, necessitating their representation as diverse structural ensembles rather than single static models" (`projects/2-jaxENT/manuscript/report/introduction.tex` ¶1). Two of its citations are not yet in `thesis/references.bib` or `kb/papers/`: `moulickPartiallyUnfoldedForms2015` and `bonomiPrinciplesProteinStructural2017`.
+  - [[Millisecond HDX-MS showed tau hyperphosphorylation releases the global fold and exposes the aggregation-prone H2 region.]] moved to §1.2 group 3.
+- **No claim yet** for the jaxENT synthesis: "Protein conformational dynamics govern biological function and modulate disease-associated conformational states, necessitating their representation as diverse structural ensembles rather than single static models" (`projects/2-jaxENT/manuscript/report/introduction.tex` ¶1). Its two missing citations, `moulickPartiallyUnfoldedForms2015` and `bonomiPrinciplesProteinStructural2017`, are now seeded and in `thesis/references.bib`.
 - **No claim for IGPS.** Group C cites Lisi ^c7 through the [[allostery]] concept. Write a claim note once the block is reviewed.
 - **Folding theory has no primary sources in the KB.** There are no notes for Anfinsen, Levinthal, Bryngelson and Wolynes (1987) or Onuchic et al. (1997), so groups A and B rest on Galpern and Parra.
-- **Now with PDFs and blocks**, available to strengthen A to C: [[@vendruscoloRareFluctuationsNative2003]] (rare native fluctuations, ^c1 and ^c7) and [[@kimHydrogenExchangeIdentifies1993]] (native-state motional domains, ^c1).
+- **Vendruscolo 2003 and Kim 1993 have PDFs and blocks.** Vendruscolo ^c7 is used in group F and ^c5 in §1.2 group 6. Kim ^c1 (native-state motional domains) is still free to strengthen A to C or §1.2 group 3; neither paper has a claim note yet.
 - **Primary sources behind Parra-level claims**, to import into Zotero:
   - Ferreiro et al. 2007 and 2011
   - Freiberger et al. 2019
@@ -148,7 +158,7 @@ Why [[population shift|conformational populations]] matter for function and dise
 
 **Thread for 1.2–1.5.** Sections 1.2 to 1.5 share one thread: HDX-MS constrains ensembles only through an indirect [[forward model]], so the inferred populations depend on the candidate ensemble, the forward model and their uncertainties. The grounding for 1.3–1.5 comes mainly from BMSB (Hamelryck et al. 2012) chapters 1–4, 12 and 13.
 
-§1.2 says what [[HDX-MS]] measures and where measurement ends and structural inference begins. It does this in six steps. Exchange theory stays in Chapter 2 (see below).
+§1.2 says what [[HDX-MS]] measures, what it can show, and where measurement ends and structural inference begins, which is where simulation comes in. It does this in six steps, strengths before limits. Exchange theory stays in Chapter 2 (see below).
 
 **1. What is recorded.** Backbone amides exchange with solvent deuterium, and MS reads this as a mass increase of peptides over labelling time ([[deuterium uptake]]).
 - [[Different methods can measure protein dynamics, depending on the system, timescale and experimental conditions.]]
@@ -159,30 +169,36 @@ Why [[population shift|conformational populations]] matter for function and dise
 **2. What sets the rate.** Intrinsic chemistry ([[intrinsic exchange rate]]) and local protection from hydrogen bonding, burial and transient opening ([[Linderstrøm–Lang model]], [[protection factor]]). The intrinsic rate depends on pH and temperature, so uptake, and the populations later inferred from it, hold for the stated pD and temperature. This is the measurement's side of the pH thread opened in §1.1 D3.
 - [[Amide exchange rates depend on intrinsic chemistry and on local protection from hydrogen bonding, burial and transient opening.]] (supported)
 - [[Under EX2 an amide opens and closes many times before it exchanges, so the observed rate combines intrinsic chemistry with the opening equilibrium.]] (supported)
-- [[The HDX rate depends on the local environment of the amide hydrogen, with more exposed and flexible regions exchanging faster.]] (supported; read it with the second caution in group 4)
-- Claim to write: the intrinsic exchange rate depends on pH and temperature through its acid-, base- and water-catalysed terms, so uptake is defined for the stated pD and temperature ([[intrinsic exchange rate]]; source [[@baiPrimaryStructureEffects1993#^c2]]). The jaxENT MoPrP data were taken at pD 4.
+- [[The HDX rate depends on the local environment of the amide hydrogen, with more exposed and flexible regions exchanging faster.]] (supported; read it with the second caution in group 5)
+- [[His, Asp and Glu neighbours change intrinsic exchange rates with pH through their own ionisation.]] (supported; the neighbour half of the pH dependence)
+- Claim still to write: the intrinsic exchange rate depends on pH and temperature through its acid-, base- and water-catalysed terms, so uptake is defined for the stated pD and temperature ([[intrinsic exchange rate]]; source [[@baiPrimaryStructureEffects1993#^c2]]). The jaxENT MoPrP data were taken at pD 4.
 
-**3. What the readout resolves.** Overlapping peptides, not residues or atoms.
+**3. What it can show.** Strengths come before limits, so the reader knows what the measurement is for before learning where it stops. Two examples, one general and one on the thesis's own system. Group F of §1.1 has already named the scope and the rare-state sensitivity; recall them in a clause, not again in full.
+- [[Millisecond HDX-MS showed tau hyperphosphorylation releases the global fold and exposes the aggregation-prone H2 region.]] (supported; the one disease example that only HDX-MS supplies)
+- [[Protonation of H186 or D201 drives MoPrP misfolding, and HDX-MS shows helix 1 and the α1–β2 loop become more dynamic.]] (supported). The HDX-MS half. It shows a pH-dependent change in protection on MoPrP, the system of chapters 4 to 6, and carries the pH thread from group 2.
+- [[The primary benefits of HDX-MS are sensitivity, flexibility and low sample needs compared with other biophysical techniques.]]
+- [[HDX-MS flexibility and increasing throughput make it well suited to challenging targets such as GPCRs, antibodies and IDPs.]]
+- Reminder only: [[HDX-MS can study many systems that are too large, flexible, heterogeneous or sample-limited for other structural tools.]] (supported; stated in §1.1 F)
+
+**4. What the readout resolves.** Overlapping peptides, not residues or atoms. This is the price of the strengths in group 3.
 - [[HDX-MS reports deuterium uptake at the peptide level, not the residue level.]] (supported)
 - [[HDX-MS data alone do not give the atomic positions that NMR, crystallography and cryo-EM provide.]] (supported)
 
-**4. Why interpretation is ambiguous.** Different local environments or populations can give the same uptake. A change in uptake shows a change in protection, not a mechanism. Two cautions follow.
+**5. Why interpretation is ambiguous.** Different local environments or populations can give the same uptake. A change in uptake shows a change in protection, not a mechanism. Two cautions follow.
 - [[A change in HDX-MS uptake shows a change in protection but does not on its own identify the structural mechanism.]] (supported)
 - [[Greater deuterium uptake indicates less protection from exchange, not directly greater flexibility.]] (partial)
 - [[Labelling time measures accumulated exchange, not the duration of a conformational motion.]] (partial)
 - Non-uniqueness is developed in §1.5 group 1 ([[Ensembles have far more degrees of freedom than observables, so any single data source leaves them underdetermined.]]); here, one sentence at most.
 
-**5. Why it is useful.** Keep this to a sentence or two.
-- [[HDX-MS can study many systems that are too large, flexible, heterogeneous or sample-limited for other structural tools.]] (supported)
-- [[The primary benefits of HDX-MS are sensitivity, flexibility and low sample needs compared with other biophysical techniques.]]
-- [[HDX-MS flexibility and increasing throughput make it well suited to challenging targets such as GPCRs, antibodies and IDPs.]]
-- [[Millisecond HDX-MS showed tau hyperphosphorylation releases the global fold and exposes the aggregation-prone H2 region.]] (supported; moved back from §1.1 on 2026-10-14. It is the one HDX-MS-specific motivating example and establishes what the measurement can see, not a §1.1 distinction.)
-
-**6. Handoff to §1.3–1.4.** Connecting uptake to structure needs a model that predicts exchange from candidate structures ([[forward model]]), which makes interpretation an [[inverse problem]].
+**6. Why simulations are the complement, and the handoff to §1.3–1.4.** The limits in groups 4 and 5 are exactly what an atomic model supplies. Protection is a property of the ensemble, not of one structure, so a residue whose environment differs between conformers needs those conformers, and peptide uptake cannot pin residue protection down on its own. Connecting uptake to structure therefore needs candidate conformations and a model that predicts exchange from them ([[forward model]]), which makes interpretation an [[inverse problem]]. Others have already combined the two, mainly for simpler systems, so the open question is where the candidates come from (§1.3) and how they are weighted (§1.4).
+- Equilibrium protection factors are a property of a Boltzmann ensemble, so no single conformation is expected to satisfy all of them ([[@vendruscoloRareFluctuationsNative2003#^c5]]).
+- [[A single protection factor per residue cannot describe a residue whose environment differs between populated conformers.]] (supported)
+- [[Residue protection factors are generally underdetermined by peptide-level uptake.]] (supported)
 - [[To quantitatively connect measurements of dynamics to biological mechanisms, they must be interpreted in structural terms.]]
 - [[Connecting uptake to a structural explanation requires a forward model that predicts exchange from candidate structures or ensembles.]] (supported)
 - [[Predicted protection factors are transformed into theoretical deuterium uptake for direct comparison with HDX-MS data.]] (supported)
-- [[To address this ambiguity, researchers increasingly turn to molecular simulations for structural hypotheses.]] (partial)
+- [[Several groups have restrained simulations or pruned ensembles post hoc with HDX-MS data, mainly for simpler systems.]] (supported; the precedent, and its "simpler systems" is the opening for the thesis)
+- [[To address this ambiguity, researchers increasingly turn to molecular simulations for structural hypotheses.]] (partial; the supported claims above can carry the point without it)
 
 **Drafting sources.**
 - ValDX intro: `projects/1-ValDX/manuscript/report/1_introduction_omc.tex` L8 (scope and targets) and L14 (peptide-level ambiguity).
@@ -223,7 +239,7 @@ Why [[population shift|conformational populations]] matter for function and dise
 - [[MD is computationally expensive and may only approximate true dynamics due to force-field inaccuracies and limited sampling.]] (supported)
 - [[Sufficiently sampled equilibrium MD targets the Boltzmann distribution of its approximate force field, not the protein's true distribution.]] (partial)
 - [[Until MD has converged, its statistics depend on the starting structures; reproducibility across independent starts is the basic check.]] (supported)
-- Claim to write: standard MD assigns one protonation state per residue for the whole run, so a pH 4 ensemble is only as good as the states assigned (de Oliveira et al. 2022, `deoliveiraConstantPHMolecular2022`, in Zotero, not yet seeded). Chapter 6 takes this up; see [[02-background]] §2.5.
+- [[Standard molecular dynamics fixes one protonation state per titratable residue for the whole run, while constant-pH MD lets protonation states change.]] (supported). A pH 4 ensemble is only as good as the states assigned; chapter 6 takes this up ([[02-background]] §2.5). The thesis's own case, [[Our candidate ensembles were protonated once at pH 7 or 7.4, so a pH 4 ensemble depends on protonation states that were not assigned for pH 4.]] (draft), belongs in §1.7 and chapter 6, not here.
 
 **3. Enhanced sampling.** Two families ([[enhanced sampling]]). Biasing the energy recovers equilibrium probabilities by reweighting but usually loses kinetics. Adaptive seeding broadens exploration, but pooled frames are not populations. Neither gives populations for free.
 - [[Metadynamics enhances sampling by adding a history-dependent biasing potential to the system's energy landscape.]] (supported)
@@ -240,6 +256,7 @@ Why [[population shift|conformational populations]] matter for function and dise
   - [[Protein structure models have recently emerged as a powerful tool for structural biology.]] (supported)
   - [[Leveraging large structure and sequence corpora, protein structure models predict structures rapidly and with high accuracy.]] (supported)
   - [[As protein structure models are primarily trained on static structures, their ability to predict dynamics is limited.]]
+  - [[Structure predictors are trained to return the single structure most likely to appear in the PDB.]] (supported; the reason the adaptations below are needed)
   - [[Repeated random seeds of AlphaFold 3 do not approximate the solution ensemble.]] (supported)
   - [[Sub-sampling multiple sequence alignments alters the contacts described to the model, leading to diverse structural predictions.]] (partial)
   - [[Generating many sub-sampled predictions creates a conformational ensemble that captures the protein's dynamic nature.]]
@@ -248,6 +265,7 @@ Why [[population shift|conformational populations]] matter for function and dise
   - [[Deep-learning models rapidly generate structures and ensembles by sampling a learned distribution of conformational space.]] (supported)
   - [[Deep-learning models trained on large structural datasets learn conformation distributions, and sampling them yields ensembles.]]
   - [[Diffusion models are trained to reverse a noising process and generate structures by progressively denoising random samples.]] (supported)
+  - [[Diffusion models trained on PDB structures learn a distribution concentrated on folded, low-energy states rather than the equilibrium distribution.]] (supported; what the learned distribution is, and why it is a prior)
   - [[Diffusion steps are not physical simulation time.]] (partial)
   - [[Diffusion-based PSMs have emerged as a powerful alternative to traditional structure prediction methods.]]
   - [[Learning the physical landscape can reduce the cost of sampling new states while retaining the accuracy of the underlying physics.]] (supported) (Boltzmann generators only)
@@ -260,11 +278,12 @@ Why [[population shift|conformational populations]] matter for function and dise
   - [[By combining physics-based and statistics-based simulations we can fill in gaps in sampling and accuracy.]] (partial)
   - [[The limitations of each ensemble generation scheme can be overcome by combining both approaches, in a hierarchical pipeline.]] (partial)
 
-**5. Handoff to §1.4: populations need experimental constraints.** Every source above gives candidates whose frequencies are a prior, not populations ([[importance sampling]]). Experiment is needed to weight them.
+**5. Handoff to §1.4: populations need experimental constraints.** Every source above gives candidates whose frequencies are a prior, not populations ([[importance sampling]]). Experiment is needed to weight them. This is the mirror of §1.2 group 6, and the section should close on the two halves together. Generators and simulations supply atomic candidates without trustworthy populations, and HDX-MS constrains protection in solution without atomic positions, so each supplies what the other lacks. Integration (§1.4) is the operation that joins them.
 - [[A generator's sampling distribution is a reference distribution, not automatically the physical equilibrium distribution.]] (partial)
 - [[A knowledge-based potential is not a thermodynamic free energy unless its probabilistic model and reference distribution are defined.]] (supported)
 - [[The emerging bottleneck is scoring generated structures against in vitro and in vivo behaviour.]]
-- The generated-diversity point is developed in §1.5 group 2; do not state it here.
+- [[Bridging the gap requires a shift toward integrative approaches combining measurements of dynamics with advanced simulations.]] (moved from §1.1 F; "bridging the gap" is the confirmation's phrase, reword)
+- The generated-diversity point is developed in §1.5 group 4; do not state it here.
 
 **Drafting sources.**
 - ValDX methods: `projects/1-ValDX/manuscript/report/6_methods_omc.tex` L85. Ensembles are framed as competing structural hypotheses, and the concrete examples are single-start MD, multiple-start MD, T-FES, and filtered and unfiltered AF2.
@@ -288,7 +307,6 @@ Why [[population shift|conformational populations]] matter for function and dise
 ### Gaps (1.3)
 - **Inferred claims:** [[Sufficiently sampled equilibrium MD targets the Boltzmann distribution of its approximate force field, not the protein's true distribution.]] and [[Diffusion steps are not physical simulation time.]] need a source, or should be presented as the thesis's own statements.
 - **Dropped from the hub, note kept** (2026-10-14): [[MD lets researchers study how proteins respond to different environments, giving insight into functional mechanisms.]], [[Physics-based methods are useful for detailed analysis but limited by the computational cost of equilibration.]], [[Sampling is limited because equilibration must be repeated for each new system or starting conformational state.]]. If the equilibration pair returns, it needs a passage: the confirmation cites Lazim et al. (2020), but the only KB quote from it is about the cost of all-atom MD in general.
-- **Protonation claim** depends on seeding `deoliveiraConstantPHMolecular2022`.
 - **Unchecked PDFs:** Karplus, Barducci, Casadevall, Wilson, Varadi and He are cited in the confirmation for this section but not yet checked.
 - **Unread papers:** Hénin, Zhang, Zheng, Stein, Vani, Unke, Noé, Abramson and Yim are all `read: false`. Their quotes pass the lint.
 
@@ -319,6 +337,8 @@ Why [[population shift|conformational populations]] matter for function and dise
 - HDXer already optimises BV parameters. Describe jaxENT's contribution through its unified optimisation workflow and composable objectives, rather than claiming parameter fitting itself is new.
 
 **6. What established integration provides, and what it leaves open.** First credit what the existing tools do. HDXer and MaxEnt refinement reweight candidates against a reference, fit forward-model parameters, and test sensitivity by omitting data or varying parameters ([[02-background]] §2.4, layer 2 of the layered-validation decision). Then name the two problems they leave, one sentence each. Agreement with uptake supports consistency under the chosen candidates, forward model and fitting assumptions, and no existing HDX study partitions the data around peptide dependence, so assessment without ground truth is unresolved (§1.5, Q1). Weights and forward-model parameters are fitted in stages with plausibility fixed by the method, so a joint fit under a plausibility constraint that suits candidates without Boltzmann weights is unresolved (Q2). Parameter fitting itself is not new; the gap is the unified fit and its assessment. Let §1.5 develop identifiability, model error, overfitting, uncertainty and interpretability.
+
+Close §1.4 on why agreement can mislead, which sets §1.5's order. One kind of risk is common to any model fitted to finite data and is answered by standard statistics (held-out data, partitions that respect dependence, selection kept apart from evaluation). The other is specific to integration, because the forward model that links structure to uptake is itself approximate, and a fit can absorb its errors into the weights.
 - [[Many ensembles can explain the same data, given complex conformational landscapes and simple structure-experiment models.]]
 - [[HDXer is a Python package that implements a MaxEnt reweighting scheme to fit simulated ensembles to experimental HDX-MS data.]] (reminder; introduced in group 3)
 
@@ -342,7 +362,7 @@ Why [[population shift|conformational populations]] matter for function and dise
 - how sensitive it is to modelling and data choices;
 - interpretable evidence for the inferred states.
 
-ValDX supplies the central argument; jaxENT adds joint fitting and mapped uncertainty, but has no citable version yet.
+The section follows the two risks named at the end of §1.4. After the non-uniqueness that motivates everything (group 1), group 2 takes the risks shared by any fitted model, which established statistics answers, and group 3 the risk specific to integration, a poor forward model. Groups 2 and 3 each open on the established principle, stated once with one general citation, then give its upshot for HDX-MS, then say what integrative practice does with it and what ValDX or jaxENT adds ([[2026-10-14 layered presentation of validation and uncertainty]]; full treatment in [[02-background]] §2.4). Candidates (group 4), what a comparison then supports (group 5) and cost (group 6) follow. ValDX supplies the central argument; jaxENT adds joint fitting and mapped uncertainty, but has no citable version yet.
 
 **1. Non-uniqueness.** Pick up the §1.4 handoff. Different populations can produce the same uptake, so a good fit does not identify the ensemble ([[inverse problem]], identifiability). Keep posterior spread apart from physical populations ([[posterior uncertainty]]).
 - [[One uptake curve can arise from many different conformational populations, so a good fit does not identify the ensemble.]] (supported)
@@ -351,29 +371,38 @@ ValDX supplies the central argument; jaxENT adds joint fitting and mapped uncert
 - [[Posterior uncertainty about a structure or its parameters is not the same quantity as a protein's physical conformational populations.]] (supported)
 - Revised ValDX only (`1_introduction_omc.tex` L17, not in v1): this holds even with a perfect forward model. Present it as the thesis's own statement.
 
-**2. Candidate coverage and decoys.** The fit can only weight what the candidates contain ([[sampling coverage]]). Missing states cannot be created; plausible but unpopulated or implausible candidates can absorb weight ([[ensemble reweighting]]).
-- [[Reweighting cannot create conformational states absent from the candidate ensemble.]] (partial)
+**2. Standard statistics: generalisation, dependence and selection.** Training error is insufficient ([[overfitting]]). Regularisation and error models reduce overfitting but leave a validation problem ([[regularisation]], [[maximum entropy principle]]). Held-out data test prediction, but only as far as the partition respects the dependence between observations ([[data splitting]]). For HDX-MS the dependence comes first from overlapping peptides and then from cooperative unfolding, which couples residues that share no peptide, so structured splits reduce dependence without removing it. A validation error used to select a fit is no longer an unbiased estimate of performance ([[model selection]]), and replicate spread reflects the partition, not repeat measurement ([[replicate uncertainty]]). The divergence from practice is specific. Integrative HDX studies test robustness by omitting peptides, refitting forward-model parameters or comparing with orthogonal data, not by partitions built around peptide dependence; crystallographic ensemble refinement already selects its parameters by the cross-validated free R value ([[@burnleyModellingDynamicsProtein2012#^c1]]), so the gap is in the HDX setting, not in structural biology as a whole.
+- Principle, layer 1b: [[When observations are dependent, a random partition gives optimistic validation error, so the partition should follow the dependence.]] (draft; general source to acquire, see [[02-background]] §2.4)
+- [[Accounting for experimental error reduces overfitting in MaxEnt reweighting, and minimal correction is a good choice only when the prior is reasonable.]] (supported)
+- [[Similar uptake agreement can coexist with different population recovery, so training error cannot verify populations.]] (supported)
+- [[Overlapping peptides share residue information, so random splits leak information between training and validation sets.]] (supported)
+- [[Cooperative unfolding couples exchange at residues that share no peptide, so removing peptide overlap does not make training and validation peptides independent.]] (draft, inferred; the bridge between the two fields)
+- [[Structured splits reduce dependence between training and validation peptides but do not guarantee independence.]] (revised ValDX only)
+- [[Random and sequential splits gave no discrimination between candidate ensembles beyond training error.]] (supported; the ValDX result that makes the principle concrete)
+- [[Selecting a model by its validation error makes that error optimistic, so performance must be estimated on data unused in selection.]] (draft; one sentence, with the jaxENT HDX-NMR evaluation as the instance, see [[Evaluation design (jaxENT)]])
+- [[Split replicates measure sensitivity to peptide partitioning, not independent replication of the measurement.]] (draft)
+- Practice: [[In the HDX ensemble-integration studies examined, robustness is assessed by removing selected peptides, refitting forward-model parameters or comparing with orthogonal data, not by partitions designed around peptide dependence.]] (draft, inferred; keep the scope "studies examined")
+- Optional, if consensus fitting is named here rather than in ch. 3: [[Averaging fitted models reduces their variance but retains any error they share.]] (draft)
+- [[MaxEnt reweighting avoids overfitting and ensures the resulting ensemble remains physically plausible.]] (partial; do not reuse)
+
+**3. Poor forward models: compensation and calibration.** If the forward model or the exchange assumptions are wrong, weights and parameters absorb the error ([[model misspecification]]). Keep three cases apart, because each changes the advice. A parameter can be uncertain (a posterior width), miscalibrated (wrong coefficients, fixed by refitting them), or the functional form can be inadequate (no coefficients fit, as under kinetic mismatch). Recalibration addresses only the second, and restoring agreement by calibration does not validate kinetics or populations. How frame predictions are averaged is itself a forward-model choice.
+- [[Best–Vendruscolo coefficients are empirical, and their optimal values depend on the protein and experimental conditions.]] (supported)
+- [[When fitting points to calibration mismatch, the forward model should be recalibrated before the ensemble hypothesis is rejected.]] (supported)
+- [[Recalibrating forward-model coefficients can correct a miscalibration but not an inadequate functional form.]] (draft, inferred)
+- [[Fitted populations can compensate for errors in assumed exchange kinetics, and restoring uptake agreement by calibration does not validate kinetics or populations.]] (revised ValDX only)
+- [[Uncertainty in nuisance parameters and regularisation choices can affect structural conclusions from Bayesian analyses of NMR and small-angle scattering.]] (partial)
+- Optional, one clause at most: [[Averaging log protection factors, exchange rates or uptake over frames are different forward models, and held-out uptake error and population recovery can favour different choices.]] (jaxENT project doc only; detail in ch. 2 and ch. 4)
+
+**4. Candidate coverage and decoys.** The fit can only weight what the candidates contain ([[sampling coverage]]). §1.4 group 3 has already said that missing states cannot be created; remind it in one line. The finding to carry is the converse, that plausible but unpopulated candidates can absorb weight while uptake still matches ([[ensemble reweighting]]).
 - [[Plausible but unpopulated candidate structures can absorb weight and prevent population recovery even when uptake matches.]] (supported)
+- [[Reweighting cannot create conformational states absent from the candidate ensemble.]] (partial; reminder)
 - [[Diversity among generated structures is not on its own evidence that their frequencies represent an equilibrium ensemble.]] (partial)
 - [[Seeding simulations from rarely visited states broadens exploration but does not by itself give accurate populations.]] (supported)
 
-**3. Compensation between model and populations.** If the forward model or the exchange assumptions are wrong, weights and parameters absorb the error ([[model misspecification]]). Calibration can restore agreement without validating kinetics or populations.
-- [[Best–Vendruscolo coefficients are empirical, and their optimal values depend on the protein and experimental conditions.]] (supported)
-- [[When fitting points to calibration mismatch, the forward model should be recalibrated before the ensemble hypothesis is rejected.]] (supported)
-- [[Fitted populations can compensate for errors in assumed exchange kinetics, and restoring uptake agreement by calibration does not validate kinetics or populations.]] (revised ValDX only)
-- [[Uncertainty in nuisance parameters and regularisation choices can affect structural conclusions from Bayesian analyses of NMR and small-angle scattering.]] (partial)
-
-**4. Generalisation and regularisation.** Training error is insufficient ([[overfitting]]). Regularisation and error models reduce overfitting but leave a validation problem ([[regularisation]], [[maximum entropy principle]]). Held-out peptides test prediction, but only as far as the split is independent ([[data splitting]]). [[Work Done]] adds how much fitting changed the starting hypothesis.
-- [[Similar uptake agreement can coexist with different population recovery, so training error cannot verify populations.]] (supported)
-- [[Accounting for experimental error reduces overfitting in MaxEnt reweighting, and minimal correction is a good choice only when the prior is reasonable.]] (supported)
-- [[Overlapping peptides share residue information, so random splits leak information between training and validation sets.]] (supported)
-- [[Structured splits reduce dependence between training and validation peptides but do not guarantee independence.]] (revised ValDX only)
+**5. What a comparison then supports: Work Done, uncertainty and hypothesis testing.** Validation error alone cannot separate a good hypothesis from one forced into agreement, so [[Work Done]] adds how much fitting changed the starting hypothesis. Variation across replicate fits shows which conclusions depend on the data chosen ([[replicate uncertainty]]). It locates instability but does not identify its cause. Changing one suspected cause at a time is how a cause is tested ([[controlled perturbation]]). Representative structures make the inferred states inspectable, if conclusions survive a change of representation. End on integration as hypothesis testing, which hands over to the research questions (§1.6).
 - [[Work Done quantifies how much an ensemble must be modified to match experiment.]] (supported)
 - [[Low validation error with high Work Done signals agreement reached by excessive modification of the ensemble.]] (supported)
 - [[Work Done measures distance from the prior, not from the true ensemble, and small values can also mean too little fitting.]] (revised ValDX only)
-- [[MaxEnt reweighting avoids overfitting and ensures the resulting ensemble remains physically plausible.]] (partial; do not reuse)
-
-**5. Uncertainty, interpretation and testing structural hypotheses.** Variation across replicate fits shows which conclusions depend on the data chosen ([[replicate uncertainty]]). It locates instability but does not identify its cause. Changing one suspected cause at a time is how a cause is tested ([[controlled perturbation]]). Representative structures make the inferred states inspectable, if conclusions survive a change of representation. End on integration as hypothesis testing, which hands over to the research questions (§1.6).
 - [[Fitting outcomes depend on which peptides and time points are used, and replicate fits quantify this dependence.]] (supported)
 - [[Replicate uncertainty locates where a model is unstable but does not by itself separate sampling, structural and forward-model deficiencies.]] (revised ValDX only)
 - [[Clustering into representative structures gives compact, interpretable ensembles with little loss of accuracy.]] (supported)
@@ -381,9 +410,9 @@ ValDX supplies the central argument; jaxENT adds joint fitting and mapped uncert
 - [[A fitting metric can rank candidate ensembles against data or reveal them as inadequate, so integration becomes structural hypothesis testing.]] (supported)
 - [[Validation should progress from synthetic data with known populations to an orthogonal experimental reference to systems without ground truth.]] (jaxENT, draft)
 
-**6. What repeated assessment costs, and what it cannot reach.** Two points, and they motivate Q3 and chapter 5. First, every check in groups 4 and 5 repeats the fit. Splits, replicates, parameter settings and candidate ensembles multiply (ValDX ran 3 replicates × 2 or 4 split types per ensemble across 22 ensembles, with a γ sweep in each), so the cost of one fit bounds how much validation is affordable. Efficiency is a condition for validation, not a convenience. Second, reweighting can only redistribute weight over the candidates it is given, so where coverage fails the data have to act during sampling or generation. End the section on the hand-off to §1.6 as hypothesis testing with these two limits named.
+**6. What repeated assessment costs, and what it cannot reach.** Two points, and they motivate Q3 and chapter 5. First, every check in groups 2 and 5 repeats the fit. Splits, replicates, parameter settings and candidate ensembles multiply (ValDX ran 3 replicates × 2 or 4 split types per ensemble across 22 ensembles, with a γ sweep in each), so the cost of one fit bounds how much validation is affordable. Efficiency is a condition for validation, not a convenience. Second, reweighting can only redistribute weight over the candidates it is given, so where coverage fails the data have to act during sampling or generation. End the section on the hand-off to §1.6 as hypothesis testing with these two limits named.
 - Claim to write (ours, `basis: inferred`, draft): validation by splits and replicates multiplies the number of fits, so the cost of a single fit bounds how much assessment is affordable. Origin `projects/1-ValDX/manuscript/report/6_methods_omc.tex` L473 and L619; leaves draft with a jaxENT runtime figure ID.
-- [[Reweighting cannot create conformational states absent from the candidate ensemble.]] (partial; stated in group 2, reminded here as the motivation for ch. 5)
+- [[Reweighting cannot create conformational states absent from the candidate ensemble.]] (partial; stated in group 4, reminded here as the motivation for ch. 5)
 
 **Drafting sources.**
 - ValDX revised manuscript (`projects/1-ValDX/manuscript/report/`):
@@ -419,6 +448,7 @@ ValDX supplies the central argument; jaxENT adds joint fitting and mapped uncert
 **Argument.** §1.5 named three conditions for trusting a fitted ensemble. Each question turns one of them into a problem the research chapters can test. Under each, list the Chapter 2 concepts it draws on, the claims it rests on, and what stays open. §1.7 maps the chapters to the questions, and ch. 7 answers them.
 
 - **Q1.** How can we reliably assess integration in cases where there is no ground-truth? How can we leverage uncertainty to identify the sources of instability in structural hypotheses?
+  - Raised by §1.5 groups 2 and 5. Held-out validation is only as honest as the partition, and replicate spread locates instability without naming its cause.
   - Concepts. [[inverse problem]], [[data splitting]], [[Work Done]], [[replicate uncertainty]], [[posterior uncertainty]], [[controlled perturbation]].
   - [[One uptake curve can arise from many different conformational populations, so a good fit does not identify the ensemble.]] (supported)
   - [[Similar uptake agreement can coexist with different population recovery, so training error cannot verify populations.]] (supported)
@@ -428,6 +458,7 @@ ValDX supplies the central argument; jaxENT adds joint fitting and mapped uncert
   - [[Replicate uncertainty locates where a model is unstable but does not by itself separate sampling, structural and forward-model deficiencies.]] (revised ValDX only)
   - Open. Uncertainty localises instability. Attributing it to sampling, structure or the forward model needs controlled perturbations, one suspected cause at a time.
 - **Q2.** How can we integrate knowledge, statistics and physics during integration to improve the reliability of structural hypotheses?
+  - Raised by §1.5 group 3 and §1.4 group 6. Weights can absorb forward-model error, and established tools fit weights and forward-model parameters in stages.
   - Concepts. [[maximum entropy principle]], [[Bayes' theorem]], [[nuisance parameter]], [[regularisation]], [[forward model]], [[knowledge-based potential]], [[force field]], [[metainference]].
   - Roles. Physics proposes candidate conformations and sets the exchange assumptions. Knowledge supplies prior weights, parameter ranges and structural filters. Statistics models data errors and their correlations, balances fit against modification, and tests generalisation. The forward model connects structure to the observable, and its parameters are inferred with the weights.
   - [[Best–Vendruscolo coefficients are empirical, and their optimal values depend on the protein and experimental conditions.]] (supported)
@@ -436,14 +467,15 @@ ValDX supplies the central argument; jaxENT adds joint fitting and mapped uncert
   - [[Metainference infers an uncertainty for each datum alongside the structures, so the restraint weakens where data or forward model are unreliable.]] (supported)
   - Open. When an added constraint improves structural inference rather than absorbing error. Fitting order is conditional on the suspected mismatch.
 - **Q3.** How can we improve the efficiency of integration to enable its application to larger and more complex systems?
+  - Raised by §1.5 group 6. Every check repeats the fit, and reweighting cannot reach states the candidates lack.
   - Concepts. [[clustering]], [[enhanced sampling]], [[Boltzmann generator]], [[guided diffusion]], [[importance sampling]].
-  - Motivation: §1.5 group 6, the cost of repeated assessment.
   - Three costs, each reduced differently. Representation (fewer structures to fit and inspect), fitting (differentiable, compiled joint optimisation), and sampling (effort spent where it adds information).
   - [[Clustering into representative structures gives compact, interpretable ensembles with little loss of accuracy.]] (supported)
   - [[Seeding simulations from rarely visited states broadens exploration but does not by itself give accurate populations.]] (supported)
   - [[Guided diffusion samples are not equilibrium-weighted unless a correction such as reweighting is applied.]] (draft, inferred)
   - Open. Efficiency of the whole workflow, from feature calculation through generation to validation and uncertainty. jaxENT's speedups are provisional until re-run on the current code.
 - **Q4.** How can we build interpretable models for protein dynamics that allow us to answer mechanistic questions about their dynamics?
+  - Raised by §1.1 group C and §1.5 group 5. Weighted ensembles say which states are occupied, and the mechanistic questions of §1.1 D need to know which conclusions those states can carry.
   - Concepts. [[population shift]], [[conformational free-energy landscape]], [[high-energy intermediate]], [[allostery]], [[clustering]], [[conformational kinetics]]. Systems [[BPTI]], [[prion protein]], [[alpha-synuclein]].
   - [[Ensemble similarity scores compare equilibrium distributions and do not capture changes in dynamics or transition rates.]] (supported)
   - [[Under EX2 an amide opens and closes many times before it exchanges, so the observed rate combines intrinsic chemistry with the opening equilibrium.]] (supported)
@@ -459,8 +491,8 @@ ValDX supplies the central argument; jaxENT adds joint fitting and mapped uncert
 
 ### Gaps (1.6)
 - The questions are draft wording. Keep the numbers if they are reworded.
-- BPTI has no primary HDX source in the KB. Kim et al. 1993 needs a PDF.
-- No method notes exist yet for jaxENT's covariance weighting, parameter penalty, interval-hazard uptake, graph-Laplacian regulariser or uncertainty maps. Until they do, the Q2 and Q3 bullets point to manuscript and code.
+- BPTI's primary HDX source, [[@kimHydrogenExchangeIdentifies1993]], now has a PDF and blocks but no claim note.
+- jaxENT's observation weighting and selection now have method notes ([[Observation weighting and selection (jaxENT)]], [[Evaluation design (jaxENT)]]). The parameter penalty, interval-hazard uptake, graph-Laplacian regulariser and uncertainty maps still have none, so for those the Q2 and Q3 bullets point to manuscript and code.
 - No source on Markov state models or other kinetic methods supports the Q4 boundary from the kinetic side.
 
 ## 1.7 Thesis Outline and Contributions
@@ -469,12 +501,12 @@ ValDX supplies the central argument; jaxENT adds joint fitting and mapped uncert
 
 Register: jaxENT compression for contribution statements, each bounded by its validation regime ([[style]] §Registers; [[examples]] 7). There are no literature markers here. A contribution is a claim about the thesis's own results and leaves `draft` only with a figure ID, or with a quote from the posted ValDX preprint. Chapter 3's contributions already exist as §1.5 claims and are reused; chapters 4 to 6 need new claim notes (`project:` set, `figures:` filled).
 
-**1. The arc, in one paragraph.** §1.5 named three conditions for trusting a fitted ensemble, and §1.6 turned them into questions. The chapters answer them in order of decreasing control over the candidates. ValDX scores fits to fixed candidate ensembles where references exist (Q1). jaxENT fits weights and forward-model parameters together, fast enough to repeat the fit across splits and replicates (Q2, Q3). BioFeaturisers moves the same forward models into sampling and generation, so the data can reach states the candidates lacked, which §1.5 groups 2 and 6 set as the limit of reweighting (Q2, Q3, Q4). jax-Ka extends the differentiable forward-model idea to protonation (Q2, Q4). From chapter 4 onward one technical thread holds. A forward model with gradients can score, reweight, restrain and guide, so one definition serves every stage. End on the boundary: chapters 3 and 4 reweight what they are given, and only chapter 5 can add states.
+**1. The arc, in one paragraph.** §1.5 named three conditions for trusting a fitted ensemble, and §1.6 turned them into questions. The chapters answer them in order of decreasing control over the candidates. ValDX scores fits to fixed candidate ensembles where references exist (Q1). jaxENT fits weights and forward-model parameters together, fast enough to repeat the fit across splits and replicates (Q2, Q3). BioFeaturisers moves the same forward models into sampling and generation, so the data can reach states the candidates lacked, which §1.5 groups 4 and 6 set as the limit of reweighting (Q2, Q3, Q4). jax-Ka extends the differentiable forward-model idea to protonation (Q2, Q4). From chapter 4 onward one technical thread holds. A forward model with gradients can score, reweight, restrain and guide, so one definition serves every stage. End on the boundary: chapters 3 and 4 reweight what they are given, and only chapter 5 can add states.
 
 **2. Chapter 2 supplies, it does not contribute.** One sentence per block on what the research chapters draw from it (exchange kinetics and forward models; generators and their sampling distributions; MaxEnt, Bayesian refinement, restraints and guidance; validation and ensemble comparison; protonation, in proportion to ch. 6). The thesis's own formulations (Work Done, linear-additive uptake, graph-Laplacian regularisation, Heaviside-contact BV, metadiffusion) stay in their chapters ([[02-background]]).
 
 **3. Chapter 3, ValDX, answers Q1 and opens Q4.**
-- Problem (§1.5 groups 1 and 4). Agreement with uptake does not identify populations, and random splits leak through overlapping peptides, so a fitted ensemble has no honest validation error.
+- Problem (§1.5 groups 1 and 2). Agreement with uptake does not identify populations, and random splits leak through overlapping peptides, so a fitted ensemble has no honest validation error.
 - Contribution. Overlap-aware splits, replicate fits and Work Done make integration a comparison of candidate hypotheses, with Work Done read as a distance from the prior rather than from the truth: [[Overlapping peptides share residue information, so random splits leak information between training and validation sets.]], [[Structured splits reduce dependence between training and validation peptides but do not guarantee independence.]], [[Fitting outcomes depend on which peptides and time points are used, and replicate fits quantify this dependence.]], [[Work Done quantifies how much an ensemble must be modified to match experiment.]], [[Low validation error with high Work Done signals agreement reached by excessive modification of the ensemble.]], [[Work Done measures distance from the prior, not from the true ensemble, and small values can also mean too little fitting.]]. The result: [[Similar uptake agreement can coexist with different population recovery, so training error cannot verify populations.]], [[A fitting metric can rank candidate ensembles against data or reveal them as inadequate, so integration becomes structural hypothesis testing.]]. Representation and protocol, one sentence each: [[Clustering into representative structures gives compact, interpretable ensembles with little loss of accuracy.]], [[Conclusions drawn from representative structures should be checked for stability across cluster sizes.]], [[When fitting points to calibration mismatch, the forward model should be recalibrated before the ensemble hypothesis is rejected.]], [[Fitted populations can compensate for errors in assumed exchange kinetics, and restoring uptake agreement by calibration does not validate kinetics or populations.]], [[Plausible but unpopulated candidate structures can absorb weight and prevent population recovery even when uptake matches.]].
 - Regime. 22 ensembles of six proteins (58 to 480 residues); a synthetic kinetic mismatch; decoy conformations.
 - Limitation handed on. Conclusions are comparative across the candidates supplied, reweighting cannot add states, replicate uncertainty does not name its cause, and each assessment repeats the fit many times (§1.5 group 6): [[Reweighting cannot create conformational states absent from the candidate ensemble.]], [[Replicate uncertainty locates where a model is unstable but does not by itself separate sampling, structural and forward-model deficiencies.]].
