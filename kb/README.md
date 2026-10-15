@@ -33,10 +33,11 @@ Sources write their own notation. A paper note records it once, in a `## Notatio
 - `quote_check` is written only by the lint; `reviewed` only by me.
 - Example-thesis notes (`ref-theses/`) are never cited as evidence; cite the primary paper.
 - Concept and method notes back definitions, equations and derivations with `sources:` block links (`- "[[@key#^c1]]"`), checked like claim `cites`. For an equation, quote the sentence that introduces it and give the equation number and page in the body; quotes cannot capture the maths itself.
-- Equations go in a concept's `## Equations` section as a `$$ … $$` block followed by a block ID line (`^eq-<name>`), a `Source:` line (block link, equation number, page) and, when a manuscript already writes it, a `Manuscript form:` line (`path#L<n>`, never evidence). Derivations go in `## Derivation`, one numbered step per line, each citing a source equation or marked "(step ours)". Declare every symbol in `notation:`.
+- Equations go in a concept's `## Equations` section as a `$$ … $$` block followed by a block ID line (`^eq-<name>`), a `Source:` line (block link, equation number, page) and, when a manuscript already writes it, a `Manuscript form:` line (`path#L<n>`; provenance from my checked manuscripts, which settle the point under the trust order in `AGENTS.md`; the lint checks only the block links). Derivations go in `## Derivation`, one numbered step per line, each citing a source equation or marked "(step ours)". Declare every symbol in `notation:`.
 - Project-specific formulations (losses, Work Done) are method notes, not concepts; they link the concepts whose symbols they use.
 - Method notes link to code as `<submodule>@<sha>:<file>#L<start>-<end>`.
 - Run `python3 tools/kb-lint/lint.py` (from the repository root) before relying on a claim; see [tools/kb-lint](../tools/kb-lint/README.md).
+- Draft from the whole note. A matching quotation or a passing lint shows the note is sound, not that a newly composed sentence follows from it; read the Argument, Caveats and `review_reason` before using a claim.
 - Chapter hub notes list claims in argument order, so each hub reads straight through as an outline of the chapter.
 - Source trust order, hub upkeep and what belongs in a hub's Gaps section are set in `AGENTS.md` ("Sources and hub upkeep"). In short: my manuscripts are checked sources, hub lines are never cut for weak citations, and Gaps list only what blocks writing.
 - Figures are referred to by their ID (the folder name under `figures/`) everywhere: KB, `.tex` and analyses.

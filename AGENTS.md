@@ -10,6 +10,8 @@ Before drafting, rewriting or editing prose (thesis `.tex`, manuscript text, cap
 
 Run the checklist at the end of `style.md` before handing a draft back. The voice notes guide wording only; evidence still comes from `kb/claims/` and `kb/papers/` (see `kb/README.md`).
 
+<!-- Draft from the full claim note (Argument and Caveats), and draft a chapter one section at a time, stopping for review after the first. In `.tex`, refer to chapters and sections with `\cref`, never hard-coded numbers, and give every section a `\label`. -->
+
 ## Sources and hub upkeep
 
 The aim of `kb/` is to get the thesis written. Do not add bookkeeping for its own sake.

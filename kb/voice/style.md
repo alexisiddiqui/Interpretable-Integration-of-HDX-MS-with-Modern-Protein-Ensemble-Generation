@@ -11,7 +11,7 @@ My voice is characterised by:
 
 ## Sources and their weight
 
-The profile was built from three documents. When they disagree, the higher one wins. When using sources, avoid lifting their phrasing directly; instead, note what they show and how it can be expressed in my voice. The text should be a new composition, not a copy-paste of the source.
+The profile was built from three documents. When they disagree, the higher one wins. Where one of my manuscripts settles a point, reuse its wording and cite the file and line (`AGENTS.md`, trust order). For other sources, note what they show and express it in my voice, so the text is a new composition rather than a copy of the source.
 
 | Source | What it shows | Weight |
 |---|---|---|
@@ -28,7 +28,7 @@ Write towards the conditions under which an interpretation becomes defensible. T
 3. Say what prevents those explanations from being distinguished.
 4. Introduce the comparison, measure or partition that makes the distinction meaningful.
 
-This pattern matters more than any phrase or piece of vocabulary.
+This pattern matters more than any phrase or piece of vocabulary. It is the shape of a results argument, where competing explanations are developed and a comparison discriminates between them. An introduction first establishes the biological question and what answering it would show, and takes this shape only where it motivates a method.
 
 ## Let distinctions carry the argument
 
@@ -99,6 +99,8 @@ Let qualifications change the recommendation (e.g. different fitting-order advic
 
 Avoid unconditional verbs and adjectives: *ensures, successfully resolves, fundamental, robust, novel, powerful*. Attach every claim to the conditions that support it. "For the systems studied here" is often all that is needed.
 
+A sentence is never stronger than its claim note's Caveats, and an example supports only the distinction its source states. Do not carry one case's mechanism to the next, or close on a general claim the example did not establish.
+
 ## Rhythm: accumulate, then interrupt
 
 Elegant sentences assemble the object, comparison, qualification and interpretation. Then a short declarative settles the meaning or draws a boundary:
@@ -110,6 +112,8 @@ Use the short sentence after dense explanation, not as a habit. Prose made only 
 ## Carry the narrative through paragraphs
 
 In the introduction, background and conclusions a paragraph opens on what the previous one left unresolved, so the same concepts recur from paragraph to paragraph while the argument moves. Results chapters can have clearer boundaries. A check that works for both: read only the first sentence of each paragraph, and the section's argument should be there ([[examples]] 11). The last sentence of a paragraph should hint at the next, or what the reader should be thinking.
+
+A limitation stated in its home section returns elsewhere only as a clause naming its consequence for the current step. Compose the argument from the hub rather than expanding every bullet into a sentence. Hub section-structure and group-lead sentences are instructions to the writer; open the paragraph on the scientific relationship they point to, never on the instruction or on a count of what follows ("Two cautions follow", "The kinds combine").
 
 ## Introduce concepts through actions
 
@@ -126,6 +130,8 @@ The typical sentence describes something being changed, measures that change, an
 Choose clean, standard terms that the target audience already uses, never an abstract or decorative phrase standing in for one (word list in [[spag]]). How tightly a term is fixed scales with how often it is reused. A quantity mentioned once can be described in plain words. A quantity reused across a section or chapter earns a short fixed name, built from standard terminology so its meaning is still obvious on first reading (*validation error*, *candidate ensemble*, *Work Done*).
 
 Keep a technical noun once introduced. Write "validation error", "Work Done", "candidate ensemble" again in the next sentence rather than switching to a synonym; a stable referent matters more than variety. If repetition becomes heavy, restructure the sentence rather than introducing a synonym.
+
+Repetition of construction is different from repetition of a noun. *Provides*, *offers* or *supplies* as the main verb of consecutive paragraphs, and "rather than" or "not X but Y" in consecutive sentences, are drafting habits; vary the construction. Cite the one or two sources that carry a sentence. Three or more keys usually means the sentence carries several claims, so split it.
 
 ## Authorial presence
 
@@ -182,7 +188,9 @@ If a revision loses one of these, restore it and cut something else.
 
 ## Before handing back a draft
 
-- Does each paragraph report one finding, stated near its start, with what it can and cannot support?
+- Does each paragraph report one finding, stated near its start, with a boundary where one changes the interpretation?
+- Is any sentence stronger than its claim note's Caveats?
+- Does any sentence describe the chapter's organisation instead of making the argument?
 - Does the caption decode the figure, leaving the body to interpret?
 - Does every transition say why the next analysis is needed?
 - Is every methodological choice given a purpose before its mechanics?

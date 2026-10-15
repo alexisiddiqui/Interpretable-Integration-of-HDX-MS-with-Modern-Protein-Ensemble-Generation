@@ -19,7 +19,7 @@ code: []
 
 ## Argument
 
-Best and Vendruscolo's phenomenological approximation writes the protection factor as a sum of burial (heavy atoms within 6.5 angstroms of the amide nitrogen) and hydrogen bonds to the amide, which they identify as the likely origin of the free energy of local exchange.
+Best and Vendruscolo's phenomenological approximation writes the logarithm of the protection factor as a weighted sum of burial (heavy atoms within 6.5 angstroms of the amide nitrogen) and hydrogen bonds to the amide, which they identify as the likely origin of the free energy of local exchange ([[Best–Vendruscolo model#^eq-bv-feature]]).
 
 ## Caveats
 

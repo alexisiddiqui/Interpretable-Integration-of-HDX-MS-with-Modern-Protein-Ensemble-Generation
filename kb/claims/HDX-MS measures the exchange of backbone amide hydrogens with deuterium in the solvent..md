@@ -18,4 +18,4 @@ code: []
 
 ## Argument
 
-Narang et al. state that, of the labile hydrogens on a protein, only those on backbone amide nitrogens exchange with solvent deuterium on a timescale relevant to conventional [[HDX-MS]] measurements. Masson et al. (p3) state that backbone amides in secondary structure exchange with solvent.
+Narang et al. state that, of the labile hydrogens on a protein, only those on backbone amide nitrogens exchange with solvent deuterium on a timescale relevant to conventional [[HDX-MS]] measurements. Masson et al. (p3) state that backbone amides in secondary structure exchange with solvent. Side-chain and other labile hydrogens exchange as well, and faster, but their deuterium is not retained through quench and analysis, so backbone amides are the hydrogens conventional HDX-MS measures (own reading of the two sources).

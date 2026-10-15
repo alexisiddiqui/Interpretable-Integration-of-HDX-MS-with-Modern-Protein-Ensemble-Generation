@@ -23,12 +23,12 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
 - [[Folding poses an entropic search problem, and evolved sequences carry just enough information to solve it.]]
 - [[Folding is possible because evolved sequences are minimally frustrated, giving a rough, funnel-shaped energy landscape.]]
 - [[X-ray crystallography, cryo-EM and NMR provide high-resolution structures of proteins.]]
-- [[Leveraging large structure and sequence corpora, protein structure models predict structures rapidly and with high accuracy.]] (also in §1.3 group 4). For the scale, Varadi ^c5 compares about 220 million sequences with just over 180,000 PDB structures.
+- [[Leveraging large structure and sequence corpora, protein structure models predict structures rapidly and with high accuracy.]] (also in §1.3 group 4). For the scale of sequences against solved structures, cite the 2022 snapshot in Varadi ^c5.
 - [[Despite structure prediction, the dynamics of folding remains a formidable problem that predictors and most experiments cannot resolve.]]
 - [[AlphaFold2 can predict individual domains accurately while missing their relative motion.]]
 - [[Native-state hydrogen exchange reveals sparsely populated partially unfolded forms that are otherwise invisible.]]
 
-**C. Function frustrates the landscape locally, and the consequence is dynamics.** Minimal frustration is a global property. Interactions required for binding, catalysis and allosteric switching can conflict with those that stabilise the fold, producing local frustration at functional sites. The same sites drive interconversion between native conformations, so function depends on how the native [[structural ensemble]] is populated, often through slow, sparsely populated states. For an [[intrinsically disordered protein]] the ensemble is the whole description, and folded and disordered proteins sit at two ends of one landscape. [[allostery|Allostery]] is the demonstration. Where it acts by [[population shift]], a weighted ensemble can show it. In IGPS, activation is driven by millisecond motions without any large rearrangement ([[@lisiAllosteryEnzymeCatalysis2017#^c7]]), which sets the boundary the thesis works within. Weighted ensembles describe which states are occupied; the order, rates and pathways of transitions need kinetic evidence ([[conformational kinetics]]).
+**C. Function frustrates the landscape locally, and the consequence is dynamics.** Minimal frustration is a global property. Interactions required for binding, catalysis and allosteric switching can conflict with those that stabilise the fold, producing local frustration at functional sites. The same sites drive interconversion between native conformations, so function depends on how the native [[structural ensemble]] is populated, often through slow, sparsely populated states. For an [[intrinsically disordered protein]] the ensemble is the principal structural description, and folded and disordered proteins sit at two ends of one landscape. [[allostery|Allostery]] is the demonstration, and it acts by two routes. A [[population shift]] among conformations the protein already visits changes function without a new fold, and a weighted ensemble can show it (D1). Altered motions without a large rearrangement, as in IGPS, where activation is driven by millisecond dynamics ([[@lisiAllosteryEnzymeCatalysis2017#^c7]]), need kinetic evidence, and this second route sets the boundary the thesis works within. Weighted ensembles describe which states are occupied; the order, rates and pathways of transitions need kinetic evidence ([[conformational kinetics]]).
 
 **Section structure.** State the boundary here, once; Q4 reminds in one line.
 
@@ -51,14 +51,14 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
 - [[Disease-associated variants perturb local frustration more than benign variants.]]
 - [[Conformational dynamics can inform therapeutic strategies for allosteric regulation and protein aggregation.]]
 
-*D1. Population shift: structure preserved, function changed* ([[allostery]]). Mutations reshape the [[conformational free-energy landscape]] without changing the fold.
+*D1. Population shift: structure preserved, function changed* ([[allostery]]). Mutations reshape the [[conformational free-energy landscape]] without changing the fold. PKA is the structure-preserved illustration, not a disease case ([[@lisiAllosteryEnzymeCatalysis2017#^c6]]), and EGFR carries the disease link. That resistance arises without a steric clash holds for T790M as Sutto interprets it ([[@suttoEffectsOncogenicMutations2013#^c3]]), not for PKA.
 - [[A single mutation can leave the crystal structure unchanged yet strongly alter function.]]
 - [[Oncogenic mutations alter conformational free-energy landscapes and shift the equilibrium between active and inactive states.]]
 - [[Kinases and their inhibitor resistance mutations often preserve drug-binding sites while shifting conformational equilibria.]]
 - [[EGFR L858R and T790M mutations rigidify sub-domains and shift equilibria toward active states, preserving active-site geometry.]]
 - [[Mutations create neither steric clashes nor new folds but shift conformational ensembles, which needs sampling of many distributions.]]
 
-*D2. α-Synuclein: the heterogeneous solution ensemble behind a solved fibril.* Open with the shared-transition claim as the bridge from D1 to the aggregation diseases. In [[alpha-synuclein]] the fibril is solved, but the protective state is a disordered ensemble whose protection lies in transient contacts. One paragraph.
+*D2. α-Synuclein: the heterogeneous solution ensemble behind a solved fibril.* Open with the shared-transition claim as the bridge from D1 to the aggregation diseases. In [[alpha-synuclein]] the fibril is solved, but the protective state is a disordered ensemble whose protection lies in an autoinhibitory N- to C-terminal contact ([[@mukherjeeProteinMisfoldingAmyloid2024#^c6]]). One paragraph.
 - [[Alzheimer's, Parkinson's and prion diseases share dynamic conformational transitions that start pathological aggregation.]] (the bridge sentence)
 - [[Heterogeneous, rapidly interconverting misfolded oligomers are difficult to characterise at high structural resolution.]]
 - [[Differences in conformational dynamics can influence aggregation of amyloidogenic immunoglobulin light chains.]]
@@ -70,26 +70,26 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
 - [[Disrupting alpha-synuclein's autoinhibitory conformation exposes the NAC domain and is likely to lower the nucleation barrier for aggregation.]]
 - [[In soluble alpha-synuclein, an electrostatic interaction between the N- and C-termini protects the aggregation-prone NAC domain, and disrupting it is likely to lower the nucleation barrier.]]
 
-*D3. Prion protein: partially unfolded intermediates, and pH as a condition.* The endpoints are solved and the path between them is not. The intermediates are sparsely populated, so the full ensemble is needed, and [[prion protein|MoPrP]] populates its β-rich intermediate only at acidic pH. This is where pH enters the biological motivation. §1.2 group 2 carries it to the measurement, §1.3 group 2 to the simulation, [[02-background]] §2.5 supplies the chemistry, and chapters 4 to 6 use MoPrP at pH 4 and pH 7.
+*D3. Prion protein: partially unfolded intermediates, and pH as a condition.* The endpoints are solved and the path between them is not. The intermediates on that path are sparsely populated, so what is needed is the intermediates and their populations, not only the endpoints, and [[prion protein|MoPrP]] populates its β-rich intermediate only at acidic pH. This is where pH enters the biological motivation. §1.2 group 2 carries it to the measurement, §1.3 group 2 to the simulation, [[02-background]] §2.5 supplies the chemistry, and chapters 4 to 6 use MoPrP at pH 4 and pH 7.
 - [[Atomic structures of PrP-C and PrP-Sc show an alpha-to-beta transition, yet how monomeric PrP-C traverses it is unclear.]]
 - [[A familial prion-disease variant populates a more heterogeneous ensemble with thermally accessible misfolded states.]]
 - [[Conformational conversion of oligomeric intermediates can limit the rate of protein aggregation.]]
 - [[High-energy intermediates are sparsely populated yet play critical roles in disease pathogenesis.]]
 - [[Rate-limiting conformational changes take microseconds to milliseconds, beyond the reach of traditional structural methods.]]
 - [[Combining MD simulations with NMR chemical shifts has revealed misfolding intermediates invisible to crystallography.]]
-- [[Understanding prion conversion requires the complete conformational ensemble, not just the ground and fully misfolded states.]]
+- [[Understanding prion conversion requires the complete conformational ensemble, not just the ground and fully misfolded states.]] (own framing)
 - [[Mouse PrP(121–231) populates a β-rich intermediate only at acidic pH, and urea is needed to populate it substantially.]] (the pH condition)
 - [[Protonation of H186 or D201 drives MoPrP misfolding, and HDX-MS shows helix 1 and the α1–β2 loop become more dynamic.]]. State the protonation half here; the HDX-MS half is the MoPrP example in §1.2 group 3.
 
 **E. What structural methods record, method by method.** This is the home of the structural-method limitations, so each method gets its own limitation and one example rather than a shared generic sentence. The disease cases in D already show some of these; recall them in a clause rather than re-explaining.
-- *[[X-ray crystallography]].* A crystal structure is a time average of an ordered lattice. Example: [[NMR relaxation showed the central helix of calmodulin is flexible in solution, though it appears rigid in crystal structures.]]. The PKA time-average reading ([[@lisiAllosteryEnzymeCatalysis2017#^c5]]) is already in group A, and the unchanged crystal structure under a functional mutation is D1.
+- *[[X-ray crystallography]].* A crystal structure is a time average of an ordered lattice ([[@lisiAllosteryEnzymeCatalysis2017#^c5]]). Example: [[NMR relaxation showed the central helix of calmodulin is flexible in solution, though it appears rigid in crystal structures.]]. The PKA time-average reading ([[@lisiAllosteryEnzymeCatalysis2017#^c5]]) is already in group A, and the unchanged crystal structure under a functional mutation is D1.
 - *[[cryo-EM]].* It removes the need for a crystal but still reconstructs well-populated end states. Example: the α-synuclein fibril against its disordered solution state (D2, one clause).
-- *[[NMR]].* It works in solution and across timescales, so it is the closest of the three to a measurement of populations, but sensitivity and spectral complexity limit the size of system it can study, and its deposited structural ensembles are not thermodynamic ensembles.
+- *[[NMR]].* It works in solution and across timescales, so it is the one of the three that reports motion in solution directly, but sensitivity and spectral complexity limit the size of system it can study, and its deposited structural ensembles are not thermodynamic ensembles.
   - [[NMR works in solution like HDX-MS but also gives structural information and is sensitive over a wide range of timescales.]]
   - [[NMR typically needs larger samples and is limited to smaller proteins or domains by sensitivity and spectral complexity.]]
   - An NMR ensemble is not a thermodynamic ensemble ([[@bmsb2012ch12#^c3]]). Cross-reference §1.5 group 1: [[Posterior uncertainty about a structure or its parameters is not the same quantity as a protein's physical conformational populations.]].
-- *What all three miss.* Transient, sparsely populated intermediates, which are the states D3 needs.
-  - [[Rate-limiting conformational changes take microseconds to milliseconds, beyond the reach of traditional structural methods.]]; its second citation, [[@biancanielloStructureDynamicsMisfolding2025#^c9]], states that integrative approaches are needed because X-ray crystallography, NMR and cryo-EM cannot capture dynamic intermediate species. Biancaniello ^c2 (techniques mainly target rigid states) is further support not yet on the note.
+- *What all three find hardest.* Transient, sparsely populated intermediates under the conditions that populate them, which are the states D3 needs.
+  - [[Rate-limiting conformational changes take microseconds to milliseconds, beyond the reach of traditional structural methods.]]; its second citation, [[@biancanielloStructureDynamicsMisfolding2025#^c9]], states for the T183A prion variant that integrative approaches are needed because X-ray crystallography, NMR and cryo-EM cannot capture its dynamic intermediate species. Biancaniello ^c2 (techniques mainly target rigid states) is further support not yet on the note.
   - [[Linking fast molecular motions to slow pathological processes requires conformational dynamics that static structures cannot capture.]]
   - [[Time-averaged crystal structures do not resolve the motions within a protein's conformational ensemble.]]
 - *Scale of the gap*, one sentence: [[Only about 12,000 experimental structural ensembles exist, covering 21% of CATH superfamilies, so dynamic data are scarce.]] or [[Tools to estimate protein dynamics are decades old, but public datasets hold only thousands to tens of thousands of entries.]] (use one). The NMR caveat above means the count overstates what is known about populations.
@@ -114,7 +114,7 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
 **Drafting sources.**
 - Anchors:
   - [[@galpernInformationtheoreticArgumentRestriction2026]] for B (conclusions only);
-  - [[@parraFrustrationPhysiologyMolecular2025]] for B to E;
+  - [[@parraFrustrationPhysiologyMolecular2025]] for B to E; its gene-network and psychiatry analogies (§§13–14) are analogies, its hemoglobin sentence (^c33) is a framing image, and specific disease results cite their primary study where the KB has it;
   - [[@galpernProbingDarkEnergy2026]] for B and C;
   - [[@lisiAllosteryEnzymeCatalysis2017]] for the allostery demonstration in C;
   - the [[dynamic disease mechanism]] concept for D and E.
@@ -123,12 +123,10 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
   - its disease paragraphs map onto D;
   - reorder its material; do not reuse its opening.
 
-**Wording to avoid.**
-- Intensifiers from the confirmation: "paradigm shift", "simply", "critical", "fundamental". Several existing claim titles use them (the gateway-states claim in D3 among them), so reword when drafting.
-- Parra's gene-network and psychiatry analogies (§§13–14). They are analogies, not evidence.
-- The hemoglobin sentence as a result. It is a framing image.
-- Parra as the citation for specific disease results where the primary study is in the KB.
-- Galpern's bits-per-site numbers and Eqs. 1 to 5. Conclusions only.
+### Gaps (1.1)
+- A citation for the α-synuclein Lewy-body fibril cryo-EM structures (Ahmed does not support it).
+- A citation for cryo-EM reconstructing well-populated end states.
+- A citation for allostery acting by population shift.
 
 ## 1.2 Measuring Protein Dynamics
 
@@ -150,20 +148,21 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
 - [[The HDX rate depends on the local environment of the amide hydrogen, with more exposed and flexible regions exchanging faster.]] (read it with the second caution in group 5)
 - [[His, Asp and Glu neighbours change intrinsic exchange rates with pH through their own ionisation.]] (the neighbour half of the pH dependence)
 - The intrinsic exchange rate depends on pH and temperature through its acid-, base- and water-catalysed terms, so uptake is defined for the stated pD and temperature ([[intrinsic exchange rate]]; source [[@baiPrimaryStructureEffects1993#^c2]]). The jaxENT MoPrP data were taken at pD 4.
+- $P_f$ is a ratio of rates ([[protection factor]]).
 
 **3. What it can show.** Strengths come before limits, so the reader knows what the measurement is for before learning where it stops. Two examples, one general and one on the thesis's own system. Group F of §1.1 has already named the scope and the rare-state sensitivity; recall them in a clause, not again in full.
 - [[Millisecond HDX-MS showed tau hyperphosphorylation releases the global fold and exposes the aggregation-prone H2 region.]] (the one disease example that only HDX-MS supplies)
 - [[Protonation of H186 or D201 drives MoPrP misfolding, and HDX-MS shows helix 1 and the α1–β2 loop become more dynamic.]]. The HDX-MS half. It shows a pH-dependent change in protection on MoPrP, the system of chapters 4 to 6, and carries the pH thread from group 2.
 - [[The primary benefits of HDX-MS are sensitivity, flexibility and low sample needs compared with other biophysical techniques.]]
 - [[HDX-MS flexibility and increasing throughput make it well suited to challenging targets such as GPCRs, antibodies and IDPs.]]
-- [[Orthogonal to X-ray, cryo-EM and NMR, HDX-MS probes protein dynamics in solution under diverse conditions.]]
+- [[Orthogonal to X-ray, cryo-EM and NMR, HDX-MS probes protein dynamics in solution under diverse conditions.]] (solution conditions only; peptide resolution sets a size limit, James p16, so breadth is the scope claim in §1.1 F)
 - Reminder only: [[HDX-MS can study many systems that are too large, flexible, heterogeneous or sample-limited for other structural tools.]] (stated in §1.1 F)
 
 **4. What the readout resolves.** Overlapping peptides, not residues or atoms. This is the price of the strengths in group 3.
 - [[HDX-MS reports deuterium uptake at the peptide level, not the residue level.]]
 - [[HDX-MS data alone do not give the atomic positions that NMR, crystallography and cryo-EM provide.]]
 
-**5. Why interpretation is ambiguous.** Different local environments or populations can give the same uptake. A change in uptake shows a change in protection, not a mechanism. Two cautions follow.
+**5. Why interpretation is ambiguous.** Different local environments or populations can give the same uptake. A change in uptake shows a change in protection, not a mechanism.
 - [[A change in HDX-MS uptake shows a change in protection but does not on its own identify the structural mechanism.]]
 - [[Greater deuterium uptake indicates less protection from exchange, not directly greater flexibility.]] (own)
 - [[Labelling time measures accumulated exchange, not the duration of a conformational motion.]] (own)
@@ -191,10 +190,6 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
 - $P_f$ and $\Delta G_\text{op}$ ([[protection factor]]);
 - back-exchange and peptide averaging ([[deuterium uptake]]);
 - the [[Best–Vendruscolo model]].
-
-**Wording to avoid:**
-- "chemical potential" for $P_f$ (confirmation `measuring_dynamics.tex` L22). $P_f$ is a ratio of rates ([[protection factor]]).
-- "without size limitations" (ValDX intro L8). Use the group 5 claim for breadth. [[Orthogonal to X-ray, cryo-EM and NMR, HDX-MS probes protein dynamics in solution under diverse conditions.]] now states solution conditions only, since James p16 sets a size limit by peptide resolution.
 
 ## 1.3 Estimating Protein Dynamics
 
@@ -262,13 +257,13 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
 - [[A generator's sampling distribution is a reference distribution, not automatically the physical equilibrium distribution.]]
 - [[A knowledge-based potential is not a thermodynamic free energy unless its probabilistic model and reference distribution are defined.]]
 - [[The emerging bottleneck is scoring generated structures against in vitro and in vivo behaviour.]]
-- [[Integrating measurements of protein dynamics with simulations constrains structural ensembles.]] (moved from §1.1 F; "bridging the gap" is the confirmation's phrase, reword)
+- [[Integrating measurements of protein dynamics with simulations constrains structural ensembles.]] (moved from §1.1 F)
 - The generated-diversity point is developed in §1.5 group 4; do not state it here.
 
 **Drafting sources.**
 - ValDX methods: `projects/1-ValDX/manuscript/report/6_methods_omc.tex` L85. Ensembles are framed as competing structural hypotheses, and the concrete examples are single-start MD, multiple-start MD, T-FES, and filtered and unfiltered AF2.
 - jaxENT intro: `projects/2-jaxENT/manuscript/report/introduction.tex` L6. MD recovers dominant states for folded proteins but cannot guarantee representativeness. AF2 sub-sampling includes implausible structures. Wider sampling creates opportunities for integration.
-- Confirmation: `milestones/2025-11-confirmation-of-status/introduction/ensemble_generators.tex` L15–84, which has most of the explanatory prose. Use it with the corrections below.
+- Confirmation: `milestones/2025-11-confirmation-of-status/introduction/ensemble_generators.tex` L15–84, which has most of the explanatory prose. Where it differs from groups 3 and 4 on what metadynamics loses (L76), what seeding preserves (L80–82) and learned force fields against Boltzmann generators (L67), the groups are right, and the AF3 seeds claim replaces its L42.
 
 **Kept for Chapter 2:**
 - diffusion SDEs and score matching ([[diffusion model]]);
@@ -278,12 +273,6 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
 - force-field functional forms;
 - knowledge-based potentials and the [[reference ratio method]].
 
-**Wording to avoid** (confirmation `ensemble_generators.tex`):
-- "no approaches to generate conformational ensembles" (L42). Use the AF3 seeds claim instead.
-- "loss of equilibrium properties" for metadynamics (L76). Biased sampling loses kinetics, and recovers equilibrium by reweighting.
-- "preserve equilibria", "without distorting the landscape" or "preserving the equilibrium distribution" for adaptive seeding and FES (L80–82). Seeding broadens exploration; pooled frames still need a model or reweighting.
-- Unke and Noé cited together as "learned force fields" (L67). An MLFF is a force field; a Boltzmann generator is a sampler.
-
 ## 1.4 Integrating Experiment and Ensembles
 
 **Argument.** Candidate ensembles can be tested against HDX-MS data by predicting uptake and adjusting the contributions of the sampled conformations. This requires a forward model that relates structural features to exchange, together with a treatment of experimental uncertainty and prior information. Ensemble reweighting balances agreement with the data against changes to the reference ensemble, while calibration adjusts the parameters of the forward model. The fitted ensemble is a structural hypothesis whose interpretation depends on both choices.
@@ -292,12 +281,12 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
 - [[Connecting uptake to a structural explanation requires a forward model that predicts exchange from candidate structures or ensembles.]]
 - [[To address this ambiguity, researchers increasingly turn to molecular simulations for structural hypotheses.]]
 
-**2. Predict what the experiment would measure.** Define a [[forward model]] as the link from a proposed ensemble to an observable. Give the HDX example in words: structural hydrogen bonding and burial features → predicted residue protection factors → exchange rates under EX2 → peptide uptake. Introduce the [[Best–Vendruscolo model]] as the concrete example shared by the research chapters. The prediction depends on ensemble weights and empirical model parameters.
+**2. Predict what the experiment would measure.** Define a [[forward model]] as the link from a proposed ensemble to an observable. Give the HDX example in words. Counts of hydrogen bonds and heavy-atom contacts at each amide, weighted by two empirical coefficients, give the log protection factor of each conformer; the weighted average over conformers gives the ensemble log protection factor; exchange rates under EX2 and peptide averaging then give uptake. Introduce the [[Best–Vendruscolo model]] as the concrete example shared by the research chapters. The prediction depends on ensemble weights and empirical model parameters.
 - [[The Best-Vendruscolo model predicts protection factors from coordinates by counting structural features that impede exchange.]]
 - [[Predicted protection factors are transformed into theoretical deuterium uptake for direct comparison with HDX-MS data.]]
 - BV/HDXer averages log protection factors before calculating uptake. Averaging separate conformer uptake curves would describe a different model; see [[Best–Vendruscolo model#^eq-bv-ensemble]] and [[deuterium uptake#^eq-uptake-peptide]].
 
-**3. Fit the contributions of the sampled conformations.** Explain [[ensemble reweighting]] physically: adjust how much each candidate contributes so the ensemble prediction agrees better with experiment. The initial weights define the reference ensemble. Reweighting changes contributions within the sampled candidates; states absent from that set require further sampling ([[importance sampling]]). Name HDXer as an established implementation after explaining the operation.
+**3. Fit the contributions of the sampled conformations.** Explain [[ensemble reweighting]] physically: each candidate contributes to the ensemble-average log protection factor, uptake is computed from that average, and fitting adjusts how much each candidate contributes so the predicted uptake agrees better with experiment. The initial weights define the reference ensemble. Reweighting changes contributions within the sampled candidates; states absent from that set require further sampling ([[importance sampling]]). Name HDXer as an established implementation after explaining the operation.
 - [[Ensemble reweighting adjusts structural contributions so proposed conformational states can be tested against experiment.]]
 - [[HDXer is a Python package that implements a MaxEnt reweighting scheme to fit simulated ensembles to experimental HDX-MS data.]]
 
@@ -305,11 +294,11 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
 - [[MaxEnt reweighting seeks new weights that minimise the discrepancy with experimental uptake while staying close to the prior.]]
 - [[In a Bayesian description, a prior and a likelihood combine into a posterior over unknown structures and parameters.]]
 
-**5. Fit the ensemble and calibrate its forward model.** Distinguish the two adjustable parts of an ensemble model: frame weights determine structural contributions, while the BV coefficients calibrate the mapping from structural features to protection. Introduce fixed-parameter, staged and joint fitting as choices about these unknowns ([[nuisance parameter]]). This motivates the unified fitting problem addressed by jaxENT; detailed objectives and results belong in its research chapter.
+**5. Fit the ensemble and calibrate its forward model.** Distinguish the two adjustable parts of an ensemble model: frame weights determine structural contributions, while the BV coefficients calibrate the mapping from structural features to protection. Either can improve uptake agreement, a change in weights by moving population between conformers and a change in coefficients by rescaling every conformer's protection, so agreement alone does not say which changed. Introduce fixed-parameter, staged and joint fitting as choices about these unknowns ([[nuisance parameter]]). This motivates the unified fitting problem addressed by jaxENT; detailed objectives and results belong in its research chapter.
 - Source: ValDX `6_methods_omc.tex` L356–465 (weights and BV parameters fitted against uptake) and jaxENT `introduction.tex` L4, L10 (unified weight–parameter fitting).
-- HDXer already optimises BV parameters. Describe jaxENT's contribution through its unified optimisation workflow and composable objectives, rather than claiming parameter fitting itself is new.
+- HDXer already optimises BV parameters, and the ValDX protocols fit weights and BV parameters in stages (`7_results_omc.tex` L136, L189). BICePs learns forward-model parameters within the posterior for Karplus J-couplings, not for BV uptake (`7_results_omc.tex` L220). jaxENT's contribution is one optimisation in which fixed, staged and joint fits and added constraints can be compared, not parameter fitting itself.
 
-**6. What established integration provides, and what it leaves open.** First credit what the existing tools do. HDXer and MaxEnt refinement reweight candidates against a reference, fit forward-model parameters, and test sensitivity by omitting data or varying parameters ([[02-background]] §2.4, layer 2 of the layered-validation decision). Then name the two problems they leave, one sentence each. Agreement with uptake supports consistency under the chosen candidates, forward model and fitting assumptions, and no existing HDX study partitions the data around peptide dependence, so assessment without ground truth is unresolved (§1.5, Q1). Weights and forward-model parameters are fitted in stages with plausibility fixed by the method, so a joint fit under a plausibility constraint that suits candidates without Boltzmann weights is unresolved (Q2). Parameter fitting itself is not new; the gap is the unified fit and its assessment. Let §1.5 develop identifiability, model error, overfitting, uncertainty and interpretability.
+**6. What established integration provides, and what it leaves open.** First credit what the existing tools do. HDXer and MaxEnt refinement reweight candidates against a reference, fit forward-model parameters, and test sensitivity by omitting data or varying parameters ([[02-background]] §2.4, layer 2 of the layered-validation decision). Then name the two problems they leave, one sentence each. Agreement with uptake supports consistency under the chosen candidates, forward model and fitting assumptions, and no existing HDX study partitions the data around peptide dependence, so assessment without ground truth is unresolved (§1.5, Q1). For HDX-MS with the BV model, weights and forward-model parameters have been fitted in stages, with plausibility fixed by the method (HDXer; the ValDX protocols), so a joint fit whose constraint can be chosen for candidates whose sampling frequencies are not Boltzmann weights, such as MSA-subsampled AF2, is unresolved (Q2). Parameter fitting itself is not new; the gap is the comparison of fixed, staged and joint fits and added constraints within one optimisation, and its assessment. Let §1.5 develop identifiability, model error, overfitting, uncertainty and interpretability.
 
 Close §1.4 on why agreement can mislead, which sets §1.5's order. One kind of risk is common to any model fitted to finite data and is answered by standard statistics (held-out data, partitions that respect dependence, selection kept apart from evaluation). The other is specific to integration, because the forward model that links structure to uptake is itself approximate, and a fit can absorb its errors into the weights.
 - [[Many ensembles can explain the same data, given complex conformational landscapes and simple structure-experiment models.]]
@@ -367,7 +356,7 @@ Close §1.4 on why agreement can mislead, which sets §1.5's order. One kind of 
 
 **5. What a comparison then supports: Work Done, uncertainty and hypothesis testing.** Validation error alone cannot separate a good hypothesis from one forced into agreement, so [[Work Done]] adds how much fitting changed the starting hypothesis. Variation across replicate fits shows which conclusions depend on the data chosen ([[replicate uncertainty]]). It locates instability but does not identify its cause. Changing one suspected cause at a time is how a cause is tested ([[controlled perturbation]]). Representative structures make the inferred states inspectable, if conclusions survive a change of representation. End on integration as hypothesis testing, which hands over to the research questions (§1.6).
 - [[Work Done quantifies how much an ensemble must be modified to match experiment.]]
-- [[Low validation error with high Work Done signals agreement reached by excessive modification of the ensemble.]]
+- [[Low validation error with high Work Done shows agreement reached by substantial modification of the prior.]]
 - [[Work Done measures distance from the prior, not from the true ensemble, and small values can also mean too little fitting.]]
 - [[Fitting outcomes depend on which peptides and time points are used, and replicate fits quantify this dependence.]]
 - [[Replicate uncertainty locates where a model is unstable but does not by itself separate sampling, structural and forward-model deficiencies.]]
@@ -377,7 +366,7 @@ Close §1.4 on why agreement can mislead, which sets §1.5's order. One kind of 
 - [[Validation should progress from synthetic data with known populations to an orthogonal experimental reference to systems without ground truth.]] (jaxENT, draft)
 
 **6. What repeated assessment costs, and what it cannot reach.** Two points, and they motivate Q3 and chapter 5. First, every check in groups 2 and 5 repeats the fit. Because validation requires repeated fitting across data partitions, parameter settings and candidate ensembles, the cost of each fit limits the extent of the assessment. ValDX ran 3 replicates × 2 or 4 split types per ensemble across 22 ensembles, with a γ sweep in each. Second, reweighting can only redistribute weight over the candidates it is given, so where coverage fails the data have to act during sampling or generation. End the section on the hand-off to §1.6 as hypothesis testing with these two limits named.
-- Claim to write (ours, `basis: inferred`, draft): validation by splits and replicates multiplies the number of fits, so the cost of a single fit bounds how much assessment is affordable. Origin `projects/1-ValDX/manuscript/report/6_methods_omc.tex` L473 and L619; leaves draft with a jaxENT runtime figure ID.
+- Validation by splits and replicates multiplies the number of fits, so the cost of a single fit bounds how much assessment is affordable (own; `projects/1-ValDX/manuscript/report/6_methods_omc.tex` L473 and L619).
 - [[Reweighting cannot create conformational states absent from the candidate ensemble.]] (stated in group 4, reminded here as the motivation for ch. 5)
 
 **Drafting sources.**
@@ -385,24 +374,16 @@ Close §1.4 on why agreement can mislead, which sets §1.5's order. One kind of 
   - `1_introduction_omc.tex` L11–37;
   - `7_results_omc.tex` L4–30 (the Work Done framework), L42–60 (TeaA), L189–211 and L248 (kinetic misspecification), L235–248 (clustering and limitations);
   - `6_methods_omc.tex` L52, L70, L510.
-- ValDX posted v1: [[@siddiquiFrameworkTestingStructural2026]]. This is the version to cite; its wording differs from the revision.
-- jaxENT (`projects/2-jaxENT/manuscript/report/`): `introduction.tex` L4–10; `results.tex` L29 (validation regimes), L63 and L130 (decoys), L173–197 (uncertainty maps).
+- ValDX posted v1: [[@siddiquiFrameworkTestingStructural2026]]. This is the version to cite. Where v1 and the revision differ, on what small Work Done means, on what structured splits guarantee and on how precise a structural statement Work Done supports, the revision's reading in groups 2 and 5 holds (revised `1_introduction_omc.tex` L26, `7_results_omc.tex` L28).
+- jaxENT (`projects/2-jaxENT/manuscript/report/`): `introduction.tex` L4–10; `results.tex` L29 (validation regimes), L63 and L130 (decoys), L173–197 (uncertainty maps). The Fig. 5 caption (L203–207) reads uncertainty as separating sampling from force-field limitations, which group 5 and ValDX do not support.
+- BMSB ch13: its Shannon-channel and good-parameter counts are for SAXS and SANS, an example of low-information data rather than facts about HDX-MS.
 - Confirmation: `milestones/2025-11-confirmation-of-status/introduction/connect_simulation_experiment.tex` L87–95. Most of it belongs in §1.4. Here it explains why regularisation still leaves a validation problem.
-
-**Wording to avoid:**
-- "Small Work Done means the ensemble is correct". v1 p. 4 reads it that way; the revision says it is distance from the prior, not to the truth.
-- "Structured splits give independent validation" or "ensure that validation error reflects true predictive performance" (v1; revised `1_introduction_omc.tex` L26, `7_results_omc.tex` L28).
-- "Uncertainty distinguishes sampling from force-field limitations" (jaxENT Fig. 5 caption, `results.tex` L203–207). This conflicts with ValDX.
-- "Work Done allows precise statements about structural hypotheses" (v1).
-- "Systematic errors accumulate at the peptide level" (ValDX `1_introduction_omc.tex` L20). Its four citations do not support it; use the BV-coefficient claim.
-- "MaxEnt avoids overfitting and ensures physical plausibility" (confirmation L95).
-- BMSB ch13's quantitative results (Shannon channels, number of good parameters) are specific to SAXS and SANS. Cite them as an example of low-information data, not as facts about HDX-MS.
 
 ### Gaps (1.5)
 - Revised ValDX is not posted. Its claims (five, plus the perfect-forward-model sentence) cite the revised manuscript until it is.
 - jaxENT has no citable version, so the decoy, joint-uncertainty and validation-regime points cite the manuscript.
 - Efficiency claim (group 6) needs a jaxENT runtime figure.
-- `siddiquiFrameworkTestingStructural2026` is in `thesis/references.bib` by hand; add it to Zotero or the next export drops it.
+- A general citation for selection making validation error optimistic (e.g. Cawley and Talbot 2010).
 
 ## 1.6 Research Questions and Objectives
 
@@ -410,7 +391,7 @@ Close §1.4 on why agreement can mislead, which sets §1.5's order. One kind of 
 
 **Section structure.** Under each question, list the Chapter 2 concepts it draws on, the claims it rests on, and what stays open. §1.7 maps the chapters to the questions, and ch. 7 answers them.
 
-- **Q1.** How can we reliably assess integration in cases where there is no ground-truth? How can we leverage uncertainty to identify the sources of instability in structural hypotheses?
+- **Q1.** How can we assess fitted ensembles when conformational populations are not independently known? How can variation across fits guide controlled comparisons of possible causes of instability?
   - Raised by §1.5 groups 2 and 5. Held-out validation is only as honest as the partition, and replicate spread locates instability without naming its cause.
   - Concepts. [[inverse problem]], [[data splitting]], [[Work Done]], [[replicate uncertainty]], [[posterior uncertainty]], [[controlled perturbation]].
   - [[One uptake curve can arise from many different conformational populations, so a good fit does not identify the ensemble.]]
@@ -445,56 +426,45 @@ Close §1.4 on why agreement can mislead, which sets §1.5's order. One kind of 
   - Reminder of §1.1 group C, one line only: [[Weighted conformational ensembles describe which states are occupied, not the order, rates or causal pathways of transitions between them.]] (own; its home is §1.1 C)
   - Open. Weighted states support statements about what is occupied and what it looks like. Causal mechanisms, transition order and rates need kinetic evidence.
 
-**Wording to avoid.**
-- "Uncertainty distinguishes sampling from force-field limitations" (jaxENT `results.tex` L203–207).
-- A recommended fitting order stated without its condition.
-- Pathways, transition order or rates read off fitted weights.
-- The α-synuclein Tris interpretation as an established mechanism.
-- jaxENT speedups from the outdated experiments.
-
-### Gaps (1.6)
-- The questions are draft wording. Keep the numbers Q1–Q4 if they are reworded.
-- jaxENT's parameter penalty, interval-hazard uptake, graph-Laplacian regulariser and uncertainty maps have no method notes; the Q2 and Q3 bullets point to manuscript and code.
-
 ## 1.7 Thesis Outline and Contributions
 
 **Argument.** The research chapters develop methods for assessing, fitting and generating conformational ensembles using experimental constraints. Following the theoretical background in Chapter 2, Chapter 3 presents ValDX for comparing candidate ensembles through predictive agreement, changes induced by fitting and sensitivity across data partitions. Chapter 4 introduces jaxENT for joint optimisation of ensemble weights and forward-model parameters. Chapter 5 develops differentiable forward models for use during sampling and generation, and Chapter 6 examines differentiable prediction of protonation for pH-dependent applications. Chapter 7 returns to the research questions and considers the conclusions supported by the evidence from each chapter.
 
-**Section structure.** Each research chapter gets one paragraph with four fixed elements: the problem it answers (the §1.1 or §1.5 point that exposed it), the contribution, the validation regime, and the limitation it hands to the next chapter. A fixed status sentence closes each paragraph, so the examiner knows which results the thesis is held to. Architecture, loss-function and training detail stays out of the outline; it lives in the research-chapter hubs ([[03-valdx]], [[04-jaxent]], [[05-biofeaturisers]], [[06-jax-ka]]).
+**Section structure.** Each research chapter gets one paragraph with four fixed elements: the problem it answers (the §1.1 or §1.5 point that exposed it), the contribution, the validation regime, the limitation it hands to the next chapter, and the state of its evidence, stated as what exists (a posted preprint, completed analyses, an implemented method), so the examiner knows which results the thesis is held to. Architecture, loss-function and training detail stays out of the outline; it lives in the research-chapter hubs ([[03-valdx]], [[04-jaxent]], [[05-biofeaturisers]], [[06-jax-ka]]).
 
-Register: jaxENT compression for contribution statements, each bounded by its validation regime ([[style]] §Registers; [[examples]] 7). There are no literature markers here. A contribution is a claim about the thesis's own results and leaves `draft` only with a figure ID, or with a quote from the posted ValDX preprint. Chapter 3's contributions already exist as §1.5 claims and are reused; chapters 4 to 6 need new claim notes (`project:` set, `figures:` filled).
+Register: jaxENT compression for contribution statements, each bounded by its validation regime ([[style]] §Registers; [[examples]] 7). Chapter 3's contributions already exist as §1.5 claims and are reused; chapters 4 to 6 state the method and what each case tests until their results exist.
 
 **1. The arc, in one paragraph.** §1.5 named three conditions for trusting a fitted ensemble, and §1.6 turned them into questions. The chapters answer them in order of decreasing control over the candidates. ValDX scores fits to fixed candidate ensembles where references exist (Q1). jaxENT fits weights and forward-model parameters together, fast enough to repeat the fit across splits and replicates (Q2, Q3). BioFeaturisers moves the same forward models into sampling and generation, so the data can reach states the candidates lacked, which §1.5 groups 4 and 6 set as the limit of reweighting (Q2, Q3, Q4). jax-Ka extends the differentiable forward-model idea to protonation (Q2, Q4). From chapter 4 onward one technical thread holds. A forward model with gradients can score, reweight, restrain and guide, so one definition serves every stage. End on the boundary: chapters 3 and 4 reweight what they are given, and only chapter 5 can add states.
 
-**2. Chapter 2 supplies, it does not contribute.** One sentence per block on what the research chapters draw from it (exchange kinetics and forward models; generators and their sampling distributions; MaxEnt, Bayesian refinement, restraints and guidance; validation and ensemble comparison; protonation, in proportion to ch. 6). The thesis's own formulations (Work Done, linear-additive uptake, graph-Laplacian regularisation, Heaviside-contact BV, metadiffusion) stay in their chapters ([[02-background]]).
+**2. What Chapter 2 supplies (synthesis and critical review).** One sentence per block on what the research chapters draw from it (exchange kinetics and forward models; generators and their sampling distributions; MaxEnt, Bayesian refinement, restraints and guidance; validation and ensemble comparison; protonation, in proportion to ch. 6). The thesis's own formulations (Work Done, linear-additive uptake, graph-Laplacian regularisation, Heaviside-contact BV, metadiffusion) stay in their chapters ([[02-background]]).
 
 **3. Chapter 3, ValDX, answers Q1 and opens Q4.**
-- Problem (§1.5 groups 1 and 2). Agreement with uptake does not identify populations, and random splits leak through overlapping peptides, so a fitted ensemble has no honest validation error.
-- Contribution. Overlap-aware splits, replicate fits and Work Done make integration a comparison of candidate hypotheses, with Work Done read as a distance from the prior rather than from the truth: [[Overlapping peptides share residue information, so random splits leak information between training and validation sets.]], [[Structured splits reduce dependence between training and validation peptides but do not guarantee independence.]], [[Fitting outcomes depend on which peptides and time points are used, and replicate fits quantify this dependence.]], [[Work Done quantifies how much an ensemble must be modified to match experiment.]], [[Low validation error with high Work Done signals agreement reached by excessive modification of the ensemble.]], [[Work Done measures distance from the prior, not from the true ensemble, and small values can also mean too little fitting.]]. The result: [[Similar uptake agreement can coexist with different population recovery, so training error cannot verify populations.]], [[A fitting metric can rank candidate ensembles against data or reveal them as inadequate, so integration becomes structural hypothesis testing.]]. Representation and protocol, one sentence each: [[Clustering into representative structures gives compact, interpretable ensembles with little loss of accuracy.]], [[Conclusions drawn from representative structures should be checked for stability across cluster sizes.]], [[When fitting points to calibration mismatch, the forward model should be recalibrated before the ensemble hypothesis is rejected.]], [[Fitted populations can compensate for errors in assumed exchange kinetics, and restoring uptake agreement by calibration does not validate kinetics or populations.]], [[Plausible but unpopulated candidate structures can absorb weight and prevent population recovery even when uptake matches.]].
+- Problem (§1.5 groups 1 and 2). Agreement with uptake does not identify populations, and random splits leak through overlapping peptides, so validation error from random splits is optimistic.
+- Contribution. Overlap-aware splits, replicate fits and Work Done make integration a comparison of candidate hypotheses, with Work Done read as a distance from the prior rather than from the truth: [[Overlapping peptides share residue information, so random splits leak information between training and validation sets.]], [[Structured splits reduce dependence between training and validation peptides but do not guarantee independence.]], [[Fitting outcomes depend on which peptides and time points are used, and replicate fits quantify this dependence.]], [[Work Done quantifies how much an ensemble must be modified to match experiment.]], [[Low validation error with high Work Done shows agreement reached by substantial modification of the prior.]], [[Work Done measures distance from the prior, not from the true ensemble, and small values can also mean too little fitting.]]. The result: [[Similar uptake agreement can coexist with different population recovery, so training error cannot verify populations.]], [[A fitting metric can rank candidate ensembles against data or reveal them as inadequate, so integration becomes structural hypothesis testing.]]. Representation and protocol, one sentence each: [[Clustering into representative structures gives compact, interpretable ensembles with little loss of accuracy.]], [[Conclusions drawn from representative structures should be checked for stability across cluster sizes.]], [[When fitting points to calibration mismatch, the forward model should be recalibrated before the ensemble hypothesis is rejected.]], [[Fitted populations can compensate for errors in assumed exchange kinetics, and restoring uptake agreement by calibration does not validate kinetics or populations.]], [[Plausible but unpopulated candidate structures can absorb weight and prevent population recovery even when uptake matches.]].
 - Regime. 22 ensembles of six proteins (58 to 480 residues); a synthetic kinetic mismatch; decoy conformations.
 - Limitation handed on. Conclusions are comparative across the candidates supplied, reweighting cannot add states, replicate uncertainty does not name its cause, and each assessment repeats the fit many times (§1.5 group 6): [[Reweighting cannot create conformational states absent from the candidate ensemble.]], [[Replicate uncertainty locates where a model is unstable but does not by itself separate sampling, structural and forward-model deficiencies.]].
-- Status sentence: complete. Manuscript post-review; preprint v1 posted ([[@siddiquiFrameworkTestingStructural2026]]). The five "revised ValDX only" claims in §1.5 become supported once the revision is posted. The BiCePs comparison and other detail are in [[03-valdx]].
+- Status. The analyses in this chapter are reported in a posted preprint ([[@siddiquiFrameworkTestingStructural2026]]), and the revised manuscript is post-review. The BICePs comparison and other detail are in [[03-valdx]].
 
 **4. Chapter 4, jaxENT, answers Q2 and Q3, and returns to Q1.**
 - Problem (§1.4 group 6, §1.5 group 6). Established tools fit weights and forward-model parameters in stages with plausibility fixed by the method, and a validation protocol of splits and replicates multiplies the cost of every fit.
-- Contribution. A differentiable MaxEnt engine that fits weights and Best–Vendruscolo parameters together, with plausibility constraints as loss terms (including a regulariser for candidates that carry no Boltzmann weights) and with splits and replicates built into the fit. Stub claim, `project: 2-jaxENT`, figure ID needed. HDXer already fits BV parameters; the contribution is the unified, composable fit, not parameter fitting itself.
+- Contribution. A differentiable MaxEnt engine that fits weights and Best–Vendruscolo parameters together, with plausibility constraints as loss terms, including a regulariser for candidates whose sampling frequencies are not Boltzmann weights, and with splits and replicates built into the fit. HDXer and the ValDX protocols fit weights and BV parameters in stages; the contribution is that fixed, staged and joint fits and added constraints are compared within one optimisation, not parameter fitting itself.
 - Regime. [[Validation should progress from synthetic data with known populations to an orthogonal experimental reference to systems without ground truth.]]: synthetic, an HDX-NMR reference, α-synuclein; runtime against HDXer. The draft abstract's figures come from outdated experiments and are re-derived before they appear.
 - Limitation handed on. jaxENT still reweights fixed candidates, and its uncertainty maps localise instability without naming the cause; attribution needs a [[controlled perturbation]]. The α-synuclein Tris reading stays a hypothesis bounded by sampling and forward model.
-- Status sentence: analyses complete; manuscript in draft. Due 14 Nov. Loss terms, the interval-hazard uptake form, the graph-Laplacian regulariser and the error weighting are in [[04-jaxent]].
+- Status. The analyses are complete; their manuscript is in draft, due 14 Nov. Loss terms, the interval-hazard uptake form, the graph-Laplacian regulariser and the error weighting are in [[04-jaxent]].
 
 **5. Chapter 5, BioFeaturisers, answers Q2 and Q3 during sampling, and Q4 through two mechanistic cases.**
 - Problem (§1.5 group 6, §2.3). States absent from the candidates cannot be reweighted into existence, and no HDX collective variable with forces is published.
-- Contribution. A library of differentiable forward models, so that one definition serves reweighting (jaxENT), restrained sampling (metadynamics–metainference) and guided generation (metadiffusion). Stub; the library and pipeline are what can be claimed now.
+- Contribution. A library of differentiable forward models, so that one definition serves reweighting (jaxENT), restrained sampling (metadynamics–metainference) and guided generation (metadiffusion). The library and pipeline are what can be claimed now.
 - Regime, in order of decreasing ground truth ([[examples]] 7). [[BPTI]] against the 1 ms Anton trajectory, a controlled reference. MoPrP at pH 4 and pH 7, a mechanistic question that depends on protonation (ch. 6). RORγ with agonist, partial-agonist and antagonist ligands, with no reference. Each case is written as what it tests.
 - Limitation handed on. [[Guided diffusion samples are not equilibrium-weighted unless a correction such as reweighting is applied.]]; a restraint is only as good as the forward model where the data are; and a pathway read from the MoPrP simulations needs the trajectories, not the weights (§1.1 group C, [[conformational kinetics]]).
-- Status sentence: work in progress. Preliminary experiments; metadiffusion under development. Due 28 Nov ("metadynamics" in `DEADLINES.md`). Forward-model and case protocols are in [[05-biofeaturisers]].
+- Status. The forward-model library is implemented; the cases are under way and metadiffusion is under development, due 28 Nov ("metadynamics" in `DEADLINES.md`). Forward-model and case protocols are in [[05-biofeaturisers]].
 
 **6. Chapter 6, jax-Ka, answers Q2 and Q4 for protonation.**
 - Problem (the pH thread: §1.1 D3, §1.2 group 2, §1.3 group 2). The MoPrP data were taken at pD 4, the ch. 5 simulations run at pH 4 and pH 7, and our ensembles were protonated once at neutral pH, so which groups are protonated is an unverified input to every pH-dependent case.
-- Contribution. A backbone-only pKa predictor whose readout differentiates through coordinates, a second forward model of the kind ch. 5 builds. Stub.
-- Regime. pKPDB and PINDER bound and free states for training, PKAD for testing; application to which MoPrP sites change protonation between pH 4 and pH 7, and whether they sit in the regions that unfold.
+- Contribution. A backbone-only pKa predictor whose readout differentiates through coordinates, a second forward model of the kind ch. 5 builds.
+- Regime. Training labels are computed, PypKa values via pKPDB and pKAI values on PINDER bound and free states, and experiment enters only at test, on PKAD ([[06-jax-ka]]). The planned application asks which MoPrP sites change protonation between pH 4 and pH 7, and whether they sit in the regions that unfold.
 - Limitation handed on. Interface experiments are open, and the MoPrP application is untested. Keep the paragraph proportional to the final chapter; [[02-background]] §2.5 is short and the titration models are introduced in the ch. 6 preface.
-- Status sentence: in progress. **decision**: full research chapter, short chapter, or appendix. `DEADLINES.md` has no entry for it. Architecture, training sets and current numbers are in [[06-jax-ka]].
+- Status. The method is implemented; the cases are under way, and `DEADLINES.md` has no entry for it. Architecture, training sets and current numbers are in [[06-jax-ka]].
 
 **7. Chapter 7 returns to the questions.** The conclusion answers Q1 to Q4 with the chapter evidence, names what stays open (equilibrium weighting of guided samples; forward-model error where data are sparse; the posted ValDX revision; and one item per question from §1.6, namely attributing instability, when added constraints help, whole-workflow efficiency, and kinetic or causal interpretation), and places the confirmation's future work (AlphaFold3 confidence benchmarking; jaxENT with SAXS and NMR) as extensions, not chapters.
 
@@ -502,38 +472,25 @@ Register: jaxENT compression for contribution statements, each bounded by its va
 
 | Chapter | Questions | Contribution, one line | Tested on | Status |
 |---|---|---|---|---|
-| 3 ValDX | Q1, Q4 | Splits, replicates and Work Done make integration a comparison of candidate hypotheses | 22 ensembles, six proteins; synthetic kinetic mismatch; decoys | complete; preprint v1, revision post-review |
-| 4 jaxENT | Q2, Q3, Q1 | Joint differentiable fit with plausibility as loss terms; linear-additive uptake; graph-Laplacian regularisation | synthetic, HDX-NMR reference, α-synuclein; runtime vs HDXer | analyses complete; manuscript draft |
-| 5 BioFeaturisers | Q2, Q3, Q4 | Differentiable forward models shared by reweighting, restrained sampling and guided generation | BPTI (Anton), MoPrP pH 4 and 7, RORγ ligand series | in progress |
-| 6 jax-Ka | Q2, Q4 | Backbone-only relational oGQT pKa model, differentiable through coordinates | pKPDB, PINDER bound/free, PKAD; MoPrP pH 4 and 7 | in progress |
+| 3 ValDX | Q1, Q4 | Splits, replicates and Work Done make integration a comparison of candidate hypotheses | 22 ensembles, six proteins; synthetic kinetic mismatch; decoys | preprint posted; revision post-review |
+| 4 jaxENT | Q2, Q3, Q1 | Joint differentiable fit with plausibility as loss terms; linear-additive uptake; graph-Laplacian regularisation | synthetic, HDX-NMR reference, α-synuclein; runtime vs HDXer | analyses complete; manuscript in draft |
+| 5 BioFeaturisers | Q2, Q3, Q4 | Differentiable forward models shared by reweighting, restrained sampling and guided generation | BPTI (Anton), MoPrP pH 4 and 7, RORγ ligand series | method implemented; cases under way |
+| 6 jax-Ka | Q2, Q4 | Backbone-only relational oGQT pKa model, differentiable through coordinates | pKPDB, PINDER bound/free, PKAD; MoPrP pH 4 and 7 | method implemented; cases under way |
 
-**decision**: contributions inline, one per chapter paragraph, closed by a four-sentence paragraph keyed to Q1 to Q4; or a separate bulleted list as in the confirmation and Crook §1.7. Inline is recommended; a list invites the unconditional phrasing below.
-**decision**: chapter titles. The tex titles are project names; the outline reads better if each chapter carries a descriptive title that §1.7 can quote.
-**decision**: one fixed status sentence per state, used verbatim across chapters ("This chapter is complete and posted as a preprint." / "This chapter reports completed analyses whose manuscript is in draft." / "This chapter reports work in progress.").
+Contributions are stated inline, one per chapter paragraph, with no closing paragraph keyed to Q1 to Q4, because chapter 7 answers the questions. A separate bulleted list, as in the confirmation and Crook §1.7, invites unconditional phrasing.
 
 **Drafting sources.**
-- Confirmation `milestones/2025-11-confirmation-of-status/introduction/thesis_outline.tex` (chapter summaries and contributions; its numbering is stale, ValDX was chapter 2) and `future_work/future_work.tex` (what moves to ch. 7).
+- Confirmation `milestones/2025-11-confirmation-of-status/introduction/thesis_outline.tex` (chapter summaries and contributions; its numbering is stale, ValDX was chapter 2, and its 4D visualisation has no chapter) and `future_work/future_work.tex` (what moves to ch. 7).
 - ValDX `0_abstract_omc.tex` and `1_introduction_omc.tex` L25–37; preprint note [[@siddiquiFrameworkTestingStructural2026]].
 - jaxENT `abstract.tex`, `introduction.tex` final two paragraphs, `results.tex` L29 (validation regimes), `meta_analysis.tex` L1–10.
-- Chapter tex comments (`03-valdx.tex` to `06-jax-ka.tex`) for ch. 4 to 6; the README project table and `DEADLINES.md` for status.
+- Chapter tex comments (`03-valdx.tex` to `06-jax-ka.tex`) for ch. 4 to 6, where "heavy-side" is Heaviside; the README project table and `DEADLINES.md` for status.
 - Crook §1.7 "Thesis outline and contributions" (`examples/crook-map`) for the shape: chapter by chapter, each tied to the question it answers.
 - The research-chapter hubs for the detail that was moved out of this section on 2026-10-14.
 
-**Wording to avoid** (confirmation `thesis_outline.tex` and the jaxENT draft):
-- "comprehensive workflow", "rigorous uncertainty quantification", "thermodynamically grounded", "robust indicators", "key innovation", "significantly improve", "high-performance".
-- "Proof that differential HDX-MS experiments are no longer strictly required" and "absolute dynamics can be quantified from a single experiment". ValDX supports ranking candidates, not absolute dynamics.
-- "Successful recovery of MoPrP misfolding intermediates and their populations". MoPrP is now a ch. 5 case in progress.
-- "fundamental problem", "critical obstacles", "great synergy", "establish jaxENT as" (jaxENT draft).
-- "4D visualisation" as a contribution. No chapter carries it.
-- "heavy-side" (tex comments) is Heaviside.
-- Stale chapter numbers from the confirmation.
-
 ### Gaps (1.7)
-- §1.6 is draft wording, now numbered Q1 to Q4 so that §1.7 can map to it. If the questions are reworded, keep the numbers.
-- No claim notes exist for the thesis's own ch. 4 to 6 results. Every stub above stays draft until a claim note with a figure ID exists. Ch. 3 reuses the §1.5 ValDX claims, five of which are "revised ValDX only".
+- No results or claim notes yet for the thesis's own ch. 4 to 6 contributions; their paragraphs state the method and what each case tests.
 - jaxENT's quantitative figures are from outdated experiments.
-- Ch. 5 and 6 results are not yet obtained; their paragraphs claim the method and name what each case tests.
-- jax-Ka scope is undecided and has no deadline.
-- `thesis/frontmatter/abstract.tex` is empty; the abstract should reuse the four closing sentences.
+- jax-Ka scope is undecided (full research chapter, short chapter or appendix) and has no deadline.
+- Chapter titles: the tex titles are project names, and §1.7 needs descriptive titles it can quote.
+- `thesis/frontmatter/abstract.tex` is empty.
 - Publications and data collaborations: whether to list the preprint and collaborator data here or in the front matter.
-- The research-chapter hubs ([[03-valdx]] to [[06-jax-ka]]) hold moved detail only; their argument order is not yet set.
