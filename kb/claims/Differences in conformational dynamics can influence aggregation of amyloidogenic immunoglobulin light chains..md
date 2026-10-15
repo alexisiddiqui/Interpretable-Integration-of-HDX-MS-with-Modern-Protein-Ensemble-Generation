@@ -21,4 +21,5 @@ Paissoni et al. note that differences in conformational dynamics can play a role
 
 ## Caveats
 
-The paper concerns light-chain amyloidosis, not the neurodegenerative diseases of the previous sentence, and says dynamics 'can play a role' rather than are central.
+The example concerns light-chain amyloidosis. Paissoni et al. describe a possible contribution of conformational dynamics to aggregation.
+

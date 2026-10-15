@@ -11,10 +11,12 @@ needs_review: false
 review_reason: 
 figures: []
 cites:
+  - "[[@varadiAlphaFoldProteinStructure2022#^c2]]"
   - "[[@abramsonAccurateStructurePrediction2024#^c2]]"
 code: []
 ---
 
 ## Argument
 
-Abramson et al. say the introduction of AlphaFold 2 spurred a revolution in modelling the structure of proteins and their interactions.
+Varadi et al. describe AlphaFold as predicting protein structures from amino-acid sequences ([[@varadiAlphaFoldProteinStructure2022#^c2]]). Abramson et al. describe the use of AlphaFold 2 to model proteins and their interactions ([[@abramsonAccurateStructurePrediction2024#^c2]]).
+

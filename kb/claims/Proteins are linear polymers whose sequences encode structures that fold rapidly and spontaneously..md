@@ -17,7 +17,7 @@ code: []
 
 ## Argument
 
-Galpern, Ferreiro and Sánchez open from the observation that the functional structures of biopolymers are coded in linear strings of units, many of which fold rapidly and spontaneously under appropriate conditions ([[@galpernInformationtheoreticArgumentRestriction2026#^c12]]). This is the most general starting point for §1.1: a protein is a sequence before it is a structure, and the structure is something the chain does.
+Galpern, Ferreiro and Sánchez open from the observation that the functional structures of biopolymers are coded in linear strings of units, many of which fold rapidly and spontaneously under appropriate conditions ([[@galpernInformationtheoreticArgumentRestriction2026#^c12]]).
 
 ## Caveats
 

@@ -15,4 +15,4 @@ Intrinsically disordered proteins lack a stable structure. They have relatively 
 
 ## Why it matters here
 
-Claims that use this term: [[For intrinsically disordered proteins, the failure of static structural biology becomes apparent.]], [[Intrinsically disordered proteins lack stable structures and exist as heterogeneous conformational ensembles.]].
+Claims that use this term: [[Intrinsically disordered proteins require an ensemble description rather than a single structure.]], [[Intrinsically disordered proteins lack stable structures and exist as heterogeneous conformational ensembles.]].

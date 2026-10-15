@@ -23,4 +23,5 @@ Zheng et al. describe AlphaFold and RoseTTAFold as end-to-end deep learning meth
 
 ## Caveats
 
-Neither paper quantifies a rate; the support is for the scale and accuracy of structure generation, not for the word 'unprecedented'.
+The proteome-scale statement concerns AlphaFold and RoseTTAFold. The AlphaFold 3 result concerns the range of molecular types in predicted complexes. Neither paper quantifies a structure-generation rate.
+

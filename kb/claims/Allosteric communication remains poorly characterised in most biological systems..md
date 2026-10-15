@@ -11,17 +11,17 @@ needs_review: false
 review_reason:
 figures: []
 cites:
-  - "[[@amaroMultiscaleMethodsDrug2018#^c1]]"
+  - "[[@lisiAllosteryEnzymeCatalysis2017#^c3]]"
 code: []
 ---
 
 ## Argument
 
-Amaro et al. say the dynamic nature of drug targets and the complexity of biological systems challenge understanding.
+Lisi and Loria say [[allostery]], which depends on [[protein dynamics|dynamics]], remains largely uncharacterised in most biological systems.
 
 ## Caveats
 
-Hollingsworth (p1) says one would like more than a static snapshot, but no checked passage says tools are dominated by static methods or that the links between structure, dynamics, function and pathology are largely invisible.
+The statement concerns allosteric communication, rather than every aspect of protein dynamics.
 
 ## Unverified citations
 

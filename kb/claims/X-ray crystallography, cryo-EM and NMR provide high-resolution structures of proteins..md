@@ -24,7 +24,7 @@ Maveyraud and Mourey name [[X-ray crystallography]], [[NMR]] and [[cryo-EM]] as 
 
 ## Caveats
 
-No checked passage says these techniques give 'static' structures or that the progress is 'tremendous'. Masson (p2) lists X-ray crystallography, NMR and electron microscopy as complementary high-resolution techniques and (p9) refers to dynamic processes invisible to cryo-EM and X-ray, but does not say they made tremendous strides in static structures.
+Masson describes these as complementary high-resolution techniques (p2), while noting that some dynamic processes are invisible to cryo-EM and X-ray crystallography (p9). High spatial resolution alone does not establish temporal resolution.
 
 ## Unverified citations
 

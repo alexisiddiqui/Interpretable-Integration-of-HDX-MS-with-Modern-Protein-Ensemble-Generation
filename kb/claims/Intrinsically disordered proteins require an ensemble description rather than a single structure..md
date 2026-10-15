@@ -19,6 +19,3 @@ code: []
 
 Fisher and Stultz say any comprehensive description of an [[intrinsically disordered protein]] requires an ensemble rather than a single structure.
 
-## Caveats
-
-The paper does not use the framing of a 'failure of static structural biology'.

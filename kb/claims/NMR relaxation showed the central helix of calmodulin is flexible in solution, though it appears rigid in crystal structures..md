@@ -18,11 +18,11 @@ code: []
 
 ## Argument
 
-In free calmodulin, the middle of the central helix that separates the two lobes appears rigid in the crystal structure. NMR relaxation (Bax and coworkers) showed it is flexible in solution on a timescale of hundreds of picoseconds ([[@sapienzaUsingNMRStudy2010#^c3]]). This kink is what lets the two lobes come together and bind targets ([[@sapienzaUsingNMRStudy2010#^c4]]), so the flexibility the crystal hides is the basis of function. It is a compact example for §1.1 group A: a crystal structure can look rigid exactly where the solution [[structural ensemble]] moves.
+In free calmodulin, the middle of the central helix that separates the two lobes appears rigid in the crystal structure. NMR relaxation (Bax and coworkers) showed it is flexible in solution on a timescale of hundreds of picoseconds ([[@sapienzaUsingNMRStudy2010#^c3]]). Flexibility in this region allows the two lobes to come together and bind targets ([[@sapienzaUsingNMRStudy2010#^c4]]).
 
 ## Caveats
 
-Sapienza and Lee report the result in a review; the primary NMR study is by Bax and coworkers and should be cited alongside it in the thesis. The motion is fast (hundreds of picoseconds). It shows that crystal rigidity can hide solution flexibility, not that slow population shifts occur here.
+Sapienza and Lee report the result in a review; the primary NMR study is by Bax and coworkers and should be cited alongside it in the thesis. The motion is fast (hundreds of picoseconds). The comparison establishes flexibility in solution where the crystal structure appears rigid; it does not establish slow population shifts.
 
 ## Citation history
 

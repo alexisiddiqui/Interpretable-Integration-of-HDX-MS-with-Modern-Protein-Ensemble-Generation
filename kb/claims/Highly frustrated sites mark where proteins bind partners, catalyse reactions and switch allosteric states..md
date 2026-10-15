@@ -21,7 +21,7 @@ code: []
 
 ## Argument
 
-Binding regions are enriched in highly frustrated patches when partners are separated ([[@parraFrustrationPhysiologyMolecular2025#^c4]]), catalytic sites are often highly frustrated regardless of enzyme class ([[@parraFrustrationPhysiologyMolecular2025#^c5]]), and regions that change structure between allosteric states are enriched in high frustration ([[@parraFrustrationPhysiologyMolecular2025#^c7]]). These are the sites through which [[allostery]] propagates chemical information ([[@lisiAllosteryEnzymeCatalysis2017#^c8]]) and through which enzymes control catalysis ([[@lisiAllosteryEnzymeCatalysis2017#^c1]]). Frustration therefore marks function, not defect.
+Binding regions are enriched in highly frustrated patches when partners are separated ([[@parraFrustrationPhysiologyMolecular2025#^c4]]), catalytic sites are often highly frustrated regardless of enzyme class ([[@parraFrustrationPhysiologyMolecular2025#^c5]]), and regions that change structure between allosteric states are enriched in high frustration ([[@parraFrustrationPhysiologyMolecular2025#^c7]]). These are the sites through which [[allostery]] propagates chemical information ([[@lisiAllosteryEnzymeCatalysis2017#^c8]]) and through which enzymes control catalysis ([[@lisiAllosteryEnzymeCatalysis2017#^c1]]).
 
 ## Caveats
 

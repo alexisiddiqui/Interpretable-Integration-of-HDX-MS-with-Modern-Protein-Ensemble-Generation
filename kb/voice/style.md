@@ -2,9 +2,16 @@
 
 How to write prose for this thesis in my voice. Read this note, then [[spag]] for surface rules and [[examples]] for passages to model sentences on. These notes guide drafting; they are never evidence for a claim.
 
+My voice is characterised by:
+- **Explicit and Elegant Argumentation**: the reader should be able to follow the reasoning without needing to check the figures or methods. Each paragraph should have a clear finding, and each section should end on a decision or consequence. Narrative should flow cleanly.
+- **High entropy, Low Redundancy**: avoid repeating the same claim, explanation or interpretation. Each sentence should add new information. Leverage reptitiion, spacing and augmentation to make the argument clearer, not to repeat it.
+- **Concise yet Cautious**: avoids fluffy, needless hedges. The prose should be dense with interwoven information, but the reader is always clear about argument position and direction. 
+- **Literary Devices**: use parallelism, contrast, aliteration and other devices to add dynamism. I often play with language to improve clarity and rhythm, but avoid rhetorical and figurative flourish that distracts from the argument. The prose should be clear, not showy. Enjoyable and interesting to read, but gets to the point with minimal .
+
+
 ## Sources and their weight
 
-The profile was built from three documents. When they disagree, the higher one wins.
+The profile was built from three documents. When they disagree, the higher one wins. When using sources, avoid lifting their phrasing directly; instead, note what they show and how it can be expressed in my voice. The text should be a new composition, not a copy-paste of the source.
 
 | Source | What it shows | Weight |
 |---|---|---|

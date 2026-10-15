@@ -17,7 +17,7 @@ code: []
 
 ## Argument
 
-Disrupting the autoinhibitory conformation exposes the NAC domain, and the resulting conformational change is likely to lower the nucleation barrier ([[@mukherjeeProteinMisfoldingAmyloid2024#^c7]]). Losing a protective sub-population is enough to start the [[protein misfolding and aggregation|aggregation]] pathway.
+Disrupting the autoinhibitory conformation exposes the NAC domain, and the resulting conformational change is likely to lower the nucleation barrier for [[protein misfolding and aggregation|aggregation]] ([[@mukherjeeProteinMisfoldingAmyloid2024#^c7]]).
 
 ## Caveats
 

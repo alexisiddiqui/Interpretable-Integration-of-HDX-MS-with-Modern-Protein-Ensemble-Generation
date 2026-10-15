@@ -22,4 +22,5 @@ Mukherjee et al. say a partially folded pre-molten-globule-like conformation is 
 
 ## Caveats
 
-Neither passage says the intermediates are sparsely populated at equilibrium, and 'critical gateway states controlling the kinetics of pathological conversion' goes beyond 'key intermediate' and 'rate-limiting bottleneck'. A passage that may also be what the author meant: @biancanielloStructureDynamicsMisfolding2025 p2 (^c10), which says thermally accessible misfolded states of T183A explain the lack of lag phase in aggregation. It is not in this claim's cites; the author decides.
+The rate-limiting role is conditional. The cited passages do not establish the equilibrium populations of these intermediates. In the T183A prion variant, Biancaniello et al. relate thermally accessible misfolded states to the absence of an aggregation lag phase ([[@biancanielloStructureDynamicsMisfolding2025#^c10]]).
+

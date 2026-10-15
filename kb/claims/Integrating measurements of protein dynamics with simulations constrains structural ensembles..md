@@ -23,4 +23,5 @@ Lee et al. describe HDXer as reweighting a simulated candidate ensemble to match
 
 ## Caveats
 
-Both papers present one integrative method for HDX-MS; neither argues in general that bridging the gap requires a paradigm shift to integrative approaches.
+HDXer provides an example of this integration for HDX-MS. The cited papers describe ensemble generation and reweighting against exchange data.
+

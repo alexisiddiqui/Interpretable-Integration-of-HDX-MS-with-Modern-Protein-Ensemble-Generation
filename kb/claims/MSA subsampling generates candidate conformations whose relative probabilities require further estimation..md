@@ -21,4 +21,5 @@ Vani et al. use reduced-MSA AlphaFold2 to generate many possible conformations a
 
 ## Caveats
 
-Vani et al. note that reducing the MSA gives no relative probabilities and introduces thermodynamically improbable structures, which is why they add Boltzmann ranking. They do not state that the sub-sampled ensemble captures dynamics.
+Vani et al. note that reducing the MSA gives no relative probabilities and introduces thermodynamically improbable structures, which is why they add Boltzmann ranking.
+
