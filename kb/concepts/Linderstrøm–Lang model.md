@@ -74,4 +74,4 @@ Manuscript form: jaxENT_paper1/report/methods/HDX.tex (EX1 paragraph after L37).
 
 Every structure-to-uptake model in the thesis assumes EX2. This note is where that assumption and its limits are stated, before [[protection factor|protection factors]] and [[deuterium uptake]] build on it.
 
-Claims that use this term: [[Under EX2 an amide opens and closes many times before it exchanges, so the observed rate combines intrinsic chemistry with the opening equilibrium.]], [[Labelling time measures accumulated exchange, not the duration of a conformational motion.]].
+Claims that use this term: [[Under EX2 an amide opens and closes many times before it exchanges, so the observed rate combines intrinsic chemistry with the opening equilibrium.]], [[Under EX2, labelling time measures accumulated exchange rather than the duration of a conformational motion.]].

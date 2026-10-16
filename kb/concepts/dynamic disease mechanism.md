@@ -79,7 +79,7 @@ Source: derived here (steps 4–5); this is the standard ligand-linkage (binding
 
 ## Why it matters here
 
-**Populations are what HDX reweighting measures.** AADC open/closed, the cTnC primed state and kinase active/inactive are exactly the state equilibria that [[ensemble reweighting]] against [[HDX-MS]] can quantify (step 6). A single structure can't show them: cancer-causing p53 mutants, for example, crystallise almost identically to wild type. Comparing mutant and wild type by differential HDX is in effect a measurement of $\Delta\Delta G_{AB}$-type changes.
+**HDX constrains population estimates through a forward model.** State equilibria such as AADC open/closed, the cTnC primed state and kinase active/inactive provide candidate explanations for changes in protection. [[Ensemble reweighting]] estimates their populations against [[HDX-MS]] under the stated solution conditions, candidate conformations and forward-model assumptions. A single structure does not specify these populations. Comparing mutant and wild-type uptake can constrain a population-shift hypothesis; any inferred $\Delta\Delta G_{AB}$ depends on the state definition and equilibrium model used to interpret it (step 6).
 
 **Link to the local-environment theory.** Local frustration measures how well a residue's *local environment* stabilises it.
 
@@ -97,3 +97,13 @@ Source: derived here (steps 4–5); this is the standard ligand-linkage (binding
 Related: [[protein dynamics]], [[allostery]], [[protein misfolding and aggregation]], [[conformational free-energy landscape]].
 
 Claims that use this term: [[Static structures alone cannot explain many biological phenomena; dynamics underlie disease mechanisms and drug response.]], [[Oncogenic mutations alter conformational free-energy landscapes and shift the equilibrium between active and inactive states.]], [[Cancer-causing p53 mutants have crystal structures nearly identical to wild type but very different DNA binding and pathologies.]], [[Kinases and their inhibitor resistance mutations often preserve drug-binding sites while shifting conformational equilibria.]], [[High-energy intermediates are sparsely populated yet play critical roles in disease pathogenesis.]], [[Conformational conversion of oligomeric intermediates can limit the rate of protein aggregation.]], [[Quantifying state populations requires experimental measurements of protein dynamics.]].
+
+## Wording history
+
+Primary wording follows `thesis/chapters/01-introduction.tex#L126`; the historical wording comes from this note before revision, and its evidence remains in the linked source notes and manuscript references.
+
+The primary wording separates measured uptake from inferred populations and free-energy differences. The state-equilibrium interpretation is retained as a model-dependent use of the measurement.
+
+### Historical wording
+
+> **Populations are what HDX reweighting measures.** AADC open/closed, the cTnC primed state and kinase active/inactive are exactly the state equilibria that [[ensemble reweighting]] against [[HDX-MS]] can quantify (step 6). A single structure can't show them: cancer-causing p53 mutants, for example, crystallise almost identically to wild type. Comparing mutant and wild type by differential HDX is in effect a measurement of $\Delta\Delta G_{AB}$-type changes.

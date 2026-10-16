@@ -58,12 +58,19 @@ Source: `projects/1-ValDX/manuscript/report/7_results_omc.tex:237`
 The two sentences set up matching structures, the evidence and then the claims it tests. Repeated "that" keeps the list parallel. The study is organised by decreasing access to ground truth, giving the reader an evidential map. The draft uses colons here; in thesis prose end the sentence at each colon and open the list with its own subject ([[spag]], colons).
 Source: `projects/2-jaxENT/manuscript/report/results.tex:29`
 
-## 8. Broad explanatory register (introduction only)
+## 8. State the organising tension directly
 
-> Connecting fast molecular motions to slow pathological processes requires understanding conformational dynamics that static structures simply cannot capture.
+> The crux is that interactions required for function can conflict locally with those that stabilise the fold.
 
-The parallel "fast molecular motions" / "slow pathological processes" makes the scale gap immediately clear; "requires" turns it into a research need. Suitable for motivating the programme in the introduction chapter. Drop "simply" in thesis prose.
-Source: `milestones/2025-11-confirmation-of-status/introduction/biological_dynamics.tex:38`
+"The crux" identifies the relationship organising the explanation. The sentence connects function to fold stability and gives the reader a reason to consider local frustration. Its authorial direction comes from stating the scientific tension directly.
+Source: `thesis/chapters/01-introduction.tex:62`
+
+## 12. A limitation leads to a scientific response
+
+> Where candidate coverage fails, however, repeating the fit is insufficient. Experimental information must also be able to act during sampling or generation, so that the comparison can include states missing from the starting ensemble.
+
+The first sentence names the condition under which the current approach is insufficient. The second gives the required response and its purpose. The limitation moves the argument towards a methodological question and explains why answering it matters.
+Source: `thesis/chapters/01-introduction.tex:231`
 
 ## 11. Paragraphs that hand the problem forward
 

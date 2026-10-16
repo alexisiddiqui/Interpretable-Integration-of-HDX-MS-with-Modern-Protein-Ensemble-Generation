@@ -27,6 +27,7 @@ Sources write their own notation. A paper note records it once, in a `## Notatio
 
 ## Rules
 - One idea per note.
+- When wording is revised, put the preferred formulation in the claim title and Argument, or the concept Definition. Keep earlier formulations in a `Wording history` section with their provenance and a brief explanation of the change. Label a superseded formulation as historical; reserve alternative wording for formulations that remain valid in their stated scope. Retain old claim titles as aliases and update active links to the preferred title. Wording provenance records how the language developed; evidence remains in `cites`, `sources` and checked manuscript references.
 - Put links inside the body text where they are used, not in "related" lists.
 - A claim leaves `draft` only with evidence: a figure ID in `figures`, or a block link such as `"[[@smith2020#^c1]]"` in `cites` whose quote the lint has found in the PDF (`quote_check: pass`).
 - Quote wikilinks in frontmatter: `- "[[@smith2020#^c1]]"`.

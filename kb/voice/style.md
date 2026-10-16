@@ -3,7 +3,7 @@
 How to write prose for this thesis in my voice. Read this note, then [[spag]] for surface rules and [[examples]] for passages to model sentences on. These notes guide drafting; they are never evidence for a claim.
 
 My voice is characterised by:
-- **Explicit and Elegant Argumentation**: the reader should be able to follow the reasoning without needing to check the figures or methods. Each paragraph should have a clear finding, and each section should end on a decision or consequence. Narrative should flow cleanly.
+- **Explicit and Elegant Argumentation**: the reader should be able to follow the reasoning without needing to check the figures or methods. Each paragraph should make a clear argumentative move, and each section should end on a decision or consequence. Narrative should flow cleanly.
 - **High entropy, Low Redundancy**: avoid repeating the same claim, explanation or interpretation. Each sentence should add new information. Leverage reptitiion, spacing and augmentation to make the argument clearer, not to repeat it.
 - **Concise yet Cautious**: avoids fluffy, needless hedges. The prose should be dense with interwoven information, but the reader is always clear about argument position and direction. 
 - **Literary Devices**: use parallelism, contrast, aliteration and other devices to add dynamism. I often play with language to improve clarity and rhythm, but avoid rhetorical and figurative flourish that distracts from the argument. The prose should be clear, not showy. Enjoyable and interesting to read, but gets to the point with minimal .
@@ -11,10 +11,11 @@ My voice is characterised by:
 
 ## Sources and their weight
 
-The profile was built from three documents. When they disagree, the higher one wins. Where one of my manuscripts settles a point, reuse its wording and cite the file and line (`AGENTS.md`, trust order). For other sources, note what they show and express it in my voice, so the text is a new composition rather than a copy of the source.
+Use the source that models the register being written. The current thesis introduction is the primary model for introduction prose; ValDX remains the default for results. These weights guide voice. The evidence trust order remains as specified in `AGENTS.md`. Where one of my manuscripts settles a point, reuse its wording and cite the file and line. For other sources, note what they show and express it in my voice, so the text is a new composition rather than a copy of the source.
 
 | Source | What it shows | Weight |
 |---|---|---|
+| Current thesis introduction, `thesis/chapters/01-introduction.tex` | Biological motivation, explicit conceptual connections, authorial direction and limitations that motivate the next scientific task | Primary for introduction prose |
 | ValDX, `projects/1-ValDX/manuscript/report/*_omc.tex` (PLOS, post-review) | Explicit definitions, explanation for experimental readers, bounded conclusions, practical recommendations | Primary: the mature manuscript voice |
 | jaxENT, `projects/2-jaxENT/manuscript/report/` (draft, Nature Communications target) | Compressed motivation, quantitative results up front, comparative claims, movement towards biological application | How the voice sharpens for a broad contribution narrative |
 | Confirmation introduction, `milestones/2025-11-confirmation-of-status/introduction/` | Breadth, foundational explanation, many examples, explicit research questions | Supporting evidence for explanatory instincts only; do not copy its promotional phrasing or draft roughness |
@@ -113,6 +114,8 @@ Use the short sentence after dense explanation, not as a habit. Prose made only 
 
 In the introduction, background and conclusions a paragraph opens on what the previous one left unresolved, so the same concepts recur from paragraph to paragraph while the argument moves. Results chapters can have clearer boundaries. A check that works for both: read only the first sentence of each paragraph, and the section's argument should be there ([[examples]] 11). The last sentence of a paragraph should hint at the next, or what the reader should be thinking.
 
+In explanatory prose, open on the relationship that makes the next concept necessary. State the central tension directly, and use "we" where it makes the reasoning or proposed response clearer. A paragraph can establish a relationship, motivate a question or explain a response without reporting a finding ([[examples]] 8).
+
 A limitation stated in its home section returns elsewhere only as a clause naming its consequence for the current step. Compose the argument from the hub rather than expanding every bullet into a sentence. Hub section-structure and group-lead sentences are instructions to the writer; open the paragraph on the scientific relationship they point to, never on the instruction or on a count of what follows ("Two cautions follow", "The kinds combine").
 
 ## Introduce concepts through actions
@@ -122,6 +125,8 @@ Explain the physical operation before the technical label. Ensemble reweighting 
 Metaphors describe operations: *work, distance, shape, scale, landscape*. When one is used (Wasserstein distance as the effort to morph one distribution into another), reconnect it immediately to the quantity measured. Evocative language ("freeze proteins in time", "hide in plain sight") belongs only in broad motivational framing, such as the opening of the introduction chapter, and even there sparingly.
 
 ## Vocabulary
+
+Start from the current claim Argument or concept Definition, preserving its technical nouns and governing conditions. Adapt the surrounding syntax to the paragraph.
 
 Preferred verbs: *compare, distinguish, assess, quantify, constrain, recover, redistribute, reveal, diagnose*. Preferred nouns: *hypothesis, representativeness, uncertainty, agreement, modification, distribution, interpretation*.
 
@@ -137,7 +142,7 @@ Repetition of construction is different from repetition of a noun. *Provides*, *
 
 - "We" for choices, tests and interpretations: *we investigated, we compared, we hypothesised*.
 - Results and metrics as grammatical subjects when reporting behaviour: a metric *revealed*, an ensemble *required*, a comparison *supported*.
-- An inclusive "we" ("we need", "we can") is acceptable in foundational background reasoning, as in the confirmation introduction.
+- An inclusive "we" ("we need", "we can") makes the reasoning or proposed response explicit in explanatory prose, as in the current thesis introduction.
 - Declarative contribution statements and declarative subsection titles (jaxENT style) suit contribution-focused chapters; keep them bounded.
 
 ## Figures are part of the argument
@@ -164,13 +169,13 @@ Contribution statements, section conclusions and recommendations are where the w
 - Repetition. The result just reported returns as "These results establish that…", or one sentence lists every component of the analysis again.
 - Stronger wording. *robust, systematically, critically, blueprint, adequately*.
 
-They share a cause and a fix. Return to the controlled form, which is the claim, the condition it holds under, and a short sentence that bounds it ([[examples]] 5, 6 and 10).
+State the claim and the condition under which it holds. Add a separate boundary sentence where it changes the interpretation ([[examples]] 5, 6 and 10). When the limitation motivates further work, carry the argument through to the comparison, measurement or methodological response it requires ([[examples]] 12).
 
 ## Registers in the thesis
 
 | Where | Register |
 |---|---|
-| Introduction (ch. 1), opening of background | Confirmation-style breadth and motivation allowed; still bound claims, cut "simply"-type intensifiers |
+| Introduction (ch. 1), opening of background | Current thesis introduction. Biological motivation, explicit conceptual connections and direct statements of the scientific problem. Use the introduction's explanatory pace and authorial direction. |
 | Background (ch. 2) | ValDX explanatory register: actions before labels, explicit definitions |
 | Results chapters (ch. 3–6) | ValDX register by default; jaxENT compression for contribution statements and chapter openings |
 | Discussion and conclusions | ValDX discussion paragraphs: concern, bounded response, comparison, open extension |
@@ -188,7 +193,7 @@ If a revision loses one of these, restore it and cut something else.
 
 ## Before handing back a draft
 
-- Does each paragraph report one finding, stated near its start, with a boundary where one changes the interpretation?
+- Does each paragraph make one clear argumentative move, established near its start?
 - Is any sentence stronger than its claim note's Caveats?
 - Does any sentence describe the chapter's organisation instead of making the argument?
 - Does the caption decode the figure, leaving the body to interpret?

@@ -18,7 +18,7 @@ HDX-MS records exchange by measuring peptide mass increases after defined labell
 
 - [[deuterium uptake]]: peptide averaging [[deuterium uptake#^eq-uptake-peptide]] and back-exchange correction [[deuterium uptake#^eq-uptake-corr]].
 - **decision**: present back-exchange as an equation or in prose. It is commented out in the current jaxENT methods.
-- [[HDX-MS reports deuterium uptake at the peptide level, not the residue level.]]
+- [[Conventional peptide-level HDX-MS reports uptake averaged over the exchangeable amides within each fragment.]]
 
 ### Intrinsic Exchange Rates
 
@@ -86,7 +86,7 @@ Enhanced sampling broadens exploration through modified simulation protocols. Le
 - Very light equation. [[statistical potential#^eq-statistical-potential]] writes any model density as an energy. This answers the `.tex` stub "Discuss statistical potentials" (L41).
 - [[statistical potential]] is the general idea, and [[knowledge-based potential]] is its database-count case ([[knowledge-based potential#^eq-inverse-boltzmann]]). Such an energy is a statistical quantity unless its density is the physical equilibrium one. AF2 exposes no normalised density, so ValDX's "AF2 generates structures according to a statistical potential" is an analogy.
 - [[protein structure predictor]] is trained for one PDB-like structure and reports accuracy, not population.
-  - [[Structure predictors are trained to return the single structure most likely to appear in the PDB.]]
+  - [[AlphaFold2 is trained on PDB structures to predict the structure most likely to appear in the PDB.]]
   - [[A structure predictor's confidence score measures expected accuracy, not the free energy or population of a conformation.]]
   - [[Repeated random seeds of AlphaFold 3 do not approximate the solution ensemble.]]
 - [[MSA subsampling]] turns a predictor into a source of candidates. Present the population evidence as qualitative and the mechanism as contested.
@@ -100,7 +100,7 @@ Enhanced sampling broadens exploration through modified simulation protocols. Le
 Sampling a learned structural distribution requires a procedure for generating new conformations from it. Diffusion models construct that procedure by learning to reverse the progressive corruption of training structures with noise. The reverse process samples a learned structural distribution; its steps are not increments of physical simulation time. For models trained on deposited protein structures, the resulting distribution reflects the training data and does not by itself specify equilibrium populations in solution.
 
 - [[diffusion model]]: [[diffusion model#^eq-diffusion-forward]] and [[diffusion model#^eq-diffusion-reverse]]. The link back to MD (Boltzmann score = force / $k_BT$) is in the note's derivation.
-- [[Diffusion models trained on PDB structures learn a distribution concentrated on folded, low-energy states rather than the equilibrium distribution.]]
+- [[PDB-trained diffusion models learn conformations represented in a structural database rather than equilibrium populations under specified solution conditions.]]
 
 ### Sampling Coverage and Ensemble Populations
 

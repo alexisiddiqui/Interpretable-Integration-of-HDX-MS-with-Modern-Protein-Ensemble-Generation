@@ -1,0 +1,586 @@
+% Proposed chapter for review. This file is not included by thesis/main.tex.
+% Argument and notation: kb/chapters/02-background.md;
+% kb/decisions/2026-10-13 canonical HDX and ensemble notation.md.
+% Manuscript provenance is retained below where wording or interpretation is reused.
+% Bai 1993, PDF p. 8, Eqs. (2a) and (3), inspected directly for this proposal.
+
+\chapter{Background and Literature Review}
+\label{ch:background}
+
+Hydrogen--deuterium exchange mass spectrometry (HDX-MS) is a labelling technique that measures the accumulation of deuterium in a protein, while structural interpretation asks which conformations and populations produced that exchange. Connecting the two requires a chemical basis for exchange, and a model of structural protection and a distribution of candidate conformations. Each introduces assumptions into the inferred ensemble-model. Experimental agreement becomes informative about candidate structural hypotheses when those assumptions, and the alternative hypotheses consistent with the data are made explicit.\cite{bradshawInterpretationHDXData2020,bonomiPrinciplesProteinStructural2017}
+
+\section{HDX-MS: Measurement, Exchange Kinetics, and Structural Interpretation}
+\label{sec:bg-hdx}
+
+% ValDX: projects/1-ValDX/manuscript/report/2_hdx_theory_omc.tex:5,9--11.
+Protection from exchange relates the rate observed in a protein with the rate expected for the same amide in an unstructured peptide. For residue $i$, the protection factor is
+\begin{equation}
+    P_{f,i}=\frac{k_{\text{int},i}}{k_{\text{obs},i}},
+    \label{eq:bg-protection-factor}
+\end{equation}
+where $k_{\text{int},i}$ is the intrinsic chemical exchange rate and $k_{\text{obs},i}$ is the observed rate. A larger protection factor denotes slower exchange relative to this chemical reference.\cite{skinnerProteinHydrogenExchange2012} If uptake follows a single effective first-order rate under the labelling conditions, the fraction exchanged after time $t$ is
+\begin{equation}
+    D_i(t)=1-\exp\!\left(-k_{\text{obs},i}t\right)
+          =1-\exp\!\left(-\frac{k_{\text{int},i}t}{P_{f,i}}\right).
+    \label{eq:bg-residue-uptake}
+\end{equation}
+This relation connects protection to accumulated exchange. Its structural interpretation depends on the kinetics that make an amide available to solvent.\cite{bradshawInterpretationHDXData2020}
+
+\subsection{Experimental Workflow and Measurement Limitations}
+\label{sec:bg-hdx-workflow}
+
+An HDX-MS experiment initiates labelling by exposing the protein to deuterated solvent and measures retained deuterium after defined intervals. In a typical bottom-up workflow, exchange is quenched by lowering temperature and pH. To spatially localise the deuterium uptake, the protein is digested, and the resulting peptides are separated and analysed by mass spectrometry. Peptide mass increases report the deuterium exchange through this procedure. The measurement therefore depends on both exchange during labelling and deuterium loss during analysis.\cite{massonRecommendationsPerformingInterpreting2019,vinciauskaiteFundamentalsHDXMS2023}
+
+% ValDX: projects/1-ValDX/manuscript/report/1_introduction_omc.tex:14.
+Without special preparation or post-processing, HDX-MS reports deuterium uptake at the peptide level, not the residue level. Each peptide time-averages the contributions of its exchangeable backbone amides, and overlapping peptides provide partially shared views of the same sequence.\cite{leeInterpretingHydrogenDeuteriumExchange2021} If $p$ denotes the set of amides retained in a peptide measurement, its fractional uptake is
+\begin{equation}
+    D_p(t)=\frac{1}{|p|}\sum_{i\in p}D_i(t).
+    \label{eq:bg-peptide-uptake}
+\end{equation}
+Here $|p|$ counts the contributing amides. Prolines have no backbone amide hydrogen, and the peptide's first residue is excluded because its newly formed terminal hydrogens exchange rapidly during analysis. Absolute uptake is the corresponding sum without division by $|p|$. Predictions and measurements must use the same convention.\cite{bradshawInterpretationHDXData2020}
+
+Back-exchange changes how much of the incorporated deuterium reaches the detector. A fully deuterated control processed alongside the labelled samples estimates the retained maximum for each peptide. Together with an undeuterated control, this gives the normalised uptake
+\begin{equation}
+    D_{\text{corr}}(t)=
+    \frac{m(t)-m_{0\%}}{m_{100\%}-m_{0\%}},
+    \label{eq:bg-back-exchange}
+\end{equation}
+where the masses are peptide centroids and the fully labelled reference must account for the deuterium fraction of the labelling solvent.\cite{massonRecommendationsPerformingInterpreting2019} The correction carries the uncertainty of both controls. Scaling to the last measured time point cannot replace a fully deuterated control, because incomplete exchange at that time is indistinguishable from deuterium lost during handling.
+
+Residue-peptide averaging limits the information retained even after these corrections. Several combinations of residue exchange rates can produce the same uptake curve, with the ambiguity depending on peptide length, overlap and the number and range of labelling times.\cite{skinnerEstimatingConstraintsProtection2019} Overlap can help localise exchange differences, but it also makes observations share information. Structural inference must preserve the distinction between the measured peptide average and the residue behaviour used to explain it.
+
+\subsection{Intrinsic Exchange Rates}
+\label{sec:bg-intrinsic-rates}
+
+Intrinsic rates specify how rapidly an amide would exchange without protection from folded structure. They depend on the adjacent side chains, temperature and solution acidity, so equal observed rates need not imply equal structural protection. Bai et al. parameterised these sequence effects using unstructured peptides, with separate acid-, base- and water-catalysed contributions.\cite{baiPrimaryStructureEffects1993} In a deuterated labelling solution, their model can be written as
+\begin{equation}
+    k_{\text{int},i}=
+    k_{\text{acid},i}[\mathrm{D}^{+}]
+    +k_{\text{base},i}[\mathrm{OD}^{-}]
+    +k_{\text{water},i}.
+    \label{eq:bg-intrinsic-rate}
+\end{equation}
+The acid and base constants multiply the corresponding catalyst concentrations; the water term is the first-order contribution under the specified solvent conditions. Reference constants must match the isotope-exchange direction being modelled.\cite{connellyIsotopeEffectsPeptide1993}
+
+The sequence correction combines the effects of the two side chains adjacent to the exchanging peptide group. Using Bai's acid factors $A_L,A_R$ and base factors $B_L,B_R$, the reference-rate form is
+\begin{equation}
+    \begin{split}
+    k_{\text{int},i}={}&
+    k_{\text{acid},\text{ref}}A_LA_R[\mathrm{D}^{+}]
+    +k_{\text{base},\text{ref}}B_LB_R[\mathrm{OD}^{-}]\\
+    &+k_{\text{water},\text{ref}}B_LB_R.
+    \end{split}
+    \label{eq:bg-sequence-rates}
+\end{equation}
+The factors express how side-chain blocking and inductive effects change the reference rate. Their multiplicative form makes these contributions additive on a logarithmic scale. His, Asp and Glu require factors appropriate to their protonation states, so sequence corrections can themselves change with acidity.\cite{baiPrimaryStructureEffects1993}
+
+Temperature changes each catalytic contribution according to its activation energy. Relative to the reference temperature used by Bai et al., a rate contribution is corrected as
+\begin{equation}
+    k(T)=k(293\,\mathrm{K})
+    \exp\!\left[-\frac{E_a}{R}
+    \left(\frac{1}{T}-\frac{1}{293\,\mathrm{K}}\right)\right],
+    \label{eq:bg-rate-temperature}
+\end{equation}
+where $E_a$ is the activation energy and $R$ is the molar gas constant. The acid, base and water contributions are corrected separately.\cite{baiPrimaryStructureEffects1993} Updated reference parameters also change the predicted rates, so the parameter set used is part of the forward-model specification.\cite{nguyenReferenceParametersProtein2018}
+
+The acidity reported for a deuterated solution also requires a stated convention. A glass electrode calibrated in water gives a reading that differs from pD; the conventional correction for heavy water is
+\begin{equation}
+    \mathrm{pD}\simeq\mathrm{pH}_{\text{read}}+0.40.
+    \label{eq:bg-pd}
+\end{equation}
+The offset depends on solvent composition, and reference-rate calculations must distinguish the electrode reading from corrected pD.\cite{glasoeUseGlassElectrodes1960,nguyenReferenceParametersProtein2018} Otherwise, a chemical-rate error can be absorbed into inferred protection before any structural hypothesis is assessed.
+
+\subsection{Linderstr{\o}m--Lang Exchange Kinetics and EX1/EX2 Regimes}
+\label{sec:bg-exchange-regimes}
+
+% ValDX: projects/1-ValDX/manuscript/report/2_hdx_theory_omc.tex:5--11.
+Exchange in a folded protein requires an amide to enter an exchange-competent environment. The Linderstr{\o}m--Lang model represents this through opening and closing between protected and exposed states,
+\begin{equation}
+    \mathrm{NH}_{\text{cl}}
+    \underset{k_{\text{cl}}}{\overset{k_{\text{op}}}{\rightleftharpoons}}
+    \mathrm{NH}_{\text{op}}
+    \xrightarrow{k_{\text{int},i}}\mathrm{ND}.
+    \label{eq:bg-ll-scheme}
+\end{equation}
+Here $k_{\text{op}}$ and $k_{\text{cl}}$ describe conformational opening and closing, while $k_{\text{int},i}$ describes exchange from the open state. Excess deuterated solvent makes reverse labelling negligible in this representation.\cite{skinnerProteinHydrogenExchange2012,englanderHydrogenExchangeModern1997}
+
+An opening event leads to exchange only if chemical exchange occurs before reclosing. For rare openings, the probability of exchange during an opening is approximately $k_{\text{int},i}/(k_{\text{cl}}+k_{\text{int},i})$. Multiplying by the opening rate gives
+\begin{equation}
+    k_{\text{obs},i}\simeq
+    \frac{k_{\text{op}}k_{\text{int},i}}
+    {k_{\text{cl}}+k_{\text{int},i}},
+    \qquad k_{\text{op}}\ll k_{\text{cl}}+k_{\text{int},i}.
+    \label{eq:bg-effective-rate}
+\end{equation}
+This approximation describes the competition between chemistry and reclosing. Its limiting regimes determine whether the observed rate carries equilibrium or kinetic information.\cite{skinnerProteinHydrogenExchange2012}
+
+Under EX2 conditions, reclosing is fast relative to chemical exchange, and an amide usually closes without exchanging. Repeated openings precede labelling. For a predominantly closed amide,
+\begin{equation}
+    k_{\text{obs},i}\simeq K_{\text{op}}k_{\text{int},i},
+    \qquad K_{\text{op}}=\frac{k_{\text{op}}}{k_{\text{cl}}},
+    \qquad k_{\text{cl}}\gg k_{\text{int},i},k_{\text{op}}.
+    \label{eq:bg-ex2}
+\end{equation}
+The observed rate combines the opening equilibrium with intrinsic chemistry. It does not separately determine the opening and closing rates.\cite{skinnerProteinHydrogenExchange2012,englanderHydrogenExchangeModern1997}
+
+In the EX1 limit, chemical exchange is fast relative to reclosing and opening, so exposure is followed by exchange before the amide can close. The observed rate approaches
+\begin{equation}
+    k_{\text{obs},i}\simeq k_{\text{op}},
+    \qquad k_{\text{int},i}\gg k_{\text{cl}},k_{\text{op}}.
+    \label{eq:bg-ex1}
+\end{equation}
+Exchange then reports the kinetics of opening. Between these limits, neither the EX2 equilibrium interpretation nor the EX1 first-opening interpretation alone describes the measurement.\cite{skinnerProteinHydrogenExchange2012}
+
+Labelling time measures accumulated exchange, not the duration of a conformational motion. Under EX2, slow exchange can reflect a low population of exchange-competent conformations even when opening and closing occur rapidly.\cite{englanderHydrogenExchangeModern1997,skinnerProteinHydrogenExchange2012} A simulation therefore need not span the experimental labelling interval to predict uptake, but it must represent the structural environments responsible for protection. Increasing the simulation duration is useful when it improves that sampling; matching the labelling duration is not the criterion.
+
+\subsection{Protection Factors and Peptide Uptake}
+\label{sec:bg-protection-uptake}
+
+The equilibrium interpretation of protection follows from the open fraction under EX2. If conformational interconversion is fast enough to maintain the opening equilibrium during exchange, the open fraction is $K_{\text{op}}/(1+K_{\text{op}})$. Substitution into \cref{eq:bg-protection-factor} gives
+\begin{equation}
+    P_{f,i}=\frac{1+K_{\text{op}}}{K_{\text{op}}},
+    \qquad
+    \Delta G_{\text{op}}=-RT\ln K_{\text{op}}
+    =RT\ln(P_{f,i}-1).
+    \label{eq:bg-opening-free-energy}
+\end{equation}
+For predominantly closed amides, $K_{\text{op}}\ll1$ and $P_{f,i}\gg1$, so $\Delta G_{\text{op}}\simeq RT\ln P_{f,i}$.\cite{skinnerProteinHydrogenExchange2012,vendruscoloRareFluctuationsNative2003} This is the equilibrium free energy of the exchange-competent opening reaction. It is distinct from the activation barrier governing its rate.
+
+% ValDX: projects/1-ValDX/manuscript/report/2_hdx_theory_omc.tex:11.
+The logarithmic relation gives protection differences a thermodynamic scale. At 300~K, a tenfold increase in protection corresponds to approximately $5.7\,\mathrm{kJ\,mol^{-1}}$ in opening free energy for predominantly closed amides under EX2. The opening may involve local rearrangement or a larger cooperative unit, depending on the residue and conditions.\cite{englanderHydrogenExchangeModern1997} A residue's protection therefore identifies an energetic constraint on exchange without specifying the structure responsible for it.
+
+Once protection factors are supplied, \cref{eq:bg-residue-uptake,eq:bg-peptide-uptake} predict uptake in the same representation as the experiment. The reverse inference loses information because residue contributions are summed. In a single peptide, exchanging the assigned rates of two contributing amides leaves its uptake unchanged at every time point, although it changes where protection is assigned along the sequence. Overlapping peptides can distinguish some of these alternatives.\cite{skinnerEstimatingConstraintsProtection2019} Information also depends on the time range, because amides already saturated at the first measurement or still nearly unexchanged at the last provide little constraint on their rates. Structural modelling must therefore be assessed against the observations available, including their spatial and temporal coverage.
+
+\subsection{Structural Forward Models for HDX}
+\label{sec:bg-hdx-forward-models}
+
+The exchange model specifies how protection produces uptake, but it does not specify how coordinates produce protection. Structural forward models supply that connection. Best and Vendruscolo approximate the logarithm of protection using burial and hydrogen bonding, expressed for residue $i$ in conformation $j$ as
+\begin{equation}
+    q_i(j)=\beta_C N_C(i,j)+\beta_H N_H(i,j).
+    \label{eq:bg-bv-feature}
+\end{equation}
+Here $N_C$ counts nearby heavy atoms as a proxy for burial, $N_H$ counts hydrogen bonds to the amide, and $\beta_C$ and $\beta_H$ are empirical coefficients.\cite{bestStructuralInterpretationHydrogen2006} The model replaces explicit observation of rare exchange-competent openings with structural features expected to correlate with protection.
+
+% jaxENT: projects/2-jaxENT/manuscript/report/methods/HDX.tex:17--30.
+The contact-count implementation used by HDXer evaluates burial within $6.5\,\text{\AA}$ of the amide nitrogen and excludes nearby sequence neighbours from the contact count. Reference coefficients are $\beta_C=0.35$ and $\beta_H=2.0$. The ensemble prediction averages the features as
+\begin{equation}
+    \ln P_{f,i}=\sum_{j=1}^{M}w_jq_i(j),
+    \qquad w_j\geq0,\qquad\sum_{j=1}^{M}w_j=1,
+    \label{eq:bg-bv-average}
+\end{equation}
+where $M$ is the number of candidate conformations.\cite{bradshawInterpretationHDXData2020} The weights describe how much each conformation contributes to the predicted protection profile. The coefficients calibrate the relationship between structural features and protection; they are not microscopic interaction energies.
+
+Averaging is part of the forward model. Averaging log protection factors as in \cref{eq:bg-bv-average} gives a geometric mean of protection, while averaging exchange rates or frame-wise uptake gives different predictions because the transformations are non-linear. The adopted average must therefore be stated alongside the structural features. A single effective protection factor also requires care when slowly interconverting conformers retain distinct exchange behaviour.\cite{skinnerEstimatingConstraintsProtection2019} Ensemble averaging provides a representation of heterogeneity under specified exchange assumptions; it does not remove the need to assess those assumptions.
+
+Other approaches use atomistic trajectories to examine residue protection in more detail, while Bayesian population inference has incorporated protection-factor predictors to compare candidate ensembles.\cite{mohammadiaraniInterpretingHydrogenDeuteriumExchange2018,wanReconcilingSimulatedEnsembles2020} A complementary route estimates residue protection factors directly from overlapping uptake curves. Skinner et al. search for sets of protection factors compatible with the measured uptake, showing both the information gained from overlap and the alternatives left unresolved. Where such constraints are informative, they test a structural model at finer resolution than peptide uptake alone.\cite{skinnerEstimatingConstraintsProtection2019}
+
+The choice of features, coefficients and averaging determines which structural differences can affect the prediction. A model can fit peptide uptake while assigning incorrect protection within a peptide or incorrect populations among conformations.\cite{bradshawInterpretationHDXData2020} Comparing structural hypotheses therefore begins with a further question about the candidates themselves. The ensemble generator determines which explanations can enter the comparison and what their initial frequencies mean.
+
+\section{Protein Conformational Ensembles and Their Generation}
+\label{sec:bg-ensemble-generation}
+
+An ensemble supplies conformations together with a rule for their relative contributions. Molecular dynamics, enhanced sampling and learned generators differ in the states they reach and the distributions from which they sample. Structural coverage, equilibrium populations and transition kinetics therefore require separate assessment. A set of diverse conformations can be useful for testing structural hypotheses even when its sampling frequencies have no established thermodynamic interpretation.\cite{heninEnhancedSamplingMethods2022,noeBoltzmannGeneratorsSampling2019}
+
+\subsection{Molecular Dynamics and Empirical Force Fields}
+\label{sec:bg-md}
+
+Molecular dynamics (MD) generates trajectories by repeatedly calculating atomic forces and updating coordinates and velocities. The underlying equations of motion relate force to the gradient of a potential energy function,
+\begin{equation}
+    m_a\frac{d^2x_a}{dt_{\text{MD}}^2}=-\nabla_{x_a}U(x),
+    \label{eq:bg-newton}
+\end{equation}
+where $m_a$ and $x_a$ are the mass and position of atom $a$, and $t_{\text{MD}}$ is simulation time. Empirical force fields approximate $U(x)$ through parameterised bonded and non-bonded interactions. Their computational efficiency permits atomistic sampling, while their approximations affect both the conformations reached and their relative stability.\cite{hollingsworthMolecularDynamicsSimulation2018}
+
+With appropriate canonical sampling and sufficient convergence, the configurational distribution is
+\begin{equation}
+    P_0(x)=\frac{1}{Z}\exp\!\left[-\frac{U(x)}{k_BT}\right],
+    \qquad Z=\int\exp\!\left[-\frac{U(x)}{k_BT}\right]dx.
+    \label{eq:bg-boltzmann}
+\end{equation}
+Here $k_B$ is the Boltzmann constant and energies are per molecule; molar energies use $RT$ in place of $k_BT$. This is the Boltzmann distribution of the model potential.\cite{bmsb2012ch3} A converged simulation can still disagree with the protein because force-field error persists after sampling error has been reduced.
+
+The probability of a conformational state depends on energy-weighted configurations assigned to its basin. A low potential energy for one structure therefore does not establish a large population for that state. Basin free energies include the number and distribution of accessible configurations as well as their energies.\cite{bmsb2012ch3} Potential energy can assess strained geometry within a consistent model, while state populations require sampling the basin and its competitors. These comparisons must also use consistent composition and protonation assignments.
+
+Finitely sampled trajectories may not cross the barriers separating relevant states. Their statistics then retain a dependence on the starting conformation, even if local fluctuations appear stable.\cite{hollingsworthMolecularDynamicsSimulation2018} Independent starts and comparisons across trajectory segments test whether the sampled statistics are reproducible, but agreement among simulations confined to the same basin leaves wider coverage unresolved. Enhanced sampling addresses this failure by changing how new regions are explored.
+
+\subsection{Enhanced Sampling}
+\label{sec:bg-enhanced-sampling}
+
+Enhanced sampling changes the sampling procedure to reach states rarely visited by conventional MD. Biasing methods encourage brownian exploration along selected collective variables, while extended-ensemble methods permit movement between artificial thermodynamic conditions or distributions. Metadynamics constructs a history-dependent bias that discourages repeated visits to previously sampled regions. The choice of collective variables determines which barriers this bias can help cross.\cite{heninEnhancedSamplingMethods2022,bussiUsingMetadynamicsExplore2020}
+
+Changing the sampling distribution requires a corresponding statistical correction when estimating properties of the original system. Reweighting can recover equilibrium averages from biased samples when the sampled and target distributions overlap sufficiently. Many accelerated schemes also alter transition kinetics, so recovery of equilibrium populations does not imply recovery of the physical rates between states.\cite{heninEnhancedSamplingMethods2022} The sampling protocol must specify which equilibrium distribution is targeted and which dynamical information is retained.
+
+Adaptive seeding instead chooses new starting structures for additional trajectories. Frontier expansion sampling, for example, restarts simulations from low-density regions of the accumulated conformational sample.\cite{zhangFrontierExpansionSampling2020} Each trajectory can evolve without an added bias, but the pooled frame frequencies depend on the restart choices and trajectory lengths. Estimating equilibrium populations or rates requires a further treatment, such as a suitable Markov state model.\cite{heninEnhancedSamplingMethods2022} Broader exploration supplies more candidate states; it does not by itself determine their populations.
+
+\subsection{Learned Structure Predictors and Ensemble Generators}
+\label{sec:bg-learned-generators}
+
+Learned predictors supply structural candidates by using relationships extracted from sequence and structure data. AlphaFold2 takes a sequence and information from homologous sequences to predict atomic coordinates, with confidence scores that estimate local structural accuracy.\cite{jumperHighlyAccurateProtein2021} These scores help assess a prediction under the model's training task. They do not measure a conformation's free energy or its population in solution.\cite{wayment-steelePredictingMultipleConformations2024}
+
+Perturbing a predictor's input can expose alternative conformations. Reducing, clustering or modifying a multiple sequence alignment (MSA) changes the information presented to AlphaFold2 and can produce candidates absent from the default prediction.\cite{steinSPEACH_AFSamplingProtein2022,wayment-steelePredictingMultipleConformations2024} The resulting frequencies depend on the input perturbation. Subsampled predictions have reproduced qualitative directions of population changes in studied systems, but quantitative Boltzmann ratios have not been established.\cite{monteirodasilvaHighthroughputPredictionProtein2024} Such outputs can support candidate generation without assigning equilibrium weights to their counts.
+
+The explanation for alternative-state prediction also requires care. MSA clustering has been interpreted as exposing evolutionary information associated with different conformations, while subsequent comparisons found that random subsampling could outperform clustering and questioned how reliably either procedure predicts fold switching.\cite{wayment-steelePredictingMultipleConformations2024,schaferSequenceClusteringConfounds2024} This dispute concerns how candidates are obtained. Even when an alternative state is recovered, its frequency among predictions needs a separate population assessment.
+
+A probabilistic generator gives samples from a model distribution. If that density is $p_{\text{model}}(x)$, it can be expressed through a statistical potential,
+\begin{equation}
+    E_{\text{stat}}(x)=-k_BT\ln p_{\text{model}}(x)+\text{constant}.
+    \label{eq:bg-statistical-potential}
+\end{equation}
+This transformation is available for any density and does not make the resulting quantity a physical energy.\cite{bmsb2012ch2,bmsb2012ch4} A predictor such as AlphaFold2 does not expose a normalised conformational density, so a statistical-potential description of its preferences is an analogy. Generators explicitly trained towards a Boltzmann distribution address a different target from predictors trained to recover deposited structures.\cite{noeBoltzmannGeneratorsSampling2019}
+
+\subsection{Diffusion Models for Protein Structure Generation}
+\label{sec:bg-diffusion}
+
+MSAs describe contact propensity through evolutionary information, diffusion models generate structures from these trained embeddings by learning to reverse the progressive addition of noise to training examples. Training presents structures at different noise levels and teaches a network how to recover information lost through corruption. Generation starts from noise and repeatedly applies the learned denoising operation. Protein models can perform this operation on coordinates, residue frames or other structural representations.\cite{yimDiffusionModelsProtein2024}
+
+The score, $\nabla_x\ln p_\tau(x)$, describes how the log density changes with coordinates at noise level $\tau$. It supplies the directional information used in reverse diffusion. Its relationship to an MD force is explicit when the clean distribution is Boltzmann,
+\begin{equation}
+    \nabla_x\ln P_0(x)=-\frac{\nabla_x U(x)}{k_BT}.
+    \label{eq:bg-boltzmann-score}
+\end{equation}
+The equality follows by differentiating \cref{eq:bg-boltzmann}. A learned score has this physical interpretation only when the learned distribution has the corresponding equilibrium target. Training on deposited structures instead learns the statistical preferences of that dataset.\cite{bmsb2012ch3,yimDiffusionModelsProtein2024}
+
+Diffusion time indexes an artificial noising process. It is distinct from MD time and HDX labelling time, so a denoising trajectory does not describe a physical transition pathway. Nor does repeated generation establish solution populations. AlphaFold~3 uses diffusion to generate structural predictions, but its authors explicitly distinguish repeated random seeds from an approximation to the solution ensemble.\cite{abramsonAccurateStructurePrediction2024} Population inference must account for the distribution represented by the generator.
+
+\subsection{Sampling Coverage and Ensemble Populations}
+\label{sec:bg-coverage-populations}
+
+The distribution used to generate candidates determines what their initial weights represent. Equal weights on frames from an equilibrated trajectory approximate its sampled equilibrium distribution. Equal weights on generated structures approximate the generator's output distribution. They express the same numerical choice but different physical assumptions. Importance sampling makes this dependence explicit by estimating a target average from samples of a reference distribution,
+\begin{equation}
+    \langle s\rangle_P\simeq\sum_{j=1}^{M}w_js(x_j),
+    \qquad
+    w_j=\frac{P(x_j)/P_0(x_j)}
+    {\sum_{j'=1}^{M}P(x_{j'})/P_0(x_{j'})},
+    \qquad x_j\sim P_0.
+    \label{eq:bg-importance-sampling}
+\end{equation}
+Only relative densities are required because the normalising constants cancel.\cite{bmsb2012ch2}
+
+The correction is useful only where the candidates adequately represent the target. If a region with appreciable target probability has no sampled candidates, its contribution cannot be recovered by changing weights. A few dominant weights can also leave the estimate dependent on a small fraction of the sample.\cite{bmsb2012ch2} More stored structures are therefore useful when they add relevant information about coverage and relative probabilities. Repeatedly sampling the same limited region cannot repair missing states.
+
+Experimental refinement starts from this reference distribution. Measurements can constrain how much sampled conformations contribute, but retaining the reference where the data are uninformative also retains its sampling preferences. The interpretation of minimal change consequently depends on how the candidates were generated. This is the prior information carried into ensemble integration.
+
+\section{Integrating Biophysical Data with Structural Ensembles}
+\label{sec:bg-integration}
+
+Biophysical data constrain an ensemble through predictions of the measured observables. Integration can adjust the weights of existing conformations, change uncertain forward-model parameters or influence which conformations are sampled. The statistical formulation determines how these changes balance experimental disagreement against prior information.\cite{bmsb2012ch12,cesariUsingMaximumEntropy2018} The resulting ensemble remains conditional on the forward model and error assumptions used in that balance.
+
+\subsection{The Inverse Problem and Forward Modelling}
+\label{sec:bg-inverse-problem}
+
+Forward modelling calculates an experimental prediction from a proposed structure or ensemble. The inverse problem uses the measurement to infer which structures and parameters remain plausible. It is generally underdetermined because different ensembles can produce the same averages.\cite{bmsb2012ch12,berlinRecoveringRepresentativeConformational2013} The task is therefore to constrain a distribution of possible explanations, with prior information specifying what the measurements leave unresolved.
+
+For an observable that averages linearly over conformations, the ensemble prediction is
+\begin{equation}
+    \langle s_i\rangle_w(\theta)
+    =\sum_{j=1}^{M}w_js_i(x_j;\theta),
+    \label{eq:bg-ensemble-observable}
+\end{equation}
+where $\theta$ denotes forward-model parameters. Small-angle X-ray scattering (SAXS) provides one example, with a predicted scattering profile assembled from the weighted profiles of candidate conformations.\cite{bmsb2012ch13} Different observables retain different structural information, so combining measurements is useful when their constraints distinguish alternatives left unresolved by either measurement alone.
+
+HDX requires an explicit statement of where averaging occurs. In the Best--Vendruscolo formulation, \cref{eq:bg-ensemble-observable} applies to $q_i(j)$ to obtain log protection, and the non-linear uptake transformation follows. The full peptide prediction is consequently a function of the weights and coefficients, which we write as $s_i(w;\theta)$ in the statistical expressions below. For HDX data, the observation index $i$ in these expressions denotes a peptide--time pair; in the exchange equations it denotes a residue. The context specifies the level of the prediction.
+
+A deterministic prediction becomes a likelihood when an error model assigns probabilities to its discrepancies from measurement. If observation errors are independent,
+\begin{equation}
+    p(s^{\text{exp}}\mid w,\theta,\sigma)
+    =\prod_i\rho_{\text{err}}\!\left(
+    s_i^{\text{exp}}\mid s_i(w;\theta),\sigma_i\right).
+    \label{eq:bg-likelihood}
+\end{equation}
+For Gaussian errors, each factor is
+\begin{equation}
+    \rho_{\text{err}}(s_i^{\text{exp}}\mid s_i,\sigma_i)
+    =\frac{1}{\sqrt{2\pi}\sigma_i}
+    \exp\!\left[-\frac{(s_i^{\text{exp}}-s_i)^2}{2\sigma_i^2}\right].
+    \label{eq:bg-gaussian-error}
+\end{equation}
+The scale $\sigma_i$ states how strongly a discrepancy should count against a proposed explanation. It must describe the errors intended by the model; measurement precision alone need not capture forward-model discrepancy.\cite{bmsb2012ch12}
+
+Bayes' theorem combines this likelihood with prior information,
+\begin{equation}
+    p(w,\theta,\sigma\mid s^{\text{exp}})
+    \propto p(s^{\text{exp}}\mid w,\theta,\sigma)
+    p(w)p(\theta)p(\sigma),
+    \label{eq:bg-bayesian-posterior}
+\end{equation}
+where the factorisation of the prior is an assumption. The coefficients and error scales are nuisance parameters when populations are the main quantity of interest. Their uncertainty can be retained by marginalisation,
+\begin{equation}
+    p(w\mid s^{\text{exp}})=
+    \iint p(w,\theta,\sigma\mid s^{\text{exp}})\,d\theta\,d\sigma.
+    \label{eq:bg-marginalisation}
+\end{equation}
+Fixing these parameters gives an inference conditional on the chosen values. Sampling or marginalising them instead allows their uncertainty to affect the inferred populations.\cite{bmsb2012ch1,bmsb2012ch12}
+
+\subsection{Maximum-Entropy and Bayesian Ensemble Refinement}
+\label{sec:bg-maxent}
+
+Maximum-entropy refinement selects a population distribution that satisfies specified constraints while retaining as much prior information as possible. In its relative form, it maximises
+\begin{equation}
+    S[P\Vert P_0]
+    =-\int P(x)\ln\frac{P(x)}{P_0(x)}\,dx
+    =-D_{\text{KL}}(P\Vert P_0).
+    \label{eq:bg-relative-entropy}
+\end{equation}
+The Kullback--Leibler (KL) divergence measures modification of $P$ relative to $P_0$ in the stated direction. It is generally asymmetric. Minimising $D_{\text{KL}}(P\Vert P_0)$ gives a rule for selecting among distributions compatible with the constraints, while preserving the reference where those constraints supply no information.\cite{bmsb2012ch1,cesariUsingMaximumEntropy2018}
+
+For exact ensemble-average constraints, the required distribution obeys $\int P(x)s_i(x)dx=s_i^{\text{exp}}$ and $\int P(x)dx=1$. Introducing multipliers for these conditions gives the Lagrangian
+\begin{equation}
+    \begin{split}
+    \mathcal{L}[P]={}&-\int P(x)\ln\frac{P(x)}{P_0(x)}\,dx\\
+    &-\sum_i\lambda_i\left[\int P(x)s_i(x)\,dx-s_i^{\text{exp}}\right]
+    -\mu\left[\int P(x)\,dx-1\right].
+    \end{split}
+    \label{eq:bg-maxent-lagrangian}
+\end{equation}
+At a stationary point,
+\begin{equation}
+    \frac{\delta\mathcal{L}}{\delta P(x)}
+    =-\ln\frac{P(x)}{P_0(x)}-1-\sum_i\lambda_is_i(x)-\mu=0.
+    \label{eq:bg-maxent-derivative}
+\end{equation}
+Rearranging and normalising gives
+\begin{equation}
+    P_{\text{ME}}(x)=\frac{P_0(x)}{Z_\lambda}
+    \exp\!\left[-\sum_i\lambda_is_i(x)\right],
+    \qquad
+    Z_\lambda=\int P_0(x)e^{-\sum_i\lambda_is_i(x)}\,dx.
+    \label{eq:bg-maxent-solution}
+\end{equation}
+The multipliers are chosen to satisfy the constraints. The resulting exponential correction acts only through the specified observables.\cite{cesariUsingMaximumEntropy2018}
+
+The same construction applies to a finite set of conformations with prior weights $w_j^0$. For linear constraints on their predicted observables,
+\begin{equation}
+    w_j=\frac{w_j^0\exp[-\sum_i\lambda_is_i(x_j)]}
+    {\sum_{j'}w_{j'}^0\exp[-\sum_i\lambda_is_i(x_{j'})]}.
+    \label{eq:bg-maxent-weights}
+\end{equation}
+The ratio of fitted to prior weights follows directly from the Lagrangian solution. Taking its logarithm and averaging under the fitted distribution gives
+\begin{equation}
+    \begin{split}
+    D_{\text{KL}}(w\Vert w^0)
+    &=\sum_jw_j\ln\frac{w_j}{w_j^0}\\
+    &=-\sum_i\lambda_i\langle s_i\rangle_w-\ln Z_\lambda.
+    \end{split}
+    \label{eq:bg-kl-lagrangian}
+\end{equation}
+Here $Z_\lambda$ is the finite sum in the denominator of \cref{eq:bg-maxent-weights}. This relates the entropy cost of refinement to the imposed bias and its normalisation. States with zero prior weight remain unavailable.\cite{cesariUsingMaximumEntropy2018,bradshawInterpretationHDXData2020}
+
+% ValDX: projects/1-ValDX/manuscript/report/6_methods_omc.tex:385--458.
+For a Boltzmann prior, the correction is equivalent to changing the potential to
+\begin{equation}
+    U_{\text{ME}}(x)=U(x)+k_BT\sum_i\lambda_is_i(x).
+    \label{eq:bg-maxent-potential}
+\end{equation}
+HDXer uses an exponential correction built from the structural features $q_i(j)$ and optimises its multipliers against peptide uptake.\cite{bradshawInterpretationHDXData2020} Because uptake follows non-linearly from averaged log protection, this is not equivalent to imposing a separate linear uptake constraint on every conformation. The entropy cost remains a KL divergence between fitted and prior weights, commonly expressed as the apparent work $W_{\text{app}}=k_BT D_{\text{KL}}(w\Vert w^0)$ per molecule, or $RT D_{\text{KL}}(w\Vert w^0)$ per mole.
+
+Uncertain observations should not be imposed as exact equalities. A regularised objective instead balances modification of the prior with disagreement under an error model. One form is
+\begin{equation}
+    \mathcal{J}(w,\theta)=D_{\text{KL}}(w\Vert w^0)
+    +\frac{\gamma}{2}\sum_i
+    \frac{[s_i(w;\theta)-s_i^{\text{exp}}]^2}{\sigma_i^2}
+    -\ln p(\theta),
+    \label{eq:bg-regularised-objective}
+\end{equation}
+where $\gamma$ controls the data weight relative to the entropy penalty. With fixed error scales, $\gamma=1$ and a prior density on weights proportional to $\exp[-D_{\text{KL}}(w\Vert w^0)]$, this is a maximum a posteriori objective.\cite{bmsb2012ch13,bradshawInterpretationHDXData2020} If error scales are inferred, their normalisation terms and priors must also be retained. Optimising this objective finds a mode; posterior sampling describes the alternatives around and between modes.
+
+Bayesian and maximum-entropy treatments have both been used to refine SAXS ensembles, while BioEn provides efficient optimisation of entropy-regularised ensemble weights.\cite{chatzimagasChapterTwoStructure2023,kofingerEfficientEnsembleRefinement2019} Their shared purpose is to restrict changes unsupported by the data. Minimal modification is useful when the prior carries useful information, but it also retains prior error where the measurements cannot correct it.\cite{cesariUsingMaximumEntropy2018} Fitting strength and prior choice therefore require assessment alongside experimental agreement.
+
+\subsection{Experimentally Restrained Simulations and Metainference}
+\label{sec:bg-restrained-simulation}
+
+Applying experimental information during simulation allows the data to influence which conformations are visited. The restraint must act at the level measured by the experiment. For an ensemble-average observable, coupled replicas can contribute to a shared prediction,
+\begin{equation}
+    \bar s_i=\frac{1}{N_{\text{rep}}}
+    \sum_{r=1}^{N_{\text{rep}}}s_i(x_r),
+    \qquad
+    U_{\text{RE}}=\sum_{r=1}^{N_{\text{rep}}}U(x_r)
+    +\frac{\kappa}{2}\sum_i(\bar s_i-s_i^{\text{exp}})^2.
+    \label{eq:bg-replica-restraint}
+\end{equation}
+Here $N_{\text{rep}}$ is the number of replicas and $\kappa$ is a restraint strength with units appropriate to the observables. Individual replicas can differ while jointly satisfying the measurement.\cite{cesariUsingMaximumEntropy2018,hummerBayesianEnsembleRefinement2015}
+
+Replica-averaged restraints approach maximum-entropy refinement in an appropriate many-replica limit. Exact constraints require the restraint strength to increase faster than the replica count; noisy observations require a formulation that retains their uncertainty.\cite{cesariUsingMaximumEntropy2018} The equivalence is consequently a limiting result with specified scaling. A finite restrained simulation still requires assessment of replica number, restraint strength and conformational sampling.
+
+Metainference treats error scales as unknowns alongside the replica conformations. For a Gaussian error model, its energy contains the terms
+\begin{equation}
+    \begin{split}
+    \frac{U_{\text{MI}}}{k_BT}
+    =\sum_{r=1}^{N_{\text{rep}}}\Bigg\{
+    -\ln P_0(x_r)+\sum_i\Bigg[
+    \frac{(s_i^{\text{exp}}-\bar s_i)^2}{2\sigma_{r,i}^2}
+    +\ln\sigma_{r,i}-\ln p(\sigma_{r,i})
+    \Bigg]\Bigg\}+\text{constant}.
+    \end{split}
+    \label{eq:bg-metainference}
+\end{equation}
+The effective uncertainty $\sigma_{r,i}$ combines finite-replica error with uncertainty from experiment and forward modelling. A larger inferred value weakens the restraint from that datum. The logarithmic normalisation and prior contribute to its inference, so changing the error scale is not cost-free.\cite{bonomiMetadynamicMetainferenceEnhanced2016}
+
+Inferring an effective uncertainty permits a dataset to constrain the ensemble in proportion to its inferred reliability, but does not identify the cause of disagreement. A large scale can reflect experimental noise, systematic bias or forward-model discrepancy. Sampling also remains necessary. Metadynamic metainference combines this error treatment with metadynamics to improve exploration, and has been applied to SAXS refinement of $\alpha$-synuclein ensembles.\cite{bonomiMetadynamicMetainferenceEnhanced2016,ahmedRefinementASynucleinEnsembles2021} The uncertainty model and the sampling strategy address different limitations.
+
+% ValDX: projects/1-ValDX/manuscript/report/8_future_work.tex:36--40.
+Using an HDX forward model during simulation requires coordinate derivatives as well as predicted uptake. Hard contact counts are discontinuous at their cutoffs and cannot supply useful restraint forces. The structural representation and the order of averaging must also preserve the ensemble meaning of the measurement. These requirements motivate differentiable forward models, while their particular implementation and assessment belong to \cref{ch:biofeaturisers}.
+
+\subsection{Experimental Guidance of Diffusion Models}
+\label{sec:bg-guided-diffusion}
+
+Experimental information can also influence generation by modifying the score used during denoising. Bayes' theorem gives
+\begin{equation}
+    \nabla_x\ln p_\tau(x\mid s^{\text{exp}})
+    =\nabla_x\ln p_\tau(x)
+    +\nabla_x\ln p_\tau(s^{\text{exp}}\mid x).
+    \label{eq:bg-guided-score}
+\end{equation}
+The first term describes the generator's distribution at noise level $\tau$, while the second introduces the data likelihood. This permits conditioning at sampling time, provided the likelihood gradient can be estimated.\cite{liuExEnDiffExperimentGuidedDiffusion2025}
+
+The likelihood is usually defined on clean structures, while denoising operates on noisy ones. ExEnDiff approximates the likelihood through an estimated clean structure $\hat x_0$ and a harmonic discrepancy from target observables. For Gaussian errors, the guidance has the form
+\begin{equation}
+    \nabla_x\ln p_\tau(s^{\text{exp}}\mid x)
+    \simeq-\nabla_x\sum_i
+    \frac{[s_i(\hat x_0)-s_i^{\text{exp}}]^2}{2\sigma_i^2}.
+    \label{eq:bg-guidance-restraint}
+\end{equation}
+The derivative passes through both the clean-structure estimate and the forward model. Guidance strength controls how strongly the data modify generation. ExEnDiff reports that excessive guidance can make sampling noisy and produce unphysical structures.\cite{liuExEnDiffExperimentGuidedDiffusion2025}
+
+Force guidance introduces a related dependence on the starting generator. ConfDiff defines an energy-tilted target of the form $P(x)\propto P_0(x)\exp[-U(x)/k_BT]$.\cite{wangProteinConformationGeneration2024} The factor $P_0(x)$ remains in that target, so adding a Boltzmann factor does not by itself replace the generator distribution with the equilibrium distribution of $U$. Physical population claims require either a target known to have that interpretation or a statistical correction that accounts for the sampling distribution.
+
+The constraint imposed during guidance must also match the measurement's level of averaging. ExEnDiff guides individual structures towards the target observables and evaluates guidance with synthetic observables derived from reference MD.\cite{liuExEnDiffExperimentGuidedDiffusion2025} For heterogeneous proteins, requiring every generated structure to match an ensemble average can exclude conformations whose combined contributions would explain the data. HDX-MS guidance therefore requires an ensemble treatment as well as a differentiable prediction. Better agreement during generation must subsequently be assessed for both structural plausibility and population interpretation.
+
+\section{Validation, Uncertainty, and Interpretability}
+\label{sec:bg-validation}
+
+Experimental agreement can improve because populations changed appropriately, because model parameters compensated for an error, or because a flexible fit reproduced features specific to the fitted data. Distinguishing these explanations requires assessments that change the information or assumptions available to the model. Predictive validation, sensitivity analysis and comparison with independent references address different parts of this task.\cite{bonomiPrinciplesProteinStructural2017,siddiquiFrameworkTestingStructural2026}
+
+\subsection{Experimental Uncertainty and Forward-Model Discrepancy}
+\label{sec:bg-uncertainty}
+
+Repeated measurements quantify precision under the conditions allowed to vary between repeats. Technical replicates estimate repeatability, while comparisons across laboratories include changes in instruments, reagents and procedures. The HDX-MS interlaboratory study by Hudgens et al. distinguishes these levels and measures the reproducibility of corrected peptide uptake.\cite{hudgensInterlaboratoryComparisonHydrogenDeuterium2019} A narrow spread among technical replicates therefore describes only part of the uncertainty relevant to an integrated model.
+
+Systematic experimental bias can remain shared by all replicates. Back-exchange, labelling-solvent composition and normalisation affect the scale and shape of uptake, and repeat measurements do not remove these effects. Fully deuterated controls address deuterium retention, but their own measurement uncertainty propagates into corrected uptake.\cite{massonRecommendationsPerformingInterpreting2019} Replicate precision should consequently inform the random component of an error model without being treated as a bound on total discrepancy. Experimental error estimates often omit systematic contributions.\cite{bonomiPrinciplesProteinStructural2017}
+
+Forward-model uncertainty also has several forms. Uncertain coefficients describe a range of predictions within one model, incorrect coefficients can be recalibrated, and an inadequate functional form requires a different model.\cite{bmsb2012ch12} Best--Vendruscolo coefficients are empirical and their optimal values depend on the protein and conditions.\cite{bradshawInterpretationHDXData2020} Recalibration can improve uptake agreement, but an equilibrium protection model still cannot acquire EX1 kinetics by changing contact coefficients. The structural and kinetic assumptions require their own assessment.
+
+% ValDX kinetic benchmark: projects/1-ValDX/manuscript/report/6_methods_omc.tex:129--154.
+Weights and forward-model parameters can compensate for one another because both affect the predicted uptake. A fitted population shift can absorb a calibration error, while coefficient changes can reduce the apparent need to modify the ensemble. The direction of this compensation depends on the supplied candidates and data. Controlled comparisons that hold one component fixed while changing another are needed to attribute the mismatch. Joint fitting describes their compatibility with the data; it does not establish which component was initially wrong.
+
+Correlated errors change how residuals should contribute to fitting. For a residual vector $r_t$ across peptides at time $t$ and an error covariance matrix $\Sigma$, the Gaussian discrepancy is
+\begin{equation}
+    \chi^2_{\Sigma}=\sum_t r_t^{\mathsf T}\Sigma^{-1}r_t.
+    \label{eq:bg-correlated-errors}
+\end{equation}
+Diagonal $\Sigma$ gives independent variance weighting, while off-diagonal terms account for correlated errors.\cite{bmsb2012ch8} Shared residues can couple prediction errors across overlapping peptides, a dependence also recognised in HDX-MS statistical analysis.\cite{crookEmpiricalBayesFunctional2022} The covariance must describe the errors being weighted. Structural co-variation estimated from a candidate ensemble is not automatically an estimate of measurement-error covariance.
+
+Posterior uncertainty, physical heterogeneity and variation across data partitions describe different quantities. A physical ensemble assigns populations to conformations; a posterior over weights describes what the inference leaves uncertain about those populations.\cite{bmsb2012ch12} Repeated fits to different peptide subsets instead measure sensitivity to the selected data. A stable fit can share the same systematic error across all subsets, while a heterogeneous protein can have tightly determined state populations. Each uncertainty estimate must be interpreted through the variation that produced it.
+
+\subsection{Cross-Validation with Overlapping Measurements}
+\label{sec:bg-cross-validation}
+
+Withholding data tests whether a fitted model predicts observations beyond those used to optimise it. The predictive question depends on what is withheld and on how the remaining observations are related to it. When observations are dependent, a random partition can underestimate error for prediction in an unseen region. Structured partitions should reflect the dependence and the intended prediction.\cite{robertsCrossvalidationStrategiesData2017}
+
+% ValDX: projects/1-ValDX/manuscript/report/1_introduction_omc.tex:37.
+Overlapping peptides share residue information, so a validation peptide can be largely represented by its training neighbours. A residue contributing to several peptides may remain constrained even when one peptide is withheld. The resulting error tests prediction of another combination of already observed residues. It does not test prediction of an unobserved region. ValDX therefore compares random and sequential baselines with partitions that withhold sequence or structural regions and reduce overlap across the boundary.\cite{siddiquiFrameworkTestingStructural2026}
+
+Removing shared residues does not remove every route of dependence. Native-state exchange can occur through cooperative unfolding units that contain several residues, including residues assigned to non-overlapping peptides.\cite{englanderHydrogenExchangeModern1997} Structured partitions reduce shared information, but do not guarantee independent training and validation observations. Their interpretation should state whether the withheld unit is a time point, peptide, sequence region or structural region, because each probes a different extrapolation.
+
+Existing validation practices provide useful but distinct checks. HDXer proposes withholding time points, which tests uptake prediction across labelling times for the available structural description.\cite{bradshawInterpretationHDXData2020} Repeating reweighting after recalibrating the forward model tests sensitivity to those parameter changes, as in the XylE integration study.\cite{jiaIntegratingHydrogenDeuterium2023} Neither assessment alone establishes prediction of a region whose protection was absent from fitting. Orthogonal data add a further check when they constrain structural distinctions not already encoded in the uptake fit.
+
+Repeated partitioning measures how strongly an inference depends on which observations were retained. Large changes after removal of part of the data are a sign of poor accuracy in integrative modelling.\cite{bonomiPrinciplesProteinStructural2017} Small changes establish stability under the perturbation performed, while leaving shared sampling and forward-model errors unresolved. Repetition also cannot remove leakage present within every split. The partition design and the variation across its replicates must be considered together.
+
+Model selection consumes information from the data used to choose the model. If validation error selects fitting strength, forward-model settings or a candidate ensemble, that same error becomes optimistic as an estimate of the selected procedure's performance.\cite{cawleyOverfittingModelSelection2010} Assessment requires observations unused in selection, through a separate test or an outer resampling procedure. For HDX applications with an experimental structural reference, selection on HDX-MS followed by comparison with that reference tests a different quantity from held-out uptake prediction. Both the selection rule and the reference assumptions should be stated.
+
+\subsection{Identifiability and Competing Structural Hypotheses}
+\label{sec:bg-identifiability}
+
+Predictive agreement does not establish that the inferred populations are unique. Identifiability concerns whether different values of the unknown populations or parameters can produce the same observations under the model. Ensemble determination often has more adjustable degrees of freedom than independent constraints, leaving distinct structural explanations consistent with the data.\cite{berlinRecoveringRepresentativeConformational2013,bonomiPrinciplesProteinStructural2017} This ambiguity can persist even with an accurate forward model.
+
+HDX-MS introduces ambiguity at two levels. Peptide uptake may not determine the residue protection profile, and a residue protection profile may not determine the conformational populations. Better peptide coverage, informative overlap and a wider range of useful labelling times can reduce practical ambiguity at the first level.\cite{skinnerEstimatingConstraintsProtection2019} At the second, conformations with indistinguishable predicted features remain interchangeable to the measurement. Repeated observation of the same averages cannot distinguish alternatives that predict those averages identically.
+
+Distinguishing structural hypotheses requires predictions that differ by an amount resolvable against measurement and forward-model error. An orthogonal measurement is useful when it constrains precisely the differences that uptake leaves open. The strength of the resulting assessment also depends on the reference. Synthetic populations are known by construction, whereas an HDX-NMR-derived state distribution depends on measured exchange, state assignments and thermodynamic modelling.\cite{moulickPartiallyUnfoldedForms2015} Agreement with the latter is agreement with an experimentally constrained interpretation, whose assumptions remain part of the comparison.
+
+Bayesian evidence provides a way to rank competing models while integrating over uncertain parameters. For two candidate models $\mathcal{M}_1$ and $\mathcal{M}_2$, the Bayes factor is
+\begin{equation}
+    B_{12}=\frac{p(s^{\text{exp}}\mid\mathcal{M}_1)}
+    {p(s^{\text{exp}}\mid\mathcal{M}_2)}.
+    \label{eq:bg-bayes-factor}
+\end{equation}
+The evidence averages the likelihood over the model's prior, so it depends on both the prior and the treatment of error.\cite{bmsb2012ch1} BICePs uses an evidence ratio to compare candidate priors while inferring nuisance parameters, and has been applied with residue protection-factor predictions to apomyoglobin ensembles.\cite{wanReconcilingSimulatedEnsembles2020} Such ranking remains a comparison among the models supplied. It cannot assign support to a missing state or resolve a distinction absent from the observables.
+
+Validation and identifiability consequently support different conclusions. Held-out error assesses prediction, partition sensitivity assesses dependence on data selection, and controlled model changes test possible causes of instability. Several ensembles can pass these checks while retaining different populations. The useful outcome is then a bounded set of competing hypotheses whose remaining differences identify the next informative comparison or measurement.
+
+\subsection{Ensemble Comparison and Interpretable Representations}
+\label{sec:bg-ensemble-comparison}
+
+Comparing candidate explanations requires a representation that retains the structural differences of interest. A single representative structure cannot describe whether two ensembles occupy the same conformations with the same frequencies. Distributional comparisons address this by first expressing each ensemble in a common representation, then comparing the resulting probabilities. ENCORE implements harmonic, clustering and dimensionality-reduction approaches to this task.\cite{lindorff-larsenSimilarityMeasuresProtein2009,tibertiENCORESoftwareQuantitative2015}
+
+For distributions $P_A$ and $P_B$ in that representation, the Jensen--Shannon divergence is
+\begin{equation}
+    D_{\text{JS}}(P_A,P_B)=
+    \frac{1}{2}D_{\text{KL}}(P_A\Vert P_{\text{mix}})
+    +\frac{1}{2}D_{\text{KL}}(P_B\Vert P_{\text{mix}}),
+    \qquad P_{\text{mix}}=\frac{P_A+P_B}{2}.
+    \label{eq:bg-jsd}
+\end{equation}
+It is symmetric and remains finite when a state has probability in only one ensemble. With natural logarithms, it lies between zero and $\ln2$; base-2 logarithms give a range from zero to one.\cite{lindorff-larsenSimilarityMeasuresProtein2009,tibertiENCORESoftwareQuantitative2015} Its value depends on the representation and resolution used to estimate the distributions.
+
+Coordinate fluctuations describe a different aspect of ensemble structure. Root-mean-square fluctuation measures positional spread about a mean, while displacement correlations describe how positions co-vary. Alignment and the choice of atoms used for superposition affect both quantities, and least-squares superposition can introduce artefactual correlations.\cite{bmsb2012ch8} Pair-distance distributions avoid a rigid-body alignment choice, but agreement in separate distance distributions does not establish agreement in their full joint distribution. The representation determines which relationships are retained.
+
+Clustering makes an ensemble inspectable by assigning structures to groups and attaching populations to representative conformations. The clustering criterion sets the resolution. Differences within a cluster are lost, while similarities between structures in different clusters are treated as boundaries between states.\cite{lindorff-larsenSimilarityMeasuresProtein2009} A population comparison is meaningful only when the ensembles share a consistent state definition. Structural conclusions should also be checked as the resolution changes, since a state that appears unique at one resolution can divide into several explanations at another.
+
+% ValDX: projects/1-ValDX/manuscript/report/7_results_omc.tex:12--28,235--246.
+Change from the starting ensemble is a further comparison with a different purpose. Apparent work measures the KL divergence of fitted from prior weights, while ValDX's Work Done metrics describe changes in the ensemble-average protection profile.\cite{bradshawInterpretationHDXData2020,siddiquiFrameworkTestingStructural2026} Large changes identify substantial modification needed to obtain agreement. They do not alone identify overfitting or distance from the true ensemble. Their definitions and joint interpretation with validation error are developed in \cref{ch:valdx}.
+
+Distributional similarity establishes similarity at the represented equilibrium level. It does not establish equal transition rates or pathways.\cite{tibertiENCORESoftwareQuantitative2015} Fitted weights can describe which states contribute under the model, while transition order and kinetics require temporal evidence. Interpretability therefore requires both inspectable states and conclusions confined to the information that their populations carry.
+
+\section{Protein Protonation and pH-Dependent Properties}
+\label{sec:bg-protonation}
+
+Solution acidity affects both exchange chemistry and the conformational ensemble undergoing exchange. The intrinsic-rate model in \cref{sec:bg-intrinsic-rates} accounts for the chemical reference, while protonation changes the interactions stabilising alternative conformations. Mouse prion protein (MoPrP) makes this distinction relevant to the applications in this thesis. Its partially unfolded forms have been characterised by exchange under acidic conditions, and protonation of particular sites changes its stability and misfolding behaviour.\cite{moulickPartiallyUnfoldedForms2015,singhUnravelingMolecularMechanism2016} Interpreting uptake across conditions requires both effects to be represented.
+
+\subsection{Acid--Base Equilibria and Protein Charge}
+\label{sec:bg-acid-base}
+
+A titratable group changes its protonated fraction as the solution pH changes relative to its acid dissociation constant. For a group that titrates independently, the Henderson--Hasselbalch relation gives
+\begin{equation}
+    \alpha_i(\mathrm{pH})=
+    \frac{1}{1+10^{\mathrm{pH}-\mathrm{p}K_{a,i}}},
+    \label{eq:bg-henderson-hasselbalch}
+\end{equation}
+where $\alpha_i$ is the protonated fraction. At $\mathrm{pH}=\mathrm{p}K_{a,i}$, the two forms have equal populations. Model-compound values measured in unstructured peptides provide a reference for groups without the interactions imposed by folded structure.\cite{thurlkillPKValuesIonizable2006}
+
+Protonation changes charge according to the chemical group. Asp and Glu side chains are neutral when protonated and negative when deprotonated, while protonated His, Lys and Arg side chains are positive. Including all titratable side chains and termini, an independent-site estimate of net charge is
+\begin{equation}
+    Q(\mathrm{pH})=
+    \sum_{i\in\text{bases}}\alpha_i
+    -\sum_{i\in\text{acids}}(1-\alpha_i),
+    \label{eq:bg-net-charge}
+\end{equation}
+in units of the elementary charge.\cite{paceProteinIonizableGroups2009} Lowering pH from 7 to 4 crosses the model-compound titration range of His and approaches those of Asp and Glu, making the net charge more positive. The amount and location of that change depend on the protein's site-specific $\mathrm{p}K_a$ values.
+
+A charge change affects conformational stability when proton binding differs between states. If a group has different $\mathrm{p}K_a$ values in folded and unfolded conformations, their relative free energies depend on solution pH. The same linkage applies when protonation differs between bound and unbound states.\cite{yangPHDependenceProtein1993,onufrievProtonationPKChanges2013} Net charge alone does not describe this effect because two groups with the same charge can participate in different interactions. The relevant quantities are the protonation equilibria of the competing states.
+
+MoPrP illustrates how individual sites connect protonation to conformational stability. Protonation of H186 destabilises the protein and increases its misfolding rate, while neutralisation of D201 disrupts its stabilising interaction with R155. Mutation experiments that mimic or remove these protonation effects, together with HDX-MS, locate increased structural dynamics in helix~1 and the loop between helix~1 and $\beta$-strand~2.\cite{singhUnravelingMolecularMechanism2016} These residue numbers refer to mouse PrP; H186 corresponds to H187 in human PrP. The interpretation concerns specific local interactions whose stability changes with protonation.
+
+Acidic conditions also alter the states that can accumulate. In mouse PrP(121--231), a $\beta$-rich intermediate is observed at acidic pH, with urea required for substantial accumulation.\cite{hornemannScrapielikeUnfoldingIntermediate1998} Exchange studies under acidic conditions support at least two partially unfolded forms in equilibrium with the native state, with their populations inferred through a thermodynamic model of denaturant-dependent exchange.\cite{moulickPartiallyUnfoldedForms2015} These conditions and modelling assumptions belong to the structural reference used to assess an inferred ensemble.
+
+Comparing exchange between acidic and neutral conditions also requires the appropriate intrinsic rates. Protonation of neighbouring side chains changes their rate corrections, while the catalytic terms change with solution acidity. The pD convention and solvent isotope effects introduced in \cref{sec:bg-intrinsic-rates} must therefore accompany the structural interpretation. A difference in uptake can reflect altered chemistry, altered populations or both.
+
+\subsection{Structural Influences on pKa}
+\label{sec:bg-pka-shifts}
+
+A group's structural environment changes the relative stability of its protonated and deprotonated forms. Burial reduces stabilisation by water, hydrogen bonds favour particular charge states, and neighbouring charges contribute attractive or repulsive interactions. Most measured protein $\mathrm{p}K_a$ values lie near model-compound values, but buried or interacting sites can show large shifts.\cite{grimsleySummaryMeasuredPK2009} These sites are precisely where a standard residue-type assignment can misrepresent charge under the conditions of interest.
+
+The determinants can be expressed through the empirical decomposition used by PROPKA,
+\begin{equation}
+    \begin{split}
+    \Delta\mathrm{p}K_{a,i}
+    &=\mathrm{p}K_{a,i}-\mathrm{p}K_{a,\text{model}}\\
+    &\simeq\Delta\mathrm{p}K_{\text{desolv},i}
+    +\Delta\mathrm{p}K_{\text{HB},i}
+    +\Delta\mathrm{p}K_{\text{Coul},i}.
+    \end{split}
+    \label{eq:bg-pka-shift}
+\end{equation}
+The terms describe desolvation, hydrogen bonding and charge--charge interactions relative to the model compound.\cite{liVeryFastEmpirical2005,olssonPROPKA3ConsistentTreatment2011} They are empirical categories used to estimate a total shift, rather than separately measured properties of the site. Desolvation generally disfavors the charged form, raising the $\mathrm{p}K_a$ of an acid and lowering that of a base, while favourable interactions can oppose that effect.\cite{grimsleySummaryMeasuredPK2009}
+
+Conformational change moves these interactions and can change protonation preferences. The resulting feedback means that a protonation assignment appropriate to one structure need not remain appropriate as it partially unfolds. Standard fixed-protonation MD assigns one state to each titratable group for a run; constant-pH approaches permit states to change.\cite{deoliveiraConstantPHMolecular2022} A fixed-protonation simulation described as representing pH~4 therefore represents the particular assignments chosen for that condition.
+
+For a pH-dependent ensemble comparison, these assignments are part of the structural hypothesis. Reweighting cannot repair an interaction network imposed by an inappropriate protonation state if the relevant conformations were never sampled. The protonation models introduced in \cref{ch:jax-ka} address this preparation step. Their assessment must establish whether the states assigned to titratable sites are appropriate for the structures and solution conditions whose conformational behaviour is being interpreted.

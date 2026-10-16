@@ -18,9 +18,9 @@ sources:
 
 ## Definition
 
-Conformational kinetics describes how a protein moves between states, meaning the rates of transitions, their order, and the pathways that connect states. It is distinct from the populations of those states. A [[structural ensemble]] with weights is an equilibrium distribution, and comparisons between such distributions do not capture changes in dynamics or in the rates of transitions between states ([[@tibertiENCORESoftwareQuantitative2015#^c6]]).
+Conformational kinetics describes how a protein moves between states, including transition rates, their order and the pathways connecting them. A weighted [[structural ensemble]] describes proposed populations. Its weights alone do not establish transition order, rates or pathways, and comparisons of equilibrium distributions do not capture changes in transition rates ([[@tibertiENCORESoftwareQuantitative2015#^c6]]).
 
-HDX sets the same boundary from the data side. Under EX2, the measured exchange rate is the chemical rate multiplied down by the fraction of time the amide is open ([[@skinnerProteinHydrogenExchange2012#^c3]]). That fraction is an equilibrium quantity. Only in the EX1 case does the exchange rate reach the opening rate itself ([[@skinnerProteinHydrogenExchange2012#^c5]]). Labelling time therefore measures accumulated exchange, not the duration of a conformational motion, and slow exchange can mean a low population of open states rather than slow motion ([[Linderstrøm–Lang model]]).
+Under EX2, the observed exchange rate combines intrinsic chemistry with the fraction of time an amide is exchange-competent ([[@skinnerProteinHydrogenExchange2012#^c3]]). Slow exchange can therefore reflect a rarely populated opening without that opening itself being slow. Under this regime, labelling time measures accumulated exchange rather than the duration of a conformational motion. Under EX1, the observed rate instead approaches the opening rate ([[@skinnerProteinHydrogenExchange2012#^c5]]; [[Linderstrøm–Lang model]]).
 
 ## Assumptions and limits
 
@@ -33,3 +33,15 @@ HDX sets the same boundary from the data side. Under EX2, the measured exchange 
 Q4 asks for interpretable models that answer mechanistic questions. This note marks how far an ensemble fitted to EX2 data can go towards a mechanism. It also bounds the MoPrP and α-synuclein cases ([[prion protein]], [[alpha-synuclein]]), where the tempting reading is a pathway and the defensible one is a set of occupied states. Chapter 2 §2.4, "Ensemble Comparison and Interpretable Representations" ([[ensemble comparison]]).
 
 Claims that use this term: [[Weighted conformational ensembles describe which states are occupied, not the order, rates or causal pathways of transitions between them.]], [[Ensemble similarity scores compare equilibrium distributions and do not capture changes in dynamics or transition rates.]], [[Under EX2 an amide opens and closes many times before it exchanges, so the observed rate combines intrinsic chemistry with the opening equilibrium.]].
+
+## Wording history
+
+Primary wording follows `thesis/chapters/01-introduction.tex#L66`; the historical wording comes from this note before revision, and its evidence remains in the linked source notes and manuscript references.
+
+The primary wording states what weights can support without treating every weighted ensemble as an equilibrium distribution. It also places the EX2 condition alongside the interpretation of labelling time.
+
+### Historical wording
+
+> Conformational kinetics describes how a protein moves between states, meaning the rates of transitions, their order, and the pathways that connect states. It is distinct from the populations of those states. A [[structural ensemble]] with weights is an equilibrium distribution, and comparisons between such distributions do not capture changes in dynamics or in the rates of transitions between states ([[@tibertiENCORESoftwareQuantitative2015#^c6]]).
+>
+> HDX sets the same boundary from the data side. Under EX2, the measured exchange rate is the chemical rate multiplied down by the fraction of time the amide is open ([[@skinnerProteinHydrogenExchange2012#^c3]]). That fraction is an equilibrium quantity. Only in the EX1 case does the exchange rate reach the opening rate itself ([[@skinnerProteinHydrogenExchange2012#^c5]]). Labelling time therefore measures accumulated exchange, not the duration of a conformational motion, and slow exchange can mean a low population of open states rather than slow motion ([[Linderstrøm–Lang model]]).

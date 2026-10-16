@@ -15,7 +15,7 @@ sources:
 
 ## Definition
 
-Work Done is ValDX's family of uptake-independent metrics that quantify how much an ensemble must be modified to match experiment ([[@siddiquiFrameworkTestingStructural2026#^c9]]). They compare the ensemble-averaged [[protection factor]] profile before and after fitting. Work_shape measures changes in the profile's shape, Work_scale its overall magnitude, and Work_density how the profile is reorganised. Different patterns point to different problems. For example, Work_scale alone suggests calibration mismatch, so recalibration comes before rejecting the ensemble ([[@siddiquiFrameworkTestingStructural2026#^c15]]).
+Work Done is ValDX's family of uptake-independent metrics that quantify changes in the ensemble-average [[protection factor]] profile during fitting ([[@siddiquiFrameworkTestingStructural2026#^c9]]; `projects/1-ValDX/manuscript/report/7_results_omc.tex#L12`). Work_shape describes changes in relative protection between residues, Work_scale the shift in overall protection, and Work_density reorganisation of the protection-factor distribution. These changes can reflect changes in frame weights, BV coefficients or both. An elevated Work_scale is consistent with calibration mismatch, but also with other global differences; recalibration should therefore be considered before rejecting the ensemble (`projects/1-ValDX/manuscript/report/7_results_omc.tex#L16`).
 
 Read together with validation error, low validation error with high Work Done shows agreement reached by substantial modification of the prior (revised `projects/1-ValDX/manuscript/report/7_results_omc.tex` L25; v1 wording [[@siddiquiFrameworkTestingStructural2026#^c11]]; [[overfitting]]). That pattern is consistent with overfitting, but high Work Done can also follow from calibration mismatch or a missing state. It shows that fitting changed the profile substantially, not why.
 
@@ -33,4 +33,14 @@ Read together with validation error, low validation error with high Work Done sh
 
 Introduction §1.5, paragraph 4: Work Done is the "how much did fitting change the hypothesis" half of ValDX's assessment, next to held-out error.
 
-Claims that use this term: [[Work Done quantifies how much an ensemble must be modified to match experiment.]], [[Work Done measures distance from the prior, not from the true ensemble, and small values can also mean too little fitting.]], [[Low validation error with high Work Done shows agreement reached by substantial modification of the prior.]], [[When fitting points to calibration mismatch, the forward model should be recalibrated before the ensemble hypothesis is rejected.]], [[Distinct protection profiles can give zero Work Done, so Work Done is not a distance between profiles.]].
+Claims that use this term: [[Work Done quantifies changes in the ensemble-average protection-factor profile during fitting.]], [[Work Done measures distance from the prior, not from the true ensemble, and small values can also mean too little fitting.]], [[Low validation error with high Work Done shows agreement reached by substantial modification of the prior.]], [[When fitting points to calibration mismatch, the forward model should be recalibrated before the ensemble hypothesis is rejected.]], [[Distinct protection profiles can give zero Work Done, so Work Done is not a distance between profiles.]].
+
+## Wording history
+
+Primary wording follows `thesis/chapters/01-introduction.tex#L218`; the historical wording comes from this note before revision, and its evidence remains in the linked source notes and manuscript references.
+
+The primary wording names the predicted profile that is compared before and after fitting. It also preserves the revised manuscript's distinction between a diagnostic pattern and a uniquely identified cause.
+
+### Historical wording
+
+> Work Done is ValDX's family of uptake-independent metrics that quantify how much an ensemble must be modified to match experiment ([[@siddiquiFrameworkTestingStructural2026#^c9]]). They compare the ensemble-averaged [[protection factor]] profile before and after fitting. Work_shape measures changes in the profile's shape, Work_scale its overall magnitude, and Work_density how the profile is reorganised. Different patterns point to different problems. For example, Work_scale alone suggests calibration mismatch, so recalibration comes before rejecting the ensemble ([[@siddiquiFrameworkTestingStructural2026#^c15]]).

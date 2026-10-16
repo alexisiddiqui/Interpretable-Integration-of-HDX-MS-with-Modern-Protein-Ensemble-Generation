@@ -20,7 +20,9 @@ sources:
 
 ## Definition
 
-A forward model predicts what an experiment would measure for a given structure. It is a deterministic function of the conformation and of its own parameters, such as the Best–Vendruscolo coefficients. Because predictions and measurements never agree exactly, a second, probabilistic ingredient is needed: an error model, which scores the discrepancy. Together they give the likelihood, the probability of the data given a structure and the parameters. For ensemble-averaged data such as HDX-MS and SAXS, the prediction compared with experiment is the ensemble average of the per-conformer predictions.
+A forward model predicts what an experiment would measure from a proposed structure or ensemble and a set of model parameters. An error model describes discrepancies between that prediction and the measurement. Together they define the likelihood, the probability of the data given the proposed structure or ensemble and its parameters ([[@bmsb2012ch12#^c10]], [[@bmsb2012ch12#^c14]]).
+
+For ensemble predictions, the quantity averaged and the order of averaging and transformation are part of the model. SAXS provides a linear average of per-conformer intensities ([[@bmsb2012ch13#^c1]]). In the BV/HDXer formulation, log protection factors are averaged over conformations before conversion to exchange rates and peptide uptake under EX2 assumptions ([[Best–Vendruscolo model#^eq-bv-ensemble]]; `projects/1-ValDX/manuscript/report/6_methods_omc.tex#L378`). Averaging separate conformer uptake curves would define a different forward model.
 
 ## Equations
 
@@ -44,7 +46,7 @@ Source: the continuous form is the MaxEnt constraint of [[@cesariUsingMaximumEnt
 1. Predict idealised "mock" data from the structure with the forward model, then score their discrepancy from the measurements with an error model ([[@bmsb2012ch12#^c10]], p. 6).
 2. Treat the measurements as independent, so the likelihood is a product over observables ([[@bmsb2012ch12#^c14]], Eq. 12.8).
 3. A Gaussian error model gives Eq. (12.11), and its negative logarithm is half a $\chi^2$ ([[regularisation#^eq-chi2]]).
-4. For an ensemble, replace $s_i(x;\theta)$ by the weighted average [[#^eq-ensemble-prediction]] (step ours). For HDX the quantity averaged matters: [[Best–Vendruscolo model#^eq-bv-ensemble]] averages $\ln P_f$, whereas uptake is non-linear in $\ln P_f$.
+4. For a linear ensemble observable, replace $s_i(x;\theta)$ by the weighted average [[#^eq-ensemble-prediction]] (step ours). For BV/HDXer uptake, average $\ln P_f$ first, then transform the average into rates and uptake ([[Best–Vendruscolo model#^eq-bv-ensemble]]). Uptake is non-linear in $\ln P_f$, so averaging conformer uptake curves gives a different model.
 
 ## Assumptions and limits
 
@@ -62,3 +64,15 @@ jaxENT's covariance weighting is a selection-time weighting of validation residu
 
 
 Claims that use this term: [[Predicted protection factors are transformed into theoretical deuterium uptake for direct comparison with HDX-MS data.]], [[The Best-Vendruscolo model predicts protection factors from coordinates by counting structural features that impede exchange.]], [[In a Bayesian description, a prior and a likelihood combine into a posterior over unknown structures and parameters.]], [[Connecting uptake to a structural explanation requires a forward model that predicts exchange from candidate structures or ensembles.]], [[Fitted populations can compensate for errors in assumed exchange kinetics, and restoring uptake agreement by calibration does not validate kinetics or populations.]], [[Best–Vendruscolo coefficients are empirical, and their optimal values depend on the protein and experimental conditions.]].
+
+## Wording history
+
+Primary wording follows `thesis/chapters/01-introduction.tex#L171`; the historical wording comes from this note before revision, and its evidence remains in the linked source notes and manuscript references.
+
+The primary wording makes the averaging rule part of the model definition. The linear-average equation remains for observables to which that operation applies; BV/HDXer uptake is calculated after averaging log protection factors.
+
+### Historical wording
+
+> A forward model predicts what an experiment would measure for a given structure. It is a deterministic function of the conformation and of its own parameters, such as the Best–Vendruscolo coefficients. Because predictions and measurements never agree exactly, a second, probabilistic ingredient is needed: an error model, which scores the discrepancy. Together they give the likelihood, the probability of the data given a structure and the parameters. For ensemble-averaged data such as HDX-MS and SAXS, the prediction compared with experiment is the ensemble average of the per-conformer predictions.
+
+> 4. For an ensemble, replace $s_i(x;\theta)$ by the weighted average [[#^eq-ensemble-prediction]] (step ours). For HDX the quantity averaged matters: [[Best–Vendruscolo model#^eq-bv-ensemble]] averages $\ln P_f$, whereas uptake is non-linear in $\ln P_f$.

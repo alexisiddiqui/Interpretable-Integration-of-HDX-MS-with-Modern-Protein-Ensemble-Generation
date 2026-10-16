@@ -56,7 +56,7 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
 - [[Oncogenic mutations alter conformational free-energy landscapes and shift the equilibrium between active and inactive states.]]
 - [[Kinases and their inhibitor resistance mutations often preserve drug-binding sites while shifting conformational equilibria.]]
 - [[EGFR L858R and T790M mutations rigidify sub-domains and shift equilibria toward active states, preserving active-site geometry.]]
-- [[Mutations create neither steric clashes nor new folds but shift conformational ensembles, which needs sampling of many distributions.]]
+- [[EGFR T790M inhibitor resistance can arise through active-state stabilisation without steric obstruction of the inhibitor-binding site.]]
 
 *D2. α-Synuclein: the heterogeneous solution ensemble behind a solved fibril.* Open with the shared-transition claim as the bridge from D1 to the aggregation diseases. In [[alpha-synuclein]] the fibril is solved, but the protective state is a disordered ensemble whose protection lies in an autoinhibitory N- to C-terminal contact ([[@mukherjeeProteinMisfoldingAmyloid2024#^c6]]). One paragraph.
 - [[Alzheimer's, Parkinson's and prion diseases share dynamic conformational transitions that start pathological aggregation.]] (the bridge sentence)
@@ -145,7 +145,7 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
 **2. What sets the rate.** Intrinsic chemistry ([[intrinsic exchange rate]]) and local protection from hydrogen bonding, burial and transient opening ([[Linderstrøm–Lang model]], [[protection factor]]). The intrinsic rate depends on pH and temperature, so uptake, and the populations later inferred from it, hold for the stated pD and temperature. This is the measurement's side of the pH thread opened in §1.1 D3.
 - [[Amide exchange rates depend on intrinsic chemistry and on local protection from hydrogen bonding, burial and transient opening.]]
 - [[Under EX2 an amide opens and closes many times before it exchanges, so the observed rate combines intrinsic chemistry with the opening equilibrium.]]
-- [[The HDX rate depends on the local environment of the amide hydrogen, with more exposed and flexible regions exchanging faster.]] (read it with the second caution in group 5)
+- [[The HDX rate depends on the local environment of the amide hydrogen, including solvent accessibility and hydrogen bonding.]] (read it with the second caution in group 5)
 - [[His, Asp and Glu neighbours change intrinsic exchange rates with pH through their own ionisation.]] (the neighbour half of the pH dependence)
 - The intrinsic exchange rate depends on pH and temperature through its acid-, base- and water-catalysed terms, so uptake is defined for the stated pD and temperature ([[intrinsic exchange rate]]; source [[@baiPrimaryStructureEffects1993#^c2]]). The jaxENT MoPrP data were taken at pD 4.
 - $P_f$ is a ratio of rates ([[protection factor]]).
@@ -159,13 +159,13 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
 - Reminder only: [[HDX-MS can study many systems that are too large, flexible, heterogeneous or sample-limited for other structural tools.]] (stated in §1.1 F)
 
 **4. What the readout resolves.** Overlapping peptides, not residues or atoms. This is the price of the strengths in group 3.
-- [[HDX-MS reports deuterium uptake at the peptide level, not the residue level.]]
+- [[Conventional peptide-level HDX-MS reports uptake averaged over the exchangeable amides within each fragment.]]
 - [[HDX-MS data alone do not give the atomic positions that NMR, crystallography and cryo-EM provide.]]
 
 **5. Why interpretation is ambiguous.** Different local environments or populations can give the same uptake. A change in uptake shows a change in protection, not a mechanism.
-- [[A change in HDX-MS uptake shows a change in protection but does not on its own identify the structural mechanism.]]
-- [[Greater deuterium uptake indicates less protection from exchange, not directly greater flexibility.]] (own)
-- [[Labelling time measures accumulated exchange, not the duration of a conformational motion.]] (own)
+- [[Under matched exchange conditions, an HDX-MS uptake change identifies altered protection but does not identify the structural event responsible.]]
+- [[Under matched exchange conditions, greater deuterium uptake indicates less protection from exchange, not directly greater flexibility.]] (own)
+- [[Under EX2, labelling time measures accumulated exchange rather than the duration of a conformational motion.]] (own)
 - Non-uniqueness is developed in §1.5 group 1 ([[Ensembles generally have far more degrees of freedom than observables, so a single data source leaves them underdetermined.]]); here, one sentence at most.
 
 **6. Why simulations are the complement, and the handoff to §1.3–1.4.** The limits in groups 4 and 5 are exactly what an atomic model supplies. Protection is a property of the ensemble, not of one structure, so a residue whose environment differs between conformers needs those conformers, and peptide uptake cannot pin residue protection down on its own. Connecting uptake to structure therefore needs candidate conformations and a model that predicts exchange from them ([[forward model]]), which makes interpretation an [[inverse problem]]. Others have already combined the two, mainly for simpler systems, so the open question is where the candidates come from (§1.3) and how they are weighted (§1.4).
@@ -228,7 +228,7 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
   - [[Protein structure models predict three-dimensional structures from amino-acid sequences.]]
   - [[Leveraging large structure and sequence corpora, protein structure models predict structures rapidly and with high accuracy.]]
   - [[As protein structure models are primarily trained on static structures, their ability to predict dynamics is limited.]]
-  - [[Structure predictors are trained to return the single structure most likely to appear in the PDB.]] (the reason the adaptations below are needed)
+  - [[AlphaFold2 is trained on PDB structures to predict the structure most likely to appear in the PDB.]] (the reason the adaptations below are needed)
   - [[Repeated random seeds of AlphaFold 3 do not approximate the solution ensemble.]]
   - [[Sub-sampling multiple sequence alignments alters the contacts described to the model, leading to diverse structural predictions.]]
   - [[MSA subsampling generates candidate conformations whose relative probabilities require further estimation.]]
@@ -237,7 +237,7 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
   - [[Deep-learning models rapidly generate structures and ensembles by sampling a learned distribution of conformational space.]]
   - [[Deep-learning models trained on large structural datasets learn conformation distributions, and sampling them yields ensembles.]]
   - [[Diffusion models are trained to reverse a noising process and generate structures by progressively denoising random samples.]]
-  - [[Diffusion models trained on PDB structures learn a distribution concentrated on folded, low-energy states rather than the equilibrium distribution.]] (what the learned distribution is, and why it is a prior)
+  - [[PDB-trained diffusion models learn conformations represented in a structural database rather than equilibrium populations under specified solution conditions.]] (what the learned distribution is, and why it is a prior)
   - [[Diffusion steps are not physical simulation time.]] (own)
   - [[Diffusion models generate protein structures through iterative denoising.]]
   - [[Learning the physical landscape can reduce the cost of sampling new states while retaining the accuracy of the underlying physics.]] (Boltzmann generators only)
@@ -360,7 +360,7 @@ Close §1.4 on why agreement can mislead, which sets §1.5's order. One kind of 
 
 **5. What a comparison then supports: Work Done, uncertainty and hypothesis testing.** Validation error alone cannot separate a good hypothesis from one forced into agreement, so [[Work Done]] adds how much fitting changed the starting hypothesis. Variation across replicate fits shows which conclusions depend on the data chosen ([[replicate uncertainty]]). It locates instability but does not identify its cause. Changing one suspected cause at a time is how a cause is tested ([[controlled perturbation]]). Representative structures make the inferred states inspectable, if conclusions survive a change of representation. End on integration as hypothesis testing, which hands over to the research questions (§1.6).
 - HDXer's apparent work is a KL divergence over frame weights ([[@bradshawInterpretationHDXData2020#^c11]]). Introduce it first, then Work Done as ValDX's measure of change in the protection-factor profile, a different quantity.
-- [[Work Done quantifies how much an ensemble must be modified to match experiment.]]
+- [[Work Done quantifies changes in the ensemble-average protection-factor profile during fitting.]]
 - [[Low validation error with high Work Done shows agreement reached by substantial modification of the prior.]]
 - [[Work Done measures distance from the prior, not from the true ensemble, and small values can also mean too little fitting.]]
 - [[A large change in the inferred ensemble when part of the data is removed signals poor accuracy.]] (the external precedent; its converse does not hold)
@@ -402,7 +402,7 @@ Close §1.4 on why agreement can mislead, which sets §1.5's order. One kind of 
   - Concepts. [[inverse problem]], [[data splitting]], [[Work Done]], [[replicate uncertainty]], [[posterior uncertainty]], [[controlled perturbation]].
   - [[One uptake curve can arise from many different conformational populations, so a good fit does not identify the ensemble.]]
   - [[Similar uptake agreement can coexist with different population recovery, so training error cannot verify populations.]]
-  - [[Work Done quantifies how much an ensemble must be modified to match experiment.]]
+  - [[Work Done quantifies changes in the ensemble-average protection-factor profile during fitting.]]
   - [[Fitting outcomes depend on which peptides and time points are used, and replicate fits quantify this dependence.]]
   - [[A large change in the inferred ensemble when part of the data is removed signals poor accuracy.]]
   - [[Replicate uncertainty locates where a model is unstable but does not by itself separate sampling, structural and forward-model deficiencies.]]
@@ -446,7 +446,7 @@ Register: jaxENT compression for contribution statements, each bounded by its va
 
 **3. Chapter 3, ValDX, answers Q1 and opens Q4.**
 - Problem (§1.5 groups 1 and 2). Agreement with uptake does not identify populations, and random splits leak through overlapping peptides, so validation error from random splits is optimistic.
-- Contribution. Overlap-aware splits, replicate fits and Work Done make integration a comparison of candidate hypotheses, with Work Done read as a distance from the prior rather than from the truth: [[Overlapping peptides share residue information, so random splits leak information between training and validation sets.]], [[Structured splits reduce dependence between training and validation peptides but do not guarantee independence.]], [[Fitting outcomes depend on which peptides and time points are used, and replicate fits quantify this dependence.]], [[Work Done quantifies how much an ensemble must be modified to match experiment.]], [[Low validation error with high Work Done shows agreement reached by substantial modification of the prior.]], [[Work Done measures distance from the prior, not from the true ensemble, and small values can also mean too little fitting.]]. The result: [[Similar uptake agreement can coexist with different population recovery, so training error cannot verify populations.]], [[A fitting metric can rank candidate ensembles against data or reveal them as inadequate, so integration becomes structural hypothesis testing.]]. Representation and protocol, one sentence each: [[Clustering into representative structures gives compact, interpretable ensembles with little loss of accuracy.]], [[Conclusions drawn from representative structures should be checked for stability across cluster sizes.]], [[When fitting points to calibration mismatch, the forward model should be recalibrated before the ensemble hypothesis is rejected.]], [[Fitted populations can compensate for errors in assumed exchange kinetics, and restoring uptake agreement by calibration does not validate kinetics or populations.]], [[Plausible but unpopulated candidate structures can absorb weight and prevent population recovery even when uptake matches.]].
+- Contribution. Overlap-aware splits, replicate fits and Work Done make integration a comparison of candidate hypotheses, with Work Done read as a distance from the prior rather than from the truth: [[Overlapping peptides share residue information, so random splits leak information between training and validation sets.]], [[Structured splits reduce dependence between training and validation peptides but do not guarantee independence.]], [[Fitting outcomes depend on which peptides and time points are used, and replicate fits quantify this dependence.]], [[Work Done quantifies changes in the ensemble-average protection-factor profile during fitting.]], [[Low validation error with high Work Done shows agreement reached by substantial modification of the prior.]], [[Work Done measures distance from the prior, not from the true ensemble, and small values can also mean too little fitting.]]. The result: [[Similar uptake agreement can coexist with different population recovery, so training error cannot verify populations.]], [[A fitting metric can rank candidate ensembles against data or reveal them as inadequate, so integration becomes structural hypothesis testing.]]. Representation and protocol, one sentence each: [[Clustering into representative structures gives compact, interpretable ensembles with little loss of accuracy.]], [[Conclusions drawn from representative structures should be checked for stability across cluster sizes.]], [[When fitting points to calibration mismatch, the forward model should be recalibrated before the ensemble hypothesis is rejected.]], [[Fitted populations can compensate for errors in assumed exchange kinetics, and restoring uptake agreement by calibration does not validate kinetics or populations.]], [[Plausible but unpopulated candidate structures can absorb weight and prevent population recovery even when uptake matches.]].
 - Regime. 22 ensembles of six proteins (58 to 480 residues); a synthetic kinetic mismatch; decoy conformations.
 - Limitation handed on. Conclusions are comparative across the candidates supplied, reweighting cannot add states, replicate uncertainty does not name its cause, and each assessment repeats the fit many times (§1.5 group 6): [[Reweighting cannot create conformational states absent from the candidate ensemble.]], [[Replicate uncertainty locates where a model is unstable but does not by itself separate sampling, structural and forward-model deficiencies.]].
 - Status. The analyses in this chapter are reported in a posted preprint ([[@siddiquiFrameworkTestingStructural2026]]), and the revised manuscript is post-review. The BICePs comparison and other detail are in [[03-valdx]].
