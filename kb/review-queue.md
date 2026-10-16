@@ -36,6 +36,9 @@
 
 - [[Averaging reweighting fits across split replicates stabilises the consensus and reduces overfitting to particular peptide subsets.]] (`claims/Averaging reweighting fits across split replicates stabilises the consensus and reduces overfitting to particular peptide subsets..md`)
 
+## Support is partial or indirect
+
+- [[Minimising apparent work and KL divergence gives a reweighted ensemble that satisfies the constraints with minimal deviation.]] (`claims/Minimising apparent work and KL divergence gives a reweighted ensemble that satisfies the constraints with minimal deviation..md`)
 
 ## The SI equation for residue-averaged W1 does not match the implementation, and the correlation code does not align frames itself; confirm both before Chapter 3.
 
@@ -60,3 +63,19 @@
 ## The sources say error modelling reduces over-fitting, not that refinement is free of it; minimal ensembles are not stated.
 
 - [[SAXS with MD simulations and ensemble refinement gives minimal ensembles consistent with restraints, without overfitting.]] (`claims/SAXS with MD simulations and ensemble refinement gives minimal ensembles consistent with restraints, without overfitting..md`)
+
+## cites Appadurai, which is the wrong paper
+
+- [[HDX-MS mapped binding sites on HIV-1 Vif and enabled inhibitor screening where traditional structural characterisation failed.]] (`claims/HDX-MS mapped binding sites on HIV-1 Vif and enabled inhibitor screening where traditional structural characterisation failed..md`)
+
+## cites Fan and Yen, which cover GPR52 and beta1AR, not beta2AR
+
+- [[19F-NMR of beta2-adrenergic receptors showed biased agonists give distinct shift patterns, linking dynamics to signalling bias.]] (`claims/19F-NMR of beta2-adrenergic receptors showed biased agonists give distinct shift patterns, linking dynamics to signalling bias..md`)
+
+## cites Puchades and Stander, which do not support it
+
+- [[HDX-MS mapped ACE2 and antibody binding sites on the SARS-CoV-2 spike protein to predict immune escape mechanisms.]] (`claims/HDX-MS mapped ACE2 and antibody binding sites on the SARS-CoV-2 spike protein to predict immune escape mechanisms..md`)
+
+## likely mis-cites Varadi
+
+- [[With current models, most single-domain proteins can be predicted to near-experimental accuracy in hours on consumer-grade hardware.]] (`claims/With current models, most single-domain proteins can be predicted to near-experimental accuracy in hours on consumer-grade hardware..md`)

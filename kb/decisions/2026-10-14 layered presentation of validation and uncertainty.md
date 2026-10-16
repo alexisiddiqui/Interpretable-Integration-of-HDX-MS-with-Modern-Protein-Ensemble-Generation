@@ -31,6 +31,6 @@ The two §2.4 subsections on uncertainty and cross-validation sit on established
 ## Consequences
 
 - New concepts [[experimental uncertainty]], [[model averaging]], [[cooperative unfolding unit]], [[model selection]] and [[error covariance]] follow the table.
-- Two general sources remain to be acquired: a statistical-learning text for averaging and nested selection, and a source on validation with dependent observations. Until then the layer 1b claims that need them stay draft.
+- Two general sources remain to be acquired: a statistical-learning text for averaging and nested selection, and a source on validation with dependent observations. Until then the layer 1b claims that need them stay draft. Cawley and Talbot (2010) now covers selection and Roberts et al. (2017) dependent observations; only averaging still waits.
 - Method notes carry layer 3 for ValDX splitting and consensus, and for jaxENT observation weighting, selection and evaluation design.
 - The jaxENT manuscript describes a legacy selection path; the vault records the current policy and flags the manuscript for update rather than the other way round.

@@ -11,6 +11,9 @@ aliases:
   - dependence-aware partitioning
 notation: []
 sources:
+  - "[[@robertsCrossvalidationStrategiesData2017#^c1]]"
+  - "[[@robertsCrossvalidationStrategiesData2017#^c2]]"
+  - "[[@robertsCrossvalidationStrategiesData2017#^c3]]"
   - "[[@siddiquiFrameworkTestingStructural2026#^c8]]"
   - "[[@siddiquiFrameworkTestingStructural2026#^c12]]"
   - "[[@siddiquiFrameworkTestingStructural2026#^c16]]"
@@ -25,7 +28,7 @@ sources:
 
 ## Definition
 
-Data splitting fits a model to part of the data (training) and tests it on the rest (validation), to measure how well it generalises ([[overfitting]]). The test is informative only when the withheld observations carry information the retained ones do not. When observations are dependent, a random partition leaves the validation set partly predictable from the training set, so its error is optimistic, and the partition should follow the structure of the dependence so that it withholds the kind of information the model is meant to predict. The general source for this principle, validation with dependent observations, is not yet in the vault (see Gaps in [[02-background]]). Repeating a random split many times averages over the choice of partition. It does not remove the leakage inside each partition.
+Data splitting fits a model to part of the data (training) and tests it on the rest (validation), to measure how well it generalises ([[overfitting]]). The test is informative only when the withheld observations carry information the retained ones do not. When observations are dependent, a random partition leaves the validation set partly predictable from the training set, so its error is optimistic, and the partition should follow the structure of the dependence so that it withholds the kind of information the model is meant to predict. Random cross-validation on structured data seriously underestimates predictive error, and blocked partitions are recommended wherever dependence exists ([[@robertsCrossvalidationStrategiesData2017#^c1]], [[@robertsCrossvalidationStrategiesData2017#^c2]]). Repeating a random split many times averages over the choice of partition. It does not remove the leakage inside each partition.
 
 HDX-MS observations are dependent through two routes. The first is direct. Peptides overlap, so the same residues appear in several peptides, and a random split puts peptides in the validation set whose uptake is predictable from training peptides covering similar regions ([[@siddiquiFrameworkTestingStructural2026#^c8]]). The second is physical. Residues open in [[cooperative unfolding unit|cooperative units]] smaller than the whole protein ([[@englanderHydrogenExchangeModern1997#^c6]]), so exchange at residues that share no peptide can still report the same opening reaction.
 
@@ -33,7 +36,7 @@ ValDX responds with structured partitions. Non-Redundant splits cluster peptides
 
 ## Unit withheld
 
-Each partition withholds a different unit and so asks a different predictive question. State the unit whenever a validation result is reported.
+Each partition withholds a different unit and so asks a different predictive question. Blocking can force extrapolation, so the block must match the prediction intended ([[@robertsCrossvalidationStrategiesData2017#^c3]]). State the unit whenever a validation result is reported.
 
 | Unit withheld | Question asked | Where |
 |---|---|---|

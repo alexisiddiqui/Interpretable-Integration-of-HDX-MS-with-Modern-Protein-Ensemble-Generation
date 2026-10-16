@@ -4,19 +4,21 @@ chapter: 02-background
 project: 
 basis: stated
 confidence: high
-status: draft
+status: supported
 origin: kb/concepts/data splitting.md
 source_state: current
 needs_review: false
 review_reason: 
 figures: []
-cites: []
+cites:
+  - "[[@robertsCrossvalidationStrategiesData2017#^c1]]"
+  - "[[@robertsCrossvalidationStrategiesData2017#^c2]]"
 code: []
 ---
 
 ## Argument
 
-A validation set that is predictable from the training set measures interpolation, not the prediction the model is meant to make. Partitions that block the dependence, by region, group or structure, withhold the right kind of information ([[data splitting]]). The general source on validation with dependent observations is not yet in the vault.
+A validation set that is predictable from the training set measures interpolation, not the prediction the model is meant to make. Partitions that block the dependence, by region, group or structure, withhold the right kind of information ([[data splitting]]). Roberts et al. find that cross-validation which ignores dependence structure seriously underestimates predictive error, and recommend blocked partitions wherever such structure exists ([[@robertsCrossvalidationStrategiesData2017#^c1]], [[@robertsCrossvalidationStrategiesData2017#^c2]]).
 
 ## Caveats
 

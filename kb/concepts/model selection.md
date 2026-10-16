@@ -11,6 +11,9 @@ aliases:
   - Rfree
 notation: []
 sources:
+  - "[[@cawleyOverfittingModelSelection2010#^c1]]"
+  - "[[@cawleyOverfittingModelSelection2010#^c2]]"
+  - "[[@cawleyOverfittingModelSelection2010#^c3]]"
   - "[[@burnleyModellingDynamicsProtein2012#^c1]]"
   - "[[@burnleyModellingDynamicsProtein2012#^c2]]"
   - "[[@burnleyModellingDynamicsProtein2012#^c3]]"
@@ -21,7 +24,7 @@ sources:
 
 ## Definition
 
-Model selection chooses between fitted models, or between settings of a hyperparameter such as the fitting strength, by a score. When the score is the error on held-out data, the chosen model is the one that happened to do best on that particular held-out set, so the same error overstates how well it will do on new data. Estimating performance therefore needs data that played no part in selection. That can be a separate test set, or a nested procedure in which selection happens inside an outer loop of held-out evaluation. The general source for this statement is standard statistical learning, which the vault does not yet hold (see Gaps in [[02-background]]).
+Model selection chooses between fitted models, or between settings of a hyperparameter such as the fitting strength, by a score. When the score is the error on held-out data, the chosen model is the one that happened to do best on that particular held-out set, so the same error overstates how well it will do on new data. Estimating performance therefore needs data that played no part in selection. That can be a separate test set, or a nested procedure in which selection happens inside an outer loop of held-out evaluation. Common evaluation practices carry this selection bias, and selection must be repeated whenever a model is fitted to a new sample ([[@cawleyOverfittingModelSelection2010#^c1]], [[@cawleyOverfittingModelSelection2010#^c2]]). The point holds for any criterion optimised over finite data, including the Bayesian evidence ([[@cawleyOverfittingModelSelection2010#^c3]]).
 
 ## In integrative practice
 

@@ -322,6 +322,7 @@ Close §1.4 on why agreement can mislead, which sets §1.5's order. One kind of 
 - [[One uptake curve can arise from many different conformational populations, so a good fit does not identify the ensemble.]]
 - [[Ensembles generally have far more degrees of freedom than observables, so a single data source leaves them underdetermined.]]
 - [[Many ensembles can explain the same data, given complex conformational landscapes and simple structure-experiment models.]] (prefer the first claim)
+- Different ensembles can fit the same averages ([[@bonomiPrinciplesProteinStructural2017#^c8]]), and noise and heterogeneity are hard to tell apart in the data ([[@bonomiPrinciplesProteinStructural2017#^c1]]).
 - [[Posterior uncertainty about a structure or its parameters is not the same quantity as a protein's physical conformational populations.]]
 - Revised ValDX only (`1_introduction_omc.tex` L17, not in v1): this holds even with a perfect forward model. Present it as the thesis's own statement.
 
@@ -340,7 +341,9 @@ Close §1.4 on why agreement can mislead, which sets §1.5's order. One kind of 
 - [[With a uniform-weight MD ensemble as the prior, MaxEnt reweighting that models experimental error reduces overfitting and keeps the resulting ensemble close to the prior.]]
 
 **3. Poor forward models: compensation and calibration.** If the forward model or the exchange assumptions are wrong, weights and parameters absorb the error ([[model misspecification]]). Keep three cases apart, because each changes the advice. A parameter can be uncertain (a posterior width), miscalibrated (wrong coefficients, fixed by refitting them), or the functional form can be inadequate (no coefficients fit, as under kinetic mismatch). Recalibration addresses only the second, and restoring agreement by calibration does not validate kinetics or populations. How frame predictions are averaged is itself a forward-model choice.
+- Forward models are often inaccurate ([[@bonomiPrinciplesProteinStructural2017#^c3]]), the general statement that opens the group.
 - [[Best–Vendruscolo coefficients are empirical, and their optimal values depend on the protein and experimental conditions.]]
+- The uncertain case in practice. BICePs samples the BV parameters from their posterior rather than fixing them ([[@wanReconcilingSimulatedEnsembles2020#^c10]]).
 - [[Structure-to-uptake models rely on hydrogen bonding and solvent exposure but add systematic errors that accumulate at peptide level.]]
 - [[When fitting points to calibration mismatch, the forward model should be recalibrated before the ensemble hypothesis is rejected.]]
 - [[Recalibrating forward-model coefficients can correct a miscalibration but not an inadequate functional form.]] (own)
@@ -349,15 +352,18 @@ Close §1.4 on why agreement can mislead, which sets §1.5's order. One kind of 
 - Optional, one clause at most: [[Averaging log protection factors, exchange rates or uptake over frames are different forward models, and held-out uptake error and population recovery can favour different choices.]] (jaxENT project doc only; detail in ch. 2 and ch. 4)
 
 **4. Candidate coverage and decoys.** The fit can only weight what the candidates contain ([[sampling coverage]]). §1.4 group 3 has already said that missing states cannot be created; remind it in one line. The finding to carry is the converse, that plausible but unpopulated candidates can absorb weight while uptake still matches ([[ensemble reweighting]]).
-- [[Plausible but unpopulated candidate structures can absorb weight and prevent population recovery even when uptake matches.]]
+- Reweighting is inaccurate when the prior differs strongly from the reweighted distribution ([[@bonomiPrinciplesProteinStructural2017#^c9]]), the external statement that opens the group.
+- [[Plausible but unpopulated candidate structures can absorb weight and prevent population recovery even when uptake matches.]] (also carries [[Similar uptake agreement can coexist with different population recovery, so training error cannot verify populations.]], the same TeaA result)
 - [[Reweighting cannot create conformational states absent from the candidate ensemble.]]
 - [[Diversity among generated structures is not on its own evidence that their frequencies represent an equilibrium ensemble.]]
 - [[Seeding simulations from rarely visited states broadens exploration but does not by itself give accurate populations.]]
 
 **5. What a comparison then supports: Work Done, uncertainty and hypothesis testing.** Validation error alone cannot separate a good hypothesis from one forced into agreement, so [[Work Done]] adds how much fitting changed the starting hypothesis. Variation across replicate fits shows which conclusions depend on the data chosen ([[replicate uncertainty]]). It locates instability but does not identify its cause. Changing one suspected cause at a time is how a cause is tested ([[controlled perturbation]]). Representative structures make the inferred states inspectable, if conclusions survive a change of representation. End on integration as hypothesis testing, which hands over to the research questions (§1.6).
+- HDXer's apparent work is a KL divergence over frame weights ([[@bradshawInterpretationHDXData2020#^c11]]). Introduce it first, then Work Done as ValDX's measure of change in the protection-factor profile, a different quantity.
 - [[Work Done quantifies how much an ensemble must be modified to match experiment.]]
 - [[Low validation error with high Work Done shows agreement reached by substantial modification of the prior.]]
 - [[Work Done measures distance from the prior, not from the true ensemble, and small values can also mean too little fitting.]]
+- [[A large change in the inferred ensemble when part of the data is removed signals poor accuracy.]] (the external precedent; its converse does not hold)
 - [[Fitting outcomes depend on which peptides and time points are used, and replicate fits quantify this dependence.]]
 - [[Replicate uncertainty locates where a model is unstable but does not by itself separate sampling, structural and forward-model deficiencies.]]
 - [[Clustering into representative structures gives compact, interpretable ensembles with little loss of accuracy.]]
@@ -366,6 +372,7 @@ Close §1.4 on why agreement can mislead, which sets §1.5's order. One kind of 
 - [[Validation should progress from synthetic data with known populations to an orthogonal experimental reference to systems without ground truth.]] (jaxENT, draft)
 
 **6. What repeated assessment costs, and what it cannot reach.** Two points, and they motivate Q3 and chapter 5. First, every check in groups 2 and 5 repeats the fit. Because validation requires repeated fitting across data partitions, parameter settings and candidate ensembles, the cost of each fit limits the extent of the assessment. ValDX ran 3 replicates × 2 or 4 split types per ensemble across 22 ensembles, with a γ sweep in each. Second, reweighting can only redistribute weight over the candidates it is given, so where coverage fails the data have to act during sampling or generation. End the section on the hand-off to §1.6 as hypothesis testing with these two limits named.
+- Rigorous evaluation repeats fitting across partitions with selection in each, at substantial computational cost ([[@cawleyOverfittingModelSelection2010#^c4]]).
 - Validation by splits and replicates multiplies the number of fits, so the cost of a single fit bounds how much assessment is affordable (own; `projects/1-ValDX/manuscript/report/6_methods_omc.tex` L473 and L619).
 - [[Reweighting cannot create conformational states absent from the candidate ensemble.]] (stated in group 4, reminded here as the motivation for ch. 5)
 
@@ -383,7 +390,6 @@ Close §1.4 on why agreement can mislead, which sets §1.5's order. One kind of 
 - Revised ValDX is not posted. Its claims (five, plus the perfect-forward-model sentence) cite the revised manuscript until it is.
 - jaxENT has no citable version, so the decoy, joint-uncertainty and validation-regime points cite the manuscript.
 - Efficiency claim (group 6) needs a jaxENT runtime figure.
-- A general citation for selection making validation error optimistic (e.g. Cawley and Talbot 2010).
 
 ## 1.6 Research Questions and Objectives
 
