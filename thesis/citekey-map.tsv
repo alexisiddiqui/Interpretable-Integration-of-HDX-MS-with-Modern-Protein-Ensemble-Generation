@@ -28,6 +28,7 @@ burnleyModellingDynamicsProtein2012	burnleyModellingDynamicsProtein2012	key	kb/c
 bussiUsingMetadynamicsExplore2020	bussiUsingMetadynamicsExplore2020	key	milestones/2025-11-confirmation-of-status/introduction/ensemble_generators.tex:76
 camposConstantpHMolecularDynamics2010	camposConstantpHMolecularDynamics2010	key	kb/chapters/02-background.md
 casadevallAlphaFold2DeepLearning2023	casadevallAlphaFold2DeepLearning2023	key	milestones/2025-11-confirmation-of-status/introduction/ensemble_generators.tex:32
+cawleyOverfittingModelSelection2010	cawleyOverfittingModelSelection2010	key	thesis/drafts/01-introduction-proposed.tex:173
 cesariUsingMaximumEntropy2018	cesariUsingMaximumEntropy2018	key	milestones/2025-11-confirmation-of-status/introduction/measuring_dynamics.tex:5
 chatzimagas_chapter_2023	chatzimagasChapterTwoStructure2023	doi	projects/1-ValDX/manuscript/report/1_introduction_omc.tex:11
 chenPKADRCuratedRedesigned2025	chenPKADRCuratedRedesigned2025	key	thesis/chapters/06-jax-ka.tex
@@ -114,6 +115,7 @@ reisFastInterpretableDeep2022	reisFastInterpretableDeep2022	key	thesis/chapters/
 reisPKPDBProteinData2022	reisPKPDBProteinData2022	key	thesis/chapters/06-jax-ka.tex
 reisPypKaFlexiblePython2020	reisPypKaFlexiblePython2020	key	thesis/chapters/06-jax-ka.tex
 reisPypKaServerOnline2024	reisPypKaServerOnline2024	key	thesis/chapters/06-jax-ka.tex
+robertsCrossvalidationStrategiesData2017	robertsCrossvalidationStrategiesData2017	key	thesis/drafts/01-introduction-proposed.tex:169
 sapienzaUsingNMRStudy2010	sapienzaUsingNMRStudy2010	key	milestones/2025-11-confirmation-of-status/introduction/measuring_dynamics.tex:18
 schaferSequenceClusteringConfounds2024	schaferSequenceClusteringConfounds2024	key	bib-only
 schlichtkrullModelingRelationalData2018	schlichtkrullModelingRelationalData2018	key	thesis/chapters/06-jax-ka.tex
