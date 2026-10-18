@@ -7,13 +7,13 @@
 \chapter{Background and Literature Review}
 \label{ch:background}
 
-Hydrogen--deuterium exchange mass spectrometry (HDX-MS) is a labelling technique that measures the accumulation of deuterium in a protein, while structural interpretation asks which conformations and populations produced that exchange. Connecting the two requires a chemical basis for exchange, and a model of structural protection and a distribution of candidate conformations. Each introduces assumptions into the inferred ensemble-model. Experimental agreement becomes informative about candidate structural hypotheses when those assumptions, and the alternative hypotheses consistent with the data are made explicit.\cite{bradshawInterpretationHDXData2020,bonomiPrinciplesProteinStructural2017}
+Hydrogen--deuterium exchange mass spectrometry (HDX-MS) is a labelling technique that measures the accumulation of deuterium in a protein, while structural interpretation asks which conformations and populations produced that exchange. Connecting the two requires a chemical basis for exchange, a model of structural protection and a distribution of candidate conformations. Each introduces assumptions into the inferred ensemble-model. Experimental agreement becomes informative about candidate structural hypotheses when both these assumptions and the alternative hypotheses consistent with the data are made explicit.\cite{bradshawInterpretationHDXData2020,bonomiPrinciplesProteinStructural2017}
 
 \section{HDX-MS: Measurement, Exchange Kinetics, and Structural Interpretation}
 \label{sec:bg-hdx}
 
 % ValDX: projects/1-ValDX/manuscript/report/2_hdx_theory_omc.tex:5,9--11.
-Protection from exchange relates the rate observed in a protein with the rate expected for the same amide in an unstructured peptide. For residue $i$, the protection factor is
+Protection from exchange relates the rate observed in a protein to the rate expected for the same amide in an unstructured peptide. For residue $i$, the protection factor is
 \begin{equation}
     P_{f,i}=\frac{k_{\text{int},i}}{k_{\text{obs},i}},
     \label{eq:bg-protection-factor}
@@ -29,10 +29,10 @@ This relation connects protection to accumulated exchange. Its structural interp
 \subsection{Experimental Workflow and Measurement Limitations}
 \label{sec:bg-hdx-workflow}
 
-An HDX-MS experiment initiates labelling by exposing the protein to deuterated solvent and measures retained deuterium after defined intervals. In a typical bottom-up workflow, exchange is quenched by lowering temperature and pH. To spatially localise the deuterium uptake, the protein is digested, and the resulting peptides are separated and analysed by mass spectrometry. Peptide mass increases report the deuterium exchange through this procedure. The measurement therefore depends on both exchange during labelling and deuterium loss during analysis.\cite{massonRecommendationsPerformingInterpreting2019,vinciauskaiteFundamentalsHDXMS2023}
+An HDX-MS experiment initiates labelling by exposing the protein to deuterated solvent and measures retained deuterium after defined intervals. In a typical bottom-up workflow, exchange is quenched by lowering temperature and pH. To spatially localise the deuterium uptake, the protein is digested, and the resulting peptides are separated and analysed by mass spectrometry. Peptide mass increases report the deuterium retained after this procedure. The measurement therefore depends on both exchange during labelling and deuterium loss during analysis.\cite{massonRecommendationsPerformingInterpreting2019,vinciauskaiteFundamentalsHDXMS2023}
 
 % ValDX: projects/1-ValDX/manuscript/report/1_introduction_omc.tex:14.
-Without special preparation or post-processing, HDX-MS reports deuterium uptake at the peptide level, not the residue level. Each peptide time-averages the contributions of its exchangeable backbone amides, and overlapping peptides provide partially shared views of the same sequence.\cite{leeInterpretingHydrogenDeuteriumExchange2021} If $p$ denotes the set of amides retained in a peptide measurement, its fractional uptake is
+Without special preparation or post-processing, HDX-MS reports deuterium uptake at the peptide level, not the residue level. Each peptide measurement combines the accumulated exchange of its contributing backbone amides, and overlapping peptides provide partially shared views of the same sequence.\cite{leeInterpretingHydrogenDeuteriumExchange2021} If $p$ denotes the set of amides retained in a peptide measurement, its fractional uptake is
 \begin{equation}
     D_p(t)=\frac{1}{|p|}\sum_{i\in p}D_i(t).
     \label{eq:bg-peptide-uptake}
@@ -170,11 +170,11 @@ The contact-count implementation used by HDXer evaluates burial within $6.5\,\te
 \end{equation}
 where $M$ is the number of candidate conformations.\cite{bradshawInterpretationHDXData2020} The weights describe how much each conformation contributes to the predicted protection profile. The coefficients calibrate the relationship between structural features and protection; they are not microscopic interaction energies.
 
-Averaging is part of the forward model. Averaging log protection factors as in \cref{eq:bg-bv-average} gives a geometric mean of protection, while averaging exchange rates or frame-wise uptake gives different predictions because the transformations are non-linear. The adopted average must therefore be stated alongside the structural features. A single effective protection factor also requires care when slowly interconverting conformers retain distinct exchange behaviour.\cite{skinnerEstimatingConstraintsProtection2019} Ensemble averaging provides a representation of heterogeneity under specified exchange assumptions; it does not remove the need to assess those assumptions.
+Averaging is part of the forward model. Averaging log protection factors as in \cref{eq:bg-bv-average} gives a geometric mean of protection, while averaging exchange rates or frame-wise uptake gives different predictions because the transformations are non-linear. The adopted average must therefore be stated alongside the structural features. When slowly interconverting conformers retain distinct exchange behaviour, a single effective protection factor may be inadequate.\cite{skinnerEstimatingConstraintsProtection2019} The averaging procedure must therefore match the exchange behaviour being represented.
 
 Other approaches use atomistic trajectories to examine residue protection in more detail, while Bayesian population inference has incorporated protection-factor predictors to compare candidate ensembles.\cite{mohammadiaraniInterpretingHydrogenDeuteriumExchange2018,wanReconcilingSimulatedEnsembles2020} A complementary route estimates residue protection factors directly from overlapping uptake curves. Skinner et al. search for sets of protection factors compatible with the measured uptake, showing both the information gained from overlap and the alternatives left unresolved. Where such constraints are informative, they test a structural model at finer resolution than peptide uptake alone.\cite{skinnerEstimatingConstraintsProtection2019}
 
-The choice of features, coefficients and averaging determines which structural differences can affect the prediction. A model can fit peptide uptake while assigning incorrect protection within a peptide or incorrect populations among conformations.\cite{bradshawInterpretationHDXData2020} Comparing structural hypotheses therefore begins with a further question about the candidates themselves. The ensemble generator determines which explanations can enter the comparison and what their initial frequencies mean.
+The choice of features, coefficients and averaging determines which structural differences can affect the prediction. A model can fit peptide uptake while assigning incorrect protection within a peptide or incorrect populations among conformations.\cite{bradshawInterpretationHDXData2020} Comparing these structural explanations requires candidate ensembles that represent them. The ensemble generator determines which explanations can enter the comparison and what their initial frequencies mean.
 
 \section{Protein Conformational Ensembles and Their Generation}
 \label{sec:bg-ensemble-generation}
@@ -206,7 +206,7 @@ Finitely sampled trajectories may not cross the barriers separating relevant sta
 \subsection{Enhanced Sampling}
 \label{sec:bg-enhanced-sampling}
 
-Enhanced sampling changes the sampling procedure to reach states rarely visited by conventional MD. Biasing methods encourage brownian exploration along selected collective variables, while extended-ensemble methods permit movement between artificial thermodynamic conditions or distributions. Metadynamics constructs a history-dependent bias that discourages repeated visits to previously sampled regions. The choice of collective variables determines which barriers this bias can help cross.\cite{heninEnhancedSamplingMethods2022,bussiUsingMetadynamicsExplore2020}
+Enhanced sampling changes the sampling procedure to reach states rarely visited by conventional MD. Biasing methods encourage exploration along selected collective variables, while extended-ensemble or mult-replica methods permit movement between artificial thermodynamic conditions or distributions. Metadynamics constructs a history-dependent bias that discourages repeated visits to previously sampled regions. The choice of collective variables determines which barriers this bias can help cross.\cite{heninEnhancedSamplingMethods2022,bussiUsingMetadynamicsExplore2020}
 
 Changing the sampling distribution requires a corresponding statistical correction when estimating properties of the original system. Reweighting can recover equilibrium averages from biased samples when the sampled and target distributions overlap sufficiently. Many accelerated schemes also alter transition kinetics, so recovery of equilibrium populations does not imply recovery of the physical rates between states.\cite{heninEnhancedSamplingMethods2022} The sampling protocol must specify which equilibrium distribution is targeted and which dynamical information is retained.
 
@@ -215,11 +215,11 @@ Adaptive seeding instead chooses new starting structures for additional trajecto
 \subsection{Learned Structure Predictors and Ensemble Generators}
 \label{sec:bg-learned-generators}
 
-Learned predictors supply structural candidates by using relationships extracted from sequence and structure data. AlphaFold2 takes a sequence and information from homologous sequences to predict atomic coordinates, with confidence scores that estimate local structural accuracy.\cite{jumperHighlyAccurateProtein2021} These scores help assess a prediction under the model's training task. They do not measure a conformation's free energy or its population in solution.\cite{wayment-steelePredictingMultipleConformations2024}
+Learned predictors supply structural candidates by using relationships extracted from sequence and structure data. AlphaFold2 takes a sequence and information from homologous, aligned sequences to predict atomic coordinates, with confidence scores that estimate local structural accuracy.\cite{jumperHighlyAccurateProtein2021} These scores help assess a prediction under the model's training task. They do not measure a conformation's free energy or its population in solution.\cite{wayment-steelePredictingMultipleConformations2024}
 
-Perturbing a predictor's input can expose alternative conformations. Reducing, clustering or modifying a multiple sequence alignment (MSA) changes the information presented to AlphaFold2 and can produce candidates absent from the default prediction.\cite{steinSPEACH_AFSamplingProtein2022,wayment-steelePredictingMultipleConformations2024} The resulting frequencies depend on the input perturbation. Subsampled predictions have reproduced qualitative directions of population changes in studied systems, but quantitative Boltzmann ratios have not been established.\cite{monteirodasilvaHighthroughputPredictionProtein2024} Such outputs can support candidate generation without assigning equilibrium weights to their counts.
+Perturbing a predictor's input can expose alternative conformations. Reducing, clustering or modifying a multiple sequence alignment (MSA) changes the information presented to AlphaFold2 and can produce candidates absent from the default prediction.\cite{steinSPEACH_AFSamplingProtein2022,wayment-steelePredictingMultipleConformations2024} The resulting frequencies depend on the input perturbation. Subsampled predictions have reproduced qualitative directions of population changes in studied systems, but quantitative Boltzmann ratios have not been established.\cite{monteirodasilvaHighthroughputPredictionProtein2024}
 
-The explanation for alternative-state prediction also requires care. MSA clustering has been interpreted as exposing evolutionary information associated with different conformations, while subsequent comparisons found that random subsampling could outperform clustering and questioned how reliably either procedure predicts fold switching.\cite{wayment-steelePredictingMultipleConformations2024,schaferSequenceClusteringConfounds2024} This dispute concerns how candidates are obtained. Even when an alternative state is recovered, its frequency among predictions needs a separate population assessment.
+The explanation for alternative-state prediction also requires care. MSA clustering has been interpreted as exposing evolutionary information associated with different conformations, while subsequent comparisons found that random subsampling could outperform clustering and questioned how reliably either procedure predicts fold switching.\cite{wayment-steelePredictingMultipleConformations2024,schaferSequenceClusteringConfounds2024} This dispute concerns how candidates are obtained.
 
 A probabilistic generator gives samples from a model distribution. If that density is $p_{\text{model}}(x)$, it can be expressed through a statistical potential,
 \begin{equation}
@@ -231,7 +231,7 @@ This transformation is available for any density and does not make the resulting
 \subsection{Diffusion Models for Protein Structure Generation}
 \label{sec:bg-diffusion}
 
-MSAs describe contact propensity through evolutionary information, diffusion models generate structures from these trained embeddings by learning to reverse the progressive addition of noise to training examples. Training presents structures at different noise levels and teaches a network how to recover information lost through corruption. Generation starts from noise and repeatedly applies the learned denoising operation. Protein models can perform this operation on coordinates, residue frames or other structural representations.\cite{yimDiffusionModelsProtein2024}
+Diffusion models generate structures by learning to reverse the progressive addition of noise to training examples. Training presents structures at different noise levels and teaches a network how to recover information lost through corruption. Generation starts from noise and repeatedly applies the learned denoising operation. Protein models can perform this operation on coordinates, residue frames or other structural representations.\cite{yimDiffusionModelsProtein2024}
 
 The score, $\nabla_x\ln p_\tau(x)$, describes how the log density changes with coordinates at noise level $\tau$. It supplies the directional information used in reverse diffusion. Its relationship to an MD force is explicit when the clean distribution is Boltzmann,
 \begin{equation}
@@ -240,7 +240,7 @@ The score, $\nabla_x\ln p_\tau(x)$, describes how the log density changes with c
 \end{equation}
 The equality follows by differentiating \cref{eq:bg-boltzmann}. A learned score has this physical interpretation only when the learned distribution has the corresponding equilibrium target. Training on deposited structures instead learns the statistical preferences of that dataset.\cite{bmsb2012ch3,yimDiffusionModelsProtein2024}
 
-Diffusion time indexes an artificial noising process. It is distinct from MD time and HDX labelling time, so a denoising trajectory does not describe a physical transition pathway. Nor does repeated generation establish solution populations. AlphaFold~3 uses diffusion to generate structural predictions, but its authors explicitly distinguish repeated random seeds from an approximation to the solution ensemble.\cite{abramsonAccurateStructurePrediction2024} Population inference must account for the distribution represented by the generator.
+Diffusion time indexes an artificial noising process. It is distinct from MD time and HDX labelling time, so a denoising trajectory does not describe a physical transition pathway. Nor does repeated generation establish solution populations. AlphaFold~3-like models use diffusion to generate structural predictions, but its authors explicitly distinguish repeated random seeds from an approximation to the solution ensemble.\cite{abramsonAccurateStructurePrediction2024} Population inference must account for the distribution represented by the generator.
 
 \subsection{Sampling Coverage and Ensemble Populations}
 \label{sec:bg-coverage-populations}
@@ -314,7 +314,7 @@ Fixing these parameters gives an inference conditional on the chosen values. Sam
 \subsection{Maximum-Entropy and Bayesian Ensemble Refinement}
 \label{sec:bg-maxent}
 
-Maximum-entropy refinement selects a population distribution that satisfies specified constraints while retaining as much prior information as possible. In its relative form, it maximises
+When several population distributions satisfy the experimental constraints, we need a rule for choosing among them. Maximum-entropy refinement selects the distribution that changes the prior least. In its relative form, it maximises
 \begin{equation}
     S[P\Vert P_0]
     =-\int P(x)\ln\frac{P(x)}{P_0(x)}\,dx
@@ -579,8 +579,8 @@ The determinants can be expressed through the empirical decomposition used by PR
     \end{split}
     \label{eq:bg-pka-shift}
 \end{equation}
-The terms describe desolvation, hydrogen bonding and charge--charge interactions relative to the model compound.\cite{liVeryFastEmpirical2005,olssonPROPKA3ConsistentTreatment2011} They are empirical categories used to estimate a total shift, rather than separately measured properties of the site. Desolvation generally disfavors the charged form, raising the $\mathrm{p}K_a$ of an acid and lowering that of a base, while favourable interactions can oppose that effect.\cite{grimsleySummaryMeasuredPK2009}
+The terms describe desolvation, hydrogen bonding and charge--charge interactions relative to the model compound.\cite{liVeryFastEmpirical2005,olssonPROPKA3ConsistentTreatment2011} They are empirical categories used to estimate a total shift, rather than separately measured properties of the site. Desolvation generally disfavours the charged form, raising the $\mathrm{p}K_a$ of an acid and lowering that of a base, while favourable interactions can oppose that effect.\cite{grimsleySummaryMeasuredPK2009}
 
-Conformational change moves these interactions and can change protonation preferences. The resulting feedback means that a protonation assignment appropriate to one structure need not remain appropriate as it partially unfolds. Standard fixed-protonation MD assigns one state to each titratable group for a run; constant-pH approaches permit states to change.\cite{deoliveiraConstantPHMolecular2022} A fixed-protonation simulation described as representing pH~4 therefore represents the particular assignments chosen for that condition.
+Conformational change alters these interactions and can change protonation preferences. The resulting feedback means that a protonation assignment appropriate to one structure need not remain appropriate as it partially unfolds. Standard fixed-protonation MD assigns one state to each titratable group for a run; constant-pH approaches permit states to change.\cite{deoliveiraConstantPHMolecular2022} A fixed-protonation simulation described as representing pH~4 therefore represents the particular assignments chosen for that condition.
 
-For a pH-dependent ensemble comparison, these assignments are part of the structural hypothesis. Reweighting cannot repair an interaction network imposed by an inappropriate protonation state if the relevant conformations were never sampled. The protonation models introduced in \cref{ch:jax-ka} address this preparation step. Their assessment must establish whether the states assigned to titratable sites are appropriate for the structures and solution conditions whose conformational behaviour is being interpreted.
+For a pH-dependent ensemble comparison, these assignments are part of the structural hypothesis. Reweighting cannot repair an interaction network imposed by an inappropriate protonation state if the relevant conformations were never sampled. The protonation models introduced in \cref{ch:jax-ka} address this preparation step. These assignments must be assessed against the structures and solution conditions used to interpret conformational behaviour.
