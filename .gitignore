@@ -255,3 +255,8 @@ kb/.cache/
 
 # Better BibTeX auto-export of the whole Zotero library (seeder input, local only)
 /thesis/zotero_auto.bib
+
+# Powerpoints are way too large.
+*.pptx
+
+_*/

@@ -496,14 +496,6 @@ HDX-MS introduces ambiguity at two levels. Peptide uptake may not determine the 
 
 Distinguishing structural hypotheses requires predictions that differ by an amount resolvable against measurement and forward-model error. An orthogonal measurement is useful when it constrains precisely the differences that uptake leaves open. The strength of the resulting assessment also depends on the reference. Synthetic populations are known by construction, whereas an HDX-NMR-derived state distribution depends on measured exchange, state assignments and thermodynamic modelling.\cite{moulickPartiallyUnfoldedForms2015} Agreement with the latter is agreement with an experimentally constrained interpretation, whose assumptions remain part of the comparison.
 
-Bayesian evidence provides a way to rank competing models while integrating over uncertain parameters. For two candidate models $\mathcal{M}_1$ and $\mathcal{M}_2$, the Bayes factor is
-\begin{equation}
-    B_{12}=\frac{p(s^{\text{exp}}\mid\mathcal{M}_1)}
-    {p(s^{\text{exp}}\mid\mathcal{M}_2)}.
-    \label{eq:bg-bayes-factor}
-\end{equation}
-The evidence averages the likelihood over the model's prior, so it depends on both the prior and the treatment of error.\cite{bmsb2012ch1} BICePs uses an evidence ratio to compare candidate priors while inferring nuisance parameters, and has been applied with residue protection-factor predictions to apomyoglobin ensembles.\cite{wanReconcilingSimulatedEnsembles2020} Such ranking remains a comparison among the models supplied. It cannot assign support to a missing state or resolve a distinction absent from the observables.
-
 Validation and identifiability consequently support different conclusions. Held-out error assesses prediction, partition sensitivity assesses dependence on data selection, and controlled model changes test possible causes of instability. Several ensembles can pass these checks while retaining different populations. The useful outcome is then a bounded set of competing hypotheses whose remaining differences identify the next informative comparison or measurement.
 
 \subsection{Ensemble Comparison and Interpretable Representations}

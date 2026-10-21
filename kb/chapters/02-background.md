@@ -249,9 +249,6 @@ Accurate prediction of withheld uptake does not establish that only one populati
   - [[Two structural hypotheses can be distinguished only where their predicted observables differ by more than measurement and model error.]] (own)
 - References of decreasing certainty. A synthetic benchmark has exact populations (TeaA). An experimental reference such as the HDX-NMR-derived MoPrP target depends on its own state assignments and thermodynamic assumptions. A system with no structural reference allows only prediction and stability to be assessed (α-synuclein).
 - Validation answers narrower questions. Held-out error tests prediction, replicate spread tests sensitivity, and [[controlled perturbation]] tests attribution. None of them shows that the populations are unique.
-- Ranking rather than identifying. [[BICePs]] ranks candidate priors by an evidence ratio while inferring the error scale. ValDX instead asks whether a fit generalises and how much it changed the prior.
-  - [[A fitting metric can rank candidate ensembles against data or reveal them as inadequate, so integration becomes structural hypothesis testing.]]
-  - [[BICePs ranks candidate priors by an evidence ratio while inferring the experimental uncertainty as a nuisance parameter.]]
 - When several ensembles remain consistent with the data, structural representations make their differences explicit and allow the competing interpretations to be inspected.
 
 ### Ensemble Comparison and Interpretable Representations
