@@ -2,10 +2,6 @@
 
 Chapter hub: concepts and their equations in the order of `thesis/chapters/02-background.tex`. Equation links point at single displayed equations (`#^eq-…`). Every symbol follows [[2026-10-13 canonical HDX and ensemble notation]]; `notation.md` lists them.
 
-Markers:
-- **gap**: something the chapter needs that has no verified source or manuscript form yet.
-- **decision**: a choice to make before writing.
-
 ## 2.1 HDX-MS: Measurement, Exchange Kinetics, and Structural Interpretation
 
 **Argument.** Structural interpretation of HDX-MS requires a model of how conformational opening and chemical exchange produce the measured peptide uptake. Intrinsic exchange rates provide the chemical reference, while the exchange regime determines whether observed rates report on opening equilibria or opening kinetics. Protection factors connect these rates to structural models under the EX2 assumption. Predicting peptide uptake from those models permits direct comparison with experiment, although agreement does not uniquely determine the underlying residue protection or conformational populations.
@@ -17,7 +13,6 @@ Introductory equations: [[protection factor#^eq-pf]] and [[deuterium uptake#^eq-
 HDX-MS records exchange by measuring peptide mass increases after defined labelling intervals. Each peptide combines contributions from several amides, and back-exchange during sample handling changes the amount of deuterium retained. Peptide averaging and back-exchange correction therefore determine how a predicted exchange profile should be compared with the measurement.
 
 - [[deuterium uptake]]: peptide averaging [[deuterium uptake#^eq-uptake-peptide]] and back-exchange correction [[deuterium uptake#^eq-uptake-corr]].
-- **decision**: present back-exchange as an equation or in prose. It is commented out in the current jaxENT methods.
 - [[Conventional peptide-level HDX-MS reports uptake averaged over the exchangeable amides within each fragment.]]
 
 ### Intrinsic Exchange Rates
@@ -25,7 +20,6 @@ HDX-MS records exchange by measuring peptide mass increases after defined labell
 The measured uptake combines contributions from amides with different chemical exchange rates. Structural interpretation therefore begins with the rate expected for each amide in an unstructured, solvent-exposed peptide. The intrinsic rate depends on neighbouring residues, temperature and solution acidity through acid-, base- and water-catalysed exchange. These chemical contributions must be specified before a difference in observed exchange can be attributed to structural protection.
 
 - [[intrinsic exchange rate]]: [[intrinsic exchange rate#^eq-kint]], [[intrinsic exchange rate#^eq-kint-sequence]], [[intrinsic exchange rate#^eq-kint-temperature]].
-- **gap**: no manuscript applies Bai's temperature correction. Bai's Eqs. (2a) and (3) are images and need checking against the PDF.
 
 ### Linderstrøm–Lang Exchange Kinetics and EX1/EX2 Regimes
 
@@ -33,7 +27,6 @@ Intrinsic rates describe exchange in an exposed amide, but exchange in a folded 
 
 - [[Linderstrøm–Lang model]]: scheme [[Linderstrøm–Lang model#^eq-ll-scheme]], steady state [[Linderstrøm–Lang model#^eq-ll-kobs]], limits [[Linderstrøm–Lang model#^eq-ex2]] and [[Linderstrøm–Lang model#^eq-ex1]], with the derivation in the note.
 - Distinguish exchange kinetics from conformational timescales: [[protein dynamics]].
-- **gap**: no PDF for Hvidt and Nielsen 1966 or Smith 1997. Skinner 2012 and Englander 1997 carry the sources for now.
 
 ### Protection Factors and Peptide Uptake
 
@@ -54,8 +47,6 @@ Protection factors provide a route to calculating uptake, but do not specify the
   - [[Residue protection factors are generally underdetermined by peptide-level uptake.]]
   - [[A single protection factor per residue cannot describe a residue whose environment differs between populated conformers.]]
   - [[Residue protection factors test structural models more stringently than peptide uptake alone.]]
-- **gap**. The switch-function variant needs Radou et al. 2014 (Biophys J 107, 983–990), which could not be downloaded. Park 2015's PDF is unreadable.
-- **decision**. ValDX `6_methods_omc.tex` L624 cites Skinner 2019 for the switch-function BV model. Skinner 2019 describes no such model and cites Radou 2014, so the manuscript citation should change.
 
 ## 2.2 Protein Protonation and pH-Dependent Properties
 
@@ -92,7 +83,7 @@ Because pKa values depend on structural environment, a titratable group can have
 - HDX link, pointing back to §2.1 rather than repeating it ([[intrinsic exchange rate#^eq-pd]] for pD; ionisable neighbours in the same note).
   - [[His, Asp and Glu neighbours change intrinsic exchange rates with pH through their own ionisation.]]
   - In pH-dependent applications, solution conditions affect both intrinsic exchange chemistry and the protonation states that govern structural interactions. Interpreting a difference in uptake therefore requires considering changes in the exchange rates as well as changes in the conformational ensemble.
-- **decision** (recommended, applied in the KB): the pD correction and the ionisable-neighbour factors are stated in §2.1 Intrinsic Exchange Rates, and §2.2 points back.
+- The pD correction and the ionisable-neighbour factors are stated in §2.1 Intrinsic Exchange Rates, and §2.2 points back.
 - Consequence for simulation.
   - [[Standard molecular dynamics fixes one protonation state per titratable residue for the whole run, while constant-pH MD lets protonation states change.]]
   - [[Constant-pH MD of human PrP at low pH populates a β-rich form in which His187 protonation separates the subdomains.]] (optional; the β-rich form was at pH 2)
@@ -111,7 +102,6 @@ Molecular dynamics generates trajectories by integrating equations of motion und
 
 - [[molecular dynamics]]: [[molecular dynamics#^eq-newton]] (very light).
 - [[Boltzmann distribution]]: [[Boltzmann distribution#^eq-boltzmann]].
-- **gap**: a displayed-equation source for Newton's or Langevin's equation.
 - The [[force field]] defines the potential energy $U(x)$ of a conformation. The distinction between this energy and the free energy of a basin governs how individual structures and state populations are assessed.
 
 ### Enhanced Sampling
@@ -149,7 +139,7 @@ Sampling a learned structural distribution requires a procedure for generating n
 Structural diversity from a generator establishes neither equilibrium populations nor physical transition kinetics. Assessing the resulting ensemble therefore requires distinguishing which states have been sampled from what their sampling frequencies mean. Importance sampling corrects contributions for differences between the sampling and target distributions, provided the sampled ensemble adequately covers the target. It cannot recover states absent from the candidates. The reference distribution must therefore be specified before a statistical correction can be interpreted physically.
 
 - [[conformational free-energy landscape]], [[population shift]], [[structural ensemble]].
-- [[importance sampling]]: [[importance sampling#^eq-importance-sampling]]; effective sample size (**gap**: no source for the Kish formula).
+- [[importance sampling]]: [[importance sampling#^eq-importance-sampling]]; effective sample size.
 - [[reference ratio method]]: [[reference ratio method#^eq-reference-ratio]] and its KL optimality [[reference ratio method#^eq-reference-ratio-kl]].
 - [[A generator's sampling distribution is a reference distribution, not automatically the physical equilibrium distribution.]]
 - [[Useful ensemble generation requires quantifying the relative populations of each state, not only generating structures.]]
@@ -210,7 +200,7 @@ The structural derivatives needed to calculate restraint forces can also be used
   - [[Too strong an experimental guidance term makes diffusion sampling noisy and produces unphysical structures.]]
   - [[Guided diffusion samples are not equilibrium-weighted unless a correction such as reweighting is applied.]] (own)
 - Guidance modifies a learned sampling distribution, while experimental restraints modify simulation through a bias potential. ExEnDiff applies its restraint to single structures, whereas HDX-MS data describe ensemble averages. This difference motivates the ensemble treatment developed in the research chapter.
-- **gap**. Both papers test small proteins, and ExEnDiff guides only with synthetic observables taken from the MD it is scored against.
+- Both papers test small proteins, and ExEnDiff guides only with synthetic observables taken from the MD it is scored against.
 
 Experimental constraints can improve agreement by changing populations, forward-model parameters or the conformations sampled. Agreement alone does not establish which change was warranted. Assessment must therefore examine whether the resulting model predicts withheld measurements and whether its structural conclusions remain supported when the data and modelling assumptions are varied.
 
@@ -243,7 +233,7 @@ Uncertainty in an inferred ensemble can arise from measurement error, an approxi
   - [[Weighting residuals by the inverse error covariance corrects least squares for unequal variances and correlated errors.]] (stated by Theobald for superposition)
   - [[Correlations between overlapping peptides are recognised in HDX-MS statistics but left unmodelled.]]
   - [[A covariance built from candidate-ensemble coordinates describes how peptides are expected to co-vary structurally, so weighting residuals by it assumes their errors co-vary in the same way.]] (jaxENT, draft, inferred)
-- **decision**. jaxENT's Σ is presented as the current policy, the geometric selection-time weighting in [[Observation weighting and selection (jaxENT)]], and the manuscript's fitted covariance-weighted MSE as history. The ISO closed-label circularity and the validation block used are stated with any number quoted.
+- jaxENT's Σ is presented as the current policy, the geometric selection-time weighting in [[Observation weighting and selection (jaxENT)]], and the manuscript's fitted covariance-weighted MSE as history. The ISO closed-label circularity and the validation block used are stated with any number quoted.
 - Wording to avoid. "Accounts for experimental uncertainty and correlations between fragments" (jaxENT `methods/analysis.tex` L31) until Σ does; "robust success metrics" and "guards against overfitting" (`results.tex` L13); the Fig. 5 caption on sampling against force-field limitations (`results.tex` L203); "systematic errors accumulate at the peptide level" (confirmation, unsupported).
 
 ### Cross-Validation with Overlapping Measurements
@@ -274,8 +264,7 @@ An error model determines how discrepancies contribute to fitting, but does not 
   - [[Selecting a model by its validation error makes that error optimistic, so performance must be estimated on data unused in selection.]]
 - jaxENT's complement: selection on HDX-MS validation with evaluation against the reference ([[Evaluation design (jaxENT)]]), and weighting instead of partitioning for the dependence that structured splits leave behind.
   - [[Weighting validation residuals by the conditional precision given the training peptides discounts held-out peptides whose information is redundant with the training set.]] (jaxENT, draft, inferred; holds for the conditional selector only)
-- **decision**. The HDX-NMR layer is described as "selection on HDX-MS validation and evaluation against HDX-NMR, nested in structure with a single outer evaluation". "Nested cross-validation" is kept for a resampled outer loop.
-- **decision**. The jaxENT splitter's overlap behaviour is flagged in [[Evaluation design (jaxENT)]] and not changed in this pass.
+- The HDX-NMR layer is described as "selection on HDX-MS validation and evaluation against HDX-NMR, nested in structure with a single outer evaluation". "Nested cross-validation" is kept for a resampled outer loop.
 - Validation tests prediction of uptake and stability under partitioning. Establishing whether the populations are unique is a separate question of [[identifiability]].
 - Wording to avoid. "Ensure" and "genuinely withheld" (posted v1); "powerful diagnostic tool" (`7_results_omc.tex` L55); "statistically rigorous framework" (`1_introduction_omc.tex` L33); "selected by test error minimisation" (jaxENT `protocols.tex` L325, legacy); "integrative biophysics never splits data".
 
@@ -315,30 +304,12 @@ When several ensembles remain consistent with the observations, their structural
   - [[Conclusions drawn from representative structures should be checked for stability across cluster sizes.]]
 - Weighted ensembles describe state populations, while transition rates and pathways require evidence about [[conformational kinetics]]. Under EX2, exchange reports on the fraction of time an amide is open through the intrinsic exchange rate; it does not determine the opening rate.
   - [[Weighted conformational ensembles describe which states are occupied, not the order, rates or causal pathways of transitions between them.]] (own)
-- **gap**. No citable source yet for the general $W_1$ definition (SciPy documentation only). jaxENT's ternary shape space and GMM clustering are manuscript-only.
+- jaxENT's ternary shape space and GMM clustering are defined in the jaxENT manuscript only.
 
 These assessments remain conditional on the physical and chemical conditions represented by the model.
 
 ## Gaps (Chapter 2 literature)
-- Removed (2026-10-15): the claim that structure-to-uptake models rely on hydrogen bonding and solvent exposure but add systematic errors that accumulate at peptide level. No checked passage evaluated those models or their errors. A source is needed if §2.1 keeps the point.
-- §2.2 and ch. 6 papers all have PDFs and blocks. Yang & Honig 1993 and Hvidt 1954 are OCR text, so check their quotes against the page.
-- ValDX `2_hdx_theory_omc.tex` L7 cites Kim, Fuchs & Woodward 1993 for "the protection factor reports on the free energy of local unfolding"; Kim does not say this (no protection factors, no EX2). Cite Vendruscolo et al. 2003 (^c2) instead.
-- `vendruscoloRareFluctuationsNative2003` has two Zotero duplicates (`…2003a`, `…2003b`); merge them.
-- `baiPrimaryStructureEffects1993` is duplicated in Zotero (two items, one key); merge them.
-- ValDX `2_hdx_theory_omc.tex` L5 cites Nguyen 2018 as the webpage snapshot `ReferenceParametersProtein`; re-key to `nguyenReferenceParametersProtein2018` when adapting into ch. 3 and retire `kb/papers/@ReferenceParametersProtein.md`.
-- The jaxENT SI (`si_figures.tex` L225) cites `wuConformationalHeterogeneitySavinase2020` for "Nguyen et al." reference parameters; the correct paper is Nguyen, Mayne, Phillips & Englander 2018 (JASMS 29:1936).
-- No published pH 4 against pH 7 simulation of mouse PrP was found (human and bovine only), so the Chapter 5 MoPrP runs would be the first mouse-specific comparison. Check again before claiming it.
-- A statistical-learning source for bagging (Hastie, Tibshirani and Friedman §8.7, or Breiman 1996); two draft claims on [[model averaging]] wait on it. Optional: Maity 2005 for the foldon term, MDRefine and DynaXL as held-out-restraint comparators.
-- A figure or notebook ID comparing the ValDX consensus with single-replicate fits; without it the consensus claim stays draft.
-- jaxENT: record which validation block the reported selections used, the provenance of `moprp.weights`, and the splitter's overlap behaviour; update the manuscript's covariance and selection wording to the current policy ([[Observation weighting and selection (jaxENT)]], [[Evaluation design (jaxENT)]]).
-- The ValDX submodule is pinned to `origin/GSD-stats-HPC` at 0b79aad, which has the Non-Redundant and Spatial split code and the consensus mean. Settle the median against mean for the BV constants and the peptide dropout wording before Chapter 3 cites the note ([[Peptide splitting and consensus (ValDX)]]).
-- Hudgens 2019, Crook 2022, Moulick 2015 and Burnley 2012 are seeded with PDFs; all `read: false`, all quotes `reviewed: false`.
-- Add to Zotero the two hand-added bib entries, `lindorff-larsenSimilarityMeasuresProtein2009` and `tibertiENCORESoftwareQuantitative2015`. Otherwise the next Better BibTeX export drops them.
-- Radou et al. 2014 is needed for the switch-function BV model. Add it to Zotero or `kb/_pdf/`.
-- The original metainference paper (Bonomi et al. 2016, Sci Adv) is not in the library. Bonomi 2016 Sci Rep and the 2017 review carry the definition for now.
-- All new paper notes are `read: false`, and all quotes are `reviewed: false`.
-- BICePs v2.0 (Raddi, Ge & Voelz 2023) is in Zotero as `raddiBICePsV20Software2023c`, because trashed copies hold the base key. Empty the trash and refresh the key, then seed it. Raddi et al. 2025 (forward-model learning) is seeded.
-- A citable source for the Wasserstein-1 definition, if the chapter needs more than the SciPy documentation.
-- jaxENT `methods/analysis.tex` L10 should state that JSD is in base 2. Its MoPrP caption (`results.tex` L82) says "ground-truth MoPrP populations" for an HDX-NMR-derived reference.
-- ValDX structural metrics. The SI $W_1$ equation does not match the implementation, and the correlation code does not align frames itself ([[Structural comparison metrics (ValDX)]]).
-- Chapter 3 must define the Work metrics, HDXer apparent work and the BICePs score side by side (`thesis/chapters/03-valdx.tex` L9).
+- Radou et al. 2014 (Biophys J 107, 983–990) for the switch-function BV model; add it to Zotero or `kb/_pdf/`.
+- A citable source for the general Wasserstein-1 definition, if the chapter needs more than the SciPy documentation.
+- A statistical-learning source for bagging (Hastie, Tibshirani and Friedman §8.7, or Breiman 1996) for the [[model averaging]] claims.
+- A figure or notebook ID comparing the ValDX consensus with single-replicate fits, for the consensus claim.

@@ -5,8 +5,8 @@ year: 2018
 read: false
 pdf: kb/_pdf/@nguyenReferenceParametersProtein2018.pdf
 extraction: auto
-needs_review: false
-review_reason:
+needs_review: true
+review_reason: "The jaxENT SI (si_figures.tex L225) cites wuConformationalHeterogeneitySavinase2020 for the Nguyen et al. reference parameters; it should cite this paper."
 ---
 
 # Reference Parameters for Protein Hydrogen Exchange Rates (2018)

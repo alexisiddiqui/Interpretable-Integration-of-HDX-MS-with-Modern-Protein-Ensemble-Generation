@@ -17,3 +17,6 @@ Status sentence: work in progress. Preliminary experiments; metadiffusion under 
 
 - Chapter tex comments (`05-biofeaturisers.tex`); the README project table and `DEADLINES.md` for status.
 - [[02-background]] §2.4 for restraints, guidance and the missing HDX collective variable.
+
+## Gaps
+- No published pH 4 against pH 7 simulation of mouse PrP was found (human and bovine only); check again before calling the MoPrP runs the first mouse-specific comparison.

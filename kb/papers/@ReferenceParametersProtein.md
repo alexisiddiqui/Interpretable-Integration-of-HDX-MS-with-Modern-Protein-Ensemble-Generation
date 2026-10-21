@@ -6,7 +6,7 @@ read: false
 pdf:
 extraction: none
 needs_review: true
-review_reason: "No PDF in Zotero; add kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto"
+review_reason: "No PDF in Zotero; add kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto. ValDX 2_hdx_theory_omc.tex L5 cites this webpage snapshot for Nguyen 2018; re-key it to nguyenReferenceParametersProtein2018 and retire this note."
 ---
 
 # Reference Parameters for Protein Hydrogen Exchange Rates \textbar Journal of the American Society for Mass Spectrometry

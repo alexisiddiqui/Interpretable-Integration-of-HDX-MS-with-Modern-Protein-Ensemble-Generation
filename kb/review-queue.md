@@ -18,6 +18,9 @@
 ## No PDF in Zotero; add kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto
 
 - [[@HydrogenExchangeProteins1966]] (`papers/@HydrogenExchangeProteins1966.md`)
+
+## No PDF in Zotero; add kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto. ValDX 2_hdx_theory_omc.tex L5 cites this webpage snapshot for Nguyen 2018; re-key it to nguyenReferenceParametersProtein2018 and retire this note.
+
 - [[@ReferenceParametersProtein]] (`papers/@ReferenceParametersProtein.md`)
 
 ## Our statement of distinguishability; sources support the non-uniqueness it qualifies, not this wording.
@@ -52,7 +55,11 @@
 
 - [[Evaluation design (jaxENT)]] (`methods/Evaluation design (jaxENT).md`)
 
-## The manuscript does not state the logarithm base, and the 0–100% range holds only in base 2; add the base to analysis.tex.
+## The jaxENT SI (si_figures.tex L225) cites wuConformationalHeterogeneitySavinase2020 for the Nguyen et al. reference parameters; it should cite this paper.
+
+- [[@nguyenReferenceParametersProtein2018]] (`papers/@nguyenReferenceParametersProtein2018.md`)
+
+## The manuscript does not state the logarithm base, and the 0–100% range holds only in base 2; add the base to analysis.tex. The MoPrP caption (results.tex L82) also says ground-truth MoPrP populations for an HDX-NMR-derived reference.
 
 - [[Ground-truth recovery (jaxENT)]] (`methods/Ground-truth recovery (jaxENT).md`)
 
@@ -63,6 +70,10 @@
 ## The sources say error modelling reduces over-fitting, not that refinement is free of it; minimal ensembles are not stated.
 
 - [[SAXS with MD simulations and ensemble refinement gives minimal ensembles consistent with restraints, without overfitting.]] (`claims/SAXS with MD simulations and ensemble refinement gives minimal ensembles consistent with restraints, without overfitting..md`)
+
+## ValDX 6_methods_omc.tex L624 cites this paper for the switch-function BV model; it describes no such model and cites Radou et al. 2014, so the manuscript citation should change.
+
+- [[@skinnerEstimatingConstraintsProtection2019]] (`papers/@skinnerEstimatingConstraintsProtection2019.md`)
 
 ## cites Appadurai, which is the wrong paper
 

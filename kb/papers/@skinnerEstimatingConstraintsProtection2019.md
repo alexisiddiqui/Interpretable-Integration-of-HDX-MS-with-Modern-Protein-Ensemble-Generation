@@ -5,8 +5,8 @@ year: 2019
 read: false
 pdf: kb/_pdf/@skinnerEstimatingConstraintsProtection2019.pdf
 extraction: auto
-needs_review: false
-review_reason:
+needs_review: true
+review_reason: "ValDX 6_methods_omc.tex L624 cites this paper for the switch-function BV model; it describes no such model and cites Radou et al. 2014, so the manuscript citation should change."
 ---
 
 # Estimating Constraints for Protection Factors from HDX-MS Data (2019)

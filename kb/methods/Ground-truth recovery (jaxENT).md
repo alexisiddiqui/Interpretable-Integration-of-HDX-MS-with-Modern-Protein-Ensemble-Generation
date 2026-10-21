@@ -3,7 +3,7 @@ type: method
 project: 2-jaxENT
 status: draft
 needs_review: true
-review_reason: The manuscript does not state the logarithm base, and the 0–100% range holds only in base 2; add the base to analysis.tex.
+review_reason: "The manuscript does not state the logarithm base, and the 0–100% range holds only in base 2; add the base to analysis.tex. The MoPrP caption (results.tex L82) also says ground-truth MoPrP populations for an HDX-NMR-derived reference."
 code:
   - projects/2-jaxENT/code@37043b5:jaxent/src/analysis/pf_variance.py#L389-L413
 sources:
