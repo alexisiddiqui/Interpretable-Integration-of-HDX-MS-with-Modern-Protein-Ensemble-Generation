@@ -7,7 +7,7 @@ status: active
 
 ## Decision
 
-Chapter 2 §2.4 presents validation and uncertainty in three layers, and the vault encodes each layer in a fixed way.
+Chapter 2 §2.5 presents validation and uncertainty in three layers, and the vault encodes each layer in a fixed way.
 
 | Layer | Where in the vault | Evidence rule | Thesis treatment |
 |---|---|---|---|
@@ -26,7 +26,7 @@ The `## In integrative practice` section is new. The lint does not police sectio
 
 ## Why
 
-The two §2.4 subsections on uncertainty and cross-validation sit on established statistics that the integrative literature applies unevenly. Without a fixed layering, a reader cannot tell which sentences are textbook, which describe the field, and which are ours. The layering also fixes the evidence each kind of sentence needs, so the lint can enforce it.
+The two §2.5 subsections on uncertainty and cross-validation sit on established statistics that the integrative literature applies unevenly. Without a fixed layering, a reader cannot tell which sentences are textbook, which describe the field, and which are ours. The layering also fixes the evidence each kind of sentence needs, so the lint can enforce it.
 
 ## Consequences
 

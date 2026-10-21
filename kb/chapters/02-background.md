@@ -57,9 +57,51 @@ Protection factors provide a route to calculating uptake, but do not specify the
 - **gap**. The switch-function variant needs Radou et al. 2014 (Biophys J 107, 983–990), which could not be downloaded. Park 2015's PDF is unreadable.
 - **decision**. ValDX `6_methods_omc.tex` L624 cites Skinner 2019 for the switch-function BV model. Skinner 2019 describes no such model and cites Radou 2014, so the manuscript citation should change.
 
-A structural forward model provides a route from candidate conformations to predicted uptake. It does not determine which conformations should be included or how much each should contribute. Those choices depend first on how the candidate ensemble is generated.
+## 2.2 Protein Protonation and pH-Dependent Properties
 
-## 2.2 Protein Conformational Ensembles and Their Generation
+**Argument.** The intrinsic-rate model in §2.1 accounts for the chemical effect of solution acidity on amide exchange. Changes in protonation can also alter the conformational populations being measured, because they change the interactions that stabilise each state. This distinction matters for [[prion protein|MoPrP]], whose HDX-MS data for partially unfolded forms were measured at pD 4 ([[@moulickPartiallyUnfoldedForms2015]]) and whose simulations in Chapter 5 are compared at pH 4 and pH 7. Interpreting these conditions requires both an appropriate exchange model and protonation assignments that reflect the structural environment.
+
+**Section structure.** Two to three pages, using MoPrP as the example. The computational titration models (PROPKA, PypKa, constant-pH MD, pKAI, KaML) are introduced in the Chapter 6 preface ([[06-jax-ka]]).
+
+### Acid–Base Equilibria and Protein Charge
+
+The pKa of a titratable group determines how its protonated fraction changes with solution pH. Changes in protonation alter protein charge, and differences in pKa between conformational or binding states make their equilibrium pH-dependent. These relationships connect acid–base chemistry to stability and binding, while the intrinsic exchange rates in §2.1 account for the separate effect of pH on HDX chemistry.
+
+- [[pKa]] defines the Henderson–Hasselbalch protonated fraction [[pKa#^eq-hh]] and net charge [[pKa#^eq-net-charge]], with model-compound values from alanine pentapeptides.
+- MoPrP framing. Lowering the pH from 7 to 4 crosses the model pKa of His and approaches those of Asp and Glu.
+  - [[Between pH 7 and pH 4, His side chains become protonated and Asp and Glu partly protonated, so a protein's net charge becomes more positive.]] (own)
+
+### Structural Influences on pKa
+
+Applying these acid–base relationships requires pKa values appropriate to the protein environment. Model-compound values provide a reference, but burial, hydrogen bonding and neighbouring charges can change the relative stability of protonation states. Most measured protein pKa values remain close to those reference values, but buried or interacting groups can differ substantially. Protonation assignments for a simulation must therefore consider both solution pH and the structural environment of each titratable site.
+
+- [[pKa shift]], with PROPKA's decomposition as the one light equation [[pKa shift#^eq-propka]]. The equation is vocabulary for the determinants; PROPKA as a method is in the ch. 6 preface.
+  - [[Most measured pKa values in folded proteins lie close to model-compound values, and large shifts occur for buried or interacting groups.]]
+- Optional, cut first if space is short: coupled sites and titration that does not follow Henderson–Hasselbalch (Onufriev, Case & Ullmann 2001; Ullmann 2003; not seeded).
+
+### pH-Dependent Conformational Stability
+
+Because pKa values depend on structural environment, a titratable group can have different pKa values in folded and unfolded conformations, which makes the equilibrium between them pH-dependent. In MoPrP, protonation of specific sites changes stability, and acidic conditions populate states that do not accumulate at neutral pH. Comparing uptake across conditions requires the appropriate intrinsic rates, and a fixed-protonation simulation represents only the protonation states assigned for its condition.
+
+- Linkage, which is why charge changes alter stability and binding.
+  - [[A group whose pKa differs between two states makes the equilibrium between those states pH-dependent.]]
+- The prion protein at acidic pH, one paragraph. Use mouse numbering (H186 = human H187).
+  - [[Mouse PrP(121–231) populates a β-rich intermediate only at acidic pH, and urea is needed to populate it substantially.]]
+  - [[Protonation of H186 or D201 drives MoPrP misfolding, and HDX-MS shows helix 1 and the α1–β2 loop become more dynamic.]]
+  - Optional: MoPrP folds and unfolds by one pathway at pH 7 and by distinct pathways at pH 4 ([[@moulickRuggednessFreeEnergy2019#^c1]]); Malevanets et al. 2017 for a buried His pKa near 5 ([[@malevanetsInterplayBuriedHistidine2017]]).
+- HDX link, pointing back to §2.1 rather than repeating it ([[intrinsic exchange rate#^eq-pd]] for pD; ionisable neighbours in the same note).
+  - [[His, Asp and Glu neighbours change intrinsic exchange rates with pH through their own ionisation.]]
+  - In pH-dependent applications, solution conditions affect both intrinsic exchange chemistry and the protonation states that govern structural interactions. Interpreting a difference in uptake therefore requires considering changes in the exchange rates as well as changes in the conformational ensemble.
+- **decision** (recommended, applied in the KB): the pD correction and the ionisable-neighbour factors are stated in §2.1 Intrinsic Exchange Rates, and §2.2 points back.
+- Consequence for simulation.
+  - [[Standard molecular dynamics fixes one protonation state per titratable residue for the whole run, while constant-pH MD lets protonation states change.]]
+  - [[Constant-pH MD of human PrP at low pH populates a β-rich form in which His187 protonation separates the subdomains.]] (optional; the β-rich form was at pH 2)
+- Chapter 6 addresses the protonation assignments required for the pH-dependent applications.
+  - [[Our candidate ensembles were protonated once at pH 7 or 7.4, so a pH 4 ensemble depends on protonation states that were not assigned for pH 4.]] (own)
+
+HDX constrains conformational behaviour through exchange protection, while protonation changes the interactions stabilising competing conformations. A structural forward model provides a route from candidate conformations to predicted uptake, but it does not determine which conformations should be included or how much each should contribute. The generation method determines which conformations enter the comparison and what their sampling frequencies mean. (own)
+
+## 2.3 Protein Conformational Ensembles and Their Generation
 
 **Argument.** The conformations supplied to an HDX forward model depend on the sampling method used to generate them. Molecular dynamics, enhanced sampling and learned generators differ in both the states they reach and the distributions from which those states are sampled. Their outputs must therefore be assessed separately for conformational coverage, equilibrium populations and transition kinetics. These distinctions determine how a generated ensemble can be used to interpret experiment.
 
@@ -114,7 +156,7 @@ Structural diversity from a generator establishes neither equilibrium population
 
 The sampling procedure establishes the reference distribution from which experimental refinement begins. Where the candidates cover the relevant states, measurements can constrain their relative contributions. Where states are absent, adjusting their weights cannot repair the omission.
 
-## 2.3 Integrating Biophysical Data with Structural Ensembles
+## 2.4 Integrating Biophysical Data with Structural Ensembles
 
 **Argument.** Experimental integration uses the candidate ensembles described above to formulate structural explanations of the measured uptake. A forward model predicts the observable, while prior information and an error model determine how disagreement with the data changes the inferred ensemble. The constraints can act on the weights of existing conformations or during the generation of new ones. These approaches differ in whether the candidate structures remain fixed during inference.
 
@@ -172,7 +214,7 @@ The structural derivatives needed to calculate restraint forces can also be used
 
 Experimental constraints can improve agreement by changing populations, forward-model parameters or the conformations sampled. Agreement alone does not establish which change was warranted. Assessment must therefore examine whether the resulting model predicts withheld measurements and whether its structural conclusions remain supported when the data and modelling assumptions are varied.
 
-## 2.4 Validation, Uncertainty, and Interpretability
+## 2.5 Validation, Uncertainty, and Interpretability
 
 **Argument.** Assessing an integrated ensemble requires separating the prediction of experimental observables from the accuracy of the structural interpretation. Measurement uncertainty and forward-model discrepancy determine how agreement should be judged, while dependence between observations determines what a validation partition can test. Even accurate prediction may leave several population distributions consistent with the data. Comparing those alternatives requires representations that make their structural differences explicit.
 
@@ -275,47 +317,11 @@ When several ensembles remain consistent with the observations, their structural
   - [[Weighted conformational ensembles describe which states are occupied, not the order, rates or causal pathways of transitions between them.]] (own)
 - **gap**. No citable source yet for the general $W_1$ definition (SciPy documentation only). jaxENT's ternary shape space and GMM clustering are manuscript-only.
 
-These assessments remain conditional on the physical and chemical conditions represented by the model. In pH-dependent applications, those conditions affect both intrinsic exchange chemistry and the protonation states that govern structural interactions. Interpreting a difference in uptake therefore requires considering changes in the exchange rates as well as changes in the conformational ensemble.
-
-## 2.5 Protein Protonation and pH-Dependent Properties
-
-**Argument.** The intrinsic-rate model in §2.1 accounts for the chemical effect of solution acidity on amide exchange. Changes in protonation can also alter the conformational populations being measured, because they change the interactions that stabilise each state. This distinction matters for [[prion protein|MoPrP]], whose HDX-MS data for partially unfolded forms were measured at pD 4 ([[@moulickPartiallyUnfoldedForms2015]]) and whose simulations in Chapter 5 are compared at pH 4 and pH 7. Interpreting these conditions requires both an appropriate exchange model and protonation assignments that reflect the structural environment.
-
-**Section structure.** Two to three pages, using MoPrP as the example. The computational titration models (PROPKA, PypKa, constant-pH MD, pKAI, KaML) are introduced in the Chapter 6 preface ([[06-jax-ka]]).
-
-### Acid–Base Equilibria and Protein Charge
-
-The pKa of a titratable group determines how its protonated fraction changes with solution pH. Changes in protonation alter protein charge, and differences in pKa between conformational or binding states make their equilibrium pH-dependent. These relationships connect acid–base chemistry to stability and binding, while the intrinsic exchange rates in §2.1 account for the separate effect of pH on HDX chemistry.
-
-- [[pKa]] defines the Henderson–Hasselbalch protonated fraction [[pKa#^eq-hh]] and net charge [[pKa#^eq-net-charge]], with model-compound values from alanine pentapeptides.
-- MoPrP framing. Lowering the pH from 7 to 4 crosses the model pKa of His and approaches those of Asp and Glu.
-  - [[Between pH 7 and pH 4, His side chains become protonated and Asp and Glu partly protonated, so a protein's net charge becomes more positive.]] (own)
-- Linkage, which is why charge changes alter stability and binding.
-  - [[A group whose pKa differs between two states makes the equilibrium between those states pH-dependent.]]
-- The prion protein at acidic pH, one paragraph. Use mouse numbering (H186 = human H187).
-  - [[Mouse PrP(121–231) populates a β-rich intermediate only at acidic pH, and urea is needed to populate it substantially.]]
-  - [[Protonation of H186 or D201 drives MoPrP misfolding, and HDX-MS shows helix 1 and the α1–β2 loop become more dynamic.]]
-  - Optional: MoPrP folds and unfolds by one pathway at pH 7 and by distinct pathways at pH 4 ([[@moulickRuggednessFreeEnergy2019#^c1]]); Malevanets et al. 2017 for a buried His pKa near 5 ([[@malevanetsInterplayBuriedHistidine2017]]).
-- HDX link, pointing back to §2.1 rather than repeating it ([[intrinsic exchange rate#^eq-pd]] for pD; ionisable neighbours in the same note).
-  - [[His, Asp and Glu neighbours change intrinsic exchange rates with pH through their own ionisation.]]
-- **decision** (recommended, applied in the KB): the pD correction and the ionisable-neighbour factors are stated in §2.1 Intrinsic Exchange Rates, and §2.5 points back.
-
-### Structural Influences on pKa
-
-Applying these acid–base relationships requires pKa values appropriate to the protein environment. Model-compound values provide a reference, but burial, hydrogen bonding and neighbouring charges can change the relative stability of protonation states. Most measured protein pKa values remain close to those reference values, but buried or interacting groups can differ substantially. Protonation assignments for a simulation must therefore consider both solution pH and the structural environment of each titratable site.
-
-- [[pKa shift]], with PROPKA's decomposition as the one light equation [[pKa shift#^eq-propka]]. The equation is vocabulary for the determinants; PROPKA as a method is in the ch. 6 preface.
-  - [[Most measured pKa values in folded proteins lie close to model-compound values, and large shifts occur for buried or interacting groups.]]
-- Consequence for simulation.
-  - [[Standard molecular dynamics fixes one protonation state per titratable residue for the whole run, while constant-pH MD lets protonation states change.]]
-  - [[Constant-pH MD of human PrP at low pH populates a β-rich form in which His187 protonation separates the subdomains.]] (optional; the β-rich form was at pH 2)
-- Chapter 6 addresses the protonation assignments required for the pH-dependent applications.
-  - [[Our candidate ensembles were protonated once at pH 7 or 7.4, so a pH 4 ensemble depends on protonation states that were not assigned for pH 4.]] (own)
-- Optional, cut first if space is short: coupled sites and titration that does not follow Henderson–Hasselbalch (Onufriev, Case & Ullmann 2001; Ullmann 2003; not seeded).
+These assessments remain conditional on the physical and chemical conditions represented by the model.
 
 ## Gaps (Chapter 2 literature)
 - Removed (2026-10-15): the claim that structure-to-uptake models rely on hydrogen bonding and solvent exposure but add systematic errors that accumulate at peptide level. No checked passage evaluated those models or their errors. A source is needed if §2.1 keeps the point.
-- §2.5 and ch. 6 papers all have PDFs and blocks. Yang & Honig 1993 and Hvidt 1954 are OCR text, so check their quotes against the page.
+- §2.2 and ch. 6 papers all have PDFs and blocks. Yang & Honig 1993 and Hvidt 1954 are OCR text, so check their quotes against the page.
 - ValDX `2_hdx_theory_omc.tex` L7 cites Kim, Fuchs & Woodward 1993 for "the protection factor reports on the free energy of local unfolding"; Kim does not say this (no protection factors, no EX2). Cite Vendruscolo et al. 2003 (^c2) instead.
 - `vendruscoloRareFluctuationsNative2003` has two Zotero duplicates (`…2003a`, `…2003b`); merge them.
 - `baiPrimaryStructureEffects1993` is duplicated in Zotero (two items, one key); merge them.

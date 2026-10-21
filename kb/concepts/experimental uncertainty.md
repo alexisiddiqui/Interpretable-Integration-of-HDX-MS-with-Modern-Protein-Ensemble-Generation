@@ -55,6 +55,6 @@ Metainference folds the first three rows and the finite number of replicas into 
 
 - ValDX uses the measurement precision twice and keeps it apart from split sensitivity. Time points with replicate RSD above 5 % are removed before fitting (L61), and between-ensemble differences weaker than the 9 % reproducibility are marked for context rather than discarded (L606). The split replicates measure sensitivity to peptide partitioning, which is a different quantity ([[replicate uncertainty]]).
 - jaxENT's current MoPrP policy uses the measured dispersion only in selection, as a weight proportional to one over the standard deviation ([[Observation weighting and selection (jaxENT)]]).
-- Chapter 2 §2.4 opens on this table. The question the subsection has to answer is which row a given diagnostic can move, and which rows it leaves where they were.
+- Chapter 2 §2.5 opens on this table. The question the subsection has to answer is which row a given diagnostic can move, and which rows it leaves where they were.
 
 Claims that use this term: [[Replicate precision bounds only the random part of measurement error, so a precision threshold does not bound systematic bias.]], [[HDX-MS precision differs between repeat measurements in one laboratory and measurements across laboratories.]], [[Metainference folds experimental, systematic, forward-model and finite-replica errors into one effective uncertainty per datum, so the inferred value does not say which source dominates.]], [[Experimental error estimates are usually lower bounds because they miss systematic errors.]].

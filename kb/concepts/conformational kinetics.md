@@ -30,7 +30,7 @@ Under EX2, the observed exchange rate combines intrinsic chemistry with the frac
 
 ## Why it matters here
 
-Q4 asks for interpretable models that answer mechanistic questions. This note marks how far an ensemble fitted to EX2 data can go towards a mechanism. It also bounds the MoPrP and α-synuclein cases ([[prion protein]], [[alpha-synuclein]]), where the tempting reading is a pathway and the defensible one is a set of occupied states. Chapter 2 §2.4, "Ensemble Comparison and Interpretable Representations" ([[ensemble comparison]]).
+Q4 asks for interpretable models that answer mechanistic questions. This note marks how far an ensemble fitted to EX2 data can go towards a mechanism. It also bounds the MoPrP and α-synuclein cases ([[prion protein]], [[alpha-synuclein]]), where the tempting reading is a pathway and the defensible one is a set of occupied states. Chapter 2 §2.5, "Ensemble Comparison and Interpretable Representations" ([[ensemble comparison]]).
 
 Claims that use this term: [[Weighted conformational ensembles describe which states are occupied, not the order, rates or causal pathways of transitions between them.]], [[Ensemble similarity scores compare equilibrium distributions and do not capture changes in dynamics or transition rates.]], [[Under EX2 an amide opens and closes many times before it exchanges, so the observed rate combines intrinsic chemistry with the opening equilibrium.]].
 

@@ -45,7 +45,7 @@ In the mouse prion protein (moPrP), protonation of H186 or of D201 (in the R155�
 
 ## What I use from it
 
-The residue-level account of why MoPrP differs between pH 4 and pH 7 (H186 and D201 protonation) and the HDX-MS regions it affects, for §2.5 and the MoPrP case in ch. 5.
+The residue-level account of why MoPrP differs between pH 4 and pH 7 (H186 and D201 protonation) and the HDX-MS regions it affects, for §2.2 and the MoPrP case in ch. 5.
 
 ## Disagreements / limitations
 

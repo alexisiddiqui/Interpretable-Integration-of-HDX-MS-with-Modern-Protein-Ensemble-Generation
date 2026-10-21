@@ -19,4 +19,4 @@ Status sentence: complete. Manuscript post-review; preprint v1 posted ([[@siddiq
 ## Drafting sources
 
 - ValDX revised manuscript (`projects/1-ValDX/manuscript/report/`): `1_introduction_omc.tex` L11–37; `7_results_omc.tex` L4–30 (the Work Done framework), L42–60 (TeaA), L189–211 and L248 (kinetic misspecification), L235–248 (clustering and limitations); `6_methods_omc.tex` L52, L70, L473, L510, L619.
-- Method notes for ValDX splitting and consensus ([[02-background]] §2.4).
+- Method notes for ValDX splitting and consensus ([[02-background]] §2.5).

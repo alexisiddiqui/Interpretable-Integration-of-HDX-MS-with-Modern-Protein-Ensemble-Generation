@@ -29,6 +29,23 @@
 
 % Detailled Equations
 
+% \section{Protein Protonation and pH-Dependent Properties}
+% % Short section (two to three pages). MoPrP carries it: HDX-MS of its partially unfolded forms at pD 4 (jaxENT) and simulations at pH 4 and pH 7 (BioFeaturisers) both depend on which groups are protonated.
+% % Computational titration models (PROPKA, PypKa, constant-pH MD, pKAI) are introduced in the Chapter 6 preface, not here.
+
+% \subsection{Acid--Base Equilibria and Protein Charge}
+% % Introduce pKa, Henderson--Hasselbalch and net charge as a function of pH. Lowering the pH from 7 to 4 protonates His and part of Asp and Glu, so protein charge changes.
+
+% Light additional Equations
+
+% \subsection{Structural Influences on pKa}
+% % Desolvation, charge--charge interactions and hydrogen bonds shift pKa from model-compound values; PROPKA's decomposition as the light equation.
+
+% Light Equations - propka
+
+% \subsection{pH-Dependent Conformational Stability}
+% % pKa differences between states make stability pH-dependent (linkage); MoPrP H186 and D201 and its acidic intermediates. For HDX, the intrinsic rate also depends on pH (back-reference §2.1), and pD is read from a glass electrode with a correction. Close on the consequence for simulation. Molecular dynamics fixes one protonation state per run, so a pH 4 ensemble is only as good as the states assigned, which hands off to Chapter 6. Bridge to ensemble generation through accessible states and their populations.
+
 % \section{Protein Conformational Ensembles and Their Generation}
 
 % \subsection{Molecular Dynamics and Empirical Force Fields}
@@ -79,19 +96,6 @@
 % \subsection{Ensemble Comparison and Interpretable Representations}
 % % Review comparison metrics and clustering; present new Work Done metrics in ValDX.
 
-% \section{Protein Protonation and pH-Dependent Properties}
-% % Short section (two to three pages). MoPrP carries it: HDX-MS of its partially unfolded forms at pD 4 (jaxENT) and simulations at pH 4 and pH 7 (BioFeaturisers) both depend on which groups are protonated.
-% % Computational titration models (PROPKA, PypKa, constant-pH MD, pKAI) are introduced in the Chapter 6 preface, not here.
-
-% \subsection{Acid--Base Equilibria and Protein Charge}
-% % Introduce pKa, Henderson--Hasselbalch and net charge as a function of pH. Lowering the pH from 7 to 4 protonates His and part of Asp and Glu, so protein charge and stability change (linkage). For HDX, the intrinsic rate also depends on pH (back-reference §2.1), and pD is read from a glass electrode with a correction.
-
-% Light additional Equations
-
-% \subsection{Structural Influences on pKa}
-% % Desolvation, charge--charge interactions and hydrogen bonds shift pKa from model-compound values; PROPKA's decomposition as the light equation. Close on the consequence for simulation. Molecular dynamics fixes one protonation state per run, so a pH 4 ensemble is only as good as the states assigned, which hands off to Chapter 6.
-
-% Light Equations - propka
 
 
 % Proposed chapter for review. This file is not included by thesis/main.tex.
@@ -270,7 +274,65 @@ Averaging is part of the forward model. Averaging log protection factors as in \
 
 Other approaches use atomistic trajectories to examine residue protection in more detail, while Bayesian population inference has incorporated protection-factor predictors to compare candidate ensembles.\cite{mohammadiaraniInterpretingHydrogenDeuteriumExchange2018,wanReconcilingSimulatedEnsembles2020} A complementary route estimates residue protection factors directly from overlapping uptake curves. Skinner et al. search for sets of protection factors compatible with the measured uptake, showing both the information gained from overlap and the alternatives left unresolved. Where such constraints are informative, they test a structural model at finer resolution than peptide uptake alone.\cite{skinnerEstimatingConstraintsProtection2019}
 
-The choice of features, coefficients and averaging determines which structural differences can affect the prediction. A model can fit peptide uptake while assigning incorrect protection within a peptide or incorrect populations among conformations.\cite{bradshawInterpretationHDXData2020} Comparing these structural explanations requires candidate ensembles that represent them. The ensemble generator determines which explanations can enter the comparison and what their initial frequencies mean.
+The choice of features, coefficients and averaging determines which structural differences can affect the prediction. A model can fit peptide uptake while assigning incorrect protection within a peptide or incorrect populations among conformations.\cite{bradshawInterpretationHDXData2020}
+
+\section{Protein Protonation and pH-Dependent Properties}
+\label{sec:bg-protonation}
+
+Solution acidity affects both exchange chemistry and the populations of the conformations undergoing exchange. The intrinsic-rate model in \cref{sec:bg-intrinsic-rates} accounts for the chemical reference, while protonation changes the interactions stabilising alternative conformations. Mouse prion protein (MoPrP) makes this distinction relevant to the applications in this thesis. Its partially unfolded forms have been characterised by exchange under acidic conditions, and protonation of particular sites changes its stability and misfolding behaviour.\cite{moulickPartiallyUnfoldedForms2015,singhUnravelingMolecularMechanism2016} Interpreting uptake across conditions requires both effects to be represented.
+
+\subsection{Acid--Base Equilibria and Protein Charge}
+\label{sec:bg-acid-base}
+
+A titratable group's $\mathrm{p}K_a$ is the pH at which it is half protonated, so its protonated fraction changes as the solution pH moves relative to that value. For a group that titrates independently, the Henderson--Hasselbalch relation gives
+\begin{equation}
+    \alpha_i(\mathrm{pH})=
+    \frac{1}{1+10^{\mathrm{pH}-\mathrm{p}K_{a,i}}},
+    \label{eq:bg-henderson-hasselbalch}
+\end{equation}
+where $\alpha_i$ is the protonated fraction. Model-compound values measured in unstructured peptides provide a reference for groups without the interactions imposed by folded structure.\cite{thurlkillPKValuesIonizable2006}
+
+Protonation changes charge according to the chemical group. Asp and Glu side chains are neutral when protonated and negative when deprotonated, while protonated His, Lys and Arg side chains are positive. Including all titratable side chains and termini, an independent-site estimate of net charge is
+\begin{equation}
+    Q(\mathrm{pH})=
+    \sum_{i\in\text{bases}}\alpha_i
+    -\sum_{i\in\text{acids}}(1-\alpha_i),
+    \label{eq:bg-net-charge}
+\end{equation}
+in units of the elementary charge.\cite{paceProteinIonizableGroups2009} Lowering pH from 7 to 4 crosses the model-compound titration range of His and approaches those of Asp and Glu, making the net charge more positive. The amount and location of that change depend on the protein's site-specific $\mathrm{p}K_a$ values.
+
+\subsection{Structural Influences on pKa}
+\label{sec:bg-pka-shifts}
+
+A group's structural environment changes the relative stability of its protonated and deprotonated forms. Burial reduces stabilisation by water, hydrogen bonds favour particular charge states, and neighbouring charges contribute attractive or repulsive interactions. Most measured protein $\mathrm{p}K_a$ values lie near model-compound values, but buried or interacting sites can show large shifts.\cite{grimsleySummaryMeasuredPK2009} These sites are precisely where a standard residue-type assignment can misrepresent charge under the conditions of interest.
+
+The determinants can be expressed through the empirical decomposition used by PROPKA,
+\begin{equation}
+    \begin{split}
+    \Delta\mathrm{p}K_{a,i}
+    &=\mathrm{p}K_{a,i}-\mathrm{p}K_{a,\text{model}}\\
+    &\simeq\Delta\mathrm{p}K_{\text{desolv},i}
+    +\Delta\mathrm{p}K_{\text{HB},i}
+    +\Delta\mathrm{p}K_{\text{Coul},i}.
+    \end{split}
+    \label{eq:bg-pka-shift}
+\end{equation}
+The terms describe desolvation, hydrogen bonding and charge--charge interactions relative to the model compound.\cite{liVeryFastEmpirical2005,olssonPROPKA3ConsistentTreatment2011} They are empirical categories used to estimate a total shift, rather than separately measured properties of the site. Desolvation generally disfavours the charged form, raising the $\mathrm{p}K_a$ of an acid and lowering that of a base, while favourable interactions can oppose that effect.\cite{grimsleySummaryMeasuredPK2009}
+
+\subsection{pH-Dependent Conformational Stability}
+\label{sec:bg-ph-stability}
+
+Because these shifts depend on structural environment, a titratable group can have different $\mathrm{p}K_a$ values in folded and unfolded conformations. Proton binding then differs between the two states, and their relative free energies depend on solution pH. The same linkage applies when protonation differs between bound and unbound states.\cite{yangPHDependenceProtein1993,onufrievProtonationPKChanges2013} Net charge for a single conformation does not establish how proton binding differs between competing states.
+
+MoPrP illustrates how individual sites connect protonation to conformational stability. Protonation of H186 destabilises the protein and increases its misfolding rate, while neutralisation of D201 disrupts its stabilising interaction with R155. Mutation experiments that mimic or remove these protonation effects, together with HDX-MS, locate increased structural dynamics in helix~1 and the loop between helix~1 and $\beta$-strand~2.\cite{singhUnravelingMolecularMechanism2016} These residue numbers refer to mouse PrP; H186 corresponds to H187 in human PrP. The interpretation concerns specific local interactions whose stability changes with protonation.
+
+Acidic conditions also alter the states that can accumulate. In mouse PrP(121--231), a $\beta$-rich intermediate is observed at acidic pH, with urea required for substantial accumulation.\cite{hornemannScrapielikeUnfoldingIntermediate1998} Exchange studies under acidic conditions support at least two partially unfolded forms in equilibrium with the native state, with their populations inferred through a thermodynamic model of denaturant-dependent exchange.\cite{moulickPartiallyUnfoldedForms2015} These conditions and modelling assumptions belong to the structural reference used to assess an inferred ensemble.
+
+Comparing exchange between acidic and neutral conditions also requires the appropriate intrinsic rates. Protonation of neighbouring side chains changes their rate corrections, while the catalytic terms change with solution acidity. The pD convention and solvent isotope effects introduced in \cref{sec:bg-intrinsic-rates} must therefore accompany the structural interpretation. A difference in uptake can reflect altered chemistry, altered populations or both.
+
+Simulating these conditions requires a protonation state for every titratable group. Because $\mathrm{p}K_a$ values depend on structure, an assignment appropriate to one conformation need not remain appropriate as it partially unfolds. Standard fixed-protonation molecular dynamics (MD) assigns one state to each titratable group for a run; constant-pH approaches permit states to change.\cite{deoliveiraConstantPHMolecular2022} A fixed-protonation simulation described as representing pH~4 therefore represents the particular assignments chosen for that condition.
+
+For a pH-dependent ensemble comparison, these assignments are part of the structural hypothesis. Adjusting conformational weights cannot repair an interaction network imposed by an inappropriate protonation state if the relevant conformations were never sampled. The protonation models introduced in \cref{ch:jax-ka} address this preparation step. The generation method determines which conformations enter the comparison and what their sampling frequencies mean.
 
 \section{Protein Conformational Ensembles and Their Generation}
 \label{sec:bg-ensemble-generation}
@@ -280,7 +342,7 @@ An ensemble supplies conformations together with a rule for their relative contr
 \subsection{Molecular Dynamics and Empirical Force Fields}
 \label{sec:bg-md}
 
-Molecular dynamics (MD) generates trajectories by repeatedly calculating atomic forces and updating coordinates and velocities. The underlying equations of motion relate force to the gradient of a potential energy function,
+Molecular dynamics generates trajectories by repeatedly calculating atomic forces and updating coordinates and velocities. The underlying equations of motion relate force to the gradient of a potential energy function,
 \begin{equation}
     m_a\frac{d^2x_a}{dt_{\text{MD}}^2}=-\nabla_{x_a}U(x),
     \label{eq:bg-newton}
@@ -617,58 +679,3 @@ Clustering makes an ensemble inspectable by assigning structures to groups and a
 Change from the starting ensemble is a further comparison with a different purpose. Apparent work measures the KL divergence of fitted from prior weights, while ValDX's Work Done metrics describe changes in the ensemble-average protection profile.\cite{bradshawInterpretationHDXData2020,siddiquiFrameworkTestingStructural2026} Large changes identify substantial modification needed to obtain agreement. They do not alone identify overfitting or distance from the true ensemble. Their definitions and joint interpretation with validation error are developed in \cref{ch:valdx}.
 
 Distributional similarity establishes similarity at the represented equilibrium level. It does not establish equal transition rates or pathways.\cite{tibertiENCORESoftwareQuantitative2015} Fitted weights can describe which states contribute under the model, while transition order and kinetics require temporal evidence. Interpretability therefore requires both inspectable states and conclusions confined to the information that their populations carry.
-
-\section{Protein Protonation and pH-Dependent Properties}
-\label{sec:bg-protonation}
-
-Solution acidity affects both exchange chemistry and the conformational ensemble undergoing exchange. The intrinsic-rate model in \cref{sec:bg-intrinsic-rates} accounts for the chemical reference, while protonation changes the interactions stabilising alternative conformations. Mouse prion protein (MoPrP) makes this distinction relevant to the applications in this thesis. Its partially unfolded forms have been characterised by exchange under acidic conditions, and protonation of particular sites changes its stability and misfolding behaviour.\cite{moulickPartiallyUnfoldedForms2015,singhUnravelingMolecularMechanism2016} Interpreting uptake across conditions requires both effects to be represented.
-
-\subsection{Acid--Base Equilibria and Protein Charge}
-\label{sec:bg-acid-base}
-
-A titratable group changes its protonated fraction as the solution pH changes relative to its acid dissociation constant. For a group that titrates independently, the Henderson--Hasselbalch relation gives
-\begin{equation}
-    \alpha_i(\mathrm{pH})=
-    \frac{1}{1+10^{\mathrm{pH}-\mathrm{p}K_{a,i}}},
-    \label{eq:bg-henderson-hasselbalch}
-\end{equation}
-where $\alpha_i$ is the protonated fraction. At $\mathrm{pH}=\mathrm{p}K_{a,i}$, the two forms have equal populations. Model-compound values measured in unstructured peptides provide a reference for groups without the interactions imposed by folded structure.\cite{thurlkillPKValuesIonizable2006}
-
-Protonation changes charge according to the chemical group. Asp and Glu side chains are neutral when protonated and negative when deprotonated, while protonated His, Lys and Arg side chains are positive. Including all titratable side chains and termini, an independent-site estimate of net charge is
-\begin{equation}
-    Q(\mathrm{pH})=
-    \sum_{i\in\text{bases}}\alpha_i
-    -\sum_{i\in\text{acids}}(1-\alpha_i),
-    \label{eq:bg-net-charge}
-\end{equation}
-in units of the elementary charge.\cite{paceProteinIonizableGroups2009} Lowering pH from 7 to 4 crosses the model-compound titration range of His and approaches those of Asp and Glu, making the net charge more positive. The amount and location of that change depend on the protein's site-specific $\mathrm{p}K_a$ values.
-
-A charge change affects conformational stability when proton binding differs between states. If a group has different $\mathrm{p}K_a$ values in folded and unfolded conformations, their relative free energies depend on solution pH. The same linkage applies when protonation differs between bound and unbound states.\cite{yangPHDependenceProtein1993,onufrievProtonationPKChanges2013} Net charge alone does not describe this effect because two groups with the same charge can participate in different interactions. The relevant quantities are the protonation equilibria of the competing states.
-
-MoPrP illustrates how individual sites connect protonation to conformational stability. Protonation of H186 destabilises the protein and increases its misfolding rate, while neutralisation of D201 disrupts its stabilising interaction with R155. Mutation experiments that mimic or remove these protonation effects, together with HDX-MS, locate increased structural dynamics in helix~1 and the loop between helix~1 and $\beta$-strand~2.\cite{singhUnravelingMolecularMechanism2016} These residue numbers refer to mouse PrP; H186 corresponds to H187 in human PrP. The interpretation concerns specific local interactions whose stability changes with protonation.
-
-Acidic conditions also alter the states that can accumulate. In mouse PrP(121--231), a $\beta$-rich intermediate is observed at acidic pH, with urea required for substantial accumulation.\cite{hornemannScrapielikeUnfoldingIntermediate1998} Exchange studies under acidic conditions support at least two partially unfolded forms in equilibrium with the native state, with their populations inferred through a thermodynamic model of denaturant-dependent exchange.\cite{moulickPartiallyUnfoldedForms2015} These conditions and modelling assumptions belong to the structural reference used to assess an inferred ensemble.
-
-Comparing exchange between acidic and neutral conditions also requires the appropriate intrinsic rates. Protonation of neighbouring side chains changes their rate corrections, while the catalytic terms change with solution acidity. The pD convention and solvent isotope effects introduced in \cref{sec:bg-intrinsic-rates} must therefore accompany the structural interpretation. A difference in uptake can reflect altered chemistry, altered populations or both.
-
-\subsection{Structural Influences on pKa}
-\label{sec:bg-pka-shifts}
-
-A group's structural environment changes the relative stability of its protonated and deprotonated forms. Burial reduces stabilisation by water, hydrogen bonds favour particular charge states, and neighbouring charges contribute attractive or repulsive interactions. Most measured protein $\mathrm{p}K_a$ values lie near model-compound values, but buried or interacting sites can show large shifts.\cite{grimsleySummaryMeasuredPK2009} These sites are precisely where a standard residue-type assignment can misrepresent charge under the conditions of interest.
-
-The determinants can be expressed through the empirical decomposition used by PROPKA,
-\begin{equation}
-    \begin{split}
-    \Delta\mathrm{p}K_{a,i}
-    &=\mathrm{p}K_{a,i}-\mathrm{p}K_{a,\text{model}}\\
-    &\simeq\Delta\mathrm{p}K_{\text{desolv},i}
-    +\Delta\mathrm{p}K_{\text{HB},i}
-    +\Delta\mathrm{p}K_{\text{Coul},i}.
-    \end{split}
-    \label{eq:bg-pka-shift}
-\end{equation}
-The terms describe desolvation, hydrogen bonding and charge--charge interactions relative to the model compound.\cite{liVeryFastEmpirical2005,olssonPROPKA3ConsistentTreatment2011} They are empirical categories used to estimate a total shift, rather than separately measured properties of the site. Desolvation generally disfavours the charged form, raising the $\mathrm{p}K_a$ of an acid and lowering that of a base, while favourable interactions can oppose that effect.\cite{grimsleySummaryMeasuredPK2009}
-
-Conformational change alters these interactions and can change protonation preferences. The resulting feedback means that a protonation assignment appropriate to one structure need not remain appropriate as it partially unfolds. Standard fixed-protonation MD assigns one state to each titratable group for a run; constant-pH approaches permit states to change.\cite{deoliveiraConstantPHMolecular2022} A fixed-protonation simulation described as representing pH~4 therefore represents the particular assignments chosen for that condition.
-
-For a pH-dependent ensemble comparison, these assignments are part of the structural hypothesis. Reweighting cannot repair an interaction network imposed by an inappropriate protonation state if the relevant conformations were never sampled. The protonation models introduced in \cref{ch:jax-ka} address this preparation step. These assignments must be assessed against the structures and solution conditions used to interpret conformational behaviour.

@@ -70,6 +70,6 @@ His, Asp and Glu neighbours need separate rate constants for their protonated an
 
 $k_{\text{int},i}$ is the reference against which every [[protection factor]] is measured, and it enters every [[deuterium uptake]] prediction. An error here propagates to every residue regardless of the structural ensemble. This is one reason forward-model error and ensemble error are hard to separate.
 
-The pH dependence links this concept to [[pKa]]: §2.5 points back here for the pD correction and the ionisable neighbours, rather than repeating them.
+The pH dependence links this concept to [[pKa]]: §2.2 points back here for the pD correction and the ionisable neighbours, rather than repeating them.
 
 Claims that use this term: [[Amide exchange rates depend on intrinsic chemistry and on local protection from hydrogen bonding, burial and transient opening.]], [[His, Asp and Glu neighbours change intrinsic exchange rates with pH through their own ionisation.]].

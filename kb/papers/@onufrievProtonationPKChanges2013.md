@@ -35,6 +35,6 @@ Protein–ligand binding often shifts the pK values and protonation states of io
 
 ## What I use from it
 
-The binding analogue of pH-linked stability: a process that changes protonation becomes pH dependent. One sentence in §2.5 at most.
+The binding analogue of pH-linked stability: a process that changes protonation becomes pH dependent. One sentence in §2.2 at most.
 
 ## Disagreements / limitations

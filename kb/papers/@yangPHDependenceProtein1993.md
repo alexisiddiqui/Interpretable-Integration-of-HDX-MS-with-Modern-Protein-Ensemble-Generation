@@ -35,7 +35,7 @@ The pH dependence of the unfolding free energy follows from the average charges 
 
 ## What I use from it
 
-The linkage between pH-dependent stability and the difference in protonation (net charge) between folded and unfolded states, Eqs 11–13, for the pH part of §2.5 and the `pKa shift` concept.
+The linkage between pH-dependent stability and the difference in protonation (net charge) between folded and unfolded states, Eqs 11–13, for the pH part of §2.2 and the `pKa shift` concept.
 
 ## Disagreements / limitations
 

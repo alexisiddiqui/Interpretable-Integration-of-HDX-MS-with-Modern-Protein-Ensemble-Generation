@@ -40,7 +40,7 @@ NMR titration and amide exchange at pH 5 and pH 7 on hamster and rabbit PrP(90�
 
 ## What I use from it
 
-A measured, strongly down-shifted pKa for the buried His corresponding to MoPrP H186, and the link from its protonation to destabilisation, for the MoPrP pH 4 against pH 7 argument in §2.5.
+A measured, strongly down-shifted pKa for the buried His corresponding to MoPrP H186, and the link from its protonation to destabilisation, for the MoPrP pH 4 against pH 7 argument in §2.2.
 
 ## Disagreements / limitations
 

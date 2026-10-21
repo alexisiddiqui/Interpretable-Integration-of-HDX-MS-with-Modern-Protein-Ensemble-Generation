@@ -30,7 +30,7 @@ Sub-millisecond folding and unfolding kinetics of the mouse prion protein show a
 
 ## What I use from it
 
-Kinetic evidence that MoPrP behaves differently at pH 4 and pH 7, with an aggregation-prone intermediate on the pH 4 unfolding route, for the MoPrP framing in §2.5.
+Kinetic evidence that MoPrP behaves differently at pH 4 and pH 7, with an aggregation-prone intermediate on the pH 4 unfolding route, for the MoPrP framing in §2.2.
 
 ## Disagreements / limitations
 

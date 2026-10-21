@@ -30,7 +30,7 @@ Replicate variation locates instability. Controlled comparisons test whether cha
 
 ## Why it matters here
 
-Q1 asks how variation across fits can guide controlled comparisons of possible causes of instability. [[Replicate uncertainty]] locates instability; controlled perturbations test suspected causes such as [[model misspecification]] or limited [[sampling coverage]]. Chapter 2 §2.4 develops these comparisons through cross-validation and competing structural hypotheses. Related validation by held-out data is [[data splitting]].
+Q1 asks how variation across fits can guide controlled comparisons of possible causes of instability. [[Replicate uncertainty]] locates instability; controlled perturbations test suspected causes such as [[model misspecification]] or limited [[sampling coverage]]. Chapter 2 §2.5 develops these comparisons through cross-validation and competing structural hypotheses. Related validation by held-out data is [[data splitting]].
 
 Claims that use this term: [[A large change in the inferred ensemble when part of the data is removed signals poor accuracy.]], [[Replicate uncertainty locates where a model is unstable but does not by itself separate sampling, structural and forward-model deficiencies.]], [[Plausible but unpopulated candidate structures can absorb weight and prevent population recovery even when uptake matches.]], [[Fitted populations can compensate for errors in assumed exchange kinetics, and restoring uptake agreement by calibration does not validate kinetics or populations.]], [[When fitting points to calibration mismatch, the forward model should be recalibrated before the ensemble hypothesis is rejected.]].
 
@@ -44,4 +44,4 @@ The primary wording describes a test of a suspected cause. It keeps the interact
 
 > Replicate spread shows where a fit is unstable. A controlled perturbation is how the instability is attributed to a cause, because only the perturbed factor differs between the runs being compared.
 
-> Q1 asks how uncertainty can identify sources of instability. Uncertainty localises; controlled perturbations attribute. This is the step between [[replicate uncertainty]] and a statement about [[model misspecification]] or [[sampling coverage]]. Chapter 2 §2.4, "Cross-Validation with Overlapping Measurements" and "Identifiability and Competing Structural Hypotheses". Related validation by held-out data is [[data splitting]].
+> Q1 asks how uncertainty can identify sources of instability. Uncertainty localises; controlled perturbations attribute. This is the step between [[replicate uncertainty]] and a statement about [[model misspecification]] or [[sampling coverage]]. Chapter 2 §2.5, "Cross-Validation with Overlapping Measurements" and "Identifiability and Competing Structural Hypotheses". Related validation by held-out data is [[data splitting]].

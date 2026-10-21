@@ -18,7 +18,7 @@ Status sentence: analyses complete; manuscript in draft. Due 14 Nov.
 ## Drafting sources
 
 - jaxENT (`projects/2-jaxENT/manuscript/report/`): `abstract.tex`; `introduction.tex` L4–10 and the final two paragraphs; `results.tex` L29 (validation regimes), L63 and L130 (decoys), L173–197 (uncertainty maps); `meta_analysis.tex` L1–10.
-- Method notes for jaxENT observation weighting, selection and evaluation design ([[02-background]] §2.4).
+- Method notes for jaxENT observation weighting, selection and evaluation design ([[02-background]] §2.5).
 
 ## Wording to avoid
 
