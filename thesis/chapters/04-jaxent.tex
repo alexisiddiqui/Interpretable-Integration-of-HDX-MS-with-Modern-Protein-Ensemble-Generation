@@ -4,3 +4,35 @@
 % In this chater we develop a reweighting framework in JAX. A modular, differentiable biophysics integration engine. With built-in validation and robuest workflows, we use this platform to explore how we can improve biophysical integration. Namely, this includes joint inference of populations and forward-model parameters, which is a requirement to interpret HDX-MS data from non-standard, exotic conditions such as low pH. Furthermore, we develop on forward models with a linear-addtive protection-uptake model, using an interval-hazard formulation. While this does not solve the triangle inequality of frame-wise-uptake versus ensemble-average rate uptake. Protection factors are a linear additive quantity, but uptake is not. We show that our linear-addtive formulation is a good approximation for the majority of cases, and is faster due to lower complexity (O(n_fragements*n_timepoints) versus O(n_fragments*n_timepoints*n_frames)). On top of this we tackle the problem of physical plausibility of reweighted ensembles from statistical potentials. Since statistical potentials or enhanced sampling methods do not naturally fit a boltzmann distribution, ie unlike equilibrium MD candidate frames dont have uniform weight, as a result the MaxENT KLD formulation begins to break down. By using a graph laplacian we can regularise the distribution of weights to follow the underlying distribution of pairwise distances. Compared to a langrangian formulation, this constrains the fitted distribution without requring a prior with an already representative distribution. Since the langrangian can use any pairwise distance metric, this way we can include physics or knowledge-based terms that allow us to regularise the weight distribution while accounting for the underdetermined nature of structure-HDX observables.  
 
 % Define covariance-weighted and peptide-timepoint weighted MSE, additive-linear BV-uptake, graph-laplacian regularisation, and joint inference of populations and forward-model parameters using an L1 regularisation term on the prior forward-model parameters.
+
+\section{Motivation}
+\label{sec:jaxent-motivation}
+
+\subsection{Abstract}
+\label{sec:jaxent-abstract}
+
+\section{Introduction}
+\label{sec:jaxent-intro}
+
+\section{Methods}
+\label{sec:jaxent-methods}
+
+
+\subsection{Joint Inference of Populations and Forward-Model Parameters}
+\label{sec:jaxent-joint}
+
+
+\subsection{Covariance-Weighted and Peptide-Timepoint-Weighted Error}
+\label{sec:jaxent-loss}
+
+
+\subsubsection{Construction of the Covariance Matrix}
+\label{sec:jaxent-covariance}
+
+
+\subsection{Graph-Laplacian Regularisation of Weights}
+\label{sec:jaxent-laplacian}
+
+
+\subsection{Linear-Additive BV Uptake}
+\label{sec:jaxent-linear-uptake}

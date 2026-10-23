@@ -3,7 +3,7 @@
   "meta": {
     "title": "Interpretable Integration of HDX-MS with Modern Protein Ensemble Generation",
     "display_title": "From exchange to ensembles",
-    "author": "Alexander Hussain",
+    "author": "Alexander Hussain-Siddiqui",
     "degree": "DPhil research map",
     "arc": "How can solution measurements distinguish structural explanations of protein dynamics, and how can that evidence guide the ensembles we generate?",
     "summary": "A programme connecting validation, flexible ensemble inference, differentiable observables, and experimental guidance. Protein titration extends the same emphasis on interpretable, differentiable physical models into pH-dependent sequence objectives.",
@@ -1457,7 +1457,7 @@
       "kind": "LaTeX",
       "start": 4,
       "end": 19,
-      "excerpt": "\\title{Interpretable Integration of HDX-MS with Modern Protein Ensemble Generation}\n\\author{Alexander Hussain}\n\\date{}\n\n\\begin{document}\n\n\\pagenumbering{roman}\n\\maketitle\n\\input{frontmatter/abstract}\n\\input{frontmatter/acknowledgements}\n\\tableofcontents\n\\listoffigures\n\\listoftables\n\n\\cleardoublepage\n\\pagenumbering{arabic}",
+      "excerpt": "\\title{Interpretable Integration of HDX-MS with Modern Protein Ensemble Generation}\n\\author{Alexander Hussain-Siddiqui}\n\\date{}\n\n\\begin{document}\n\n\\pagenumbering{roman}\n\\maketitle\n\\input{frontmatter/abstract}\n\\input{frontmatter/acknowledgements}\n\\tableofcontents\n\\listoffigures\n\\listoftables\n\n\\cleardoublepage\n\\pagenumbering{arabic}",
       "sha256": "36a512b76b9fb4ec8b071b90ca0bc2b8ee32c45ff9a1da73d0b42f2210fb6955",
       "href": "../thesis/main.tex",
       "uses": [
