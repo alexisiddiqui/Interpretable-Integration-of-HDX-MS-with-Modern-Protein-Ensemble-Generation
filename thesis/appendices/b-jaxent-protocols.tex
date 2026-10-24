@@ -1,23 +1,72 @@
-\chapter{jaxENT Protocols}
+\chapter{jaxENT Protocols and Supporting Analyses}
 \label{app:jaxent-protocols}
 
-\section{HDX-MS Data}
-\label{app:jaxent-hdx-data}
+\section{Data Processing and Ensemble Generation}
+\label{app:jaxent-inputs}
+% Dataset provenance, normalisation, filtering and peptide mapping.
+% Synthetic target construction, AF2 generation and cleaning,
+% MD settings, clustering and control-ensemble construction.
 
-\section{Structure-Uptake Models}
-\label{app:jaxent-structure-models}
+\section{Forward-Model Implementation and Approximation Checks}
+\label{app:jaxent-forward}
+% Feature calculation, array conventions and averaging operations.
+% Interval-hazard implementation and extended derivations.
+% Comparisons between averaging features, rates and uptake.
+% Numerical checks and approximation sensitivity.
 
-\section{Simulation}
-\label{app:jaxent-simulation}
+\section{Observation Weighting and Covariance Implementation}
+\label{app:jaxent-weighting}
+% Coordinate-derived covariance and residue-to-peptide mapping.
+% Numerical inversion, stabilisation and normalisation.
+% Experimental peptide-timepoint weights.
+% Exact training-validation block calculations.
 
-\section{General Procedures}
-\label{app:jaxent-general}
+\section{Graph Construction and Regularisation Details}
+\label{app:jaxent-regularisation}
+% Pairwise representations, distance metrics and graph connectivity.
+% Edge weights, Laplacian construction and normalisation.
+% Sensitivity to graph settings and regularisation strength.
 
-\section{Optimisation}
+\section{Optimisation and Model-Selection Protocols}
 \label{app:jaxent-optimisation}
+% Initialisation, weight constraints, parameter bounds and updates.
+% Learning rates, convergence criteria and hyperparameter grids.
+% Checkpoint selection, replicate handling and random seeds.
+% Pseudocode for fixed, staged and joint fitting.
 
-\section{Analysis}
-\label{app:jaxent-analysis}
+\section{Case Study Protocols}
+\label{app:jaxent-case-studies}
 
-\subsection{Analysis per Figure}
-\label{app:jaxent-analysis-per-figure}
+\subsection{TeaA Synthetic Population Benchmarks}
+\label{app:jaxent-teaa}
+% State assignment, target populations, intermediate conformations
+% and experiment-specific fitting settings.
+
+\subsection{MoPrP Reweighting and Joint Fitting}
+\label{app:jaxent-moprp}
+% Candidate construction, state definitions, fitting settings
+% and use of the orthogonal HDX-NMR reference.
+
+\subsection{Alpha-Synuclein Sampling and Control Comparisons}
+\label{app:jaxent-asyn}
+% Simulation conditions, trajectory truncations, control ensembles
+% and construction of structural uncertainty maps.
+
+\section{Supporting Mathematical and Statistical Details}
+\label{app:jaxent-mathematics}
+% Extended objective derivations and metric definitions.
+% Population-recovery calculations and statistical model specifications.
+% Complete statistical tables.
+
+\section{Extended Analyses and Sensitivity Checks}
+\label{app:jaxent-supporting-results}
+% Additional structural characterisation and replicate results.
+% Hyperparameter, sampling-length and forward-model comparisons.
+
+\section{Computational Implementation and Performance Benchmarking}
+\label{app:jaxent-implementation}
+% Software versions, precision, hardware, and code and data availability.
+% Comparator configurations and matched workloads.
+% Compilation and fitting timings.
+% Scaling with ensemble size and optimisation length.
+% Runtime results and supporting tables.

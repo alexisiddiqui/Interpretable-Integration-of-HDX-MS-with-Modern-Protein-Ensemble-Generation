@@ -58,7 +58,7 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
 - [[EGFR L858R and T790M mutations rigidify sub-domains and shift equilibria toward active states, preserving active-site geometry.]]
 - [[EGFR T790M inhibitor resistance can arise through active-state stabilisation without steric obstruction of the inhibitor-binding site.]]
 
-*D2. α-Synuclein: the heterogeneous solution ensemble behind a solved fibril.* Open with the shared-transition claim as the bridge from D1 to the aggregation diseases. In [[alpha-synuclein]] the fibril is solved, but the protective state is a disordered ensemble whose protection lies in an autoinhibitory N- to C-terminal contact ([[@mukherjeeProteinMisfoldingAmyloid2024#^c6]]). One paragraph.
+*D2. α-Synuclein: the heterogeneous solution ensemble behind a solved fibril.* Open with the shared-transition claim as the bridge from D1 to the aggregation diseases. In [[alpha-synuclein]] the fibril is solved ([[@yanCryoEMStructuresInfectious2026#^c1]], [[@dhavaleStructureAlphasynucleinFibrils2024#^c1]]), but the protective state is a disordered ensemble whose protection lies in an autoinhibitory N- to C-terminal contact ([[@mukherjeeProteinMisfoldingAmyloid2024#^c6]]). One paragraph.
 - [[Alzheimer's, Parkinson's and prion diseases share dynamic conformational transitions that start pathological aggregation.]] (the bridge sentence)
 - [[Heterogeneous, rapidly interconverting misfolded oligomers are difficult to characterise at high structural resolution.]]
 - [[Differences in conformational dynamics can influence aggregation of amyloidogenic immunoglobulin light chains.]]
@@ -124,7 +124,6 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
   - reorder its material; do not reuse its opening.
 
 ### Gaps (1.1)
-- A citation for the α-synuclein Lewy-body fibril cryo-EM structures (Ahmed does not support it).
 - A citation for cryo-EM reconstructing well-populated end states.
 - A citation for allostery acting by population shift.
 

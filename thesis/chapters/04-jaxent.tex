@@ -17,22 +17,52 @@
 \section{Methods}
 \label{sec:jaxent-methods}
 
+\subsection{Experimental Data and Candidate Ensembles}
+\label{sec:jaxent-inputs}
+% TeaA synthetic targets, MoPrP experimental and reference data,
+% and alpha-synuclein datasets and control ensembles.
+% State what each comparison can establish.
+
+\subsection{Differentiable Structure-to-Uptake Modelling}
+\label{sec:jaxent-forward}
+% Structural features, ensemble averaging and observable prediction.
+
+\subsubsection{Linear-Additive Uptake and Interval Hazards}
+\label{sec:jaxent-linear-uptake}
+% Formulation, averaging assumptions and approximation limits.
+
+\subsection{Observation Weighting and Error Functions}
+\label{sec:jaxent-loss}
+% Ordinary MSE, covariance weighting and peptide-timepoint weighting.
+% Distinguish their use during fitting from their use during selection.
+
+\subsubsection{Construction and Normalisation of the Covariance Matrix}
+\label{sec:jaxent-covariance}
+% Source of covariance, residue-to-peptide mapping,
+% normalisation and treatment of training-validation blocks.
+
+\subsection{Regularisation of Ensemble Weights}
+\label{sec:jaxent-regularisation}
+% KL regularisation and the interpretation of candidate prior weights.
+
+\subsubsection{Graph-Laplacian Regularisation}
+\label{sec:jaxent-laplacian}
+% Structural representation, graph construction and penalty.
+% Explain which relationships the regulariser preserves.
 
 \subsection{Joint Inference of Populations and Forward-Model Parameters}
 \label{sec:jaxent-joint}
+% Composite objective, BV parameter priors and L1 penalty.
+% Weight constraints, automatic differentiation and optimisation.
+% Define fixed, staged and joint fitting comparisons.
 
+\subsection{Data Partitioning, Replicate Fits and Model Selection}
+\label{sec:jaxent-validation}
+% Refer back to ValDX for shared splitting procedures.
+% Define selection criteria and separate selection from evaluation.
 
-\subsection{Covariance-Weighted and Peptide-Timepoint-Weighted Error}
-\label{sec:jaxent-loss}
-
-
-\subsubsection{Construction of the Covariance Matrix}
-\label{sec:jaxent-covariance}
-
-
-\subsection{Graph-Laplacian Regularisation of Weights}
-\label{sec:jaxent-laplacian}
-
-
-\subsection{Linear-Additive BV Uptake}
-\label{sec:jaxent-linear-uptake}
+\subsection{Ensemble Assessment and Uncertainty}
+\label{sec:jaxent-assessment}
+% Population recovery, Work metrics and replicate variability.
+% Structural uncertainty maps and controlled sampling comparisons.
+% Keep orthogonal references separate from fitting and selection.
