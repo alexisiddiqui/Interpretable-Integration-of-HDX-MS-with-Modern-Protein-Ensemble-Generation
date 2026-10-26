@@ -1,6 +1,6 @@
 # 03 ValDX
 
-Chapter hub for `thesis/chapters/03-valdx.tex`. Moved from the §1.7 hub on 2026-10-14; argument order not yet set. The chapter's contribution claims are the §1.5 claims listed under [[01-introduction]] §1.7 paragraph 3, and they are not repeated here.
+Chapter hub for `thesis/chapters/03-valdx.tex`. Moved from the §1.7 hub on 2026-10-14; argument order not yet set. The chapter's contribution claims are the §1.5 claims listed under [[01-introduction]] §1.7 paragraph 3. The ValDX results that §1.5 no longer states are listed below.
 
 Status sentence: complete. Manuscript post-review; preprint v1 posted ([[@siddiquiFrameworkTestingStructural2026]]).
 
@@ -15,6 +15,18 @@ Status sentence: complete. Manuscript post-review; preprint v1 posted ([[@siddiq
 - BiCePs beside Work Done (`03-valdx.tex` comment): a full Bayesian score as the comparison. Not in the preprint; stub.
 - Boundary, handed to ch. 4 and 5. Conclusions are comparative across the candidates supplied, reweighting cannot add states, and replicate uncertainty does not name its cause.
 - The five "revised ValDX only" claims in §1.5 become supported once the revision is posted.
+
+## Results moved from §1.5
+
+The introduction (§1.4, §1.5) states the principle in general terms. This chapter carries the ValDX evidence for each.
+
+- Splits. [[Random and sequential splits gave no discrimination between candidate ensembles beyond training error.]] The result that led ValDX to partition by sequence coverage and by structural region, in the introduction's argument that partitions must follow peptide dependence.
+- Work Done. [[Work Done quantifies changes in the ensemble-average protection-factor profile during fitting.]] This is ValDX's definition of the general idea in §1.5 group 5. It is independent of uptake, as HDXer's apparent work (a KL divergence over frame weights) is, but a different quantity.
+  - [[Low validation error with high Work Done shows agreement reached by substantial modification of the prior.]]
+  - [[Work Done measures distance from the prior, not from the true ensemble, and small values can also mean too little fitting.]]
+- Kinetic mismatch. In a benchmark with an imposed kinetic mismatch, population changes compensated for incorrect exchange assumptions after calibration restored uptake agreement. Carries [[Fitted populations can compensate for errors in assumed exchange kinetics, and restoring uptake agreement by calibration does not validate kinetics or populations.]]
+- Decoys (TeaA ISO-Trimodal). A candidate ensemble with intermediates absent from the target reached training agreement similar to one without them, yet the intermediates absorbed weight and prevented accurate population recovery. Carries [[Plausible but unpopulated candidate structures can absorb weight and prevent population recovery even when uptake matches.]] and [[Similar uptake agreement can coexist with different population recovery, so training error cannot verify populations.]]
+- Cost. 3 replicates × 2 or 4 split types per ensemble across 22 ensembles, with a γ sweep in each. This is the figure behind the §1.5 group 6 claim that repeated assessment is expensive ([[04-jaxent]] and [[05-biofeaturisers]] answer it).
 
 ## Drafting sources
 
