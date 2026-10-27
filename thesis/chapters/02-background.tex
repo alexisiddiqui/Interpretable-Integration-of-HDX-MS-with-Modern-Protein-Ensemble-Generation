@@ -632,7 +632,14 @@ Posterior uncertainty, physical heterogeneity and variation across data partitio
 \subsection{Cross-Validation with Overlapping Measurements}
 \label{sec:bg-cross-validation}
 
-Withholding data tests whether a fitted model predicts observations beyond those used to optimise it. The predictive question depends on what is withheld and on how the remaining observations are related to it. When observations are dependent, a random partition can underestimate error for prediction in an unseen region. Structured partitions should reflect the dependence and the intended prediction.\supercite{robertsCrossvalidationStrategiesData2017}
+Withholding data tests whether a fitted model predicts observations beyond those used to optimise it. A partition divides the observation indices $i$, which denote peptide--time pairs, into a training set $\mathcal{I}_{\text{train}}$ and a validation set $\mathcal{I}_{\text{val}}$. The weights and coefficients are fitted by minimising \cref{eq:bg-regularised-objective} with its data term summed over $\mathcal{I}_{\text{train}}$ alone, and the validation error is the mean squared discrepancy over the withheld observations,
+% (own) held-out MSE; ValDX reports validation MSE, projects/1-ValDX/manuscript/report/6_methods_omc.tex:633.
+\begin{equation}
+    E_{\text{val}}=\frac{1}{|\mathcal{I}_{\text{val}}|}\sum_{i\in\mathcal{I}_{\text{val}}}
+    \left[s_i(\hat w;\hat\theta)-s_i^{\text{exp}}\right]^2,
+    \label{eq:bg-validation-error}
+\end{equation}
+where $(\hat w,\hat\theta)$ are the fitted weights and coefficients, and the procedure is repeated over several partitions. The predictive question depends on what is withheld and on how the remaining observations are related to it. When observations are dependent, a random partition can underestimate error for prediction in an unseen region. Structured partitions should reflect the dependence and the intended prediction.\supercite{robertsCrossvalidationStrategiesData2017}
 
 % ValDX: projects/1-ValDX/manuscript/report/1_introduction_omc.tex:37.
 Overlapping peptides share residue information, so a validation peptide can be largely represented by its training neighbours. A residue contributing to several peptides may remain constrained even when one peptide is withheld. The resulting error tests prediction of another combination of already observed residues. It does not test prediction of an unobserved region. ValDX therefore compares random and sequential baselines with partitions that withhold sequence or structural regions and reduce overlap across the boundary.\supercite{siddiquiFrameworkTestingStructural2026}
