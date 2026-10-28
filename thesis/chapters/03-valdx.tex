@@ -54,8 +54,57 @@
 
 \subsection{Experimental data and candidate ensembles}
 \label{sec:valdx-inputs}
-% Dataset provenance, preprocessing overview, and ensemble hypotheses.
-% Distinguish BPTI NMR-derived uptake from measured peptide uptake.
+
+HDX-MS data require preprocessing before fitting, because peptide redundancy can lead to data leakage during validation, uptake curves at extreme time points (e.g.\ 0~min, saturation) are poorly modelled by single-exponential kinetics, and short peptides provide low information content. Our filtering protocol addresses these limitations before any splitting or optimisation occurs (\cref{app:valdx-hdx-data}).
+
+We obtained published HDX-MS datasets for five protein systems (\cref{tab:valdx-data}). We primarily selected these datasets based on their public availability. We also specifically aimed to cover a broad range of protein sizes and structural properties. Our selection includes rigid proteins, systems with partially complete experimental structures, and highly flexible or sparsely labelled examples such as BRD4.
+
+Regions lacking experimental coverage remain unconstrained by the HDX data and are governed by the prior ensemble and forward model. Strong conclusions about ensemble representativeness should therefore be restricted to measured regions. Gaps in experimental coverage may prevent discrimination between ensembles that differ mainly in unobserved regions.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.5cm} c >{\raggedright\arraybackslash}p{2.0cm} c >{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
+    \toprule
+        \textbf{System} & \textbf{Residues} & \textbf{Type and source} & \textbf{Obs.} & \textbf{Time points (min)} & \textbf{Back-exchange and normalisation} & \textbf{Relevant limitation} \\
+        \midrule
+        BPTI \newline {\footnotesize Bovine Pancreatic Trypsin Inhibitor} & 58 & NMR, apo\supercite{leeInterpretingHydrogenDeuteriumExchange2021} & 41 & 0.167, 1, 10, 120 & Not applicable. NMR log-$P_f$-derived uptake & Distinct residue-level NMR observable \\
+        BRD4 \newline {\footnotesize Bromodomain containing protein 4} & 480 & HDX-MS, both constructs\supercite{crookFunctionalBayesianModel2023} & 104 & 0, 0.25, 1, 10, 60, 240 & Corrected. FullD intensity scaled & FullD and peptide-specific recovery uncertainty \\
+        HOIP \newline {\footnotesize HOIL-1L Interacting Protein} & 376 & HDX-MS, apo\supercite{tsaiSingleDomainAntibodiesCrystallization2020} & 108 & 0, 0.5, 5 & Corrected. FullD maximum uptake & FullD and peptide-specific recovery uncertainty \\
+        MBP \newline {\footnotesize Maltose Binding Protein} & 396 & HDX-MS, apo\supercite{hagemanReliableIdentificationSignificant2019} & 115 & 0.5, 4, 30, 240 & Not corrected. Maximum time point scaled, no FullD & Uncorrected back-exchange; possible uptake bias \\
+        LXR$\alpha$ \newline {\footnotesize Liver X receptor $\alpha$} & 247 & HDX-MS, apo\supercite{belorusovaStructuralAnalysisIdentifies2019} & 87 & 0.5, 10 & Corrected. FullD maximum uptake & FullD and peptide-specific recovery uncertainty \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Experimental exchange-data summary. Observations are individual residues for BPTI and peptides for all other systems. BPTI contains 41 residue-wise NMR protection-factor observations converted to derived fractional-uptake curves; the other systems contain measured peptide-level HDX-MS uptake observations. Normalisation and FullD-correction strategies (FullD, fully deuterated control) varied according to the original source data. A FullD control and back-exchange correction are not applicable to the NMR-derived protection factors of BPTI. ``Corrected'' denotes back-exchange correction using a FullD control. Residue counts are from \cref{tab:valdx-af2-filter-thresholds}. The MBP and LXR$\alpha$ datasets were used solely during protocol development and their results are not reported in this chapter.}
+    \label{tab:valdx-data}
+\end{table}
+
+For BPTI, the primary experimental observables are residue-wise NMR-derived log protection factors rather than peptide-level deuterium-uptake curves.\supercite{leeInterpretingHydrogenDeuteriumExchange2021} To use these data with the HDXer uptake-based objective, we converted each experimental protection factor $P_{f,i}^\text{exp}$ into a residue-wise fractional-uptake curve by substituting it for $P_{f,i}$ in \cref{eq:bg-residue-uptake}, where $k_{\text{int},i}$ is the intrinsic exchange rate for residue $i$ under the specified experimental conditions. Each residue was treated as a separate uptake observation at each modelled time point. These values are therefore NMR-derived residue-wise uptake values, not directly measured peptide-level HDX-MS uptake. Because individual observations correspond to residues rather than overlapping peptides, peptide-overlap leakage does not arise for BPTI. Exchange at distinct residues may nevertheless remain correlated through shared structural environments and conformational changes, making fully independent training and validation sets challenging to obtain. Splits could in principle be designed using residue-pair correlations, although folded proteins may contain too few independently varying regions to support effective statistics. Our Non-Redundant and Spatial strategies (\cref{sec:valdx-splits}) instead partition observations by sequence position and spatial proximity, accounting for two primary routes through which exchange behaviour may be correlated. BPTI therefore tests structured partitioning of correlated residue-wise observations and the distribution of sequence or structural coverage across training and validation sets, but does not test the removal of peptide-overlap leakage in bottom-up HDX-MS. Neither strategy guarantees the absence of correlations between sets.
+
+To test the ValDX framework, we generated a diverse set of structural ensembles for each protein system. These ensembles were designed to represent distinct scientific hypotheses about how to best capture protein dynamics, ranging from single-structure simulations to evolutionary-based predictions and enhanced sampling. Conventional MD ensembles used approximately $100\,\text{ns}$ of simulation per protein, whereas MD-TFES permitted up to $400\,\text{ns}$ and AF2 generation is not directly comparable by simulation time. Comparisons therefore reflect both generation strategy and computational investment within moderate computational budgets. A summary of all generated ensembles is provided in \cref{tab:valdx-ensembles}. The TeaA ensembles used in the synthetic benchmarks are described in \cref{sec:valdx-synthetic}. Extended ensemble characterisation, performance benchmarks and per-protein analyses, including principal component analysis (PCA), local cross correlation (LCC) and pairwise ensemble heatmaps for residue-level RMSD and Wasserstein distances, are given in \cref{app:valdx-supporting-results}, and the structural comparisons are defined in \cref{sec:valdx-work}.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}X@{}}
+    \toprule
+        \textbf{Ensemble} & \textbf{Generation method} & \textbf{Frames} & \textbf{Production MD} & \textbf{Hypothesis tested} \\
+        \midrule
+        \textbf{MD-1Start} & Single-start equilibrium MD & $\sim$10,000 & 100 ns ($5\times20$ ns) & Equilibrium MD from a single high-confidence structure samples the relevant states \\
+        \textbf{MD-10Start} & Multi-start equilibrium MD & $\sim$10,000 & 100 ns ($10\times10$ ns) & Diverse starting structures improve coverage at a comparable simulation budget \\
+        \textbf{MD-TFES} & Modified multi-Topology Frontier Expansion Sampling (T-FES) & $>$30,000 & $\leq$400 ns ($\leq$20 cycles of $\leq$200 $\times$ 0.1 ns) & Frontier expansion broadens coverage of geometrically valid structures \\
+        \textbf{AF2-Filtered} & MSA subsampling + geometric filtering & Filtered subset of $\sim$12,700 & -- & Geometric filtering of MSA-subsampled predictions yields a plausible ensemble \\
+        \textbf{AF2-MSAss} & Unfiltered MSA subsampling & $\sim$12,700 & -- & Unfiltered MSA-subsampled predictions are adequate without geometric filtering \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Summary of structural ensembles and the hypotheses they test. Frames are counts in the parent ensemble, and the number retained after geometric filtering varies by protein. Ensemble sizes used for fitting were chosen per experiment and are given in \cref{app:valdx-case-studies}. Generation procedures are given in \cref{app:valdx-af2,app:valdx-md-setup,app:valdx-md-protocols}.}
+    \label{tab:valdx-ensembles}
+\end{table}
+
+The candidate ensembles were generated hierarchically, so they are not independent of one another. AF2-MSAss is the unfiltered set of 12,700 ColabFold predictions obtained by subsampling the multiple sequence alignment (MSA).\supercite{mirditaColabFoldMakingProtein2022,monteirodasilvaHighthroughputPredictionProtein2024} AF2-Filtered is the subset of AF2-MSAss retained after filtering on AF2 confidence scores and structural geometry. Filtering uses only AF2/geometry-derived features and does not use HDX data, preventing circular validation. MD-1Start starts from the single highest-confidence AF2 structure, MD-10Start from ten k-means representatives of AF2-Filtered, and MD-TFES is seeded from both MD ensembles.
+
+The purpose of the various MD experiments performed is to create a range of ensembles with distinct differences in their sampling properties. They are intended to represent broad regimes of approaches to MD and not exhaustive approaches to generating ideal ensembles. The experiments compare distinct ensemble-generation strategies rather than equalised computational budgets.
 
 \subsection{Data splitting and replicate fits}
 \label{sec:valdx-splits}

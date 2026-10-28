@@ -3,23 +3,159 @@
 
 \section{Dataset Processing}
 \label{app:valdx-hdx-data}
-% Dataset-specific normalisation, back-exchange treatment,
-% time-point and peptide filtering, and retained coverage.
+
+We applied filtering criteria so that the data used for ensemble optimisation were informative and compatible with the Best--Vendruscolo (BV) model.\supercite{bestStructuralInterpretationHydrogen2006} We performed all fractional uptake calculations and normalisations before any filtering.
+
+As detailed in \cref{tab:valdx-data}, BRD4, HOIP, and LXR$\alpha$ uptake values were normalised using peptide-level fully deuterated controls and were therefore corrected for back-exchange. BPTI instead comprises NMR-derived residue-level protection factors, for which a FullD control is not applicable. The MBP data did not include a FullD control and were scaled to the maximum measured time point. This scaling does not correct back-exchange. Consequently, the absolute MBP uptake values may be systematically underestimated, with peptide-specific deuterium loss potentially distorting relative uptake as well as its overall scale. We retained MBP as a publicly available benchmark spanning a distinct protein system, but used it only during protocol development and do not report its results in \cref{ch:valdx}. Although $\text{Work}_\text{scale}$ (\cref{sec:valdx-work}) reports a global shift in predicted protection, it cannot correct peptide-specific back-exchange; uncorrected MBP results must therefore be interpreted with this limitation.
+
+\begin{itemize}
+    \item \textbf{Time point filtering.} We removed time points where the replicate precision (relative standard deviation, RSD) exceeded 5\%. This threshold typically corresponds to very short or very long deuteration times. Excluding poorly informative time points removes data that the single-exponential BV model describes poorly. This threshold aligns with high-precision HDX-MS estimates.\supercite{hudgensInterlaboratoryComparisonHydrogenDeuterium2019}
+    \item \textbf{Peptide filtering.} We removed peptides that were short ($<5$ residues) or had low information content (saturation difference $<0.05$).
+\end{itemize}
+
+All filtering was performed before any splitting or optimisation.
 
 \section{Ensemble Generation}
 \label{app:valdx-ensemble-generation}
 
 \subsection{AlphaFold Generation and Geometric Filtering}
 \label{app:valdx-af2}
-% MSA settings, seeds, reference selection and filtering thresholds.
+
+\paragraph{Featurisation of ensembles.}
+Since AF2 structures natively do not contain hydrogens, these must be added post hoc, because the BV model counts hydrogen bonds to the amide (\cref{eq:bg-bv-feature}). Backbone amide H atoms were added using standard peptide geometry (N--H bond length $1.02\,\text{\AA}$).\supercite{yaoNMRDeterminationAmide2008} Backbone amide proton coordinates were computed using barycentric coordinates of the peptide plane.
+
+\paragraph{AlphaFold MSA subsampling.}
+ColabFold was used to generate the AlphaFold2 (AF2) ensembles.\supercite{mirditaColabFoldMakingProtein2022} MSA subsampling\supercite{monteirodasilvaHighthroughputPredictionProtein2024} was performed over a range of 1--127 Max Sequences with Max Extra Sequences set to twice the Max Seq value. Each parameter set was used to generate 100 structures (20 seeds). For each protein, a single recycling step was used with no minimisation, generating 12,700 structures in total.
+
+\paragraph{AlphaFold ensemble cleaning.}
+Since AF2 generates structures according to a statistical potential, this leads to the inclusion of unnatural or implausible structures in the ensemble. This is more prevalent at lower recycle counts. To quantify structure confidence, predicted Local Distance Difference Test (pLDDT) from AF2 is used in addition to predicted Template Modelling (pTM). While high structure quality (pLDDT and pTM) correlates well with crystal structures, the design of AF2 means that the generated ensemble is biased towards structures that exist within the training data. For large, flexible or disordered proteins this represents a problem as pLDDT no longer is able to provide a reliable estimate of structure quality. As a result, fixed confidence-score cut-offs using AF2 predicted structure quality measures are not sufficient to clean ensembles \textit{a priori}. Other works in the literature use system-specific collective variables to identify relevant conformations; however, this requires prior knowledge of the protein system, which may be unavailable, and may introduce bias about what its structures should look like.
+
+No widely adopted system-agnostic protocol is standard; we therefore developed an approach to filter ensembles using knowledge that exists for almost any protein. These filters are designed to handle some consistent AF2 failure modes, which include over-folding, mis-folding and under-folding. We hypothesise that the prevalence of implausible structures is linked to the size, flexibility and availability of crystal structures. Our strategy involves the use of multiple, broad measures of protein structure to successively filter structures based on percentiles chosen based on rules defined by broad characteristics of the protein (\cref{tab:valdx-af2-filter-thresholds}).
+
+Structures were first filtered using protein-specific percentile thresholds for pLDDT and pTM (\cref{fig:valdx-af2-confidence}). Further structural screening used contact order, reference-based structural local-distance correlation, mean inter-residue distance, and clash criteria (\cref{fig:valdx-af2-contact-order}). The structural local-distance correlation measures the Pearson correlation between corresponding local C$\alpha$--C$\alpha$ distances in each candidate structure and a fixed reference structure. Reference selection and filtering thresholds are described below and in \cref{tab:valdx-af2-filter-thresholds}.
+
+After filtering, we cluster retained structures in the first five principal components of their all-pair C$\alpha$ distance representation and select the structure nearest each of 20 K-means centroids. We calculate the mean pairwise structural local-distance correlation among these centroid-representative structures to assess local structural coherence (\cref{eq:valdx-structural-ldc}). This assessment concerns similarity of local distance patterns and does not establish experimental accuracy.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{@{}l*{5}{>{\centering\arraybackslash}X}@{}}
+    \toprule
+        \textbf{Protein} & \textbf{BPTI} & \textbf{BRD4} & \textbf{HOIP} & \textbf{LXR$\alpha$} & \textbf{MBP} \\
+    \midrule
+        \textbf{N. Residues} & 58 & 480 & 376 & 247 & 396 \\
+        \textbf{Flexibility} & Rigid & Partially Disordered & Flexible & Rigid & Flexible \\
+        \textbf{PDB Available} & Yes & Binding constructs only & Complex only & Yes & Yes \\
+        \textbf{PDB Code} & 5PTI & BD1:8GPZ, BD2:6C7Q (holo) & 6SC6 (Complex) & 2ACL (holo) & 1ANF (holo) \\
+        \textbf{Min. Confidence} & 2.5\% & 5\% & 10\% & 1.25\% & 5\% \\
+        \textbf{Contact Order} & $1.5\%, 99.5\%$ & $2\%, 99\%$ & $3\%, 99.5\%$ & $1.5\%, 99.5\%$ & $3\%, 99.5\%$ \\
+        \textbf{Correlation} & $1.5\%, 99.5\%$ & $2\%, 99\%$ & $3\%, 99.5\%$ & $1.5\%, 99.5\%$ & $3\%, 99.5\%$ \\
+        \textbf{Res. Distance} & $0.01\%, 99.5\%$ & $0.01\%, 99.5\%$ & $0.01\%, 99.5\%$ & $0.01\%, 99.5\%$ & $0.01\%, 99.5\%$ \\
+    \bottomrule
+    \end{tabularx}
+    \caption{Parameters for AF2 ensemble cleaning. Thresholds are percentiles; pairs give the lower and upper percentile. Flexibility and the available experimental structures (PDB) are the broad characteristics on which the percentiles were chosen.}
+    \label{tab:valdx-af2-filter-thresholds}
+\end{table}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.58\textwidth, keepaspectratio]{valdx-af2-cleaning-confidence/fig.png}
+    \caption[AF2-MSAss ensemble cleaning using confidence-based quality assessment]{AF2-MSAss ensemble cleaning using confidence-based quality assessment. Predicted Template Modelling (pTM) scores plotted against predicted Local Distance Difference Test (pLDDT) values for \textbf{(A)} BPTI, \textbf{(B)} BRD4, \textbf{(C)} HOIP, \textbf{(D)} LXR$\alpha$, and \textbf{(E)} MBP protein systems, with points coloured by structural local-distance Pearson correlation to the highest-pLDDT structure (Max-pLDDT). Confidence thresholds for structure filtering shown as dashed black lines, with threshold percentages set \textit{a priori}. Median values are shown by the dotted lines. Structures selected by the three criteria are labelled Max-Rank (black crosses), Max-pLDDT (red stars), and Max-PAE (orange triangles), denoting the highest-pLDDT structure in the 127-MSA subset, the highest-pLDDT structure in the complete ensemble, and the highest-PAE structure in the complete ensemble, respectively. PAE denotes predicted aligned error; higher values indicate lower confidence.}
+    \label{fig:valdx-af2-confidence}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.63\textwidth, keepaspectratio]{valdx-af2-cleaning-contact-order/fig.png}
+    \caption[AF2-MSAss ensemble cleaning using contact order and local correlation assessment]{AF2-MSAss ensemble cleaning using contact order and local correlation assessment across five protein systems. Contact Order plotted against reference-based structural local-distance correlation for \textbf{(A)} BPTI, \textbf{(B)} BRD4, \textbf{(C)} HOIP, \textbf{(D)} LXR$\alpha$, and \textbf{(E)} MBP protein systems, with points coloured by pLDDT confidence scores. Quality thresholds for structure filtering shown as grey dashed lines for minimum/maximum Contact Order and structural local-distance correlation, with percentile values varying by protein complexity. Median values indicated by black dotted lines. Structures selected by the three criteria are labelled Max-Rank (black crosses), Max-pLDDT (red stars), and Max-PAE (orange triangles), denoting the highest-pLDDT structure in the 127-MSA subset, the highest-pLDDT structure in the complete ensemble, and the highest-PAE structure in the complete ensemble, respectively. PAE denotes predicted aligned error; higher values indicate lower confidence. Results demonstrate systematic structural quality gradients, with well-folded proteins showing distinct high-confidence clusters while flexible proteins display broader distributions.}
+    \label{fig:valdx-af2-contact-order}
+\end{figure}
+
+\paragraph{Structural local-distance correlation.}
+We compared local geometry between structures using Pearson correlation of corresponding C$\alpha$--C$\alpha$ distance vectors. For structures $a$ and $b$, the comparison includes the same residue-pair indices in both vectors, restricted to pairs whose distances are at most $8\,\text{\AA}$ in both structures:
+\begin{equation}
+\begin{aligned}
+d_{mn}^{(a)} &= \lVert\mathbf r_m^{(a)}-\mathbf r_n^{(a)}\rVert_2,\\
+\mathcal N_{ab} &= \{(m,n):m<n,\ d_{mn}^{(a)}\leq8\,\text{\AA},\
+d_{mn}^{(b)}\leq8\,\text{\AA}\}.
+\end{aligned}
+\label{eq:valdx-structural-ldc-pairs}
+\end{equation}
+\begin{equation}
+L_{ab}=\operatorname{corr}_{\mathrm P}
+\left([d_{mn}^{(a)}]_{(m,n)\in\mathcal N_{ab}},
+[d_{mn}^{(b)}]_{(m,n)\in\mathcal N_{ab}}\right).
+\label{eq:valdx-structural-ldc}
+\end{equation}
+Here, $\operatorname{corr}_{\mathrm P}$ denotes Pearson correlation, with corresponding residue pairs ordered identically in both vectors. The coefficient lies between $-1$ and $1$ when defined. It measures agreement between local distance patterns rather than correlated motion over frames.
+
+For post-filter assessment, we calculate correlations between distinct structures selected nearest to the 20 K-means centroids in the first five principal components of the all-pair C$\alpha$ distance representation. The summary is the mean of the valid off-diagonal comparisons; self-comparisons are excluded. Representative selection requires mapping indices within the retained-frame array back to the original trajectory indices.
+
+During filtering, each candidate structure is scored against a fixed reference using Pearson correlation of corresponding local C$\alpha$ distances. The cleaning figures identify this reference as the highest-pLDDT structure (Max-pLDDT); protein-specific correlation percentiles are listed in \cref{tab:valdx-af2-filter-thresholds}.
 
 \subsection{Molecular Dynamics Setup and Equilibration}
 \label{app:valdx-md-setup}
-% Force field, solvent, simulation parameters and restraint schedule.
+
+MD experiments were performed using GROMACS. Structures were protonated at pH 7 using GROMACS pdb2gmx with the AMBER ff14SB force field.\supercite{maierFf14SBImprovingAccuracy2015} The system was solvated using the TIP3P water model. Force-field parameters were chosen to match the original settings by the AMBER MD engine itself; simulation parameters and equilibration protocols were obtained from the repository supporting Kosarim et al.\supercite{kosarimMolecularDynamicsSimulations2024} Exact implementations used for this study can be found in the repositories in \cref{app:valdx-implementation}. Key simulation parameters are summarised in \cref{tab:valdx-md-parameters}.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{ll}
+    \toprule
+        \textbf{Parameter} & \textbf{Value} \\
+        \midrule
+        Force field & AMBER ff14SB \\
+        Water model & TIP3P \\
+        Protonation pH & 7.0 (pdb2gmx) \\
+        Salt concentration & 0.15 M NaCl \\
+        Thermostat & V-rescale \\
+        Barostat & Parrinello-Rahman \\
+        Temperature & 300 K \\
+        Pressure & 1 bar \\
+        Timestep & 2 fs \\
+        Electrostatics & PME \\
+        Cutoffs & 1.0 nm \\
+        Constraints & H-bonds (LINCS) \\
+        \bottomrule
+    \end{tabular}
+    \caption{MD simulation parameters.}
+    \label{tab:valdx-md-parameters}
+\end{table}
+
+\paragraph{Minimisation and equilibration protocol.}
+After topology generation, position restraints were modified to only cover $C_\alpha$ atoms from residues that are included by the experimental data. Position restraints on $C_\alpha$ atoms were applied during equilibration to prevent large backbone collapse when starting from diverse AF2 geometries, then gradually released over five stages (\cref{tab:valdx-md-equilibration}). Since the starting structures cover a wide range of shapes, topologies were generated for each structure separately.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{lcc}
+    \toprule
+        \textbf{Step} & \textbf{Length} & \textbf{Restraint force constant (kJ mol$^{-1}$ nm$^{-2}$)} \\
+        \midrule
+        Minimisation & $<$10000 steps & 500 \\
+        EQ1 & 100 ps & 500 \\
+        EQ2 & 200 ps & 500 \\
+        EQ3 & 200 ps & 50 \\
+        EQ4 & 200 ps & 5 \\
+        EQ5 & 1 ns & 0 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Minimisation and equilibration schedule. Position restraints act on $C_\alpha$ atoms of residues covered by the experimental data.}
+    \label{tab:valdx-md-equilibration}
+\end{table}
 
 \subsection{Single-Start, Multiple-Start and T-FES Protocols}
 \label{app:valdx-md-protocols}
-% Starting structures, trajectory lengths and sampling procedures.
+
+\paragraph{MD-1Start.}
+We selected the single highest confidence AF2 structure and performed 5 replicates of 20 ns of production MD. This represents the standard approach of initiating simulation from a single, high-quality structure to test if conventional MD suffices to sample relevant states. To ensure the stability of the structures, 10 ns of unrestrained MD was additionally performed before the start of the production step.
+
+\paragraph{MD-10Start.}
+To represent a more diverse approach to generating ensembles with respect to HDX-MS data, the filtered AF2 (AF2-Filtered) ensemble was clustered by k-means ($k=10$), and the ten representative structures were used as diverse starting structures, which were then equilibrated using the same protocol as MD-1Start. To maintain a comparable computational budget to MD-1Start, each starting structure was run with a single replicate of 5 ns and 10 ns for relaxation and production simulations, respectively.
+
+\paragraph{T-FES.}
+To represent the most diverse range of fully plausible structures possible within a reasonable compute budget we modified an equilibrium-MD sampling approach, Frontier Expansion Sampling (FES).\supercite{zhangFrontierExpansionSampling2020} We adjusted the algorithm to concurrently sample across diverse starting structures with different topologies, producing multi-Topology Frontier Expansion Sampling (T-FES). To seed the initial conformations we combine both MD ensembles generated previously (MD-1Start and MD-10Start). We perform 20 cycles, capped at 200 short (0.1 ns) simulations per cycle which generates a maximum of 400 ns of short equilibrium-MD simulations. To maintain compatibility with the previous simulations the relevant GROMACS simulation files were converted into AMBER file formats compatible with OpenMM using ParmEd.\supercite{shirtsLessonsLearnedComparing2017} We retained OpenMM's default Langevin integrator, but added a Monte Carlo Barostat to match the Parrinello-Rahman barostat used in the GROMACS simulations. Each short simulation is preceded by an ultra-short equilibration (2000 steps, 1 fs time-step) to facilitate particle-velocity re-initialisation. The reported MD-TFES ensembles therefore use the modified multi-topology T-FES implementation with Monte Carlo barostat pressure coupling, distinct from the original Frontier-Expansion-Sampling codebase.
 
 \section{Synthetic Data Generation and Simulator Validation}
 \label{app:valdx-synthetic}
