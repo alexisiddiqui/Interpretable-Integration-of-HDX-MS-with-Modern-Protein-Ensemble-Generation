@@ -44,22 +44,57 @@
 
 % KB claims: Proteins are linear polymers...; The rigid view of proteins...;
 % Even a folded protein is an ensemble of structures...
-Proteins are assemblies of polypeptide chains that take a vast array of shapes and sizes. Under the right conditions, these sequences can spontaneously fold into structures that give rise to functional behaviour. Even when folded, a protein occupies an ensemble of conformations, with motions spanning picoseconds to days.\supercite{parraFrustrationPhysiologyMolecular2025,sapienzaUsingNMRStudy2010} These motions allow proteins to bind partners, catalyse reactions and respond to changes in their environment.\supercite{karplusMolecularDynamicsSimulations2002} Understanding how a protein functions therefore requires knowing which conformations it occupies, how their populations change and how it moves between them.
+Proteins are assemblies of polypeptide chains that form a vast array of shapes and sizes. Under the right conditions, these sequences can spontaneously fold into structures that give rise to functional behaviour. Even when folded, a protein occupies an ensemble of conformations, with motions spanning picoseconds to days.\supercite{parraFrustrationPhysiologyMolecular2025,sapienzaUsingNMRStudy2010} These motions allow proteins to bind partners, catalyse reactions and respond to changes in their environment.\supercite{karplusMolecularDynamicsSimulations2002} Understanding how a protein functions therefore requires knowing which conformations it occupies, how their populations change and how it moves between them.
 
 % KB claims: Folding poses an entropic search problem...; Folding is possible...
 % Galpern information-theoretic argument used only for the folding/function distinction.
-Folding constrains this conformational freedom. The number of arrangements available to a polypeptide makes an exhaustive search for its native structure impractical, yet many proteins fold rapidly under appropriate conditions. Energy landscape theory describes a ladder of interactions stabilising the native fold, leading to a rough, funnel-shaped landscape.\supercite {parraFrustrationPhysiologyMolecular2025}  Evolved sequences appear to carry just enough information to reach a stable fold; however, solving it does not specify all the information required for function.\supercite{galpernInformationtheoreticArgumentRestriction2026} While intra-molecular forces guide an entropic search towards a stable solution, forces emergent from environmental interactios requried for functionality may lead to unfavourable or frustrated dynamics.
+Folding permits function by constraining conformational freedom. The number of arrangements available to a polypeptide makes an exhaustive search for its native structure impractical, yet many proteins fold rapidly under appropriate conditions. Energy landscape theory describes a ladder of interactions stabilising the native fold, leading to a rough, funnel-shaped landscape, as shown in \autoref{fig:intro-folding-landscape}.\supercite {parraFrustrationPhysiologyMolecular2025}  Evolved sequences appear to carry just enough information to reach a stable fold; however, solving this landscape does not specify all the information required for function.\supercite{galpernInformationtheoreticArgumentRestriction2026} The explanation for this limitation is the fact that \textit{in-vitro} proteins are almost never in isolation. Emergent interactions from the local environment requried for functionality frequently lead to unfavourable and  destabilising interactions, resulting in localised frustrated dynamics.\supercite {parraFrustrationPhysiologyMolecular2025, galpernInformationtheoreticArgumentRestriction2026} 
+
+\begin{figure}[h!tbp]
+    \centering
+    \includegraphics[width=0.75\linewidth]{../milestones/2026-10-22-OPIG-long-talk/figures/folding_landscape.jpg}
+    \caption[Placeholder caption.]{Folding landscape of a flexible protein. Ladder of multiple basins shown. \supercite{parraFrustrationPhysiologyMolecular2025}}
+    \label{fig:intro-folding-landscape}
+\end{figure}
+
 
 % KB claims: Leveraging large structure and sequence corpora...;
 % AlphaFold2 can predict individual domains accurately...; Native-state hydrogen exchange...
 In order to build structural hypotheses of functionality, we rely on experimental and computational methods. X-ray crystallography, cryo-electron microscopy (cryo-EM) and nuclear magnetic resonance (NMR) provide high-resolution structures of proteins,\supercite{maveyraudProteinXrayCrystallography2020,baiHowCryoEMRevolutionizing2015,jamesAdvancesHydrogenDeuterium2022} and structure predictors trained on large sequence and structure corpora now predict structures rapidly and with high accuracy.\supercite{varadiAlphaFoldProteinStructure2022} Accurate elucidation of the native structure does not establish the populations of alternative conformations. Accurate domain structures can coexist with an incomplete description of their relative motion.\supercite{mccaffertyDoesAlphaFold2Model2023}
 
-Despite substantial advancements in structural biology, the dynamics of folding remain a problem that predictors and most experiments cannot tractably resolve.\supercite{laneMillisecondsChallengesSimulation2013,wilsonAlphaFold2RoleDisordered2022,mccaffertyDoesAlphaFold2Model2023} Complicating matters, within apparently stable folds, native-state hydrogen exchange has revealed sparsely populated, partially unfolded forms  that are otherwise difficult to observe.\supercite{englanderHydrogenExchangeModern1997} While sparsely populated at equilibrium, our experimental observations confirm that these partially unfolded states belong to the protein's accessible landscape even when its dominant structure gives little indication of them.
+Despite substantial advancements in structural biology, the dynamics of folding remain a problem that all current predictors and most experiments cannot tractably resolve.\supercite{laneMillisecondsChallengesSimulation2013,wilsonAlphaFold2RoleDisordered2022,mccaffertyDoesAlphaFold2Model2023} Complicating matters, within apparently stable folds, native-state hydrogen exchange has revealed sparsely populated, partially unfolded forms that are otherwise difficult to observe (\autoref{fig:intro-prion-populations}A).\supercite{englanderHydrogenExchangeModern1997} Under standard conditions, these states are transient; however, their templating role in aggregation and misfolding makes them central to amyloid plaque formation and prion diseases (\autoref{fig:intro-prion-populations}B).
+
+
+
+\begin{figure}[h!tbp]
+    \centering
+    \includegraphics[width=\linewidth]{../milestones/2026-10-22-OPIG-long-talk/figures/prion_populations_formation.png}
+    \caption[Placeholder caption.]{\textbf{(A)} Representation of the populations of Folded (Cellular) and Partially Unfolded (PUF) prion conformations. \textbf{(B)} Diagram showing cellular-scrapie-fibril pathway, leading to plaque formation. \supercite{moulickPartiallyUnfoldedForms2015,caseyPrionsStructureFunction2024}}
+    \label{fig:intro-prion-populations}
+\end{figure}
+
+Given what we know of prion diseases, these misfolding dynamics could be easily framed as maladaptive. At the same time, we also believe these dynamics are a necessary feature of its functionality. Prions are some of the most ancient proteins,\supercite{caseyPrionsStructureFunction2024} and their ability to switch between conformations is central to their role in epigenetic inheritance.\supercite{yangMolecularMechanismEnvironmental2026} Our experimental observations propose that these partially unfolded states dictate the protein's accessible landscape. As shown in \autoref{fig:intro-prion-populations}A, crude experiments show that folding and unfolding pathways are crossed via a potential gradient such as urea concentration or pH. This demonstates how the conformational landscape of prions can be used as a form of biological memory.\supercite{johnsonPrionlikeProteinsFacilitators2026,sahinPrionProteinsTheir2024} Indeed, the potential energy landscape of prions can be likened directly to the voltage-gated dynamics of a memristor; an external potential is required to reach the crossing point that allows interconversion between the states (see \autoref{fig:intro-frustrated-memory}B).
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{../milestones/2026-10-22-OPIG-long-talk/figures/frustrated_dynamics_memory.png}
+    \caption[Placeholder caption.]{\textbf{(A)} Urea induced Unfolding/Refolding pathways. \textbf{(B)} Voltage-gated dynamics of a memristor. \supercite{moulickRuggednessFreeEnergy2019,waldhoerMinimumEnergyPaths2019}}
+    \label{fig:intro-frustrated-memory}
+\end{figure}
 
 % KB claims: Folded proteins retain a minority...; Highly frustrated sites...;
 % Function conflicts with folding...; Local frustration drives interconversion...
 
-The crux is that interactions required for function can conflict locally with those that stabilise the fold. Functional proteins retain highly frustrated contacts, often in surface patches associated with binding, catalysis and allosteric switching.\supercite{parraFrustrationPhysiologyMolecular2025, lisiAllosteryEnzymeCatalysis2017} While native folding is a global pressure, additional evolutionary constraints concentrate at functional sites, where maintaining function can sacrifice stability.\supercite{galpernProbingDarkEnergy2026} Local frustration can therefore support interconversion between native conformations within a globally stable protein.\supercite{parraFrustrationPhysiologyMolecular2025} The relevant structural description includes how these conformations are populated.
+The crux to studying systems like these is that interactions required for function can conflict locally with those that stabilise the fold. Functional proteins retain highly frustrated contacts, often in surface patches associated with binding, catalysis and allosteric switching.\supercite{parraFrustrationPhysiologyMolecular2025, lisiAllosteryEnzymeCatalysis2017} While native folding is a global pressure, additional evolutionary constraints concentrate at functional sites, where maintaining function can sacrifice stability.\supercite{galpernProbingDarkEnergy2026} Local frustration can therefore support interconversion between native conformations within a globally stable protein.\supercite{parraFrustrationPhysiologyMolecular2025} With appropriate structural descriptions that relate to folding landscapes, functionality requires evaluation in its target environment. As illustrated in \autoref{fig:intro-evolutionary-funnel}, a sequence-evolutionary score reflects both folding and function, so it flags a variant without showing which of the two is affected. The difference between the evolutionary and folding energies, termed dark energy, isolates the functional component.\supercite{galpernProbingDarkEnergy2026} 
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{../milestones/2026-10-22-OPIG-long-talk/figures/evolutionary_folding_funnel.png}
+    \caption[Placeholder caption.]{Evolutionary folding funnels: \textbf{(A)} Wildtype folding funnel. \textbf{(B)} Folding-variant funnel. \textbf{(C)} Functional-variant funnel. \textbf{(D)} Missing "dark" dynamics relation.\supercite{galpernProbingDarkEnergy2026}}
+    \label{fig:intro-evolutionary-funnel}
+\end{figure}
+
 
 % KB concept: allostery; lisi ^c8, ^c9 and ^c7.
 % KB claim: Weighted conformational ensembles describe which states are occupied...
@@ -67,7 +102,15 @@ Allostery shows why both populations and motions matter. Binding at one site can
 
 % KB claims: Intrinsically disordered proteins require an ensemble description...;
 % Folded proteins have well-defined free-energy minima...
-At the extreme end of this axis lie intrinsically disordered proteins. For this class, an ensemble is the principal structural description. Their relatively flat free-energy landscapes permit heterogeneous conformations without a single stable fold, and long-range contacts within some ensembles may contribute to function.\supercite{fisherConstructingEnsemblesIntrinsically2011} Folded and disordered proteins occupy different regions of a continuum of conformational restriction.\supercite{galpernInformationtheoreticArgumentRestriction2026} In both cases, a structure becomes biologically informative through its contribution to the ensemble under the conditions in which the protein functions. Long-range communication within proteins remains poorly characterised in most biological systems.\supercite{lisiAllosteryEnzymeCatalysis2017} Understanding protein dynamics is a condition of understanding biological function, and therefore disease.
+At the extreme end of this axis lie intrinsically disordered proteins. For this class, an ensemble is the principal structural description. Their relatively flat free-energy landscapes permit heterogeneous conformations without a single stable fold, and long-range contacts within some ensembles may contribute to function.\supercite{fisherConstructingEnsemblesIntrinsically2011} Folded and disordered proteins occupy different regions of a continuum of conformational restriction.\supercite{galpernInformationtheoreticArgumentRestriction2026} In both cases, a structure becomes biologically informative through its contribution to the ensemble under the conditions in which the protein functions. Long-range communication within proteins remains poorly characterised in most biological systems.\supercite{lisiAllosteryEnzymeCatalysis2017} \autoref{fig:intro-destabilising-mutations} illustrates a related point. Most deleterious single-site variants track their loss of stability, but a distinct group is deleterious without a proportional loss, so its effect on function cannot be read from folding energy.\supercite{galpernProbingDarkEnergy2026} Understanding protein dynamics is a condition of understanding biological function, and therefore disease.
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\linewidth]{../milestones/2026-10-22-OPIG-long-talk/figures/destabilising_mutations.jpg}
+    \caption[Placeholder caption.]{Destabilising vs Deleterious Mutations. \supercite{galpernProbingDarkEnergy2026}}
+    \label{fig:intro-destabilising-mutations}
+\end{figure}
 
 % KB claims: A single mutation can leave the crystal structure unchanged...;
 % Oncogenic mutations alter conformational free-energy landscapes...;
@@ -75,9 +118,11 @@ At the extreme end of this axis lie intrinsically disordered proteins. For this 
 
 From this lens, disease-causing dynamics can be described as a perturbation of populations. Deleterious mutations can destabilise functional states or over-stabilise states that impair function,\supercite{parraFrustrationPhysiologyMolecular2025,suttoEffectsOncogenicMutations2013} and conformational dynamics can therefore inform therapeutic strategies, from allosteric regulation to the control of aggregation.\supercite{lisiAllosteryEnzymeCatalysis2017,mukherjeeProteinMisfoldingAmyloid2024} From a structural perspective, changes in function can occur while the overall fold is preserved. In PKA, a single tyrosine mutation leaves the crystal structure, NMR chemical shifts and nucleotide binding nearly unchanged, yet strongly reduces substrate affinity.\supercite{lisiAllosteryEnzymeCatalysis2017} A disease-associated example is the epidermal growth factor receptor (EGFR), for which simulations of oncogenic kinase variants reveal shifts towards active conformations. Sutto and Gervasio interpret the inhibitor-resistance mutation T790M through stabilisation of the active state, without requiring steric obstruction of the inhibitor-binding site.\supercite{suttoEffectsOncogenicMutations2013} Here, the populations of familiar structures help explain behaviour that comparison of the structures alone leaves unresolved.
 
+
+
 % KB claims: Soluble alpha-synuclein adopts an autoinhibitory conformation...;
 % Disrupting alpha-synuclein's autoinhibitory conformation...
-Aggregation introduces a further distinction between a solved endpoint and the solution ensemble from which it forms. Cryo-electron microscopy (cryo-EM) has resolved ordered $\alpha$-synuclein fibrils from Lewy bodies.\supercite{yanCryoEMStructuresInfectious2026,dhavaleStructureAlphasynucleinFibrils2024} Soluble monomeric $\alpha$-synuclein is disordered and populates multiple conformations.\supercite{ahmedRefinementASynucleinEnsembles2021} Within this ensemble, N- to C-terminal contacts can protect the aggregation-prone non-amyloid-$\beta$ component (NAC) region. Disrupting this autoinhibitory conformation exposes the NAC region and is likely to lower the nucleation barrier for aggregation.\supercite{mukherjeeProteinMisfoldingAmyloid2024} The structural question concerns the populations that protect or expose this region before a fibril forms.
+Aggregation introduces a further distinction between a resolved endpoint and the solution ensemble from which it forms. Cryo-electron microscopy (cryo-EM) has resolved ordered $\alpha$-synuclein fibrils from Lewy bodies.\supercite{yanCryoEMStructuresInfectious2026,dhavaleStructureAlphasynucleinFibrils2024} Soluble monomeric $\alpha$-synuclein is disordered and populates multiple conformations.\supercite{ahmedRefinementASynucleinEnsembles2021} Within this ensemble, N- to C-terminal contacts can protect the aggregation-prone non-amyloid-$\beta$ component (NAC) region. Disrupting this autoinhibitory conformation exposes the NAC region and is likely to lower the nucleation barrier for aggregation.\supercite{mukherjeeProteinMisfoldingAmyloid2024} The structural question concerns the populations that protect or expose this region before a fibril forms.
 
 % KB claims: A familial prion-disease variant populates...;
 % Mouse PrP(121–231) populates a beta-rich intermediate...;
