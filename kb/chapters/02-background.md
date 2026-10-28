@@ -253,7 +253,7 @@ An error model determines how discrepancies contribute to fitting, but does not 
 - Field practice, credited then bounded ([[model selection]] for the free R value; [[data splitting]], "In integrative practice"). Skinner et al. 2019 show from the data side why splits interact with information content; coverage, overlap and peptide length decide how far residue protection factors are determined ([[HDX protection-factor model]]).
   - [[A large change in the inferred ensemble when part of the data is removed signals poor accuracy.]]
   - [[In the HDX ensemble-integration studies examined, robustness is assessed by removing selected peptides, refitting forward-model parameters or comparing with orthogonal data, not by partitions designed around peptide dependence.]] (own)
-- Our partitions, replicates, consensus and selection ([[Peptide splitting and consensus (ValDX)]]).
+- Our partitions, replicates, consensus and selection ([[Peptide splitting and consensus (ValDX)]]). The split algorithms and the consensus procedure belong in Chapter 3 (`sec:valdx-splits`, `sec:valdx-fitting`).
   - [[Random and sequential splits gave no discrimination between candidate ensembles beyond training error.]]
   - [[Fitting outcomes depend on which peptides and time points are used, and replicate fits quantify this dependence.]]
   - [[Averaging models fitted to different subsets of the data reduces variance due to data selection, most for unstable fitting procedures.]] ([[model averaging]])
@@ -291,12 +291,12 @@ When several ensembles remain consistent with the observations, their structural
   - [[The Jensen–Shannon divergence is a symmetric, bounded measure of ensemble similarity that stays defined where one ensemble has no density.]]
   - [[Dimensionality reduction by PCA or MDS assumes a linear conformational space.]]
   - [[Ensemble similarity scores compare equilibrium distributions and do not capture changes in dynamics or transition rates.]]
-- Structural distributions. [[positional covariance]] gives RMSF and dynamic cross-correlation, and [[Wasserstein distance]] compares whole distributions in the units of the variable. ValDX's residue-averaged pair-distance $W_1$ and neighbourhood LCC are its own constructions ([[Structural comparison metrics (ValDX)]]).
+- Structural distributions. [[positional covariance]] gives RMSF and dynamic cross-correlation, and [[Wasserstein distance]] compares whole distributions in the units of the variable. ValDX's residue-averaged pair-distance $W_1$ and neighbourhood LCC are its own constructions ([[Structural comparison metrics (ValDX)]]). Their definitions belong in Chapter 3 and Appendix A (`sec:valdx-work`, `app:valdx-mathematics`).
   - [[Superposition can introduce artefactual correlations into atomic covariance estimates.]]
   - [[Linear displacement correlation misses non-linear and perpendicular coupled motions.]]
   - [[Agreement of per-residue pair-distance distributions does not establish that two ensembles share the same joint conformational distribution.]] (own)
 - Populations. JSD between state populations, with the log base stated. jaxENT's recovery score needs base 2 ([[Ground-truth recovery (jaxENT)]]).
-- [[Work Done]] quantifies changes in the predicted protection profile during fitting, while apparent work quantifies changes in the ensemble weights through the [[Kullback–Leibler divergence]]. High Work Done indicates substantial modification but does not by itself identify overfitting. Full equations belong in Chapter 3 ([[Work Done (ValDX)]]).
+- [[Work Done]] quantifies changes in the predicted protection profile during fitting, while apparent work quantifies changes in the ensemble weights through the [[Kullback–Leibler divergence]]. High Work Done indicates substantial modification but does not by itself identify overfitting. Full equations belong in Chapter 3, `sec:valdx-work` ([[Work Done (ValDX)]]).
   - [[Distinct protection profiles can give zero Work Done, so Work Done is not a distance between profiles.]] (own)
 - Compact representations. [[clustering]] covers representatives and resolution. Rule-based states (jaxENT MoPrP) and shape-space GMM clusters (jaxENT α-synuclein) are also chosen resolutions, so conclusions should be checked across them.
   - [[Clustering sets the resolution of an ensemble comparison and ignores differences within clusters and similarities across them.]]

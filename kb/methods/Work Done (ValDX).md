@@ -21,6 +21,8 @@ Work Done compares the ensemble-averaged [[protection factor]] profile before an
 
 Each residue $i$ of the $N$ compared residues has an absolute deviation from the mean log protection factor, $a_i = |\log P_{f,i} - \overline{\log P_f}|$, and a centred protection score $H_\text{opt}(X;i) = RT\,a_i$. Hats denote the fitted ensemble $\hat X$.
 
+Units (L530): $RT$ in Work_shape and Work_scale is in kJ/mol; $H_\text{opt}$ and $S_\text{opt}$ in Work_density and Work_opt are in J/mol and J mol⁻¹ K⁻¹, and the division by 1000 converts them to kJ/mol.
+
 ## Equations
 
 $$ \text{Work}_\text{shape} = \frac{RT}{N}\sum_{i=1}^{N}\left|\, a_i - \hat a_i \,\right| $$
@@ -41,7 +43,7 @@ Manuscript form: projects/1-ValDX/manuscript/report/6_methods_omc.tex#L555 (Eq. 
 $$ \text{Work}_\text{opt} = \frac{1}{1000N}\sum_{i=1}^{N}\left| \left[H_\text{opt}(\hat X;i) - T S_\text{opt}(\hat X;i)\right] - \left[H_\text{opt}(X;i) - T S_\text{opt}(X;i)\right] \right| $$
 ^eq-work-opt
 
-Manuscript form: projects/1-ValDX/manuscript/report/6_methods_omc.tex#L563 (Eq. `work_opt`). Shape and density changes can offset within a residue, so Work_opt is at most their sum, and it excludes Work_scale (L577). $H$ is in J/mol and $S$ in J mol⁻¹ K⁻¹ here, so dividing by 1000 gives kJ/mol (L530).
+Manuscript form: projects/1-ValDX/manuscript/report/6_methods_omc.tex#L563 (Eq. `work_opt`). Shape and density changes can offset within a residue, so Work_opt is at most their sum, and it excludes Work_scale (L577).
 
 $\Delta\text{MSE}_\text{opt} = \text{MSE}_\text{final} - \text{MSE}_\text{initial}$ reports the change in fit alongside them (L581).
 
@@ -60,4 +62,5 @@ Claim: [[Distinct protection profiles can give zero Work Done, so Work Done is n
 - **Why the product form.** jaxENT's ATLAS analysis (checkpoint 18, 111 systems) asked how well each Work metric, as a frame-pair distance, predicts the change in population between structurally similar frames, scored by JSD recovery. The product form recovered 60.2% (mean, per-system scale), against 41.3% for unnormalised $q = e^{-a_i}$ and 38.6% for normalised $q/Z$. Work Shape (35.9%) sat near absolute L1 and L2 distances between log-protection profiles (about 36% and 37%, checkpoint 17), and Work Scale was strongest (69.5%). The checkpoint attributes the gain to the profile- and residue-count-dependent amplitude that $Z$ introduces. This is a project result in code documentation, not yet in a manuscript.
 - **Units are an analogy.** kJ/mol and the $H - TS$ form make Work Done look like thermodynamic work. It is not physical work and not a Bayesian evidence ([[BICePs]]).
 - The code also computes `H_conf`, `H_interaction`, `G_quasi` and Boltzmann-like "likelihoods" from these quantities. The manuscript does not use them; ignore them unless they enter a figure.
-- Full equations and the comparison with HDXer apparent work and the BICePs score belong in Chapter 3 (`thesis/chapters/03-valdx.tex` L9).
+- **Work accounting by experiment.** In the BPTI protocol comparison (`7_results_omc.tex` L134–156, `tab:protocol_comparison`) the staged protocols RWafterBV and BVafterRW report Work two ways: the final step, against the prior entering that stage, and Total*, measured from the original unoptimised ensemble-model. In the kinetic benchmark (`6_methods_omc.tex` L691) every Work quantity describes the final stage against the prior entering it (the reweighting stage for RWafterBV, the BV stage for BVafterRW), so those protocols take the BPTI benchmark's unstarred notation. Apparent Work_HDXer there is the final-stage `work.dat` value at the selected γ, the decomposed metrics use 300 K, and frame-weight KL divergence is taken against uniform weights, in nats.
+- Full equations and the comparison with HDXer apparent work and the BICePs score belong in Chapter 3 (`sec:valdx-work`); the extended definitions go to `app:valdx-mathematics`.
