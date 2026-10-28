@@ -47,14 +47,6 @@
 
 - [[Structural comparison metrics (ValDX)]] (`methods/Structural comparison metrics (ValDX).md`)
 
-## The evaluation structure is documented in code and project docs only. The splitter can leave a partly overlapping peptide in both sets when overlap removal is on, the train/validation disjointness assert is commented out, and the manuscript's "selected by test error minimisation" is legacy wording.
-
-- [[Evaluation design (jaxENT)]] (`methods/Evaluation design (jaxENT).md`)
-
-## The inspected code (0b79aad) combines the BV constants by the median where the manuscript states the mean, and no inspected script sets the 10 % peptide dropout; which code and settings produced the reported runs is not established. Settle both before Chapter 3 cites this note.
-
-- [[Peptide splitting and consensus (ValDX)]] (`methods/Peptide splitting and consensus (ValDX).md`)
-
 ## The jaxENT SI (si_figures.tex L225) cites wuConformationalHeterogeneitySavinase2020 for the Nguyen et al. reference parameters; it should cite this paper.
 
 - [[@nguyenReferenceParametersProtein2018]] (`papers/@nguyenReferenceParametersProtein2018.md`)
@@ -63,13 +55,13 @@
 
 - [[Ground-truth recovery (jaxENT)]] (`methods/Ground-truth recovery (jaxENT).md`)
 
-## The policy adopted on 2026-10-04 is documented in code and project plans only; the manuscript describes the legacy fitted covariance-weighted MSE. The provenance of moprp.weights is unverified, and which validation block (conditional or marginal) the reported selections used is not recorded.
-
-- [[Observation weighting and selection (jaxENT)]] (`methods/Observation weighting and selection (jaxENT).md`)
-
 ## The sources say error modelling reduces over-fitting, not that refinement is free of it; minimal ensembles are not stated.
 
 - [[SAXS with MD simulations and ensemble refinement gives minimal ensembles consistent with restraints, without overfitting.]] (`claims/SAXS with MD simulations and ensemble refinement gives minimal ensembles consistent with restraints, without overfitting..md`)
+
+## Trace the reported figures to their fitting and selection procedures before updating the manuscript, including whether coordinate-covariance rescoring was used and, where applicable, which validation block (conditional or marginal) selected the reported models.
+
+- [[Observation weighting and selection (jaxENT)]] (`methods/Observation weighting and selection (jaxENT).md`)
 
 ## ValDX 6_methods_omc.tex L624 cites this paper for the switch-function BV model; it describes no such model and cites Radou et al. 2014, so the manuscript citation should change.
 

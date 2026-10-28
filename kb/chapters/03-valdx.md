@@ -71,6 +71,3 @@ Sources: `7_results_omc.tex` L235–248 (clustering and limitations).
 - Boundary, handed to ch. 4 and 5. Conclusions are comparative across the candidates supplied, reweighting cannot add states, and replicate uncertainty does not name its cause.
 
 Sources: `7_results_omc.tex` L235–248 (clustering and limitations).
-
-## Gaps
-- Settle median against mean for the consensus BV constants, the peptide dropout wording and the overlap handling (`hard_intersection`) used in each benchmark, before citing [[Peptide splitting and consensus (ValDX)]].
