@@ -14,6 +14,8 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $D_i(t)$ | fractional deuterium uptake of residue i at labelling time t | — | [[deuterium uptake]] | — |
 | $D_p(t)$ | fractional deuterium uptake of peptide p at labelling time t | — | [[deuterium uptake]] | — |
 | $E_a$ | activation energy of a catalysed exchange rate constant | kcal mol^-1 | [[intrinsic exchange rate]] | — |
+| $E_\text{dark}$ | dark energy of a sequence, the evolutionary energy rescaled by the folding selection temperature minus the folding energy | kcal mol^-1 | [[dark energy]] | — |
+| $E_\text{fold}$ | folding energy gap of a sequence, the energy difference between its native state and the unfolded ensemble | kcal mol^-1 | [[dark energy]] | — |
 | $E_\text{stat}(x)$ | statistical potential of conformation x, -k_BT ln p_model(x) up to a constant | kJ mol^-1 | [[statistical potential]] | — |
 | $F$ | Helmholtz free energy | kJ mol^-1 | [[Boltzmann distribution]] | $F$ ([[@bmsb2012ch1]], [[@bmsb2012ch3]]) |
 | $F_A(t)$ | cumulative distribution function of distribution A at value t | — | [[Wasserstein distance]] | — |
@@ -37,6 +39,7 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $S$ | thermodynamic entropy of the ensemble | J K^-1 | [[Boltzmann distribution]] | $S$ ([[@bmsb2012ch1]], [[@bmsb2012ch3]]) |
 | $S[P \Vert P_0]$ | relative entropy of P with respect to P_0 | — | [[Kullback–Leibler divergence]] | $S[P \Vert P_0]$ ([[@cesariUsingMaximumEntropy2018]]) |
 | $T$ | absolute temperature | K | [[Boltzmann distribution]] | — |
+| $T_\text{sel}^\text{fold}$ | folding selection temperature relating the evolutionary and folding energy scales | K | [[dark energy]] | — |
 | $U(x)$ | potential energy of conformation x | kJ mol^-1 | [[Boltzmann distribution]] | $E_k$ ([[@bmsb2012ch1]]), $E(x)$ ([[@bmsb2012ch12]], [[@bmsb2012ch2]]), $E(r)$ ([[@bmsb2012ch3]]), $U(X_M)$ ([[@bradshawInterpretationHDXData2020]]), $V_0(q)$ ([[@cesariUsingMaximumEntropy2018]]), $\mathcal{E}_0(\mathbf{x}_0)$ ([[@wangProteinConformationGeneration2024]]) |
 | $U_\text{MI}$ | metainference energy, the negative log posterior over replicas and error parameters | kJ mol^-1 | [[metainference]] | — |
 | $U_\text{RE}$ | potential energy of a replica-restrained ensemble simulation | kJ mol^-1 | [[restrained simulation]] | — |
@@ -53,6 +56,7 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $\Delta\text{p}K_{\text{HB},i}$ | hydrogen-bond contribution to the pKa shift of site i (PROPKA term) | — | [[pKa shift]] | — |
 | $\Delta\text{p}K_{a,i}$ | pKa shift of site i: its pKa in the protein minus the model-compound pKa of its group | — | [[pKa shift]] | $\Delta\text{p}K_{a,i}^{\text{Water}\to\text{Protein}}$ ([[@olssonPROPKA3ConsistentTreatment2011]]) |
 | $\Delta\text{p}K_{\text{desolv},i}$ | desolvation contribution to the pKa shift of site i (PROPKA term) | — | [[pKa shift]] | — |
+| $\Psi_\text{evo}$ | evolutionary free energy of a sequence inferred from sequence data (a Massieu function) | — | [[dark energy]] | — |
 | $\Sigma$ | covariance matrix of the observation errors across peptides | — | [[error covariance]] | — |
 | $\alpha_i$ | protonated fraction of titratable site i at a given pH | — | [[pKa]] | — |
 | $\beta_C$ | BV coefficient for heavy-atom contacts | — | [[Best–Vendruscolo model]] | — |

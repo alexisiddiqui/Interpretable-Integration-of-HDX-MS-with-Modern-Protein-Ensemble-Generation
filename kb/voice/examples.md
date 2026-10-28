@@ -60,17 +60,17 @@ Source: `projects/2-jaxENT/manuscript/report/results.tex:29`
 
 ## 8. State the organising tension directly
 
-> The crux is that interactions required for function can conflict locally with those that stabilise the fold.
+> The crux to studying systems like these is that interactions required for function can conflict locally with those that stabilise the fold.
 
-"The crux" identifies the relationship organising the explanation. The sentence connects function to fold stability and gives the reader a reason to consider local frustration. Its authorial direction comes from stating the scientific tension directly.
-Source: `thesis/chapters/01-introduction.tex:62`
+"Systems like these" carries the prion example into the general explanation, while "the crux" identifies the relationship organising it. The sentence connects function to fold stability and gives the reader a reason to consider local frustration. Its authorial direction comes from stating the scientific tension directly.
+Source: `thesis/chapters/01-introduction.tex:88`
 
 ## 12. A limitation leads to a scientific response
 
 > Where candidate coverage fails, however, repeating the fit is insufficient. Experimental information must also be able to act during sampling or generation, so that the comparison can include states missing from the starting ensemble.
 
 The first sentence names the condition under which the current approach is insufficient. The second gives the required response and its purpose. The limitation moves the argument towards a methodological question and explains why answering it matters.
-Source: `thesis/chapters/01-introduction.tex:231`
+Source: `thesis/chapters/01-introduction.tex:275`
 
 ## 11. Paragraphs that hand the problem forward
 
@@ -112,3 +112,24 @@ Source: `projects/1-ValDX/manuscript/report/7_results_omc.tex:44`
 
 The paragraph closes the BPTI section. It restates the section's result ("These results establish"), upgrades it (*robust, systematically, practical blueprint*), and lists every partition and metric again in a 69-word second sentence. The qualification that BPTI has a literature reference is present, but it sits inside a sentence whose main clause carries the claim to systems without ground truth. Compare example 6, which handles the same kind of claim with one job per sentence. The controlled form gives the finding, the condition it was shown under, and a short sentence bounding the extension.
 Source: `projects/1-ValDX/manuscript/report/7_results_omc.tex:99`
+
+## 13. A compact opening establishes the relationship
+
+> Folding permits function by constraining conformational freedom.
+
+The verbs connect folding, function and conformational freedom in one sentence. The paragraph can then explain the search problem and the landscape because the reader already knows why they matter. Compression establishes direction without replacing the explanation.
+Source: `thesis/chapters/01-introduction.tex:51`
+
+## 14. Name the next scientific task
+
+> Candidate ensembles supply the atomic environments missing from the readout. A model that predicts exchange from those environments then allows the candidates to be compared with the experiment. The first hurdle is a way to generate them.
+
+The first two sentences explain what interpretation requires. The short final sentence turns that requirement into the next task, giving the generation section its purpose before any methods are named.
+Source: `thesis/chapters/01-introduction.tex:174`
+
+## 15. Authorial direction follows from the problem
+
+> Given that agreement with uptake does not uniquely identify a conformational ensemble, we need a strategy to build trust in our ensemble-models.
+
+The opening clause carries the unresolved inference into the proposed response. "We need" states why the following assessment matters and gives the reader a direction through the section.
+Source: `thesis/chapters/01-introduction.tex:237`

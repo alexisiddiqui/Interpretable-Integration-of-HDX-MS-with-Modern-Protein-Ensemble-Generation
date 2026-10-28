@@ -92,6 +92,28 @@ quote_check is written only by tools/kb-lint; reviewed only by me. -->
   - quote_check: pass
   - reviewed: false
 
+
+- A variant acting through destabilisation alone is not expected to change dark energy. ^c14
+  - page: 3
+  - quote: "we do not anticipate a dark energy change between the wild type and the variant"
+  - quote_check: pass
+  - reviewed: false
+- Outliers from the folding-stability trend are functionally deleterious without proportionate changes in folding stability. ^c15
+  - page: 4
+  - quote: "These outliers represent functionally deleterious mutations that do not proportionally affect folding stability"
+  - quote_check: pass
+  - reviewed: false
+- A variant affecting a function beyond folding is expected to change dark energy significantly. ^c16
+  - page: 3
+  - quote: "if the variation in the sequence affects a protein function beyond folding, a significant dark energy change is expected"
+  - quote_check: pass
+  - reviewed: false
+- Equation 5 defines dark energy by subtracting the folding energy gap from the evolutionary gap rescaled by the folding selection temperature. ^c17
+  - page: 3
+  - quote: "the difference between the folding energy gap and the evolutionary gap, scaled by the folding selection temperature"
+  - quote_check: pass
+  - reviewed: false
+
 ## What I use from it
 
 My reading, not the paper's claims:

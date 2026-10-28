@@ -114,15 +114,17 @@ Use the short sentence after dense explanation, not as a habit. Prose made only 
 
 In the introduction, background and conclusions a paragraph opens on what the previous one left unresolved, so the same concepts recur from paragraph to paragraph while the argument moves. Results chapters can have clearer boundaries. A check that works for both: read only the first sentence of each paragraph, and the section's argument should be there ([[examples]] 11). The last sentence of a paragraph should hint at the next, or what the reader should be thinking.
 
-In explanatory prose, open on the relationship that makes the next concept necessary. State the central tension directly, and use "we" where it makes the reasoning or proposed response clearer. A paragraph can establish a relationship, motivate a question or explain a response without reporting a finding ([[examples]] 8).
+In explanatory prose, open on the relationship that makes the next concept necessary. A compact sentence such as "Folding permits function by constraining conformational freedom" gives the reader the relationship before developing it. State the central tension directly, and use "we" where it makes the reasoning or proposed response clearer. A paragraph can establish a relationship, motivate a question or explain a response without reporting a finding ([[examples]] 8, 13 and 15).
+
+Let a concrete example develop the idea before introducing all its terminology. The introduction uses prion memory to make the functional role of conformational change explicit before explaining local frustration. A case can return later when it answers a different question. End a sequence by naming the next task in plain language, as in "The first hurdle is a way to generate them" ([[examples]] 14).
 
 A limitation stated in its home section returns elsewhere only as a clause naming its consequence for the current step. Compose the argument from the hub rather than expanding every bullet into a sentence. Hub section-structure and group-lead sentences are instructions to the writer; open the paragraph on the scientific relationship they point to, never on the instruction or on a count of what follows ("Two cautions follow", "The kinds combine").
 
 ## Introduce concepts through actions
 
-Explain the physical operation before the technical label. Ensemble reweighting is first "predict what each conformation would produce, then adjust how much each contributes"; the name follows. Accessibility comes from making relationships explicit (what changes, relative to what, with what consequence), not from analogies.
+Explain the physical operation before the technical label. Ensemble reweighting is first "predict what each conformation would produce, then adjust how much each contributes"; the name follows. Accessibility comes from making relationships explicit (what changes, relative to what, with what consequence). A developed analogy can explain those relationships by connecting the states, the applied condition and the response in two systems.
 
-Metaphors describe operations: *work, distance, shape, scale, landscape*. When one is used (Wasserstein distance as the effort to morph one distribution into another), reconnect it immediately to the quantity measured. Evocative language ("freeze proteins in time", "hide in plain sight") belongs only in broad motivational framing, such as the opening of the introduction chapter, and even there sparingly.
+Metaphors describe operations: *work, distance, shape, scale, landscape*. When one is used (Wasserstein distance as the effort to morph one distribution into another), reconnect it immediately to the quantity measured. Developed scientific analogies can carry an explanation wherever it is needed. The prion–memristor analogy is complete in the introduction and explains prion memory through condition-dependent switching and retained history. Preserve that explanatory role when revising. Decorative images ("freeze proteins in time", "hide in plain sight") belong sparingly in broad motivational framing.
 
 ## Vocabulary
 
@@ -142,7 +144,7 @@ Repetition of construction is different from repetition of a noun. *Provides*, *
 
 - "We" for choices, tests and interpretations: *we investigated, we compared, we hypothesised*.
 - Results and metrics as grammatical subjects when reporting behaviour: a metric *revealed*, an ensemble *required*, a comparison *supported*.
-- An inclusive "we" ("we need", "we can") makes the reasoning or proposed response explicit in explanatory prose, as in the current thesis introduction.
+- An inclusive "we" ("we rely", "we need", "we can") makes the reasoning or proposed response explicit in explanatory prose. "Our strategy" can connect the scientific problem to the approach taken. Keep this authorial direction when revising the introduction ([[examples]] 15).
 - Declarative contribution statements and declarative subsection titles (jaxENT style) suit contribution-focused chapters; keep them bounded.
 
 ## Figures are part of the argument
@@ -175,7 +177,7 @@ State the claim and the condition under which it holds. Add a separate boundary 
 
 | Where | Register |
 |---|---|
-| Introduction (ch. 1), opening of background | Current thesis introduction. Biological motivation, explicit conceptual connections and direct statements of the scientific problem. Use the introduction's explanatory pace and authorial direction. |
+| Introduction (ch. 1), opening of background | Current thesis introduction. Biological motivation, explicit conceptual connections and direct statements of the scientific problem. Use its compact conceptual openings, examples that develop an idea, direct authorial reasoning and concrete handoffs to the next scientific task. |
 | Background (ch. 2) | ValDX explanatory register: actions before labels, explicit definitions |
 | Results chapters (ch. 3–6) | ValDX register by default; jaxENT compression for contribution statements and chapter openings |
 | Discussion and conclusions | ValDX discussion paragraphs: concern, bounded response, comparison, open extension |
@@ -197,7 +199,8 @@ If a revision loses one of these, restore it and cut something else.
 - Is any sentence stronger than its claim note's Caveats?
 - Does any sentence describe the chapter's organisation instead of making the argument?
 - Does the caption decode the figure, leaving the body to interpret?
-- Does every transition say why the next analysis is needed?
+- Does every transition say why the next analysis or scientific task is needed?
+- In introduction prose, do the conceptual opening, example and authorial direction carry the explanation forward?
 - Is every methodological choice given a purpose before its mechanics?
 - Is the level (residue, peptide, ensemble-average, frame) stated wherever it changes what can be known?
 - Does each caveat name a concrete condition, and does it change any advice?

@@ -4,9 +4,9 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
 
 ## 1.1 Proteins as Dynamic Ensembles
 
-**Argument.** Protein function depends on the conformations a protein occupies and on the transitions between them. Folding constrains the accessible conformational landscape, while local frustration at functional sites supports interconversion between native conformations. Disease-associated changes can alter their populations without changing the overall fold, or favour partially unfolded and aggregation-prone states. Understanding these effects requires descriptions of conformational ensembles under the conditions in which the protein functions.
+**Argument.** Folding permits function by constraining conformational freedom, but a native structure does not establish the populations or transitions through which a protein functions. Prions connect partially unfolded states to disease and conformational memory, making the functional role of these dynamics explicit. Local frustration relates function to fold stability, while evolutionary and folding energies distinguish functional constraints from stability alone. Allostery and disorder then establish why populations and motions matter. Disease-associated changes perturb these populations under particular conditions, so structural hypotheses require measurements of the ensemble in its environment.
 
-**Section structure.** Why [[population shift|conformational populations]] matter for function and disease. The arc follows `01-introduction.tex` L7 in six groups: proteins are dynamic polypeptides → folding constrains the landscape globally → function frustrates it locally, and the consequence is dynamics → disease as a perturbation of populations → what structural methods record → the thesis problem. Folding versus function is the organising argument. Galpern and Parra supply its abstract anchors, allostery shows its dynamic consequence, and the three disease cases read as perturbations of one principle rather than as a list. The ValDX opener ("understanding protein dynamics is crucial to understanding biological function, and therefore disease", `projects/1-ValDX/manuscript/report/1_introduction_omc.tex` L8) closes group C, and the jaxENT synthesis belongs in group F. Each later section answers a need this section exposes, so a limitation is developed once, in its home section, and only reminded elsewhere.
+**Section structure.** The argument follows the current prose in `thesis/chapters/01-introduction.tex` L47–143. Proteins occupy ensembles; folding constrains their freedom; structural descriptions leave alternative populations unresolved; prions show how conformational changes support both disease and memory; local frustration and dark energy connect function to stability; allostery and disorder establish the scope of ensemble descriptions; disease cases expose population changes; structural methods and HDX-MS determine how those populations can be investigated. Groups A–F retain the supporting claims in this order, with the early prion argument in B. Prions return in D3 to connect pH-dependent disease populations to the research chapters. The ValDX opener ("understanding protein dynamics is crucial to understanding biological function, and therefore disease", `projects/1-ValDX/manuscript/report/1_introduction_omc.tex` L8) closes group C, and the jaxENT synthesis belongs in group F. Each later section answers a need this section exposes.
 
 **A. Proteins are dynamic polypeptides.** Proteins are polypeptide chains whose sequences govern folding and conformational behaviour. Even in the folded state, they occupy ensembles of conformations and undergo [[protein dynamics|motions]] spanning picoseconds to days. A crystal structure describes a conformation or averaged structural features of this ensemble, without specifying its full distribution in solution.
 
@@ -16,35 +16,49 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
 - [[The rigid view of proteins has given way to one in which motions spanning picoseconds to days are essential to function.]]
 - [[Even a folded protein is an ensemble of structures, and distinct crystal structures can be time-averaged members of one ensemble.]]
 
-**B. Folding constrains the landscape globally.** Folding is an entropic search (Levinthal) that evolved sequences solve because they are minimally frustrated and fold down a rough funnel ([[conformational free-energy landscape]]). Accurate structure prediction does not establish the populations of alternative conformations or the rates of transitions between them. Native-state hydrogen exchange reveals sparsely populated partially unfolded forms that are otherwise invisible.
+**B. Folding constrains the landscape globally.** Folding permits function by constraining conformational freedom (`thesis/chapters/01-introduction.tex` L51). Function is expressed through interactions in the protein's environment ([[local frustration]]). Folding is an entropic search (Levinthal) that evolved sequences solve because they are minimally frustrated and fold down a rough funnel ([[conformational free-energy landscape]]). Accurate structure prediction does not establish the populations of alternative conformations or the rates of transitions between them. Native-state hydrogen exchange reveals sparsely populated partially unfolded forms that are otherwise invisible.
 
 **Section structure.** Use Galpern for two conclusions only, that function needs information beyond folding ([[@galpernInformationtheoreticArgumentRestriction2026#^c9]]) and that folded and disordered proteins lie on one axis. The information-theoretic derivation (Eqs. 1 to 5, bits per site) stays in the paper note and does not enter the chapter.
 
 - [[Folding poses an entropic search problem, and evolved sequences carry just enough information to solve it.]]
 - [[Folding is possible because evolved sequences are minimally frustrated, giving a rough, funnel-shaped energy landscape.]]
+- [[Frustration depends on a protein's context, so frustrated interactions change with partners and environment.]]
 - [[X-ray crystallography, cryo-EM and NMR provide high-resolution structures of proteins.]]
 - [[Leveraging large structure and sequence corpora, protein structure models predict structures rapidly and with high accuracy.]] (also in §1.3 group 4). For the scale of sequences against solved structures, cite the 2022 snapshot in Varadi ^c5.
 - [[Despite structure prediction, the dynamics of folding remains a formidable problem that predictors and most experiments cannot resolve.]]
 - [[AlphaFold2 can predict individual domains accurately while missing their relative motion.]]
 - [[Native-state hydrogen exchange reveals sparsely populated partially unfolded forms that are otherwise invisible.]]
 
+*Prions connect disease to conformational memory.* Partially unfolded forms introduce states missed by a native structure. Their role in misfolding leads to the functional question of how conformational states retain a history of environmental conditions. The memristor comparison explains this memory through condition-dependent switching between states (own; `thesis/chapters/01-introduction.tex` L76). The folding landscape, prion populations and folding/unfolding figures carry this progression (`fig:intro-folding-landscape`, `fig:intro-prion-populations`, `fig:intro-frustrated-memory`).
+- [[Partially unfolded forms of the mouse prion protein are populated in equilibrium with the native state under misfolding-promoting conditions.]]
+- [[Prion disease arises when misfolded PrPSc templates the conversion of cellular PrPC, and PrPSc accumulates as plaques that lead to neurodegeneration.]]
+- [[Prions, potentially among the oldest molecules on Earth, have origins dating back to the emergence of life.]]
+- [[Prions can encode and transmit an epigenetic record of a protein's life history between cells and individuals.]]
+- [[At pH 4 the mouse prion protein folds along a pathway distinct from its unfolding pathway, so its kinetics depend on initial conditions.]]
+- [[Because folding and unfolding follow distinct pathways at pH 4, the prion landscape can retain the history of the condition applied, which reads as a form of memory.]] (own)
+- [[Prion-like proteins are proposed to act as memory molecules by turning transient environmental signals into persistent conformational states.]]
+- [[The cellular prion protein is proposed to contribute to memory formation and long-term memory.]]
+- [[The crossing point of two potential-energy curves sets the barrier to a charge transition in an oxide defect.]] (the device side of the memristor comparison)
+
 **C. Function frustrates the landscape locally, and the consequence is dynamics.** Minimal frustration is a global property. Interactions required for binding, catalysis and allosteric switching can conflict with those that stabilise the fold, producing local frustration at functional sites. The same sites drive interconversion between native conformations, so function depends on how the native [[structural ensemble]] is populated, often through slow, sparsely populated states. For an [[intrinsically disordered protein]] the ensemble is the principal structural description, and folded and disordered proteins sit at two ends of one landscape. [[allostery|Allostery]] is the demonstration, and it acts by two routes. A [[population shift]] among conformations the protein already visits changes function without a new fold, and a weighted ensemble can show it (D1). Altered motions without a large rearrangement, as in IGPS, where activation is driven by millisecond dynamics ([[@lisiAllosteryEnzymeCatalysis2017#^c7]]), need kinetic evidence, and this second route sets the boundary the thesis works within. Weighted ensembles describe which states are occupied; the order, rates and pathways of transitions need kinetic evidence ([[conformational kinetics]]).
 
-**Section structure.** State the boundary here, once; Q4 reminds in one line.
+**Section structure.** The prion example gives the reader a reason to consider local frustration. Develop the folding–function distinction through [[dark energy]] and `fig:intro-evolutionary-funnel`, then use allostery to distinguish populations from kinetics. State that boundary here; Q4 recalls it in one line. Disorder extends the landscape argument, and `fig:intro-destabilising-mutations` connects loss of function to the disease cases. The two figures distinguish functional effects from loss of folding stability (`thesis/chapters/01-introduction.tex` L88–105).
 
 - [[Folded proteins retain a minority of highly frustrated contacts, clustered at the surface.]]
 - [[Highly frustrated sites mark where proteins bind partners, catalyse reactions and switch allosteric states.]]
 - [[Function conflicts with folding, so sequences encode function locally at sites that sacrifice stability.]]
 - [[Local frustration drives interconversion between native conformations, coupling function to slow, high-energy states.]]
+- [[Sequence-evolutionary scores combine folding and function, so their excess over folding energy, the dark energy, marks function-related change.]]
 - [[Intrinsically disordered proteins lack stable structures and exist as heterogeneous conformational ensembles.]]
 - [[Long-range contacts within intrinsically disordered protein ensembles may contribute to function.]]
 - [[Intrinsically disordered proteins require an ensemble description rather than a single structure.]]
 - [[Folded proteins have well-defined free-energy minima, whereas intrinsically disordered proteins sample relatively flat landscapes.]]
 - [[Weighted conformational ensembles describe which states are occupied, not the order, rates or causal pathways of transitions between them.]] (own; its home is here)
+- [[Deleterious variants are not only destabilising ones, because about a quarter of single-site variants act mainly on function.]]
 
 **D. Disease as a perturbation of populations.** Disease-associated changes in conformational populations can alter function while preserving the overall fold ([[dynamic disease mechanism]]).
 
-**Section structure.** Three cases, ordered by how much a single structure can show, each establishing one distinction. A population shift shows function changing while the structure is preserved. α-Synuclein shows a solution ensemble that only makes sense as a whole. The prion protein shows partially unfolded intermediates that the endpoint structures cannot reveal, and introduces pH as a condition of the populations. The general misfolding discussion is folded into the D2 and D3 leads; no further example is added unless it establishes another distinction.
+**Section structure.** Three cases, ordered by how much a single structure can show, each establishing one distinction. A population shift shows function changing while the structure is preserved. α-Synuclein shows a solution ensemble that only makes sense as a whole. The prion protein shows partially unfolded intermediates that the endpoint structures cannot reveal, and develops the pH dependence introduced by the earlier memory example. The general misfolding discussion is folded into the D2 and D3 leads; no further example is added unless it establishes another distinction.
 
 *D0. Framing.*
 - [[Disease mutations can destabilise functional states or over-stabilise states that impair function.]]
@@ -70,7 +84,7 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
 - [[Disrupting alpha-synuclein's autoinhibitory conformation exposes the NAC domain and is likely to lower the nucleation barrier for aggregation.]]
 - [[In soluble alpha-synuclein, an electrostatic interaction between the N- and C-termini protects the aggregation-prone NAC domain, and disrupting it is likely to lower the nucleation barrier.]]
 
-*D3. Prion protein: partially unfolded intermediates, and pH as a condition.* The endpoints are solved and the path between them is not. The intermediates on that path are sparsely populated, so what is needed is the intermediates and their populations, not only the endpoints, and [[prion protein|MoPrP]] populates its β-rich intermediate only at acidic pH. This is where pH enters the biological motivation. §1.2 group 2 carries it to the measurement, §1.3 group 2 to the simulation, [[02-background]] §2.2 supplies the chemistry, and chapters 4 to 6 use MoPrP at pH 4 and pH 7.
+*D3. Prion protein: partially unfolded intermediates, and pH as a condition.* The endpoints are solved and the path between them is not. The intermediates on that path are sparsely populated, so what is needed is the intermediates and their populations, not only the endpoints, and [[prion protein|MoPrP]] populates its β-rich intermediate only at acidic pH. The earlier memory example introduces pH-dependent pathways; here pH governs the disease-associated populations that the research chapters investigate. §1.2 group 2 carries it to the measurement, §1.3 group 2 to the simulation, [[02-background]] §2.2 supplies the chemistry, and chapters 4 to 6 use MoPrP at pH 4 and pH 7.
 - [[Atomic structures of PrP-C and PrP-Sc show an alpha-to-beta transition, yet how monomeric PrP-C traverses it is unclear.]]
 - [[A familial prion-disease variant populates a more heterogeneous ensemble with thermally accessible misfolded states.]]
 - [[Conformational conversion of oligomeric intermediates can limit the rate of protein aggregation.]]
@@ -115,7 +129,9 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
 - Anchors:
   - [[@galpernInformationtheoreticArgumentRestriction2026]] for B (conclusions only);
   - [[@parraFrustrationPhysiologyMolecular2025]] for B to E; its gene-network and psychiatry analogies (§§13–14) are analogies, its hemoglobin sentence (^c33) is a framing image, and specific disease results cite their primary study where the KB has it;
-  - [[@galpernProbingDarkEnergy2026]] for B and C;
+  - [[@galpernProbingDarkEnergy2026]] for dark energy and the folding–function distinction in C;
+  - [[@moulickPartiallyUnfoldedForms2015]] and [[@moulickRuggednessFreeEnergy2019]] for prion populations and condition-dependent pathways in B;
+  - [[@yangMolecularMechanismEnvironmental2026]], [[@johnsonPrionlikeProteinsFacilitators2026]] and [[@sahinPrionProteinsTheir2024]] for the memory connections in B; [[@waldhoerMinimumEnergyPaths2019]] supplies the device physics of the memristor comparison;
   - [[@lisiAllosteryEnzymeCatalysis2017]] for the allostery demonstration in C;
   - the [[dynamic disease mechanism]] concept for D and E.
 - Confirmation `milestones/2025-11-confirmation-of-status/introduction/biological_dynamics.tex`:
@@ -141,7 +157,7 @@ Chapter hub: the argument in order, one claim per line. Sections follow `thesis/
 - [[HDX-MS measures the exchange of backbone amide hydrogens with deuterium in the solvent.]]
 - [[Measuring the mass increase of peptides over time lets HDX-MS report on protein dynamics and conformational changes.]]
 
-**2. What sets the rate.** Intrinsic chemistry ([[intrinsic exchange rate]]) and local protection from hydrogen bonding, burial and transient opening ([[Linderstrøm–Lang model]], [[protection factor]]). The intrinsic rate depends on pH and temperature, so uptake, and the populations later inferred from it, hold for the stated pD and temperature. This is the measurement's side of the pH thread opened in §1.1 D3.
+**2. What sets the rate.** Intrinsic chemistry ([[intrinsic exchange rate]]) and local protection from hydrogen bonding, burial and transient opening ([[Linderstrøm–Lang model]], [[protection factor]]). The intrinsic rate depends on pH and temperature, so uptake, and the populations later inferred from it, hold for the stated pD and temperature. This is the measurement's side of the pH thread opened by prion memory in §1.1 B and developed for disease populations in D3.
 - [[Amide exchange rates depend on intrinsic chemistry and on local protection from hydrogen bonding, burial and transient opening.]]
 - [[Under EX2 an amide opens and closes many times before it exchanges, so the observed rate combines intrinsic chemistry with the opening equilibrium.]]
 - [[The HDX rate depends on the local environment of the amide hydrogen, including solvent accessibility and hydrogen bonding.]] (read it with the second caution in group 5)
