@@ -21,7 +21,7 @@ Status sentence: complete. Manuscript post-review; preprint v1 posted ([[@siddiq
 The introduction (§1.4, §1.5) states the principle in general terms. This chapter carries the ValDX evidence for each.
 
 - Splits. [[Random and sequential splits gave no discrimination between candidate ensembles beyond training error.]] The result that led ValDX to partition by sequence coverage and by structural region, in the introduction's argument that partitions must follow peptide dependence.
-- Work Done. [[Work Done quantifies changes in the ensemble-average protection-factor profile during fitting.]] This is ValDX's definition of the general idea in §1.5 group 5. It is independent of uptake, as HDXer's apparent work (a KL divergence over frame weights) is, but a different quantity.
+- Work Done. [[Work Done quantifies changes in the ensemble-average protection-factor profile during fitting.]] This is ValDX's definition of the general idea in §1.5 group 4. It is independent of uptake, as HDXer's apparent work (a KL divergence over frame weights) is, but a different quantity.
   - [[Low validation error with high Work Done shows agreement reached by substantial modification of the prior.]]
   - [[Work Done measures distance from the prior, not from the true ensemble, and small values can also mean too little fitting.]]
 - Kinetic mismatch. In a benchmark with an imposed kinetic mismatch, population changes compensated for incorrect exchange assumptions after calibration restored uptake agreement. Carries [[Fitted populations can compensate for errors in assumed exchange kinetics, and restoring uptake agreement by calibration does not validate kinetics or populations.]]

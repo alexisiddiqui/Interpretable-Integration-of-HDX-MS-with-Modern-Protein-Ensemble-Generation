@@ -1,6 +1,6 @@
 # 06 jax-Ka
 
-Chapter hub for `thesis/chapters/06-jax-ka.tex`. Moved from the §1.7 hub on 2026-10-14; argument order not yet set. Its place in the thesis is the pH thread ([[01-introduction]] §1.1 D3, §1.2 group 2, §1.3 group 2), and [[prion protein|MoPrP]] carries it. A pKa model that differentiates through backbone coordinates is a second forward model of the kind ch. 5 builds. The titration models (PROPKA, PypKa, constant-pH MD, pKAI, KaML) are introduced in the chapter preface, not in [[02-background]] §2.2.
+Chapter hub for `thesis/chapters/06-jax-ka.tex`. Moved from the §1.7 hub on 2026-10-14; argument order not yet set. Its place in the thesis is the pH thread ([[01-introduction]] §1.1 B (prions), §1.2 group 2, §1.3 group 2), and [[prion protein|MoPrP]] carries it. A pKa model that differentiates through backbone coordinates is a second forward model of the kind ch. 5 builds. The titration models (PROPKA, PypKa, constant-pH MD, pKAI, KaML) are introduced in the chapter preface, not in [[02-background]] §2.2.
 
 Status sentence: in progress (frozen relational default, interface experiments open). **decision**: full research chapter, short chapter, or appendix. `DEADLINES.md` has no entry for it.
 

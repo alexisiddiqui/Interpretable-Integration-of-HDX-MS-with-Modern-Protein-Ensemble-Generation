@@ -1,13 +1,13 @@
 \chapter{ValDX}
 \label{ch:valdx}
 
-%  The proposed structure follows the manuscript’s results argument (projects/1-ValDX/manuscript/report/7_results_omc.tex:4).
+%  The structure follows the manuscript’s results argument (projects/1-ValDX/manuscript/report/7_results_omc.tex:4).
 
 %    Section                                                                Purpose and material
 %   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 %    1. Introduction and objectives                                         Briefly establish the unresolved problem inherited from the background chapter. Similar uptake agreement can support
 %                                                                           different structural populations. Introduce held-out prediction, modification from the prior and replicate
-%                                                                           consistency as complementary assessments. Merge the current Motivation and Introduction stubs.
+%                                                                           consistency as complementary assessments.
 %   ─────────────────────────────────────────────────────────────────────  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 %    2. Validation framework and methods                                    Give the workflow and definitions one home. Explain overlap-aware partitions, replicate fits, training-only
 %                                                                           selection of fitting strength, consensus construction, Apparent Work and the four ValDX Work metrics. Include
@@ -17,7 +17,7 @@
 %                                                                           adds. Preserve the distinction between increasing Work along one fitting trajectory and comparing Work across
 %                                                                           candidates at comparable agreement.
 %   ─────────────────────────────────────────────────────────────────────  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-%    4. Comparing structural hypotheses across partitions and replicates    Present BPTI reweighting, then HOIP parameter fitting as two subsections. BPTI tests ensemble comparison using NMR-
+%    4. Comparing structural hypotheses                                    Present BPTI reweighting, then HOIP parameter fitting as two subsections. BPTI tests ensemble comparison using NMR-
 %                                                                           derived residue-wise uptake; HOIP extends assessment to individual structures and exposes the limits of ensemble-
 %                                                                           average parameter fitting.
 %   ─────────────────────────────────────────────────────────────────────  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -25,7 +25,7 @@
 %                                                                           orders make the governing conclusion explicit: fitting order depends on the mismatch being addressed. Distinguish
 %                                                                           final-stage Work from total modification across stages.
 %   ─────────────────────────────────────────────────────────────────────  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-%    6. Conformational representation and diagnostic perturbations          Promote the clustering sweep and BRD4 artefact experiments from the supplement. Clustering tests whether conclusions
+%    6. Clustering and diagnostic perturbations                            Promote the clustering sweep and BRD4 artefact experiments from the supplement. Clustering tests whether conclusions
 %                                                                           survive reduced representation; perturbations test sensitivity to specific structural and forward-model inputs. Keep
 %                                                                           their main figures and shorten the exhaustive comparisons.
 %   ─────────────────────────────────────────────────────────────────────  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -39,11 +39,6 @@
 %   The BICePs comparison already exists in the revised methods (projects/1-ValDX/manuscript/report/6_methods_omc.tex:464). Keep a short subsection distinguishing Bayesian evidence from ValDX’s
 %   diagnostic distances. A direct benchmark would be additional work.
 
-%   The first drafting step would be to replace the current chapter skeleton with this structure and assign existing passages and figures to each section.
-
-
-
-
 % in this chapter we introduct data splitting, methods for data splitting, and interpretable statistical metrics used for comparative analysis. The insight from these metrics are that considering differences in ensemble-models that reflect the phenoma observed during gradient-based optimization of the ensemble-models. Ie that weights and parameters should be considered jointly. We compare this to BiCePs score, which is a complete bayesian formulation.
 % in valdx we employ our approach across a range of experiments: ensemble-comparison, single-structure comparison, and joint inference of populations and forward-model parameters. We also show that clustering and decoy conformations can be used to probe ensemble qualites and representativeness.
 
@@ -51,50 +46,83 @@
 
 % We need to define the work metrics as well as BiCePs score and show how they are related/different.
 
-\section{Motivation}
-\label{sec:valdx-motivation}
-
-\subsection{Abstract}
-\label{sec:valdx-abstract}
-
-\section{Introduction}
+\section{Introduction and objectives}
 \label{sec:valdx-intro}
 
-\section{Methods}
+\section{Validation framework and methods}
 \label{sec:valdx-methods}
 
-\subsection{Experimental Data and Candidate Ensembles}
+\subsection{Experimental data and candidate ensembles}
 \label{sec:valdx-inputs}
 % Dataset provenance, preprocessing overview, and ensemble hypotheses.
 % Distinguish BPTI NMR-derived uptake from measured peptide uptake.
 
-\subsection{Data Splitting and Replicate Fits}
+\subsection{Data splitting and replicate fits}
 \label{sec:valdx-splits}
 % Baseline, Non-Redundant and Spatial partitions.
 % Overlap removal, training fractions, and replicate design.
 
-\subsection{Fitting Protocols and Consensus Construction}
+\subsection{Fitting protocols, parameter selection and consensus}
 \label{sec:valdx-fitting}
 % RW-only, BV-only, staged and alternating fitting.
 % Training-only selection of fitting strength and consensus construction.
 
-\subsection{Metrics for Ensemble Comparison}
+\subsection{Assessment metrics}
 \label{sec:valdx-work}
 % Uptake error, population recovery, Apparent Work and ValDX Work metrics.
 % Replicate dispersion, agreement between partitions, and Work accounting.
 % Brief comparison with Bayesian evidence scoring.
 
-\subsection{Synthetic Population and Kinetic Benchmarks}
+\subsection{Benchmark designs and statistical analysis}
+\label{sec:valdx-benchmarks}
+
+\subsubsection{Synthetic population and kinetic benchmarks}
 \label{sec:valdx-synthetic}
 % TeaA target populations and candidate composition.
 % Forward-model mismatch and controlled changes in exchange kinetics.
 
-\subsection{Clustering and Structural Perturbations}
+\subsubsection{Clustering and structural perturbations}
 \label{sec:valdx-decoys}
 % Clustering representation and size sweep.
 % Gaussian noise, coordinate mixing and proton shuffling.
 
-\subsection{Statistical Analysis}
+\subsubsection{Statistical analysis}
 \label{sec:valdx-statistics}
 % Between-candidate comparisons, changes against zero,
 % regression, split sensitivity and descriptive analyses.
+
+\section{Uptake agreement and population recovery}
+\label{sec:valdx-population-recovery}
+
+\section{Comparing structural hypotheses}
+\label{sec:valdx-structural-hypotheses}
+
+\subsection{BPTI: comparing ensembles through reweighting}
+\label{sec:valdx-bpti-reweighting}
+
+\subsection{HOIP: comparing ensembles and individual structures through BV parameter fitting}
+\label{sec:valdx-hoip-parameter-fitting}
+
+\section{Population fitting and forward-model calibration}
+\label{sec:valdx-calibration}
+
+\subsection{BPTI: comparison of fitting protocols}
+\label{sec:valdx-protocol-comparison}
+
+\subsection{TeaA: response to kinetic misspecification}
+\label{sec:valdx-kinetic-misspecification}
+
+\subsection{Fitting order and the source of mismatch}
+\label{sec:valdx-fitting-order}
+
+\section{Clustering and diagnostic perturbations}
+\label{sec:valdx-perturbations}
+
+\subsection{Sensitivity to ensemble clustering}
+\label{sec:valdx-clustering-results}
+
+\subsection{BRD4 structural and forward-model perturbations}
+\label{sec:valdx-brd4-perturbations}
+
+\section{Discussion and chapter conclusions}
+\label{sec:valdx-discussion}
