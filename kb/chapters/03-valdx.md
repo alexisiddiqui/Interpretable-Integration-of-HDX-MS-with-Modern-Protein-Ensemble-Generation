@@ -74,4 +74,3 @@ Sources: `7_results_omc.tex` L235–248 (clustering and limitations).
 
 ## Gaps
 - Settle median against mean for the consensus BV constants, the peptide dropout wording and the overlap handling (`hard_intersection`) used in each benchmark, before citing [[Peptide splitting and consensus (ValDX)]].
-- Confirm whether trajectories were superposed before the dynamical LCC, before porting [[Structural comparison metrics (ValDX)]] to `app:valdx-mathematics`.
