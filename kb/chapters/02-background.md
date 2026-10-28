@@ -42,7 +42,9 @@ Protection factors provide a route to calculating uptake, but do not specify the
 
 - [[Best–Vendruscolo model]]: [[Best–Vendruscolo model#^eq-bv-feature]] and [[Best–Vendruscolo model#^eq-bv-ensemble]].
 - [[The Best-Vendruscolo model predicts protection factors from coordinates by counting structural features that impede exchange.]]
-- [[HDX protection-factor model]] gives the alternatives and their shared assumptions (EX2, independent residues, calibration to conditions). It has no equation of its own, because BV carries the displayed form.
+- The [[Persson–Halle population model]] (M7) estimates protection from sampled opening populations, whereas BV and the [[Mohammadiarani SASA–distance model]] (M8) predict protection through empirical relationships with structural features ([[@mohammadiaraniInterpretingHydrogenDeuteriumExchange2018#^c3]], [[@mohammadiaraniInterpretingHydrogenDeuteriumExchange2018#^c7]]).
+- M7 uses water coordination and nearby protein polar atoms to define open states. M8 maps amide-hydrogen SASA and polar-atom distance to log protection. Compare [[Persson–Halle population model#^eq-population-ratio]] with [[Mohammadiarani SASA–distance model#^eq-sasa-distance-pf]].
+- [[HDX protection-factor model]] gives the alternatives and their assumptions (EX2, residue-level predictions, calibration to conditions for empirical models). It has no equation of its own, because the individual model notes carry the displayed forms.
 - Structure-based models predict a protection factor per residue. Peptide data generally cannot determine those values uniquely, which is why the thesis compares predictions with measured uptake.
   - [[Residue protection factors are generally underdetermined by peptide-level uptake.]]
   - [[A single protection factor per residue cannot describe a residue whose environment differs between populated conformers.]]

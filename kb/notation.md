@@ -32,11 +32,12 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $P_0(\xi)$ | marginal of the prior on the coarse-grained variable xi | — | [[reference ratio method]] | $\tilde q(\lambda \mid a)$ ([[@bmsb2012ch3]]), $g_1(y)$ ([[@bmsb2012ch4]]) |
 | $P_0(x)$ | prior distribution over conformations | — | [[maximum entropy principle]] | $\pi(x)$ ([[@bmsb2012ch12]], [[@bmsb2012ch2]]), $q(x)$ ([[@bmsb2012ch2]]), $q(r \mid a)$ ([[@bmsb2012ch3]]), $g(x)$ ([[@bmsb2012ch4]]), $p(X_r)$ ([[@bonomiMetadynamicMetainferenceEnhanced2016]]), $P_0(q)$ ([[@cesariUsingMaximumEntropy2018]]), $p_0(x)$ ([[@hummerBayesianEnsembleRefinement2015]]), $q_0(\mathbf{x}_0)$ ([[@wangProteinConformationGeneration2024]]) |
 | $P_\text{ME}(x)$ | maximum-entropy posterior distribution over conformations | — | [[maximum entropy principle]] | $P_\text{ME}(q)$ ([[@cesariUsingMaximumEntropy2018]]) |
-| $P_{f,i}$ | protection factor of residue i | — | [[protection factor]] | $P_i$ ([[@bradshawInterpretationHDXData2020]]) |
+| $P_{f,i}$ | protection factor of residue i | — | [[protection factor]] | $P_i$ ([[@bradshawInterpretationHDXData2020]]), $\mathrm{PF}_i$ (M8) ([[@mohammadiaraniInterpretingHydrogenDeuteriumExchange2018]]) |
 | $Q$ | net charge of a protein at a given pH, in units of the elementary charge | — | [[pKa]] | — |
 | $R$ | molar gas constant | J mol^-1 K^-1 | [[Boltzmann distribution]] | — |
 | $\text{RMSF}_i$ | root-mean-square fluctuation of atom or residue i about its mean position | Å | [[positional covariance]] | — |
 | $S$ | thermodynamic entropy of the ensemble | J K^-1 | [[Boltzmann distribution]] | $S$ ([[@bmsb2012ch1]], [[@bmsb2012ch3]]) |
+| $\mathrm{SASA}_i$ | solvent-accessible surface area of the amide hydrogen of residue i | Å^2 | [[Mohammadiarani SASA–distance model]] | $\mathrm{SASA}_i$ ([[@mohammadiaraniInterpretingHydrogenDeuteriumExchange2018]]) |
 | $S[P \Vert P_0]$ | relative entropy of P with respect to P_0 | — | [[Kullback–Leibler divergence]] | $S[P \Vert P_0]$ ([[@cesariUsingMaximumEntropy2018]]) |
 | $T$ | absolute temperature | K | [[Boltzmann distribution]] | — |
 | $T_\text{sel}^\text{fold}$ | folding selection temperature relating the evolutionary and folding energy scales | K | [[dark energy]] | — |
@@ -61,12 +62,17 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $\alpha_i$ | protonated fraction of titratable site i at a given pH | — | [[pKa]] | — |
 | $\beta_C$ | BV coefficient for heavy-atom contacts | — | [[Best–Vendruscolo model]] | — |
 | $\beta_H$ | BV coefficient for amide hydrogen bonds | — | [[Best–Vendruscolo model]] | — |
+| $\beta_p$ | M8 coefficient for the polar-atom distance term | Å^(gamma_p) | [[Mohammadiarani SASA–distance model]] | $\beta_p$ ([[@mohammadiaraniInterpretingHydrogenDeuteriumExchange2018]]) |
+| $\beta_s$ | M8 coefficient for the SASA term | Å^(2 gamma_s) | [[Mohammadiarani SASA–distance model]] | $\beta_s$ ([[@mohammadiaraniInterpretingHydrogenDeuteriumExchange2018]]) |
 | $\chi^2$ | sum of squared residuals, each divided by its error variance | — | [[regularisation]] | $\chi^2$ ([[@bmsb2012ch13]]) |
 | $\eta$ | guidance strength | — | [[guided diffusion]] | — |
 | $\gamma$ | weight of the data term relative to the prior | — | [[nuisance parameter]] | $w_\text{data}$ ([[@bmsb2012ch12]]) |
+| $\gamma_p$ | M8 exponent for the polar-atom distance term | — | [[Mohammadiarani SASA–distance model]] | $\gamma_p$ ([[@mohammadiaraniInterpretingHydrogenDeuteriumExchange2018]]) |
+| $\gamma_s$ | M8 exponent for the SASA term | — | [[Mohammadiarani SASA–distance model]] | $\gamma_s$ ([[@mohammadiaraniInterpretingHydrogenDeuteriumExchange2018]]) |
 | $\hat P(x)$ | reference-ratio distribution over conformations | — | [[reference ratio method]] | $p(r \mid a)$ ([[@bmsb2012ch3]]), $\hat f(x)$ ([[@bmsb2012ch4]]) |
 | $\hat x_0$ | posterior-mean estimate of the clean structure given a noisy one at diffusion time tau | — | [[guided diffusion]] | — |
 | $\kappa$ | force constant of a restraint on replica-averaged observables | — | [[restrained simulation]] | — |
+| $\kappa_i$ | closed-to-open population ratio of amide i | — | [[Persson–Halle population model]] | $\mathrm{PF}_i$ (M7) ([[@mohammadiaraniInterpretingHydrogenDeuteriumExchange2018]]) |
 | $\lambda_i$ | Lagrange multiplier for the i-th constraint | — | [[maximum entropy principle]] | $\lambda_i$ ([[@bradshawInterpretationHDXData2020]], [[@cesariUsingMaximumEntropy2018]]) |
 | $\mathbf{r}_i(x)$ | position of atom or residue i in conformation x | Å | [[positional covariance]] | — |
 | $\mathcal{M}$ | a model or hypothesis under comparison | — | [[Bayes' theorem]] | $M_1, M_2$ ([[@bmsb2012ch1]]), $H_i$ ([[@bmsb2012ch13]]) |
@@ -80,10 +86,13 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $\sigma_i$ | error scale (standard deviation) of observable i | — | [[forward model]] | $\sigma$ ([[@bmsb2012ch12]], [[@hummerBayesianEnsembleRefinement2015]]), $\sigma_i$ ([[@bmsb2012ch13]]), $\sigma_{r,i}$ ([[@bonomiMetadynamicMetainferenceEnhanced2016]]), $\sigma$, $\sigma_i$ ([[@liuExEnDiffExperimentGuidedDiffusion2025]]) |
 | $\sigma_{r,i}$ | effective uncertainty of datum i in replica r, combining finite-replica and data/forward-model error | — | [[metainference]] | — |
 | $\tau$ | diffusion time, from data (0) to noise (1) | — | [[diffusion model]] | $t$ ([[@liuExEnDiffExperimentGuidedDiffusion2025]], [[@wangProteinConformationGeneration2024]], [[@yimDiffusionModelsProtein2024]]) |
+| $\tau_{C,i}$ | mean residence time in the closed state of amide i | s | [[Persson–Halle population model]] | — |
+| $\tau_{O,i}$ | mean residence time in the open state of amide i | s | [[Persson–Halle population model]] | — |
 | $\theta$ | forward-model parameters | — | [[forward model]] | $\alpha$ ([[@bmsb2012ch12]]) |
 | $\tilde P(\xi)$ | reference-state distribution of xi | — | [[knowledge-based potential]] | $\tilde p(\lambda)$ ([[@bmsb2012ch3]]) |
 | $\xi(x)$ | coarse-grained variable of conformation x | — | [[knowledge-based potential]], [[reference ratio method]] | $f(x)$, $y$ ([[@bmsb2012ch2]]), $\lambda$ ([[@bmsb2012ch3]]), $Y = m(X)$ ([[@bmsb2012ch4]]), $S(X)$ ([[@bonomiMetadynamicMetainferenceEnhanced2016]]) |
 | $a(x' \mid x)$ | Metropolis–Hastings acceptance probability of a move from x to x' | — | [[Markov chain Monte Carlo]] | $a(x' \mid x)$ ([[@bmsb2012ch2]]), $\alpha$ ([[@bmsb2012ch4]]) |
+| $d_{\mathrm{pol},i}$ | distance from amide hydrogen i to the nearest eligible protein polar atom | Å | [[Mohammadiarani SASA–distance model]] | $D_i$ (M8) ([[@mohammadiaraniInterpretingHydrogenDeuteriumExchange2018]]) |
 | $f(x,\tau)$ | drift of the forward diffusion SDE | — | [[diffusion model]] | $f(x,t)$ ([[@yimDiffusionModelsProtein2024]]) |
 | $f^{(k)}$ | BICePs score of model k, minus the log ratio of its evidence to that of a uniform-population null model | — | [[BICePs]] | — |
 | $g(\tau)$ | diffusion coefficient of the forward SDE | — | [[diffusion model]] | $g(t)$ ([[@yimDiffusionModelsProtein2024]]) |
@@ -103,6 +112,8 @@ Every symbol declared in a concept note's `notation:` field. Change a symbol in 
 | $\text{pH}_\text{read}$ | reading of a glass electrode calibrated in H2O and placed in a D2O solution | — | [[intrinsic exchange rate]] | pH meter reading ([[@glasoeUseGlassElectrodes1960]]) |
 | $\text{p}K_{a,i}$ | pKa of titratable site i: the pH at which the site is half protonated | — | [[pKa]] | $\text{p}K_{a,i}^\text{Protein}$ ([[@olssonPROPKA3ConsistentTreatment2011]]) |
 | $\text{p}K_{a,\text{model}}$ | model-compound pKa of a titratable group, measured in an unstructured peptide | — | [[pKa]] | $\text{p}K_{a,i}^\text{Water}$ ([[@olssonPROPKA3ConsistentTreatment2011]]), pK ([[@thurlkillPKValuesIonizable2006]]) |
+| $p_{C,i}$ | equilibrium closed-state population of amide i | — | [[Persson–Halle population model]] | — |
+| $p_{O,i}$ | equilibrium open-state population of amide i | — | [[Persson–Halle population model]] | — |
 | $p_\text{model}(x)$ | probability density over conformations defined by a statistical or learned model | — | [[statistical potential]] | — |
 | $q_i(j)$ | BV feature (predicted ln protection) of residue i in conformer j | — | [[Best–Vendruscolo model]] | — |
 | $r_t$ | vector of residuals between predicted and measured peptide uptake at labelling time t | — | [[error covariance]] | — |

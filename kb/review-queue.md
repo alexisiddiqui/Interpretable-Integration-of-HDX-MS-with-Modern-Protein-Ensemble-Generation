@@ -43,17 +43,17 @@
 
 - [[Minimising apparent work and KL divergence gives a reweighted ensemble that satisfies the constraints with minimal deviation.]] (`claims/Minimising apparent work and KL divergence gives a reweighted ensemble that satisfies the constraints with minimal deviation..md`)
 
-## The SI equation for residue-averaged W1 does not match the implementation, and the correlation code does not align frames itself; confirm both before Chapter 3.
+## The SI equation for residue-averaged W1 does not match the implementation; the thesis appendix should write the code's form.
 
 - [[Structural comparison metrics (ValDX)]] (`methods/Structural comparison metrics (ValDX).md`)
-
-## The consensus takes the median of the BV constants, not the mean the manuscript states, and no script sets the 10 % peptide dropout; settle both before Chapter 3 cites this note.
-
-- [[Peptide splitting and consensus (ValDX)]] (`methods/Peptide splitting and consensus (ValDX).md`)
 
 ## The evaluation structure is documented in code and project docs only. The splitter can leave a partly overlapping peptide in both sets when overlap removal is on, the train/validation disjointness assert is commented out, and the manuscript's "selected by test error minimisation" is legacy wording.
 
 - [[Evaluation design (jaxENT)]] (`methods/Evaluation design (jaxENT).md`)
+
+## The inspected code (0b79aad) combines the BV constants by the median where the manuscript states the mean, and no inspected script sets the 10 % peptide dropout; which code and settings produced the reported runs is not established. Settle both before Chapter 3 cites this note.
+
+- [[Peptide splitting and consensus (ValDX)]] (`methods/Peptide splitting and consensus (ValDX).md`)
 
 ## The jaxENT SI (si_figures.tex L225) cites wuConformationalHeterogeneitySavinase2020 for the Nguyen et al. reference parameters; it should cite this paper.
 
