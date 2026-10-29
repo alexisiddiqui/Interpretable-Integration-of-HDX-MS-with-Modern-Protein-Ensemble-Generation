@@ -9,6 +9,7 @@ Obsidian vault for the thesis. Open **this folder** (`kb/`) as the vault, not th
 | `claims/` | One claim per note | The claim as a full sentence |
 | `concepts/` | Definitions and background ideas | Concept name |
 | `methods/` | Mathematical and experimental methods | Method name; project (methods may differ between projects) |
+| `experiments/` | Remote machine access, project locations and experiment-to-figure links; start with [experiments/README.md](experiments/README.md) | Project name |
 | `papers/` | Literature notes | `@<citekey>` (matches `thesis/references.bib`) |
 | `decisions/` | Why a method, parameter or dataset was chosen | `YYYY-MM-DD <decision>` |
 | `inbox/` | Unsorted notes; triage weekly | anything |

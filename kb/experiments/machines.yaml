@@ -1,0 +1,19 @@
+# Logical IDs are not SSH hostnames. null means not yet recorded or verified.
+# Access requirements supplied by the author; no connections tested here.
+machines:
+  coulson:
+    name: Coulson-Chemistry
+    access_requirement: Cisco VPN
+    ssh_alias: null
+    last_verified_at: null
+  pegasus:
+    name: Pegasus-Gate
+    aliases: [Pegausus-Gate]
+    access_requirement: Cisco VPN
+    ssh_alias: null
+    last_verified_at: null
+  isambard:
+    name: isambard
+    access_requirement: Clifton auth
+    ssh_alias: null
+    last_verified_at: null

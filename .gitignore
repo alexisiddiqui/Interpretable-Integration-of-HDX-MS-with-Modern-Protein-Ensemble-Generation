@@ -247,6 +247,7 @@ kb/.cache/
 .DS_Store
 
 # Thesis-map build caches and optional interface-test dependencies
+/.experiments/
 /tools/thesis-map/.cache/
 /tools/thesis-map/tests/node_modules/
 /tools/thesis-map/tests/test-results/
