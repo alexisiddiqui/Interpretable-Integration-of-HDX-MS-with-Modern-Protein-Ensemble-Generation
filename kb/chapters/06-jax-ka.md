@@ -31,6 +31,31 @@ Argument: the methods form a ladder of cost against physical detail, and jax-Ka 
 - Close on the hand-off to the research sections: jax-Ka is a fast, differentiable student of PypKa and pKAI, so its accuracy is bounded by theirs on the training distribution and is measured against experiment only on PKAD-R and PKAD-3.
 
 
+## Methods: data preparation
+
+Argument: every label comes from a prepared structure, and every site's label is only trusted away from the material that was removed or never modelled. The section fixes the states, the teachers, the masks that remove untrusted sites, and the splits that keep the held-out sets clean. One pipeline serves the benchmark and the training pools. Record: what was run, not the original build specification ([[2026-10-29 jax-Ka data pipeline record and teacher]]).
+
+- **States.** Each complex gives AB, and each partner alone (A, B) in the bound conformation, without relaxation. ΔpKa is pKa(AB) minus the pKa of the free state that contains the site. Partners are run in their own box (`experiments/00_shared.md`, Glossary and States).
+- **Sources.**
+  - pKPDB, 121,283 entries screened, 63,814 structures and 1.79M clean sites kept; labels are PypKa (`experiments/4_backbone/05_pinder_dataset.md`).
+  - PINDER 2024-02, 2.32M dimers prefiltered to 93,293 accepted, labelled by pKAI in the bound and free states.
+  - A benchmark set of PDB assemblies and SAbDab antibody–antigen complexes (two partners, at most 1,500 residues, at least 500 Å² buried per side), labelled by PypKa 2.10.0.
+- **Preparation.** First positive-occupancy altloc, waters and hydrogens removed, missing atoms rebuilt with PDB2PQR, disulfides kept within a partner and rejected across partners (`experiments/00_shared.md`, Prep policy). Rebuilt residues lose their own site labels.
+- **Teachers.** PypKa 2.10.0 is the benchmark reference (dielectric 15, 0.1 M, GROMOS 54a7, Ser/Thr off). pKAI labels PINDER and is the training teacher, because it agrees more closely with PypKa. pKAI+ is scored in the benchmark and compared on PKAD, never used as a teacher. pKPDB labels come from PypKa versions whose API changed, so they are not equivalent to the 2.10.0 configuration; across the dataset that matters less than a preparation error (`experiments/1_benchmark/18_historical_pkpdb_settings.md`).
+- **pKAI termini.** Released pKAI ignores termini. Converting real chain termini to NTR and CTR residues reduced the N-terminal MAE against PypKa from 0.90 to 0.50 (`05_pinder_dataset.md`, terminus labels). No teacher labels arginine.
+
+## Methods: data cleaning and filtering
+
+Argument: a site keeps its label only if its error from removed or missing material is below a noise target, so each kind of material gets a radius measured against that target. The tight targets are available only where the measurement tool allows them.
+
+- **Noise target.** 0.1 pKa is the practical target and anything well under 0.5 is acceptable. Components use 0.01 (training) and 0.001 (evaluation) because their error was measured with PROPKA, whose finite cutoffs reach zero by about 22.5 Å ([[2026-10-29 jax-Ka masking noise targets]]).
+- **Components are stripped, not rejected.** Ligands 15/25 Å, buffers 15/20 Å, glycans 20/25 Å, exposed ions 25/25 Å and buried metals 30/30 Å (training/evaluation), measured to the nearest removed heavy atom (`experiments/1_benchmark/07_stripped_reference_policy.md`, `15_buffer_mask_revision.md`). The glycan radii are deliberately conservative, about 5 Å beyond where their curve meets the targets. Error-against-distance figures exist for buffers (`audits/buffer-propka-v2`) and glycans (`audits/glycan-propka-ccd-v1`).
+- **Gaps.** Radii come from deleting residues from fully modelled references and measuring the pKAI and PypKa error against distance to the nearest visible anchor, to the 0.1 pKa criterion. Terminal deletions of 10 to 50 residues and internal deletions of 5 to 20 give radii from 20 to 45 Å (`audits/radial-error-v2-nearcomplete`, 23 complexes with PypKa; `audits/pinder-longgap-v1`, 516 references with pKAI). Adopting them raised usable PINDER training sites from 1.8M to 2.66M.
+- **Sequence leakage.** Training structures with a chain at least 70% identical over at least 80% of both sequences to a held-out chain are removed, with an experimental 30% rule and a 90% fragment rule for PKAD references. Antibody chains are screened by CDR (`05_pinder_dataset.md`, held-out exclusions v3).
+- **Splits.** Benchmark split by sequence group at 30% identity and 80% coverage, with experimental reference chains reserved in test. Frozen usable interface pairs are 778 train, 151 validation and 523 test (`experiments/1_benchmark/16_structural_split_freeze.md`).
+- **Training pools.** Pool-v4 holds 800 pKPDB groups and 800 PINDER clusters for validation, leaving 27,933 PINDER complexes and 56,191 pKPDB structures for training. Nested 10%, 50%, 75% and 100% subsets keep sequence groups whole.
+- **Experimental labels.** PKAD-3 (1,804 records) and PKAD-R (317 retained records) are evaluation-only (`experiments/1_benchmark/10_experimental_inventory.md`, `26_experimental_expansion.md`).
+
 ## Detail moved from §1.7
 
 - A backbone-only pKa predictor, the orientation Graph Query Transformer (oGQT) with relational edges: a spatial residue graph plus explicit ±1 and ±2 sequence edges, a separate key and value projection per relation, and titratable-site query tokens. Trained on pKPDB (PypKa labels) and PINDER complexes labelled by pKAI in the bound and free states, with a binding-shift loss and a burial auxiliary. Its readout differentiates through backbone coordinates. Stub (`projects/4-jax-Ka/code` `models/ogqt-relational-50-frozen`).

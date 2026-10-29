@@ -25,7 +25,7 @@ experiments:
     artifacts: []
     figures: []
   - id: jaxka-data-cleaning
-    question: null
+    question: Which site labels stay trustworthy after components are stripped and unmodelled regions are masked, and how many sites and complexes survive in each split?
     locations:
       - machine: coulson
         root: /u/oc/lina4225/jax-Ka/experiments
@@ -35,7 +35,18 @@ experiments:
         runs: [audits, caches, manifests, exports, overlays]
     authoritative_location: coulson
     status_command: null
-    artifacts: []
+    # Paths are relative to the pkabench runtime root on coulson. Isambard holds copies of pretraining/ and training/pool-v4 only.
+    artifacts:
+      - audits/buffer-propka-v2/plots/all_buffers_error_vs_distance.png
+      - audits/glycan-propka-ccd-v1/plots/error_vs_distance.png
+      - audits/radial-error-v2-nearcomplete/plots/error_vs_distance.png
+      - audits/radial-error-v2-nearcomplete/anchor-analysis-v2/anchor_error.png
+      - audits/pinder-longgap-v1
+      - audits/pinder-exp-leak-v1
+      - universe/structural-freeze-v1
+      - pretraining/pinder-pkai-v1
+      - pretraining/pkpdb-full-v1
+      - training/pool-v4
     figures: []
   - id: jaxka-anm-augmentation
     question: null
@@ -61,4 +72,4 @@ Observed 2026-10-29.
 
 Training and the benchmark experiments run on Isambard, which holds most of the experiments. Data cleaning (curation, the experimental admission and inventory scripts, the pKa benchmark caches and manifests) was done on Coulson. The two machines hold checkouts of the same repository, so a result's code state has to be read from the machine that produced it.
 
-The `jax-Ka` checkout on Coulson has uncommitted changes, so any result produced from it needs the code state recorded before it is used. Question, status command, artifacts and figure IDs are not yet recorded. Follow the [experiment entry format](README.md#experiment-entries) when recording individual experiments.
+The `jax-Ka` checkout on Coulson has uncommitted changes, so any result produced from it needs the code state recorded before it is used. The data-cleaning entry records its question and artifacts; the other entries do not yet. Decisions on the masking noise targets and the data pipeline record are in `kb/decisions/` (2026-10-29). Follow the [experiment entry format](README.md#experiment-entries) when recording individual experiments.
