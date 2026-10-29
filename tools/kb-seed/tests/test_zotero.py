@@ -1,4 +1,8 @@
+from pathlib import Path
+import shutil
 import sqlite3
+
+import pytest
 
 from seed_helpers import make_zotero
 from zotero import ZoteroLibrary
@@ -46,9 +50,68 @@ def test_better_bibtex_duplicate_resolves_to_the_original_key(tmp_path):
 
 def test_reads_a_copy_while_the_live_database_is_locked(zotero_home):
     lock = sqlite3.connect(zotero_home / "zotero.sqlite")
-    lock.execute("BEGIN EXCLUSIVE")
+    lock.execute("PRAGMA journal_mode=WAL")
+    lock.execute("BEGIN IMMEDIATE")
     try:
         assert "andersonHDXMSMDSimulations2022" in ZoteroLibrary(zotero_home).keys
     finally:
         lock.rollback()
         lock.close()
+
+
+def test_reads_committed_wal_edits_but_not_uncommitted_edits(zotero_home):
+    writer = sqlite3.connect(zotero_home / "zotero.sqlite")
+    try:
+        writer.execute("PRAGMA journal_mode=WAL")
+        writer.execute("PRAGMA wal_autocheckpoint=0")
+        writer.execute("UPDATE itemDataValues SET value=? WHERE value=?",
+                       ("committedKey2026", "andersonHDXMSMDSimulations2022"))
+        writer.commit()
+        writer.execute("UPDATE itemDataValues SET value=? WHERE value=?",
+                       ("uncommittedKey2026", "massonOverviewHydrogenDeuterium2017"))
+
+        library = ZoteroLibrary(zotero_home)
+
+        assert "committedKey2026" in library.keys
+        assert "andersonHDXMSMDSimulations2022" not in library.keys
+        assert "massonOverviewHydrogenDeuterium2017" in library.keys
+        assert "uncommittedKey2026" not in library.keys
+    finally:
+        writer.rollback()
+        writer.close()
+
+
+def test_checkpoint_between_file_copies_cannot_lose_committed_edits(zotero_home, monkeypatch):
+    database = zotero_home / "zotero.sqlite"
+    writer = sqlite3.connect(database)
+    try:
+        writer.execute("PRAGMA journal_mode=WAL")
+        writer.execute("PRAGMA wal_autocheckpoint=0")
+        writer.execute("PRAGMA wal_checkpoint(TRUNCATE)")
+        # Keep the two edits on different pages so the later WAL cannot restore
+        # the earlier change to the citation-key table after a checkpoint.
+        writer.execute("UPDATE itemDataValues SET value=? WHERE value=?",
+                       ("earlierKey2026", "andersonHDXMSMDSimulations2022"))
+        writer.commit()
+
+        original_copyfile = shutil.copyfile
+
+        def checkpoint_after_database_copy(src, dst, *args, **kwargs):
+            result = original_copyfile(src, dst, *args, **kwargs)
+            if Path(src) == database:
+                writer.execute("PRAGMA wal_checkpoint(TRUNCATE)")
+                writer.execute("INSERT INTO items VALUES (999, 'LATEREDIT')")
+                writer.commit()
+            return result
+
+        # Reproduce the checkpoint race if separate file copies are reintroduced.
+        monkeypatch.setattr(shutil, "copyfile", checkpoint_after_database_copy)
+        assert "earlierKey2026" in ZoteroLibrary(zotero_home).keys
+    finally:
+        writer.close()
+
+
+def test_missing_database_is_not_created(tmp_path):
+    with pytest.raises(sqlite3.OperationalError):
+        ZoteroLibrary(tmp_path)
+    assert not (tmp_path / "zotero.sqlite").exists()

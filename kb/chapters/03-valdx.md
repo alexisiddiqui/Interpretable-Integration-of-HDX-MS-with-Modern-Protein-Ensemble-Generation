@@ -40,7 +40,8 @@ Ranges run heading to heading.
 | `sec:valdx-synthetic` | L107–125 (Iso-Validation), L126–163 (kinetic misspecification), L661–694 (kinetic protocol) | `app:valdx-synthetic` (L131–163 rate equations and noise; `9_Supplementary_information.tex` L5–40 simulator validation and digestion) | — |
 | `sec:valdx-decoys` | L256–283 (poisoning, `tab:poisoning_types`); L695–717 (cluster sweep, poisoning protocol) | `app:valdx-perturbations` (`Extended_SI.tex` L364–448) | — |
 | `sec:valdx-statistics` | L604–611 | `app:valdx-mathematics` (`Extended_SI.tex` L667–729 regression, ΔR², η²) | — |
-| — | — | `app:valdx-implementation` (L719–781; `Extended_SI.tex` L487–556) | — |
+| — | — | `app:valdx-implementation` (L719–781; environment prose from `Extended_SI.tex` L487–556) | — |
+| — | — | `app:valdx-supporting-results` (`Extended_SI.tex` L147–246 PCA, LCC, pairwise; L487–556 performance tables; `9_Supplementary_information.tex` L100–123, L160–192 statistical tables) | — |
 
 ## 3 Uptake agreement and population recovery
 

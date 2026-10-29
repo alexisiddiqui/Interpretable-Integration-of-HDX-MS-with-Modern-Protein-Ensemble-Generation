@@ -4,7 +4,7 @@ Tools for filling the vault in [`kb/`](../../kb/README.md) from LaTeX sources an
 
 ## Requirements
 
-Python 3.10 or later, Poppler's `pdftotext`, PyYAML (for kb-lint), and a Zotero 7 data directory (default `~/Zotero`). Zotero can stay open: its database is copied before reading.
+Python 3.10 or later, Poppler's `pdftotext`, PyYAML (for kb-lint), and a Zotero 7 data directory (default `~/Zotero`). Zotero can stay open. The reader opens its database read-only and uses SQLite's backup API to take a consistent snapshot, including committed changes in the write-ahead log.
 
 ## Tools
 

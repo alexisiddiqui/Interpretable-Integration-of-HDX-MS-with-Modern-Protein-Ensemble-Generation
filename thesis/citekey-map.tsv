@@ -2,6 +2,7 @@ source_key	canonical_key	matched_by	first_cited_in
 HydrogenExchangeProteins1966	HydrogenExchangeProteins1966	key	milestones/2025-11-confirmation-of-status/jaxENT_paper1/report/methods/HDX.tex:7
 MISATOMachineLearning	MISATOMachineLearning	key	milestones/2025-11-confirmation-of-status/introduction/biological_dynamics.tex:17
 ReferenceParametersProtein	ReferenceParametersProtein	key	projects/1-ValDX/manuscript/report/2_hdx_theory_omc.tex:5
+abraham_gromacs_2015	abrahamGROMACSHighPerformance2015	doi; Zotero duplicates abrahamGROMACSHighPerformance2015a	thesis/appendices/a-valdx-protocols.tex:759
 abramsonAccurateStructurePrediction2024	abramsonAccurateStructurePrediction2024	key	milestones/2025-11-confirmation-of-status/introduction/measuring_dynamics.tex:5
 abriataAssessmentTransferableForcefields2021	abriataAssessmentTransferableForcefields2021	key	milestones/2025-11-confirmation-of-status/introduction/ensemble_generators.tex:21
 abrudanMultistateProteinDesign2025	abrudanMultistateProteinDesign2025	key	milestones/2025-11-confirmation-of-status/introduction/biological_dynamics.tex:17
@@ -40,6 +41,7 @@ crookEmpiricalBayesFunctional2022	crookEmpiricalBayesFunctional2022	key	kb/conce
 crook_functional_2023	crookFunctionalBayesianModel2023	doi	thesis/chapters/03-valdx.tex:73
 deoliveiraConstantPHMolecular2022	deoliveiraConstantPHMolecular2022	key	kb/chapters/02-background.md
 dhavaleStructureAlphasynucleinFibrils2024	dhavaleStructureAlphasynucleinFibrils2024	key	thesis/chapters/01-introduction.tex:80
+eastman_openmm_2017	eastmanOpenMM7Rapid2017	doi	thesis/appendices/a-valdx-protocols.tex:759
 englanderHydrogenExchangeModern1997	englanderHydrogenExchangeModern1997	key	projects/1-ValDX/manuscript/report/2_hdx_theory_omc.tex:5
 fanAllostericCouplingGprotein2023	fanAllostericCouplingGprotein2023	key	milestones/2025-11-confirmation-of-status/introduction/measuring_dynamics.tex:20
 fang_high-throughput_2021	fangHighthroughputHydrogenDeuterium2021	doi	projects/1-ValDX/manuscript/report/1_introduction_omc.tex:20
@@ -89,6 +91,7 @@ liuExEnDiffExperimentGuidedDiffusion2025	liuExEnDiffExperimentGuidedDiffusion202
 maier_ff14sb_2015	maierFf14SBImprovingAccuracy2015	doi	thesis/appendices/a-valdx-protocols.tex:99
 malevanetsInterplayBuriedHistidine2017	malevanetsInterplayBuriedHistidine2017	key	kb/chapters/02-background.md
 marciano_hdx-ms_2014	marcianoHDXMSGuidedDrug2014	doi	projects/1-ValDX/manuscript/report/1_introduction_omc.tex:8
+marinelli_allosteric_2011	marinelliEvidenceAllostericMechanism2011	doi	thesis/chapters/03-valdx.tex:311
 martinoIntroductionMaximumEntropy2018	martinoIntroductionMaximumEntropy2018	key	milestones/2025-11-confirmation-of-status/introduction/connect_simulation_experiment.tex:95
 massonOverviewHydrogenDeuterium2017	massonOverviewHydrogenDeuterium2017	key	milestones/2025-11-confirmation-of-status/introduction/biological_dynamics.tex:24
 masson_overview_2017	massonOverviewHydrogenDeuterium2017	doi	projects/1-ValDX/manuscript/report/1_introduction_omc.tex:8
@@ -117,6 +120,7 @@ paceProteinIonizableGroups2009	paceProteinIonizableGroups2009	key	kb/chapters/02
 pahariPKADDatabaseExperimentally2019	pahariPKADDatabaseExperimentally2019	key	thesis/chapters/06-jax-ka.tex
 paissoniConformationalFingerprintAmyloidogenic2025	paissoniConformationalFingerprintAmyloidogenic2025	key	milestones/2025-11-confirmation-of-status/introduction/biological_dynamics.tex:30
 parkEstimationHydrogenExchangeProtection2015	parkEstimationHydrogenExchangeProtection2015	key	projects/1-ValDX/manuscript/report/2_hdx_theory_omc.tex:7
+pedregosa_scikit-learn_2011	pedregosaScikitlearnMachineLearning2011	title	thesis/appendices/a-valdx-protocols.tex:761
 pelikanStructureFlexibilityProteins2009	pelikanStructureFlexibilityProteins2009	key	milestones/2025-11-confirmation-of-status/introduction/measuring_dynamics.tex:26
 puchadesEpitopeMappingDiverse2019	puchadesEpitopeMappingDiverse2019	key	milestones/2025-11-confirmation-of-status/introduction/measuring_dynamics.tex:13
 puchades_epitope_2019	puchadesEpitopeMappingDiverse2019	doi	projects/1-ValDX/manuscript/report/1_introduction_omc.tex:17
@@ -126,6 +130,7 @@ reisFastInterpretableDeep2022	reisFastInterpretableDeep2022	key	thesis/chapters/
 reisPKPDBProteinData2022	reisPKPDBProteinData2022	key	thesis/chapters/06-jax-ka.tex
 reisPypKaFlexiblePython2020	reisPypKaFlexiblePython2020	key	thesis/chapters/06-jax-ka.tex
 reisPypKaServerOnline2024	reisPypKaServerOnline2024	key	thesis/chapters/06-jax-ka.tex
+richards_university_2015	richardsUniversityOxfordAdvanced2015	doi	thesis/appendices/a-valdx-protocols.tex:759
 robertsCrossvalidationStrategiesData2017	robertsCrossvalidationStrategiesData2017	key	thesis/drafts/01-introduction-proposed.tex:169
 sahinPrionProteinsTheir2024	sahinPrionProteinsTheir2024	key	thesis/chapters/01-introduction.tex:76
 sapienzaUsingNMRStudy2010	sapienzaUsingNMRStudy2010	key	milestones/2025-11-confirmation-of-status/introduction/measuring_dynamics.tex:18

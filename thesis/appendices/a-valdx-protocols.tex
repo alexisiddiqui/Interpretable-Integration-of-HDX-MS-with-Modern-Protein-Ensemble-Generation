@@ -507,24 +507,29 @@ The residue-level LCC is the arithmetic mean of the defined pair correlations wi
     \mathcal V_i(X)=\{j\in\mathcal N_i(X):C_{ij}(X)\text{ is defined}\}.
     \label{eq:valdx-lcc}
 \end{equation}
-Undefined pair correlations, including those arising from zero displacement variance, are excluded. A residue with no valid pair correlations has no defined neighbourhood mean. Neighbourhood means are shown in \cref{app:valdx-supporting-results} with bands spanning one standard deviation across the contributing pair correlations. These bands describe variation among neighbours, rather than sampling uncertainty in the mean.
+Undefined pair correlations, including those arising from zero displacement variance, are excluded. A residue with no valid pair correlations has no defined neighbourhood mean. Neighbourhood means are shown in \cref{fig:valdx-lcc-ensembles} with bands spanning one standard deviation across the contributing pair correlations. These bands describe variation among neighbours, rather than sampling uncertainty in the mean.
 
 \subsection{Regression and Effect Sizes}
 \label{app:valdx-statistics}
 
 To assess the joint association of $\text{MSE}_\text{Training}$ and Apparent Work ($W_\text{app}$) with ground-truth Open State Recovery\%, we fitted a multiple linear regression model with standardised predictors,
 \begin{equation}
-    \text{Recovery} = \theta_1 \text{MSE}_\text{Training} + \theta_2 W_\text{app} + \epsilon,
+    \begin{gathered}
+    \text{Recovery} = \theta_0 + \theta_1 z_\text{MSE} + \theta_2 z_W + \epsilon,\\
+    z_\text{MSE}=\frac{\text{MSE}_\text{Training}-\overline{\text{MSE}}_\text{Training}}{s_\text{MSE}},
+    \qquad
+    z_W=\frac{W_\text{app}-\overline{W}_\text{app}}{s_W},
+    \end{gathered}
     \label{eq:valdx-recovery-regression}
 \end{equation}
-where $\theta_1$ and $\theta_2$ are regression coefficients for the standardised predictors and $\epsilon$ is the error term.
+where $\theta_0$ is the fitted intercept, $\theta_1$ and $\theta_2$ are regression coefficients for the standardised predictors, and $\epsilon$ is the error term. The model was fitted separately for each candidate ensemble. Means and standard deviations were taken over that ensemble's fits, so $z_\text{MSE}$ and $z_W$ are dimensionless, while Recovery keeps its percentage units.
 
 We calculated the additional variance explained by each predictor as the reduction in model $R^2$ when that predictor was excluded,
 \begin{equation}
     \Delta R^2_i = R^2_\text{full} - R^2_{\text{without},i},
     \label{eq:valdx-delta-r2}
 \end{equation}
-where $R^2_\text{full}$ is the coefficient of determination for the full model and $R^2_{\text{without},i}$ is the coefficient of determination for the model excluding predictor $i$.
+where $R^2_\text{full}$ is the coefficient of determination for the full model and $R^2_{\text{without},i}$ is the coefficient of determination for the model excluding predictor $i$. Both models include the intercept.
 
 We assessed differences between split type means using one-way ANOVA and quantified the fraction of total variance explained by split type using
 \begin{equation}
@@ -533,11 +538,262 @@ We assessed differences between split type means using one-way ANOVA and quantif
 \end{equation}
 where $SS_\text{between} = \sum_{j=1}^{k} n_j(\bar{x}_j - \bar{x}_\text{grand})^2$ and $SS_\text{total} = \sum_{i=1}^{N}(x_i - \bar{x}_\text{grand})^2$. Here $k$ is the number of split types, $n_j$ is the number of observations in split type $j$, $N=\sum_j n_j$, $\bar{x}_j$ is the mean for split type $j$ and $\bar{x}_\text{grand}$ is the grand mean.
 
+\clearpage
 \section{Extended Ensemble Characterisation and Sensitivity Analyses}
 \label{app:valdx-supporting-results}
-% Additional structural comparisons, replicate plots,
-% per-protein results and sensitivity analyses.
 
+\subsection{Ensemble Principal Components}
+\label{app:valdx-pca}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth, keepaspectratio]{valdx-pca-bpti/fig.png}
+    \caption[BPTI ensemble PCA comparison across ensemble generation experiments]{BPTI ensemble comparison through PCA reveals distinct conformational landscapes across hierarchically sampled generation protocols. Principal component analysis scatter plots \textbf{(A-E)} and corresponding density distributions \textbf{(F-J)} for five BPTI ensembles: \textbf{(A,F)} AF2-MSAss coloured by pLDDT confidence scores, \textbf{(B,G)} AF2-Filtered, \textbf{(C,H)} MD-1Start coloured by cluster assignment, \textbf{(D,I)} MD-10Start showing multiple conformational clusters, and \textbf{(E,J)} MD-TFES displaying broad conformational sampling. Left panels show individual structure distributions in PC1-PC2 space, while right panels display density contours revealing population distributions. PCA was computed across all ensembles. MD-TFES was k-means clustered to 500 structures to better highlight the differences between cycles. For this ensemble, each point therefore represents an individual sampling distribution rather than a single structure. Results demonstrate progressive conformational diversity from filtered AF2 predictions through equilibrium MD to enhanced sampling, with AF2-MSAss showing scattered low-confidence structures, MD simulations exhibiting compact clusters, and MD-TFES achieving comprehensive landscape coverage.}
+    \label{fig:valdx-pca-bpti}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth, keepaspectratio]{valdx-pca-brd4/fig.png}
+    \caption[BRD4 ensemble PCA comparison across ensemble generation experiments]{BRD4 ensemble comparison through PCA reveals distinct conformational landscapes across hierarchically sampled generation protocols. Principal component analysis scatter plots \textbf{(A-E)} and corresponding density distributions \textbf{(F-J)} for five BRD4 ensembles: \textbf{(A,F)} AF2-MSAss coloured by pLDDT confidence scores, \textbf{(B,G)} AF2-Filtered, \textbf{(C,H)} MD-1Start coloured by cluster assignment, \textbf{(D,I)} MD-10Start showing multiple conformational clusters, and \textbf{(E,J)} MD-TFES displaying broad conformational sampling. Left panels show individual structure distributions in PC1-PC2 space, while right panels display density contours revealing population distributions. PCA was computed across all ensembles. MD-TFES was k-means clustered to 500 structures to better highlight the differences between cycles. For this ensemble, each point therefore represents an individual sampling distribution rather than a single structure.}
+    \label{fig:valdx-pca-brd4}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth, keepaspectratio]{valdx-pca-hoip/fig.png}
+    \caption[HOIP ensemble PCA comparison across ensemble generation experiments]{HOIP ensemble comparison through PCA reveals distinct conformational landscapes across hierarchically sampled generation protocols. Principal component analysis scatter plots \textbf{(A-E)} and corresponding density distributions \textbf{(F-J)} for five HOIP ensembles: \textbf{(A,F)} AF2-MSAss coloured by pLDDT confidence scores, \textbf{(B,G)} AF2-Filtered, \textbf{(C,H)} MD-1Start coloured by cluster assignment, \textbf{(D,I)} MD-10Start showing multiple conformational clusters, and \textbf{(E,J)} MD-TFES displaying broad conformational sampling. Left panels show individual structure distributions in PC1-PC2 space, while right panels display density contours revealing population distributions. PCA was computed across all ensembles. MD-TFES was k-means clustered to 500 structures to better highlight the differences between cycles. For this ensemble, each point therefore represents an individual sampling distribution rather than a single structure.}
+    \label{fig:valdx-pca-hoip}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth, keepaspectratio]{valdx-pca-lxra/fig.png}
+    \caption[LXR$\alpha$ ensemble PCA comparison across ensemble generation experiments]{LXR$\alpha$ ensemble comparison through PCA reveals distinct conformational landscapes across hierarchically sampled generation protocols. Principal component analysis scatter plots \textbf{(A-E)} and corresponding density distributions \textbf{(F-J)} for five LXR$\alpha$ ensembles: \textbf{(A,F)} AF2-MSAss coloured by pLDDT confidence scores, \textbf{(B,G)} AF2-Filtered, \textbf{(C,H)} MD-1Start coloured by cluster assignment, \textbf{(D,I)} MD-10Start showing multiple conformational clusters, and \textbf{(E,J)} MD-TFES displaying broad conformational sampling. Left panels show individual structure distributions in PC1-PC2 space, while right panels display density contours revealing population distributions. PCA was computed across all ensembles. MD-TFES was k-means clustered to 500 structures to better highlight the differences between cycles. For this ensemble, each point therefore represents an individual sampling distribution rather than a single structure.}
+    \label{fig:valdx-pca-lxra}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth, keepaspectratio]{valdx-pca-mbp/fig.png}
+    \caption[MBP ensemble PCA comparison across ensemble generation experiments]{MBP ensemble comparison through PCA reveals distinct conformational landscapes across hierarchically sampled generation protocols. Principal component analysis scatter plots \textbf{(A-E)} and corresponding density distributions \textbf{(F-J)} for five MBP ensembles: \textbf{(A,F)} AF2-MSAss coloured by pLDDT confidence scores, \textbf{(B,G)} AF2-Filtered, \textbf{(C,H)} MD-1Start coloured by cluster assignment, \textbf{(D,I)} MD-10Start showing multiple conformational clusters, and \textbf{(E,J)} MD-TFES displaying broad conformational sampling. Left panels show individual structure distributions in PC1-PC2 space, while right panels display density contours revealing population distributions. PCA was computed across all ensembles. MD-TFES was k-means clustered to 500 structures to better highlight the differences between cycles. For this ensemble, each point therefore represents an individual sampling distribution rather than a single structure.}
+    \label{fig:valdx-pca-mbp}
+\end{figure}
+
+\clearpage
+\subsection{Dynamical Local Cross Correlation}
+\label{app:valdx-lcc-results}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.48\textwidth, keepaspectratio]{valdx-lcc-ensembles/fig.png}
+    \caption[Residue-level dynamical local cross correlation]{Residue-level dynamical local cross correlation across five ensemble types for \textbf{(A)} BPTI, \textbf{(B)} BRD4, \textbf{(C)} HOIP, \textbf{(D)} LXR$\alpha$, and \textbf{(E)} MBP: AF2-MSAss (navy), AF2-Filtered (blue), MD-1Start (pink), MD-10Start (orange), and MD-TFES (purple). Curves show the mean normalised displacement correlation between each residue and its neighbours within an ensemble-mean C$\alpha$ distance of 8~\AA. Shaded regions show $\pm1$ standard deviation across the valid neighbour-pair correlations contributing to each residue's mean, describing variation among neighbours rather than sampling uncertainty. AF2-MSAss and AF2-Filtered exhibit similar local displacement-correlation profiles in the regions shown. The metric is defined in \cref{eq:valdx-lcc}.}
+    \label{fig:valdx-lcc-ensembles}
+\end{figure}
+
+\clearpage
+\subsection{Pairwise Ensemble Comparison}
+\label{app:valdx-pairwise}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.55\textwidth, keepaspectratio]{valdx-pairwise-bpti/fig.png}
+    \caption[BPTI pairwise ensemble structural comparison using local mean pair-distance RMS difference and Wasserstein distance metrics]{BPTI pairwise ensemble structural comparison using local mean pair-distance RMS difference and Wasserstein distance metrics. \textbf{(A)} Local mean pair-distance RMS difference heatmap showing differences in mean local geometry for five BPTI ensembles: AF2-MSAss, AF2-Filtered, MD-1Start, MD-10Start, and MD-TFES. Values represent local mean pair-distance RMS differences in \AA, with darker colours indicating greater structural similarity. \textbf{(B)} Median Wasserstein-1 ($W_1$) distance heatmap quantifying dissimilarity between ensemble distributions of residue positions. $W_1$ distances measure the effort required to transform one ensemble's conformational distribution into another, accounting for the full conformational landscape rather than just average structures. Lower values (darker colours) indicate more similar conformational distributions. The AF2 ensembles were the closest pair in both metrics (mean pair-distance RMS difference 0.18~\AA; $W_1$ 0.13~\AA). MD-1Start and MD-10Start were also similar, whereas MD-TFES was more distinct, consistent with its broader enhanced sampling.}
+    \label{fig:valdx-pairwise-bpti}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.55\textwidth, keepaspectratio]{valdx-pairwise-brd4/fig.png}
+    \caption[BRD4 pairwise ensemble structural comparison using local mean pair-distance RMS difference and Wasserstein distance metrics]{BRD4 pairwise ensemble structural comparison using local mean pair-distance RMS difference and Wasserstein distance metrics. \textbf{(A)} Local mean pair-distance RMS difference heatmap showing differences in mean local geometry for five BRD4 ensembles: AF2-MSAss, AF2-Filtered, MD-1Start, MD-10Start, and MD-TFES. Values represent local mean pair-distance RMS differences in \AA, with darker colours indicating greater structural similarity. AF2--MD mean pair-distance RMS differences ranged from 5.38 to 11.95~\AA, while the MD ensembles had similar mean local pair distances (1.02--1.67~\AA\ mean pair-distance RMS difference). \textbf{(B)} Median Wasserstein-1 ($W_1$) distance heatmap quantifying dissimilarity between ensemble distributions of residue positions. $W_1$ distances measure the effort required to transform one ensemble's conformational distribution into another, with higher values (3--6~\AA) compared to BPTI indicating greater conformational diversity. AF2 ensembles (AF2-MSAss, AF2-Filtered) show high similarity to each other but large differences from MD-derived ensembles, while MD ensembles exhibit closer agreement among themselves. The elevated distance values reflect BRD4's inherent flexibility and the distinct conformational landscapes sampled by different generation protocols.}
+    \label{fig:valdx-pairwise-brd4}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.55\textwidth, keepaspectratio]{valdx-pairwise-hoip/fig.png}
+    \caption[HOIP pairwise ensemble structural comparison using local mean pair-distance RMS difference and Wasserstein distance metrics]{HOIP pairwise ensemble structural comparison using local mean pair-distance RMS difference and Wasserstein distance metrics. \textbf{(A)} Local mean pair-distance RMS difference heatmap showing differences in mean local geometry for five HOIP ensembles: AF2-MSAss, AF2-Filtered, MD-1Start, MD-10Start, and MD-TFES. Values represent local mean pair-distance RMS differences in \AA, with darker colours indicating greater structural similarity. MD-1Start shows the largest deviation ($\approx$3.2~\AA) from AF2 ensembles, while MD-10Start and MD-TFES remain closer ($\approx$1.3~\AA) to AF2 predictions. \textbf{(B)} Median Wasserstein-1 ($W_1$) distance heatmap quantifying dissimilarity between ensemble distributions of residue positions. MD-1Start exhibits dramatically different conformational distributions compared to all other ensembles (7.4--9.2~\AA), suggesting sampling of a distinct conformational region from the other methods. In contrast, MD-10Start and MD-TFES show much closer agreement with each other (1.03~\AA) and moderate similarity to AF2 ensembles ($\approx$1.3--1.5~\AA). For flexible proteins like HOIP, the distinct MD-1Start distribution may reflect limited exploration from a single starting structure, while the MD-10Start and MD-TFES results show greater agreement in the sampled structural distributions.}
+    \label{fig:valdx-pairwise-hoip}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.55\textwidth, keepaspectratio]{valdx-pairwise-lxra/fig.png}
+    \caption[LXR$\alpha$ pairwise ensemble structural comparison using local mean pair-distance RMS difference and Wasserstein distance metrics]{LXR$\alpha$ pairwise ensemble structural comparison using local mean pair-distance RMS difference and Wasserstein distance metrics. \textbf{(A)} Local mean pair-distance RMS difference heatmap showing differences in mean local geometry for five LXR$\alpha$ ensembles: AF2-MSAss, AF2-Filtered, MD-1Start, MD-10Start, and MD-TFES. Values represent local mean pair-distance RMS differences in \AA, with notably small differences (0.16--0.78~\AA) reflecting the rigid nature of this nuclear receptor ligand-binding domain. \textbf{(B)} Median Wasserstein-1 ($W_1$) distance heatmap quantifying dissimilarity between ensemble distributions of residue positions. The uniformly small $W_1$ distances (0.10--0.42~\AA) indicate that all ensemble generation methods sample similar conformational distributions for this well-folded, structured protein. AF2 ensembles show high similarity (0.10~\AA), while MD ensembles exhibit slightly greater diversity but remain within a narrow conformational range. The consistently low distance values across all pairwise comparisons demonstrate that LXR$\alpha$'s rigid structure constrains sampling to a compact conformational landscape regardless of the generation protocol employed.}
+    \label{fig:valdx-pairwise-lxra}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.55\textwidth, keepaspectratio]{valdx-pairwise-mbp/fig.png}
+    \caption[MBP pairwise ensemble structural comparison using local mean pair-distance RMS difference and Wasserstein distance metrics]{MBP pairwise ensemble structural comparison using local mean pair-distance RMS difference and Wasserstein distance metrics. \textbf{(A)} Local mean pair-distance RMS difference heatmap showing differences in mean local geometry for five MBP ensembles: AF2-MSAss, AF2-Filtered, MD-1Start, MD-10Start, and MD-TFES. Values represent local mean pair-distance RMS differences in \AA. AF2 and MD ensembles show substantial structural differences ($\approx$3.2--3.8~\AA), while MD-derived ensembles exhibit closer agreement among themselves, particularly MD-10Start and MD-TFES (0.10~\AA). \textbf{(B)} Median Wasserstein-1 ($W_1$) distance heatmap quantifying dissimilarity between ensemble distributions of residue positions. The $W_1$ distances reveal more moderate conformational differences (0.12--1.6~\AA) compared to the highly flexible BRD4, reflecting MBP's intermediate flexibility. AF2 ensembles show good agreement (0.53~\AA), while MD ensembles show close agreement in their sampled structural distributions, especially MD-10Start and MD-TFES (0.12~\AA). The pattern suggests that multiple-start MD and enhanced sampling produce similar sampled conformational distributions for MBP, distinct from AF2 predictions.}
+    \label{fig:valdx-pairwise-mbp}
+\end{figure}
+
+\clearpage
+\subsection{Computational Performance}
+\label{app:valdx-performance}
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{@{}lc>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xcr@{}}
+    \toprule
+        \textbf{Protein} & \textbf{Performance} & \textbf{GPU} & \textbf{CPU} & \textbf{Box length} & \textbf{Particles} \\
+        & \textbf{(ns/day)} & & & \textbf{(nm)} & \\
+        \midrule
+        BPTI & 282 & Tesla V100 & 4x Intel Xeon E5-2698 & 6.02 & 21,709 \\
+        BRD4 & 26.3 & Tesla V100/Quadro RTX 8000 & 4x Intel Xeon E5-2698/4x Intel Xeon Platinum 8268 & 18.6 & 636,632 \\
+        HOIP & 62.3 & Tesla V100 & 4x Intel Xeon E5-2698 & 13.3 & 233,244 \\
+        LXR$\alpha$ & 412 & A100-40GB & 4x Intel Xeon Platinum 8268 & 9.05 & 73,377 \\
+        MBP & 207 & Quadro RTX 8000 & 4x Intel Xeon Platinum 8268 & 10.4 & 212,741 \\
+        \bottomrule
+    \end{tabularx}
+    \caption{MD simulation performance and system details.}
+    \label{tab:valdx-md-performance}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{@{}lcc@{}}
+    \toprule
+        \textbf{Protein} & \textbf{GPU} & \textbf{Performance (ns/day)} \\
+        \midrule
+        BPTI & A100-40GB & 557 \\
+        BRD4 & A100-40GB & 46.9 \\
+        HOIP & A100-40GB & 154 \\
+        LXR$\alpha$ & Tesla V100 & 156 \\
+        MBP & Tesla V100 & 54.2 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Enhanced MD (T-FES) simulation performance.}
+    \label{tab:valdx-tfes-performance}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{@{}lcc@{}}
+    \toprule
+        \textbf{Protein} & \textbf{GPU} & \textbf{Performance (s/structure)} \\
+        \midrule
+        BPTI & Quadro RTX 8000 & 1.5 \\
+        BRD4 & Quadro RTX 8000 & 25 \\
+        HOIP & Quadro RTX 8000 & 15 \\
+        LXR$\alpha$ & Quadro RTX 8000 & 9 \\
+        MBP & Quadro RTX 8000 & 20 \\
+        \bottomrule
+    \end{tabular}
+    \caption{AF2 structure prediction performance.}
+    \label{tab:valdx-af2-performance}
+\end{table}
+
+\clearpage
+\subsection{Statistical Tests}
+\label{app:valdx-stat-tests}
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{@{}llllc@{}}
+    \toprule
+        \textbf{Panel} & \textbf{Metric} & \textbf{Test Type} & \textbf{Comparison} & \textbf{p-value} \\
+        \midrule
+        C & MSE$_{\text{Validation}}$ & Welch's t-test & AF2-Filtered vs MD-1Start (Spatial) & $9.75 \times 10^{-1}$ \\
+        & & Welch's t-test & AF2-Filtered vs MD-1Start (Non-Redundant) & $7.65 \times 10^{-1}$ \\
+        \midrule
+        D & $\Delta$MSE$_{\text{opt}}$ & 1-sample t-test & AF2-Filtered, Non-Redundant vs 0 & $8.24 \times 10^{-1}$ \\
+        & & 1-sample t-test & AF2-Filtered, Spatial vs 0 & $1.77 \times 10^{-1}$ \\
+        & & 1-sample t-test & MD-1Start, Non-Redundant vs 0 & $1.70 \times 10^{-1}$ \\
+        & & 1-sample t-test & MD-1Start, Spatial vs 0 & $2.26 \times 10^{-1}$ \\
+        \midrule
+        E & Work$_{\text{shape}}$ & Welch's t-test & AF2-Filtered vs MD-1Start (Spatial) & $5.17 \times 10^{-2}$ \\
+        & & Welch's t-test & AF2-Filtered vs MD-1Start (Non-Redundant) & $2.49 \times 10^{-1}$ \\
+        \midrule
+        F & Work$_{\text{density}}$ & Welch's t-test & AF2-Filtered vs MD-1Start (Spatial) & $6.78 \times 10^{-4}$ \\
+        & & Welch's t-test & AF2-Filtered vs MD-1Start (Non-Redundant) & $1.50 \times 10^{-1}$ \\
+        \bottomrule
+    \end{tabular}
+    % TODO results port: cite the figure panels
+    \caption{Statistical test results for the BPTI reweighting comparison (\cref{sec:valdx-bpti-reweighting}). Panels C, E and F compare ensembles using Welch's independent two-sample t-tests; panel D tests mean changes against zero within each ensemble.}
+    \label{tab:valdx-bpti-tests}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{@{}llllc@{}}
+    \toprule
+        \textbf{Panel} & \textbf{Metric} & \textbf{Test Type} & \textbf{Method} & \textbf{p-value} \\
+        \midrule
+        A & $\Delta$MSE$_{\text{opt}}$ & 1-sample t-test & BV-only vs 0 & $5.73 \times 10^{-1}$ \\
+        & & 1-sample t-test & RW-only vs 0 & $8.31 \times 10^{-2}$ \\
+        & & 1-sample t-test & RWafterBV vs 0 & $7.30 \times 10^{-1}$ \\
+        & & 1-sample t-test & BVafterRW vs 0 & $9.07 \times 10^{-1}$ \\
+        & & 1-sample t-test & MutualBVRW vs 0 & $5.00 \times 10^{-1}$ \\
+        \midrule
+        B & Work$_{\text{opt}}$ & 1-sample t-test & BV-only vs 0 & $1.16 \times 10^{-2}$ \\
+        & & 1-sample t-test & RW-only vs 0 & $9.83 \times 10^{-2}$ \\
+        & & 1-sample t-test & RWafterBV vs 0 & $7.53 \times 10^{-3}$ \\
+        & & 1-sample t-test & BVafterRW vs 0 & $7.16 \times 10^{-2}$ \\
+        & & 1-sample t-test & MutualBVRW vs 0 & $1.13 \times 10^{-2}$ \\
+        & & 1-sample t-test & RWafterBV* vs 0 & $9.45 \times 10^{-3}$ \\
+        & & 1-sample t-test & BVafterRW* vs 0 & $8.51 \times 10^{-2}$ \\
+        \midrule
+        C & Work$_{\text{scale}}$ & 1-sample t-test & BV-only vs 0 & $1.58 \times 10^{-1}$ \\
+        & & 1-sample t-test & RW-only vs 0 & $1.55 \times 10^{-1}$ \\
+        & & 1-sample t-test & RWafterBV vs 0 & $1.85 \times 10^{-1}$ \\
+        & & 1-sample t-test & BVafterRW vs 0 & $8.19 \times 10^{-2}$ \\
+        & & 1-sample t-test & MutualBVRW vs 0 & $1.51 \times 10^{-1}$ \\
+        & & 1-sample t-test & RWafterBV* vs 0 & $1.68 \times 10^{-1}$ \\
+        & & 1-sample t-test & BVafterRW* vs 0 & $3.29 \times 10^{-4}$ \\
+        \bottomrule
+    \end{tabular}
+    % TODO results port: cite the figure panels
+    \caption{Statistical test results for the fitting-protocol comparison (\cref{sec:valdx-protocol-comparison}). P-values are from one-sample tests of each protocol's mean change against zero. RWafterBV* and BVafterRW* give Work Done metrics as the total distance from the original unoptimised ensemble-model.}
+    \label{tab:valdx-protocol-tests}
+\end{table}
+
+\clearpage
 \section{Computational Implementation and Data Availability}
 \label{app:valdx-implementation}
-% Software versions, commits, hardware, code and data locations.
+
+\subsection{Software and Hardware}
+\label{app:valdx-software}
+
+All simulations were performed using the University of Oxford's Advanced Research Cluster (ARC).\supercite{richardsUniversityOxfordAdvanced2015} Traditional MD simulations used GROMACS 2021.3.\supercite{abrahamGROMACSHighPerformance2015} Enhanced sampling protocols (T-FES) were implemented in OpenMM 8.1.2.\supercite{eastmanOpenMM7Rapid2017} AlphaFold2 structure predictions were generated using LocalColabFold (commit 1208ceb).\supercite{mirditaColabFoldMakingProtein2022,jumperHighlyAccurateProtein2021} HDXer (commit f06191e) was used for all ensemble reweighting and optimisation.\supercite{bradshawInterpretationHDXData2020}
+
+{\emergencystretch=1em Key analysis libraries included MDAnalysis (2.6.1),\supercite{gowersMDAnalysisPythonPackage2019a} scikit-learn (1.5.2),\supercite{pedregosaScikitlearnMachineLearning2011} and SciPy (1.14.1).\supercite{virtanenSciPy10Fundamental2020} Performance benchmarks for all simulation types are given in \cref{app:valdx-performance}.\par}
+
+The T-FES conda environment (anaconda 2022.10) included Python 3.11 with NumPy 1.26.4 for numerical operations, SciPy 1.14.1 for scientific computing, scikit-learn 1.5.2 for machine learning algorithms, MDTraj 1.10.0 for trajectory analysis, matplotlib 3.9.2 for visualisation, and ParmEd 4.2.2 for parameter file conversion between GROMACS and AMBER formats.
+
+The LocalColabFold environment used Python 3.10, cudatoolkit 11.8 for GPU acceleration, Biopython 1.82 for handling biomolecular file formats, kalign2 2.04, hhsuite 3.3.0 and MMseqs2 17.b804f for sequence alignment, JAX 0.4.23 (jax[cuda11]) as the numerical framework, matplotlib 3.10.0 for plotting and TensorFlow 2.18.0 for numerical operations.
+
+\subsection{Code and Data Availability}
+\label{app:valdx-code-data}
+
+To support reproducibility, we provide details and scripts for all major components of this work. This includes the ValDX workflow using a modified HDXer, associated plots and data processing scripts. The scripts for ensemble generation experiments are also provided, including topology generation, ColabFold simulations, AF2-ensemble cleaning scripts, and MD simulation files.
+
+The structural ensembles and experimental HDX data used in this study are deposited on Zenodo (\url{https://doi.org/10.5281/zenodo.19489011}). Snapshots of the ValDX and interpretable-hdxer repositories are archived on Zenodo together with the manuscript's extended supplementary information (\url{https://doi.org/10.5281/zenodo.22758666}). Development versions of all code are maintained in the repositories listed below.
+
+\paragraph{HDXer.}
+HDXer (commit f06191e) is a Python package for MaxEnt optimisation for HDX-MS data. The package provides implementations of the Best-Vendruscolo model and frame reweighting optimisation algorithms used in this study (\url{https://github.com/Lucy-Forrest-Lab/HDXer}).
+
+\paragraph{ValDX.}
+The ValDX validation framework developed for this study was written in Python, building on a modified version of the HDXer package to directly extract parameters. The workflow scripts and analysis notebooks are split into separate repositories. The workflow repository implements peptide splitting algorithms, optimisation protocols, and metrics calculation for ensemble validation (\url{https://github.com/alexisiddiqui/ValDX}, commit a71acca).
+
+\paragraph{Analysis scripts.}
+The interpretable-hdxer repository contains the Python scripts for generating figures, statistical analyses, and ensemble/data processing reported in this work (\url{https://github.com/alexisiddiqui/interpretable-hdxer}, commit 1d78b96). This includes the kinetic simulator, its validation suite, and the pepsin digestion model used for the kinetic misspecification experiments (\cref{app:valdx-kinetic-simulator,app:valdx-peptide-noise}).
+
+\paragraph{Topology generation.}
+The topology-generation repository contains notebooks to generate and validate topologies for each starting structure used in MD simulations. It also contains the force field description files (\url{https://github.com/alexisiddiqui/topology_generation}).
+
+\paragraph{Traditional MD.}
+Traditional MD simulations were run with a small Python package that acts as a wrapper for GROMACS, primarily to manage paths across repeated simulations (\url{https://github.com/alexisiddiqui/xMD}). Simulation parameters were obtained from \url{https://github.com/intbio/gmx_protocols} (commit d70eb3e). The equilibration protocols were modified from those provided in the \textit{gmx\_protocols} repository to separate position restraints on heavy atoms and backbone atoms across different stages of equilibration.
+
+\paragraph{Enhanced MD.}
+The original Frontier-Expansion-Sampling scripts do not correctly apply a barostat for pressure coupling (original: \url{https://github.com/Gonglab-THU-MD/Frontier-Expansion-Sampling}; T-FES: \url{https://github.com/alexisiddiqui/multi-Topology-Frontier-Expansion-Sampling}).
+
+\paragraph{AF2.}
+LocalColabFold (commit 1208ceb) was used to perform MSA subsampling (\url{https://github.com/YoshitakaMo/localcolabfold}). Simulation, initial analysis, and AF2 ensemble processing scripts for all protein systems in this study are provided in the xFold\_Sampling repository (\url{https://github.com/alexisiddiqui/xFold_Sampling}).

@@ -1,8 +1,8 @@
 """Read-only view of a local Zotero 7 library: citation keys, DOIs, titles and stored PDFs."""
 
+from contextlib import closing
 from pathlib import Path
 import re
-import shutil
 import sqlite3
 import tempfile
 
@@ -13,14 +13,17 @@ class ZoteroLibrary:
     def __init__(self, home):
         self.home = Path(home)
         with tempfile.TemporaryDirectory() as tmp:
-            # Work on a copy: a running Zotero holds a lock on the live database.
             copy = Path(tmp) / "zotero.sqlite"
-            shutil.copyfile(self.home / "zotero.sqlite", copy)
-            db = sqlite3.connect(copy)
-            try:
+            source_uri = (self.home / "zotero.sqlite").resolve().as_uri() + "?mode=ro"
+            with closing(sqlite3.connect(copy)) as db:
+                with closing(sqlite3.connect(source_uri, uri=True)) as source:
+                    # Hold a consistent read snapshot, including committed WAL edits.
+                    # Read first so an exclusive lock respects the connection timeout
+                    # rather than leaving backup() retrying indefinitely.
+                    source.execute("BEGIN")
+                    source.execute("SELECT name FROM sqlite_master LIMIT 1")
+                    source.backup(db)
                 self._load(db)
-            finally:
-                db.close()
 
     def _load(self, db):
         deleted = {row[0] for row in db.execute("SELECT itemID FROM deletedItems")}
