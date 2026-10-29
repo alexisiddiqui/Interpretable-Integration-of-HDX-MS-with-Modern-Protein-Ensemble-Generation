@@ -307,18 +307,76 @@ To measure the local flexibility of the protein chain, we computed the root-mean
 
 \subsubsection{Synthetic population and kinetic benchmarks}
 \label{sec:valdx-synthetic}
-% TeaA target populations and candidate composition.
-% Forward-model mismatch and controlled changes in exchange kinetics.
+
+To establish controlled conditions enabling direct accuracy measurement, we generated synthetic HDX-uptake data with known conformational populations. The synthetic benchmarks use TeaA, a domain of the membrane transporter complex TeaABC that undergoes large-scale conformational transitions between open and closed states during substrate transport.\supercite{marinelliEvidenceAllostericMechanism2011,leeInterpretingHydrogenDeuteriumExchange2021} The TeaA trajectory used for the Iso-Validation experiment originates from the bias-exchange metadynamics simulations reported by Marinelli et al.\supercite{marinelliEvidenceAllostericMechanism2011} We used the unbiased replica representing equilibrium dynamics, accessed through the HDXer tutorial/data materials described by Bradshaw et al., which we cite for trajectory processing and HDXer methods.\supercite{bradshawInterpretationHDXData2020}
+
+Frames were clustered into open and closed states by their RMSD from reference structures (\cref{app:valdx-teaa-states}). The ISO-Bimodal ensemble is formed by taking the structures directly from the clustering process. Its native open to closed ratio is 5:95. We reweighted it to 40:60 open to closed and predicted uptake from the reweighted populations, giving the synthetic target used for fitting. The ISO-Trimodal ensemble is the parent ensemble of the clustered, ISO-Bimodal ensemble. ISO-Bimodal contains exclusively ground-truth structures present in the synthetic data, so its target populations can in principle be recovered by reweighting. ISO-Trimodal additionally includes intermediate conformations absent from the target.
+
+Synthetic protection factors were computed using the Radou method (BV model with switch function).\supercite{skinnerEstimatingConstraintsProtection2019} The switch function raises and smoothes the protection factors for a given structure. All optimisation in this study instead used the hard-cutoff BV model defined in \cref{eq:bg-bv-feature}. This introduces a forward-model mismatch between target generation and reweighting, which applies equally to both candidate ensembles. Synthetic HDX-uptake curves were generated without added measurement noise to isolate the effects of ensemble composition from experimental uncertainty.
+
+To extend the staged BV-model optimisation benchmark, we tested how fitting protocols respond to errors in the assumed exchange kinetics. The kinetic regime was imposed and known, and we supplied an ensemble with ground-truth structures only. We used the TeaA ISO-Bimodal ensemble, which contains both conformational states contributing to the synthetic target. The target populations were fixed at 40\% open and 60\% closed, while the starting ensemble retained its original population imbalance. Across kinetic conditions, the structural ensemble and target populations were unchanged, while the opening and closing timescales used to generate uptake were varied. Residue protection factors were calculated from the target ensemble using the hard-cutoff BV model with $\beta_C=0.35$ and $\beta_H=2.0$. Unlike the earlier Iso-Validation experiment, the same structural protection-factor model was used for target generation and fitting.
+
+Uptake was generated using the residue-level form of the scheme in \cref{eq:bg-ll-scheme}, $C_i\rightleftharpoons O_i\rightarrow D_i$, where $C_i$ and $O_i$ are unexchanged closed and open states and $D_i$ is the exchanged state. For each residue, rates were defined as
+\begin{equation}
+    k_{\text{cl},i}=\rho\,k_{\text{int},i},
+    \qquad
+    k_{\text{op},i}=\frac{k_{\text{cl},i}}{P_{f,i}-1}.
+    \label{eq:valdx-kinetic-rates}
+\end{equation}
+Here, $\rho$ controls the closing timescale relative to intrinsic exchange while preserving the equilibrium open probability, $1/P_{f,i}$. These residue-level opening probabilities are distinct from the global TeaA open-state population. Although the same $\rho$ is applied to every residue, its effect on uptake depends on the residue-specific intrinsic exchange rate, $k_{\text{int},i}$, and protection factor, $P_{f,i}$. Varying $\rho$ therefore changes uptake magnitudes and time-course shapes rather than applying a uniform multiplicative uptake correction. The experiment tests kinetic misspecification while preserving the generating equilibrium populations. Each residue was initialised at equilibrium, and uptake was calculated by matrix exponentiation of the kinetic rate equations (\cref{app:valdx-kinetic-simulator}). We validated this simulator with three checks, detailed in \cref{app:valdx-kinetic-simulator}. These checks assess the numerical implementation and its agreement with the EX2 limit; they do not establish recovery of the generating BV parameters or conformational populations through fitting.
+
+A sequence-based stochastic pepsin digestion model generated 94 overlapping peptides independently of kinetic condition (\cref{app:valdx-peptide-noise}). Gaussian noise with a standard deviation of 0.02 in fractional uptake was added using matched noise realisations across kinetic conditions. Noisy values were clipped to the interval $[0,1]$. The fraction of noisy values clipped to $[0,1]$ rose with kinetic misspecification, from 2.55\% of values at $\rho=1000$ to 3.83\% at $\rho=1$ and 14.89\% at $\rho=0.01$. The comparisons therefore reflect both kinetic misspecification and the associated differences in boundary clipping; these experiments do not separately quantify their contributions to fitting performance.
+
+All datasets were fitted using the standard EX2/BV forward model without supplying the generating kinetic regime. Comparisons were paired across kinetic conditions using the $\rho=1000$ condition as the EX2-like reference. To account for the different scales of training error and Apparent Work across kinetic conditions, model selection used a normalised score. For each kinetic condition, protocol and split replicate, training MSE ($E_\gamma$) and Apparent Work ($W_\gamma$, \cref{eq:valdx-apparent-work}) were independently min--max-normalised across the candidate values in that reweighting stage's $\gamma$ sweep,
+\begin{equation}
+    s_\gamma = \frac{E_\gamma-E_{\min}}{E_{\max}-E_{\min}}
+             + \frac{W_\gamma-W_{\min}}{W_{\max}-W_{\min}}.
+    \label{eq:valdx-kinetic-selection-score}
+\end{equation}
+The selected $\gamma$ minimised $s_\gamma$, giving equal weight to the two normalised terms; ties were resolved by selecting the lower $\gamma$. The minima and maxima were calculated separately within each split's sweep, without pooling across kinetic conditions or replicates. Validation MSE and population recovery were not used for selection. Reported MSE and Work values retain their original scales.
+
+Absolute population estimates and changes relative to the EX2-like reference were evaluated separately to distinguish baseline recovery limitations from additional population distortion caused by kinetic misspecification.
 
 \subsubsection{Clustering and structural perturbations}
 \label{sec:valdx-decoys}
-% Clustering representation and size sweep.
-% Gaussian noise, coordinate mixing and proton shuffling.
+
+Clustering reduces each parent ensemble to a smaller set of representative structures, which enter fitting with uniform prior weights. We tested whether ensemble comparisons changed when fitting used fewer representative structures. Parent ensembles of 10,000 to 12,700 structures were clustered by k-means on the first 10 principal components (\cref{sec:valdx-work}) to 0.1, 1, 5, 10, 20, 50 and 100\% of their size, and each clustered ensemble was reweighted (\cref{app:valdx-case-clustering}).
+
+Structure poisoning experiments were designed to evaluate how ensemble optimisation responds to controlled structural perturbations. These experiments serve as negative controls to assess whether optimisation algorithms can distinguish between physically plausible and artificially corrupted conformations. Three distinct poisoning strategies were implemented to test different aspects of structural integrity (\cref{tab:valdx-poisoning}). Detailed algorithms and perturbation procedures are given in \cref{app:valdx-perturbations}.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}Xl@{}}
+    \toprule
+        \textbf{Poisoning type} & \textbf{Physical interpretation} & \textbf{Structures added} \\
+        \midrule
+        \textbf{Gaussian Noise} & Probes sensitivity to disrupted local geometry & 0.1\%, 1\%, 10\%, 50\% \\
+        \textbf{Coordinate Mixing} & Creates physically impossible structures to test detection & 0.1\%, 1\%, 10\%, 50\% \\
+        \textbf{Proton Shuffling} & Alters hydrogen bonding patterns while preserving heavy atoms & 0.1\%, 1\%, 10\%, 50\% \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Structure poisoning strategies. Percentages give the number of poisoned structures added relative to the 1000 clustered structures of the unmodified ensemble (\cref{app:valdx-poison-construction}).}
+    \label{tab:valdx-poisoning}
+\end{table}
+
+\paragraph{Gaussian noise.}
+{\emergencystretch=1em Gaussian noise poisoning adds residue-specific random perturbations to atomic coordinates, testing sensitivity to disrupted local geometry. The algorithm calculates residue-specific variance from the parent ensemble, then applies normally distributed coordinate perturbations scaled to match the observed fluctuations. This ties the perturbation scale to the parent ensemble, but the uncorrelated displacements do not preserve physically realistic molecular geometry and therefore do not reproduce unfolded or flexible states. In terms of protection factors, this has the effect of reducing the scale of computed backbone potentials.\par}
+
+\paragraph{Coordinate mixing.}
+Coordinate mixing represents a conceptually more severe structural perturbation by randomly swapping atomic positions within each frame. At the protection factor level, this preserves global structural density (HDX-uptake scale) but effectively smooths the protection factors. By testing ensembles against protection factor blurring, this should minimise scale differences of poisoned structures and so more directly probes the physicality of ensembles.
+
+\paragraph{Proton shuffling.}
+Proton shuffling specifically targets backbone amide hydrogen atoms, which are the primary reporters in HDX-MS experiments. This method randomly reassigns hydrogen positions while maintaining the positions of all heavy atoms. It therefore perturbs the hydrogen-bond contacts used by the BV model without introducing new heavy-atom conformations. At the ensemble level, this tests sensitivity to altered protection-factor patterns at fixed heavy-atom geometry, providing a complementary probe of ensemble quality.
+
+The poisoning experiments used a separate clustering of each unmodified ensemble to 1000 structures. Poisoned structures were added to it sequentially, so each larger dose contains the poisoned structures of the smaller doses (\cref{app:valdx-poison-construction}). The 50\% poisoned ensemble served as a negative control.
 
 \subsubsection{Statistical analysis}
 \label{sec:valdx-statistics}
-% Between-candidate comparisons, changes against zero,
-% regression, split sensitivity and descriptive analyses.
+
+Candidate ensembles and protocols were compared by jointly assessing validation error, Work Done distances from their priors, replicate variability, and agreement across data splits. Reported p-values were unadjusted, and exact values are given in the text and in \cref{app:valdx-supporting-results}. Independent between-ensemble comparisons used Student's two-sample t-tests for TeaA and Welch's two-sample t-tests for BPTI. One-sample t-tests assessed changes against zero within each ensemble or protocol, as specified in \cref{app:valdx-supporting-results}. Plot annotations mark the thresholds $\dagger$ $p<0.25$, $\ddagger$ $p<0.1$, * $p<0.05$, ** $p<0.01$, *** $p<0.001$ and **** $p<0.0001$. The two looser thresholds are marked because the reproducibility of bottom-up HDX-MS ranges from 6.5\% to 22.3\% across labelling conditions, with a weighted mean of 9.0\%.\supercite{hudgensInterlaboratoryComparisonHydrogenDeuterium2019} Differences of this size can be masked by experimental variability, so weaker between-ensemble differences are marked for context rather than discarded. Analyses used the \texttt{scipy.stats} and \texttt{statsmodels} Python packages.
+
+We also assessed associations with population recovery and sensitivity to split type using multiple linear regression, incremental $\Delta R^2$, one-way ANOVA and $\eta^2$ (\cref{app:valdx-statistics}). Regression coefficients describe conditional associations. Because the predictors co-vary along the shared regularisation path, their magnitudes should not be used to rank predictor importance. Incremental $\Delta R^2$ measures the additional fraction of total outcome variance explained within the fitted model; it does not establish predictive performance on unseen data. The kinetic-misspecification benchmark was analysed descriptively.
 
 \section{Uptake agreement and population recovery}
 \label{sec:valdx-population-recovery}

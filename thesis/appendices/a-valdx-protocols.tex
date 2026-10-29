@@ -159,14 +159,135 @@ To represent the most diverse range of fully plausible structures possible withi
 
 \section{Synthetic Data Generation and Simulator Validation}
 \label{app:valdx-synthetic}
-% TeaA state assignment and target construction.
-% Kinetic simulator, numerical checks, digestion model,
-% noise generation, clipping and seeds.
+
+\subsection{TeaA State Assignment}
+\label{app:valdx-teaa-states}
+
+We repeated the trajectory clustering on a sliced (1:50) subset of the original trajectory. Trajectory clustering was performed by aligning all frames to each reference (Open and Closed) and computing the RMSD. Frames were sorted into Open and Closed clusters if structures were less than 1.0~\AA\ from one of the reference structures.
+
+\subsection{Kinetic Uptake Simulator}
+\label{app:valdx-kinetic-simulator}
+
+Writing the per-residue state probabilities as $\mathbf{p}_i(t)=(C_i,O_i,D_i)^\top$, the system obeys $d\mathbf{p}_i/dt=\mathbf{K}_i\mathbf{p}_i(t)$ with generator matrix
+\begin{equation}
+    \mathbf{K}_i=
+    \begin{pmatrix}
+    -k_{\text{op},i} & k_{\text{cl},i} & 0 \\
+    k_{\text{op},i} & -(k_{\text{cl},i}+k_{\text{int},i}) & 0 \\
+    0 & k_{\text{int},i} & 0
+    \end{pmatrix},
+    \label{eq:valdx-kinetic-generator}
+\end{equation}
+solved as $\mathbf{p}_i(t)=\exp(\mathbf{K}_i t)\,\mathbf{p}_i(0)$ from the equilibrium initial condition $O_i(0)=1/P_{f,i}$, $C_i(0)=1-1/P_{f,i}$, $D_i(0)=0$; fractional uptake is read from $D_i(t)$. The rates are those of \cref{eq:valdx-kinetic-rates}. Before generating the calibration datasets used in \cref{ch:valdx}, we ran three independent checks against this implementation.
+
+First, the numerical matrix exponential (\texttt{scipy.linalg.expm}) was compared against an analytic eigenvalue-decomposition solution of the same rate matrix. The maximum absolute error across all tested residues and time points was $4.80\times10^{-7}$, consistent with floating-point precision rather than a modelling error.
+
+Second, we confirmed that the three-state model reduces to the standard EX2 approximation as $\rho$ grows large. At the reference condition $\rho=1000$, exact kinetic uptake matched the closed-form EX2 prediction to a maximum absolute error of $3.68\times10^{-4}$ in fractional uptake, equivalent to 0.0368 percentage points.
+
+Third, probability was conserved exactly, with $C_i(t)+O_i(t)+D_i(t)=1$ at every tested time point, confirming that the generator matrix was constructed correctly.
+
+These three checks were run across 294 TeaA residues, 106 time points, six validation values of $\rho$ ($1000$, $100$, $10$, $1$, $0.1$ and $0.01$), and four additional pathological parameter regimes chosen to stress-test \cref{eq:valdx-kinetic-rates}. The kinetic misspecification experiments reported in \cref{ch:valdx} used three conditions, $\rho \in \{1000,1,0.01\}$. All checks passed. The validation assertions and the accompanying gate report are provided with the deposited code (\texttt{02\_validate\_simulator.py}; \texttt{simulator\_gates.json}).
+
+\subsection{Peptide Map and Measurement Noise}
+\label{app:valdx-peptide-noise}
+
+Fractional peptide uptake was calculated by averaging over eligible residues, excluding the peptide N-terminal amide and residues absent from the exchangeable-residue feature set. Uptake was evaluated at 0.167, 1, 10, 60 and 120 min, with no additional D$_2$O fraction scaling.
+
+Peptide fragments for the kinetic misspecification experiments (\cref{sec:valdx-synthetic}) were generated from the TeaA sequence using a stochastic, sequence-dependent cleavage model rather than a fitted pepsin-specificity predictor. For every peptide bond between residues $i$ and $i+1$, an unnormalised cleavage weight was calculated as
+\begin{equation}
+    W_i = W_{P_1}(a_i)\,W_{P_1'}(a_{i+1})\,M_i,
+    \label{eq:valdx-pepsin-weight}
+\end{equation}
+where $a_i$ and $a_{i+1}$ are the residues immediately before and after the bond. Cleavage was prohibited outright when either residue was proline. A proline at the $P_2$ or $P_2'$ position multiplied the weight by 0.15 for each occurrence, giving $M_i$. The cleavage probability was
+\begin{equation}
+    p_i = \mathrm{clip}(sW_i,\,0,\,1),
+    \label{eq:valdx-pepsin-probability}
+\end{equation}
+with scale factor $s=0.9632476$, calibrated to give an expected inter-cleavage spacing of 10 residues.
+
+Relative $P_1$ propensities were F/L 1.00, W 0.90, Y 0.80, M 0.60, A 0.40, V/I 0.35, E 0.30, Q 0.25, C 0.20, S/N/H 0.12, T 0.15, G 0.10, D 0.08, K 0.06, R 0.05, and P 0. Relative $P_1'$ propensities were F/L 0.90, W 0.80, Y 0.70, M 0.50, A 0.40, V/I 0.35, E 0.30, Q 0.25, C 0.20, T 0.18, S/N/G/H 0.15, D 0.10, K/R 0.08, and P 0.
+
+Each simulated digest sampled every bond independently as a Bernoulli trial using these probabilities. Fragments of 5 to 15 residues were retained, duplicate fragments were removed, and independent digests were pooled until the target mean residue coverage of 2.5 was reached. Ten pooled digests, generated with seed 20260813, produced 94 peptides with mean residue coverage 2.68.
+
+Because the peptide map was generated once from sequence alone, it does not depend on structure, solvent accessibility, charge state, or predicted MS detectability, and it is identical across kinetic regimes and fitting arms. This is a simplified propensity model rather than a validated pepsin-specificity predictor and should be interpreted accordingly.
+
+Measurement noise (Gaussian, $\sigma=0.02$ in fractional uptake) was drawn from a single matched noise realisation shared across kinetic conditions, recorded in the per-condition sidecar files (\texttt{noise\_rho<$\rho$>\_n0.json}). The three peptide-split replicates used seeds 240513, 240514 and 240515; the overall study seed (240513) is additionally recorded in each sweep's invocation record. Simulator, digestion-model and fitting code are deposited alongside the repositories listed in \cref{app:valdx-implementation}.
 
 \section{Clustering and Structural Perturbation Algorithms}
 \label{app:valdx-perturbations}
-% PCA and clustering implementation.
-% Exact noise, coordinate-mixing and proton-shuffling procedures.
+
+\subsection{Poisoning Algorithms}
+\label{app:valdx-poison-algorithms}
+
+\Cref{alg:valdx-gaussian-noise,alg:valdx-coordinate-mixing,alg:valdx-proton-shuffling} give the three operations described in \cref{sec:valdx-decoys}. Each acts on every frame of the parent ensemble.
+
+\begin{algorithm}[htbp]
+\caption{Gaussian noise structure poisoning}
+\label{alg:valdx-gaussian-noise}
+\footnotesize
+\begin{algorithmic}[1]
+\Require Ensemble $X = \{x_1, x_2, \ldots, x_n\}$
+\Require Output path for poisoned structures
+\Ensure Poisoned ensemble with residue-specific Gaussian noise
+\State Initialize $\sigma_{\text{residue}} \leftarrow \{\}$ \Comment{Residue variance dictionary}
+\For{each structure $x \in X$}
+    \For{each residue $r$ in $x$}
+        \State Store coordinates: $\sigma_{\text{residue}}[r.\text{id}].append(r.\text{positions})$
+    \EndFor
+\EndFor
+\For{each residue ID $r_{\text{id}}$ in $\sigma_{\text{residue}}$}
+    \State $\text{positions} \leftarrow \text{array}(\sigma_{\text{residue}}[r_{\text{id}}])$
+    \State $\sigma_{\text{residue}}[r_{\text{id}}] \leftarrow \text{var}(\text{positions}, \text{axis}=0)$
+\EndFor
+\For{each structure $x \in X$}
+    \For{each residue $r$ in $x$}
+        \State $\text{noise} \leftarrow \mathcal{N}(0, \sqrt{\sigma_{\text{residue}}[r.\text{id}]})$
+        \State $r.\text{positions} \leftarrow r.\text{positions} + \text{noise}$
+    \EndFor
+    \State Write poisoned structure to output
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[htbp]
+\caption{Coordinate mixing structure poisoning}
+\label{alg:valdx-coordinate-mixing}
+\footnotesize
+\begin{algorithmic}[1]
+\Require Ensemble $X = \{x_1, x_2, \ldots, x_n\}$
+\Require Output path for poisoned structures
+\Ensure Poisoned ensemble with randomly permuted coordinates
+\For{each structure $x \in X$}
+    \State $\text{coordinates} \leftarrow x.\text{atoms.positions}$ \Comment{Extract all atomic coordinates}
+    \State $\text{shuffled\_coords} \leftarrow \text{random\_permutation}(\text{coordinates})$
+    \State $x.\text{atoms.positions} \leftarrow \text{shuffled\_coords}$
+    \State Write poisoned structure to output
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[htbp]
+\caption{Backbone proton shuffling structure poisoning}
+\label{alg:valdx-proton-shuffling}
+\footnotesize
+\begin{algorithmic}[1]
+\Require Ensemble $X = \{x_1, x_2, \ldots, x_n\}$
+\Require Output path for poisoned structures
+\Ensure Poisoned ensemble with shuffled backbone proton positions
+\For{each structure $x \in X$}
+    \State $\text{backbone\_H} \leftarrow \text{select\_atoms}(\text{``backbone and name H''})$
+    \State $\text{original\_coords} \leftarrow \text{backbone\_H.positions.copy}()$
+    \State $\text{shuffled\_coords} \leftarrow \text{random\_shuffle}(\text{original\_coords})$
+    \State $\text{backbone\_H.positions} \leftarrow \text{shuffled\_coords}$
+    \State Write poisoned structure to output
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Poisoned Ensemble Construction}
+\label{app:valdx-poison-construction}
+
+The unmodified and poisoned parent ensembles were each reduced to representative structures by the same procedure. All atomic Cartesian coordinates of every frame were projected onto their first 50 principal components, and k-means clustering ($k=1000$, fixed random seed) was applied in that projection. The first frame of each cluster, in trajectory order, was taken as its representative. The 1000 representatives of the unmodified ensemble formed the base ensemble. Poisoned representatives were ordered by squared Euclidean distance. Each distance compared a representative in the poisoned Cartesian-coordinate projection with the mean projection of the unmodified parent ensemble in a separate 50-component PCA of coverage-filtered C$\alpha$ pair distances. The poisoned ensemble at dose $n$ comprised the base ensemble followed by the first $n$ ordered poisoned representatives, with $n=1$, 10, 100 and 500 for 0.1, 1, 10 and 50\%. The two projections were fitted separately, so this ordering is fixed and reproducible but is not a distance from the unmodified ensemble average in a shared space.
 
 \section{Experiment-Specific Fitting Protocols}
 \label{app:valdx-case-studies}
@@ -304,7 +425,6 @@ Each list gives the inputs, optimised parameters, split replicates, $\gamma_\tex
 
 \section{Supporting Mathematical and Statistical Details}
 \label{app:valdx-mathematics}
-% Regression specifications and complete statistical tables.
 
 \subsection{Work Done Metrics}
 \label{app:valdx-work-definitions}
@@ -388,6 +508,30 @@ The residue-level LCC is the arithmetic mean of the defined pair correlations wi
     \label{eq:valdx-lcc}
 \end{equation}
 Undefined pair correlations, including those arising from zero displacement variance, are excluded. A residue with no valid pair correlations has no defined neighbourhood mean. Neighbourhood means are shown in \cref{app:valdx-supporting-results} with bands spanning one standard deviation across the contributing pair correlations. These bands describe variation among neighbours, rather than sampling uncertainty in the mean.
+
+\subsection{Regression and Effect Sizes}
+\label{app:valdx-statistics}
+
+To assess the joint association of $\text{MSE}_\text{Training}$ and Apparent Work ($W_\text{app}$) with ground-truth Open State Recovery\%, we fitted a multiple linear regression model with standardised predictors,
+\begin{equation}
+    \text{Recovery} = \theta_1 \text{MSE}_\text{Training} + \theta_2 W_\text{app} + \epsilon,
+    \label{eq:valdx-recovery-regression}
+\end{equation}
+where $\theta_1$ and $\theta_2$ are regression coefficients for the standardised predictors and $\epsilon$ is the error term.
+
+We calculated the additional variance explained by each predictor as the reduction in model $R^2$ when that predictor was excluded,
+\begin{equation}
+    \Delta R^2_i = R^2_\text{full} - R^2_{\text{without},i},
+    \label{eq:valdx-delta-r2}
+\end{equation}
+where $R^2_\text{full}$ is the coefficient of determination for the full model and $R^2_{\text{without},i}$ is the coefficient of determination for the model excluding predictor $i$.
+
+We assessed differences between split type means using one-way ANOVA and quantified the fraction of total variance explained by split type using
+\begin{equation}
+    \eta^2 = \frac{SS_\text{between}}{SS_\text{total}},
+    \label{eq:valdx-eta-squared}
+\end{equation}
+where $SS_\text{between} = \sum_{j=1}^{k} n_j(\bar{x}_j - \bar{x}_\text{grand})^2$ and $SS_\text{total} = \sum_{i=1}^{N}(x_i - \bar{x}_\text{grand})^2$. Here $k$ is the number of split types, $n_j$ is the number of observations in split type $j$, $N=\sum_j n_j$, $\bar{x}_j$ is the mean for split type $j$ and $\bar{x}_\text{grand}$ is the grand mean.
 
 \section{Extended Ensemble Characterisation and Sensitivity Analyses}
 \label{app:valdx-supporting-results}

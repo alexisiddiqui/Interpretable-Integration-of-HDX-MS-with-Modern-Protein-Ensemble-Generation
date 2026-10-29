@@ -20,7 +20,20 @@ experiments:
         runs: [moprp-reference-20260925-v1, moprp-reference-ph7-20260925-v1, moprp-paired-50ns-20260925-v1]
     authoritative_location: coulson
     status_command: null
-    artifacts: []
+    # Metadynamics (MI+PB, pH 4 and 7), paths relative to moprp-paired-50ns-20260925-v1/figures/
+    # Local mirror: ~/Coulson-Chemistry/moprp_results/ (copied 2026-10-22; the mirror is the only home of the pca_mi_cartesian_101 and msm_ext6_* files)
+    artifacts:
+      - figures/pca_mi_cartesian_mi-v2.png          # unbiased / MI / MI+PB / weighted, both pH, 109 residues
+      - moprp_results/pca_mi_cartesian_101_mi-v2.png  # same on the 101 HDX residues, basins circled (local mirror only)
+      - figures/pca_mmpb_final_bias_mi-v2.png       # MI+PB run-time weights vs final PB bias, 100-250 ns
+      - figures/pca_mi_cartesian_halves_mi-v2.png   # first vs second half convergence
+      - figures/basin_frames/repo_run/basins.png    # basin structures
+      # MSM (6 x 100 ns + 6 x 20 ns seeded APO runs per basin and pH), under seeded_apo/msm/ or the local mirror
+      - moprp_results/msm_ext6_main_fes.png         # main model stationary free energy, pH 4 and 7 (local mirror only)
+      - moprp_results/msm_ext6_dG_compare.png       # PUF dG vs Folded, 7 models, both pH, HDX dG_op dashed (local mirror only)
+      - moprp_results/msm_ext6_ck.png               # Chapman-Kolmogorov test, main model (local mirror only)
+      - moprp_results/msm_ext6_mfpt.png             # opening / closing MFPTs, main model (local mirror only)
+      - seeded_apo/msm/ext6_cartpca10_all-kmall_k100_lag5/{msm_fes,msm_its,msm_summary}.png  # main model on Coulson
     figures: []
   - id: bf-gpu-stack-campaigns
     question: null
