@@ -1,6 +1,6 @@
 # Remote experiments
 
-This index connects thesis projects to experiments on other machines. [BioFeaturisers / MaxENT-FK](biofeaturisers.md) and [jax-Ka](jax-ka.md) have initial location entries. Machine access requirements live in [machines.yaml](machines.yaml). Paths and SSH aliases remain unfilled; no remote connections or experiment checks have been performed.
+This index connects thesis projects to experiments on other machines. [BioFeaturisers / MaxENT-FK](biofeaturisers.md) and [jax-Ka](jax-ka.md) have initial location entries. Machine access requirements live in [machines.yaml](machines.yaml). Each machine has an SSH alias and a project root; All three machines were reached on 2026-10-29 and their top-level layout mapped (see each project file).
 
 ## Completing the locations
 
@@ -9,7 +9,7 @@ This index connects thesis projects to experiments on other machines. [BioFeatur
 3. Identify individual experiments and whether their runs are replicated or split across machines. Give each experiment a stable ID independent of its machine and identify the authoritative location when known.
 4. Record the project's existing inspection command, selected output paths and relevant thesis figure IDs. Keep paths relative to the experiment's remote root where possible.
 
-Coulson-Chemistry and Pegasus-Gate require Cisco VPN. Isambard uses Clifton auth; its precise connection procedure still needs recording. The earlier spelling `Pegausus-Gate` is retained as an alias, not a verified hostname.
+Coulson-Chemistry and Pegasus-Gate require Cisco VPN. Isambard uses Clifton auth: run `clifton auth` (the certificate lasts about 12 hours), then `ssh hussain.u6xq@u6xq.aip2.isambard`. Project `u6xq` has replaced the earlier `s5h`. The earlier spelling `Pegausus-Gate` is retained as an alias, not a verified hostname.
 
 Same-Wi-Fi SSH for tunnel-accessible machines is not fully configured, and VS Code port forwarding is unimplemented. Record either route against the relevant machine only once its details are known. A VS Code tunnel name alone does not establish a working SSH route.
 
@@ -20,6 +20,7 @@ Add entries to the project's `experiments` frontmatter list using this shape. Th
 ```yaml
 experiments:
   - id: <stable-experiment-id>
+    status: <primary / in progress / ...>
     question: <what the experiment tests>
     locations:
       - machine: coulson

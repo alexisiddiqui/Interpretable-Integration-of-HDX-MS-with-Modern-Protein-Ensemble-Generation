@@ -1,19 +1,22 @@
 # Logical IDs are not SSH hostnames. null means not yet recorded or verified.
 # Access requirements supplied by the author; no connections tested here.
+# ssh_alias values are Host entries in the author's ~/.ssh/config, except isambard (see ssh_target).
 machines:
   coulson:
     name: Coulson-Chemistry
     access_requirement: Cisco VPN
-    ssh_alias: null
-    last_verified_at: null
+    ssh_alias: Coulson-Chemistry
+    last_verified_at: 2026-10-29T02:27Z
   pegasus:
     name: Pegasus-Gate
     aliases: [Pegausus-Gate]
     access_requirement: Cisco VPN
-    ssh_alias: null
-    last_verified_at: null
+    ssh_alias: Pegasus-Gate
+    last_verified_at: 2026-10-29T02:27Z
   isambard:
     name: isambard
-    access_requirement: Clifton auth
+    access_requirement: Clifton auth (project u6xq; certificate lasts about 12 hours, renew with `clifton auth`)
+    # The ~/.ssh/config alias `isambard` still points at the expired s5h project and does not work.
     ssh_alias: null
-    last_verified_at: null
+    ssh_target: hussain.u6xq@u6xq.aip2.isambard
+    last_verified_at: 2026-10-29T02:44Z
