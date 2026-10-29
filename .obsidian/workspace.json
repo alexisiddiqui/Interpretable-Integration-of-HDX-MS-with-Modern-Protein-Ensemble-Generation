@@ -11,10 +11,14 @@
             "id": "5606dbe3a855e32e",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "file:/Users/alexi/Documents/opig-adaptyv-2026/experiments/026-vhh-framework-census/README.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "README"
             }
           }
         ]
@@ -183,9 +187,18 @@
   },
   "active": "5606dbe3a855e32e",
   "lastOpenFiles": [
+    "thesis/build/pdflatex68010.fls",
+    "thesis/build/pdflatex67817.fls",
+    "thesis/build/main.blg",
+    "thesis/build/main.run.xml",
+    "thesis/build/main.lot",
+    "thesis/build/main.lof",
+    "thesis/build/main.toc",
+    "thesis/build/main.out",
+    "thesis/build/main.bcf",
+    "thesis/build/pdflatex67775.fls",
+    "thesis/build/main.bbl",
     "kb/2026-10-13.md",
-    "kb/Untitled 1.base",
-    "kb/Untitled.base",
     "kb/Untitled.canvas"
   ]
 }

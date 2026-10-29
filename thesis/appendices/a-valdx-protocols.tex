@@ -22,7 +22,7 @@ All filtering was performed before any splitting or optimisation.
 \label{app:valdx-af2}
 
 \paragraph{Featurisation of ensembles.}
-Since AF2 structures natively do not contain hydrogens, these must be added post hoc, because the BV model counts hydrogen bonds to the amide (\cref{eq:bg-bv-feature}). Backbone amide H atoms were added using standard peptide geometry (N--H bond length $1.02\,\text{\AA}$).\supercite{yaoNMRDeterminationAmide2008} Backbone amide proton coordinates were computed using barycentric coordinates of the peptide plane.
+Since AF2 structures natively do not contain hydrogens, these must be added post hoc, because the BV model of \cref{eq:bg-bv-feature} counts contacts to the amide hydrogen. Backbone amide H atoms were added using standard peptide geometry (N--H bond length $1.02\,\text{\AA}$).\supercite{yaoNMRDeterminationAmide2008} Backbone amide proton coordinates were computed using barycentric coordinates of the peptide plane.
 
 \paragraph{AlphaFold MSA subsampling.}
 ColabFold was used to generate the AlphaFold2 (AF2) ensembles.\supercite{mirditaColabFoldMakingProtein2022} MSA subsampling\supercite{monteirodasilvaHighthroughputPredictionProtein2024} was performed over a range of 1--127 Max Sequences with Max Extra Sequences set to twice the Max Seq value. Each parameter set was used to generate 100 structures (20 seeds). For each protein, a single recycling step was used with no minimisation, generating 12,700 structures in total.
@@ -66,7 +66,7 @@ After filtering, we cluster retained structures in the first five principal comp
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.63\textwidth, keepaspectratio]{valdx-af2-cleaning-contact-order/fig.png}
+    \includegraphics[width=0.60\textwidth, keepaspectratio]{valdx-af2-cleaning-contact-order/fig.png}
     \caption[AF2-MSAss ensemble cleaning using contact order and local correlation assessment]{AF2-MSAss ensemble cleaning using contact order and local correlation assessment across five protein systems. Contact Order plotted against reference-based structural local-distance correlation for \textbf{(A)} BPTI, \textbf{(B)} BRD4, \textbf{(C)} HOIP, \textbf{(D)} LXR$\alpha$, and \textbf{(E)} MBP protein systems, with points coloured by pLDDT confidence scores. Quality thresholds for structure filtering shown as grey dashed lines for minimum/maximum Contact Order and structural local-distance correlation, with percentile values varying by protein complexity. Median values indicated by black dotted lines. Structures selected by the three criteria are labelled Max-Rank (black crosses), Max-pLDDT (red stars), and Max-PAE (orange triangles), denoting the highest-pLDDT structure in the 127-MSA subset, the highest-pLDDT structure in the complete ensemble, and the highest-PAE structure in the complete ensemble, respectively. PAE denotes predicted aligned error; higher values indicate lower confidence. Results demonstrate systematic structural quality gradients, with well-folded proteins showing distinct high-confidence clusters while flexible proteins display broader distributions.}
     \label{fig:valdx-af2-contact-order}
 \end{figure}
@@ -170,14 +170,224 @@ To represent the most diverse range of fully plausible structures possible withi
 
 \section{Experiment-Specific Fitting Protocols}
 \label{app:valdx-case-studies}
-% Per-experiment inputs, ensemble sizes, parameter grids,
-% replicate counts and selection settings.
-% Detailed knee-selection and consensus procedures.
+
+Each list gives the inputs, optimised parameters, split replicates, $\gamma_\text{HDXer}$ grid and outputs of one experiment. Protocols are defined in \cref{tab:valdx-protocols}, split types in \cref{sec:valdx-splits} and metrics in \cref{sec:valdx-work}.
+
+\begingroup
+\raggedright
+
+\subsection{Iso-Validation}
+\label{app:valdx-case-iso}
+\begin{itemize}
+    \item \textbf{Inputs:} ISO-Bimodal and ISO-Trimodal ensembles; Synthetic HDX-uptake curves (generated from the ISO-Bimodal ensemble reweighted from 5\% to 40\% Open).
+    \item \textbf{Optimised parameters:} Frame weights (RW-only).
+    \item \textbf{Splits/Replicates:} 3 replicates $\times$ 4 split types (Non-Redundant, Spatial, Random, Sequential).
+    \item \textbf{Optimisation grid:} $\gamma_\text{HDXer} \in \{1, \dots, 9\} \times 10^{\{-1, 0, 1\}}$.
+    \item \textbf{Outputs computed:} $\text{MSE}_\text{Training}$, Apparent Work, Open State Recovery \%.
+\end{itemize}
+
+\subsection{Reweighting-Only}
+\label{app:valdx-case-rw}
+\begin{itemize}
+    \item \textbf{Inputs:} Clustered ensembles (500 structures, k-means on PCA); HDX-MS Data (HDX-NMR for BPTI).
+    \item \textbf{Optimised parameters:} Frame weights (RW-only).
+    \item \textbf{Splits/Replicates:} 3 replicates $\times$ 2 split types (Non-Redundant, Spatial).
+    \item \textbf{Optimisation grid:} $\gamma_\text{HDXer} \in \{1, \dots, 8\} \times 10^{0}$.
+    \item \textbf{Outputs computed:} $W_1$ distance (AF2-Filtered vs.\ MD-1Start parent ensembles), $\text{MSE}_\text{Validation}$, $\Delta \text{MSE}_\text{opt}$, $\text{Work}_\text{shape}$, multivariate $\sigma$ (using $\text{Work}_\text{scale}$ and $\text{Work}_\text{density}$).
+\end{itemize}
+
+\subsection{BV-Model Parameter Optimisation}
+\label{app:valdx-case-bv}
+\begin{itemize}
+    \item \textbf{Inputs:} Unclustered parent ensembles; HDX-MS Data.
+    \item \textbf{Optimised parameters:} $\beta_C$, $\beta_H$ (BV-only).
+    \item \textbf{Splits/Replicates:} 10 replicates $\times$ 2 split types (Non-Redundant, Spatial).
+    \item \textbf{Outputs computed:} Optimal $\beta_C$, $\beta_H$ values, $\text{MSE}_\text{Validation}$.
+\end{itemize}
+
+\subsection{Protocol Comparison Benchmark}
+\label{app:valdx-case-protocols}
+\begin{itemize}
+    \item \textbf{Inputs:} AF2-Filtered ensemble (500 structures); HDX-MS Data (HDX-NMR for BPTI).
+    \item \textbf{Optimised parameters:} All protocols (BV-only, RW-only, RWafterBV, BVafterRW, MutualBVRW).
+    \item \textbf{Splits/Replicates:} 3 replicates per stage.
+    \item \textbf{Optimisation grid:} $\gamma_\text{HDXer} \in \{1, \dots, 8\} \times 10^{0}$ (for reweighting stages).
+    \item \textbf{Outputs computed:} Comparative metrics across protocols.
+\end{itemize}
+
+\subsection{Kinetic Misspecification}
+\label{app:valdx-case-kinetic}
+\begin{itemize}
+    \item \textbf{Inputs:} ISO-Bimodal ensemble clustered to 500 structures; synthetic peptide uptake generated at $\rho \in \{1000,1,0.01\}$.
+    \item \textbf{Optimised parameters:} RW-only, RWafterBV, and BVafterRW, using the staged procedures of \cref{sec:valdx-fitting}.
+    \item \textbf{Splits/Replicates:} 3 peptide-split replicates per kinetic condition; one matched noise realisation across conditions.
+    \item \textbf{Optimisation grid:} $\gamma_\text{HDXer} \in \{1, \dots, 9\} \times 10^{0}$ (for reweighting stages).
+    \item \textbf{Outputs computed:} Training and validation MSE, Open State Recovery, open-state populations, and Work Done metrics.
+\end{itemize}
+
+\subsection{Ensemble Size (Clustering) Sweep}
+\label{app:valdx-case-clustering}
+\begin{itemize}
+    \item \textbf{Inputs:} Parent ensembles (10,000--12,700 structures), clustered to sizes \{0.1\%, 1\%, 5\%, 10\%, 20\%, 50\%, 100\%\}; HDX-MS Data (HDX-NMR for BPTI).
+    \item \textbf{Optimised parameters:} Frame weights (RW-only).
+    \item \textbf{Splits/Replicates:} 3 replicates $\times$ 2 split types.
+    \item \textbf{Optimisation grid:} $\gamma_\text{HDXer} \in \{1, \dots, 8\} \times 10^{0}$.
+    \item \textbf{Outputs computed:} Metrics vs Cluster Size.
+\end{itemize}
+
+\subsection{Structure Poisoning}
+\label{app:valdx-case-poisoning}
+\begin{itemize}
+    \item \textbf{Inputs:} Clustered ensembles (1000 structures) + Poisoned structures (0.1\%, 1\%, 10\%, 50\%); HDX-MS Data.
+    \item \textbf{Optimised parameters:} Frame weights (RW-only).
+    \item \textbf{Splits/Replicates:} 3 replicates $\times$ 2 split types.
+    \item \textbf{Optimisation grid:} $\gamma_\text{HDXer} \in \{1, \dots, 8\} \times 10^{0}$.
+    \item \textbf{Outputs computed:} Correlation ($R$) and Standard Deviation ($SD$) of metrics.
+\end{itemize}
+
+\endgroup
+
+\subsection{Curve-of-the-Knee Algorithm}
+\label{app:valdx-knee}
+
+\begin{algorithm}[htbp]
+\caption{Curve-of-the-knee $\gamma_\text{HDXer}$ optimisation}
+\label{alg:valdx-knee}
+\footnotesize
+\begin{algorithmic}[1]
+\Require Set of candidate values $\gamma_\text{HDXer}= \{\gamma_1, \gamma_2, \ldots, \gamma_n\}$
+\Require Corresponding error values $E = \{e_1, e_2, \ldots, e_n\}$
+\Require Apparent work values $W = \{w_1, w_2, \ldots, w_n\}$
+\Ensure Optimal $\gamma^*$
+\State Initialize $x \leftarrow W$, $y \leftarrow E$
+\State Sort data points by $x$ values
+\If{$|x| = 1$}
+    \State \Return $\gamma_1$
+\ElsIf{$|x| = 0$}
+    \State \textbf{raise} ValueError(``No valid gamma values found'')
+\EndIf
+\State $\gamma^* \leftarrow \text{null}$
+\State \textit{// Method 1: Angle-based selection}
+\State $\theta \leftarrow []$
+\For{$i = 1$ to $|x|-1$}
+    \State $\theta_i \leftarrow \arctan\left(\frac{y_{i+1} - y_i}{x_{i+1} - x_i}\right)$
+    \State Append $\theta_i$ to $\theta$
+\EndFor
+\If{$\theta \neq []$}
+    \State $\theta^* \leftarrow \arg\min_{\theta_i} |\theta_i + \pi/4|$
+    \State $\gamma^* \leftarrow \gamma_{\text{index}(\theta^*)}$
+\EndIf
+\If{$\gamma^* = \text{null}$}
+    \State \textit{// Method 2: Maximum distance from regression line}
+    \State Fit linear regression: $\hat{y} = mx + b$ where $(m, b) = \text{polyfit}(x, y, 1)$
+    \State $d \leftarrow []$
+    \For{$i = 1$ to $|x|$}
+        \State $d_i \leftarrow |y_i - (mx_i + b)|$
+        \If{$y_i < mx_i + b$}
+            \State $d_i \leftarrow -d_i$ \textit{// Negative for points below regression line}
+        \EndIf
+        \State Append $d_i$ to $d$
+    \EndFor
+    \State Filter: $d \leftarrow \{d_i : d_i < 0\}$ \textit{// Keep only negative distances}
+    \If{$d \neq []$}
+        \State $d^* \leftarrow \max\{|d_i| : d_i \in d\}$ \textit{// Maximum absolute negative distance}
+        \State $\gamma^* \leftarrow \gamma_{\text{index}(d^*)}$
+    \EndIf
+\EndIf
+\If{$\gamma^* = \text{null}$}
+    \State \textit{// Method 3: Fallback to first valid gamma}
+    \State $\gamma^* \leftarrow \min\{\gamma_i : e_i \text{ is finite}\}$
+\EndIf
+\State \Return $\gamma^*$
+\end{algorithmic}
+\end{algorithm}
 
 \section{Supporting Mathematical and Statistical Details}
 \label{app:valdx-mathematics}
-% Extended Work metric derivations and structural metric definitions.
 % Regression specifications and complete statistical tables.
+
+\subsection{Work Done Metrics}
+\label{app:valdx-work-definitions}
+
+The Work Done metrics of \cref{sec:valdx-work} are reported in energy units but do not represent thermodynamic work or changes in protein enthalpy or entropy. Changes in either direction contribute positively. Their energy scale comes from the EX2 regime. With the predominantly closed-state approximation, the opening free energy of residue $i$ is approximately $RT\ln P_{f,i}$ (\cref{eq:bg-opening-free-energy}). The EX2 relation motivates expressing log-protection changes on an $RT$ energy scale. The Work Done metrics are nevertheless defined as statistical comparisons of protection profiles. Each profile is the ensemble-averaged BV log protection factor of \cref{eq:bg-bv-average}, calculated with that ensemble-model's own frame weights and BV coefficients.
+
+Mean-centring separates changes in relative protection from shifts in overall protection. Each residue's absolute deviation from the mean log protection factor, scaled by $RT$, gives its centred protection score. The same deviations define a residue weight and an entropy-like contribution. Centring and weights are calculated separately for each profile over the same matched residues. Because $w_\text{opt}(X;i)=e^{-a_i}\sum_{j=1}^{N}e^{-a_j}$, the weights sum to $\left(\sum_{i=1}^{N}e^{-a_i}\right)^2$ rather than to one, and $S_\text{opt}(X;i)$ is negative wherever $w_\text{opt}(X;i)>1$.
+
+Work opt combines the centred score and the entropy-like contribution within each residue before taking the absolute value. By the triangle inequality, $\text{Work}_\text{opt}\le\text{Work}_\text{shape}+\text{Work}_\text{density}$. The same expressions compare any two profiles $X_1$ and $X_2$ over matched residues by substituting them for $X$ and $\hat X$.
+
+\subsection{Structural Comparison Metrics}
+\label{app:valdx-structural-metrics}
+
+\paragraph{Local mean pair-distance RMS difference.}
+For each residue $i$, we construct a neighbourhood $\mathcal S_i$ from ensemble 1's mean coordinates. Within that fixed neighbourhood, we calculate the mean distance of each unique C$\alpha$ residue pair separately in each ensemble and then take the RMS difference between those means,
+\begin{equation}
+    \overline d_{ab}^{\,X}=\frac{1}{|X|}
+    \sum_{x\in X}\lVert\mathbf r_a(x)-\mathbf r_b(x)\rVert_2,
+    \label{eq:valdx-mean-pair-distance}
+\end{equation}
+\begin{equation}
+    D_i(X_1,X_2)=
+    \sqrt{\frac{1}{M_i}
+    \sum_{\substack{a<b\\a,b\in\mathcal S_i}}
+    \left(\overline d_{ab}^{\,X_1}-\overline d_{ab}^{\,X_2}\right)^2},
+    \qquad M_i=\binom{|\mathcal S_i|}{2}.
+    \label{eq:valdx-pair-rms}
+\end{equation}
+This unweighted quantity measures differences in local ensemble-mean pair distances, in \text{\AA}. Pair distances are invariant to rigid translation and rotation of individual structures; neighbourhood selection from mean Cartesian coordinates nevertheless depends on how those coordinates were prepared. Because the neighbourhood is selected from ensemble 1, reversing the ensemble order can change the neighbourhood and the resulting value.
+
+\paragraph{Residue-averaged Wasserstein-1 distance.}
+For residue $i$, the C$\alpha$ distances to every C$\alpha$ atom, including its zero distance to itself, are pooled over all frames of ensemble $X$,
+\begin{equation}
+    \Omega_i(X)=\left\{\lVert\mathbf r_i(x)-\mathbf r_j(x)\rVert_2 : j=1,\dots,N,\ x\in X\right\}.
+    \label{eq:valdx-w1-pool}
+\end{equation}
+Frames are unweighted. As $W_1$ is computed between normalised distributions, each pool is smoothed by a Gaussian kernel density estimate (KDE), $\hat f_i^{X}$. SciPy's KDE implementation uses Scott's rule for bandwidth selection.\supercite{virtanenSciPy10Fundamental2020} Both densities are evaluated on a common grid of $K=1000$ evenly spaced points $g_1<\dots<g_K$ spanning the pooled distances of both ensembles and normalised over that grid, giving $p_{i,k}^{X}=\hat f_i^{X}(g_k)/\sum_{l=1}^{K}\hat f_i^{X}(g_l)$ and cumulative distributions $F_{i,k}^{X}=\sum_{l\le k}p_{i,l}^{X}$. The residue distance and its average over the $N$ compared residues are
+\begin{equation}
+    W_{1,i}(X_1,X_2)=\sum_{k=1}^{K-1}\left|F_{i,k}^{X_1}-F_{i,k}^{X_2}\right|\left(g_{k+1}-g_k\right),
+    \qquad
+    \langle W_1(X_1,X_2)\rangle=\frac{1}{N}\sum_{i=1}^{N}W_{1,i}(X_1,X_2),
+    \label{eq:valdx-w1}
+\end{equation}
+in \text{\AA}. Values approaching zero indicate identical pooled distance distributions, and larger values indicate divergence between them.
+
+\paragraph{Weighted RMSF.}
+To account for the non-uniform weights of structures in the ensemble, the weighted RMSF for residue $i$ is computed as
+\begin{equation}
+    \text{RMSF}_i(X)=\sqrt{\sum_{x\in X}p(x)\left\lVert\mathbf r_i(x)-\langle\mathbf r_i(X)\rangle\right\rVert^2},
+    \qquad
+    \langle\mathbf r_i(X)\rangle=\sum_{x\in X}p(x)\,\mathbf r_i(x),
+    \label{eq:valdx-weighted-rmsf}
+\end{equation}
+where $p(x)$ is the weight of structure $x$ in ensemble $X$.
+
+\paragraph{Dynamical local cross-correlation.}
+For each ensemble $X$, we define the displacement of residue $i$ relative to its mean C$\alpha$ position and calculate its normalised displacement covariance with residue $j$,
+\begin{equation}
+\begin{aligned}
+    \delta\mathbf r_i(t)&=\mathbf r_i(t)-\langle\mathbf r_i\rangle_t,\\
+    C_{ij}(X)&=
+    \frac{\langle\delta\mathbf r_i(t)\cdot\delta\mathbf r_j(t)\rangle_t}
+    {\sqrt{\langle\lVert\delta\mathbf r_i(t)\rVert_2^2\rangle_t
+    \langle\lVert\delta\mathbf r_j(t)\rVert_2^2\rangle_t}}.
+\end{aligned}
+    \label{eq:valdx-dynamical-pair-correlation}
+\end{equation}
+Averages are unweighted averages over ensemble frames. Trajectories were aligned on C$\alpha$ atoms before analysis. Spatial neighbours are identified using the mean inter-residue distance over frames,
+\begin{equation}
+    \mathcal N_i(X)=\left\{j\ne i:
+    \left\langle\lVert\mathbf r_i(t)-\mathbf r_j(t)\rVert_2\right\rangle_t
+    \leq8\,\text{\AA}\right\}.
+    \label{eq:valdx-lcc-neighbours}
+\end{equation}
+The residue-level LCC is the arithmetic mean of the defined pair correlations within this neighbourhood,
+\begin{equation}
+    \mathrm{LCC}_i(X)=\frac{1}{|\mathcal V_i(X)|}
+    \sum_{j\in\mathcal V_i(X)}C_{ij}(X),
+    \qquad
+    \mathcal V_i(X)=\{j\in\mathcal N_i(X):C_{ij}(X)\text{ is defined}\}.
+    \label{eq:valdx-lcc}
+\end{equation}
+Undefined pair correlations, including those arising from zero displacement variance, are excluded. A residue with no valid pair correlations has no defined neighbourhood mean. Neighbourhood means are shown in \cref{app:valdx-supporting-results} with bands spanning one standard deviation across the contributing pair correlations. These bands describe variation among neighbours, rather than sampling uncertainty in the mean.
 
 \section{Extended Ensemble Characterisation and Sensitivity Analyses}
 \label{app:valdx-supporting-results}

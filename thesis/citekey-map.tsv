@@ -121,6 +121,7 @@ pelikanStructureFlexibilityProteins2009	pelikanStructureFlexibilityProteins2009	
 puchadesEpitopeMappingDiverse2019	puchadesEpitopeMappingDiverse2019	key	milestones/2025-11-confirmation-of-status/introduction/measuring_dynamics.tex:13
 puchades_epitope_2019	puchadesEpitopeMappingDiverse2019	doi	projects/1-ValDX/manuscript/report/1_introduction_omc.tex:17
 raddiAutomaticForwardModel2025	raddiAutomaticForwardModel2025	manual	bib-only
+raddi_biceps_2023	raddiBICePsV20Software2023c	doi	thesis/chapters/03-valdx.tex:285
 reisFastInterpretableDeep2022	reisFastInterpretableDeep2022	key	thesis/chapters/06-jax-ka.tex
 reisPKPDBProteinData2022	reisPKPDBProteinData2022	key	thesis/chapters/06-jax-ka.tex
 reisPypKaFlexiblePython2020	reisPypKaFlexiblePython2020	key	thesis/chapters/06-jax-ka.tex
@@ -154,6 +155,7 @@ varadiAlphaFoldProteinStructure2022	varadiAlphaFoldProteinStructure2022	key	mile
 vaswaniAttentionAllYou2017	vaswaniAttentionAllYou2017	key	thesis/chapters/06-jax-ka.tex
 vendruscoloRareFluctuationsNative2003	vendruscoloRareFluctuationsNative2003	key	projects/1-ValDX/manuscript/report/2_hdx_theory_omc.tex:7
 vinciauskaiteFundamentalsHDXMS2023	vinciauskaiteFundamentalsHDXMS2023	key	milestones/2025-11-confirmation-of-status/introduction/measuring_dynamics.tex:11
+virtanen_scipy_2020	virtanenSciPy10Fundamental2020	doi	thesis/appendices/a-valdx-protocols.tex:344
 waldhoerMinimumEnergyPaths2019	waldhoerMinimumEnergyPaths2019	key	thesis/chapters/01-introduction.tex:80
 wanReconcilingSimulatedEnsembles2020	wanReconcilingSimulatedEnsembles2020	key	milestones/2025-11-confirmation-of-status/introduction/biological_dynamics.tex:40
 wan_reconciling_2020	wanReconcilingSimulatedEnsembles2020	doi	projects/1-ValDX/manuscript/report/1_introduction_omc.tex:17

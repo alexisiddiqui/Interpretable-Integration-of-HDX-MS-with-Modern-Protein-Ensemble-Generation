@@ -108,19 +108,199 @@ The purpose of the various MD experiments performed is to create a range of ense
 
 \subsection{Data splitting and replicate fits}
 \label{sec:valdx-splits}
-% Baseline, Non-Redundant and Spatial partitions.
-% Overlap removal, training fractions, and replicate design.
+
+Because peptides share residues, a validation peptide can be partially `known' from training peptides covering similar regions. For example, if residue 50 is measured by five different peptides, information about that residue leaks between training and validation sets, inflating apparent performance. We therefore define splits that minimise shared residue coverage. To test whether an ensemble accurately represents protein dynamics at different structural scales, we designed splitting strategies that isolate distinct types of information.
+
+\paragraph{Non-Redundant split (global scale).}
+This split clusters peptides by sequence region, ensuring validation peptides test entirely unseen segments of the protein. This tests the ensemble's ability to predict global conformational behaviour without relying on local overfitting. Specifically, using the start and end positions of each peptide as features, a k-means clustering algorithm is applied using a tenth of the total number of peptides as the number of clusters. Clusters are then randomly assigned according to the specified training fraction; peptides that share at least one residue with a peptide in the other set are then removed from both sets.
+
+\paragraph{Spatial split (local scale).}
+This split withholds peptides covering contiguous 3D regions of the protein structure. This tests the ensemble's accuracy in capturing local substructural dynamics, such as domain motions or specific binding site flexibility. A residue is randomly selected from the protein. The remaining residues are ordered by the distance of their $C_{\alpha}$ atoms from the selected residue's $C_{\alpha}$ atom. The training set is filled in order of proximity of peptide-residues. Overlapping peptides are then removed from both sets.
+
+\paragraph{Random and Sequential splits (baselines).}
+We also implemented standard random and sequential splits as baselines to demonstrate the insufficiency of methods that do not account for information leakage. These splits typically result in high overlap between training and validation sets. For the random split, peptides are randomly selected for the training set and the remainder used in the validation set. For the sequential split, peptides are ordered based on sequence number and are then selected up to the training fraction; the remainder is used in the validation set.
+
+All splitting algorithms used a target training fraction of 50\%. Removal of overlapping peptides could alter the realised fraction, with both training and validation sets containing at least 10\% of the original peptides. To improve diversity and prevent redundancy-driven bias, peptides with high overlap density were stochastically dropped (10\% dropout rate) prior to splitting. Where splitting fails, overlap can be resolved by adjusting the initial peptide redundancy dropout or directly removing extremely long or redundant peptides. For BPTI the observations are residues rather than peptides, so the same algorithms partition residues (\cref{sec:valdx-inputs}).
+
+ValDX is built around the HDXer optimisation package,\supercite{bradshawInterpretationHDXData2020} but the overall protocol is transferable. The workflow starts with data splitting. For each replicate, ensemble-structural features are computed for both the training and validation observation sets. The training data (peptides for bottom-up HDX-MS or residues for BPTI, together with their structural features) are used for fitting across multiple free-parameter choices ($\gamma_\text{HDXer}$, \cref{sec:valdx-fitting}). Within each split-replicate, representative parameters are selected from the training data using the curve-of-the-knee algorithm, except in the kinetic misspecification benchmark, which uses a normalised selection score (\cref{sec:valdx-synthetic}). From this replicate-parameter set, model parameters and weights are extracted and used to calculate validation MSE as well as Work Done distances (\cref{sec:valdx-work}). These metrics are pooled across replicates and can then be compared in downstream analysis.
+
+Most experiments used three split replicates for each split type, and the BV-parameter optimisation used ten. The Iso-Validation benchmark included all four split types; the reweighting, BV-parameter, clustering and perturbation experiments used the Non-Redundant and Spatial splits. Exact designs are given in \cref{app:valdx-case-studies}. The split replicates are intended to measure sensitivity to peptide-level partitioning, which is distinct from the 5\% RSD filter applied to centroid means at each time point (\cref{app:valdx-hdx-data}).
+
+Between-split agreement complements within-split uncertainty as a diagnostic. Because the two strategies withhold different structural aspects, close agreement between their averages supports a result that does not depend on the partition. Disagreement indicates that the result depends on which structural regions are withheld.
 
 \subsection{Fitting protocols, parameter selection and consensus}
 \label{sec:valdx-fitting}
-% RW-only, BV-only, staged and alternating fitting.
-% Training-only selection of fitting strength and consensus construction.
+
+To align simulated ensembles with experimental HDX-MS data, we employ MaxEnt reweighting (\cref{sec:bg-maxent}). This balances experimental agreement against changes to the prior populations. Reweighting cannot add missing conformations or repair implausible structures.
+
+We employed optimisation protocols differing in which parameters were allowed to vary (\cref{tab:valdx-protocols}). BV-only, RW-only and MutualBVRW are standard HDXer protocols. To investigate what happens at each stage of combined approaches, we took the optimised ensembles resulting from BV-only and RW-only and applied the complementary method as a second step, yielding BVafterRW and RWafterBV.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+    \toprule
+        \textbf{Protocol} & \textbf{What changes} & \textbf{What stays fixed} \\
+        \midrule
+        \textbf{RW-only} & Frame weights & $\beta_C$, $\beta_H$ \\
+        \textbf{BV-only} & $\beta_C$, $\beta_H$ & Frame weights (uniform) \\
+        \textbf{RWafterBV} & Frame weights, after a BV-only stage & $\beta_C$, $\beta_H$ from the BV-only stage \\
+        \textbf{BVafterRW} & $\beta_C$, $\beta_H$, after an RW-only stage & Frame weights from the RW-only stage \\
+        \textbf{MutualBVRW} & Both, applied successively at each iteration until convergence & -- \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Optimisation protocols. RW denotes MaxEnt reweighting of frame weights and BV denotes fitting of the Best--Vendruscolo coefficients. The second stage of RWafterBV and BVafterRW starts from the consensus of the first stage's replicates.}
+    \label{tab:valdx-protocols}
+\end{table}
+
+HDXer implements a MaxEnt optimisation framework to reweight the simulated ensemble.\supercite{bradshawInterpretationHDXData2020} Protection factors are predicted from coordinates with the Best--Vendruscolo (BV) model (\cref{eq:bg-bv-feature,eq:bg-bv-average}). The $\beta_C$ and $\beta_H$ scaling factors function purely as empirical calibration parameters rather than mechanistic descriptors. We write $X$ for the prior ensemble-model, its frame weights together with its BV coefficients, and $\hat X$ for the fitted ensemble-model.
+
+We denote HDXer's Apparent Work by $W_\text{app}$, expressing the published formulation (Eq.~6 of Bradshaw et al.\supercite{bradshawInterpretationHDXData2020}) in the notation used here. Apparent Work quantifies the reweighting bias in energy units,
+\begin{equation}
+    W_\text{app}(X,\hat X) = RT\ln
+    \left\langle \exp\left\{
+    -\sum_{i=1}^{N}\hat\lambda_i
+    \left[q_i(j)-\langle q_i\rangle_{\hat X}\right]
+    \right\}\right\rangle_{\hat X},
+    \label{eq:valdx-apparent-work}
+\end{equation}
+where $i$ indexes the $N$ modelled residues, $j$ denotes a conformation, $\hat\lambda_i$ are the optimised dimensionless Lagrange multipliers, and $\langle\cdot\rangle_{\hat X}$ denotes an average over conformations weighted by their probabilities in the reweighted ensemble $\hat X$, so that $\langle q_i\rangle_{\hat X}$ is the ensemble-averaged natural logarithm of the protection factor for residue $i$. Because HDXer weights conformations as $w_j\propto w_j^0\exp[\sum_i\hat\lambda_i q_i(j)]$, \cref{eq:valdx-apparent-work} equals $RT\,D_\text{KL}(w\Vert w^0)$, the molar apparent work of \cref{sec:bg-maxent}. At the 300~K analysis temperature, $RT=2.494$~kJ\,mol$^{-1}$.
+
+HDXer finds the multipliers $\hat\lambda_i$ that minimise the regularised objective of \cref{eq:bg-regularised-objective}, in which the KL term is $W_\text{app}/RT$ (keeping the ensemble close to the prior) and the error term measures disagreement with experimental data. In ValDX the error term sums only over training observations,
+\begin{equation}
+    \gamma_\text{HDXer}\sum_{t\in\mathcal T}\sum_{o\in\mathcal O}
+    \frac{\left(\hat D_{o,t}^\text{train}(\hat X)-D_{o,t}^\text{train}(Y)\right)^2}{2\eta^2},
+    \label{eq:valdx-hdxer-error}
+\end{equation}
+where $o\in\mathcal O$ indexes an experimental observation (a peptide for the bottom-up HDX-MS datasets and a residue for the BPTI NMR-derived dataset), $t\in\mathcal T$ indexes labelling times, $\hat D_{o,t}^\text{train}(\hat X)$ is the predicted fractional uptake, and $D_{o,t}^\text{train}(Y)$ is the corresponding measured or experimentally derived fractional uptake of the data $Y$. For BPTI, it is the residue-wise uptake calculated from the experimental NMR protection factor (\cref{sec:valdx-inputs}); for the peptide-level datasets, it is the measured peptide fractional uptake. The uncertainty parameter is fixed at $\eta=1$, and $\gamma_\text{HDXer}$ is the dimensionless optimisation parameter that balances fitting accuracy against the work required to reweight the ensemble.
+
+Higher $\gamma_\text{HDXer}$ values allow more aggressive fitting to experimental data but risk overfitting by forcing large deviations from the prior ensemble. Lower values preserve the prior distribution but may result in poorer fit to experiment. We tested $\gamma_\text{HDXer}$ values from $1\times10^0$ to $9\times10^0$, spanning a range from minimal to strong fitting. The exception is the Iso-Validation benchmark, whose grid ran from $1\times10^{-1}$ to $9\times10^{1}$ (\cref{app:valdx-case-iso}); the grid used in each experiment is given in \cref{app:valdx-case-studies}. Larger values of $\gamma_\text{HDXer}$ were tested in preliminary analyses but we found that above $\gamma_\text{HDXer}=9\times10^0$, the optimiser would consistently fail in some split-replicates.
+
+\paragraph{Curve-of-the-knee selection.}
+The optimal regularisation parameter ($\gamma_\text{HDXer}$) balances fitting accuracy against overfitting. For experiments using knee selection, we identified this balance point automatically by plotting apparent work against training error and finding the ``elbow'', the point where additional fitting strength provides diminishing returns. This was computed as the point where the local gradient approaches $-1$ (45\textdegree\ slope) on the work-error tradeoff curve. The knee was selected from the training error versus apparent work curve (both linear scale), using the $\gamma_\text{HDXer}$ grid specified for each experiment in \cref{app:valdx-case-studies}. This is a naive implementation of the qualitative parameter selection method described by HDXer tutorials and literature.\supercite{leeInterpretingHydrogenDeuteriumExchange2021,bradshawInterpretationHDXData2020} The full algorithm is given in \cref{alg:valdx-knee}.
+
+\paragraph{Consensus across replicates.}
+For multi-stage protocols, replicates were mean-averaged over weights and parameters to provide the prior for the next stage. Split replicates in staged protocols therefore shared the consensus weights or parameters obtained from the preceding stage. Their variation describes sensitivity to peptide partitioning and does not represent independent measurement-noise replication.
+
+\paragraph{Optimisation failures.}
+Optimisation runs themselves may fail. Preliminary investigations showed that larger $\gamma_\text{HDXer}$ runs are more likely to fail; due to the Lagrangian formulation it is unlikely that all simulations within a replicate fail. If replicates are consistently failing, adding additional replicates can overcome this and reducing $\gamma_\text{HDXer}$ leads to more conservative fitting.
 
 \subsection{Assessment metrics}
 \label{sec:valdx-work}
-% Uptake error, population recovery, Apparent Work and ValDX Work metrics.
-% Replicate dispersion, agreement between partitions, and Work accounting.
-% Brief comparison with Bayesian evidence scoring.
+
+To quantify the quality of the optimised ensembles, we employed a set of metrics measuring both the fit to experimental data and the deviation from the prior ensemble (Work Done), summarised in \cref{tab:valdx-metrics}. Supporting definitions are given in \cref{app:valdx-mathematics}.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{l l X}
+        \toprule
+        \textbf{Metric} & \textbf{Unit} & \textbf{Interpretation} \\
+        \midrule
+        $\text{MSE}_\text{Training}$ & uptake$^2$ & Mean squared uptake error over training observations \\
+        $\text{MSE}_\text{Validation}$ & uptake$^2$ & Mean squared uptake error over withheld validation observations \\
+        $\Delta\text{MSE}_\text{opt}$ & uptake$^2$ & Change in fit to experimental data ($\text{MSE}_\text{final}-\text{MSE}_\text{initial}$); negative values indicate improvement \\
+        Open State Recovery & \% & Fitted open-state population relative to the TeaA target \\
+        $W_\text{app}$ & kJ\,mol$^{-1}$ & $RT\,D_\text{KL}$ of fitted from prior frame weights (\cref{eq:valdx-apparent-work}) \\
+        $\text{Work}_\text{shape}$ & kJ\,mol$^{-1}$ & Mean absolute change in each residue's absolute deviation from the mean log protection factor \\
+        $\text{Work}_\text{scale}$ & kJ\,mol$^{-1}$ & Absolute change in the mean log protection factor \\
+        $\text{Work}_\text{density}$ & kJ\,mol$^{-1}$ & Mean absolute change in residue-wise entropy-like contributions from the centred protection profile \\
+        $\text{Work}_\text{opt}$ & kJ\,mol$^{-1}$ & Mean absolute residue-wise change in $H_\text{opt}-TS_\text{opt}$ \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Assessment metrics. Uptake errors are in fractional-uptake units squared; Work quantities are in kJ\,mol$^{-1}$ at 300~K.}
+    \label{tab:valdx-metrics}
+\end{table}
+
+\paragraph{Uptake error.}
+Training and validation errors ($\text{MSE}_\text{Training}$ and $\text{MSE}_\text{Validation}$) are the mean squared differences between predicted and measured fractional uptake, $\hat D_{o,t}$ and $D_{o,t}$ in the notation of \cref{eq:valdx-hdxer-error}, over the training and withheld validation observations of a split (\cref{eq:bg-validation-error}). To quantify the change in fit to experimental data, we calculate the signed change in mean squared error,
+\begin{equation}
+    \Delta\text{MSE}_\text{opt}=\text{MSE}_\text{final}-\text{MSE}_\text{initial}.
+    \label{eq:valdx-delta-mse}
+\end{equation}
+More negative values indicate a greater reduction in error when fitting the experimental HDX data; zero indicates no change, and positive values indicate increased error following optimisation.
+
+\paragraph{Population recovery.}
+In the TeaA benchmarks the target populations are known by construction, so fitted populations can be compared with them directly (\cref{sec:valdx-synthetic}). Fitted open-state populations were calculated by summing the optimised weights assigned to open-state structures and compared with the target population of 0.4. Open State Recovery normalised the fitted open-state population, $p_\text{open}$, to the target,
+\begin{equation}
+    \text{Open State Recovery}\,(\%)=100\,\frac{p_\text{open}}{0.4}.
+    \label{eq:valdx-open-state-recovery}
+\end{equation}
+Recovery values were not clipped. 100\% indicates recovery of the target open-state population, and values above 100\% indicate its overestimation.
+
+\paragraph{Work Done and Apparent Work.}
+Work Done quantifies how much the ensemble-averaged protection-factor profile changes during optimisation. Prior and fitted profiles are each calculated with their own frame weights and BV coefficients, so the comparison includes changes to either set of parameters. Work Done is a distance from the prior and does not measure distance to any ground-truth distribution. It also differs from the Apparent Work reported by HDXer (\cref{eq:valdx-apparent-work}), which describes only the regularised reweighting of frame weights.
+
+These metrics are statistical quantities constructed from protection-factor profiles. Their notation follows a phenomenological analogy in the context of ensemble-model optimisation. Under EX2 conditions, protection factors report apparent opening free energies (\cref{eq:bg-opening-free-energy}), allowing optimisation-induced changes in the predicted protection-factor profile to be expressed in energy units (kJ\,mol$^{-1}$). Uniform energy scaling allows Work Done metrics to be compared across ensembbles and replicates. Smaller values indicate less modification was applied during fitting. Alone, this does not equate to representativeness, as it can indicate lack of fitting.
+
+\paragraph{Work Done components.}
+$P_{f,i}$ and $\hat P_{f,i}$ are the protection factors of residue $i$ in the prior and fitted ensemble-models $X$ and $\hat X$. Overbars denote means across the $N$ compared residues. $R$ is the gas constant and $T$ the analysis temperature (300~K, as for $W_\text{app}$). Work metrics are reported in kJ\,mol$^{-1}$. $RT$ in the shape and scale equations is expressed in kJ\,mol$^{-1}$, while $H_\text{opt}$ and $S_\text{opt}$ in the density and total-work equations are in J\,mol$^{-1}$ and J\,mol$^{-1}$\,K$^{-1}$, respectively, with division by 1000 converting to kJ\,mol$^{-1}$.
+
+Work shape measures how much fitting changes each residue's absolute deviation from the mean log protection factor. We write this deviation as $a_i=|\ln P_{f,i}-\overline{\ln P_f}|$ and define the centred protection score $H_\text{opt}(X;i)=RTa_i$. Deviations above and below the mean contribute identically, so Work shape measures changes in protection contrast and not in its direction.
+\begin{equation}
+    \text{Work}_\text{shape}
+    =\frac{RT}{N}\sum_{i=1}^{N}
+    \left|
+    \left|\ln P_{f,i}-\overline{\ln P_f}\right|
+    -
+    \left|\ln\hat P_{f,i}-\overline{\ln\hat P_f}\right|
+    \right|
+    \label{eq:valdx-work-shape}
+\end{equation}
+
+Work scale measures the shift in mean log protection factor during fitting.
+\begin{equation}
+    \text{Work}_\text{scale}=RT\left|\overline{\ln P_f}-\overline{\ln\hat P_f}\right|
+    \label{eq:valdx-work-scale}
+\end{equation}
+
+Work density measures the mean absolute change in residue-wise entropy-like contributions across the centred protection profile. Each residue is assigned a weight $w_\text{opt}(X;i)=e^{-a_i}\sum_j e^{-a_j}$, with the sum taken over the compared residues, and a contribution $S_\text{opt}(X;i)=-R\,w_\text{opt}(X;i)\ln w_\text{opt}(X;i)$. Fitted quantities are calculated in the same way from the fitted profile. These weights are indexed over residues. They are not conformational populations, and they are distinct from the frame weights adjusted during reweighting. The weights are not normalised to sum to one, so individual contributions can be negative.
+\begin{equation}
+    \text{Work}_\text{density}=\frac{T}{1000N}\sum_{i=1}^{N}\left|S_\text{opt}(\hat X;i)-S_\text{opt}(X;i)\right|
+    \label{eq:valdx-work-density}
+\end{equation}
+
+Total work combines changes in centred protection scores and entropy-like contributions before taking their mean absolute magnitude. Alongside validation error, it measures how much the starting protection profile must change to achieve agreement with experiment.
+\begin{equation}
+    \text{Work}_\text{opt}
+    =\frac{1}{1000N}\sum_{i=1}^{N}
+    \left|
+    \left[H_\text{opt}(\hat X;i)-TS_\text{opt}(\hat X;i)\right]
+    -
+    \left[H_\text{opt}(X;i)-TS_\text{opt}(X;i)\right]
+    \right|
+    \label{eq:valdx-work-opt}
+\end{equation}
+
+Changes in the two terms can offset within a residue. $\text{Work}_\text{opt}$ is therefore at most the sum of $\text{Work}_\text{shape}$ and $\text{Work}_\text{density}$, and it excludes the mean shift reported by $\text{Work}_\text{scale}$. The multiplied weights make Work density and Work opt dependent on the residue set, and division by $N$ does not remove this dependence.
+
+\paragraph{Interpreting the components.}
+Successful ensemble validation manifests as low prediction error on withheld peptides ($\text{MSE}_\text{Validation}$) accompanied by small Work Done, indicating that the ensemble matched experimental data without substantial modification. Reproducibility across replicate optimisations and consistency between data partitioning strategies provide additional confidence in the result. The error and Work metrics are read jointly, although no single pattern identifies a unique cause. Low validation error accompanied by high Work Done shows that agreement was reached through substantial modification of the prior. This pattern is consistent with overfitting, but it can also arise from a poor prior or from mismatch in the forward model. The structural hypothesis should therefore be treated with caution, in proportion to the spread of metrics across replicate optimisations. High error together with high Work Done shows that the ensemble could not match the data even after substantial modification.
+
+Large $\text{Work}_\text{shape}$ indicates that optimisation substantially changed which regions appear more or less protected relative to the mean. Possible causes include local structural error, altered hydrogen-bonding patterns and missing conformational states. Elevated $\text{Work}_\text{scale}$ indicates a global shift in predicted protection. Possible causes include forward-model calibration, experimental conditions, or a uniform structural difference such as global over- or under-compaction. Because these causes are not separable from the scale term alone, model parameter recalibration should be considered before rejecting the ensemble hypothesis. Changes in $\text{Work}_\text{density}$ in either direction contribute positively, because the metric quantifies departure from the prior rather than assigning thermodynamic favourability to increased or decreased protection. Large values indicate substantial reorganisation of the residue-level protection-factor distribution. Possible causes include prior-ensemble mismatch, missing conformational states, forward-model misspecification, or data-normalisation effects. The metric does not by itself identify which cause is operating.
+
+$\text{Work}_\text{opt}$ provides the primary summary metric for ensemble comparison. Although Work Done constitutes a fitting distance rather than a direct measure of physical correctness, it remains useful as a diagnostic. Together, $\text{Work}_\text{density}$, $\text{Work}_\text{shape}$ and $\text{Work}_\text{scale}$ help distinguish patterns consistent with several possible failure modes when interpreted jointly with validation error, replicate reproducibility, and controls.
+
+\paragraph{Comparison with Bayesian evidence.}
+The HDXer objective (\cref{eq:bg-regularised-objective,eq:valdx-hdxer-error}) can be interpreted as a fixed-error, maximum a posteriori form of Bayesian ensemble refinement. The error density penalises disagreement between predicted and measured or experimentally derived uptake, while the regularisation term preserves proximity to the prior ensemble. This differs from full Bayesian evidence approaches such as BICePs, where nuisance uncertainty parameters are sampled or marginalised and candidate priors are ranked using a partition-function ratio.\supercite{raddiBICePsV20Software2023c} ValDX does not compute this evidence. Instead, it evaluates fitted ensembles using held-out observations and Work Done distances in log protection-factor space. These metrics quantify how much the fitted ensemble differs from the starting hypothesis, rather than the posterior probability of the hypothesis itself.
+
+\paragraph{Work accounting across fitting stages.}
+Each Work quantity compares a fitted ensemble-model with a reference prior. For the two-stage protocols, the reference is the prior entering the final stage, which is the consensus of the first stage (\cref{tab:valdx-protocols}). That final stage is reweighting for RWafterBV and BV-parameter optimisation for BVafterRW. Because this reference excludes the first stage, the BPTI protocol comparison additionally reports the total distance from the original unoptimised ensemble for these two-step protocols, designated BVafterRW* and RWafterBV*. The kinetic-misspecification benchmark reports the final stage only, in the unstarred notation, and takes $W_\text{app}$ from the final-stage \texttt{work.dat} output at the selected $\gamma_\text{HDXer}$. The separately calculated frame-weight KL divergence uses uniform reference weights, so BVafterRW reflects population changes inherited from the preceding reweighting stage. This divergence is expressed in nats. These quantities describe statistical changes rather than a decomposition of physical potential energy.
+
+\paragraph{Normalisation against the parent ensemble.}
+To quantify the effect of structural artefacts relative to the unmodified parent ensemble, we express each metric as a Z-score,
+\begin{equation}
+    Z_m=\frac{m-\mu_{m,0}}{\sigma_{m,0}},
+    \label{eq:valdx-z-score}
+\end{equation}
+where $m$ is the metric value, and $\mu_{m,0}$ and $\sigma_{m,0}$ are its mean and standard deviation for the corresponding unmodified parent ensemble (0\% poisoned, \cref{sec:valdx-decoys}). We apply this normalisation to $\Delta\text{MSE}_\text{opt}$ and $\text{Work}_\text{opt}$.
+
+\paragraph{Structural comparison.}
+To evaluate whether generated ensembles capture biologically relevant dynamics, we employed a suite of structural analysis metrics that probe protein behaviour at different scales (\cref{sec:bg-ensemble-comparison}). These metrics allow us to quantify (1) the global diversity of sampled conformations, (2) the similarity between different ensemble generation protocols, and (3) the local flexibility and correlated motions of specific residue networks. To visualise the high-dimensional conformational landscape covered by each ensemble, we performed principal component analysis (PCA) on the pairwise C$\alpha$ distances of all structures; residues were filtered by HDX-MS peptide coverage. This projection reveals the major modes of structural variation and allows for comparison of sampling coverage, without needing a reference. For clustering and representative structure selection, we used k-means clustering on the first 10 principal components.
+
+To compare local mean geometry between ensembles, we calculated the RMS difference between ensemble-mean C$\alpha$--C$\alpha$ distances within residue-centred neighbourhoods. Each neighbourhood was defined from the first ensemble's mean coordinates and held fixed for the comparison. This unweighted measure compares mean pair distances and does not characterise the complete ensemble distributions. To quantify how different two ensembles appear at each residue position, we computed the Wasserstein-1 distance ($W_1$). Unlike the local mean pair-distance RMS difference, which compares mean geometry, $W_1$ compares, for each residue, the distributions of its C$\alpha$ distances to all C$\alpha$ atoms, pooled over frames, and so accounts for the spread of those distances as well as their mean. Values are averaged over residues. Agreement of these per-residue pair-distance distributions does not establish that two ensembles share the same joint conformational distribution.
+
+To measure the local flexibility of the protein chain, we computed the root-mean-square fluctuation (RMSF), weighted by structure probabilities. This metric quantifies how much each residue moves around its average position, allowing us to identify rigid domains versus flexible loops. We assessed correlated residue displacements separately within each ensemble using dynamical local cross correlation (LCC). For each neighbouring residue pair, we calculated the normalised covariance of their mean-centred C$\alpha$ displacement vectors over frames, then averaged the valid pair correlations over each residue's neighbours. Positive values indicate correlated displacements, negative values indicate anti-correlated displacements, and values near zero indicate weak net correlation. Averaging over neighbours can also produce values near zero when positive and negative pair correlations cancel. Dynamical LCC describes displacement correlations within an ensemble, whereas the structural local-distance correlation used during AF2 cleaning (\cref{eq:valdx-structural-ldc}) compares distance patterns between individual structures. Definitions of the pair-distance RMS difference, $W_1$, RMSF and LCC are given in \cref{app:valdx-structural-metrics}.
 
 \subsection{Benchmark designs and statistical analysis}
 \label{sec:valdx-benchmarks}
