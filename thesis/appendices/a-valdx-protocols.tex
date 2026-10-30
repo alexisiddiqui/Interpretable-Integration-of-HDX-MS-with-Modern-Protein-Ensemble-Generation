@@ -761,6 +761,31 @@ where $SS_\text{between} = \sum_{j=1}^{k} n_j(\bar{x}_j - \bar{x}_\text{grand})^
 \end{table}
 
 \clearpage
+\subsection{Iso-Validation}
+\label{app:valdx-iso-results}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{valdx-iso-work-metrics/fig.png}
+    \caption[Iso-Validation benchmark Work Done metrics demonstrate ensemble integration assessment capabilities]{Iso-Validation benchmark Work Done metrics demonstrate ensemble integration assessment capabilities for TeaA membrane transporter synthetic experiment. Comparison between ISO-Bimodal (indigo, clustered ensemble) and ISO-Trimodal (gold, parent unclustered ensemble) using Non-Redundant (green) and Spatial (grey) splits across multiple replicates. \textbf{(A)} Validation error ($\text{MSE}_{\text{Validation}}$) separates the ensembles in Non-Redundant splits ($p=0.0202$) but not in Spatial splits ($p=0.862$), with ISO-Trimodal demonstrating lower validation error in Non-Redundant splits. \textbf{(B)} Validation error change upon optimisation ($\Delta \text{MSE}_{\text{opt}}$) reveals both ensembles show similar improvement patterns with a difference in Non-Redundant splits ($p=0.00229$). Negative values denote reduced error after optimisation. \textbf{(C)} Protection-factor pattern redistribution ($\text{Work}_{\text{shape}}$) is greater for ISO-Bimodal in Spatial splits ($p=0.0398$) and similar between ensembles in Non-Redundant splits ($p=0.217$). \textbf{(D)} Protection factor reorganisation requirements ($\text{Work}_{\text{density}}$) separate the ensembles in Spatial splits ($p=0.0448$), with ISO-Trimodal requiring less protection-factor reorganisation. Results support that Work Done metrics describe fitting characteristics using the complete peptide distribution, providing more realistic assessment than training-set-only Apparent Work metrics. The synthetic ground-truth (population ratio 40:60 open:closed) enables validation of the ValDX workflow's ability to assess ensemble integration success beyond traditional error-based approaches.}
+    \label{fig:valdx-iso-work-metrics}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth, keepaspectratio]{valdx-iso-proxy-recovery/fig.png}
+    \caption[Proxy metrics vs Open State Recovery]{Relationships between the two fitting metrics, $\text{MSE}_{\text{Training}}$ and Apparent Work ($W_\text{app}$, labelled Apparent Work$_\text{HDXer}$ on the axes), and ground-truth Open State Recovery (\%) across split strategies for the TeaA Iso-Validation experiment. Points are individual replicates coloured by split type (Non-Redundant, Spatial, Random, Sequential); dashed lines show least-squares linear fits with $R^2$ reported in each panel. \textbf{(A,C)} $\text{MSE}_{\text{Training}}$ is negatively associated with recovery and exhibits strong split-dependent stratification (ISO-Bimodal $R^2=0.467$; ISO-Trimodal $R^2=0.344$). \textbf{(B,D)} Apparent Work increases with recovery and collapses split type variability onto a common monotonic trend, providing the stronger association in both ensembles (ISO-Bimodal $R^2=0.534$; ISO-Trimodal $R^2=0.576$). Apparent Work shows a stronger linear relationship to Open State Recovery than $\text{MSE}_{\text{Training}}$. The difference between the two metrics is larger for ISO-Trimodal, which contains intermediate structures absent from the synthetic target.}
+    \label{fig:valdx-iso-proxy-recovery}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth, keepaspectratio]{valdx-iso-split-sensitivity/fig.png}
+    \caption[Regression coefficients and split type sensitivity of proxy metrics]{Comparison of $\text{MSE}_{\text{Training}}$ (white) and Apparent Work ($W_\text{app}$, labelled Apparent Work$_\text{HDXer}$ in the figure; neon) in the TeaA Iso-Validation experiment. \textbf{(A)} Multiple linear regression coefficients relating the standardised predictors to Open State Recovery\%: Apparent Work, $9.618$ and $10.617$; training MSE, $-6.365$ and $-0.133$ for ISO-Bimodal and ISO-Trimodal, respectively. The predictors co-vary along the shared $\gamma_{\text{HDXer}}$ path, so coefficient magnitudes should not be interpreted as predictor importance. \textbf{(B)} Split-type effect size ($\eta^2$): $0.132$--$0.147$ for training MSE and $0.000$--$0.003$ for Apparent Work. \textbf{(C)} One-way ANOVA $F$-statistics: $11.7$--$13.2$ for training MSE and $0.02$--$0.24$ for Apparent Work. Split type explained a larger fraction of training-MSE variance in both ensembles.}
+    \label{fig:valdx-iso-split-sensitivity}
+\end{figure}
+
+\clearpage
 \section{Computational Implementation and Data Availability}
 \label{app:valdx-implementation}
 

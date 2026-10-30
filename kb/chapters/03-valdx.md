@@ -46,8 +46,11 @@ Ranges run heading to heading.
 ## 3 Uptake agreement and population recovery
 
 - Decoys (TeaA ISO-Trimodal). A candidate ensemble with intermediates absent from the target reached training agreement similar to one without them, yet the intermediates absorbed weight and prevented accurate population recovery. Carries [[Plausible but unpopulated candidate structures can absorb weight and prevent population recovery even when uptake matches.]] and [[Similar uptake agreement can coexist with different population recovery, so training error cannot verify populations.]]
+- Peptide selection. Variation in training error between split types within an ensemble exceeded variation between ensembles using identical splits (R46).
+- Complementary metric. Within each ensemble, increasing Apparent Work tracked improved recovery, with modest additional explained variance and lower observed sensitivity to split type in this benchmark (R50–56).
+- Split decision. On experimental peptide datasets, Random and Sequential splits added no discrimination beyond training error, motivating retention of Non-Redundant and Spatial splits for the remaining comparisons (R58).
 
-Sources: `7_results_omc.tex` L42–60 (TeaA).
+Sources: `7_results_omc.tex` L35–60 (TeaA; R60 boundary to `sec:valdx-fitting`); `9_Supplementary_information.tex` L41–67 (TeaA SI figures, to `app:valdx-iso-results` in `app:valdx-supporting-results`).
 
 ## 4 Comparing structural hypotheses
 

@@ -9,7 +9,7 @@ STATUSES = ("draft", "supported", "in-thesis")
 MIN_QUOTE_WORDS = 5   # long enough to identify one passage
 MAX_QUOTE_WORDS = 25
 ANY_TYPE_KEYS = {"tags", "aliases", "cssclasses"}  # Obsidian's own properties
-UNTYPED_FOLDERS = {"chapters", "inbox", "voice"}
+UNTYPED_FOLDERS = {"chapters", "experiments", "inbox", "voice"}
 FOLDER_TYPES = {
     "papers": {"paper"},
     "claims": {"claim"},

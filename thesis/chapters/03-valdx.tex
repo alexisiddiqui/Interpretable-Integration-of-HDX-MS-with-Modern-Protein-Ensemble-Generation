@@ -46,8 +46,17 @@
 
 % We need to define the work metrics as well as BiCePs score and show how they are related/different.
 
-\section{Introduction and objectives}
+\section{Introduction}
 \label{sec:valdx-intro}
+
+\subsection{Abstract}
+\label{sec:valdx-abstract}
+
+\subsection{Motivation}
+\label{sec:valdx-motivation}
+
+\subsection{Summary}
+\label{sec:valdx-summary}
 
 \section{Validation framework and methods}
 \label{sec:valdx-methods}
@@ -180,7 +189,7 @@ Higher $\gamma_\text{HDXer}$ values allow more aggressive fitting to experimenta
 The optimal regularisation parameter ($\gamma_\text{HDXer}$) balances fitting accuracy against overfitting. For experiments using knee selection, we identified this balance point automatically by plotting apparent work against training error and finding the ``elbow'', the point where additional fitting strength provides diminishing returns. This was computed as the point where the local gradient approaches $-1$ (45\textdegree\ slope) on the work-error tradeoff curve. The knee was selected from the training error versus apparent work curve (both linear scale), using the $\gamma_\text{HDXer}$ grid specified for each experiment in \cref{app:valdx-case-studies}. This is a naive implementation of the qualitative parameter selection method described by HDXer tutorials and literature.\supercite{leeInterpretingHydrogenDeuteriumExchange2021,bradshawInterpretationHDXData2020} The full algorithm is given in \cref{alg:valdx-knee}.
 
 \paragraph{Consensus across replicates.}
-For multi-stage protocols, replicates were mean-averaged over weights and parameters to provide the prior for the next stage. Split replicates in staged protocols therefore shared the consensus weights or parameters obtained from the preceding stage. Their variation describes sensitivity to peptide partitioning and does not represent independent measurement-noise replication.
+For multi-stage protocols, replicates were mean-averaged over weights and parameters to provide the prior for the next stage. Split replicates in staged protocols therefore shared the consensus weights or parameters obtained from the preceding stage. Their variation describes sensitivity to peptide partitioning and does not represent independent measurement-noise replication. Generating a consensus from multiple splits does not inherently produce a representative candidate ensemble. The physical ambiguity of protection factors persists regardless of the partitioning strategy.
 
 \paragraph{Optimisation failures.}
 Optimisation runs themselves may fail. Preliminary investigations showed that larger $\gamma_\text{HDXer}$ runs are more likely to fail; due to the Lagrangian formulation it is unlikely that all simulations within a replicate fail. If replicates are consistently failing, adding additional replicates can overcome this and reducing $\gamma_\text{HDXer}$ leads to more conservative fitting.
@@ -380,6 +389,31 @@ We also assessed associations with population recovery and sensitivity to split 
 
 \section{Uptake agreement and population recovery}
 \label{sec:valdx-population-recovery}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth, height=0.67\textheight, keepaspectratio]{valdx-iso-validation/fig.png}
+    \caption[Training error cannot identify true ensemble representativeness in controlled reweighting experiments]{Training error fails to distinguish ensembles with decoy, intermediate structures. \textbf{(A)} TeaA domain ensemble clustering by RMSD ($<$1.0~\AA) to open (blue) and closed (cyan/orange) reference states, yielding two test ensembles. RMSD density distributions for \textbf{(B)} open and \textbf{(C)} closed states comparing ISO-Trimodal (unclustered parent, gold) and ISO-Bimodal (clustered, indigo) ensembles. Both ensembles fitted to synthetic HDX data with known 40:60 open to closed population. Training error ($\text{MSE}_{\text{Training}}$) versus Apparent Work ($W_\text{app}$, labelled Apparent Work$_\text{HDXer}$ on the axes) for \textbf{(D)} ISO-Bimodal and \textbf{(E)} ISO-Trimodal across four split types (Non-Redundant, green; Spatial, grey; Random, fuchsia; Sequential, black); point size indicates regularisation strength ($\gamma_{\text{HDXer}}$). $\text{MSE}_{\text{Training}}$ versus ground-truth Open State Recovery (\%, normalised to target 40\%) for \textbf{(F)} ISO-Bimodal and \textbf{(G)} ISO-Trimodal, demonstrating training error cannot predict population recovery for ensembles containing incorrect intermediate structures. Open State Recovery versus Apparent Work for \textbf{(H)} ISO-Bimodal and \textbf{(I)} ISO-Trimodal, showing Apparent Work consistently correlates with ground-truth performance independent of split type choice. Although lower training error tracked improved population recovery in ISO-Bimodal up to an 80--90\% plateau, similarly low errors in ISO-Trimodal concealed poor recovery. Matching uptake alone is therefore insufficient to establish conformational population accuracy.}
+    \label{fig:valdx-iso-validation}
+\end{figure}
+
+Traditional assessments of ensemble-data integration rely on minimising prediction errors, which quantify how well computed HDX-uptake curves match experimental measurements. We investigated whether this error-centric assessment adequately captures integration success, particularly when multiple structural hypotheses yield similar experimental agreement. To address this question with a known baseline (ground truth), we used the TeaA Iso-Validation benchmark, in which the target populations are known by construction (\cref{sec:valdx-synthetic,fig:valdx-iso-validation}). Its open and closed states are structurally distinct, which makes TeaA a suitable system for testing whether current metrics can identify ensemble representativeness after reweighting.\supercite{leeInterpretingHydrogenDeuteriumExchange2021}
+
+We fitted two structural hypotheses to the same synthetic target. ISO-Bimodal, the clustered ensemble, represents only the two functional end-states. ISO-Trimodal, its unclustered parent, also includes intermediate conformations (\cref{fig:valdx-iso-validation}B--C). Following standard practice in MaxEnt reweighting, we performed ensemble reweighting across a range of $\gamma_\text{HDXer}$ values.\supercite{hummerBayesianEnsembleRefinement2015,kofingerEfficientEnsembleRefinement2019,cesariUsingMaximumEntropy2018,leeInterpretingHydrogenDeuteriumExchange2021,kihnModelingNativeEnsemble2021} The experimental design employed four split types with three replicates each. Random and Sequential splits represent standard approaches, alongside our Non-Redundant and Spatial splits that account for peptide overlap (\cref{app:valdx-case-iso}).
+
+Training error failed to distinguish between ensembles despite their different structural content. Both ensembles achieved similarly low $\text{MSE}_\text{Training}$ values. The variation in training error between different split types of the \textit{same} ensemble exceeded the variation between \textit{different} ensembles using identical splits (\cref{fig:valdx-iso-validation}D--E). Split-replicates maintain consistent peptide distributions across both ensemble experiments. This pattern indicates that optimisation is highly dependent on which specific peptides are used for training. Peptide sampling artefacts therefore dominate over genuine structural differences in training error.
+
+We tested training error directly against ground truth by comparing $\text{MSE}_\text{Training}$ with Open State Recovery, which measures integration success independently of uptake (\cref{eq:valdx-open-state-recovery}). For ISO-Bimodal (\cref{fig:valdx-iso-validation}F), lower training error did correlate with improved ground-truth recovery, reaching a performance plateau between 80\% and 90\% across all split types. ISO-Bimodal, which contains only reference structures, could be reweighted towards the target populations when guided by uptake error alone. However, for ISO-Trimodal (\cref{fig:valdx-iso-validation}G), the relationship collapsed. Open State Recovery struggled to exceed 40\% for three of four split types despite achieving low training error comparable to ISO-Bimodal. The intermediate structures are physically plausible conformations, but they carry no population in the synthetic target. Their presence prevented recovery even though uptake matched the target. Because the target populations are known, this shows that low uptake error alone does not establish correct fitted populations.
+
+Given the limitations of error-based metrics, we investigated whether Apparent Work, which quantifies the modification of frame weights during reweighting (\cref{eq:valdx-apparent-work}), might better assess integration quality. We compared ground-truth Open State Recovery against Apparent Work, computed by HDXer from the fit to training data. For both ensembles, increasing Apparent Work consistently indicated improved Open State Recovery (\cref{fig:valdx-iso-validation}H--I). Within a single ensemble, greater Apparent Work reflects correction of biased starting populations as fitting strength increases. When comparing candidate ensembles at comparable predictive agreement, smaller Work Done instead indicates that the starting ensemble required less correction. Apparent Work distributions showed greater consistency across split types than $\text{MSE}_\text{Training}$ distributions (\cref{fig:valdx-iso-proxy-recovery}). Sensitivity to peptide selection therefore warrants consideration when comparing these metrics.
+
+To assess the additional association of each metric with population recovery, we fitted a multiple linear regression model with standardised predictors relating $\text{MSE}_\text{Training}$ and Apparent Work to ground-truth Open State Recovery (\cref{eq:valdx-recovery-regression,fig:valdx-iso-split-sensitivity}A). Incremental $\Delta R^2$ (\cref{eq:valdx-delta-r2}) was $0.066$ for Apparent Work and $0.040$ for training MSE in ISO-Bimodal. In ISO-Trimodal, the corresponding values were $0.129$ and approximately zero. Apparent Work thus provided a modest additional contribution to explained variance, with the clearest contrast against the near-zero training-MSE contribution in ISO-Trimodal.
+
+Split type explained $13.2$--$14.7$\% of training-MSE variance ($\eta^2=0.132$--$0.147$; $F(3,230)=11.7$--$13.2$, $p=5.23\times10^{-8}$--$3.68\times10^{-7}$), compared with $0.0$--$0.3$\% for Apparent Work ($\eta^2=0.000$--$0.003$; $F(3,230)=0.02$--$0.24$, $p=0.871$--$0.995$; \cref{fig:valdx-iso-split-sensitivity}B--C). These results indicate greater sensitivity to split choice for training MSE.
+
+Together, these analyses support Apparent Work as a complementary indicator of population recovery with lower observed split sensitivity in this benchmark. Additional comparisons of validation error, Work shape, and Work density are shown in \cref{fig:valdx-iso-work-metrics}.
+
+Where target populations are unknown, validation error ($\text{MSE}_\text{Validation}$) becomes our only available proxy for assessing generalisation to unseen data. However, when applied to experimental peptide datasets, Random and Sequential splits provided no additional discriminatory power beyond training error. Consequently, the remaining experiments in this chapter employ exclusively Non-Redundant and Spatial split types, which account for peptide redundancy and provide complementary structural perspectives.
 
 \section{Comparing structural hypotheses}
 \label{sec:valdx-structural-hypotheses}
