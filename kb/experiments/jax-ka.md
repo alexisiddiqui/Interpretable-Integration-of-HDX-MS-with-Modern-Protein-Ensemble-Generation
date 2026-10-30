@@ -35,14 +35,34 @@ experiments:
         runs: [audits, caches, manifests, exports, overlays]
     authoritative_location: coulson
     status_command: null
-    # Paths are relative to the pkabench runtime root on coulson. Isambard holds copies of pretraining/ and training/pool-v4 only.
+    # Paths are relative to the pkabench runtime root on coulson unless marked isambard. Isambard holds copies of pretraining/ and training/pool-v4 only.
+    # Plots (PNG/PDF/SVG) are staged with checksums in .experiments/jaxka-data-cleaning/ (pulled 2026-10-30).
     artifacts:
-      - audits/buffer-propka-v2/plots/all_buffers_error_vs_distance.png
-      - audits/glycan-propka-ccd-v1/plots/error_vs_distance.png
-      - audits/radial-error-v2-nearcomplete/plots/error_vs_distance.png
+      - audits/buffer-propka-v2/plots/all_buffers_error_vs_distance.png      # buffers, PROPKA, 26 complexes
+      - audits/buffer-propka-v2/plots/error_vs_distance.png                  # one buffer removed at a time
+      - audits/buffer-propka-v2/plots/error_vs_sasa.png
+      - audits/buffer-propka-v2/plots/error_vs_exposure.png
+      - audits/buffer-propka-v2/plots/retained_sites_vs_radius.png
+      - audits/glycan-propka-ccd-v1/plots/error_vs_distance.png              # glycans, PROPKA with CCD typing, 29 complexes
+      - audits/glycan-propka-ccd-v1/plots/error_vs_sasa.png                  # glycan's own SASA, not protein shielding
+      - audits/glycan-propka-ccd-v1/plots/error_vs_exposure.png
+      - audits/glycan-propka-ccd-v1/plots/retained_sites_vs_radius.png
+      - audits/propka-components-v1/plots/sasa_vs_change.png                 # ligands (17) and metals (11), against exposure only; ligand typing flawed, see decision note
+      - audits/radial-error-v2-nearcomplete/plots/error_vs_distance.png      # gaps, PypKa, 23 complexes
+      - audits/radial-error-v2-nearcomplete/plots/sites_excluded_vs_radius.png
       - audits/radial-error-v2-nearcomplete/anchor-analysis-v2/anchor_error.png
-      - audits/pinder-longgap-v1
+      - audits/radial-error-v2-nearcomplete/anchor-analysis-v2/anchor_retention.png
+      - audits/radial-error-v2-nearcomplete/internal-anchor-analysis-v1/internal_anchor_error.png
+      - audits/radial-long-tails-v1/anchor-analysis-v2/anchor_error.png
+      - audits/label-overlap-v1/hist_pkai_train_mask.png
+      - audits/shift-by-environment-v1/shift_by_environment.png
+      - campaigns/production-nojax-v1/report_figures/interface_mae.png       # pKAI closer to PypKa than pKAI+
+      - campaigns/production-nojax-v1/report_figures/interface_coverage.png
+      - isambard:audits/atlas-split-v1/atlas-phate-split.png                 # not yet confirmed as the pool split
+      - isambard:audits/atlas-phate-check-v1/nearest-training-audit.png
+      - audits/pinder-longgap-v1                                             # pKAI gap calibration, tables only
       - audits/pinder-exp-leak-v1
+      - campaigns/coordinate-pool-inclusive-v1/rejections.parquet            # rejection codes, not yet plotted
       - universe/structural-freeze-v1
       - pretraining/pinder-pkai-v1
       - pretraining/pkpdb-full-v1
