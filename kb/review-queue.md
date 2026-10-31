@@ -19,7 +19,6 @@
 
 - [[@HydrogenExchangeProteins1966]] (`papers/@HydrogenExchangeProteins1966.md`)
 - [[@hagemanReliableIdentificationSignificant2019]] (`papers/@hagemanReliableIdentificationSignificant2019.md`)
-- [[@pressePrinciplesMaximumEntropy2013]] (`papers/@pressePrinciplesMaximumEntropy2013.md`)
 - [[@shawAtomiclevelCharacterizationStructural2010]] (`papers/@shawAtomiclevelCharacterizationStructural2010.md`)
 - [[@virtanenSciPy10Fundamental2020]] (`papers/@virtanenSciPy10Fundamental2020.md`)
 

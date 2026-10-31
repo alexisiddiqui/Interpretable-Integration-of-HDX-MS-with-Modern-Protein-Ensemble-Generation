@@ -22,6 +22,21 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- The stochastic velocity-rescaling thermostat samples the canonical ensemble by rescaling all particle velocities by a properly chosen random factor. ^c1
+  - page: 2
+  - quote: "the velocities of all the particles are rescaled by a properly chosen random factor"
+  - quote_check: pass
+  - reviewed: false
+- Although the algorithm is stochastic, a quantity that stays constant during the evolution can be defined and used to measure sampling accuracy. ^c2
+  - page: 2
+  - quote: "a quantity can still be defined that remains constant during the evolution"
+  - quote_check: pass
+  - reviewed: false
+- Its performance is largely independent of the thermostat parameter, including for dynamic properties. ^c3
+  - page: 2
+  - quote: "Its performance is excellent and largely independent of the thermostat parameter"
+  - quote_check: pass
+  - reviewed: false
 
 ## Notation
 

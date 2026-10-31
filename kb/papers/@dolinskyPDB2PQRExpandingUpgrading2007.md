@@ -22,6 +22,26 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Converting PDB structures into formats ready for simulation software is often the limiting step in computational biology. ^c1
+  - page: 1
+  - quote: "often the limiting step in computational biology is the conversion of PDB structures into formats ready for use with biomolecular simulation software"
+  - quote_check: pass
+  - reviewed: false
+- Properties computed from repaired structures can be very sensitive to how missing atoms are added and protonation states assigned. ^c2
+  - page: 1
+  - quote: "can often be very sensitive to the manner in which missing atoms are added and protonation states are assigned"
+  - quote_check: pass
+  - reviewed: false
+- PDB2PQR assigns protonation states of titratable groups with PROPKA, an empirical pKa predictor. ^c3
+  - page: 2
+  - quote: "Protonation states for titratable protein groups are assigned by PROPKA"
+  - quote_check: pass
+  - reviewed: false
+- PDB2PQR provides standalone command-line use, pKa estimation through PROPKA and improved atom addition and optimisation. ^c4
+  - page: 1
+  - quote: "improved pKa estimation via the PROPKA framework"
+  - quote_check: pass
+  - reviewed: false
 
 ## Notation
 

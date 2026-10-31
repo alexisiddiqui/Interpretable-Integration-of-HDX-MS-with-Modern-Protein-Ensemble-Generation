@@ -22,6 +22,16 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Local Markov state models of conformational switching domains avoid parametrising one MSM for the full structure and so need less MD sampling. ^c1
+  - page: 1
+  - quote: "We therefore do not need to parametrize an MSM of the full structure and thus require less extensive molecular dynamics (MD) sampling"
+  - quote_check: pass
+  - reviewed: false
+- The calcium sensor C2A domain of synaptotagmin-1 is studied with MD, Markov models and transfer entropy to couple its switching domains. ^c2
+  - page: 1
+  - quote: "model their kinetics with local Markov state models"
+  - quote_check: pass
+  - reviewed: false
 
 ## Notation
 

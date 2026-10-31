@@ -22,6 +22,36 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- The metadynamics bias gives a free-energy estimate only up to a time-dependent additive constant. ^c1
+  - page: 1
+  - quote: "it can give an estimate of the free energy F(s) only up to a time-dependent additive constant"
+  - quote_check: pass
+  - reviewed: false
+- Well-tempered metadynamics uses a progressively damped bias that converges to an exact, well-defined limit. ^c2
+  - page: 1
+  - quote: "damped bias, which is guaranteed to converge to an exact welldeﬁned limit"
+  - quote_check: pass
+  - reviewed: false
+- The time-independent estimator allows free-energy surfaces from independent metadynamics runs to be compared and combined. ^c3
+  - page: 1
+  - quote: "directly compare and combine free energy surfaces obtained via independent metadynamics runs"
+  - quote_check: pass
+  - reviewed: false
+- The paper derives a procedure for unbiased estimates of generic observables from biased metadynamics, applicable to well-tempered and non-tempered runs. ^c4
+  - page: 1
+  - quote: "calculating unbiased estimates of generic observables from biased metadynamics simulations"
+  - quote_check: pass
+  - reviewed: false
+- Recovering the time-dependent constant c(t) lets the metadynamics samples be reweighted to equilibrium Boltzmann averages. ^c5
+  - page: 3
+  - quote: "we can also easily recover c(t) and thus apply eq 10 to reweight the results of metadynamics and obtain equilibrium Boltzmann averages"
+  - quote_check: pass
+  - reviewed: false
+- The reweighting is easier to apply and more general than earlier reweighting methods for metadynamics. ^c6
+  - page: 3
+  - quote: "This procedure is much easier to apply and more general than the reweighting methods suggested previously"
+  - quote_check: pass
+  - reviewed: false
 
 ## Notation
 

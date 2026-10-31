@@ -22,6 +22,26 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Rigid 3-point water models are the most widely used because they are cheap to compute. ^c1
+  - page: 1
+  - quote: "Classical 3-point rigid water models are most widely used due to their computational efficiency"
+  - quote_check: pass
+  - reviewed: false
+- OPC3 reproduces liquid bulk properties significantly more accurately than the commonly used TIP3P and SPC/E models. ^c2
+  - page: 1
+  - quote: "OPC3 is significantly more accurate than the commonly used water models of same class (TIP3P and SPCE)"
+  - quote_check: pass
+  - reviewed: false
+- OPC3 reproduces the charge hydration asymmetry of water, the dependence of hydration free energy on the sign of the solute charge. ^c3
+  - page: 1
+  - quote: "OPC3 predicts the intrinsic charge hydration asymmetry (CHA) of water"
+  - quote_check: pass
+  - reviewed: false
+- Modest inaccuracies in a water model can change biomolecular simulation outcomes in unpredictable ways. ^c4
+  - page: 1
+  - quote: "even modest inaccuracies of water models can drastically affect the outcomes of atomistic biomolecular modeling in an unpredictable, adverse manner"
+  - quote_check: pass
+  - reviewed: false
 
 ## Notation
 

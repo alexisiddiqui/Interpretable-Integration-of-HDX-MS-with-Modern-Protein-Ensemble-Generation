@@ -22,6 +22,26 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- PLUMED is an open-source library interfaced with MD codes, so enhanced sampling and collective variables are computed outside the engine. ^c1
+  - page: 1
+  - quote: "PLUMED is an open-source C++ library that can be interfaced with many state-ofthe-art MD codes"
+  - quote_check: pass
+  - reviewed: false
+- PLUMED retrieves atom positions from the host MD code, calculates collective variables and bias potentials, and returns external forces to the MD code. ^c2
+  - page: 1
+  - quote: "to communicate external forces back to the MD code and hence modify the dynamics"
+  - quote_check: pass
+  - reviewed: false
+- PLUMED can compute collective variables, including user-defined ones built on neural networks, and can process stored trajectories after the run. ^c3
+  - page: 1
+  - quote: "PLUMED can also calculate these descriptors a posteriori on precalculated trajectories"
+  - quote_check: pass
+  - reviewed: false
+- The PLUMED consortium disseminates enhanced-sampling protocols to promote transparency and reproducibility. ^c4
+  - page: 1
+  - quote: "we outline our efforts to promote transparency and reproducibility by disseminating protocols for enhanced-sampling molecular simulations"
+  - quote_check: pass
+  - reviewed: false
 
 ## Notation
 
