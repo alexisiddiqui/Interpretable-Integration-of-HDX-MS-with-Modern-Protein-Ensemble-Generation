@@ -22,6 +22,11 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Debye argued that atoms with regular electron arrangements should show X-ray interference even when randomly oriented in space, the origin of orientation-averaged scattering. ^c1
+  - page: 2
+  - quote: "wenn die Atome selbst ganz regellos im Raume orientiert sind"
+  - quote_check: pass
+  - reviewed: false
 
 ## Notation
 

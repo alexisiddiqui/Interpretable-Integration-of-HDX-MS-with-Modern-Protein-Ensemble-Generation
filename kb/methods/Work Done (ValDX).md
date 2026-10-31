@@ -8,6 +8,8 @@ code:
   - projects/1-ValDX/analyses@1d78b96:notebooks/Figure-0_IsoValidation/TeaA_Compare_RW_ensembles.ipynb#L96997-L97035
   - projects/2-jaxENT/code@37043b5:jaxent/examples/ATLAS_BV/CHECKPOINT18_THERMODYNAMIC_POPULATION.md#L8-L46
   - projects/2-jaxENT/code@37043b5:jaxent/examples/ATLAS_BV/CHECKPOINT17_KDE_POPULATION.md#L36-L40
+  - projects/1-ValDX/analyses@1d78b96:notebooks/Figure-2_Single_Split_BV/Figure2_HOIP.ipynb#L914022-L914078
+  - projects/1-ValDX/analyses@1d78b96:notebooks/Figure-2.5_RW_Splits_Compare_Experiments/BPTI_Compare_RW_ensembles.ipynb#L52534-L52593
 sources:
   - "[[@siddiquiFrameworkTestingStructural2026#^c9]]"
   - "[[@siddiquiFrameworkTestingStructural2026#^c15]]"
@@ -48,6 +50,8 @@ Manuscript form: projects/1-ValDX/manuscript/report/6_methods_omc.tex#L563 (Eq. 
 $\Delta\text{MSE}_\text{opt} = \text{MSE}_\text{final} - \text{MSE}_\text{initial}$ reports the change in fit alongside them (L581).
 
 Replicate dispersion $\sigma_s$ is the root of the trace of the covariance of replicate ($\text{Work}_\text{scale}$, $\text{Work}_\text{density}$) pairs within split type $s$, in kJ/mol. Lower values mean more reproducible fits ("confidence"), not structural accuracy (`9_Supplementary_information.tex` L73–89; thesis `eq:valdx-replicate-dispersion`).
+
+Split agreement $\mathrm{RMSD}_q$ is the root mean square, over Work_scale and Work_density, of the difference between the Non-Redundant and Spatial summary Work pairs, in kJ/mol. The summary is either the replicate mean ($q$ = mean) or the component-wise median of each Work component across replicates ($q$ = median). Lower values mean the two split types required similar modification. Its source is `7_results_omc.tex` L121, and the thesis definition is `eq:valdx-split-agreement`. The ½ normalisation follows the plotting code (`Figure2_HOIP.ipynb` cell 162; `BPTI_Compare_RW_ensembles.ipynb` cell 129).
 
 ## Derivation
 

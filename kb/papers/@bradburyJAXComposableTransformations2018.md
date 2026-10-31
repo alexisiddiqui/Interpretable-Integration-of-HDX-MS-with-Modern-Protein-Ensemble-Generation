@@ -5,8 +5,8 @@ year: 2018
 read: false
 pdf:
 extraction: none
-needs_review: false
-review_reason:
+needs_review: true
+review_reason: "Software citation (GitHub, v0.3.13); no PDF exists. Cite for use only, not for quotes."
 ---
 
 # JAX: Composable Transformations of Python+NumPy Programs (2018)

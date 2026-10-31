@@ -149,7 +149,7 @@ After topology generation, position restraints were modified to only cover $C_\a
 \label{app:valdx-md-protocols}
 
 \paragraph{MD-1Start.}
-We selected the single highest confidence AF2 structure and performed 5 replicates of 20 ns of production MD. This represents the standard approach of initiating simulation from a single, high-quality structure to test if conventional MD suffices to sample relevant states. To ensure the stability of the structures, 10 ns of unrestrained MD was additionally performed before the start of the production step.
+We selected the single highest-pLDDT structure in the complete AF2-MSAss ensemble (AF2-MaxPLDDT) and performed 5 replicates of 20 ns of production MD. This represents the standard approach of initiating simulation from a single, high-quality structure to test if conventional MD suffices to sample relevant states. To ensure the stability of the structures, 10 ns of unrestrained MD was additionally performed before the start of the production step.
 
 \paragraph{MD-10Start.}
 To represent a more diverse approach to generating ensembles with respect to HDX-MS data, the filtered AF2 (AF2-Filtered) ensemble was clustered by k-means ($k=10$), and the ten representative structures were used as diverse starting structures, which were then equilibrated using the same protocol as MD-1Start. To maintain a comparable computational budget to MD-1Start, each starting structure was run with a single replicate of 5 ns and 10 ns for relaxation and production simulations, respectively.
@@ -320,10 +320,10 @@ Each list gives the inputs, optimised parameters, split replicates, $\gamma_\tex
 \subsection{BV-Model Parameter Optimisation}
 \label{app:valdx-case-bv}
 \begin{itemize}
-    \item \textbf{Inputs:} Unclustered parent ensembles; HDX-MS Data.
+    \item \textbf{Inputs:} Unclustered parent ensembles; individual structures AF2-MaxRank and AF2-MaxPLDDT; HDX-MS Data.
     \item \textbf{Optimised parameters:} $\beta_C$, $\beta_H$ (BV-only).
     \item \textbf{Splits/Replicates:} 10 replicates $\times$ 2 split types (Non-Redundant, Spatial).
-    \item \textbf{Outputs computed:} Optimal $\beta_C$, $\beta_H$ values, $\text{MSE}_\text{Validation}$.
+    \item \textbf{Outputs computed:} Optimal $\beta_C$, $\beta_H$ values, $\text{MSE}_\text{Validation}$, $\Delta\text{MSE}_\text{opt}$, $\text{Work}_\text{shape}$, $\text{Work}_\text{density}$, multivariate $\sigma$ and split agreement (using $\text{Work}_\text{scale}$ and $\text{Work}_\text{density}$).
 \end{itemize}
 
 \subsection{Protocol Comparison Benchmark}

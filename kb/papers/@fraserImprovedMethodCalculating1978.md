@@ -22,6 +22,21 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- The solvent contribution can be folded into the atomic scattering factors by summing the transforms of elementary volumes around every atom. ^c1
+  - page: 1
+  - quote: "the correction term can then be incorporated into the individual atomic scattering factors"
+  - quote_check: pass
+  - reviewed: false
+- A Gaussian sphere for the volume of solvent excluded by each atom gives a smoother correction than a uniform sphere, which adds an oscillatory component. ^c2
+  - page: 2
+  - quote: "the correction term would be improved by using a Gaussian sphere"
+  - quote_check: pass
+  - reviewed: false
+- Atomic volumes for the excluded-volume term should be the observed volumes of solvent displaced, not van der Waals volumes, which overestimate it. ^c3
+  - page: 2
+  - quote: "the atomic volume appropriate to the correction term is the observed volume of solvent displaced by the atom"
+  - quote_check: pass
+  - reviewed: false
 
 ## Notation
 

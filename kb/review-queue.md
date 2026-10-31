@@ -18,6 +18,10 @@
 ## No PDF in Zotero; add kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto
 
 - [[@HydrogenExchangeProteins1966]] (`papers/@HydrogenExchangeProteins1966.md`)
+- [[@hagemanReliableIdentificationSignificant2019]] (`papers/@hagemanReliableIdentificationSignificant2019.md`)
+- [[@pressePrinciplesMaximumEntropy2013]] (`papers/@pressePrinciplesMaximumEntropy2013.md`)
+- [[@shawAtomiclevelCharacterizationStructural2010]] (`papers/@shawAtomiclevelCharacterizationStructural2010.md`)
+- [[@virtanenSciPy10Fundamental2020]] (`papers/@virtanenSciPy10Fundamental2020.md`)
 
 ## No PDF in Zotero; add kb/_pdf/@<citekey>.pdf, then set pdf and extraction: auto. ValDX 2_hdx_theory_omc.tex L5 cites this webpage snapshot for Nguyen 2018; re-key it to nguyenReferenceParametersProtein2018 and retire this note.
 
@@ -31,6 +35,10 @@
 
 - [[@parkEstimationHydrogenExchangeProtection2015]] (`papers/@parkEstimationHydrogenExchangeProtection2015.md`)
 
+## Proton shuffling selects atoms with MDAnalysis `select_atoms("backbone and name H")`. MDAnalysis `backbone` is N, CA, C and O only (checked on 2.9), so the selection is empty, and if this script made the ensembles the proton-shuffled frames are unmodified. Check before porting the BRD4 results.
+
+- [[Structure poisoning (ValDX)]] (`methods/Structure poisoning (ValDX).md`)
+
 ## Review-level source; import and cite Kumar et al. (2016) as the primary.
 
 - [[Disease-associated variants perturb local frustration more than benign variants.]] (`claims/Disease-associated variants perturb local frustration more than benign variants..md`)
@@ -39,13 +47,13 @@
 
 - [[Averaging reweighting fits across split replicates stabilises the consensus and reduces overfitting to particular peptide subsets.]] (`claims/Averaging reweighting fits across split replicates stabilises the consensus and reduces overfitting to particular peptide subsets..md`)
 
+## Software citation (GitHub, v0.3.13); no PDF exists. Cite for use only, not for quotes.
+
+- [[@bradburyJAXComposableTransformations2018]] (`papers/@bradburyJAXComposableTransformations2018.md`)
+
 ## Support is partial or indirect
 
 - [[Minimising apparent work and KL divergence gives a reweighted ensemble that satisfies the constraints with minimal deviation.]] (`claims/Minimising apparent work and KL divergence gives a reweighted ensemble that satisfies the constraints with minimal deviation..md`)
-
-## The SI equation for residue-averaged W1 does not match the implementation; the thesis appendix should write the code's form.
-
-- [[Structural comparison metrics (ValDX)]] (`methods/Structural comparison metrics (ValDX).md`)
 
 ## The jaxENT SI (si_figures.tex L225) cites wuConformationalHeterogeneitySavinase2020 for the Nguyen et al. reference parameters; it should cite this paper.
 

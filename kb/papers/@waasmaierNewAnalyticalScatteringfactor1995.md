@@ -22,6 +22,21 @@ review_reason:
   - quote_check: unchecked
   - reviewed: false
 quote_check is written only by tools/kb-lint; reviewed only by me. -->
+- Atomic X-ray scattering factors are represented as a sum of five Gaussians plus a constant, fitted to the International Tables values. ^c1
+  - page: 1
+  - quote: "fits of a linear combination of five Gaussians to the values of the scattering factors tabulated"
+  - quote_check: pass
+  - reviewed: false
+- The five-Gaussian form needs 11 parameters per atom or ion and compares well with earlier parametrisations. ^c2
+  - page: 1
+  - quote: "The quality of the new parametrization involving 11 parameters per atom (ion) compares well with the previous work"
+  - quote_check: pass
+  - reviewed: false
+- Most earlier four-Gaussian expansions for ions are inadequate for calculations that reach sin theta over lambda above 2 per angstrom. ^c3
+  - page: 1
+  - quote: "most of the previously published four Gaussian expansions for ions are inadequate"
+  - quote_check: pass
+  - reviewed: false
 
 ## Notation
 
