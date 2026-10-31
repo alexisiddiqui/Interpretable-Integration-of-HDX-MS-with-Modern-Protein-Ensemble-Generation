@@ -47,6 +47,8 @@ Manuscript form: projects/1-ValDX/manuscript/report/6_methods_omc.tex#L563 (Eq. 
 
 $\Delta\text{MSE}_\text{opt} = \text{MSE}_\text{final} - \text{MSE}_\text{initial}$ reports the change in fit alongside them (L581).
 
+Replicate dispersion $\sigma_s$ is the root of the trace of the covariance of replicate ($\text{Work}_\text{scale}$, $\text{Work}_\text{density}$) pairs within split type $s$, in kJ/mol. Lower values mean more reproducible fits ("confidence"), not structural accuracy (`9_Supplementary_information.tex` L73–89; thesis `eq:valdx-replicate-dispersion`).
+
 ## Derivation
 
 Why distinct profiles can give zero Work Done.

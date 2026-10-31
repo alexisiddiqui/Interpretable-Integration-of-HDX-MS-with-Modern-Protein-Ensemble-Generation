@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "523f91805e8d81b0",
+        "id": "6fa748163540657b",
         "type": "tabs",
         "children": [
           {
-            "id": "5606dbe3a855e32e",
+            "id": "e5866f64d2d4241f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "file:/Users/alexi/Documents/opig-chroma-wt/experiments/031-apical-scaffold-screen/HANDOFF.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "HANDOFF"
+              "title": "New tab"
             }
           }
         ]
@@ -185,19 +181,39 @@
       "bases:Create new base": false
     }
   },
-  "active": "5606dbe3a855e32e",
+  "active": "e5866f64d2d4241f",
   "lastOpenFiles": [
-    "thesis/build/pdflatex68010.fls",
-    "thesis/build/pdflatex67817.fls",
-    "thesis/build/main.blg",
-    "thesis/build/main.run.xml",
-    "thesis/build/main.lot",
-    "thesis/build/main.lof",
-    "thesis/build/main.toc",
-    "thesis/build/main.out",
-    "thesis/build/main.bcf",
-    "thesis/build/pdflatex67775.fls",
-    "thesis/build/main.bbl",
+    "kb/_pdf/incoming/Presse_Dill_RevModPhys2013_MaxCaliber copy.pdf",
+    "kb/papers/@prinzMarkovModelsMolecular2011.md",
+    "kb/_pdf/@prinzMarkovModelsMolecular2011.pdf",
+    "kb/papers/@waasmaierNewAnalyticalScatteringfactor1995.md",
+    "kb/papers/@pressePrinciplesMaximumEntropy2013.md",
+    "kb/papers/@essmannSmoothParticleMesh1995.md",
+    "kb/papers/@debyeZerstreuungRontgenstrahlen1915.md",
+    "kb/_pdf/@waasmaierNewAnalyticalScatteringfactor1995.pdf",
+    "kb/_pdf/@essmannSmoothParticleMesh1995.pdf",
+    "kb/_pdf/@debyeZerstreuungRontgenstrahlen1915.pdf",
+    "kb/papers/@tiwaryTimeIndependentFreeEnergy2015.md",
+    "kb/papers/@svergunCRYSOLProgramEvaluate1995.md",
+    "kb/papers/@schneidman-duhovnyFoXSWebServer2010.md",
+    "kb/papers/@pfaendtnerEfficientSamplingHighDimensional2015.md",
+    "kb/papers/@legerDynamicsStructuralChanges2022.md",
+    "kb/papers/@larsenCombiningMolecularDynamics2020.md",
+    "kb/papers/@jorgensenComparisonSimplePotential1983.md",
+    "kb/papers/@izadiAccuracyLimitRigid2016.md",
+    "kb/papers/@fraserImprovedMethodCalculating1978.md",
+    "kb/papers/@dolinskyPDB2PQRExpandingUpgrading2007.md",
+    "kb/papers/@choderaMarkovStateModels2014.md",
+    "kb/papers/@bussiCanonicalSamplingVelocity2007.md",
+    "kb/papers/@bonomiPromotingTransparencyReproducibility2019.md",
+    "kb/papers/@barducciWelltemperedMetadynamicsSmoothly2008.md",
+    "kb/_pdf/@jorgensenComparisonSimplePotential1983.pdf",
+    "kb/_pdf/@choderaMarkovStateModels2014.pdf",
+    "kb/_pdf/incoming/8577_1_online.pdf",
+    "kb/_pdf/incoming/Acta Crystallographica A - May 1995 - Waasmaier - New analytical scattering‐factor functions for free atoms and ions.pdf",
+    "kb/_pdf/incoming/Presse_Dill_RevModPhys2013_MaxCaliber.pdf",
+    "thesis/build/pdflatex35846.fls",
+    "file:/Users/alexi/Documents/opig-adaptyv-2026/experiments/028-poisk-free-monomer/README.md",
     "kb/2026-10-13.md",
     "kb/Untitled.canvas"
   ]

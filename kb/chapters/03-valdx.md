@@ -36,7 +36,7 @@ Ranges run heading to heading.
 | `sec:valdx-inputs` | `6_methods_omc.tex` L19–53 (data, `tab:HDX-MS`, BPTI uptake Eq. L50), L83–106 (ensemble summary, `tab:ensemble_summary`) | `app:valdx-hdx-data` (L54–67); `app:valdx-af2` (L164–188; `Extended_SI.tex` L125–146, L339–363, L557–579); `app:valdx-md-setup` (L189–242); `app:valdx-md-protocols` (L243–255) | — |
 | `sec:valdx-splits` | L68–81; L473 (replicate design); `7_results_omc.tex` L27–30 | `app:valdx-case-studies` (replicate counts, L612–717) | [[Peptide splitting and consensus (ValDX)]] |
 | `sec:valdx-fitting` | L356–460 (protocols, `tab:optimisation_protocols`, HDXer loss), L461 (γ), L468–483 (flow, knee, failures) | `app:valdx-case-studies` (L612–717; knee algorithm `Extended_SI.tex` L611–666) | [[Peptide splitting and consensus (ValDX)]] |
-| `sec:valdx-work` | L485–603 (`tab:metrics_summary`; Work Done L508–577, distinction from apparent work L508; ΔMSE and z-score L579–603); L464 (BICePs); L295–355 (structural metrics, summary only); `7_results_omc.tex` L11–26 | `app:valdx-mathematics` (`Extended_SI.tex` L248–336 Work definitions; L449–486 pair-distance RMS and W1; L580–610 LCC; `9_Supplementary_information.tex` L304 weighted RMSF) | [[Work Done (ValDX)]], [[Structural comparison metrics (ValDX)]] |
+| `sec:valdx-work` | L485–603 (`tab:metrics_summary`; Work Done L508–577, distinction from apparent work L508; ΔMSE and z-score L579–603); L464 (BICePs); L295–355 (structural metrics, summary only); `7_results_omc.tex` L11–26; `9_Supplementary_information.tex` L73–89 (replicate dispersion σ) | `app:valdx-mathematics` (`Extended_SI.tex` L248–336 Work definitions; L449–486 pair-distance RMS and W1; L580–610 LCC; `9_Supplementary_information.tex` L304 weighted RMSF) | [[Work Done (ValDX)]], [[Structural comparison metrics (ValDX)]] |
 | `sec:valdx-synthetic` | L107–125 (Iso-Validation), L126–163 (kinetic misspecification), L661–694 (kinetic protocol) | `app:valdx-synthetic` (L131–163 rate equations and noise; `9_Supplementary_information.tex` L5–40 simulator validation and digestion) | — |
 | `sec:valdx-decoys` | L256–283 (poisoning, `tab:poisoning_types`); L695–717 (cluster sweep, poisoning protocol) | `app:valdx-perturbations` (`Extended_SI.tex` L364–448) | — |
 | `sec:valdx-statistics` | L604–611 | `app:valdx-mathematics` (`Extended_SI.tex` L667–729 regression, ΔR², η²) | — |
@@ -54,7 +54,14 @@ Sources: `7_results_omc.tex` L35–60 (TeaA; R60 boundary to `sec:valdx-fitting`
 
 ## 4 Comparing structural hypotheses
 
-Sources: `7_results_omc.tex` L64–100 (BPTI reweighting), L101–131 (HOIP parameter fitting).
+- Structural difference (BPTI). BPTI uses NMR-derived residue-wise uptake, without peptide-overlap leakage, although exchange at distinct residues remains correlated through shared structural environments and conformational changes. This case tests ensemble representativeness under structured residue-wise partitions. AF2-Filtered samples a superset of MD-1Start, including a minor hairpin-opening basin, and structural comparison alone cannot say whether that state is populated in solution (R73–79).
+- Validation error. Neither validation error nor its change upon reweighting distinguished the two ensembles (R81).
+- Work Done. Under Spatial partitions, AF2-Filtered had lower Work shape and Work density, with the clearest separation in Work density; neither metric separated the ensembles under Non-Redundant partitions (R83–87).
+- Panel. Across five candidates, MD-1Start and AF2-Filtered required the least modification, separated from MD-TFES and unfiltered AF2-MSAss (R89).
+- Replicate dispersion. σ measures split-specific fitting reproducibility, not structural accuracy. Work density magnitude and replicate reproducibility are complementary; large reorganisation with reproducible fits accompanied sampling bias (MD-TFES), irreproducible fits accompanied geometric violations (AF2-MSAss), and neither pattern names its cause without reference ensembles (R91–97).
+- Decision. Where no reference exists, compare candidates jointly across partitions, Work metrics and replicate dispersion when validation error does not discriminate (R99).
+
+Sources: `7_results_omc.tex` L64–99 (BPTI reweighting), L101–131 (HOIP parameter fitting); `9_Supplementary_information.tex` L71–97 (σ definition to `sec:valdx-work`; `SI_for_Fig2` to §4.1).
 
 ## 5 Population fitting and forward-model calibration
 
