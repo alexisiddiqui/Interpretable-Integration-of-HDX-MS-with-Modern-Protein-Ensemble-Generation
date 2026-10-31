@@ -73,9 +73,16 @@ Sources: `7_results_omc.tex` L64–99 (BPTI reweighting), L101–131 (HOIP param
 ## 5 Population fitting and forward-model calibration
 
 - Protocol. Under an imposed kinetic mismatch, fitting forward-model parameters before reweighting limited population distortion. The advice is conditional on the suspected mismatch, not a general fitting order.
+- Protocol comparison (BPTI). BV parameters act at the ensemble-average level and can absorb residual forward-model mismatch, so fitting outcomes may depend on the protocol. Five protocols were compared on one AF2-Filtered ensemble with NMR-derived residue-wise uptake, whose fits were more reproducible under Spatial than under Non-Redundant partitions (R158–164).
+- Validation error. No protocol's mean validation-error change differed from zero. Replicate spread was broad for BV-only, RWafterBV and MutualBVRW and smallest for BVafterRW (R177; `fig:valdx-protocol-comparison`).
+- Work Done. Among protocols with BV fitting, reweighting first lowered the Work opt of the subsequent BV stage; Work scale ranges overlapped (R179–181; `fig:valdx-protocol-comparison`).
+- Re-optimisation. An extra BV-only step changed BVafterRW least, and its fits were the most reproducible. RWafterBV agreed more closely between split types, consistent with parameter smoothing (R183–185; `fig:valdx-protocol-reoptimisation`).
+- Decision (BPTI). Reweighting before BV fitting was the most stable order for this ensemble and dataset. It may depend on the starting populations and remaining forward-model mismatch, and other ensembles need their own comparison (R187).
 - Kinetic mismatch. In a benchmark with an imposed kinetic mismatch, population changes compensated for incorrect exchange assumptions after calibration restored uptake agreement. Carries [[Fitted populations can compensate for errors in assumed exchange kinetics, and restoring uptake agreement by calibration does not validate kinetics or populations.]]
+- Kinetic mismatch under RW-only (TeaA). With both target states present and target populations fixed, uptake error and Apparent Work rose with kinetic misspecification without improving population recovery (R191–195; `fig:valdx-kinetic-overview`).
+- Staging. Fitting BV parameters restored uptake agreement in both orders. BV first kept final-stage Work and Open State Recovery near the EX2-like reference; reweighting first left BV fitting large, scale-dominated changes and inherited the RW-only population loss. Recovery stayed below the target in every protocol (R197–199; `fig:valdx-kinetic-overview`, `fig:valdx-kinetic-work`).
 
-Sources: `7_results_omc.tex` L132–188 (protocol comparison), L189–211 and L248 (kinetic misspecification).
+Sources: `7_results_omc.tex` L132–188 (protocol comparison), L189–214 and L248 (kinetic misspecification); `9_Supplementary_information.tex` L150–158 (`SI_for_Fig4` to §5.1), L287–298 (kinetic Work figure to §5.2).
 
 ## 6 Clustering and diagnostic perturbations
 

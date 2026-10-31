@@ -48,6 +48,8 @@ experiments:
       - audits/glycan-propka-ccd-v1/plots/error_vs_exposure.png
       - audits/glycan-propka-ccd-v1/plots/retained_sites_vs_radius.png
       - audits/propka-components-v1/plots/sasa_vs_change.png                 # ligands (17) and metals (11), against exposure only; ligand typing flawed, see decision note
+      - audits/propka-components-v2-ligands/out/report.json                  # ligands rerun with corrected atom names, 17 complete; tables only
+      - audits/glycan-protein-sasa-v1/out/report.json                        # protein SASA shielded by glycans, 29 complexes; tables only (site_sasa.csv)
       - audits/radial-error-v2-nearcomplete/plots/error_vs_distance.png      # gaps, PypKa, 23 complexes
       - audits/radial-error-v2-nearcomplete/plots/sites_excluded_vs_radius.png
       - audits/radial-error-v2-nearcomplete/anchor-analysis-v2/anchor_error.png

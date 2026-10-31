@@ -331,9 +331,9 @@ Each list gives the inputs, optimised parameters, split replicates, $\gamma_\tex
 \begin{itemize}
     \item \textbf{Inputs:} AF2-Filtered ensemble (500 structures); HDX-MS Data (HDX-NMR for BPTI).
     \item \textbf{Optimised parameters:} All protocols (BV-only, RW-only, RWafterBV, BVafterRW, MutualBVRW).
-    \item \textbf{Splits/Replicates:} 3 replicates per stage.
+    \item \textbf{Splits/Replicates:} 3 Non-Redundant replicates per stage. The re-optimisation started a BV-only fit from each of the 3 fitted replicates and repeated it over 3 peptide-split replicates under each of the Non-Redundant and Spatial split types, giving 9 fits per split type. The same 3 split partitions were used for every starting replicate.
     \item \textbf{Optimisation grid:} $\gamma_\text{HDXer} \in \{1, \dots, 8\} \times 10^{0}$ (for reweighting stages).
-    \item \textbf{Outputs computed:} Comparative metrics across protocols.
+    \item \textbf{Outputs computed:} $\Delta\text{MSE}_\text{opt}$, $\text{Work}_\text{opt}$ and $\text{Work}_\text{scale}$ for each protocol, with total Work Done from the unoptimised ensemble-model for the two-step protocols; for the re-optimisation, $\text{Work}_\text{scale}$, $\text{Work}_\text{density}$, multivariate $\sigma$ and split agreement.
 \end{itemize}
 
 \subsection{Kinetic Misspecification}
@@ -754,8 +754,7 @@ where $SS_\text{between} = \sum_{j=1}^{k} n_j(\bar{x}_j - \bar{x}_\text{grand})^
         & & 1-sample t-test & BVafterRW* vs 0 & $3.29 \times 10^{-4}$ \\
         \bottomrule
     \end{tabular}
-    % TODO results port: cite the figure panels
-    \caption{Statistical test results for the fitting-protocol comparison (\cref{sec:valdx-protocol-comparison}). P-values are from one-sample tests of each protocol's mean change against zero. RWafterBV* and BVafterRW* give Work Done metrics as the total distance from the original unoptimised ensemble-model.}
+    \caption{Statistical test results for the fitting-protocol comparison (\cref{fig:valdx-protocol-comparison}A--C). P-values are from one-sample tests of each protocol's mean change against zero. RWafterBV* and BVafterRW* give Work Done metrics as the total distance from the original unoptimised ensemble-model.}
     \label{tab:valdx-protocol-tests}
 \end{table}
 
