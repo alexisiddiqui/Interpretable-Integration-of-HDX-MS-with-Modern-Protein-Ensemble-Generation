@@ -219,7 +219,7 @@ Measurement noise (Gaussian, $\sigma=0.02$ in fractional uptake) was drawn from 
 \subsection{Poisoning Algorithms}
 \label{app:valdx-poison-algorithms}
 
-\Cref{alg:valdx-gaussian-noise,alg:valdx-coordinate-mixing,alg:valdx-proton-shuffling} give the three operations described in \cref{sec:valdx-decoys}. Each acts on every frame of the parent ensemble.
+\Cref{alg:valdx-gaussian-noise,alg:valdx-coordinate-mixing,alg:valdx-proton-shuffling} give the three operations described in \cref{sec:valdx-decoys}. Each acts on every frame of the parent ensemble. The selection in \cref{alg:valdx-proton-shuffling} (\texttt{backbone and name H}) matches no atoms, because the MDAnalysis \texttt{backbone} keyword covers N, C$\alpha$, C and O only, so this operation returns the parent ensemble unchanged.
 
 \begin{algorithm}[htbp]
 \caption{Gaussian noise structure poisoning}
@@ -267,7 +267,7 @@ Measurement noise (Gaussian, $\sigma=0.02$ in fractional uptake) was drawn from 
 \end{algorithm}
 
 \begin{algorithm}[htbp]
-\caption{Backbone proton shuffling structure poisoning}
+\caption{Backbone proton shuffling structure poisoning (the selection is empty, so frames are unchanged)}
 \label{alg:valdx-proton-shuffling}
 \footnotesize
 \begin{algorithmic}[1]
@@ -287,7 +287,7 @@ Measurement noise (Gaussian, $\sigma=0.02$ in fractional uptake) was drawn from 
 \subsection{Poisoned Ensemble Construction}
 \label{app:valdx-poison-construction}
 
-The unmodified and poisoned parent ensembles were each reduced to representative structures by the same procedure. All atomic Cartesian coordinates of every frame were projected onto their first 50 principal components, and k-means clustering ($k=1000$, fixed random seed) was applied in that projection. The first frame of each cluster, in trajectory order, was taken as its representative. The 1000 representatives of the unmodified ensemble formed the base ensemble. Poisoned representatives were ordered by squared Euclidean distance. Each distance compared a representative in the poisoned Cartesian-coordinate projection with the mean projection of the unmodified parent ensemble in a separate 50-component PCA of coverage-filtered C$\alpha$ pair distances. The poisoned ensemble at dose $n$ comprised the base ensemble followed by the first $n$ ordered poisoned representatives, with $n=1$, 10, 100 and 500 for 0.1, 1, 10 and 50\%. The two projections were fitted separately, so this ordering is fixed and reproducible but is not a distance from the unmodified ensemble average in a shared space.
+The unmodified and poisoned parent ensembles were each reduced to representative structures by the same procedure. All atomic Cartesian coordinates of every frame were projected onto their first 50 principal components, and k-means clustering ($k=1000$, fixed random seed) was applied in that projection. The first frame of each cluster, in trajectory order, was taken as its representative. The 1000 representatives of the unmodified ensemble formed the base ensemble. Poisoned representatives were ordered by squared Euclidean distance. Each distance compared a representative in the poisoned Cartesian-coordinate projection with the mean projection of the unmodified parent ensemble in a separate 50-component PCA of coverage-filtered C$\alpha$ pair distances. The poisoned ensemble at dose $n$ comprised the base ensemble followed by the first $n$ ordered poisoned representatives, with $n=1$, 10, 100 and 500 for 0.1, 1, 10 and 50\%. For the unmodified control, clustering the unchanged parent ensemble with the same seed returns the base representatives, so each dose adds copies of base representatives in this fixed order. The two projections were fitted separately, so this ordering is fixed and reproducible but is not a distance from the unmodified ensemble average in a shared space.
 
 \section{Experiment-Specific Fitting Protocols}
 \label{app:valdx-case-studies}
@@ -349,21 +349,21 @@ Each list gives the inputs, optimised parameters, split replicates, $\gamma_\tex
 \subsection{Ensemble Size (Clustering) Sweep}
 \label{app:valdx-case-clustering}
 \begin{itemize}
-    \item \textbf{Inputs:} Parent ensembles (10,000--12,700 structures), clustered to sizes \{0.1\%, 1\%, 5\%, 10\%, 20\%, 50\%, 100\%\}; HDX-MS Data (HDX-NMR for BPTI).
+    \item \textbf{Inputs:} BPTI parent ensembles (10,000--12,700 structures), clustered to sizes \{0.1\%, 1\%, 5\%, 10\%, 20\%, 50\%, 100\%\}; BPTI HDX-NMR data.
     \item \textbf{Optimised parameters:} Frame weights (RW-only).
-    \item \textbf{Splits/Replicates:} 3 replicates $\times$ 2 split types.
+    \item \textbf{Splits/Replicates:} 3 replicates $\times$ 2 split types (Non-Redundant, Spatial); both are reported.
     \item \textbf{Optimisation grid:} $\gamma_\text{HDXer} \in \{1, \dots, 8\} \times 10^{0}$.
-    \item \textbf{Outputs computed:} Metrics vs Cluster Size.
+    \item \textbf{Outputs computed:} $\Delta\text{MSE}_\text{opt}$, $\text{Work}_\text{opt}$ and $\text{Work}_\text{scale}$ at each cluster proportion.
 \end{itemize}
 
 \subsection{Structure Poisoning}
 \label{app:valdx-case-poisoning}
 \begin{itemize}
-    \item \textbf{Inputs:} Clustered ensembles (1000 structures) + Poisoned structures (0.1\%, 1\%, 10\%, 50\%); HDX-MS Data.
+    \item \textbf{Inputs:} BRD4 clustered ensembles (1000 structures) with added poisoned or copied structures (0.1\%, 1\%, 10\%, 50\%); BRD4 HDX-MS data.
     \item \textbf{Optimised parameters:} Frame weights (RW-only).
-    \item \textbf{Splits/Replicates:} 3 replicates $\times$ 2 split types.
+    \item \textbf{Splits/Replicates:} 3 replicates $\times$ 2 split types (Non-Redundant, Spatial); results are reported for the Non-Redundant split.
     \item \textbf{Optimisation grid:} $\gamma_\text{HDXer} \in \{1, \dots, 8\} \times 10^{0}$.
-    \item \textbf{Outputs computed:} Correlation ($R$) and Standard Deviation ($SD$) of metrics.
+    \item \textbf{Outputs computed:} Z-scores of $\Delta\text{MSE}_\text{opt}$ and $\text{Work}_\text{opt}$ (\cref{eq:valdx-z-score}), with their $SD$ and $R$ across doses.
 \end{itemize}
 
 \endgroup
@@ -756,6 +756,54 @@ where $SS_\text{between} = \sum_{j=1}^{k} n_j(\bar{x}_j - \bar{x}_\text{grand})^
     \end{tabular}
     \caption{Statistical test results for the fitting-protocol comparison (\cref{fig:valdx-protocol-comparison}A--C). P-values are from one-sample tests of each protocol's mean change against zero. RWafterBV* and BVafterRW* give Work Done metrics as the total distance from the original unoptimised ensemble-model.}
     \label{tab:valdx-protocol-tests}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{@{}llllcc@{}}
+    \toprule
+        \textbf{Perturbation} & \textbf{Metric} & \textbf{Panel} & \textbf{Ensemble} & \textbf{SD} & \textbf{R} \\
+        \midrule
+        Gaussian noise & $\Delta$MSE$_{\text{opt}}$ & B & AF2-MSAss & $0.61$ & $-0.86$ \\
+        & & & AF2-Filtered & $0.13$ & $-1.00$ \\
+        & & & MD-1Start & $0.16$ & $-1.00$ \\
+        & & & MD-10Start & $0.16$ & $-1.00$ \\
+        & & & MD-TFES & $0.16$ & $-1.00$ \\
+        \midrule
+        & Work$_{\text{opt}}$ & C & AF2-MSAss & $0.43$ & $0.98$ \\
+        & & & AF2-Filtered & $0.21$ & $0.98$ \\
+        & & & MD-1Start & $0.13$ & $1.00$ \\
+        & & & MD-10Start & $0.11$ & $0.99$ \\
+        & & & MD-TFES & $0.12$ & $1.00$ \\
+        \midrule
+        Coordinate mixing & $\Delta$MSE$_{\text{opt}}$ & E & AF2-MSAss & $0.24$ & $-0.48$ \\
+        & & & AF2-Filtered & $0.12$ & $0.93$ \\
+        & & & MD-1Start & $0.48$ & $0.44$ \\
+        & & & MD-10Start & $0.26$ & $0.72$ \\
+        & & & MD-TFES & $0.16$ & $0.97$ \\
+        \midrule
+        & Work$_{\text{opt}}$ & F & AF2-MSAss & $0.26$ & $-0.04$ \\
+        & & & AF2-Filtered & $0.14$ & $0.56$ \\
+        & & & MD-1Start & $0.51$ & $0.30$ \\
+        & & & MD-10Start & $0.31$ & $0.07$ \\
+        & & & MD-TFES & $0.25$ & $0.44$ \\
+        \midrule
+        Unmodified control & $\Delta$MSE$_{\text{opt}}$ & H & AF2-MSAss & $0.20$ & $-0.16$ \\
+        & & & AF2-Filtered & $0.70$ & $0.82$ \\
+        & & & MD-1Start & $0.06$ & $0.98$ \\
+        & & & MD-10Start & $0.51$ & $0.85$ \\
+        & & & MD-TFES & $0.11$ & $0.23$ \\
+        \midrule
+        & Work$_{\text{opt}}$ & I & AF2-MSAss & $0.19$ & $-0.12$ \\
+        & & & AF2-Filtered & $0.47$ & $-0.97$ \\
+        & & & MD-1Start & $0.12$ & $0.70$ \\
+        & & & MD-10Start & $0.62$ & $-0.73$ \\
+        & & & MD-TFES & $0.16$ & $-0.58$ \\
+        \bottomrule
+    \end{tabular}
+    \caption{Standard deviations (SD) and Pearson correlations ($R$) of mean Z-scores across BRD4 artefact doses of 0, 0.1, 1 and 10\% (\cref{eq:valdx-z-score}; \cref{fig:valdx-brd4-artefacts}B, C, E, F, H and I).}
+    \label{tab:valdx-brd4-artefact-stats}
 \end{table}
 
 \clearpage

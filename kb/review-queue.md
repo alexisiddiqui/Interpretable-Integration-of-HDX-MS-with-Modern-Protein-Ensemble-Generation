@@ -34,10 +34,6 @@
 
 - [[@parkEstimationHydrogenExchangeProtection2015]] (`papers/@parkEstimationHydrogenExchangeProtection2015.md`)
 
-## Proton shuffling selects atoms with MDAnalysis `select_atoms("backbone and name H")`. MDAnalysis `backbone` is N, CA, C and O only (checked on 2.9), so the selection is empty, and if this script made the ensembles the proton-shuffled frames are unmodified. Check before porting the BRD4 results.
-
-- [[Structure poisoning (ValDX)]] (`methods/Structure poisoning (ValDX).md`)
-
 ## Review-level source; import and cite Kumar et al. (2016) as the primary.
 
 - [[Disease-associated variants perturb local frustration more than benign variants.]] (`claims/Disease-associated variants perturb local frustration more than benign variants..md`)
@@ -53,6 +49,10 @@
 ## Support is partial or indirect
 
 - [[Minimising apparent work and KL divergence gives a reweighted ensemble that satisfies the constraints with minimal deviation.]] (`claims/Minimising apparent work and KL divergence gives a reweighted ensemble that satisfies the constraints with minimal deviation..md`)
+
+## The cv_metad bias code (MaxENT-FK commit 4a22611, branch teaa-iso-frame-uptake) is on Isambard and not pushed, so the code links below cover only the HDX guidance and MaxEnt refit at the pinned submodule commit; add links for the bias after pushing and updating the submodule.
+
+- [[Hinge-coordinate metadiffusion (BioFeaturisers)]] (`methods/Hinge-coordinate metadiffusion (BioFeaturisers).md`)
 
 ## The jaxENT SI (si_figures.tex L225) cites wuConformationalHeterogeneitySavinase2020 for the Nguyen et al. reference parameters; it should cite this paper.
 

@@ -64,6 +64,7 @@ experiments:
       - isambard:audits/atlas-phate-check-v1/nearest-training-audit.png
       - audits/pinder-longgap-v1                                             # pKAI gap calibration, tables only
       - audits/pinder-exp-leak-v1
+      - audits/short-gap-absolute-rescore-v1                                 # PINDER loss under absolute-pKa short-tail radii, by label size; tables only
       - campaigns/coordinate-pool-inclusive-v1/rejections.parquet            # rejection codes, not yet plotted
       - universe/structural-freeze-v1
       - pretraining/pinder-pkai-v1

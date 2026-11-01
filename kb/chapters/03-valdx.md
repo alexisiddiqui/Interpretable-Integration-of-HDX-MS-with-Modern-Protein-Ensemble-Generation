@@ -38,7 +38,7 @@ Ranges run heading to heading.
 | `sec:valdx-fitting` | L356–460 (protocols, `tab:optimisation_protocols`, HDXer loss), L461 (γ), L468–483 (flow, knee, failures) | `app:valdx-case-studies` (L612–717; knee algorithm `Extended_SI.tex` L611–666) | [[Peptide splitting and consensus (ValDX)]] |
 | `sec:valdx-work` | L485–603 (`tab:metrics_summary`; Work Done L508–577, distinction from apparent work L508; ΔMSE and z-score L579–603); L464 (BICePs); L295–355 (structural metrics, summary only); `7_results_omc.tex` L11–26; `9_Supplementary_information.tex` L73–89 (replicate dispersion σ); `7_results_omc.tex` L121 (split agreement) | `app:valdx-mathematics` (`Extended_SI.tex` L248–336 Work definitions; L449–486 pair-distance RMS and W1; L580–610 LCC; `9_Supplementary_information.tex` L304 weighted RMSF) | [[Work Done (ValDX)]], [[Structural comparison metrics (ValDX)]] |
 | `sec:valdx-synthetic` | L107–125 (Iso-Validation), L126–163 (kinetic misspecification), L661–694 (kinetic protocol) | `app:valdx-synthetic` (L131–163 rate equations and noise; `9_Supplementary_information.tex` L5–40 simulator validation and digestion) | — |
-| `sec:valdx-decoys` | L256–283 (poisoning, `tab:poisoning_types`); L695–717 (cluster sweep, poisoning protocol) | `app:valdx-perturbations` (`Extended_SI.tex` L364–448) | — |
+| `sec:valdx-decoys` | L256–283 (poisoning, `tab:poisoning_types`); L695–717 (cluster sweep, poisoning protocol) | `app:valdx-perturbations` (`Extended_SI.tex` L364–448) | [[Structure poisoning (ValDX)]] |
 | `sec:valdx-statistics` | L604–611 | `app:valdx-mathematics` (`Extended_SI.tex` L667–729 regression, ΔR², η²) | — |
 | — | — | `app:valdx-implementation` (L719–781; environment prose from `Extended_SI.tex` L487–556) | — |
 | — | — | `app:valdx-supporting-results` (`Extended_SI.tex` L147–246 PCA, LCC, pairwise; L487–556 performance tables; `9_Supplementary_information.tex` L100–123, L160–192 statistical tables) | — |
@@ -87,12 +87,22 @@ Sources: `7_results_omc.tex` L132–188 (protocol comparison), L189–214 and L2
 ## 6 Clustering and diagnostic perturbations
 
 - Representation. Clustering to 10 to 20% of the parent ensemble preserved performance, and smaller sets aid interpretation when the conclusion survives a change of cluster size.
+- Clustering sweep (BPTI). Valid ensembles (MD-1Start, AF2-Filtered) fitted slightly worse as they were clustered down to a proportion of 0.01, while AF2-MSAss improved, consistent with removing low-population, structurally dissimilar conformations (S204–208; `fig:valdx-clustering-sweep`).
+- Work under clustering. MD-TFES needed high but consistent Work opt, and with MD-10Start it agreed between splits on Work scale, a scale deviation unaffected by clustering. Separating implausible from noisy hypotheses needs both splits and several metrics (S210–212; `fig:valdx-clustering-sweep`).
+- Cluster size. Proportions of 0.1–0.2 changed assessed quality little, and 0.01 can give useful models for valid ensembles. The forward-model sensitivity lost to clustering was smaller than the gain for AF2-MSAss (S214).
 - Decoys. Artificial and decoy conformations probe what the BV model can and cannot distinguish.
+- BRD4 artefacts. Gaussian noise separated AF2-MSAss from the physically valid ensembles by dose dependence and spread, but with small metric differences. Coordinate mixing gave mainly binary discrimination (S279; `fig:valdx-brd4-artefacts`).
+- Artefact conclusion. Responses carry complementary but not separable information about sampling and plausibility, need several metrics, and do not replace orthogonal validation (S285).
+- Unmodified control (BRD4). The intended proton shuffle selected no atoms, so its doses added copies of existing structures. At 50% it stayed within the spread of its lower doses, which supports attributing the large 50% artefact shifts to structural corruption rather than to added unchanged structures (own; S279–283; `fig:valdx-brd4-artefacts`).
 
-Sources: `7_results_omc.tex` L235–248 (clustering and limitations).
+Sources: `9_Supplementary_information.tex` L195–285 (clustering sweep, BRD4 artefacts); `7_results_omc.tex` L235–248 (clustering and limitations).
 
 ## 7 Discussion and chapter conclusions
 
 - Boundary, handed to ch. 4 and 5. Conclusions are comparative across the candidates supplied, reweighting cannot add states, and replicate uncertainty does not name its cause.
 
 Sources: `7_results_omc.tex` L235–248 (clustering and limitations).
+
+## Gaps
+
+- Fig6 G–I to be relabelled as the unmodified control (author).

@@ -1,0 +1,92 @@
+# bf-teaa: blind two-state ensemble from Boltz-2 and HDX (TeaA)
+
+Protocol for the TeaA metadiffusion experiment in MaxENT-FK, as run on Isambard-AI 25–31 Oct 2026. Results and figures are in `examples/TeaA/RESULTS.md` of the MaxENT-FK repository (branch `teaa-iso-frame-uptake`, results commit `89f183c`; code commit `4a22611`). Locations are in [biofeaturisers.md](biofeaturisers.md).
+
+**Question.** Starting from the TeaA sequence and a Boltz-2 prediction, with no MD reference in any run, can a target-free hinge bias plus HDX guidance and MaxEnt reweighting produce an ensemble that fits the HDX data and recovers the open:closed populations?
+
+## Design
+
+- **System.** TeaA, 309 residues. Lobe I is residues 1–122, 207–249 and 284–309; lobe II is residues 123–206 and 250–283 (`examples/TeaA/cv/derived/residue_structural_mapping.csv`).
+- **Target.** Synthetic HDX uptake from MD frames (15 open, 332 closed) at 40 % open : 60 % closed (`raw_data/iso_target_biofeat/manifest.json`). It is built with `examples/TeaA/generate_target.py --forward-model biofeat`, so the guidance forward model generated the target and carries no forward-model error. Timepoints are 10, 60, 600, 3600 and 7200 s; the forward model is BV with HDXrate intrinsic rates (pH 7.0, 300 K, `steepness_h` 1.0).
+- **Evaluation only.** The MD open and closed references (`examples/TeaA/cv/refs/`) enter the scoring and the answer key, never a run. Hinge states are lobe-II Cα RMSD after a lobe-I fit of at most 1.88 Å to open or 1.82 Å to closed.
+- **Sampler.** Boltz-2 through MaxENT-FK, 200 diffusion steps, bf16, K = 50 structures per run, one GPU. Conditioning is `tmsa`: no MSA, and Boltz's own MSA-conditioned prediction (`TeaA_boltz_msa_pred_s42_model0.pdb`) as the only template. The template is a Boltz prediction, not an MD or crystal structure; the unguided pool it gives is unimodal at the Boltz intermediate (θ spread 0.6°).
+- **Seeds.** Seeds 42 and 43 are separate pipelines. Every number for a seed derives from that seed's Boltz output, with disjoint seeds for history, continuation and refinement. Seed 43 is the reported result because its hinge axis is built from unguided from-noise pools only; seed 42 is the development run on which the recipe was tuned (its axis uses earlier, partly HDX-guided pools).
+
+## Protocol
+
+Every run is `sbatch teaa_sdedit.sbatch <label> <seed> [flags] [key=value ...]` (`~/_submit/teaa_sdedit.sbatch`, which calls `~/_runtime/scripts/teaa_sdedit_pool.py` into `_runtime/runs/TeaA_sdedit/<label>_s<seed>_n<K>`). Overrides are dotted keys under `guidance.guidance_config`. Starting config is `examples/TeaA/run.yaml`.
+
+### 1. Unguided pools and the blind hinge axis
+
+1. Unguided from noise: `cvf_ung_noise 42 --conditioning tmsa --from-noise --unguided`. For seed 43, three pools of 50 (`ung_noise_s43`, `_s44`, `_s45`, same flags). One run is about 3 min.
+2. `analysis/blind_axis.py` fits lobe I of every structure onto a base, takes the Kabsch rotation of lobe II, and uses the principal direction of the rotation vectors as the hinge axis. θ is the rotation-vector component along that axis, in degrees.
+   - Base is the pool medoid: `cvf_ung_noise_s42_n50` model 20 for seed 42, `ung_noise_s43_s43_n50` model 6 for seed 43.
+   - Axes are `[0.347, 0.938, 0.007]` (seed 42) and `[0.163, 0.917, −0.363]` (seed 43); the seeds agree at cos 0.98 after aligning the two base frames (`blind_axis_s43.json`).
+   - The seed-43 axis is computed from the three unguided from-noise pools only.
+   - The seed-42 axis is computed from 5630 structures in the pool sets named in `POOL_SETS` in `blind_axis.py`, taken from earlier campaigns (rows of `TeaA_cv/cv_values.csv`). By each run's `resolved_config.yaml`, about 1960 of them (35 %) come from HDX-guided runs: `hs_*` guided and `e_*`/`l1f02` variants (1350), `it1..3` (450) and `lgvC..E` plus the smoke run (160); the 150 `nmaG_..._bvcal` structures have no config on disk and are probably guided as well. Another 1500 (`hs_*`) and 450 (`it1..3`) were re-seeded from single structures ranked by HDX gain against the target (`hdx_seeds.py`, `iter_rank.py`). The 260 `lgv` structures were seeded from the 50 blind structures closest to the open MD reference (`near_open_seeds.py`: "references used for selection"). The remaining 2940 (`blind_all`) and 180 (`blind1_open`) are unguided.
+   - The seed-42 axis is therefore not blind in the strict sense; the seed-43 axis is. Checked 2026-11-01 by recomputing the seed-42 axis on the same base from subsets of the pool (read-only; the stored axis is reproduced exactly from the full pool, cos 1.0000):
+
+     | Pool subset | n | cos to stored axis | angle |
+     |---|---|---|---|
+     | unguided runs, without `lgv` | 3470 | 0.9928 | 6.9° |
+     | `blind_all`, `blind1_open`, unguided `nmaG`, from-noise pool | 3320 | 0.9925 | 7.0° |
+     | `blind_all` and from-noise pool | 2990 | 0.9858 | 9.7° |
+     | from-noise pool alone | 50 | 0.9974 | 4.2° |
+
+     The stored axis is 4.4° from the MD open-state rotation axis, and the unguided-only axes are 6–8° from it. The unguided-only axis is 7° from the stored one; the seed-43 axis is 11.8° from it (cos 0.979 after aligning the base frames). Random 150-structure subsets of the unguided pool give a median of 10° from the stored axis (5th percentile cos 0.961).
+
+### 2. Step 1: metadiffusion along the hinge (`cv_metad`)
+
+Overrides common to every round (`~/_runtime/patch_test/pre_metad/metad_common_cap1.txt`):
+
+```
+cv_metad=true  cv_metad_base=<base pdb>  cv_metad_axis=[<axis>]
+cv_force_fit=1-122,207-249,284-309  cv_force_measure=123-206,250-283
+cv_force_window=[0.7,0.75]  cv_force_alpha=0.3
+cv_metad_height=1.0  cv_metad_sigma=3.0  cv_metad_kt=100.0  cv_metad_cap=1.0
+cv_metad_history=<history csv>
+gradient_every_step=true  residue_boltz_cap=null
+alpha_schedule.start_frac=1.5  alpha_schedule.stop_frac=1.6
+```
+
+The window `[0.7, 0.75]` is denoising steps 140–149 of 200. In it, each structure moves by −alpha · dV/dθ · dθ/dx_Cα, rescaled per structure to at most `cv_metad_cap` Å per atom, and one Gaussian is then deposited at its θ with height h₀ exp(−V/kT). The HDX alpha window is empty (start_frac 1.5 is beyond the end of the schedule), so no HDX force acts in this step.
+
+1. Four rounds from noise, `metad_r1..r4 42 --conditioning tmsa --from-noise` with the overrides above. The history CSV (`TeaA_cv/metad_history.csv`) carries the deposits from round to round. Seed 43 is `metad43_r1..r4` with `metad_history_s43.csv`. Seed-42 round 1 ran with `cv_metad_cap=0.1`, which is inert; it is not part of the step-1 union.
+2. Eight continuation rounds, `cont_c1..c8` (seeds 101–108; seed 43 uses 301–308). Each is seeded from the previous round's 50 structures at step 140: `--seed-dir ~/_runtime/processed/TeaA_metad_seeds/c<N> --start-step 140 --diffusion-seed <s> --conditioning tmsa` plus the same overrides, history carried. The seed directories are symlinks to the previous round's models (`c1` links to `metad_r4`). One round is about 2 min.
+3. The history files hold 6000 deposits each (12 rounds × 50 structures × 10 window steps).
+4. Step-1 output is the union of rounds 2–4 and c1–c8 (550 structures), not the last round. Union θ range is −46..+22° (seed 42) and −43..+25° (seed 43).
+
+### 3. Step 2: late-HDX refinement
+
+1. Seeds: a θ-stratified subset of the step-1 union, at most 25 structures per 6° bin, split into five seed sets `TeaA_step2_seeds/k1..k5` (245 structures for seed 42, 234 for seed 43, of which 233 pass the pLDDT filter below), as symlinks into the step-1 runs. No script for the selection was found.
+2. Re-denoise from step 150 with HDX guidance:
+
+```
+refa025_k<i> <201..205> --seed-dir ~/_runtime/processed/TeaA_step2_seeds/k<i> \
+  --start-step 150 --diffusion-seed <s> --conditioning tmsa \
+  alpha_schedule.start_value=0.25  alpha_schedule.normalize_to_boltz=true \
+  alpha_schedule.start_frac=0.75  alpha_schedule.stop_frac=1.0 \
+  residue_boltz_cap=1.0  residue_boltz_floor_frac=0.25 \
+  gradient_projection=torsion  projection_renormalize=true  projection_max_angle_deg=10 \
+  lambda_schedule.start_value=1000  gradient_every_step=true
+```
+
+   Seed 43 uses seeds 401–405 and `refa025s43_k<i>`. One run is about 13–15 min. The MaxEnt refit runs every 5 steps, with 3 residue-split replicates (80 % train, `sequence_cluster` split).
+3. Control: the same seed sets with `--unguided` (`ctl_k1..5`, `ctls43_k1..5`). Alpha 1.0 and 0.5 (`ref_k*`, `refa05_k*`) were run for seed 42 only.
+4. Filter: structures with pLDDT below 0.7 are removed before scoring (run copies in `TeaA_sdedit_filt/*_p70`; no script for the copy was found).
+
+### 4. Step 3: reweighting and evaluation
+
+1. MaxEnt over the union of the five refined pools, uniform prior, λ 100 and 1000: `analysis/teaa_scan_score.py`, with `SCAN_DUMP` set to write the per-structure weights (`TeaA_cv/sweep_a0.25_blind.csv`, `sweep_s43_a0.25_blind.csv`). `sweep_*_withref.csv` adds the true open and closed pools to the union.
+2. Weight against θ, `analysis/weight_vs_theta.py`; pool-level checks with 6° θ bins as uniform-weight pools, pairwise mixtures and a simplex fit, `analysis/theta_bin_mix.py` and `scan_pairmix.py`.
+3. Population recovery, `analysis/recovery.py`. This is the JAX-ENT definition (`jaxent.src.analysis.pf_variance`, `state_population`): base-2 Jensen–Shannon divergence over a strict support, recovery = 100 (1 − √JSD), with state from blind θ (open below −5°, closed above +5°, otherwise neither; target 0.40 / 0.60 / 0). It is an evaluation metric, never a loss.
+4. Geometry: `theta_eval.py`, `hinge_eval.py`, and `landscape_plots.py` for the Cα PCA (fit on the MD open and closed frames with equal state weighting) and the RMSD landscapes.
+
+Analysis scripts and score dumps are under `~/_runtime/analysis/` (`TeaA_cv/` for the dumps); the runs are under `/scratch/u6xq/hussain.u6xq/_runtime/runs/TeaA_sdedit/`, and the dump paths point at the home-directory copy of `_runtime/runs`.
+
+## Settings that changed the outcome
+
+- Per-atom HDX guidance applied every step never left the Boltz intermediate; a spring on the hinge coordinate moves the ensemble only inside steps 140–149 (above σ ≈ 3.4 Å the trunk erases the push, below σ ≈ 1.5 Å the hinge is frozen).
+- A cap of 0.1 Å on the bias move is inert (0.4°/step against the 1.2°/step restoring pull); 1.0 Å works.
+- 150 structures are needed for the blind axis (bootstrap cos 5th percentile 0.49 for 50, 0.83 for 150).
+- HDX alpha 0.25 in the refinement fits as well as 1.0 and 0.5 without wrecked structures (at 1.0 eight structures with pLDDT 0.48–0.57 kept 5 % of the weight).
