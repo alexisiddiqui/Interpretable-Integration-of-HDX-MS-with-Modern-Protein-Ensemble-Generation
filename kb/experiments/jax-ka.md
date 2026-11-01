@@ -69,8 +69,9 @@ experiments:
       - pretraining/pinder-pkai-v1
       - pretraining/pkpdb-full-v1
       - training/pool-v4
-      - audits/component-cutoffs-figure-v1/plots/component_cutoffs.png       # pkabench.cutoff_plots; copied to figures/jaxka-component-cutoffs
-    figures: [jaxka-component-cutoffs]
+      - audits/cutoff-figures-v2/components/plots/component_cutoffs.png      # pkabench.cutoff_plots; copied to figures/jaxka-component-cutoffs
+      - audits/cutoff-figures-v2/gaps/plots/gap_cutoffs.png                  # gap radii, PypKa short and pKAI long gaps; copied to figures/jaxka-gap-cutoffs
+    figures: [jaxka-component-cutoffs, jaxka-gap-cutoffs]
   - id: jaxka-anm-augmentation
     question: null
     locations:

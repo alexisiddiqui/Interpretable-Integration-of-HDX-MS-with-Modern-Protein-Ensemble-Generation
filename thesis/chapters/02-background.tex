@@ -270,11 +270,34 @@ The contact-count implementation used by HDXer evaluates burial within $6.5\,\te
 \end{equation}
 where $M$ is the number of candidate conformations.\supercite{bradshawInterpretationHDXData2020} The weights describe how much each conformation contributes to the predicted protection profile. The coefficients calibrate the relationship between structural features and protection; they are not microscopic interaction energies.
 
-Averaging is part of the forward model. Averaging log protection factors as in \cref{eq:bg-bv-average} gives a geometric mean of protection, while averaging exchange rates or frame-wise uptake gives different predictions because the transformations are non-linear. The adopted average must therefore be stated alongside the structural features. When slowly interconverting conformers retain distinct exchange behaviour, a single effective protection factor may be inadequate.\supercite{skinnerEstimatingConstraintsProtection2019} The averaging procedure must therefore match the exchange behaviour being represented.
+An alternative is to identify exchange-competent conformations directly and estimate how frequently they occur. Persson and Halle proposed that opening involves local distortions that allow two water molecules to coordinate the amide hydrogen.\supercite{perssonHowAmideHydrogens2015} Classifying each amide as open or closed in successive simulation frames then gives an estimate of its open-state population, provided the trajectory represents equilibrium sampling. This connects the structural trajectory to the opening equilibrium introduced in \cref{sec:bg-exchange-regimes}.
 
-Other approaches use atomistic trajectories to examine residue protection in more detail, while Bayesian population inference has incorporated protection-factor predictors to compare candidate ensembles.\supercite{mohammadiaraniInterpretingHydrogenDeuteriumExchange2018,wanReconcilingSimulatedEnsembles2020} A complementary route estimates residue protection factors directly from overlapping uptake curves. Skinner et al. search for sets of protection factors compatible with the measured uptake, showing both the information gained from overlap and the alternatives left unresolved. Where such constraints are informative, they test a structural model at finer resolution than peptide uptake alone.\supercite{skinnerEstimatingConstraintsProtection2019}
+In the implementation designated M7 by Mohammadiarani et al., an amide is open when at least two water oxygens lie within $2.6\,\text{\AA}$ of its hydrogen and no eligible protein polar atom lies within the same distance, subject to neighbouring-residue exclusions.\supercite{mohammadiaraniInterpretingHydrogenDeuteriumExchange2018} Under EX2 conditions, assigning intrinsic-rate exchange to the open state gives
+\begin{equation}
+    P_{f,i}=\frac{1}{p_{O,i}}
+    =1+\frac{p_{C,i}}{p_{O,i}}
+    \simeq\frac{p_{C,i}}{p_{O,i}},
+    \qquad p_{O,i}\ll1,
+    \label{eq:bg-population-pf}
+\end{equation}
+where $p_{O,i}$ and $p_{C,i}$ are the equilibrium open- and closed-state populations. The comparison calls the closed-to-open ratio the protection factor; the rate-based definition in \cref{eq:bg-protection-factor} includes the additional unity. The two coincide approximately for predominantly closed amides.
 
-The choice of features, coefficients and averaging determines which structural differences can affect the prediction. A model can fit peptide uptake while assigning incorrect protection within a peptide or incorrect populations among conformations.\supercite{bradshawInterpretationHDXData2020}
+Estimating protection from opening populations requires sufficient sampling of the open state. Highly protected amides can require millisecond or longer trajectories before openings are observed.\supercite{mohammadiaraniInterpretingHydrogenDeuteriumExchange2018} The prediction therefore depends on both the structural opening criterion and how frequently the trajectory samples conformations satisfying it. An absence of sampled openings does not establish infinite physical protection.
+
+Solvent exposure and nearby polar atoms can also be used as empirical predictors without classifying conformations as open or closed. Mohammadiarani et al.'s M8 model combines the solvent-accessible surface area of the amide hydrogen, $\mathrm{SASA}_i$, with its distance to the nearest eligible protein polar atom, $d_{\mathrm{pol},i}$, through
+\begin{equation}
+    \ln P_{f,i}
+    =\beta_s\,\mathrm{SASA}_i^{-\gamma_s}
+    +\beta_p\,d_{\mathrm{pol},i}^{-\gamma_p}.
+    \label{eq:bg-sasa-distance-pf}
+\end{equation}
+The distance excludes neighbouring residues, and SASA refers to the amide hydrogen rather than the whole residue. Four fitted parameters determine how the features map to protection. These parameters were calibrated against peptide uptake for RGS4, RGS8 and RGS19, separately for each force field, so their transfer to other systems requires assessment.\supercite{mohammadiaraniInterpretingHydrogenDeuteriumExchange2018} M8 therefore shares BV's empirical relationship between structural features and protection, while using different measures of solvent exposure and polar contacts. The same study's M9 instead uses SASA and distance thresholds to define open states before calculating their relative populations.\supercite{mohammadiaraniInterpretingHydrogenDeuteriumExchange2018}
+
+The structural features alone do not fully specify an ensemble prediction. BV averages log protection as in \cref{eq:bg-bv-average}, whereas the population model estimates how frequently the opening criterion is satisfied. Averaging log protection gives a geometric mean of protection, while averaging exchange rates or frame-wise uptake gives different predictions because the transformations are non-linear. For a non-linear relationship such as M8, applying \cref{eq:bg-sasa-distance-pf} to averaged features also differs from averaging the predicted log protection. The averaging procedure must therefore be stated alongside the feature definitions and calibration. When slowly interconverting conformers retain distinct exchange behaviour, a single effective protection factor may be inadequate.\supercite{skinnerEstimatingConstraintsProtection2019}
+
+Protection-factor predictors have also been incorporated into Bayesian population inference to compare candidate ensembles.\supercite{wanReconcilingSimulatedEnsembles2020} A complementary route estimates residue protection factors directly from overlapping uptake curves. Skinner et al. search for sets of protection factors compatible with the measured uptake, showing both the information gained from overlap and the alternatives left unresolved. Where such constraints are informative, they test a structural model at finer resolution than peptide uptake alone.\supercite{skinnerEstimatingConstraintsProtection2019}
+
+The choice of features, coefficients, opening criteria and averaging determines which structural differences can affect the prediction. A model can fit peptide uptake while assigning incorrect protection within a peptide or incorrect populations among conformations.\supercite{bradshawInterpretationHDXData2020} Agreement should therefore be assessed at the finest resolution supported by the measurements.
 
 \section{Protein Protonation and pH-Dependent Properties}
 \label{sec:bg-protonation}
