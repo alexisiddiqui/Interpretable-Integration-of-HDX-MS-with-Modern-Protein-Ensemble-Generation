@@ -1,0 +1,589 @@
+{
+  "distance": "Nearest removed component heavy atom to the titratable site, Angstrom.",
+  "limits": "PROPKA sensitivity with finite cutoffs, not physical label error. Buffers and glycans: all removed at once; ligands and metals: one component instance removed at a time, others retained.",
+  "provenance": {
+    "Buffers": {
+      "observations": 2742,
+      "source": "audits/buffer-propka-v2/site_changes.csv",
+      "source_sha256": "d7b751bfdb349fde510b3c59269c2c036f26f27d84ed99b3c201aa4bab0ae45e"
+    },
+    "Glycans": {
+      "observations": 4310,
+      "source": "audits/glycan-propka-ccd-v1/site_changes.csv",
+      "source_sha256": "79a4558fef4cda1ebce6dd876a2cfd8f05833952366a4a2ee1257a870a460ea0"
+    },
+    "Ligands": {
+      "observations": 3349,
+      "source": "audits/propka-components-v2-ligands/out/site_changes.csv",
+      "source_sha256": "330b4b71ebb8638fc098821661866b35108862ea2cfbcab7201f52c8fb4df46f"
+    },
+    "Metals": {
+      "observations": 4901,
+      "source": "audits/propka-components-v1/site_changes.csv",
+      "source_sha256": "1e4720751591412670295c0f95c12e69876c99358d43c43e276408a66e4aaefc"
+    }
+  },
+  "script_sha256": "6f52b16e3afc65f9fae2e1f5499f2f1907f014f8b66a88a763bfd48b4a4eb7ad",
+  "summaries": [
+    {
+      "hi_A": 5,
+      "lo_A": 0,
+      "max": 0.47657581280533456,
+      "median": 3.889989658523163e-05,
+      "metric": "delta_pka_change",
+      "n": 32,
+      "p95": 0.21312441055192702,
+      "panel": "Ligands"
+    },
+    {
+      "hi_A": 10,
+      "lo_A": 5,
+      "max": 0.3480591702296696,
+      "median": 1.3322676295501878e-15,
+      "metric": "delta_pka_change",
+      "n": 56,
+      "p95": 0.06334748963868186,
+      "panel": "Ligands"
+    },
+    {
+      "hi_A": 15,
+      "lo_A": 10,
+      "max": 0.16009529597679606,
+      "median": 0.0,
+      "metric": "delta_pka_change",
+      "n": 146,
+      "p95": 0.025884041598766228,
+      "panel": "Ligands"
+    },
+    {
+      "hi_A": 20,
+      "lo_A": 15,
+      "max": 0.034681076212079276,
+      "median": 2.220446049250313e-16,
+      "metric": "delta_pka_change",
+      "n": 250,
+      "p95": 0.002219903140280619,
+      "panel": "Ligands"
+    },
+    {
+      "hi_A": 25,
+      "lo_A": 20,
+      "max": 0.0016582472618558164,
+      "median": 0.0,
+      "metric": "delta_pka_change",
+      "n": 315,
+      "p95": 0.0,
+      "panel": "Ligands"
+    },
+    {
+      "hi_A": 30,
+      "lo_A": 25,
+      "max": 0.0,
+      "median": 0.0,
+      "metric": "delta_pka_change",
+      "n": 268,
+      "p95": 0.0,
+      "panel": "Ligands"
+    },
+    {
+      "hi_A": 35,
+      "lo_A": 30,
+      "max": 0.0,
+      "median": 0.0,
+      "metric": "delta_pka_change",
+      "n": 223,
+      "p95": 0.0,
+      "panel": "Ligands"
+    },
+    {
+      "hi_A": 5,
+      "lo_A": 0,
+      "max": 1.2179847508103228,
+      "median": 0.17157891229454503,
+      "metric": "ab_pka_change",
+      "n": 32,
+      "p95": 1.0673407697767834,
+      "panel": "Ligands"
+    },
+    {
+      "hi_A": 10,
+      "lo_A": 5,
+      "max": 3.8474763031655,
+      "median": 0.022919450450076706,
+      "metric": "ab_pka_change",
+      "n": 56,
+      "p95": 0.3880332459553597,
+      "panel": "Ligands"
+    },
+    {
+      "hi_A": 15,
+      "lo_A": 10,
+      "max": 0.11568002495542018,
+      "median": 0.0022056179559317712,
+      "metric": "ab_pka_change",
+      "n": 146,
+      "p95": 0.04705536372482255,
+      "panel": "Ligands"
+    },
+    {
+      "hi_A": 20,
+      "lo_A": 15,
+      "max": 0.03899495853274537,
+      "median": 0.00020322058285415778,
+      "metric": "ab_pka_change",
+      "n": 250,
+      "p95": 0.0028103168284127704,
+      "panel": "Ligands"
+    },
+    {
+      "hi_A": 25,
+      "lo_A": 20,
+      "max": 0.0016582472618558164,
+      "median": 0.0,
+      "metric": "ab_pka_change",
+      "n": 315,
+      "p95": 0.0,
+      "panel": "Ligands"
+    },
+    {
+      "hi_A": 30,
+      "lo_A": 25,
+      "max": 0.0,
+      "median": 0.0,
+      "metric": "ab_pka_change",
+      "n": 268,
+      "p95": 0.0,
+      "panel": "Ligands"
+    },
+    {
+      "hi_A": 35,
+      "lo_A": 30,
+      "max": 0.0,
+      "median": 0.0,
+      "metric": "ab_pka_change",
+      "n": 223,
+      "p95": 0.0,
+      "panel": "Ligands"
+    },
+    {
+      "hi_A": 5,
+      "lo_A": 0,
+      "max": 3.887467959842514,
+      "median": 0.00239253060158795,
+      "metric": "delta_pka_change",
+      "n": 125,
+      "p95": 0.4803471862279915,
+      "panel": "Buffers"
+    },
+    {
+      "hi_A": 10,
+      "lo_A": 5,
+      "max": 1.2590620864425013,
+      "median": 0.0032898204231206485,
+      "metric": "delta_pka_change",
+      "n": 291,
+      "p95": 0.19516005569398964,
+      "panel": "Buffers"
+    },
+    {
+      "hi_A": 15,
+      "lo_A": 10,
+      "max": 0.5822353176052495,
+      "median": 0.0006163264229481769,
+      "metric": "delta_pka_change",
+      "n": 499,
+      "p95": 0.062489421302163964,
+      "panel": "Buffers"
+    },
+    {
+      "hi_A": 20,
+      "lo_A": 15,
+      "max": 0.038471625795390985,
+      "median": 2.0523596838017966e-05,
+      "metric": "delta_pka_change",
+      "n": 551,
+      "p95": 0.0022392968652784617,
+      "panel": "Buffers"
+    },
+    {
+      "hi_A": 25,
+      "lo_A": 20,
+      "max": 0.0020843184520291658,
+      "median": 0.0,
+      "metric": "delta_pka_change",
+      "n": 392,
+      "p95": 0.0,
+      "panel": "Buffers"
+    },
+    {
+      "hi_A": 30,
+      "lo_A": 25,
+      "max": 0.0,
+      "median": 0.0,
+      "metric": "delta_pka_change",
+      "n": 300,
+      "p95": 0.0,
+      "panel": "Buffers"
+    },
+    {
+      "hi_A": 35,
+      "lo_A": 30,
+      "max": 0.0,
+      "median": 0.0,
+      "metric": "delta_pka_change",
+      "n": 196,
+      "p95": 0.0,
+      "panel": "Buffers"
+    },
+    {
+      "hi_A": 5,
+      "lo_A": 0,
+      "max": 4.358564538998756,
+      "median": 0.18714598550545247,
+      "metric": "ab_pka_change",
+      "n": 125,
+      "p95": 0.8478946634219969,
+      "panel": "Buffers"
+    },
+    {
+      "hi_A": 10,
+      "lo_A": 5,
+      "max": 1.1652042094474169,
+      "median": 0.041621950829956234,
+      "metric": "ab_pka_change",
+      "n": 291,
+      "p95": 0.2309227306032069,
+      "panel": "Buffers"
+    },
+    {
+      "hi_A": 15,
+      "lo_A": 10,
+      "max": 1.0772879451778579,
+      "median": 0.007041065102733057,
+      "metric": "ab_pka_change",
+      "n": 499,
+      "p95": 0.1044279343858914,
+      "panel": "Buffers"
+    },
+    {
+      "hi_A": 20,
+      "lo_A": 15,
+      "max": 0.029029206369942884,
+      "median": 0.00037961401996966515,
+      "metric": "ab_pka_change",
+      "n": 551,
+      "p95": 0.0032812178656236313,
+      "panel": "Buffers"
+    },
+    {
+      "hi_A": 25,
+      "lo_A": 20,
+      "max": 0.0020843184520291658,
+      "median": 0.0,
+      "metric": "ab_pka_change",
+      "n": 392,
+      "p95": 3.19771545242978e-08,
+      "panel": "Buffers"
+    },
+    {
+      "hi_A": 30,
+      "lo_A": 25,
+      "max": 0.0,
+      "median": 0.0,
+      "metric": "ab_pka_change",
+      "n": 300,
+      "p95": 0.0,
+      "panel": "Buffers"
+    },
+    {
+      "hi_A": 35,
+      "lo_A": 30,
+      "max": 0.0,
+      "median": 0.0,
+      "metric": "ab_pka_change",
+      "n": 196,
+      "p95": 0.0,
+      "panel": "Buffers"
+    },
+    {
+      "hi_A": 5,
+      "lo_A": 0,
+      "max": 1.4077884486471817,
+      "median": 0.0001582499225492029,
+      "metric": "delta_pka_change",
+      "n": 85,
+      "p95": 0.3594523201134951,
+      "panel": "Glycans"
+    },
+    {
+      "hi_A": 10,
+      "lo_A": 5,
+      "max": 0.39672535290022104,
+      "median": 0.0,
+      "metric": "delta_pka_change",
+      "n": 186,
+      "p95": 0.09861945138685524,
+      "panel": "Glycans"
+    },
+    {
+      "hi_A": 15,
+      "lo_A": 10,
+      "max": 0.5320661068543373,
+      "median": 0.0,
+      "metric": "delta_pka_change",
+      "n": 432,
+      "p95": 0.057832114619190814,
+      "panel": "Glycans"
+    },
+    {
+      "hi_A": 20,
+      "lo_A": 15,
+      "max": 1.8744797206015154,
+      "median": 0.0,
+      "metric": "delta_pka_change",
+      "n": 502,
+      "p95": 0.003624641867819986,
+      "panel": "Glycans"
+    },
+    {
+      "hi_A": 25,
+      "lo_A": 20,
+      "max": 0.05883196251922662,
+      "median": 0.0,
+      "metric": "delta_pka_change",
+      "n": 467,
+      "p95": 0.0,
+      "panel": "Glycans"
+    },
+    {
+      "hi_A": 30,
+      "lo_A": 25,
+      "max": 0.021420363929593123,
+      "median": 0.0,
+      "metric": "delta_pka_change",
+      "n": 460,
+      "p95": 0.0,
+      "panel": "Glycans"
+    },
+    {
+      "hi_A": 35,
+      "lo_A": 30,
+      "max": 0.0,
+      "median": 0.0,
+      "metric": "delta_pka_change",
+      "n": 342,
+      "p95": 0.0,
+      "panel": "Glycans"
+    },
+    {
+      "hi_A": 5,
+      "lo_A": 0,
+      "max": 1.4077884486471817,
+      "median": 0.23468444553839518,
+      "metric": "ab_pka_change",
+      "n": 85,
+      "p95": 0.7434441966736439,
+      "panel": "Glycans"
+    },
+    {
+      "hi_A": 10,
+      "lo_A": 5,
+      "max": 1.396528254153985,
+      "median": 0.04559873142658022,
+      "metric": "ab_pka_change",
+      "n": 186,
+      "p95": 0.3252246243356858,
+      "panel": "Glycans"
+    },
+    {
+      "hi_A": 15,
+      "lo_A": 10,
+      "max": 0.5320661068543373,
+      "median": 0.004992893151289479,
+      "metric": "ab_pka_change",
+      "n": 432,
+      "p95": 0.13509237593127002,
+      "panel": "Glycans"
+    },
+    {
+      "hi_A": 20,
+      "lo_A": 15,
+      "max": 1.8744797206015154,
+      "median": 0.0004258209272047786,
+      "metric": "ab_pka_change",
+      "n": 502,
+      "p95": 0.010889312532419025,
+      "panel": "Glycans"
+    },
+    {
+      "hi_A": 25,
+      "lo_A": 20,
+      "max": 0.05883196251922662,
+      "median": 0.0,
+      "metric": "ab_pka_change",
+      "n": 467,
+      "p95": 0.0,
+      "panel": "Glycans"
+    },
+    {
+      "hi_A": 30,
+      "lo_A": 25,
+      "max": 0.02436242421548851,
+      "median": 0.0,
+      "metric": "ab_pka_change",
+      "n": 460,
+      "p95": 0.0,
+      "panel": "Glycans"
+    },
+    {
+      "hi_A": 35,
+      "lo_A": 30,
+      "max": 0.0,
+      "median": 0.0,
+      "metric": "ab_pka_change",
+      "n": 342,
+      "p95": 0.0,
+      "panel": "Glycans"
+    },
+    {
+      "hi_A": 5,
+      "lo_A": 0,
+      "max": 4.459278596221608,
+      "median": 0.014732063806402351,
+      "metric": "delta_pka_change",
+      "n": 79,
+      "p95": 1.677425903015416,
+      "panel": "Metals"
+    },
+    {
+      "hi_A": 10,
+      "lo_A": 5,
+      "max": 1.3325869329129967,
+      "median": 0.002859268614245014,
+      "metric": "delta_pka_change",
+      "n": 122,
+      "p95": 0.3234173036572751,
+      "panel": "Metals"
+    },
+    {
+      "hi_A": 15,
+      "lo_A": 10,
+      "max": 0.2807271312271702,
+      "median": 5.1522080962485006e-05,
+      "metric": "delta_pka_change",
+      "n": 251,
+      "p95": 0.013325905519689485,
+      "panel": "Metals"
+    },
+    {
+      "hi_A": 20,
+      "lo_A": 15,
+      "max": 1.375807970656064,
+      "median": 8.881784197001252e-16,
+      "metric": "delta_pka_change",
+      "n": 362,
+      "p95": 0.0010489423745418057,
+      "panel": "Metals"
+    },
+    {
+      "hi_A": 25,
+      "lo_A": 20,
+      "max": 1.3745450636205145,
+      "median": 0.0,
+      "metric": "delta_pka_change",
+      "n": 409,
+      "p95": 0.0,
+      "panel": "Metals"
+    },
+    {
+      "hi_A": 30,
+      "lo_A": 25,
+      "max": 0.0,
+      "median": 0.0,
+      "metric": "delta_pka_change",
+      "n": 451,
+      "p95": 0.0,
+      "panel": "Metals"
+    },
+    {
+      "hi_A": 35,
+      "lo_A": 30,
+      "max": 0.0,
+      "median": 0.0,
+      "metric": "delta_pka_change",
+      "n": 399,
+      "p95": 0.0,
+      "panel": "Metals"
+    },
+    {
+      "hi_A": 5,
+      "lo_A": 0,
+      "max": 8.273768749612628,
+      "median": 2.210340654132567,
+      "metric": "ab_pka_change",
+      "n": 79,
+      "p95": 7.448898475866595,
+      "panel": "Metals"
+    },
+    {
+      "hi_A": 10,
+      "lo_A": 5,
+      "max": 4.653632682557082,
+      "median": 0.1944511029766396,
+      "metric": "ab_pka_change",
+      "n": 122,
+      "p95": 2.5509494491898472,
+      "panel": "Metals"
+    },
+    {
+      "hi_A": 15,
+      "lo_A": 10,
+      "max": 0.28840238635916116,
+      "median": 0.0012929384327993176,
+      "metric": "ab_pka_change",
+      "n": 251,
+      "p95": 0.01165320328946784,
+      "panel": "Metals"
+    },
+    {
+      "hi_A": 20,
+      "lo_A": 15,
+      "max": 1.3760280261784228,
+      "median": 4.7913800083065894e-05,
+      "metric": "ab_pka_change",
+      "n": 362,
+      "p95": 0.0013247015377055213,
+      "panel": "Metals"
+    },
+    {
+      "hi_A": 25,
+      "lo_A": 20,
+      "max": 1.3745450636205145,
+      "median": 0.0,
+      "metric": "ab_pka_change",
+      "n": 409,
+      "p95": 2.8350110003570515e-06,
+      "panel": "Metals"
+    },
+    {
+      "hi_A": 30,
+      "lo_A": 25,
+      "max": 0.0,
+      "median": 0.0,
+      "metric": "ab_pka_change",
+      "n": 451,
+      "p95": 0.0,
+      "panel": "Metals"
+    },
+    {
+      "hi_A": 35,
+      "lo_A": 30,
+      "max": 0.0,
+      "median": 0.0,
+      "metric": "ab_pka_change",
+      "n": 399,
+      "p95": 0.0,
+      "panel": "Metals"
+    }
+  ]
+}

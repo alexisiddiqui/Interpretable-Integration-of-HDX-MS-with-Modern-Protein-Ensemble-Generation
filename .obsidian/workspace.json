@@ -11,10 +11,14 @@
             "id": "e5866f64d2d4241f",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "file:/Users/alexi/Documents/opig-adaptyv-2026/submissions/4_TfR1_S2/methodology.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "methodology"
             }
           }
         ]
@@ -183,25 +187,29 @@
   },
   "active": "e5866f64d2d4241f",
   "lastOpenFiles": [
+    "figures/jaxka-component-cutoffs/ORIGIN.md",
+    "figures/jaxka-component-cutoffs/fig.json",
+    "figures/jaxka-component-cutoffs/fig.svg",
+    "figures/jaxka-component-cutoffs/fig.png",
+    "figures/jaxka-component-cutoffs/fig.pdf",
+    "figures/jaxka-component-cutoffs/component_cutoffs.svg",
+    "figures/jaxka-component-cutoffs/component_cutoffs.png",
+    "figures/jaxka-component-cutoffs/component_cutoffs.pdf",
+    "figures/jaxka-component-cutoffs/component_cutoffs.json",
+    "figures/jaxka-component-cutoffs",
+    "projects/4-jax-Ka/code/src/pkabench/cutoff_plots.py",
+    "thesis/build/pdflatex35779.fls",
+    "thesis/build/pdflatex35723.fls",
     "thesis/build/pdflatex28465.fls",
     "thesis/build/pdflatex27395.fls",
-    "thesis/build/pdflatex80026.fls",
-    "thesis/build/pdflatex79476.fls",
-    "thesis/build/pdflatex78966.fls",
-    "thesis/build/pdflatex78914.fls",
-    "thesis/build/pdflatex78833.fls",
     "figures/valdx-kinetic-work/fig.png",
     "figures/valdx-kinetic-work/ORIGIN.md",
-    "figures/valdx-kinetic-work",
     "figures/valdx-kinetic-overview/fig.png",
     "figures/valdx-kinetic-overview/ORIGIN.md",
-    "figures/valdx-kinetic-overview",
     "figures/valdx-protocol-reoptimisation/fig.png",
     "figures/valdx-protocol-reoptimisation/ORIGIN.md",
-    "figures/valdx-protocol-reoptimisation",
     "figures/valdx-protocol-comparison/fig.png",
     "figures/valdx-protocol-comparison/ORIGIN.md",
-    "figures/valdx-protocol-comparison",
     "figures/valdx-hoip-dispersion/ORIGIN.md",
     "figures/valdx-hoip-bv/ORIGIN.md",
     "figures/valdx-hoip-dispersion/fig.png",
