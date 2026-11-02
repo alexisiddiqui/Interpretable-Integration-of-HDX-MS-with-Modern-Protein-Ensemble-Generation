@@ -1,0 +1,1572 @@
+schema_version: 1
+analysis_id: d626a1195e9fb72b
+build: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build
+cvs: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/bpti_solution/cvs.yaml
+recipe: bpti_full
+conditions:
+- u
+- mi
+- pb
+- mmpb
+replicas:
+- 1
+- 2
+- 3
+- 4
+include_relax: false
+surface_kind: density
+dependencies_sha256:
+  /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/bpti_solution/cvs.yaml: 308b3ff934d8a90fdb2d91569f8107cf75351002ca368bc5d8d7af99abe3d7dc
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/u/build/branches/production-250ns-4rep/u/replica_1/production_block_0001/8u_unbiased.xtc
+  : 3b47fc4e81e1b26eeb1fe47e852c195df5dd01ec497194080d15f4d624f04aee
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/u/build/branches/production-250ns-4rep/u/replica_1/production_block_0001/8u_unbiased.tpr
+  : f41eca7750a8a842d521860ec165388549f7c756a27a34e69b89f82f75d9ebe0
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/u/build/branches/production-250ns-4rep/u/replica_2/production_block_0001/8u_unbiased.xtc
+  : 0c564ebb94fca3142bc1a38bf007c01c648788ec6020647895baf9d8c47166bb
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/u/build/branches/production-250ns-4rep/u/replica_2/production_block_0001/8u_unbiased.tpr
+  : e71eb969e0784aa417c2dc29d83f87a40d1da9064d9da702a7c0a333d7e92dac
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/u/build/branches/production-250ns-4rep/u/replica_3/production_block_0001/8u_unbiased.xtc
+  : 002326ded7ac3da664b26e5239f65a4049cc601c5e0864d315aafc3d0421c32a
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/u/build/branches/production-250ns-4rep/u/replica_3/production_block_0001/8u_unbiased.tpr
+  : de30c0d40f5ed5af423c6948dd63a4a4cbe4975358324556c9ceca40640819de
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/u/build/branches/production-250ns-4rep/u/replica_4/production_block_0001/8u_unbiased.xtc
+  : 6cfc54659e75b91019200c360ffe55466d405b33a4e910bdc4e82b657b99d8b9
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/u/build/branches/production-250ns-4rep/u/replica_4/production_block_0001/8u_unbiased.tpr
+  : 4b7d03bc41885d694d423abbf32019090e71e3d7a3b9635758cf54a8b6a9a4eb
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mi/build/branches/variance-scaled-250ns/mi_cuda/replica_1/8mi_replica_average.xtc
+  : 87fb45a76e6b0d29dca4a83c8549122f1a96012aecef62e606896011219625f2
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mi/build/branches/variance-scaled-250ns/mi_cuda/replica_1/8mi_replica_average.tpr
+  : a86db3fadeeb777f7486987a980935b0d56ad1a8be4d9daa63f94deca4b43ad7
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mi/build/branches/variance-scaled-250ns/mi_cuda/replica_1/COLVAR.0
+  : 030dd02d50e3dae33ebaedcfe14fd0027b5ae20d73feb4d1d9eb1c8b893f223d
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mi/build/branches/variance-scaled-250ns/mi_cuda/replica_2/8mi_replica_average.xtc
+  : 57798e601b4d3cf6bc85fa764a84e65d8b3644106e561c5a95a2aa2f237fb6a1
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mi/build/branches/variance-scaled-250ns/mi_cuda/replica_2/8mi_replica_average.tpr
+  : 98d757d557f517f57bd5d4f6fa489b6721d98405148ae2317527a773065eab47
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mi/build/branches/variance-scaled-250ns/mi_cuda/replica_2/COLVAR.1
+  : 030dd02d50e3dae33ebaedcfe14fd0027b5ae20d73feb4d1d9eb1c8b893f223d
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mi/build/branches/variance-scaled-250ns/mi_cuda/replica_3/8mi_replica_average.xtc
+  : 41cf9435b85449f47504125dff42d7799c72b8d5d9a5cb7a6d25d0e564b0e4e8
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mi/build/branches/variance-scaled-250ns/mi_cuda/replica_3/8mi_replica_average.tpr
+  : 294b9c3ada5a5f6a662809640c058cb4af7cbc6e134c5f789bdbf493b1a01470
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mi/build/branches/variance-scaled-250ns/mi_cuda/replica_3/COLVAR.2
+  : 030dd02d50e3dae33ebaedcfe14fd0027b5ae20d73feb4d1d9eb1c8b893f223d
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mi/build/branches/variance-scaled-250ns/mi_cuda/replica_4/8mi_replica_average.xtc
+  : bf7470918892d8ea6b7ed530b8a1b7534fbdc3eebcbf77fc958dfc523ff5c6e7
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mi/build/branches/variance-scaled-250ns/mi_cuda/replica_4/8mi_replica_average.tpr
+  : b9bb2557cc320720ccee7446984f9a82cb1845bbab8d558648b18728d4a07de7
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mi/build/branches/variance-scaled-250ns/mi_cuda/replica_4/COLVAR.3
+  : 030dd02d50e3dae33ebaedcfe14fd0027b5ae20d73feb4d1d9eb1c8b893f223d
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/pb/build/branches/production-250ns-4rep/pb_cuda/replica_1/8pb_pbmetad.xtc
+  : e5ef22d691e0231a15b620d46d91995cfa9634594c7014f01bc763c2afc23c80
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/pb/build/branches/production-250ns-4rep/pb_cuda/replica_1/8pb_pbmetad.tpr
+  : c89a4b249414db98c843e55d9dd9bf522b359012d1a5cdab12d57d534911933e
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/pb/build/branches/production-250ns-4rep/pb_cuda/replica_1/COLVAR.0
+  : 51ffe1f1f5cf89587b806fb700fe7cb383a22d43cb473e6be439022b9a886efd
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/pb/build/branches/production-250ns-4rep/pb_cuda/replica_2/8pb_pbmetad.xtc
+  : 0be45a77f01b2272ebc5f8b12c56cc159b36602e9e7f0fbc1c67607b7a8a0234
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/pb/build/branches/production-250ns-4rep/pb_cuda/replica_2/8pb_pbmetad.tpr
+  : f1021d460d6a3e3990f4166212d33672173ce48e8b278eb1335f5273244cf3e6
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/pb/build/branches/production-250ns-4rep/pb_cuda/replica_2/COLVAR.1
+  : bdfa02d5bdfd2dc4426212211ea52652054553be2bff62b4d2d0423957dd05d6
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/pb/build/branches/production-250ns-4rep/pb_cuda/replica_3/8pb_pbmetad.xtc
+  : 8fadf23e8f9e5f6b271ab424adda96c1380734454c9582ed488e33021e2fe603
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/pb/build/branches/production-250ns-4rep/pb_cuda/replica_3/8pb_pbmetad.tpr
+  : f47a19d3e4f6b87f9be7f37ec2e153e2dc13b9cc40c6d3bdf0ce66ea3a61d0d9
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/pb/build/branches/production-250ns-4rep/pb_cuda/replica_3/COLVAR.2
+  : 12cd232196e60a1e1bf37f0fb21b6f5810027206300ab5de301846b69b1bfa3c
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/pb/build/branches/production-250ns-4rep/pb_cuda/replica_4/8pb_pbmetad.xtc
+  : 6ccb0c2bb4686007b4e471c1bd59e8822c4563195d6d14401e4156b0f6fe2fdf
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/pb/build/branches/production-250ns-4rep/pb_cuda/replica_4/8pb_pbmetad.tpr
+  : 2ca1da6876ca09c8bd91a13cc4d8ec70b212fa10dac227db824c065d117d6ab4
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/pb/build/branches/production-250ns-4rep/pb_cuda/replica_4/COLVAR.3
+  : cdcc44abb55b4e0db98a8f8094b64e7b6ced2637bd98fb1f61fb2b5442375cfc
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mmpb/build/branches/variance-scaled-250ns/mmpb_cuda/replica_1/8mmpb_reweighted_mi_pbmetad.xtc
+  : 4fb91e5d8e8dc735cada11b42b4ff697b37ce535c87321a5e69ee1241587758f
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mmpb/build/branches/variance-scaled-250ns/mmpb_cuda/replica_1/8mmpb_reweighted_mi_pbmetad.tpr
+  : 2c64990e2d4cf8ecd73ed64872ffeb18ec328b29c3b19e542d2f0c33c68510f2
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mmpb/build/branches/variance-scaled-250ns/mmpb_cuda/replica_1/COLVAR.0
+  : ceacdc081ebc2e48e001b05e539984bd1c1b963cd662e712804377a762ff54fc
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mmpb/build/branches/variance-scaled-250ns/mmpb_cuda/replica_2/8mmpb_reweighted_mi_pbmetad.xtc
+  : f3da12e171986e9cfde732ba153464d76acb9cdbad8fea224dfac4bbef5d5784
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mmpb/build/branches/variance-scaled-250ns/mmpb_cuda/replica_2/8mmpb_reweighted_mi_pbmetad.tpr
+  : 321273074facb6f9a90264f487991e972fad8a75f2851e58b0a160fcf2bd3b73
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mmpb/build/branches/variance-scaled-250ns/mmpb_cuda/replica_2/COLVAR.1
+  : d5c78a875564a62603b942b64c4945a2a4eaaaa9adcce994e4bdcd42bad180eb
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mmpb/build/branches/variance-scaled-250ns/mmpb_cuda/replica_3/8mmpb_reweighted_mi_pbmetad.xtc
+  : 34f7b525c4534015b5cee920e475448be08c1835ec33fcb8d978b2bebcfcb1e1
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mmpb/build/branches/variance-scaled-250ns/mmpb_cuda/replica_3/8mmpb_reweighted_mi_pbmetad.tpr
+  : 9b951bd0af1f96ab1e4ac906a292ca348de12f1fe7d07ccb534668c88d14bf4f
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mmpb/build/branches/variance-scaled-250ns/mmpb_cuda/replica_3/COLVAR.2
+  : b876e87bb5ce5cd029680c0fb4ef92b31483e765fefe11b8572e86a420943e57
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mmpb/build/branches/variance-scaled-250ns/mmpb_cuda/replica_4/8mmpb_reweighted_mi_pbmetad.xtc
+  : 1ec08ad94bb8a80aa8923d70ebdca1adbd0874950757c158bf557b5e3cb3fbd0
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mmpb/build/branches/variance-scaled-250ns/mmpb_cuda/replica_4/8mmpb_reweighted_mi_pbmetad.tpr
+  : 3bfb15e4e88f82d00d2b2ea08542852ad92cda1c713fe30faef338394651e47a
+  ? /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/conditions/mmpb/build/branches/variance-scaled-250ns/mmpb_cuda/replica_4/COLVAR.3
+  : 2445faae4545e41a7ae1be55bcbdb3f910e8b6fbb63d5e7504dbb36ed76959b3
+  ? /opig-shared/projects/hussian-simulation_hdx/_runtime/BioFeaturisers/worktrees/cartesian-pca/biofeaturisers/examples/PLUMED/topology_pipeline/analysis/colvar.py
+  : cd15bdbb185bee8445e68e1da8921b85ce1fea0849960ba811c61bd4d16a3c33
+  ? /opig-shared/projects/hussian-simulation_hdx/_runtime/BioFeaturisers/worktrees/cartesian-pca/biofeaturisers/examples/PLUMED/topology_pipeline/analysis/feature_space.py
+  : 06368959549f762da2c5a06c9a82bbecf9059f787affb51280d5155fb067c451
+  ? /opig-shared/projects/hussian-simulation_hdx/_runtime/BioFeaturisers/worktrees/cartesian-pca/biofeaturisers/examples/PLUMED/topology_pipeline/analysis/geometry.py
+  : dfe2f515693da2267822388f0424fd9ad9b75c9898a2c618d0dbe5e074dce428
+  ? /opig-shared/projects/hussian-simulation_hdx/_runtime/BioFeaturisers/worktrees/cartesian-pca/biofeaturisers/examples/PLUMED/topology_pipeline/analysis/pipeline.py
+  : 42b177276c29dd0b189a70362201f4e989f10aef67ed85fabb3f37a200cf48fd
+  ? /opig-shared/projects/hussian-simulation_hdx/_runtime/BioFeaturisers/worktrees/cartesian-pca/biofeaturisers/examples/PLUMED/topology_pipeline/analysis/trajectory.py
+  : 45e90c4cd16c432676b1ba4be6130287780ebbba1c026e946a7bff8e93e02a76
+  /opig-shared/projects/hussian-simulation_hdx/projects/ValDX/raw_data/HDXer_tutorial/BPTI/BPTI_simulations/SHAW/bpti.pdb: 048539082b8463f7abe781898197606c67378b6e3a07c78a6eecb5bda3affaeb
+  ? /opig-shared/projects/hussian-simulation_hdx/projects/ValDX/raw_data/HDXer_tutorial/BPTI/BPTI_simulations/SHAW/reduced_BPTI_SHAW_stride_1000.xtc
+  : b1a186c37ae4150cb93996ad12e694d5bd729039381713842360c44d9cc619d0
+  /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/bpti_solution/derived/bpti_5pti_curated.pdb: b016284660ceda5c807dfa4e6f3561cdc976bbeca92a1fc3d39b3e424612dc2c
+pca_reference:
+  topology: /opig-shared/projects/hussian-simulation_hdx/projects/ValDX/raw_data/HDXer_tutorial/BPTI/BPTI_simulations/SHAW/bpti.pdb
+  trajectory: /opig-shared/projects/hussian-simulation_hdx/projects/ValDX/raw_data/HDXer_tutorial/BPTI/BPTI_simulations/SHAW/reduced_BPTI_SHAW_stride_1000.xtc
+  stride: 1
+  frames: 4125
+columns:
+  time: time
+  ss_5_55_chi3: cv
+  ss_14_38_chi3: cv
+  ss_30_51_chi3: cv
+  c5_chi1: cv
+  c5_chi2: cv
+  c55_chi2: cv
+  c55_chi1: cv
+  c14_chi1: cv
+  c14_chi2: cv
+  c38_chi2: cv
+  c38_chi1: cv
+  c30_chi1: cv
+  c30_chi2: cv
+  c51_chi2: cv
+  c51_chi1: cv
+  sg_sg_5_55: cv
+  c5_ca_cb: cv
+  c5_cb_sg: cv
+  c55_ca_cb: cv
+  c55_cb_sg: cv
+  sg_sg_14_38: cv
+  c14_ca_cb: cv
+  c14_cb_sg: cv
+  c38_ca_cb: cv
+  c38_cb_sg: cv
+  sg_sg_30_51: cv
+  c30_ca_cb: cv
+  c30_cb_sg: cv
+  c51_ca_cb: cv
+  c51_cb_sg: cv
+  c5_cb_sg_sg: cv
+  c55_sg_sg_cb: cv
+  c14_cb_sg_sg: cv
+  c38_sg_sg_cb: cv
+  c30_cb_sg_sg: cv
+  c51_sg_sg_cb: cv
+  local_rmsd_5_55: cv
+  local_rmsd_14_38: cv
+  local_rmsd_30_51: cv
+  ca_rmsd_global: cv
+  rg_protein: cv
+  mi.bias: runtime_legacy
+  pb.bias: runtime_legacy
+  mi.weight: runtime_legacy
+  mi.neff: runtime_legacy
+  mi.biasDer: runtime_legacy
+pbc_max_bond_nm:
+  u/replica_1/production_block_0001: 0.22332267222610144
+  u/replica_2/production_block_0001: 0.22156041613515945
+  u/replica_3/production_block_0001: 0.2204860760716326
+  u/replica_4/production_block_0001: 0.2209751648910591
+  mi/replica_1/mi_cuda: 0.22202007704680563
+  mi/replica_2/mi_cuda: 0.221632572396629
+  mi/replica_3/mi_cuda: 0.2208482708909421
+  mi/replica_4/mi_cuda: 0.22122128173365002
+  pb/replica_1/pb_cuda: 0.2242988083882537
+  pb/replica_2/pb_cuda: 0.2209550205912791
+  pb/replica_3/pb_cuda: 0.22192788033469693
+  pb/replica_4/pb_cuda: 0.21994097389458975
+  mmpb/replica_1/mmpb_cuda: 0.2216867248338724
+  mmpb/replica_2/mmpb_cuda: 0.22160568358006597
+  mmpb/replica_3/mmpb_cuda: 0.2198474150984807
+  mmpb/replica_4/mmpb_cuda: 0.22195088099232146
+runtime_posthoc_crosscheck:
+  ss_30_51_chi3: 0.017148717350005338
+  ss_5_55_chi3: 0.018000014932751274
+  ss_14_38_chi3: 0.01610980465578571
+discarded_restart_rows: []
+cartesian_pca:
+  file: density_cartesian_ca_pca.png
+  panels:
+  - title: U (uniform)
+    condition: u
+    weighting: uniform
+    frames: 100004
+    effective_sample_size: 100004.0
+    color_range:
+    - 0.0
+    - 7.717796211013582
+  - title: MI (uniform)
+    condition: mi
+    weighting: uniform
+    frames: 100004
+    effective_sample_size: 100004.0
+    color_range:
+    - 0.0
+    - 7.866338923046543
+  - title: PB (uniform)
+    condition: pb
+    weighting: uniform
+    frames: 100004
+    effective_sample_size: 100004.0
+    color_range:
+    - 0.0
+    - 7.736743682453495
+  - title: MI+PB (uniform)
+    condition: mmpb
+    weighting: uniform
+    frames: 100004
+    effective_sample_size: 100004.0
+    color_range:
+    - 0.0
+    - 7.610357618312837
+  - title: MI+PB (mi.weight)
+    condition: mmpb
+    weighting: mi.weight
+    frames: 100004
+    replicas: 4
+    time_points: 25001
+    sum_tolerance: 1.0e-05
+    effective_sample_size: 38833.70491375461
+    color_range:
+    - 0.0
+    - 20.11952985682825
+  - title: Anton reference (1.03 ms)
+    condition: reference
+    weighting: uniform
+    frames: 4125
+    effective_sample_size: 4125.0
+    color_range:
+    - 0.0
+    - 4.68213122712422
+  density: -ln(p/pmax)
+  density_bins: 36
+  shared_edges:
+    pc1:
+    - -1.7482929830355054
+    - -1.6785305196679694
+    - -1.6087680563004332
+    - -1.5390055929328972
+    - -1.4692431295653612
+    - -1.3994806661978252
+    - -1.3297182028302892
+    - -1.259955739462753
+    - -1.190193276095217
+    - -1.120430812727681
+    - -1.0506683493601447
+    - -0.9809058859926088
+    - -0.9111434226250728
+    - -0.8413809592575368
+    - -0.7716184958900006
+    - -0.7018560325224645
+    - -0.6320935691549285
+    - -0.5623311057873925
+    - -0.49256864241985654
+    - -0.4228061790523203
+    - -0.3530437156847843
+    - -0.2832812523172483
+    - -0.2135187889497121
+    - -0.1437563255821761
+    - -0.0739938622146401
+    - -0.004231398847104106
+    - 0.06553106452043189
+    - 0.1352935278879681
+    - 0.2050559912555041
+    - 0.2748184546230401
+    - 0.34458091799057633
+    - 0.4143433813581121
+    - 0.4841058447256483
+    - 0.5538683080931845
+    - 0.6236307714607203
+    - 0.6933932348282565
+    - 0.7631556981957921
+    pc2:
+    - -1.355684265467074
+    - -1.2868193421685534
+    - -1.217954418870033
+    - -1.1490894955715125
+    - -1.080224572272992
+    - -1.0113596489744716
+    - -0.942494725675951
+    - -0.8736298023774306
+    - -0.8047648790789101
+    - -0.7358999557803897
+    - -0.6670350324818692
+    - -0.5981701091833487
+    - -0.5293051858848282
+    - -0.46044026258630777
+    - -0.3915753392877872
+    - -0.32271041598926686
+    - -0.2538454926907463
+    - -0.18498056939222574
+    - -0.1161156460937054
+    - -0.04725072279518483
+    - 0.021614200503335512
+    - 0.09047912380185608
+    - 0.15934404710037664
+    - 0.22820897039889698
+    - 0.29707389369741755
+    - 0.3659388169959381
+    - 0.43480374029445845
+    - 0.503668663592979
+    - 0.5725335868914996
+    - 0.6413985101900199
+    - 0.7102634334885403
+    - 0.779128356787061
+    - 0.8479932800855814
+    - 0.9168582033841017
+    - 0.9857231266826225
+    - 1.0545880499811429
+    - 1.1234529732796632
+  color_scaling: per_panel
+  notice: MI replica weights do not remove the time-dependent PBMetaD bias.
+  alignment_reference: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/bpti_solution/derived/bpti_5pti_curated.pdb
+  alignment_reference_sha256: b016284660ceda5c807dfa4e6f3561cdc976bbeca92a1fc3d39b3e424612dc2c
+  fit_source: pca_reference
+  atom_identities:
+  - A:1:CA
+  - A:2:CA
+  - A:3:CA
+  - A:4:CA
+  - A:5:CA
+  - A:6:CA
+  - A:7:CA
+  - A:8:CA
+  - A:9:CA
+  - A:10:CA
+  - A:11:CA
+  - A:12:CA
+  - A:13:CA
+  - A:14:CA
+  - A:15:CA
+  - A:16:CA
+  - A:17:CA
+  - A:18:CA
+  - A:19:CA
+  - A:20:CA
+  - A:21:CA
+  - A:22:CA
+  - A:23:CA
+  - A:24:CA
+  - A:25:CA
+  - A:26:CA
+  - A:27:CA
+  - A:28:CA
+  - A:29:CA
+  - A:30:CA
+  - A:31:CA
+  - A:32:CA
+  - A:33:CA
+  - A:34:CA
+  - A:35:CA
+  - A:36:CA
+  - A:37:CA
+  - A:38:CA
+  - A:39:CA
+  - A:40:CA
+  - A:41:CA
+  - A:42:CA
+  - A:43:CA
+  - A:44:CA
+  - A:45:CA
+  - A:46:CA
+  - A:47:CA
+  - A:48:CA
+  - A:49:CA
+  - A:50:CA
+  - A:51:CA
+  - A:52:CA
+  - A:53:CA
+  - A:54:CA
+  - A:55:CA
+  - A:56:CA
+  - A:57:CA
+  - A:58:CA
+  atom_count: 58
+  explained_variance_ratio:
+  - 0.21884798531412908
+  - 0.13557986218791862
+commands:
+- name: pbc_whole
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_1/production_block_0001/8u_unbiased.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_1/production_block_0001/8u_unbiased.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_1/production_block_0001/whole.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_1/production_block_0001/protein.ndx
+  - -pbc
+  - whole
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_1/production_block_0001/8u_unbiased.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_1/production_block_0001/8u_unbiased.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_1/production_block_0001/whole.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_1/production_block_0001/protein.ndx
+    -pbc whole
+  stdin: 'System
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_1/production_block_0001/logs/01_pbc_whole.log
+- name: pbc_center
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_1/production_block_0001/8u_unbiased.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_1/production_block_0001/whole.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_1/production_block_0001/corrected.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_1/production_block_0001/protein.ndx
+  - -pbc
+  - mol
+  - -center
+  - -ur
+  - compact
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_1/production_block_0001/8u_unbiased.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_1/production_block_0001/whole.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_1/production_block_0001/corrected.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_1/production_block_0001/protein.ndx
+    -pbc mol -center -ur compact
+  stdin: 'Protein
+
+    Protein
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_1/production_block_0001/logs/02_pbc_center.log
+- name: pbc_whole
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_2/production_block_0001/8u_unbiased.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_2/production_block_0001/8u_unbiased.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_2/production_block_0001/whole.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_2/production_block_0001/protein.ndx
+  - -pbc
+  - whole
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_2/production_block_0001/8u_unbiased.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_2/production_block_0001/8u_unbiased.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_2/production_block_0001/whole.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_2/production_block_0001/protein.ndx
+    -pbc whole
+  stdin: 'System
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_2/production_block_0001/logs/01_pbc_whole.log
+- name: pbc_center
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_2/production_block_0001/8u_unbiased.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_2/production_block_0001/whole.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_2/production_block_0001/corrected.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_2/production_block_0001/protein.ndx
+  - -pbc
+  - mol
+  - -center
+  - -ur
+  - compact
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_2/production_block_0001/8u_unbiased.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_2/production_block_0001/whole.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_2/production_block_0001/corrected.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_2/production_block_0001/protein.ndx
+    -pbc mol -center -ur compact
+  stdin: 'Protein
+
+    Protein
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_2/production_block_0001/logs/02_pbc_center.log
+- name: pbc_whole
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_3/production_block_0001/8u_unbiased.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_3/production_block_0001/8u_unbiased.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_3/production_block_0001/whole.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_3/production_block_0001/protein.ndx
+  - -pbc
+  - whole
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_3/production_block_0001/8u_unbiased.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_3/production_block_0001/8u_unbiased.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_3/production_block_0001/whole.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_3/production_block_0001/protein.ndx
+    -pbc whole
+  stdin: 'System
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_3/production_block_0001/logs/01_pbc_whole.log
+- name: pbc_center
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_3/production_block_0001/8u_unbiased.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_3/production_block_0001/whole.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_3/production_block_0001/corrected.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_3/production_block_0001/protein.ndx
+  - -pbc
+  - mol
+  - -center
+  - -ur
+  - compact
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_3/production_block_0001/8u_unbiased.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_3/production_block_0001/whole.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_3/production_block_0001/corrected.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_3/production_block_0001/protein.ndx
+    -pbc mol -center -ur compact
+  stdin: 'Protein
+
+    Protein
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_3/production_block_0001/logs/02_pbc_center.log
+- name: pbc_whole
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_4/production_block_0001/8u_unbiased.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_4/production_block_0001/8u_unbiased.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_4/production_block_0001/whole.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_4/production_block_0001/protein.ndx
+  - -pbc
+  - whole
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_4/production_block_0001/8u_unbiased.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_4/production_block_0001/8u_unbiased.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_4/production_block_0001/whole.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_4/production_block_0001/protein.ndx
+    -pbc whole
+  stdin: 'System
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_4/production_block_0001/logs/01_pbc_whole.log
+- name: pbc_center
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_4/production_block_0001/8u_unbiased.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_4/production_block_0001/whole.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_4/production_block_0001/corrected.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_4/production_block_0001/protein.ndx
+  - -pbc
+  - mol
+  - -center
+  - -ur
+  - compact
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/unbiased/replica_4/production_block_0001/8u_unbiased.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_4/production_block_0001/whole.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_4/production_block_0001/corrected.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_4/production_block_0001/protein.ndx
+    -pbc mol -center -ur compact
+  stdin: 'Protein
+
+    Protein
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/u/replica_4/production_block_0001/logs/02_pbc_center.log
+- name: pbc_whole
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_1/8mi_replica_average.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_1/8mi_replica_average.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_1/mi_cuda/whole.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_1/mi_cuda/protein.ndx
+  - -pbc
+  - whole
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_1/8mi_replica_average.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_1/8mi_replica_average.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_1/mi_cuda/whole.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_1/mi_cuda/protein.ndx
+    -pbc whole
+  stdin: 'System
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_1/mi_cuda/logs/01_pbc_whole.log
+- name: pbc_center
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_1/8mi_replica_average.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_1/mi_cuda/whole.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_1/mi_cuda/corrected.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_1/mi_cuda/protein.ndx
+  - -pbc
+  - mol
+  - -center
+  - -ur
+  - compact
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_1/8mi_replica_average.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_1/mi_cuda/whole.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_1/mi_cuda/corrected.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_1/mi_cuda/protein.ndx
+    -pbc mol -center -ur compact
+  stdin: 'Protein
+
+    Protein
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_1/mi_cuda/logs/02_pbc_center.log
+- name: pbc_whole
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_2/8mi_replica_average.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_2/8mi_replica_average.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_2/mi_cuda/whole.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_2/mi_cuda/protein.ndx
+  - -pbc
+  - whole
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_2/8mi_replica_average.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_2/8mi_replica_average.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_2/mi_cuda/whole.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_2/mi_cuda/protein.ndx
+    -pbc whole
+  stdin: 'System
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_2/mi_cuda/logs/01_pbc_whole.log
+- name: pbc_center
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_2/8mi_replica_average.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_2/mi_cuda/whole.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_2/mi_cuda/corrected.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_2/mi_cuda/protein.ndx
+  - -pbc
+  - mol
+  - -center
+  - -ur
+  - compact
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_2/8mi_replica_average.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_2/mi_cuda/whole.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_2/mi_cuda/corrected.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_2/mi_cuda/protein.ndx
+    -pbc mol -center -ur compact
+  stdin: 'Protein
+
+    Protein
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_2/mi_cuda/logs/02_pbc_center.log
+- name: pbc_whole
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_3/8mi_replica_average.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_3/8mi_replica_average.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_3/mi_cuda/whole.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_3/mi_cuda/protein.ndx
+  - -pbc
+  - whole
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_3/8mi_replica_average.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_3/8mi_replica_average.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_3/mi_cuda/whole.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_3/mi_cuda/protein.ndx
+    -pbc whole
+  stdin: 'System
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_3/mi_cuda/logs/01_pbc_whole.log
+- name: pbc_center
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_3/8mi_replica_average.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_3/mi_cuda/whole.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_3/mi_cuda/corrected.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_3/mi_cuda/protein.ndx
+  - -pbc
+  - mol
+  - -center
+  - -ur
+  - compact
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_3/8mi_replica_average.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_3/mi_cuda/whole.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_3/mi_cuda/corrected.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_3/mi_cuda/protein.ndx
+    -pbc mol -center -ur compact
+  stdin: 'Protein
+
+    Protein
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_3/mi_cuda/logs/02_pbc_center.log
+- name: pbc_whole
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_4/8mi_replica_average.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_4/8mi_replica_average.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_4/mi_cuda/whole.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_4/mi_cuda/protein.ndx
+  - -pbc
+  - whole
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_4/8mi_replica_average.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_4/8mi_replica_average.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_4/mi_cuda/whole.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_4/mi_cuda/protein.ndx
+    -pbc whole
+  stdin: 'System
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_4/mi_cuda/logs/01_pbc_whole.log
+- name: pbc_center
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_4/8mi_replica_average.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_4/mi_cuda/whole.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_4/mi_cuda/corrected.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_4/mi_cuda/protein.ndx
+  - -pbc
+  - mol
+  - -center
+  - -ur
+  - compact
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mi_cuda/replica_4/8mi_replica_average.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_4/mi_cuda/whole.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_4/mi_cuda/corrected.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_4/mi_cuda/protein.ndx
+    -pbc mol -center -ur compact
+  stdin: 'Protein
+
+    Protein
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mi/replica_4/mi_cuda/logs/02_pbc_center.log
+- name: pbc_whole
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_1/8pb_pbmetad.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_1/8pb_pbmetad.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_1/pb_cuda/whole.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_1/pb_cuda/protein.ndx
+  - -pbc
+  - whole
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_1/8pb_pbmetad.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_1/8pb_pbmetad.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_1/pb_cuda/whole.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_1/pb_cuda/protein.ndx
+    -pbc whole
+  stdin: 'System
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_1/pb_cuda/logs/01_pbc_whole.log
+- name: pbc_center
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_1/8pb_pbmetad.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_1/pb_cuda/whole.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_1/pb_cuda/corrected.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_1/pb_cuda/protein.ndx
+  - -pbc
+  - mol
+  - -center
+  - -ur
+  - compact
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_1/8pb_pbmetad.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_1/pb_cuda/whole.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_1/pb_cuda/corrected.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_1/pb_cuda/protein.ndx
+    -pbc mol -center -ur compact
+  stdin: 'Protein
+
+    Protein
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_1/pb_cuda/logs/02_pbc_center.log
+- name: pbc_whole
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_2/8pb_pbmetad.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_2/8pb_pbmetad.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_2/pb_cuda/whole.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_2/pb_cuda/protein.ndx
+  - -pbc
+  - whole
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_2/8pb_pbmetad.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_2/8pb_pbmetad.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_2/pb_cuda/whole.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_2/pb_cuda/protein.ndx
+    -pbc whole
+  stdin: 'System
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_2/pb_cuda/logs/01_pbc_whole.log
+- name: pbc_center
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_2/8pb_pbmetad.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_2/pb_cuda/whole.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_2/pb_cuda/corrected.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_2/pb_cuda/protein.ndx
+  - -pbc
+  - mol
+  - -center
+  - -ur
+  - compact
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_2/8pb_pbmetad.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_2/pb_cuda/whole.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_2/pb_cuda/corrected.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_2/pb_cuda/protein.ndx
+    -pbc mol -center -ur compact
+  stdin: 'Protein
+
+    Protein
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_2/pb_cuda/logs/02_pbc_center.log
+- name: pbc_whole
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_3/8pb_pbmetad.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_3/8pb_pbmetad.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_3/pb_cuda/whole.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_3/pb_cuda/protein.ndx
+  - -pbc
+  - whole
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_3/8pb_pbmetad.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_3/8pb_pbmetad.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_3/pb_cuda/whole.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_3/pb_cuda/protein.ndx
+    -pbc whole
+  stdin: 'System
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_3/pb_cuda/logs/01_pbc_whole.log
+- name: pbc_center
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_3/8pb_pbmetad.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_3/pb_cuda/whole.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_3/pb_cuda/corrected.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_3/pb_cuda/protein.ndx
+  - -pbc
+  - mol
+  - -center
+  - -ur
+  - compact
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_3/8pb_pbmetad.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_3/pb_cuda/whole.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_3/pb_cuda/corrected.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_3/pb_cuda/protein.ndx
+    -pbc mol -center -ur compact
+  stdin: 'Protein
+
+    Protein
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_3/pb_cuda/logs/02_pbc_center.log
+- name: pbc_whole
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_4/8pb_pbmetad.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_4/8pb_pbmetad.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_4/pb_cuda/whole.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_4/pb_cuda/protein.ndx
+  - -pbc
+  - whole
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_4/8pb_pbmetad.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_4/8pb_pbmetad.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_4/pb_cuda/whole.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_4/pb_cuda/protein.ndx
+    -pbc whole
+  stdin: 'System
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_4/pb_cuda/logs/01_pbc_whole.log
+- name: pbc_center
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_4/8pb_pbmetad.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_4/pb_cuda/whole.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_4/pb_cuda/corrected.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_4/pb_cuda/protein.ndx
+  - -pbc
+  - mol
+  - -center
+  - -ur
+  - compact
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/pb_cuda/replica_4/8pb_pbmetad.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_4/pb_cuda/whole.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_4/pb_cuda/corrected.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_4/pb_cuda/protein.ndx
+    -pbc mol -center -ur compact
+  stdin: 'Protein
+
+    Protein
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/pb/replica_4/pb_cuda/logs/02_pbc_center.log
+- name: pbc_whole
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_1/8mmpb_reweighted_mi_pbmetad.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_1/8mmpb_reweighted_mi_pbmetad.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_1/mmpb_cuda/whole.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_1/mmpb_cuda/protein.ndx
+  - -pbc
+  - whole
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_1/8mmpb_reweighted_mi_pbmetad.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_1/8mmpb_reweighted_mi_pbmetad.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_1/mmpb_cuda/whole.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_1/mmpb_cuda/protein.ndx
+    -pbc whole
+  stdin: 'System
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_1/mmpb_cuda/logs/01_pbc_whole.log
+- name: pbc_center
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_1/8mmpb_reweighted_mi_pbmetad.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_1/mmpb_cuda/whole.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_1/mmpb_cuda/corrected.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_1/mmpb_cuda/protein.ndx
+  - -pbc
+  - mol
+  - -center
+  - -ur
+  - compact
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_1/8mmpb_reweighted_mi_pbmetad.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_1/mmpb_cuda/whole.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_1/mmpb_cuda/corrected.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_1/mmpb_cuda/protein.ndx
+    -pbc mol -center -ur compact
+  stdin: 'Protein
+
+    Protein
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_1/mmpb_cuda/logs/02_pbc_center.log
+- name: pbc_whole
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_2/8mmpb_reweighted_mi_pbmetad.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_2/8mmpb_reweighted_mi_pbmetad.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_2/mmpb_cuda/whole.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_2/mmpb_cuda/protein.ndx
+  - -pbc
+  - whole
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_2/8mmpb_reweighted_mi_pbmetad.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_2/8mmpb_reweighted_mi_pbmetad.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_2/mmpb_cuda/whole.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_2/mmpb_cuda/protein.ndx
+    -pbc whole
+  stdin: 'System
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_2/mmpb_cuda/logs/01_pbc_whole.log
+- name: pbc_center
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_2/8mmpb_reweighted_mi_pbmetad.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_2/mmpb_cuda/whole.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_2/mmpb_cuda/corrected.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_2/mmpb_cuda/protein.ndx
+  - -pbc
+  - mol
+  - -center
+  - -ur
+  - compact
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_2/8mmpb_reweighted_mi_pbmetad.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_2/mmpb_cuda/whole.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_2/mmpb_cuda/corrected.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_2/mmpb_cuda/protein.ndx
+    -pbc mol -center -ur compact
+  stdin: 'Protein
+
+    Protein
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_2/mmpb_cuda/logs/02_pbc_center.log
+- name: pbc_whole
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_3/8mmpb_reweighted_mi_pbmetad.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_3/8mmpb_reweighted_mi_pbmetad.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_3/mmpb_cuda/whole.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_3/mmpb_cuda/protein.ndx
+  - -pbc
+  - whole
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_3/8mmpb_reweighted_mi_pbmetad.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_3/8mmpb_reweighted_mi_pbmetad.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_3/mmpb_cuda/whole.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_3/mmpb_cuda/protein.ndx
+    -pbc whole
+  stdin: 'System
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_3/mmpb_cuda/logs/01_pbc_whole.log
+- name: pbc_center
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_3/8mmpb_reweighted_mi_pbmetad.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_3/mmpb_cuda/whole.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_3/mmpb_cuda/corrected.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_3/mmpb_cuda/protein.ndx
+  - -pbc
+  - mol
+  - -center
+  - -ur
+  - compact
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_3/8mmpb_reweighted_mi_pbmetad.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_3/mmpb_cuda/whole.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_3/mmpb_cuda/corrected.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_3/mmpb_cuda/protein.ndx
+    -pbc mol -center -ur compact
+  stdin: 'Protein
+
+    Protein
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_3/mmpb_cuda/logs/02_pbc_center.log
+- name: pbc_whole
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_4/8mmpb_reweighted_mi_pbmetad.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_4/8mmpb_reweighted_mi_pbmetad.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_4/mmpb_cuda/whole.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_4/mmpb_cuda/protein.ndx
+  - -pbc
+  - whole
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_4/8mmpb_reweighted_mi_pbmetad.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_4/8mmpb_reweighted_mi_pbmetad.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_4/mmpb_cuda/whole.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_4/mmpb_cuda/protein.ndx
+    -pbc whole
+  stdin: 'System
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_4/mmpb_cuda/logs/01_pbc_whole.log
+- name: pbc_center
+  argv:
+  - /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+  - trjconv
+  - -s
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_4/8mmpb_reweighted_mi_pbmetad.tpr
+  - -f
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_4/mmpb_cuda/whole.xtc
+  - -o
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_4/mmpb_cuda/corrected.xtc
+  - -n
+  - /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_4/mmpb_cuda/protein.ndx
+  - -pbc
+  - mol
+  - -center
+  - -ur
+  - compact
+  command: /bitbucket/hussain/BioFeaturisers-multiarch/.runtime/gromacs-2026.3-cuda-sm61_70_80_89/bin/gmx_mpi
+    trjconv -s /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/branches/mmpb_cuda/replica_4/8mmpb_reweighted_mi_pbmetad.tpr
+    -f /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_4/mmpb_cuda/whole.xtc
+    -o /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_4/mmpb_cuda/corrected.xtc
+    -n /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_4/mmpb_cuda/protein.ndx
+    -pbc mol -center -ur compact
+  stdin: 'Protein
+
+    Protein
+
+    '
+  returncode: 0
+  log: /scratch/fast/hussain/slurm-jobs/127887/tmp/bpti-vsmi-analysis/build/analyses/d626a1195e9fb72b/mmpb/replica_4/mmpb_cuda/logs/02_pbc_center.log
+outputs_sha256:
+  pca_cartesian_ca_reference.npz: 3b0e35d680ffade1413276d414f62889a63722a996d5a145feb232dafaed5db6
+  pca_primary_reference.npz: 7c30b03dc2000ac5acc8681086aac1c47a8c868cd4d475e1796fa27ca1f101d2
+  cv_table.npz: 8b303bde92176105448857c6a30e1216f0f9521c222cc0ee2cbb09359c5ff706
+  pca_primary_state.npz: c7c19087e956111dafd8c9b19707e84368b120d61990e6c9286f31adb5dc9644
+  diagnostic_statistics.json: 6d1fa162d7b80e20e966206baf30c77581ff52203f658872b3caf8eb1715c5c5
+  analysis_manifest.json: 6b47cf02a5f3b3c6ef8685f57930e9b0b5447abeeadee756b24cbe911a82fff6
+  analysis_summary.json: e2e239305d3b73eb049c01956f0df7464468aeb471be87b15cf0e8b562cb09f5
+  pca_diagnostic_context.npz: 27e8e26ead87a076fd658cf660914c9ccf225416c082c1322e5eb98d9339c68b
+  plot_manifest.json: 843c67fb5098c516367943ae66d16b20a265f313d5ffab363fac3bd5f752da59
+  pbmetad_parameter_review.md: 36a09d2f89abc17e9490a209a0653089ad1176776ae4b31ad1d8d659b34c4a4c
+  density_cartesian_ca_pca.png: 834276cdf20262ff3455d2bc5e517cddc87b9fd1bffbf261703a47a4e5814e68
+  pbmetad_parameter_proposal.yaml: 963354e815c15b58415517ad7eb287d960fc8bd69ad288b00659e3b3dc5644db
+  posthoc_colvar.dat: f2b86aab122e0afd09af83d9d84dfad969a752a9bc0159470d7bb1808c15980a
+  mmpb/replica_4/mmpb_cuda/whole.xtc: 7da78d7193c2eb46fb8127cf7b59d2265c1413e3c3481f32f5fc5d536bcad8d8
+  mmpb/replica_4/mmpb_cuda/protein.ndx: 8beef3c59dd1572410c91d7c7f8150bd060ea274ef16b8abe4b3536e2f9752c3
+  mmpb/replica_4/mmpb_cuda/corrected.xtc: 1761b01748b84cbdb27f3c8e53550c8639a64156fbf73ef1ba9c286485d17b38
+  mmpb/replica_4/mmpb_cuda/logs/01_pbc_whole.log: c235506dbd1667bc5a123a04b7c9622ac151c212aef6057dc9d1f9cca9548afe
+  mmpb/replica_4/mmpb_cuda/logs/02_pbc_center.log: 59d2634c327be7c9a0ad2f23b3a6044289b810788d1f11feab9a30b5e6189c10
+  mmpb/replica_4/mmpb_cuda/plots/density_ss_14_38_chi3.png: d2180c0b864dd6a6e1a236d9e1afbfc473234f4ffc0fac8ab2ccd28c66b8bbd0
+  mmpb/replica_4/mmpb_cuda/plots/density_ss_30_51_chi3.png: 30edbfc58b00200c299b7e32d0e3526ef4144ba9979afb9b6e3d50d1a091b132
+  mmpb/replica_4/mmpb_cuda/plots/timeseries_ss_14_38_chi3.png: 2f0356aab1ff1975757cd5a3f3bf5670e5209e5d62944e283e510659b3fcfc7e
+  mmpb/replica_4/mmpb_cuda/plots/timeseries_ss_30_51_chi3.png: b41752f31d3eb5279de98802aa418d7498c24a78f36e47cc8b062a884865714e
+  mmpb/replica_4/mmpb_cuda/plots/density_ss_5_55_chi3__ss_14_38_chi3.png: dd352c6fdb1874ec3bb9c44249e9a31ef04ca96a9232413817c14293eee47ace
+  mmpb/replica_4/mmpb_cuda/plots/density_ss_5_55_chi3__ss_30_51_chi3.png: 58f5348680a38483a324135c36cce574a248b81d842a554b3acb0b13a55c9bcc
+  mmpb/replica_4/mmpb_cuda/plots/timeseries_ss_5_55_chi3.png: 94ddfe6cb93f49805b50772fb156e3121d9d6bc6717fb38b260926b868609a39
+  mmpb/replica_4/mmpb_cuda/plots/density_ss_14_38_chi3__ss_30_51_chi3.png: b7bffe23ad9e114d6e2d6f3a8691e717957c8bb571b2cd45dd66c4968d2a94d2
+  mmpb/replica_4/mmpb_cuda/plots/density_ss_5_55_chi3.png: 3058edacb4b9253112a567b1bde06cabb7392ac5fe30bfecd1adead68edaea85
+  mmpb/replica_4/mmpb_cuda/plots/density_primary_pca.png: 22f7752cb685ef08828ddc42940b10f878aa90f86953b47a744602fca74d8528
+  mmpb/replica_combined/mmpb_cuda/plots/density_ss_14_38_chi3.png: c4d54884e922996a2256bbceeed7580095b45cc760135e0eea0dd2db64693f4f
+  mmpb/replica_combined/mmpb_cuda/plots/density_ss_30_51_chi3.png: 947a54c6a07d5a99f6c63cf08ba2d1073d535769b6835421c3085b039a5fc4d6
+  mmpb/replica_combined/mmpb_cuda/plots/timeseries_ss_14_38_chi3.png: d518d92f26ebb10ef616bf9ef2d33957a9283eb368c123f808766839003247f5
+  mmpb/replica_combined/mmpb_cuda/plots/timeseries_ss_30_51_chi3.png: e75a18c3b854aa17802037977ae0798830e2f1fc93deb2efd5e8b383a12f875b
+  mmpb/replica_combined/mmpb_cuda/plots/density_ss_5_55_chi3__ss_14_38_chi3.png: ee39c92e7fae72f6007c326eedb8b7932aa472ccbfae70957e07e155338cbf08
+  mmpb/replica_combined/mmpb_cuda/plots/density_ss_5_55_chi3__ss_30_51_chi3.png: 0928493666ac7a5a621442f2175e1fc78db6973aad5b357e4fa2a02b44114c8e
+  mmpb/replica_combined/mmpb_cuda/plots/timeseries_ss_5_55_chi3.png: 35968a2c9cf355caa4a36024a5c0e4bba8e1200fdee05b0dbc2b59599ad528aa
+  mmpb/replica_combined/mmpb_cuda/plots/density_ss_14_38_chi3__ss_30_51_chi3.png: 6f49f2a1e7b6cacbfd212a292a6e98f7c336ecdf0b3dc9efc6c8a1c288430fe2
+  mmpb/replica_combined/mmpb_cuda/plots/density_ss_5_55_chi3.png: 209358fd35fd2692c89ac6670f49c1bd1ccb3d48e7238825f34dd68897f28edb
+  mmpb/replica_combined/mmpb_cuda/plots/density_primary_pca.png: dd76f7bfb741f80a5338a4961379e80f42873ebf95522306665ad8bc038f9d5e
+  mmpb/replica_3/mmpb_cuda/whole.xtc: df1d0c09369e7932feb62b292f378c59a8ded6039e426a90271f4f3210e9f18a
+  mmpb/replica_3/mmpb_cuda/protein.ndx: 8beef3c59dd1572410c91d7c7f8150bd060ea274ef16b8abe4b3536e2f9752c3
+  mmpb/replica_3/mmpb_cuda/corrected.xtc: 618e701a5c906318a69eb058c548a4dbcd584a40c36f1dc6532c2ec2dd24fa2d
+  mmpb/replica_3/mmpb_cuda/logs/01_pbc_whole.log: b34ed857c6cc56e19fee89003455bfcb9bad440f699f769975583f714621c03c
+  mmpb/replica_3/mmpb_cuda/logs/02_pbc_center.log: e5d164afc88e105c0eda4b7592205b6d6d4dc68b4f3468e72b36ed90e8a7ab3e
+  mmpb/replica_3/mmpb_cuda/plots/density_ss_14_38_chi3.png: 02156e2c38de7dab95a76d632466340aa732fc7f1c33407efb6b8670f6e490e5
+  mmpb/replica_3/mmpb_cuda/plots/density_ss_30_51_chi3.png: 46febc8fd8d2fb653a6f291b2d9e7360e8818ea998b62f8cff2b91152beb8e5d
+  mmpb/replica_3/mmpb_cuda/plots/timeseries_ss_14_38_chi3.png: 79de201f16d707a4b45c7f464396360c9d1d49f3f1e608940794eda7dad61341
+  mmpb/replica_3/mmpb_cuda/plots/timeseries_ss_30_51_chi3.png: 37cff2476832849388f86d377c2fb63490bc2111630fd04343afe27d5c1ea4cb
+  mmpb/replica_3/mmpb_cuda/plots/density_ss_5_55_chi3__ss_14_38_chi3.png: 0942927e0c3b6987c620697c48c9c9d5f9680c15c32f0b101b558c6ea3eb0361
+  mmpb/replica_3/mmpb_cuda/plots/density_ss_5_55_chi3__ss_30_51_chi3.png: d359637417016ff90b6611816632a0f89ee96bf08a04953640e1917e5d9ecae3
+  mmpb/replica_3/mmpb_cuda/plots/timeseries_ss_5_55_chi3.png: b4212cff41f02e220da10ccb81fae1de887d28794b69f692c53cc7846469c2c2
+  mmpb/replica_3/mmpb_cuda/plots/density_ss_14_38_chi3__ss_30_51_chi3.png: 1e43d819cb6719d8a927d28832108b17ec21dbc31fdfcdc1a8fa7ea5fbc2cb52
+  mmpb/replica_3/mmpb_cuda/plots/density_ss_5_55_chi3.png: 739fd475f3dc7162a98ec52836304826d8e30a375076d24cab6dbf22ba9f559a
+  mmpb/replica_3/mmpb_cuda/plots/density_primary_pca.png: 3709cac17d1b325bbf10b94fe6dfaabeeca4725a25ffe9ffd8680d04b29851f0
+  mmpb/replica_1/mmpb_cuda/whole.xtc: 15a58ee0c9cbad88b77be28bd37c0370e6b6df61cbb6b90997d22eb9bb799b45
+  mmpb/replica_1/mmpb_cuda/protein.ndx: 8beef3c59dd1572410c91d7c7f8150bd060ea274ef16b8abe4b3536e2f9752c3
+  mmpb/replica_1/mmpb_cuda/corrected.xtc: bae8b53a2757d3c33f392cc90971b002f95e2cdd9989591b77d54a607d557db6
+  mmpb/replica_1/mmpb_cuda/logs/01_pbc_whole.log: 88f5de11a56420fb48bbfc14d75f1f2f3c11a1a36373963e3f4520512e89dc6f
+  mmpb/replica_1/mmpb_cuda/logs/02_pbc_center.log: 2c527487f9c4336d97cd115f23272ed71283a04f11946871eabb6ccd9151d8aa
+  mmpb/replica_1/mmpb_cuda/plots/density_ss_14_38_chi3.png: 882058b9f5fe4b989c48931abdcb1f3308ff64db3e6cba3119b2cf7452f681e6
+  mmpb/replica_1/mmpb_cuda/plots/density_ss_30_51_chi3.png: 322cbad3fd707129ce5ad29ac40af0a50de9b83767a532f020d4b36d706d41cd
+  mmpb/replica_1/mmpb_cuda/plots/timeseries_ss_14_38_chi3.png: 4e7735930948ada19c0b3efbf5857e3069944588957852430867ffb17f3c81e5
+  mmpb/replica_1/mmpb_cuda/plots/timeseries_ss_30_51_chi3.png: 9d621349be7ffd63d5cea0e5f74a46ee6da063e29495ce3e85694c33ae28cf64
+  mmpb/replica_1/mmpb_cuda/plots/density_ss_5_55_chi3__ss_14_38_chi3.png: 7bc8b13514fd317fe8fefc69f670dd4aef3dc28c331196941f052225a3f77ff2
+  mmpb/replica_1/mmpb_cuda/plots/density_ss_5_55_chi3__ss_30_51_chi3.png: 102699851b4234babee2acec0243c739dcf7ff45c3665e9a194414f0ba4d848b
+  mmpb/replica_1/mmpb_cuda/plots/timeseries_ss_5_55_chi3.png: bd49e07b5ea0f468ad33eee1979ec1170543f065c66e914c627b5743a46900f8
+  mmpb/replica_1/mmpb_cuda/plots/density_ss_14_38_chi3__ss_30_51_chi3.png: 9fb9412485094d515c4a576b0e26a08180a104bada3ac7b5e712110da099fefc
+  mmpb/replica_1/mmpb_cuda/plots/density_ss_5_55_chi3.png: 9c8e59508d6b023f59815237c817722cee75e6befe8511f8f0fa0451c5da754d
+  mmpb/replica_1/mmpb_cuda/plots/density_primary_pca.png: f0db4fee5e5831d2b3215cd7222fbab2f4b4453564c4de01a4ec2fb07a50a769
+  mmpb/replica_2/mmpb_cuda/whole.xtc: 08a47f1d65d1112ec53506c6044b8ca1b4456ef9a7f95fad8afebd8e9ec00494
+  mmpb/replica_2/mmpb_cuda/protein.ndx: 8beef3c59dd1572410c91d7c7f8150bd060ea274ef16b8abe4b3536e2f9752c3
+  mmpb/replica_2/mmpb_cuda/corrected.xtc: fe7b4a4e65021c46f836f8bd6c50a87ec1415cc7bdfc862562f353b2a94c4059
+  mmpb/replica_2/mmpb_cuda/logs/01_pbc_whole.log: 4ffd0a439d4a67ef415268bde488fbf4f4caeff604c53144ecc188b08f34d40f
+  mmpb/replica_2/mmpb_cuda/logs/02_pbc_center.log: f596c86cb8ef361583bdd58a6509b7f8f4a97d879c2a158a7c52e620ae01a8d0
+  mmpb/replica_2/mmpb_cuda/plots/density_ss_14_38_chi3.png: 1e51284eb881fea3f15569fcc03ed8a70fa9535215e50d6256df4bcc0df5eb89
+  mmpb/replica_2/mmpb_cuda/plots/density_ss_30_51_chi3.png: 0853feee569583ff9816bc8db14711246325c5740458c5c62500b6cbc0861823
+  mmpb/replica_2/mmpb_cuda/plots/timeseries_ss_14_38_chi3.png: eaacd6a409404bb46d62e4e109a96e97da70d8a7c0b3d40fa402b186652486aa
+  mmpb/replica_2/mmpb_cuda/plots/timeseries_ss_30_51_chi3.png: f2034d84f308e02c5ef7303687ca510fa3cbc34ea5730396f4b593644596dbbb
+  mmpb/replica_2/mmpb_cuda/plots/density_ss_5_55_chi3__ss_14_38_chi3.png: 46d089734a0c34021ed52ad74998d1701581d183376e71bedef45785a935dcf7
+  mmpb/replica_2/mmpb_cuda/plots/density_ss_5_55_chi3__ss_30_51_chi3.png: 433585ea291f684c0423903eefd90017551cbaf7748177c10fce8fd31601bb4a
+  mmpb/replica_2/mmpb_cuda/plots/timeseries_ss_5_55_chi3.png: 42481a5e40569aee67ff8c36826d3267c32d942017252e0b841f2f2e6e7136ef
+  mmpb/replica_2/mmpb_cuda/plots/density_ss_14_38_chi3__ss_30_51_chi3.png: 9fe4946c89e7afbefefc3671abdeb499d891d8dd293ba30effa740cf209c9698
+  mmpb/replica_2/mmpb_cuda/plots/density_ss_5_55_chi3.png: 239df1c09bd62930ca8ab924cc719d5f74224268df3a3d0d62db79fea2763bd9
+  mmpb/replica_2/mmpb_cuda/plots/density_primary_pca.png: d4b1a674e59fb5ee9de3ea846cc751cbbe286bac6eb504f91b0dc8254e5468bd
+  u/replica_4/production_block_0001/whole.xtc: 3fa84d4906bc5b7734b26fc66536a6841e44f14c875647eedd6d30cbab6e85a5
+  u/replica_4/production_block_0001/protein.ndx: 8beef3c59dd1572410c91d7c7f8150bd060ea274ef16b8abe4b3536e2f9752c3
+  u/replica_4/production_block_0001/corrected.xtc: 16c6c5b053d94292ec8be7e979d8b59aeed7094dd785d575e4498539baa9ecec
+  u/replica_4/production_block_0001/logs/01_pbc_whole.log: 1b7130edb71b7c45ff81d83193ba56697c6f8069335fb259118772588ae1e2b9
+  u/replica_4/production_block_0001/logs/02_pbc_center.log: 3d9501ccb02c165c519ceb26dfa75d227fdebfc6de8e9668493e131cdefff54c
+  u/replica_4/production_block_0001/plots/density_ss_14_38_chi3.png: c49700a28ebb214710cf1c1a25dba954e94d4ed61ae07152372f5d636034b90b
+  u/replica_4/production_block_0001/plots/density_ss_30_51_chi3.png: 60ec0ee41501028014199481e44e38005dedb83dd6655f98566ac42f0888763e
+  u/replica_4/production_block_0001/plots/timeseries_ss_14_38_chi3.png: 8696d3e0ec8f6c7808e2e452174c3fddb2c054ff5123e8463d548d45ea6ebfb7
+  u/replica_4/production_block_0001/plots/timeseries_ss_30_51_chi3.png: 9c3c49a7ee6fcd3d094a4f734319902f35f56cff28bb7343f750e40af4ce4dbe
+  u/replica_4/production_block_0001/plots/density_ss_5_55_chi3__ss_14_38_chi3.png: 1e2fcf2e264bcca822294bd5a5f05c708abed6c8df381fd15067b757187dbd47
+  u/replica_4/production_block_0001/plots/density_ss_5_55_chi3__ss_30_51_chi3.png: fa3e2389b923d329d9ac4e7e33687c9bff3b3171d703e6a286b7a429e301a1d9
+  u/replica_4/production_block_0001/plots/timeseries_ss_5_55_chi3.png: 8e403f515cde84b9b7a77265b9e07cd6ad730a17bc7c2db30c0c025e9c586d14
+  u/replica_4/production_block_0001/plots/density_ss_14_38_chi3__ss_30_51_chi3.png: 5d3ed68c96ddcbd7276a35e2e42ecb7629c9d91a7f42f0b2c73deb1a67f1f5d7
+  u/replica_4/production_block_0001/plots/density_ss_5_55_chi3.png: 4a084e779482256f9fd6438d962725e01272006bbb2f260b9e7b8ee1d961a5ac
+  u/replica_4/production_block_0001/plots/density_primary_pca.png: ae7333d2bc3ec0991ec80e609d4df65d8b036affce78bb75a475efe2d9d286c4
+  u/replica_combined/production_block_0001/plots/density_ss_14_38_chi3.png: ca47c971f16b8ebfc5fa4ee4da9687e8b3fa007372baab23c71a322445a1b619
+  u/replica_combined/production_block_0001/plots/density_ss_30_51_chi3.png: 2865ae287de399db0a6154f64bfe5b9c0a66857d2ac821c575ac3162fbf91161
+  u/replica_combined/production_block_0001/plots/timeseries_ss_14_38_chi3.png: 03de7b7851a986e19443273d442f9c11819fbc0ff07b888631ceb5164a1661ee
+  u/replica_combined/production_block_0001/plots/timeseries_ss_30_51_chi3.png: e5bebb312ef43e84b4e5e67048d3c385886075b246fda6c6018fb61af4ee5463
+  u/replica_combined/production_block_0001/plots/density_ss_5_55_chi3__ss_14_38_chi3.png: ba51b1614efa9be75520c7e7fe4c884e781294fdabbf0ea785342d9d8d7d883a
+  u/replica_combined/production_block_0001/plots/density_ss_5_55_chi3__ss_30_51_chi3.png: 2a704764c34d73a3fa588d16744491d363cc21e149616fd961376eacf7a87134
+  u/replica_combined/production_block_0001/plots/timeseries_ss_5_55_chi3.png: d35f58a1ba57dcfba5d8a096b9c1a29a176f19e42301f814731afa913a6f9c3b
+  u/replica_combined/production_block_0001/plots/density_ss_14_38_chi3__ss_30_51_chi3.png: 7f5236388036e0410cafaeb8d0ca9ccf337f55f93c1a90ead61b7d53868a533d
+  u/replica_combined/production_block_0001/plots/density_ss_5_55_chi3.png: 1f85be8edd008addb0da81495ea5d7fc6b35fc989dd2eca8c661ec2ae377f033
+  u/replica_combined/production_block_0001/plots/density_primary_pca.png: 59682bbd2017c55abb0014737013def1960c129e12b69ba8cc4e2f0dc0ed9f14
+  u/replica_3/production_block_0001/whole.xtc: f993536676f99db41ff8e7d2b2c7a06b7d8ed586e94eeb333dc0b8e0f8856fdc
+  u/replica_3/production_block_0001/protein.ndx: 8beef3c59dd1572410c91d7c7f8150bd060ea274ef16b8abe4b3536e2f9752c3
+  u/replica_3/production_block_0001/corrected.xtc: d5cfb0405610a454557abeda4213f7b22d7f18d04bb247119e8449ca6633922b
+  u/replica_3/production_block_0001/logs/01_pbc_whole.log: ab9a974435feed8f129e552024f56d1ca39483e29a51f8ee15569198c8391ba5
+  u/replica_3/production_block_0001/logs/02_pbc_center.log: 5ae3aebaf67ca233352a067f355183c707d16398e9a0e02169b21f6fdf0b5d2c
+  u/replica_3/production_block_0001/plots/density_ss_14_38_chi3.png: 98d13521da598510d8d37fef7cc422eb4406f97ed77b6207f5aafea8dc3eb43f
+  u/replica_3/production_block_0001/plots/density_ss_30_51_chi3.png: ade5a5eb45af10af6c8119fa14ef41bb140ea398d7cc4bd0d087a78b4b3feebb
+  u/replica_3/production_block_0001/plots/timeseries_ss_14_38_chi3.png: 05590383fbe2bccb5e79c42d92c8e67d0b954a6ba4005b95f1972d4e1c8ad1eb
+  u/replica_3/production_block_0001/plots/timeseries_ss_30_51_chi3.png: 939dff2d83330d58c647a136d10963d56fac069f6048e7adb86891338a5c8c3f
+  u/replica_3/production_block_0001/plots/density_ss_5_55_chi3__ss_14_38_chi3.png: 3137089bafd3e98b25120001df6779c838b0e0af99b6f40c879fe788c0e6f663
+  u/replica_3/production_block_0001/plots/density_ss_5_55_chi3__ss_30_51_chi3.png: 3353f181b9b285bf12bdbee55dcd9f2f0d0b428650f7547c2ede1f4c824374d9
+  u/replica_3/production_block_0001/plots/timeseries_ss_5_55_chi3.png: e383757685841afcb96bde0eb5301b07e7659f380649aa0b64484539ff7bca9c
+  u/replica_3/production_block_0001/plots/density_ss_14_38_chi3__ss_30_51_chi3.png: 1eb0721ce0402536cc50b3f442013f775f3cf4290a4e06b441b41ae84a3b88d5
+  u/replica_3/production_block_0001/plots/density_ss_5_55_chi3.png: 070572960cb4b64a9dc69c5407134f70e42d1f8249606fd513e7201c5e64e034
+  u/replica_3/production_block_0001/plots/density_primary_pca.png: a2044e958492021ae147ad4aa22441a02ddd9eb28bde0a5284cc111e2901f809
+  u/replica_1/production_block_0001/whole.xtc: 21d3ad4f2010e9cb0e2fff105c1dde9a60f16be7c7134910f6d0c76901239e80
+  u/replica_1/production_block_0001/protein.ndx: 8beef3c59dd1572410c91d7c7f8150bd060ea274ef16b8abe4b3536e2f9752c3
+  u/replica_1/production_block_0001/corrected.xtc: 939af26251ccd352e9cb4f1e3a07bff410470652bf73d41a176cee31b58c7a37
+  u/replica_1/production_block_0001/logs/01_pbc_whole.log: 9a3fa9a79ba05189440a95ecb2f37d0c780614920b41e47d56c5453f818da719
+  u/replica_1/production_block_0001/logs/02_pbc_center.log: 31e0276147170de2ec95ddd536cca661137cd96ce9b7a0cf08f2c0e059bf4e13
+  u/replica_1/production_block_0001/plots/density_ss_14_38_chi3.png: 521595ab938ceeade533057e1f6c4c31d34fa7bd1b649c68a31376ccc536c3a3
+  u/replica_1/production_block_0001/plots/density_ss_30_51_chi3.png: 0d972904b29e524d00f1ce27007a436df1dcbba05ff37939b0cde34b3f1f502c
+  u/replica_1/production_block_0001/plots/timeseries_ss_14_38_chi3.png: ffc07d81b8f2057a8a3284018f67fdf443b29ca69f62fa267117bebaf3942944
+  u/replica_1/production_block_0001/plots/timeseries_ss_30_51_chi3.png: 9df0cba1c26e81f9a8c932ecbc35b427ad393aa58362e0024993ae877a224983
+  u/replica_1/production_block_0001/plots/density_ss_5_55_chi3__ss_14_38_chi3.png: 3f6b3b3b72468883c4263ab42ad984cf332d577df3a6168b2fbd6416c4f668ec
+  u/replica_1/production_block_0001/plots/density_ss_5_55_chi3__ss_30_51_chi3.png: 61db8c63a5dffa1c4caa7e2d8dd524f6c985440319b14d4a50df7372278eb053
+  u/replica_1/production_block_0001/plots/timeseries_ss_5_55_chi3.png: fa484d127d804586afce1d80700f91a826ca4c8b03a480f2ac831153a5dfaad6
+  u/replica_1/production_block_0001/plots/density_ss_14_38_chi3__ss_30_51_chi3.png: c49a0a883af79acc8978e61834527f816ddb851a181aee6384efe1adad6fe567
+  u/replica_1/production_block_0001/plots/density_ss_5_55_chi3.png: 3510d1d30e422a8d8b4035edc7b311bc6b3af5b5c187dd537db27091708da4f0
+  u/replica_1/production_block_0001/plots/density_primary_pca.png: 1c13e5cfec3226e29a78ac090d48ccf1845b4cc744c4dfee23dbbac808a9ad33
+  u/replica_2/production_block_0001/whole.xtc: 18080b2ecd20c08630f343dfb6eab9a25690c9676b587a90ce67a600d9361b03
+  u/replica_2/production_block_0001/protein.ndx: 8beef3c59dd1572410c91d7c7f8150bd060ea274ef16b8abe4b3536e2f9752c3
+  u/replica_2/production_block_0001/corrected.xtc: 1e3223c2bd5c39094283ff4be4e83520e548fa681109c4dddbce9a4f8bc374fe
+  u/replica_2/production_block_0001/logs/01_pbc_whole.log: 1f1d7d8a772de8b47b798af0ba7ac697d791a7159598deed6d83c1dd38128e02
+  u/replica_2/production_block_0001/logs/02_pbc_center.log: 1705b2aec01eb321d28d0707e88b4115ed6467f55abd971d4d10b82665fcf9e1
+  u/replica_2/production_block_0001/plots/density_ss_14_38_chi3.png: c689eb855bd8b49f86c15656a5841056f5e645293187df568eb318e209ab7534
+  u/replica_2/production_block_0001/plots/density_ss_30_51_chi3.png: 08d024ab726f1de4305c24419f7b95626ff12bcb848fac51320769dd7c361b1b
+  u/replica_2/production_block_0001/plots/timeseries_ss_14_38_chi3.png: 56d147d5544fcd8054894048f00aadad7fb54d9c5ba3478e020eb8c6db38c22c
+  u/replica_2/production_block_0001/plots/timeseries_ss_30_51_chi3.png: 5ef9ab9bb751699dd011e09d8dfc640729840b921ea232f58188f8c285072872
+  u/replica_2/production_block_0001/plots/density_ss_5_55_chi3__ss_14_38_chi3.png: 1773797cb5b50475a5c53767a53b97b06043b8e47014fd8edc60b21da592f41b
+  u/replica_2/production_block_0001/plots/density_ss_5_55_chi3__ss_30_51_chi3.png: 0c46be76d5c587aeae819c702e1959908beec7c7357953fbc16cddbb2aea81fe
+  u/replica_2/production_block_0001/plots/timeseries_ss_5_55_chi3.png: 39fd07717b00ef2cacc0245d0f5403bf2082b5d35581359804956753f53942c9
+  u/replica_2/production_block_0001/plots/density_ss_14_38_chi3__ss_30_51_chi3.png: 3fd7f83ad96398d08eb1f5229706bd62d754759b3c70ed5775e764f692e70e6b
+  u/replica_2/production_block_0001/plots/density_ss_5_55_chi3.png: 276280a4f5c3d69c616ab124bce85984394c144b74c08c79ca92b3ef15de84d6
+  u/replica_2/production_block_0001/plots/density_primary_pca.png: 58b904e09b0b46b5e50a1f2bb4f1caa940ff46defb237214eab13dc61e66bec7
+  pb/replica_4/pb_cuda/whole.xtc: 1b85456893cb3a9856ece93812d3a2639c6a6a5e9a909a6758d3acf1abc3fcb8
+  pb/replica_4/pb_cuda/protein.ndx: 8beef3c59dd1572410c91d7c7f8150bd060ea274ef16b8abe4b3536e2f9752c3
+  pb/replica_4/pb_cuda/corrected.xtc: 08356528d216afde37c30867b7daa27c9a1e44377898ad4cfdc993aa1c808f0e
+  pb/replica_4/pb_cuda/logs/01_pbc_whole.log: daccee1a8fe98ae2087a73e71ff2d41e4b4cd81c382547457084bc8d5991f210
+  pb/replica_4/pb_cuda/logs/02_pbc_center.log: fb2630d72e67e30ee29fa32cea7ebabf0b53ae3d94f356a6e2237a2b7ca977de
+  pb/replica_4/pb_cuda/plots/density_ss_14_38_chi3.png: 9e2a15d7003aaa57a45b2dd569e0983a00aae8ca515023b92a98121678957238
+  pb/replica_4/pb_cuda/plots/density_ss_30_51_chi3.png: 42a83c89657416ff5b57588e3c067afe3b744e1d11272de0e0341026de63d1f2
+  pb/replica_4/pb_cuda/plots/timeseries_ss_14_38_chi3.png: 665a73edd2e0670b564ce217da7310109a5cf58326194234beb0e2b4debedb02
+  pb/replica_4/pb_cuda/plots/timeseries_ss_30_51_chi3.png: a0bd86fcb7ba14ab9bdc3f9e952ea7585f5d273a8cad5682cbc1bcdc2413c2e8
+  pb/replica_4/pb_cuda/plots/density_ss_5_55_chi3__ss_14_38_chi3.png: 58373886645acd33e2e33e1ca296953a0ba30f6597435a995c82f2bead6aee29
+  pb/replica_4/pb_cuda/plots/density_ss_5_55_chi3__ss_30_51_chi3.png: 95ac5341342160f0ad867617cce88e69feeaa99c721dc77ad4edc4aa8306a3eb
+  pb/replica_4/pb_cuda/plots/timeseries_ss_5_55_chi3.png: 49fce5628b614028b7a2ebd10567b48c6c714b634bbbe3ecc3e2740abf26d938
+  pb/replica_4/pb_cuda/plots/density_ss_14_38_chi3__ss_30_51_chi3.png: 29e9230141c2964da9b5bf49f298367257d8fdb803205d6acd24534021bdd5dc
+  pb/replica_4/pb_cuda/plots/density_ss_5_55_chi3.png: cd6339deafaa718ec6f58f347cb32c62adb382e6e10834611beae1054d0522b7
+  pb/replica_4/pb_cuda/plots/density_primary_pca.png: 1f92d758804b098de7437efd57aff3ccc895f4d5fe4f952426eec5c0af4d10fd
+  pb/replica_combined/pb_cuda/plots/density_ss_14_38_chi3.png: 8ba1c99fd9521cefeea442b5eb6d0b96712b367e56c22c47436e81c0a3cae371
+  pb/replica_combined/pb_cuda/plots/density_ss_30_51_chi3.png: 20aef27de91d62a4bd8a974ca075481a6e34914dd359cd64b2d6adf9ebe0029e
+  pb/replica_combined/pb_cuda/plots/timeseries_ss_14_38_chi3.png: 8ef2dc611dac67b3a9af83122b62d02362e942ec93f155dbe5dd831fc2c698ff
+  pb/replica_combined/pb_cuda/plots/timeseries_ss_30_51_chi3.png: abf977aca518f3d3d9e85a66c10aa38111d8e3a967af02d3f0b8a4e93e5e6995
+  pb/replica_combined/pb_cuda/plots/density_ss_5_55_chi3__ss_14_38_chi3.png: d50e6565aa83728b56b5504cbab1854dd461ced6555c5a7f21ccaaaa654e60e5
+  pb/replica_combined/pb_cuda/plots/density_ss_5_55_chi3__ss_30_51_chi3.png: cbec6a17d040e798618752f67b4dd6c6a4751252c6f5ab24e483d296452762f1
+  pb/replica_combined/pb_cuda/plots/timeseries_ss_5_55_chi3.png: 9f8302f6b806b4aa8c50b7dd7adbd799a743542793319ca71fb2dac633df31e1
+  pb/replica_combined/pb_cuda/plots/density_ss_14_38_chi3__ss_30_51_chi3.png: 1489f07f556dddd3b3b251262415539ba44b4427c1d8b52d343730666b7a66e1
+  pb/replica_combined/pb_cuda/plots/density_ss_5_55_chi3.png: 9b27d89fc5a366aa9d39be8c5ee5de1671906b2576c4b42c771710b7222e778f
+  pb/replica_combined/pb_cuda/plots/density_primary_pca.png: 67d3a2836e9b2657a090f766acf66703133f58f95ef74351cc883873478c6be2
+  pb/replica_3/pb_cuda/whole.xtc: 7ff20aaacc844e4c47d391c5258fc8dd612f37258055f39f6239bc1fffc13644
+  pb/replica_3/pb_cuda/protein.ndx: 8beef3c59dd1572410c91d7c7f8150bd060ea274ef16b8abe4b3536e2f9752c3
+  pb/replica_3/pb_cuda/corrected.xtc: 42388d307eba5086fc3be71c68764091c5381ab6ec400fb0b7b2a9812c3cf896
+  pb/replica_3/pb_cuda/logs/01_pbc_whole.log: 48711aae669af5d6b4aa86e77724a3c3e0eaeef77ec955b8f7a77f23478a2cfc
+  pb/replica_3/pb_cuda/logs/02_pbc_center.log: acd3856d41095c40582d179cfdea21e92cb36ac92ab2f18594c2761c83f7bceb
+  pb/replica_3/pb_cuda/plots/density_ss_14_38_chi3.png: 71678cf9d3929ee4e2ee21e01343827fe3564b162ea2c82ae7f29f233dd67480
+  pb/replica_3/pb_cuda/plots/density_ss_30_51_chi3.png: e0c5aec83bfa733abc186e731e3613134c7580ca801f45d063ad549c4b868691
+  pb/replica_3/pb_cuda/plots/timeseries_ss_14_38_chi3.png: fa5cf9b1b8eb9ba61d3540c7a6818fd9167a44219eda7b2f3ba919e3749cba18
+  pb/replica_3/pb_cuda/plots/timeseries_ss_30_51_chi3.png: 6a8dae68c77c18111b7478704c3466ff513702fe56731e105c0a9208c34f071c
+  pb/replica_3/pb_cuda/plots/density_ss_5_55_chi3__ss_14_38_chi3.png: 8a1132d8a9e0eb042e13e8c0eb65fffdd62cc2f1d4a54549057c1432585691d7
+  pb/replica_3/pb_cuda/plots/density_ss_5_55_chi3__ss_30_51_chi3.png: 45a81da54f427459d884ee7ae9f76f67c6c81d97e69bbba8c07cceee8e2ffa99
+  pb/replica_3/pb_cuda/plots/timeseries_ss_5_55_chi3.png: 22a05dac9b26e2b349921d686460984e5d9a43911a40b1cf33bce805e6b02a39
+  pb/replica_3/pb_cuda/plots/density_ss_14_38_chi3__ss_30_51_chi3.png: 5625df7a35b8001adb0c52755a0f68920f48019f00b944d1540951eca2cb4144
+  pb/replica_3/pb_cuda/plots/density_ss_5_55_chi3.png: 73c5a4e210ffe32184896570d2969a09b5ab48f98d52e7036436e05e4185d104
+  pb/replica_3/pb_cuda/plots/density_primary_pca.png: 68b3f184566571b15fdf72deceb0de03b7efcaa54f0e2285a596d1f9560af126
+  pb/replica_1/pb_cuda/whole.xtc: de4c6c9aaf2e996e8f23b021ac464b5d1dfad21e1a2c9d3ce33ac71de0453881
+  pb/replica_1/pb_cuda/protein.ndx: 8beef3c59dd1572410c91d7c7f8150bd060ea274ef16b8abe4b3536e2f9752c3
+  pb/replica_1/pb_cuda/corrected.xtc: 434ecd281dbb709d90ec2a4c2af9e631c7150b795c395d75f90f7039a04caec8
+  pb/replica_1/pb_cuda/logs/01_pbc_whole.log: 3b1430ea8ab5e97475e058c1160a1a86ab6b01adb757ffdc6a283493f00fa796
+  pb/replica_1/pb_cuda/logs/02_pbc_center.log: 7bab9f4a512ae9405e6748f5dd6466b603afa9abe6223882e58aa9878988d1ad
+  pb/replica_1/pb_cuda/plots/density_ss_14_38_chi3.png: b383ff49b84ea5e87cc3741d29c30cbbd4bbea38b078168f945b19698d6fe5b0
+  pb/replica_1/pb_cuda/plots/density_ss_30_51_chi3.png: ae98e4e22bdc7b45a33149bd842be05fa799eb5dbe472c978483e27328653cb4
+  pb/replica_1/pb_cuda/plots/timeseries_ss_14_38_chi3.png: 158d1afa5a2c0332adbaaf5c497b4f8d80d6610428b1b5b9170518a8ad139959
+  pb/replica_1/pb_cuda/plots/timeseries_ss_30_51_chi3.png: 1e1c823362ad6a926456de5672a329098b20f3f92dcc40cb694b58c99d1dd5c9
+  pb/replica_1/pb_cuda/plots/density_ss_5_55_chi3__ss_14_38_chi3.png: 5ffdd74343591c6e59a4e7eadf1ae0f81ffb4c1a0976bbca7233a993273c0fce
+  pb/replica_1/pb_cuda/plots/density_ss_5_55_chi3__ss_30_51_chi3.png: 4d1f13c06c90f31ed83d38b8c14172e4615807f9a22a69aee20806845fb858e0
+  pb/replica_1/pb_cuda/plots/timeseries_ss_5_55_chi3.png: bbd8be6eb252aa622fed856fbfb4dad7c8d9e091cdbfcc262b60a82a1b509792
+  pb/replica_1/pb_cuda/plots/density_ss_14_38_chi3__ss_30_51_chi3.png: 563b9009d5f603c34c00793a89ba1a5b2791b0466e483d6708836de48da82301
+  pb/replica_1/pb_cuda/plots/density_ss_5_55_chi3.png: 1c6e0a9b0549783353aeed23c9aedda2965b92850d071ffafb1d0e46aa4a63b6
+  pb/replica_1/pb_cuda/plots/density_primary_pca.png: 39d6250c349404a9e95f8b762da6f8bb083d92e2e7e676a1c97aeb8cbb2fb8e0
+  pb/replica_2/pb_cuda/whole.xtc: d8885d196e92d00902fc58f64dc097b79bcdcaed5767a0ddc9b6f7fbba9c67da
+  pb/replica_2/pb_cuda/protein.ndx: 8beef3c59dd1572410c91d7c7f8150bd060ea274ef16b8abe4b3536e2f9752c3
+  pb/replica_2/pb_cuda/corrected.xtc: ef60db18805d0692e87f50781057681c0f1d9901ceb93e8013f8fe351edfc49c
+  pb/replica_2/pb_cuda/logs/01_pbc_whole.log: b6ca58e87bad36fc78e969cfec1077e9bda5df9ea6e7c5bfb6b75c7baad022df
+  pb/replica_2/pb_cuda/logs/02_pbc_center.log: 1b8e6f64b03dfa6f153ed1674cde4e01e737271d65935ecb243bb63499d91eb4
+  pb/replica_2/pb_cuda/plots/density_ss_14_38_chi3.png: d6333372d1774693cd4542453ed000b9de40a1219e29043acf5c1a0b52943833
+  pb/replica_2/pb_cuda/plots/density_ss_30_51_chi3.png: 074b43d9e587ee7807fb45ff81e1eee0738a742498db42645efc926c1b3e160a
+  pb/replica_2/pb_cuda/plots/timeseries_ss_14_38_chi3.png: 81e13ee0c8ca84e20e6fa8a4f69639b866a3ab4bcc4fbff582e1ecb98bb5aa53
+  pb/replica_2/pb_cuda/plots/timeseries_ss_30_51_chi3.png: fe2083e896607f84999ca67e71f138b78d16504498060ea0cb55a3122fe94d04
+  pb/replica_2/pb_cuda/plots/density_ss_5_55_chi3__ss_14_38_chi3.png: 39b798fcf9603425092b15f07e1c60953c5d3f21b2b43fe5f628689046b2720c
+  pb/replica_2/pb_cuda/plots/density_ss_5_55_chi3__ss_30_51_chi3.png: 9783f3ca3e5c8a88d6e78b6b6b65b9534364361d77eb21da72ea5fffa73ae289
+  pb/replica_2/pb_cuda/plots/timeseries_ss_5_55_chi3.png: a7989289e1334884dd6360f60865d6301c30c58d6ee881ea467995f7358fa63c
+  pb/replica_2/pb_cuda/plots/density_ss_14_38_chi3__ss_30_51_chi3.png: accea2fad9b369bb2f3bbb67eb5a40a9828a90806f2452daf3c9818ee21e1b5c
+  pb/replica_2/pb_cuda/plots/density_ss_5_55_chi3.png: 9325ec7cbf0d8a52409637d3ce02fe6acdead6935abe059756215de3f00306f3
+  pb/replica_2/pb_cuda/plots/density_primary_pca.png: c15793f578372a2b46fb517bafb47b7c6f50d7f2f76b3986693d08bcf94368e7
+  mi/replica_4/mi_cuda/whole.xtc: 55e84ff6dae70d95c6e826fae82ada596da126f400f4f8a873600ace01f1039c
+  mi/replica_4/mi_cuda/protein.ndx: 8beef3c59dd1572410c91d7c7f8150bd060ea274ef16b8abe4b3536e2f9752c3
+  mi/replica_4/mi_cuda/corrected.xtc: 52bab568bf4ae98df7c5118ae25bc84c39b5df382e456759ec92a2dba1a5568b
+  mi/replica_4/mi_cuda/logs/01_pbc_whole.log: 470b07a734b730db0458649092047158fcf4234214bd280b0f99ebb3de82548b
+  mi/replica_4/mi_cuda/logs/02_pbc_center.log: 32937e6fb704b096ace41c31f050ae626428d3b0972218974688841d60d5aa0a
+  mi/replica_4/mi_cuda/plots/density_ss_14_38_chi3.png: d89555039840291621c40aa37a0bf9c3e1ced34cab0d386682622404b45b2708
+  mi/replica_4/mi_cuda/plots/density_ss_30_51_chi3.png: 87b898d44636e192441e710e39e1e411f3478715f13c752ec159958ba2cd97ab
+  mi/replica_4/mi_cuda/plots/timeseries_ss_14_38_chi3.png: 49b7e81b8466946e04c1edd288408fae76ca55fcdd93ee06a3e48998eb9061ba
+  mi/replica_4/mi_cuda/plots/timeseries_ss_30_51_chi3.png: e1f42a34039c609eb5e6b06fbae0e8c59f08aef286a22e106fdf4552f33a93b9
+  mi/replica_4/mi_cuda/plots/density_ss_5_55_chi3__ss_14_38_chi3.png: c89135bf7043cad4ace0a8a3464504ba3fafe248c274af7a4bf1f640c1417578
+  mi/replica_4/mi_cuda/plots/density_ss_5_55_chi3__ss_30_51_chi3.png: 371dd8181d5bc5eaa0316020359726dab016df7eccb8b505033019301401d6cf
+  mi/replica_4/mi_cuda/plots/timeseries_ss_5_55_chi3.png: a2a928426b5ede4fae20e3f048fc46be829040d385bac3bf91779e9cbd86cb56
+  mi/replica_4/mi_cuda/plots/density_ss_14_38_chi3__ss_30_51_chi3.png: 8efb2dfcfcc6d481a1d1228dc3421bcbfa2f42fe3bc5e2b19b37a3c0660b4c35
+  mi/replica_4/mi_cuda/plots/density_ss_5_55_chi3.png: 31b4417adba277576224ba12eb015d1dab60a3c05307a737a7295f51b7b46d40
+  mi/replica_4/mi_cuda/plots/density_primary_pca.png: 0c15a18e986951567e846ffd161ea76c2dc27e16208d7de305bbc6acbfa831cb
+  mi/replica_combined/mi_cuda/plots/density_ss_14_38_chi3.png: b1cb1c64f373698838f2c6689295cbb0d0595819eb8644059dffca9ba80cb647
+  mi/replica_combined/mi_cuda/plots/density_ss_30_51_chi3.png: 185e0f48c6a6d4c9f22e853248b9ae4fff6917b56e75f1f703b9243bb621fced
+  mi/replica_combined/mi_cuda/plots/timeseries_ss_14_38_chi3.png: 36660b28255dececd81e991d3f1fe2ad5d9dd59020ca158547fc7acd4db8f3c7
+  mi/replica_combined/mi_cuda/plots/timeseries_ss_30_51_chi3.png: c574edba39226e18d5cd02f908cdce8b78db8c28aa5f7ac83d603aac62557d71
+  mi/replica_combined/mi_cuda/plots/density_ss_5_55_chi3__ss_14_38_chi3.png: c46245a744e75d0d45e256775a1ae05ddbf7722246aa60bb23dec5f00721c149
+  mi/replica_combined/mi_cuda/plots/density_ss_5_55_chi3__ss_30_51_chi3.png: 2904522598350e85211ac27b3b301899063e5c3f3111f512f0234a6581aaffb0
+  mi/replica_combined/mi_cuda/plots/timeseries_ss_5_55_chi3.png: 744ba4dc305c26fcde97a77af504a4cc51b9a4b47d3a4e07c49e331760c9e1e7
+  mi/replica_combined/mi_cuda/plots/density_ss_14_38_chi3__ss_30_51_chi3.png: 1eacb341d2c8ed873c20a7d311a9a7d9b4a629133dfb86f288a95affcfc79e54
+  mi/replica_combined/mi_cuda/plots/density_ss_5_55_chi3.png: 8064209e0fdca607a83281da8fc80e5e106cc497fd6d22bfc42188d42c19f25e
+  mi/replica_combined/mi_cuda/plots/density_primary_pca.png: f3de75f1b2e9b19f4642aabecf1dcd8f4c0cc5dc08e731f391be17ce6d5072d2
+  mi/replica_3/mi_cuda/whole.xtc: 8920cc48abd40d732b28063612aaeb09c708d077df6acee44abe7f3009ad78c1
+  mi/replica_3/mi_cuda/protein.ndx: 8beef3c59dd1572410c91d7c7f8150bd060ea274ef16b8abe4b3536e2f9752c3
+  mi/replica_3/mi_cuda/corrected.xtc: c9601d99a427d558accea6d769c4aa663f8e14e817559daae7e71800134afc1f
+  mi/replica_3/mi_cuda/logs/01_pbc_whole.log: 524d8be7aecf7becb9f721b4cff61cb5c6cf6818ea7780a65324526491a13537
+  mi/replica_3/mi_cuda/logs/02_pbc_center.log: 86c0db7c4355c5f7d4711405fa3ae1722308bf65aa32ae9f12583039bd814889
+  mi/replica_3/mi_cuda/plots/density_ss_14_38_chi3.png: dac7ff5c62fbef790b6f67ad3651c71d20b12df50f72f6b018284917e803324e
+  mi/replica_3/mi_cuda/plots/density_ss_30_51_chi3.png: c75a19438a0379cdb5063a6364fffedbd0519610a8f595ef2cf4da0cdd2d0501
+  mi/replica_3/mi_cuda/plots/timeseries_ss_14_38_chi3.png: 78f5940c1a1e3f8a97be8edb80ee85a557e6f3595acc2865b385037e912c6189
+  mi/replica_3/mi_cuda/plots/timeseries_ss_30_51_chi3.png: 8fe205243cad1e30f84a7998f9dcf72541b18f3cdb8ba2e06b1d164e27a50f44
+  mi/replica_3/mi_cuda/plots/density_ss_5_55_chi3__ss_14_38_chi3.png: 826ace6eb251cbcdcfb63b7c179b9fe518436e965758ae8672b312facb2338f2
+  mi/replica_3/mi_cuda/plots/density_ss_5_55_chi3__ss_30_51_chi3.png: 35cdb403fa88eabbe4a6ad194b9278ed25936ff134f0b5e5852af990efa2be6b
+  mi/replica_3/mi_cuda/plots/timeseries_ss_5_55_chi3.png: 1520e3ed86d4f2100b3b7b06a46ea79dd57434ebf8de743af545026a6281fcf8
+  mi/replica_3/mi_cuda/plots/density_ss_14_38_chi3__ss_30_51_chi3.png: fcd0c272402672f10c5cb78512b9a2e5e12885dfa3e1e3e3e1128c9aaeec96b4
+  mi/replica_3/mi_cuda/plots/density_ss_5_55_chi3.png: 91baf1c67dc81cf40d74e9054a7341d7d66b69e9ab022fe8879ecafb03b76ae4
+  mi/replica_3/mi_cuda/plots/density_primary_pca.png: 948f1958b0f574811e60bf7f6e08e2e879609eada75db60d889ad7c33986c5e5
+  mi/replica_1/mi_cuda/whole.xtc: 3d6009c996c8fd2a24b0bcab9ce1b607ad39b5c7f4b8fa94ce871b44a3e99ae2
+  mi/replica_1/mi_cuda/protein.ndx: 8beef3c59dd1572410c91d7c7f8150bd060ea274ef16b8abe4b3536e2f9752c3
+  mi/replica_1/mi_cuda/corrected.xtc: 3ef965e371d3a03213d5156b8a2956896b63c39f89ffac09ed11ad780cc31c71
+  mi/replica_1/mi_cuda/logs/01_pbc_whole.log: 97a362e641fb5b127cf51789423009326207f07444027b42e4249f7274899a5c
+  mi/replica_1/mi_cuda/logs/02_pbc_center.log: a566f5b2579717eb20943aa43f2aca4b0fbe816313583ae9f5a7e8b8bbbd5677
+  mi/replica_1/mi_cuda/plots/density_ss_14_38_chi3.png: c433c63e9d117316ae138fdcc21c075b87eddf539e10562c78d25c91778aedd0
+  mi/replica_1/mi_cuda/plots/density_ss_30_51_chi3.png: b8953a5191f2aa59d0ba221385d2cfe922ee135701cc2bfc82bb09d0c623f459
+  mi/replica_1/mi_cuda/plots/timeseries_ss_14_38_chi3.png: b98b71523039c26a84b8a95ab9cf2737dd8d6b490440c69e5b8b404b5df00c05
+  mi/replica_1/mi_cuda/plots/timeseries_ss_30_51_chi3.png: 17b6fb0a14c33d7a0f9feb4d6522fbffc1bb147d9e33531eae2fe5b25f5d5bbc
+  mi/replica_1/mi_cuda/plots/density_ss_5_55_chi3__ss_14_38_chi3.png: 66648939e618f732c44a56318076f1478f87ede417c9414365a88bb52099a8d4
+  mi/replica_1/mi_cuda/plots/density_ss_5_55_chi3__ss_30_51_chi3.png: dfbda81a4e0d29fedd79efbffc737a266969e8cbbb89a2b53156063192c61c1f
+  mi/replica_1/mi_cuda/plots/timeseries_ss_5_55_chi3.png: e4aa15da48153de77edd0cd4262f1fa5e133ac555271edc33514a3d09f2fb04b
+  mi/replica_1/mi_cuda/plots/density_ss_14_38_chi3__ss_30_51_chi3.png: 122d660f27b702e9eef4a3652025649bf841b8b457a1a3d53a957fef3cf8b6e0
+  mi/replica_1/mi_cuda/plots/density_ss_5_55_chi3.png: 73a1bb39baeb7b64f6976a6a2d3952b2ece97cbefd88ef5dae6099e0839a9913
+  mi/replica_1/mi_cuda/plots/density_primary_pca.png: 6bac934bc959a60abcb29b90ad719e2d74348639bbca1c9c64969fe54decc8f3
+  mi/replica_2/mi_cuda/whole.xtc: e1f4747aa4145c2bc2baf3522cd95771de41b473ce1be7e76d5b53968428c4e8
+  mi/replica_2/mi_cuda/protein.ndx: 8beef3c59dd1572410c91d7c7f8150bd060ea274ef16b8abe4b3536e2f9752c3
+  mi/replica_2/mi_cuda/corrected.xtc: e0ad127b45702812f6000b3358395b5c079ba2d9af242463457ff176f5062695
+  mi/replica_2/mi_cuda/logs/01_pbc_whole.log: 95b2e238ace305062ebb3e4b4de2333d361e71b7c0f6c47fc1ad82a287a1ec81
+  mi/replica_2/mi_cuda/logs/02_pbc_center.log: 1fac8786e862f64cdd012312297839d1c17aeae5dbe7018c12d8a151c9a05c92
+  mi/replica_2/mi_cuda/plots/density_ss_14_38_chi3.png: 73ca918a2758569eb15ed8451d6f551bfee80d4c576f9e7c24b29f0fcab30eed
+  mi/replica_2/mi_cuda/plots/density_ss_30_51_chi3.png: c4457ad07f46c0bb51980de6f9e074e9ad4574fad64c5ecdb5fb8604fb271530
+  mi/replica_2/mi_cuda/plots/timeseries_ss_14_38_chi3.png: 7355cde8dc77b305dc150da21c7d6e58ee20f734c358e180f4172c14b7ae963d
+  mi/replica_2/mi_cuda/plots/timeseries_ss_30_51_chi3.png: e4549f91ab0ec0a70cdc9d55cb6b1f5f07ab9b0fad8015f0b5753cba6bee6897
+  mi/replica_2/mi_cuda/plots/density_ss_5_55_chi3__ss_14_38_chi3.png: e3b45c82b91c48b4c28d4d44f2f7d72ce8bd90087b6d5c8ca83110069f3c1953
+  mi/replica_2/mi_cuda/plots/density_ss_5_55_chi3__ss_30_51_chi3.png: 6faae2090953322b68854f677e70259464b31830bb9007fa7f21d977ba0cce5d
+  mi/replica_2/mi_cuda/plots/timeseries_ss_5_55_chi3.png: 61467a561536318cf0cc1ddf7c36ad564034dbb6f637819ac8c5633ca35802e4
+  mi/replica_2/mi_cuda/plots/density_ss_14_38_chi3__ss_30_51_chi3.png: 1f00f5f86c424d8046c23c73fd8e4eb03078102efd0bacba155870942db96f8a
+  mi/replica_2/mi_cuda/plots/density_ss_5_55_chi3.png: 279b44f921290affab92317dc9adec1dd3fe3555d97e52402235c2e3b5684345
+  mi/replica_2/mi_cuda/plots/density_primary_pca.png: 761a53648616f24a6bdbf417512b8c1887f74f46a2951ae53735603f3d53efbe

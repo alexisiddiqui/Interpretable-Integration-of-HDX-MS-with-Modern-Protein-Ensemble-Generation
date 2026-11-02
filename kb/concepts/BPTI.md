@@ -26,7 +26,7 @@ Bovine pancreatic trypsin inhibitor (BPTI) is a small, compact globular protein 
 
 BPTI appears in three chapters, each asking a different question of the same protein.
 - ValDX (ch. 3) compares AF2-Filtered and MD-1Start ensembles under global and local splits. AF2 MSA subsampling captures a rare hairpin-opening state, and Work Done asks whether the candidates represent local opening differently at similar uptake agreement (`projects/1-ValDX/manuscript/report/7_results_omc.tex` L68–93; NMR conversion in `6_methods_omc.tex` L36–52). Manuscript pointer, not evidence.
-- BioFeaturisers (ch. 5) restrains sampling against the 1 ms Anton trajectory as a controlled reference.
+- BioFeaturisers (ch. 5) restrains sampling with experimental HDX-NMR protection factors and uses the 1 ms Anton trajectory as a controlled structural reference. MI+PB with ±0 residue exclusions generates diverse starts for subsequent ±2 sampling; the two stages total 2 μs of aggregate production simulation per route ([[bf-bpti]]).
 - Lee et al. use it as the HDXer reference system, which is why it is a convenient common benchmark.
 - Wan et al. trained a Bayesian protection-factor model with BV-like coefficients on ubiquitin and BPTI protection factors ([[@wanReconcilingSimulatedEnsembles2020#^c10]]; [[BICePs]]), so BPTI also anchors forward-model calibration.
 

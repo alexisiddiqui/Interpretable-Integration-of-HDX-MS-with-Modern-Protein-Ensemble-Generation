@@ -46,15 +46,27 @@ experiments:
     artifacts: []
     figures: []
   - id: bf-bpti-pb-mi
-    question: null
+    question: Can MI+PB with ±0 residue exclusions generate diverse starts from which ±2 sampling recovers Anton's conformational basins in two 1 μs stages?
+    # Protocol, matched controls and simulation-time accounting: bf-bpti.md.
     locations:
       - machine: pegasus
         root: /opig-shared/projects/hussian-simulation_hdx/_runtime/BioFeaturisers
         runs: [bpti_production, bpti_matched_controls, bpti_rate_tuning, single-cv-pb, sigma-stride-pilot, basin-diagnostics, bpti_multigpu, bpti_reverse_vjp_benchmark, ada_mps_benchmark]
+      - machine: pegasus
+        root: /bitbucket/hussain/BioFeaturisers-production/BPTI
+        runs: [variance-scaled-mi/20260911T215808Z, variance-scaled-mi/seqsep2-20261002T184948Z, seq0-starts-seq2/20261018T135410Z]
     authoritative_location: pegasus
     status_command: null
-    artifacts: []
-    figures: []
+    # Paths relative to the /bitbucket archive root above.
+    artifacts:
+      - variance-scaled-mi/20260911T215808Z/mipb-250ns/completion.md
+      - seq0-starts-seq2/20261018T135410Z/prepared/starts.json
+      - seq0-starts-seq2/20261018T135410Z/prepared/settings.json
+      - seq0-starts-seq2/20261018T135410Z/runs/{mi,mmpb,u}/completion.json
+      - seq0-starts-seq2/20261018T135410Z/analysis/pca-comparison/summary.json
+      - seq0-starts-seq2/20261018T135410Z/analysis/pca-comparison/bpti-five-ensemble-log-density-pca.png
+      - seq0-starts-seq2/20261018T135410Z/analysis/pca-comparison/bpti-second-basin-replica-traces.png
+    figures: [biofeat-bpti-seq0-controls, biofeat-bpti-seq2-controls, biofeat-bpti-matched-starts, biofeat-bpti-replica-retention]
   - id: bf-teaa
     status: primary
     question: Can a target-free hinge bias plus HDX guidance and MaxEnt reweighting recover the 40:60 open:closed populations of a synthetic TeaA HDX target from Boltz-2, with no MD reference in any run?
@@ -78,12 +90,12 @@ experiments:
       - sweep_a0.25_blind.csv                   # per-structure MaxEnt weights, seed 42 (analysis root)
       - sweep_s43_a0.25_blind.csv               # seed 43 (analysis root)
       - metad_history.csv                       # bias deposits, seed 42 (analysis root); metad_history_s43.csv for seed 43
-    figures: []
+    figures: [biofeat-teaa-landscape-s43]
 ---
 
 # BioFeaturisers / MaxENT-FK experiments
 
-The BPTI metainference and metadynamics experiments are on Pegasus-Gate, the MoPrP runs and the GPU-stack campaigns are on Coulson-Chemistry, and the TeaA metadiffusion experiment is on Isambard (protocol in [bf-teaa.md](bf-teaa.md)). Access requirements are recorded in [machines.yaml](machines.yaml).
+The BPTI metainference and metadynamics experiments are on Pegasus-Gate (two-stage ±0/±2 protocol in [bf-bpti.md](bf-bpti.md)), the MoPrP runs and the GPU-stack campaigns are on Coulson-Chemistry, and the TeaA metadiffusion experiment is on Isambard (protocol in [bf-teaa.md](bf-teaa.md)). Access requirements are recorded in [machines.yaml](machines.yaml).
 
 Observed 2026-10-29; Isambard re-observed 2026-11-01. The machines hold different experiments, not replicas. Run output is under `_runtime/BioFeaturisers/` on Coulson and Pegasus; the repositories sit beside it.
 
@@ -92,4 +104,4 @@ Observed 2026-10-29; Isambard re-observed 2026-11-01. The machines hold differen
 
 - **Isambard:** `BioFeaturisers/` (branch `dev-PLUMED`, 15 uncommitted files), `MaxENT-FK/` (branch `teaa-iso-frame-uptake`, observed 2026-11-01 with `predict.py` and `run_config.py` modified, two commits ahead of origin, and an untracked 4.3 GB `core` file) and a `bioemu2/` clone are in the root. Run output is under `_runtime/runs/` (TeaA, HOIP and BPTI runs), with the sbatch sets in `_submission/` (about 20 `maxent-bioemu2-*` sets and `bpti-metadiffusion-torsion-v2`). The TeaA analysis scripts and score dumps are in `~/_runtime/analysis/`, and `~/_submit/teaa_sdedit.sbatch` launches the runs. `~/MaxENT-FK` is an older non-git copy in the home directory. The queue was empty. Only TeaA is recorded as an experiment; the HOIP, BPTI and `maxent-bioemu2-*` runs are not.
 
-Question, status command, artifacts and figure IDs are not yet recorded. Follow the [experiment entry format](README.md#experiment-entries) when recording individual experiments.
+BPTI and TeaA have protocol notes and selected artifact paths. BPTI has four registered thesis figures, linked from its protocol note and the chapter hub. The other campaigns retain location entries.

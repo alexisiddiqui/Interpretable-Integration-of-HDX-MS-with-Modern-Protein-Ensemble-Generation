@@ -49,6 +49,7 @@ experiments:
       - audits/glycan-propka-ccd-v1/plots/retained_sites_vs_radius.png
       - audits/propka-components-v1/plots/sasa_vs_change.png                 # ligands (17) and metals (11), against exposure only; ligand typing flawed, see decision note
       - audits/propka-components-v2-ligands/out/report.json                  # ligands rerun with corrected atom names, 17 complete
+      - audits/propka-components-v4-ligands/out/report.json                  # all 39 ligand tasks, unique residue names, water-only ignore list
       - audits/glycan-protein-sasa-v1/out/report.json                        # protein SASA shielded by glycans, 29 complexes; tables only (site_sasa.csv)
       - audits/radial-error-v2-nearcomplete/plots/error_vs_distance.png      # gaps, PypKa, 23 complexes
       - audits/radial-error-v2-nearcomplete/plots/sites_excluded_vs_radius.png
@@ -70,8 +71,8 @@ experiments:
       - pretraining/pinder-pkai-v1
       - pretraining/pkpdb-full-v1
       - training/pool-v4
-      - audits/cutoff-figures-v2/components/plots/component_cutoffs.png      # pkabench.cutoff_plots; copied to figures/jaxka-component-cutoffs
-      - audits/cutoff-figures-v2/gaps/plots/gap_cutoffs.png                  # gap radii, PypKa short and pKAI long gaps; copied to figures/jaxka-gap-cutoffs
+      - audits/cutoff-figures-v3/components/plots/component_cutoffs.png      # pkabench.cutoff_plots; copied to figures/jaxka-component-cutoffs
+      - audits/cutoff-figures-v3/gaps/plots/gap_cutoffs.png                  # gap radii, PypKa short and pKAI long gaps; copied to figures/jaxka-gap-cutoffs
     figures: [jaxka-component-cutoffs, jaxka-gap-cutoffs]
   - id: jaxka-anm-augmentation
     question: null

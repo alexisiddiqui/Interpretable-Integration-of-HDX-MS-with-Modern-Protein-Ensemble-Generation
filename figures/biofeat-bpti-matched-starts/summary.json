@@ -1,0 +1,825 @@
+{
+  "pca_source": "/bitbucket/hussain/BioFeaturisers-production/BPTI/variance-scaled-mi/20260911T215808Z/analysis/9abdde1511481f3b/pca_cartesian_ca_reference.npz",
+  "refitted": false,
+  "alignment_reference_sha256": "b016284660ceda5c807dfa4e6f3561cdc976bbeca92a1fc3d39b3e424612dc2c",
+  "basin_definition": "Anton C-alpha PC1 < -0.55",
+  "threshold_pc1": -0.55,
+  "weights": "uniform frame weights for all ensembles; MI weights do not remove PB bias",
+  "conditions": {
+    "mmpb": {
+      "label": "\u00b12 MI+PB",
+      "replicas": [
+        {
+          "replica": 1,
+          "frames": 25001,
+          "start_pc1": -0.9243065417666096,
+          "end_pc1": -1.0164372688929555,
+          "initial_second_basin": true,
+          "second_basin_fraction": 0.8730050797968081,
+          "late_200_250ns_fraction": 0.9028194361127775,
+          "final_10ns_fraction": 0.997002997002997,
+          "first_sustained_exit_ns": null,
+          "windows": [
+            {
+              "start_ns": 0,
+              "stop_ns": 10,
+              "fraction": 0.935,
+              "frames": 1000
+            },
+            {
+              "start_ns": 10,
+              "stop_ns": 25,
+              "fraction": 0.9673333333333334,
+              "frames": 1500
+            },
+            {
+              "start_ns": 25,
+              "stop_ns": 50,
+              "fraction": 0.9356,
+              "frames": 2500
+            },
+            {
+              "start_ns": 50,
+              "stop_ns": 100,
+              "fraction": 0.8564,
+              "frames": 5000
+            },
+            {
+              "start_ns": 100,
+              "stop_ns": 150,
+              "fraction": 0.9508,
+              "frames": 5000
+            },
+            {
+              "start_ns": 150,
+              "stop_ns": 200,
+              "fraction": 0.71,
+              "frames": 5000
+            },
+            {
+              "start_ns": 200,
+              "stop_ns": 250,
+              "fraction": 0.9028194361127775,
+              "frames": 5001
+            }
+          ]
+        },
+        {
+          "replica": 2,
+          "frames": 25001,
+          "start_pc1": -0.8335249285542786,
+          "end_pc1": -1.1468901952775432,
+          "initial_second_basin": true,
+          "second_basin_fraction": 0.9004839806407744,
+          "late_200_250ns_fraction": 0.5744851029794041,
+          "final_10ns_fraction": 0.999000999000999,
+          "first_sustained_exit_ns": 200.4,
+          "windows": [
+            {
+              "start_ns": 0,
+              "stop_ns": 10,
+              "fraction": 0.999,
+              "frames": 1000
+            },
+            {
+              "start_ns": 10,
+              "stop_ns": 25,
+              "fraction": 0.9566666666666667,
+              "frames": 1500
+            },
+            {
+              "start_ns": 25,
+              "stop_ns": 50,
+              "fraction": 0.9992,
+              "frames": 2500
+            },
+            {
+              "start_ns": 50,
+              "stop_ns": 100,
+              "fraction": 0.9964,
+              "frames": 5000
+            },
+            {
+              "start_ns": 100,
+              "stop_ns": 150,
+              "fraction": 0.9938,
+              "frames": 5000
+            },
+            {
+              "start_ns": 150,
+              "stop_ns": 200,
+              "fraction": 0.9514,
+              "frames": 5000
+            },
+            {
+              "start_ns": 200,
+              "stop_ns": 250,
+              "fraction": 0.5744851029794041,
+              "frames": 5001
+            }
+          ]
+        },
+        {
+          "replica": 3,
+          "frames": 25001,
+          "start_pc1": -0.09498270109693205,
+          "end_pc1": -0.16608342173320056,
+          "initial_second_basin": false,
+          "second_basin_fraction": 0.0045198192072317105,
+          "late_200_250ns_fraction": 0.0011997600479904018,
+          "final_10ns_fraction": 0.0,
+          "first_sustained_exit_ns": null,
+          "windows": [
+            {
+              "start_ns": 0,
+              "stop_ns": 10,
+              "fraction": 0.0,
+              "frames": 1000
+            },
+            {
+              "start_ns": 10,
+              "stop_ns": 25,
+              "fraction": 0.0,
+              "frames": 1500
+            },
+            {
+              "start_ns": 25,
+              "stop_ns": 50,
+              "fraction": 0.0,
+              "frames": 2500
+            },
+            {
+              "start_ns": 50,
+              "stop_ns": 100,
+              "fraction": 0.0,
+              "frames": 5000
+            },
+            {
+              "start_ns": 100,
+              "stop_ns": 150,
+              "fraction": 0.0214,
+              "frames": 5000
+            },
+            {
+              "start_ns": 150,
+              "stop_ns": 200,
+              "fraction": 0.0,
+              "frames": 5000
+            },
+            {
+              "start_ns": 200,
+              "stop_ns": 250,
+              "fraction": 0.0011997600479904018,
+              "frames": 5001
+            }
+          ]
+        },
+        {
+          "replica": 4,
+          "frames": 25001,
+          "start_pc1": 0.03886734915542475,
+          "end_pc1": 0.3182474056073211,
+          "initial_second_basin": false,
+          "second_basin_fraction": 0.0,
+          "late_200_250ns_fraction": 0.0,
+          "final_10ns_fraction": 0.0,
+          "first_sustained_exit_ns": null,
+          "windows": [
+            {
+              "start_ns": 0,
+              "stop_ns": 10,
+              "fraction": 0.0,
+              "frames": 1000
+            },
+            {
+              "start_ns": 10,
+              "stop_ns": 25,
+              "fraction": 0.0,
+              "frames": 1500
+            },
+            {
+              "start_ns": 25,
+              "stop_ns": 50,
+              "fraction": 0.0,
+              "frames": 2500
+            },
+            {
+              "start_ns": 50,
+              "stop_ns": 100,
+              "fraction": 0.0,
+              "frames": 5000
+            },
+            {
+              "start_ns": 100,
+              "stop_ns": 150,
+              "fraction": 0.0,
+              "frames": 5000
+            },
+            {
+              "start_ns": 150,
+              "stop_ns": 200,
+              "fraction": 0.0,
+              "frames": 5000
+            },
+            {
+              "start_ns": 200,
+              "stop_ns": 250,
+              "fraction": 0.0,
+              "frames": 5001
+            }
+          ]
+        }
+      ],
+      "second_basin_fraction": 0.44450221991120353,
+      "late_200_250ns_fraction": 0.369626074785043,
+      "initial_left_replicas": [
+        1,
+        2
+      ],
+      "initial_left_replicas_late_fraction": 0.7386522695460908,
+      "threshold_sensitivity_late": {
+        "-0.65": 0.34308138372325536,
+        "-0.55": 0.369626074785043,
+        "-0.45": 0.38922215556888623
+      }
+    },
+    "mi": {
+      "label": "\u00b12 MI",
+      "replicas": [
+        {
+          "replica": 1,
+          "frames": 25001,
+          "start_pc1": -0.9243065417666096,
+          "end_pc1": -0.8959006934102818,
+          "initial_second_basin": true,
+          "second_basin_fraction": 0.952321907123715,
+          "late_200_250ns_fraction": 0.9772045590881824,
+          "final_10ns_fraction": 0.986013986013986,
+          "first_sustained_exit_ns": null,
+          "windows": [
+            {
+              "start_ns": 0,
+              "stop_ns": 10,
+              "fraction": 0.932,
+              "frames": 1000
+            },
+            {
+              "start_ns": 10,
+              "stop_ns": 25,
+              "fraction": 0.9246666666666666,
+              "frames": 1500
+            },
+            {
+              "start_ns": 25,
+              "stop_ns": 50,
+              "fraction": 0.9248,
+              "frames": 2500
+            },
+            {
+              "start_ns": 50,
+              "stop_ns": 100,
+              "fraction": 0.8894,
+              "frames": 5000
+            },
+            {
+              "start_ns": 100,
+              "stop_ns": 150,
+              "fraction": 0.9836,
+              "frames": 5000
+            },
+            {
+              "start_ns": 150,
+              "stop_ns": 200,
+              "fraction": 0.9852,
+              "frames": 5000
+            },
+            {
+              "start_ns": 200,
+              "stop_ns": 250,
+              "fraction": 0.9772045590881824,
+              "frames": 5001
+            }
+          ]
+        },
+        {
+          "replica": 2,
+          "frames": 25001,
+          "start_pc1": -0.8335249285542786,
+          "end_pc1": -0.3084873325903699,
+          "initial_second_basin": true,
+          "second_basin_fraction": 0.7866485340586377,
+          "late_200_250ns_fraction": 0.3155368926214757,
+          "final_10ns_fraction": 0.04495504495504495,
+          "first_sustained_exit_ns": 217.31,
+          "windows": [
+            {
+              "start_ns": 0,
+              "stop_ns": 10,
+              "fraction": 0.952,
+              "frames": 1000
+            },
+            {
+              "start_ns": 10,
+              "stop_ns": 25,
+              "fraction": 0.928,
+              "frames": 1500
+            },
+            {
+              "start_ns": 25,
+              "stop_ns": 50,
+              "fraction": 0.8928,
+              "frames": 2500
+            },
+            {
+              "start_ns": 50,
+              "stop_ns": 100,
+              "fraction": 0.964,
+              "frames": 5000
+            },
+            {
+              "start_ns": 100,
+              "stop_ns": 150,
+              "fraction": 0.9948,
+              "frames": 5000
+            },
+            {
+              "start_ns": 150,
+              "stop_ns": 200,
+              "fraction": 0.7438,
+              "frames": 5000
+            },
+            {
+              "start_ns": 200,
+              "stop_ns": 250,
+              "fraction": 0.3155368926214757,
+              "frames": 5001
+            }
+          ]
+        },
+        {
+          "replica": 3,
+          "frames": 25001,
+          "start_pc1": -0.09498270109693205,
+          "end_pc1": -0.7182494653483725,
+          "initial_second_basin": false,
+          "second_basin_fraction": 0.05611775528978841,
+          "late_200_250ns_fraction": 0.27434513097380525,
+          "final_10ns_fraction": 0.8711288711288712,
+          "first_sustained_exit_ns": null,
+          "windows": [
+            {
+              "start_ns": 0,
+              "stop_ns": 10,
+              "fraction": 0.0,
+              "frames": 1000
+            },
+            {
+              "start_ns": 10,
+              "stop_ns": 25,
+              "fraction": 0.004,
+              "frames": 1500
+            },
+            {
+              "start_ns": 25,
+              "stop_ns": 50,
+              "fraction": 0.0012,
+              "frames": 2500
+            },
+            {
+              "start_ns": 50,
+              "stop_ns": 100,
+              "fraction": 0.003,
+              "frames": 5000
+            },
+            {
+              "start_ns": 100,
+              "stop_ns": 150,
+              "fraction": 0.0,
+              "frames": 5000
+            },
+            {
+              "start_ns": 150,
+              "stop_ns": 200,
+              "fraction": 0.0014,
+              "frames": 5000
+            },
+            {
+              "start_ns": 200,
+              "stop_ns": 250,
+              "fraction": 0.27434513097380525,
+              "frames": 5001
+            }
+          ]
+        },
+        {
+          "replica": 4,
+          "frames": 25001,
+          "start_pc1": 0.03886734915542475,
+          "end_pc1": -0.0011457730045989012,
+          "initial_second_basin": false,
+          "second_basin_fraction": 0.0,
+          "late_200_250ns_fraction": 0.0,
+          "final_10ns_fraction": 0.0,
+          "first_sustained_exit_ns": null,
+          "windows": [
+            {
+              "start_ns": 0,
+              "stop_ns": 10,
+              "fraction": 0.0,
+              "frames": 1000
+            },
+            {
+              "start_ns": 10,
+              "stop_ns": 25,
+              "fraction": 0.0,
+              "frames": 1500
+            },
+            {
+              "start_ns": 25,
+              "stop_ns": 50,
+              "fraction": 0.0,
+              "frames": 2500
+            },
+            {
+              "start_ns": 50,
+              "stop_ns": 100,
+              "fraction": 0.0,
+              "frames": 5000
+            },
+            {
+              "start_ns": 100,
+              "stop_ns": 150,
+              "fraction": 0.0,
+              "frames": 5000
+            },
+            {
+              "start_ns": 150,
+              "stop_ns": 200,
+              "fraction": 0.0,
+              "frames": 5000
+            },
+            {
+              "start_ns": 200,
+              "stop_ns": 250,
+              "fraction": 0.0,
+              "frames": 5001
+            }
+          ]
+        }
+      ],
+      "second_basin_fraction": 0.44877204911803525,
+      "late_200_250ns_fraction": 0.3917716456708658,
+      "initial_left_replicas": [
+        1,
+        2
+      ],
+      "initial_left_replicas_late_fraction": 0.646370725854829,
+      "threshold_sensitivity_late": {
+        "-0.65": 0.32993401319736054,
+        "-0.55": 0.3917716456708658,
+        "-0.45": 0.46195760847830436
+      }
+    },
+    "u": {
+      "label": "Unbiased",
+      "replicas": [
+        {
+          "replica": 1,
+          "frames": 25001,
+          "start_pc1": -0.9243065417666096,
+          "end_pc1": -0.7637570706536997,
+          "initial_second_basin": true,
+          "second_basin_fraction": 0.8191272349106036,
+          "late_200_250ns_fraction": 0.8426314737052589,
+          "final_10ns_fraction": 0.9150849150849151,
+          "first_sustained_exit_ns": null,
+          "windows": [
+            {
+              "start_ns": 0,
+              "stop_ns": 10,
+              "fraction": 0.947,
+              "frames": 1000
+            },
+            {
+              "start_ns": 10,
+              "stop_ns": 25,
+              "fraction": 0.902,
+              "frames": 1500
+            },
+            {
+              "start_ns": 25,
+              "stop_ns": 50,
+              "fraction": 0.7664,
+              "frames": 2500
+            },
+            {
+              "start_ns": 50,
+              "stop_ns": 100,
+              "fraction": 0.6928,
+              "frames": 5000
+            },
+            {
+              "start_ns": 100,
+              "stop_ns": 150,
+              "fraction": 0.819,
+              "frames": 5000
+            },
+            {
+              "start_ns": 150,
+              "stop_ns": 200,
+              "fraction": 0.898,
+              "frames": 5000
+            },
+            {
+              "start_ns": 200,
+              "stop_ns": 250,
+              "fraction": 0.8426314737052589,
+              "frames": 5001
+            }
+          ]
+        },
+        {
+          "replica": 2,
+          "frames": 25001,
+          "start_pc1": -0.8335249285542786,
+          "end_pc1": 0.14945786458257485,
+          "initial_second_basin": true,
+          "second_basin_fraction": 0.594896204151834,
+          "late_200_250ns_fraction": 0.0,
+          "final_10ns_fraction": 0.0,
+          "first_sustained_exit_ns": 151.51,
+          "windows": [
+            {
+              "start_ns": 0,
+              "stop_ns": 10,
+              "fraction": 0.992,
+              "frames": 1000
+            },
+            {
+              "start_ns": 10,
+              "stop_ns": 25,
+              "fraction": 0.9973333333333333,
+              "frames": 1500
+            },
+            {
+              "start_ns": 25,
+              "stop_ns": 50,
+              "fraction": 0.9936,
+              "frames": 2500
+            },
+            {
+              "start_ns": 50,
+              "stop_ns": 100,
+              "fraction": 0.9776,
+              "frames": 5000
+            },
+            {
+              "start_ns": 100,
+              "stop_ns": 150,
+              "fraction": 0.9866,
+              "frames": 5000
+            },
+            {
+              "start_ns": 150,
+              "stop_ns": 200,
+              "fraction": 0.016,
+              "frames": 5000
+            },
+            {
+              "start_ns": 200,
+              "stop_ns": 250,
+              "fraction": 0.0,
+              "frames": 5001
+            }
+          ]
+        },
+        {
+          "replica": 3,
+          "frames": 25001,
+          "start_pc1": -0.09498270109693205,
+          "end_pc1": -0.8498095315589593,
+          "initial_second_basin": false,
+          "second_basin_fraction": 0.010799568017279309,
+          "late_200_250ns_fraction": 0.052189562087582485,
+          "final_10ns_fraction": 0.22677322677322678,
+          "first_sustained_exit_ns": null,
+          "windows": [
+            {
+              "start_ns": 0,
+              "stop_ns": 10,
+              "fraction": 0.0,
+              "frames": 1000
+            },
+            {
+              "start_ns": 10,
+              "stop_ns": 25,
+              "fraction": 0.0,
+              "frames": 1500
+            },
+            {
+              "start_ns": 25,
+              "stop_ns": 50,
+              "fraction": 0.0028,
+              "frames": 2500
+            },
+            {
+              "start_ns": 50,
+              "stop_ns": 100,
+              "fraction": 0.0,
+              "frames": 5000
+            },
+            {
+              "start_ns": 100,
+              "stop_ns": 150,
+              "fraction": 0.0,
+              "frames": 5000
+            },
+            {
+              "start_ns": 150,
+              "stop_ns": 200,
+              "fraction": 0.0004,
+              "frames": 5000
+            },
+            {
+              "start_ns": 200,
+              "stop_ns": 250,
+              "fraction": 0.052189562087582485,
+              "frames": 5001
+            }
+          ]
+        },
+        {
+          "replica": 4,
+          "frames": 25001,
+          "start_pc1": 0.03886734915542475,
+          "end_pc1": -0.06206398206064757,
+          "initial_second_basin": false,
+          "second_basin_fraction": 0.0,
+          "late_200_250ns_fraction": 0.0,
+          "final_10ns_fraction": 0.0,
+          "first_sustained_exit_ns": null,
+          "windows": [
+            {
+              "start_ns": 0,
+              "stop_ns": 10,
+              "fraction": 0.0,
+              "frames": 1000
+            },
+            {
+              "start_ns": 10,
+              "stop_ns": 25,
+              "fraction": 0.0,
+              "frames": 1500
+            },
+            {
+              "start_ns": 25,
+              "stop_ns": 50,
+              "fraction": 0.0,
+              "frames": 2500
+            },
+            {
+              "start_ns": 50,
+              "stop_ns": 100,
+              "fraction": 0.0,
+              "frames": 5000
+            },
+            {
+              "start_ns": 100,
+              "stop_ns": 150,
+              "fraction": 0.0,
+              "frames": 5000
+            },
+            {
+              "start_ns": 150,
+              "stop_ns": 200,
+              "fraction": 0.0,
+              "frames": 5000
+            },
+            {
+              "start_ns": 200,
+              "stop_ns": 250,
+              "fraction": 0.0,
+              "frames": 5001
+            }
+          ]
+        }
+      ],
+      "second_basin_fraction": 0.3562057517699292,
+      "late_200_250ns_fraction": 0.22370525894821036,
+      "initial_left_replicas": [
+        1,
+        2
+      ],
+      "initial_left_replicas_late_fraction": 0.42131573685262946,
+      "threshold_sensitivity_late": {
+        "-0.65": 0.16711657668466307,
+        "-0.55": 0.22370525894821036,
+        "-0.45": 0.26379724055188963
+      }
+    }
+  },
+  "validation": {
+    "max_abs_source_reprojection_error": 0.0,
+    "raw_selected_start_1_max_pc_error": 2.4654551544767145e-07,
+    "raw_selected_start_2_max_pc_error": 0.00010104905830707334,
+    "raw_selected_start_3_max_pc_error": 0.0001453084809709959,
+    "raw_selected_start_4_max_pc_error": 1.7831579085109128e-06
+  },
+  "source_seq0": {
+    "second_basin_fraction": 0.48030078796848125,
+    "late_200_250ns_fraction": 0.7088582283543291
+  },
+  "anton_second_basin_fraction": 0.14424242424242426,
+  "histogram": {
+    "edges": [
+      [
+        -1.6999958930118266,
+        -1.6325918526976078,
+        -1.565187812383389,
+        -1.4977837720691705,
+        -1.4303797317549516,
+        -1.3629756914407327,
+        -1.295571651126514,
+        -1.2281676108122954,
+        -1.1607635704980765,
+        -1.0933595301838577,
+        -1.025955489869639,
+        -0.9585514495554203,
+        -0.8911474092412015,
+        -0.8237433689269827,
+        -0.756339328612764,
+        -0.6889352882985453,
+        -0.6215312479843265,
+        -0.5541272076701076,
+        -0.48672316735588894,
+        -0.4193191270416703,
+        -0.3519150867274514,
+        -0.28451104641323255,
+        -0.2171070060990139,
+        -0.14970296578479525,
+        -0.08229892547057638,
+        -0.014894885156357507,
+        0.05250915515786114,
+        0.11991319547207979,
+        0.18731723578629866,
+        0.25472127610051754,
+        0.32212531641473596,
+        0.38952935672895483,
+        0.4569333970431737,
+        0.5243374373573926,
+        0.5917414776716114,
+        0.6591455179858299,
+        0.7265495583000487,
+        0.7939535986142676,
+        0.861357638928486
+      ],
+      [
+        -1.4509672902723307,
+        -1.3789025734011138,
+        -1.3068378565298966,
+        -1.2347731396586796,
+        -1.1627084227874624,
+        -1.0906437059162455,
+        -1.0185789890450283,
+        -0.9465142721738113,
+        -0.8744495553025943,
+        -0.8023848384313772,
+        -0.7303201215601601,
+        -0.6582554046889431,
+        -0.5861906878177261,
+        -0.514125970946509,
+        -0.44206125407529195,
+        -0.36999653720407477,
+        -0.2979318203328578,
+        -0.22586710346164085,
+        -0.15380238659042367,
+        -0.08173766971920671,
+        -0.009672952847989524,
+        0.062391764023227436,
+        0.13445648089444462,
+        0.20652119776566158,
+        0.27858591463687854,
+        0.3506506315080957,
+        0.4227153483793127,
+        0.49478006525052987,
+        0.5668447821217468,
+        0.638909498992964,
+        0.7109742158641812,
+        0.7830389327353979,
+        0.8551036496066151,
+        0.9271683664778323,
+        0.999233083349049,
+        1.0712978002202662,
+        1.1433625170914834,
+        1.2154272339627006,
+        1.2874919508339173,
+        1.3595566677051345
+      ]
+    ],
+    "original_bin_widths": [
+      0.06740404031421876,
+      0.07206471687121706
+    ],
+    "expanded_extents": true
+  }
+}

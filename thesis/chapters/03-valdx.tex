@@ -677,3 +677,72 @@ From these experiments, we conclude that structural-artefact responses provide c
 
 \section{Discussion and chapter conclusions}
 \label{sec:valdx-discussion}
+
+We have presented ValDX, a validation framework for integrative HDX-MS ensemble analysis. Because many distinct structural populations can yield identical macroscopic uptake profiles, protection factors remain underdetermined with respect to the underlying ensemble. ValDX does not attempt to recover a single correct ensemble. It instead compares candidate ensembles by their predictive accuracy on withheld data and by the modification required to achieve it.
+
+ValDX also sits alongside Bayesian ensemble-refinement frameworks such as BICePs, which share the same broad MaxEnt and Bayesian roots as HDXer-style reweighting.\supercite{hummerBayesianEnsembleRefinement2015,kofingerEfficientEnsembleRefinement2019,cesariUsingMaximumEntropy2018,crehuetBayesianMaximumEntropyReweightingIDP2019,raddiBICePsV20Software2023c} ValDX addresses a different part of the same inference problem (\cref{sec:valdx-work}). Recent BICePs work has also shown how forward-model parameters can be learned within the evidence framework, although this has been demonstrated for Karplus J-coupling models rather than BV HDX uptake prediction.\supercite{raddiAutomaticForwardModel2025} Earlier Bayesian work has used HDX protection factors in apomyoglobin ensemble modelling,\supercite{wanReconcilingSimulatedEnsembles2020} but no direct benchmark currently evaluates HDX uptake curves through the BV model against ValDX. We therefore view the methods as complementary. BICePs provides a full Bayesian evidence score for ensemble reweighting, while ValDX provides leakage-aware validation and interpretable Work metrics for HDX-MS ensemble assessment.
+
+\paragraph{Reject ensembles that fit but fail (Iso-Validation, TeaA).}
+ValDX helps distinguish structural hypotheses that achieve similar experimental agreement but contain different conformational populations. Our TeaA experiments showed that ISO-Trimodal failed to recover the reference population ratios (Open State Recovery below 40\% for three of four split types). This occurred despite matching uptake curves as well as ISO-Bimodal, which achieved 80 to 90\% recovery. When intermediate structures were present, Work Done tracked population recovery where training error did not. Good uptake agreement alone should therefore not be taken as evidence that an ensemble has correct populations.
+
+\paragraph{Assess representativeness at multiple structural scales (BPTI).}
+The combination of Non-Redundant and Spatial splits reveals whether ensembles capture dynamics at global versus local levels. With similar validation errors, the Work patterns separated the two ensembles under local partitions, where AF2-Filtered required less modification than MD-1Start. Under global partitions MD-1Start had lower mean Work, but these data did not resolve the difference. Replicate variability further distinguished their reproducibility. This links to the hairpin-opening question raised by the structural comparison, which validation error alone did not resolve.
+
+\paragraph{Rank individual structures without full reweighting (HOIP).}
+Model parameter optimisation enables rapid evaluation of both single structures and ensembles when reweighting is prohibitive. For HOIP, AF2-MaxRank adopts an extended conformation matching the nanobody-bound crystal structure, while AF2-MaxPLDDT presents a more compact conformation. When evaluated separately as single-structure hypotheses, the framework favoured the more compact AF2-MaxPLDDT structure (lower Non-Redundant $\text{Work}_\text{density}$, $p=0.0923$). This provides a practical screening tool for prioritising simulation starting structures, which can be compared with candidate ensembles in the same framework.
+
+\paragraph{Protocol order affects fitting outcomes (BPTI and TeaA).}
+The preferred fitting order depends on the source of mismatch (\cref{sec:valdx-fitting-order}).
+
+\paragraph{Reduce ensembles to interpretable basis sets (Clustering).}
+Cluster size should be selected through sensitivity analysis. For the 10,000--12,700-structure parent ensembles examined in the sweep, retaining 10--20\% (approximately 1000--2500 representatives) caused minimal change in performance. The 500- and 1000-structure inputs used in individual protocols (\cref{app:valdx-case-studies}) were experiment-specific working sizes rather than general defaults. Smaller sets of 10--100 representatives can aid structural interpretation, but require confirming that conclusions are stable across cluster sizes. The behaviour of an ensemble under clustering is itself diagnostic. Physically valid ensembles such as MD-1Start and AF2-Filtered degrade only slightly as structures are removed down to a proportion of 0.01, whereas AF2-MSAss improves, consistent with the removal of low-population, structurally dissimilar conformations. The complete clustering analysis is shown in \cref{fig:valdx-clustering-sweep}.
+
+\paragraph{Probe sampling and structural deficiencies (BRD4).}
+Controlled structural-artefact experiments in BRD4 produced distinct but complex response patterns. Under Gaussian coordinate noise, AF2-MSAss showed weaker linear dose dependence ($R=-0.86$) and greater response spread across doses ($SD=0.61$), whereas the physically valid ensembles showed $R=-1.00$ and $SD=0.13$--$0.16$. These results separated AF2-MSAss from the physically valid ensembles under this perturbation, but no single score could identify structural implausibility without comparison to a reference ensemble.
+
+Gaussian coordinate noise probes sensitivity to disrupted local geometry rather than reproducing a physically realistic flexible ensemble, while coordinate mixing introduces more extensive geometric violations. The unmodified control adds copies of existing structures, so its responses show how sensitive each fit is to their raised prior weight and provide a baseline for the responses to corrupted structures. The distinct responses across ensembles therefore help distinguish deficiencies in their structural representation, and joint interpretation of validation error and Work Done strengthens this assessment. The complete structural-artefact analysis is shown in \cref{fig:valdx-brd4-artefacts}.
+
+\subsection{General recommendations}
+\label{sec:valdx-recommendations}
+
+The general workflow is detailed in \cref{sec:valdx-fitting}, along with considerations for common failure modes.
+
+\begin{itemize}
+    \item Optimisation outcomes depend strongly on which peptides and time points are used for fitting; replicates quantify this uncertainty
+    \item Training/validation splits are essential; Non-Redundant and Spatial split types provide complementary structural perspectives
+    \item Held-out validation error describes generalisability, but Work Done metrics provide the complementary sensitivity required to distinguish structural hypotheses
+    \item Protection factor/HDX-uptake contrast ($\text{Work}_\text{shape}$), scale ($\text{Work}_\text{scale}$), and reorganisation ($\text{Work}_\text{density}$) contributions should be separated at the ensemble-average level
+    \item Where no substantial kinetic mismatch is expected, reweighting before fitting model parameters (BVafterRW) was the most stable order for the ensemble tested; assess uptake agreement and Work Done at each stage
+    \item Where a substantial kinetic mismatch is expected on independent grounds, fitting BV parameters before reweighting (RWafterBV) limited compensatory population changes in our synthetic benchmark
+    \item Select cluster size through sensitivity analysis; retaining 10--20\% (approximately 1000--2500 structures here) preserved performance, while sets of 10--100 structures are intended for interpretation
+    \item Stress-test high-confidence claims by testing sensitivity to synthetic structural artefacts
+\end{itemize}
+
+\subsection{Ensemble generation considerations}
+\label{sec:valdx-generation-notes}
+
+Details of ensemble-generation experiments are provided in \cref{app:valdx-ensemble-generation}. We provide scripts (in \cref{app:valdx-code-data}) for all aspects of ensemble generation; these represent practical working examples rather than optimal protocols. Key observations from our investigations are listed below.
+
+\begin{itemize}
+    \item Deep-learning structure predictors may require extensive sampling across parameter choices (MSA subsampling, random seeds) to obtain confident starting structures
+    \item Filter implausible conformations before fitting; this is essential for AlphaFold2 ensembles generated through MSA subsampling
+    \item Well-equilibrated MD from high-quality starting structures produces ensembles with balanced conformational density estimates
+    \item Individual starting structures can be screened using model parameter optimisation before committing to full MD simulations
+    \item Basis-set structures from clustering reduce the combinatorial space for understanding and assessing conformational diversity
+    \item For enhanced-sampling ensembles, set initial population weights to reflect local structure density \textit{a priori}, as the MaxEnt prior assumes uniformly important initial populations
+\end{itemize}
+
+\subsection{Limitations}
+\label{sec:valdx-limitations}
+
+The BV forward model relates protection factors to empirical counts of heavy-atom contacts and hydrogen bonds.\supercite{bestStructuralInterpretationHydrogen2006} Contact-based protection-factor models compress the structural determinants of exchange into these local counts. In heterogeneous ensembles and allosteric systems, exchange also depends on the populations and cooperative opening of distinct conformational states. In intrinsically disordered and non-native systems, transient contacts and solvent exposure challenge the transferability of this empirical mapping. These systems therefore require assessment of both conformational sampling and forward-model suitability. $\text{Work}_\text{shape}$, $\text{Work}_\text{scale}$ and $\text{Work}_\text{density}$ quantify the adjustments required under the chosen model; large adjustments motivate testing alternative ensembles and model parameterisations alongside validation error. An inadequate prior or forward model can drive fitted populations towards an incorrect structural interpretation. Reweighting cannot create conformational states that are absent from the prior ensemble. Conclusions therefore remain comparative across the candidate ensembles supplied.
+
+The fitting forward model assumes EX2 exchange. Our synthetic kinetic benchmark tests departures from this assumption and shows that staged calibration can restore uptake agreement under severe kinetic misspecification (\cref{fig:valdx-kinetic-overview}). Good uptake agreement did not imply recovery of the target populations with an ensemble containing both target conformational states. Calibration therefore does not validate the assumed exchange kinetics, and caution remains necessary when interpreting systems that may access EX1 kinetics.
+
+\subsection{Conclusions}
+\label{sec:valdx-conclusions}
+
+By developing a framework for quantitative validation of structural hypotheses, this work enables interpretation of HDX-MS measurements in terms of protein conformational dynamics. Its practical value extends from comparing candidate ensembles to choosing how fitting is staged. Because protection factors cannot uniquely specify the generating ensemble, candidate ensembles and fitting protocols must be assessed through both predictive agreement and the modifications required to achieve it. ValDX provides this assessment within the limits of the available structural and experimental information.
+
+% Own handoff. thesis/chapters/01-introduction.tex:262 (attribution), :272 (repeated optimisation), :311 (jaxENT workflow); kb/chapters/03-valdx.md §7 Boundary.
+These limits set the next task. Where no reference ensemble exists, replicate dispersion locates unstable fits without identifying whether sampling, structural error or the forward model is responsible. Attribution requires controlled comparisons in which a suspected cause is changed, and in ValDX each comparison of protocol, partition or candidate ensemble required another optimisation. jaxENT, developed in \cref{ch:jaxent}, therefore fits ensemble weights and forward-model parameters within one differentiable optimisation, so that fixed, staged and joint fits can be compared with data partitions and replicate fits built into the workflow. jaxENT still reweights fixed candidates. Where candidate coverage fails, experimental information must also act during sampling or generation, as developed in \cref{ch:biofeaturisers}.

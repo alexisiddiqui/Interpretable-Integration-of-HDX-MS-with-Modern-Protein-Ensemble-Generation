@@ -100,8 +100,13 @@ Sources: `9_Supplementary_information.tex` L195–285 (clustering sweep, BRD4 ar
 ## 7 Discussion and chapter conclusions
 
 - Boundary, handed to ch. 4 and 5. Conclusions are comparative across the candidates supplied, reweighting cannot add states, and replicate uncertainty does not name its cause.
+- Practical decisions. Reject ensembles that fit but fail recovery (TeaA), compare candidates under both split types (BPTI), screen single structures by BV fitting (HOIP), choose fitting order by the expected mismatch, select cluster size by sensitivity analysis, and stress-test claims with synthetic artefacts (R222–242, R252–263).
+- BICePs. The methods are complementary. BICePs gives a full Bayesian evidence score, while ValDX gives leakage-aware validation and interpretable Work metrics. No direct benchmark evaluates HDX uptake through the BV model against ValDX (R220).
+- Ensemble generation. Filter implausible conformations before fitting, screen starting structures by parameter optimisation, and set enhanced-sampling prior weights to reflect local structural density (R267–276).
+- Limitations. The BV model compresses exchange determinants into local counts, and fitting assumes EX2, which calibration does not validate (R246–248).
+- Handoff (own). Attributing unstable fits needs controlled comparisons, each another optimisation in ValDX, which motivates fitting weights and parameters in one differentiable optimisation in ch. 4 (`sec:valdx-conclusions`).
 
-Sources: `7_results_omc.tex` L235–248 (clustering and limitations).
+Sources: `7_results_omc.tex` L216–279 (discussion, recommendations, generation considerations, limitations, conclusions).
 
 ## Gaps
 

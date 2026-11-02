@@ -1,0 +1,140 @@
+{
+  "source_campaign": "20260911T215808Z",
+  "source_analysis": "9abdde1511481f3b",
+  "source_condition": "mmpb",
+  "excl_min_sep": 0,
+  "method": "Four cluster representatives from ALL 100004 MI+PB frames, using variance-normalized archived C-alpha PC1/PC2; closest feasible representatives with one per replica and >=55 ns between all acquisition times. No basin restriction or time truncation.",
+  "records": [
+    {
+      "number": 1,
+      "source_replica": 4,
+      "time_ps": 187180.0,
+      "time_ns": 187.18,
+      "pc1": -0.8383009477578689,
+      "pc2": -0.2786457529397333,
+      "pca_row_index": 393733,
+      "trajectory_frame_index": 18718,
+      "cluster": 1,
+      "cluster_frames": 18332,
+      "trajectory": "/bitbucket/hussain/BioFeaturisers-production/BPTI/variance-scaled-mi/20260911T215808Z/mipb-250ns/build/branches/variance-scaled-250ns/mmpb_cuda/replica_4/8mmpb_reweighted_mi_pbmetad.xtc",
+      "corrected_trajectory": "/bitbucket/hussain/BioFeaturisers-production/BPTI/variance-scaled-mi/20260911T215808Z/analysis/9abdde1511481f3b/mmpb/replica_4/mmpb_cuda/corrected.xtc",
+      "target_replica": 1,
+      "verified_xtc_time_ps": 187180.0,
+      "raw_vs_corrected_protein_rmsd_nm": 2.9908102117616046e-07,
+      "selected_gro_sha256": "9194cee7a6a5f76a5853a3a823ea9c0a095c99b66547049987c1b5a90b5f50aa",
+      "warmup_gro_sha256": "f751a4adc5f64cacad9de42945824fcfdd51534dcca519e916d9d075e4ba61ac",
+      "warmup_cpt_sha256": "5451500cc2140c2b8cb3c56fe891aa18cafe869ce6515783a934128a9cab054f",
+      "velocity_seed": 931001
+    },
+    {
+      "number": 2,
+      "source_replica": 1,
+      "time_ps": 249520.0,
+      "time_ns": 249.52,
+      "pc1": -0.7942863679722069,
+      "pc2": 0.22618028998402634,
+      "pca_row_index": 324964,
+      "trajectory_frame_index": 24952,
+      "cluster": 0,
+      "cluster_frames": 35410,
+      "trajectory": "/bitbucket/hussain/BioFeaturisers-production/BPTI/variance-scaled-mi/20260911T215808Z/mipb-250ns/build/branches/variance-scaled-250ns/mmpb_cuda/replica_1/8mmpb_reweighted_mi_pbmetad.xtc",
+      "corrected_trajectory": "/bitbucket/hussain/BioFeaturisers-production/BPTI/variance-scaled-mi/20260911T215808Z/analysis/9abdde1511481f3b/mmpb/replica_1/mmpb_cuda/corrected.xtc",
+      "target_replica": 2,
+      "verified_xtc_time_ps": 249520.0,
+      "raw_vs_corrected_protein_rmsd_nm": 3.075063216716212e-07,
+      "selected_gro_sha256": "1f773d3094ebe76b1e90200e81f8c9e59ec08898a64939c1d197b1737eb05afa",
+      "warmup_gro_sha256": "47c0642062a830b325a6a1c67634a01a32e26eace20cbfa65c22b6684c9438bd",
+      "warmup_cpt_sha256": "7bb7d984c6210e47c466239cbc9fdac5e53260a4ab8c64632f49fd3690fef943",
+      "velocity_seed": 931002
+    },
+    {
+      "number": 3,
+      "source_replica": 3,
+      "time_ps": 52240.0,
+      "time_ns": 52.24,
+      "pc1": -0.07012872367199706,
+      "pc2": -0.40139695343108467,
+      "pca_row_index": 355238,
+      "trajectory_frame_index": 5224,
+      "cluster": 3,
+      "cluster_frames": 18245,
+      "trajectory": "/bitbucket/hussain/BioFeaturisers-production/BPTI/variance-scaled-mi/20260911T215808Z/mipb-250ns/build/branches/variance-scaled-250ns/mmpb_cuda/replica_3/8mmpb_reweighted_mi_pbmetad.xtc",
+      "corrected_trajectory": "/bitbucket/hussain/BioFeaturisers-production/BPTI/variance-scaled-mi/20260911T215808Z/analysis/9abdde1511481f3b/mmpb/replica_3/mmpb_cuda/corrected.xtc",
+      "target_replica": 3,
+      "verified_xtc_time_ps": 52240.0,
+      "raw_vs_corrected_protein_rmsd_nm": 3.279863502136709e-07,
+      "selected_gro_sha256": "a38cfe690417f1b1784dca5f0f6c01f1541cebb84dd0b3fc8bbe3bbb3d4225c6",
+      "warmup_gro_sha256": "5b10eaf72ea41d6441d92f1b264c135a0fa5a3721eee4d06ba024853b997a277",
+      "warmup_cpt_sha256": "12f7e06eb2d0910638ab4e14cf5efba4a991f79828a098066fc8d827f02790ba",
+      "velocity_seed": 931003
+    },
+    {
+      "number": 4,
+      "source_replica": 2,
+      "time_ps": 131800.0,
+      "time_ns": 131.8,
+      "pc1": 0.06340656626399821,
+      "pc2": 0.0847001129409416,
+      "pca_row_index": 338193,
+      "trajectory_frame_index": 13180,
+      "cluster": 2,
+      "cluster_frames": 28017,
+      "trajectory": "/bitbucket/hussain/BioFeaturisers-production/BPTI/variance-scaled-mi/20260911T215808Z/mipb-250ns/build/branches/variance-scaled-250ns/mmpb_cuda/replica_2/8mmpb_reweighted_mi_pbmetad.xtc",
+      "corrected_trajectory": "/bitbucket/hussain/BioFeaturisers-production/BPTI/variance-scaled-mi/20260911T215808Z/analysis/9abdde1511481f3b/mmpb/replica_2/mmpb_cuda/corrected.xtc",
+      "target_replica": 4,
+      "verified_xtc_time_ps": 131800.0,
+      "raw_vs_corrected_protein_rmsd_nm": 3.5596681671434356e-07,
+      "selected_gro_sha256": "04cc213b33b74904187d4a47a6ed3fc7b224817c6c48469e8c18fa18eb1858ea",
+      "warmup_gro_sha256": "375789ca4f7f0f7df3b51ef65b39d9d2b6314ac9fa572ce2d8070f229ab92fb1",
+      "warmup_cpt_sha256": "df3609c173d8fa98d2e941aa44c19d92384e5f2b47b2e28a084524f6d9805c7e",
+      "velocity_seed": 931004
+    }
+  ],
+  "cluster_centers_pc": [
+    [
+      -0.7961360209230238,
+      0.23000300193475554
+    ],
+    [
+      -0.8421101696489633,
+      -0.278288784828725
+    ],
+    [
+      0.06390688206703964,
+      0.08201532600685443
+    ],
+    [
+      -0.07067830555709469,
+      -0.4006763979460163
+    ]
+  ],
+  "minimum_acquisition_time_separation_ns": 55.379999999999995,
+  "autocorrelation_diagnostics": {
+    "1": {
+      "pc1_correlation_time_ns": 29.343214719597217,
+      "pc2_correlation_time_ns": 9.150880866025092,
+      "basin_indicator_correlation_time_ns": 16.989362795165256,
+      "second_basin_frame_count": 17353
+    },
+    "2": {
+      "pc1_correlation_time_ns": 1.7735244184964294,
+      "pc2_correlation_time_ns": 4.993127175593521,
+      "basin_indicator_correlation_time_ns": null,
+      "second_basin_frame_count": 0
+    },
+    "3": {
+      "pc1_correlation_time_ns": 54.26312762920533,
+      "pc2_correlation_time_ns": 10.394414919183905,
+      "basin_indicator_correlation_time_ns": 53.780556277065344,
+      "second_basin_frame_count": 6342
+    },
+    "4": {
+      "pc1_correlation_time_ns": 10.804757481583335,
+      "pc2_correlation_time_ns": 3.1606540877693186,
+      "basin_indicator_correlation_time_ns": 6.387263930541679,
+      "second_basin_frame_count": 21379
+    }
+  },
+  "note": "Approved ensemble starts; exact source frames verified; identical 1 ps unbiased warmup and generated velocities used for all three target conditions. Fresh MI/PB histories.",
+  "coordinate_verification": "Raw XTC frame time and whole-protein conformation independently matched to the archived corrected trajectory."
+}
