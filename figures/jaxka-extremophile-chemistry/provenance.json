@@ -1,0 +1,1910 @@
+{
+  "source_repository": "/Users/alexi/Documents/opig-adaptyv-2026",
+  "source_commit": "f54c6d0505da5217b35c307a9a2edf3101b8e5dd",
+  "inputs": [
+    {
+      "source": "/Users/alexi/Documents/opig-adaptyv-2026/experiments/027-extremophile-vs-pka-surface/results/analysis.json",
+      "staged": ".experiments/opig-adaptyv-027/inputs/analysis.json",
+      "bytes": 1243028,
+      "sha256": "251bae121e4db2efea3a27b3775f261241bd86b6231c4e12029ad367ec0760e2"
+    }
+  ],
+  "dependencies": {
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1"
+  },
+  "plotting_code_sha256": "e71b1249dd7c852b441bc0fa813d39d5481879f2aedcba4c6c80bc68bb3fc954",
+  "build_command": "python figures/jaxka-extremophile-chemistry/make.py",
+  "output_sha256": {
+    "fig.pdf": "187ce19406fb4eb20210a9f569c7a2ab605910c4ae86130c7975ab41e14e77a2",
+    "fig.svg": "4d2b042cb3c44095522a8fc9c1edc39f8e68552009b5147c6fc7edd818a78ae6",
+    "fig.png": "1ba21a696d12da8637ea231512058514042275d0eb892962b51328f7fbeed144"
+  },
+  "replacement_records": {
+    "volume": "opig-design-runs",
+    "files": [
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch1rest-2026-10-28/designs/ch1-vhh001-f135-c4__pka_gqt_acid__lam0.06__t0.1__seed0.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_gqt_acid__lam0.06__t0.1__seed0.json",
+        "sha256": "9897c089262a3e173657e710e5417d504c01e2c03666d9a5f0628de45347b891"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch1rest-2026-10-28/designs/ch1-vhh001-f135-c4__pka_gqt_acid__lam0.06__t0.1__seed1.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_gqt_acid__lam0.06__t0.1__seed1.json",
+        "sha256": "655804aa7e1f59adb26f9e4a973599fef083bf367be57ca0690c6aee7952d993"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch1rest-2026-10-28/designs/ch1-vhh001-f135-c4__pka_gqt_acid__lam0.06__t0.1__seed2.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_gqt_acid__lam0.06__t0.1__seed2.json",
+        "sha256": "dbbb0c08f055d2cc86a2c140ada5ab60b2fe7cbf6e8676a3d9599bcd6f2cf056"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch1rest-2026-10-28/designs/ch1-vhh001-f135-c4__pka_gqt_acid__lam0.06__t0.1__seed3.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_gqt_acid__lam0.06__t0.1__seed3.json",
+        "sha256": "ac9a845b78a223a150330b559e5f1568f75b80509c4a7aaef026cbd2e4f0626f"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch1rest-2026-10-28/designs/ch1-vhh001-f135-c4__pka_gqt_acid__lam0.06__t0.1__seed4.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_gqt_acid__lam0.06__t0.1__seed4.json",
+        "sha256": "0eb84b76f393bfee7866366ecd908ad09b51b55218ef6b1ef71c3b8315988546"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch1rest-2026-10-28/designs/ch1-vhh001-f135-c4__pka_gqt_acid__lam0.06__t0.1__seed5.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_gqt_acid__lam0.06__t0.1__seed5.json",
+        "sha256": "51da958ece1da9796c3f2602b20cb3b8fd9d93874b657541e4e76242812cd8de"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch1rest-2026-10-28/designs/ch1-vhh001-f135-c4__pka_gqt_acid__lam0.06__t0.1__seed6.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_gqt_acid__lam0.06__t0.1__seed6.json",
+        "sha256": "28805ddb1ab4f33621a9765994807edcacc6aee2e53a9796a7b06ba746a01e30"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch1rest-2026-10-28/designs/ch1-vhh001-f135-c4__pka_gqt_acid__lam0.06__t0.1__seed7.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_gqt_acid__lam0.06__t0.1__seed7.json",
+        "sha256": "9ed46f0ff61e4c837b5edd692f51d4daa5d2cc18f0868043146bfec30531bebf"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search2-ch1-2026-10-28/designs/ch1-vhh001-f135-c4__pka_gqt_alk__lam0.236258__t0.1__seed0.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_gqt_alk__lam0.236258__t0.1__seed0.json",
+        "sha256": "cfc7b0e4ae90b8be5d12d319960537faad0696ebf796958f07eb18ad36dbae4f"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search2-ch1-2026-10-28/designs/ch1-vhh001-f135-c4__pka_gqt_alk__lam0.236258__t0.1__seed1.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_gqt_alk__lam0.236258__t0.1__seed1.json",
+        "sha256": "6885ecd28deb62eab9524d09db2fefc6a65d7d94132c9b661c330481baeb26c1"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search2-ch1-2026-10-28/designs/ch1-vhh001-f135-c4__pka_gqt_alk__lam0.236258__t0.1__seed2.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_gqt_alk__lam0.236258__t0.1__seed2.json",
+        "sha256": "59337ff2d1034dffae34128c6ecb2275b18a2161b66e94d48de2f8b3a948b596"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search2-ch1-2026-10-28/designs/ch1-vhh001-f135-c4__pka_gqt_alk__lam0.236258__t0.1__seed3.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_gqt_alk__lam0.236258__t0.1__seed3.json",
+        "sha256": "1fd15f0ec84e4899ec9a145806a342f448f35151aa1b12849a787c655b9bca29"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search2-ch1-2026-10-28/designs/ch1-vhh001-f135-c4__pka_gqt_alk__lam0.236258__t0.1__seed4.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_gqt_alk__lam0.236258__t0.1__seed4.json",
+        "sha256": "8ccf172b5e0e2ee4f17f3308fe5a0e5d1683c617303a8efa7625df143619462c"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search2-ch1-2026-10-28/designs/ch1-vhh001-f135-c4__pka_gqt_alk__lam0.236258__t0.1__seed5.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_gqt_alk__lam0.236258__t0.1__seed5.json",
+        "sha256": "cb8713b9e17837c8c38be37c13b7721c1fb17610c2bcf57c0f1f5a36ae5cb5ab"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search2-ch1-2026-10-28/designs/ch1-vhh001-f135-c4__pka_gqt_alk__lam0.236258__t0.1__seed6.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_gqt_alk__lam0.236258__t0.1__seed6.json",
+        "sha256": "465c32ee07c5896775eddd95382a733220407902b4eb7a89429ce79e4ee322fd"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search2-ch1-2026-10-28/designs/ch1-vhh001-f135-c4__pka_gqt_alk__lam0.236258__t0.1__seed7.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_gqt_alk__lam0.236258__t0.1__seed7.json",
+        "sha256": "e1891c77429b52aa77067032fdcc3762a2e769164b8061db32e3c110d37b9a54"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch1rest-2026-10-28/designs/ch1-vhh001-f135-c4__pka_pkai_acid__lam0.0680952__t0.1__seed0.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_pkai_acid__lam0.0680952__t0.1__seed0.json",
+        "sha256": "15ace553f2308883949021bee9441d0def0f3ec3a531d789e47d7973866c1901"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch1rest-2026-10-28/designs/ch1-vhh001-f135-c4__pka_pkai_acid__lam0.0680952__t0.1__seed1.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_pkai_acid__lam0.0680952__t0.1__seed1.json",
+        "sha256": "802c03e8839c7d3ac9286a417273f0dbf326c0d9b3abbe9be6b050360144ce8d"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch1rest-2026-10-28/designs/ch1-vhh001-f135-c4__pka_pkai_acid__lam0.0680952__t0.1__seed2.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_pkai_acid__lam0.0680952__t0.1__seed2.json",
+        "sha256": "951ab77bdde18f77b0468b5c7217106e7cca62499feff6f13b2bb723e26f3dd7"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch1rest-2026-10-28/designs/ch1-vhh001-f135-c4__pka_pkai_acid__lam0.0680952__t0.1__seed3.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_pkai_acid__lam0.0680952__t0.1__seed3.json",
+        "sha256": "aa3678ff243a87e821e91ece78172c0bad1e1fc82de325b660f95567fe7fceb8"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch1rest-2026-10-28/designs/ch1-vhh001-f135-c4__pka_pkai_acid__lam0.0680952__t0.1__seed4.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_pkai_acid__lam0.0680952__t0.1__seed4.json",
+        "sha256": "6d0be69ed21dd8b38fb3acb18e69ee00ca247431b3ea5225ccdada96c9a5f768"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch1rest-2026-10-28/designs/ch1-vhh001-f135-c4__pka_pkai_acid__lam0.0680952__t0.1__seed5.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_pkai_acid__lam0.0680952__t0.1__seed5.json",
+        "sha256": "30c08e762c17d525adcefa369542f31b45a3d38d3b81be8fa8c98711fbe891e5"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch1rest-2026-10-28/designs/ch1-vhh001-f135-c4__pka_pkai_acid__lam0.0680952__t0.1__seed6.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_pkai_acid__lam0.0680952__t0.1__seed6.json",
+        "sha256": "61bccc6fffa178bd368da51c646d0bb6c6bbea767da2cb69681ab779b0883392"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch1rest-2026-10-28/designs/ch1-vhh001-f135-c4__pka_pkai_acid__lam0.0680952__t0.1__seed7.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__pka_pkai_acid__lam0.0680952__t0.1__seed7.json",
+        "sha256": "1c386b0c357674ee2b55f2e93bf66c928cb762f8a6f510b02aa3ab48894ca8b8"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_gqt_acid__lam0.132184__t0.1__seed0.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_gqt_acid__lam0.132184__t0.1__seed0.json",
+        "sha256": "60c00f5b1f4143a8b8bb8d6ec57aab5072cd7d925a33f15a0f3e02760c5b208a"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_gqt_acid__lam0.132184__t0.1__seed1.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_gqt_acid__lam0.132184__t0.1__seed1.json",
+        "sha256": "a4b6e3a502a3e65fce30d6d6a69d9da90bf0e784bf060e2c4c5cefb2aee937c4"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_gqt_acid__lam0.132184__t0.1__seed2.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_gqt_acid__lam0.132184__t0.1__seed2.json",
+        "sha256": "c2b98b001a0d1540f41b6bb3588de8ffe37b26aacde2f6d961e4f28227859166"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_gqt_acid__lam0.132184__t0.1__seed3.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_gqt_acid__lam0.132184__t0.1__seed3.json",
+        "sha256": "966534af3ed55e0672680d4cd1c20de4d41d01983a5b93222c28171fe5b6c2ea"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_gqt_acid__lam0.132184__t0.1__seed4.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_gqt_acid__lam0.132184__t0.1__seed4.json",
+        "sha256": "fd230a1835ca518dc9a0e16372b490448f2925588371d8e53d57534e346d50cd"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_gqt_acid__lam0.132184__t0.1__seed5.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_gqt_acid__lam0.132184__t0.1__seed5.json",
+        "sha256": "e2979ef735488eb238be7758a229c275cbf1da59acfbcb032b362055343a5c27"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_gqt_acid__lam0.132184__t0.1__seed6.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_gqt_acid__lam0.132184__t0.1__seed6.json",
+        "sha256": "7d79c1e28da11d2be24f2de08988ec8e766dd2be9577ab0c905d33b51ce96e44"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_gqt_acid__lam0.132184__t0.1__seed7.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_gqt_acid__lam0.132184__t0.1__seed7.json",
+        "sha256": "8de74244568bd6471ea1b3d7041fa5ae17c7476a83d6b6e78c201eaf11adcba3"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_gqt_alk__lam0.185241__t0.1__seed0.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_gqt_alk__lam0.185241__t0.1__seed0.json",
+        "sha256": "9a2e8d03bb7c944cf1fcb5bfa8f442bdf2b5143cda45ec9e4cf4af6291374f8c"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_gqt_alk__lam0.185241__t0.1__seed1.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_gqt_alk__lam0.185241__t0.1__seed1.json",
+        "sha256": "88778bd89bab8788493fe49f10cf991a83c3bc7fc81c1448da38827d424762c2"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_gqt_alk__lam0.185241__t0.1__seed2.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_gqt_alk__lam0.185241__t0.1__seed2.json",
+        "sha256": "6bc0c73bed34e01d7f4b77f8af79d974e314dccb719e674000fc5b25425c43da"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_gqt_alk__lam0.185241__t0.1__seed3.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_gqt_alk__lam0.185241__t0.1__seed3.json",
+        "sha256": "063bd76d7153c2ac846ddcd287e14ebcfe85adeead65b3640d76672b97a8e169"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_gqt_alk__lam0.185241__t0.1__seed4.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_gqt_alk__lam0.185241__t0.1__seed4.json",
+        "sha256": "adafa9eb2b83d9b58f33ce2beb70bdf5ec03259f6c288cb54db2de354bb77967"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_gqt_alk__lam0.185241__t0.1__seed5.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_gqt_alk__lam0.185241__t0.1__seed5.json",
+        "sha256": "dcb0dc3662a630c1b330b4893d2f2346362fe1c16ae1bccc47812aa833a0c171"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_gqt_alk__lam0.185241__t0.1__seed6.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_gqt_alk__lam0.185241__t0.1__seed6.json",
+        "sha256": "757aaa0aa9cd42036d5d67174efc9965ef40c87466fd4cb702a31b03d23b7df4"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_gqt_alk__lam0.185241__t0.1__seed7.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_gqt_alk__lam0.185241__t0.1__seed7.json",
+        "sha256": "61c236bbe2b8aae02963fd8b80b9a5ac5c4bf9f030490aad4b24dc93292947e9"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_pkai_acid__lam0.135789__t0.1__seed0.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_pkai_acid__lam0.135789__t0.1__seed0.json",
+        "sha256": "ce3bc1c5a71595960aa64c21973ce7956410020a0cc5a469232f8cf1e4fe8d14"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_pkai_acid__lam0.135789__t0.1__seed1.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_pkai_acid__lam0.135789__t0.1__seed1.json",
+        "sha256": "383f6b60e44bf89223d8584bda5430ec37b4eef09784a5115a300700670f437d"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_pkai_acid__lam0.135789__t0.1__seed2.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_pkai_acid__lam0.135789__t0.1__seed2.json",
+        "sha256": "aff008df976360a9e4562fee989915f7f2103ce9350fecbe65624d7779f13cf5"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_pkai_acid__lam0.135789__t0.1__seed3.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_pkai_acid__lam0.135789__t0.1__seed3.json",
+        "sha256": "18905cc8b22118a1eebc9e3872c0519133556bb76245def07790f052398ebb21"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_pkai_acid__lam0.135789__t0.1__seed4.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_pkai_acid__lam0.135789__t0.1__seed4.json",
+        "sha256": "4f3145b6c8281ca3ef392c9e2af83959d00321c643cc1240027989ed12d1e74a"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_pkai_acid__lam0.135789__t0.1__seed5.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_pkai_acid__lam0.135789__t0.1__seed5.json",
+        "sha256": "a11f65b0b10f57268792826f87b007e426535b4273e17fba6a4298276d519557"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_pkai_acid__lam0.135789__t0.1__seed6.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_pkai_acid__lam0.135789__t0.1__seed6.json",
+        "sha256": "25848935c062f0fa1dae1d3196401a454a71a0869dd03fb4497b07b820197089"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_pkai_acid__lam0.135789__t0.1__seed7.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_pkai_acid__lam0.135789__t0.1__seed7.json",
+        "sha256": "579866ee146f13cda2cb65f44e8ccb3f66183c29e7af94b8f67de68d4eb6e643"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_pkai_alk__lam0.136649__t0.1__seed0.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_pkai_alk__lam0.136649__t0.1__seed0.json",
+        "sha256": "e633fc06a062fb73b33f6d55e8421339cf17ef50adb391f87d3e5693e09df74d"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_pkai_alk__lam0.136649__t0.1__seed1.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_pkai_alk__lam0.136649__t0.1__seed1.json",
+        "sha256": "0c7d46895885277e57c9cda71797f0369da9c9fb26f9057e05cf843de5663e21"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_pkai_alk__lam0.136649__t0.1__seed2.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_pkai_alk__lam0.136649__t0.1__seed2.json",
+        "sha256": "a9a4ef883f13147900266fa5f8b9debcd8321f9e871d61481b6eedb4c64983a0"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_pkai_alk__lam0.136649__t0.1__seed3.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_pkai_alk__lam0.136649__t0.1__seed3.json",
+        "sha256": "c93f5903f34cc508a49a5d6c6e6c12d515bf5c654c0753bfcecb6531427ad08e"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_pkai_alk__lam0.136649__t0.1__seed4.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_pkai_alk__lam0.136649__t0.1__seed4.json",
+        "sha256": "551062173d26ab01bffb1f0b35bd86172524be94fb48c56a58ca9accab644f7a"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_pkai_alk__lam0.136649__t0.1__seed5.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_pkai_alk__lam0.136649__t0.1__seed5.json",
+        "sha256": "e2455640eb131d75061d90d122389225f1a6ce600e9dc94fdfe4c53822672e51"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_pkai_alk__lam0.136649__t0.1__seed6.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_pkai_alk__lam0.136649__t0.1__seed6.json",
+        "sha256": "ad4f6ace59e83f709d870a0b195f8c24f1b1e1992904a0e44d80cf023ee3942a"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch1-vhh021-f58722-c31__pka_pkai_alk__lam0.136649__t0.1__seed7.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__pka_pkai_alk__lam0.136649__t0.1__seed7.json",
+        "sha256": "c954c11af6deee8403066d79f13a3486bd755af789708248bd65f0835a7e591d"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_gqt_acid__lam0.111224__t0.1__seed0.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_gqt_acid__lam0.111224__t0.1__seed0.json",
+        "sha256": "cb797e5fdcf506d7464e11052a8eacd1ac2f6a87a96138506cf7f3e7b8cd4985"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_gqt_acid__lam0.111224__t0.1__seed1.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_gqt_acid__lam0.111224__t0.1__seed1.json",
+        "sha256": "093b40c785554373a25468ac6280dd4eea188e30bb1e86dfa929c6681ebc2b75"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_gqt_acid__lam0.111224__t0.1__seed2.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_gqt_acid__lam0.111224__t0.1__seed2.json",
+        "sha256": "f0ac333ca549abc4504f2aaadc1ec1265e949b7418e6a467a9f981f93a2b60c3"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_gqt_acid__lam0.111224__t0.1__seed3.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_gqt_acid__lam0.111224__t0.1__seed3.json",
+        "sha256": "a9d0c1b5e970bacaafa59854ad1b11aa1d93e0754ced16367bf3b4046460c03d"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_gqt_acid__lam0.111224__t0.1__seed4.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_gqt_acid__lam0.111224__t0.1__seed4.json",
+        "sha256": "df9344f577cd61316e5773b51b36b7f781f830633a5c32c7cceac95d31020ce9"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_gqt_acid__lam0.111224__t0.1__seed5.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_gqt_acid__lam0.111224__t0.1__seed5.json",
+        "sha256": "02c9974852a210f38f83c04e706b38c3677702aea1b3fa924c93b2b184149864"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_gqt_acid__lam0.111224__t0.1__seed6.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_gqt_acid__lam0.111224__t0.1__seed6.json",
+        "sha256": "09d14e06a0cb72c0d0decc1f4c374bc7c44974fd9c7cb9145dc5fa09be8b381d"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_gqt_acid__lam0.111224__t0.1__seed7.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_gqt_acid__lam0.111224__t0.1__seed7.json",
+        "sha256": "c3ac1eecb9b45bf4e4aeee18957d5ef32ebaccaf7173f8bd60e2d111a3198fbd"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_gqt_alk__lam0.244218__t0.1__seed0.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_gqt_alk__lam0.244218__t0.1__seed0.json",
+        "sha256": "6f2b35235ce4cde25b36e65ff389c2b0c7f1c6897061f9237515a58c19a543c8"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_gqt_alk__lam0.244218__t0.1__seed1.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_gqt_alk__lam0.244218__t0.1__seed1.json",
+        "sha256": "9ec3de137450a87dae113fb1c36559d277429d4b28b8fee7b233b5a50ed9a0a0"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_gqt_alk__lam0.244218__t0.1__seed2.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_gqt_alk__lam0.244218__t0.1__seed2.json",
+        "sha256": "5a75881e101df525976bdd842b40ac77dd9cbd6b5b334de6c09225536bbc2697"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_gqt_alk__lam0.244218__t0.1__seed3.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_gqt_alk__lam0.244218__t0.1__seed3.json",
+        "sha256": "72b8dbeb6e234f1c88cbbd88772559ccfa32534f0195b8045161dc5a157557de"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_gqt_alk__lam0.244218__t0.1__seed4.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_gqt_alk__lam0.244218__t0.1__seed4.json",
+        "sha256": "46061ae4c064ba9dba2e1cbdb1b038528b90d6c6326b4b34d6a743246d1e4cd8"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_gqt_alk__lam0.244218__t0.1__seed5.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_gqt_alk__lam0.244218__t0.1__seed5.json",
+        "sha256": "03ac7a13b0c2c9c996a8b2d7def08873a763ebd7b6e2d3eb98d595e668d35e01"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_gqt_alk__lam0.244218__t0.1__seed6.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_gqt_alk__lam0.244218__t0.1__seed6.json",
+        "sha256": "b925a309fc3487d790a73a621c92315c7429262368c8a856029342b1b09bd2e0"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_gqt_alk__lam0.244218__t0.1__seed7.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_gqt_alk__lam0.244218__t0.1__seed7.json",
+        "sha256": "b2119c7d46eb84e20fe7c92e4ec3afdcb57af08aa7d97c35f96fc254de2919f1"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_pkai_acid__lam0.1__t0.1__seed0.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_pkai_acid__lam0.1__t0.1__seed0.json",
+        "sha256": "67e82fd478865a23d713a31ab9df94e508063297afe5c064b3f9ec5a2646c65b"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_pkai_acid__lam0.1__t0.1__seed1.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_pkai_acid__lam0.1__t0.1__seed1.json",
+        "sha256": "a8dbcc13057fba3c97f9b312fed1e5c88c83c18c74bd36994dbcf8e8a3d68926"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_pkai_acid__lam0.1__t0.1__seed2.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_pkai_acid__lam0.1__t0.1__seed2.json",
+        "sha256": "928ce333edf017243ae50e1030d698177307c6a04cf6a915ccb1e0c3c344eb43"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_pkai_acid__lam0.1__t0.1__seed3.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_pkai_acid__lam0.1__t0.1__seed3.json",
+        "sha256": "569dca627ba3c95a315b4c558fcd05785fdd34c0191cbd42e4f2d6f9e9d9944c"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_pkai_acid__lam0.1__t0.1__seed4.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_pkai_acid__lam0.1__t0.1__seed4.json",
+        "sha256": "b5425b77c24c32e32e8e2dac07330d5e0f13a6c6a21e15f3788ec0e8b09b2184"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_pkai_acid__lam0.1__t0.1__seed5.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_pkai_acid__lam0.1__t0.1__seed5.json",
+        "sha256": "eb3f5d782b4061ad2a1114553f94dac0c347e7bb0cd130ac068d2a2e39e25e4e"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_pkai_acid__lam0.1__t0.1__seed6.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_pkai_acid__lam0.1__t0.1__seed6.json",
+        "sha256": "c1e165fe98da8470248d5d728393fd8d909d00039aad4c78b16fb8b7c9f6e6a9"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_pkai_acid__lam0.1__t0.1__seed7.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_pkai_acid__lam0.1__t0.1__seed7.json",
+        "sha256": "f0d611ec03f1e693058e8bc4db6e34ea3db2bcc944511f65f6c9841533333ce5"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_pkai_alk__lam0.241117__t0.1__seed0.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_pkai_alk__lam0.241117__t0.1__seed0.json",
+        "sha256": "6d295bd7d576244c78c3922cfec3df6a529e985c7d9f6b3106479031a0404a77"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_pkai_alk__lam0.241117__t0.1__seed1.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_pkai_alk__lam0.241117__t0.1__seed1.json",
+        "sha256": "22729e359f5ae3132a69cbaaf2fa08ccaa0beb4b6976a1b87d627c4472c0462e"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_pkai_alk__lam0.241117__t0.1__seed2.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_pkai_alk__lam0.241117__t0.1__seed2.json",
+        "sha256": "af3ce977126e12b3b92fde8c8ee130b036f0c79575bd6eb942b689351b4732f4"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_pkai_alk__lam0.241117__t0.1__seed3.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_pkai_alk__lam0.241117__t0.1__seed3.json",
+        "sha256": "df62583310a630ea0f8dbfc011f09cf0bb4137054dac3f098f8cc9ce61e6d9a5"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_pkai_alk__lam0.241117__t0.1__seed4.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_pkai_alk__lam0.241117__t0.1__seed4.json",
+        "sha256": "ee24ce668ecb5ef0fede80402007230991299f219c1bd75b511b5b32f2ba5580"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_pkai_alk__lam0.241117__t0.1__seed5.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_pkai_alk__lam0.241117__t0.1__seed5.json",
+        "sha256": "ae60f3df495394400605e1e528237a54e29fddf74ac993eea25085cdb5417797"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_pkai_alk__lam0.241117__t0.1__seed6.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_pkai_alk__lam0.241117__t0.1__seed6.json",
+        "sha256": "935eb469fdc61b3c44415679a02912107f504a6c63889f55936e0d2b3b218167"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-band-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__pka_pkai_alk__lam0.241117__t0.1__seed7.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__pka_pkai_alk__lam0.241117__t0.1__seed7.json",
+        "sha256": "171cb364e2fd77ceeeb3061babe39e3778fa7e9f443eb86b729533325ac65437"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_gqt_acid__lam0.1__t0.1__seed0.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_gqt_acid__lam0.1__t0.1__seed0.json",
+        "sha256": "d3586567e8ccebbd87706299e6b889a2737d7f9a7ca00e8334f133f9d4d9e83e"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_gqt_acid__lam0.1__t0.1__seed1.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_gqt_acid__lam0.1__t0.1__seed1.json",
+        "sha256": "924b87e1fda7fbed5f3d9fc5c885eaeb21cd0d79a583c355d7d2ce375dc9a163"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_gqt_acid__lam0.1__t0.1__seed2.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_gqt_acid__lam0.1__t0.1__seed2.json",
+        "sha256": "9664f529c4af96e8e47d9eb1683fdd2e8d24a6d93de7f6dbf4b061bad0f00248"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_gqt_acid__lam0.1__t0.1__seed3.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_gqt_acid__lam0.1__t0.1__seed3.json",
+        "sha256": "82d68b6a7372ab2210598d5cb016018261b35ca49c54a099c1756f7e138d6744"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_gqt_acid__lam0.1__t0.1__seed4.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_gqt_acid__lam0.1__t0.1__seed4.json",
+        "sha256": "2afad70e771b5a0592b2dfecbcd351f392cc14a86b24b761b27be7ca111190f7"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_gqt_acid__lam0.1__t0.1__seed5.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_gqt_acid__lam0.1__t0.1__seed5.json",
+        "sha256": "3fef088ee7446b769b617fc24ba37585bd226897b366d3e3f5080f06b0193706"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_gqt_acid__lam0.1__t0.1__seed6.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_gqt_acid__lam0.1__t0.1__seed6.json",
+        "sha256": "58274145fac358035f5dcc277de0d829135c604d84526cc4723582667a5e8ec3"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_gqt_acid__lam0.1__t0.1__seed7.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_gqt_acid__lam0.1__t0.1__seed7.json",
+        "sha256": "60975da4452aea705ed7b9750b2902814fbc0f4d99823f0463f2777532e57d79"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_gqt_alk__lam0.1__t0.1__seed0.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_gqt_alk__lam0.1__t0.1__seed0.json",
+        "sha256": "602e9bf120744e72d8fc8fdf1d29ee7aef0c86ec7d7e5672764d00568bb0f8af"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_gqt_alk__lam0.1__t0.1__seed1.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_gqt_alk__lam0.1__t0.1__seed1.json",
+        "sha256": "ce9a196a4b19613d0eab000eba8ff543b1008bda4d2f2b0090a3d40b240822ff"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_gqt_alk__lam0.1__t0.1__seed2.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_gqt_alk__lam0.1__t0.1__seed2.json",
+        "sha256": "82cf2eb79500e48addebdfa519e0262de9c38152d4b3ec775a35574903c29b06"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_gqt_alk__lam0.1__t0.1__seed3.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_gqt_alk__lam0.1__t0.1__seed3.json",
+        "sha256": "7ee235fbd04ca84fb649d95fc661a03a79052be561abe111fe637d8c48096a49"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_gqt_alk__lam0.1__t0.1__seed4.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_gqt_alk__lam0.1__t0.1__seed4.json",
+        "sha256": "8593f90ea2c6d3108861b87709191db9916363f918342b399090fb44dfaf6894"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_gqt_alk__lam0.1__t0.1__seed5.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_gqt_alk__lam0.1__t0.1__seed5.json",
+        "sha256": "074cbcd047e022c71d8a12de05fe7e27b56a1354dab4b38183ce043f13bb795f"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_gqt_alk__lam0.1__t0.1__seed6.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_gqt_alk__lam0.1__t0.1__seed6.json",
+        "sha256": "23f6f9cc1bf9779ee54c75bd95730ad57575939144ca061d208ed0fb538dedd4"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_gqt_alk__lam0.1__t0.1__seed7.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_gqt_alk__lam0.1__t0.1__seed7.json",
+        "sha256": "1ae1000ccdb9e8545ad0c254894bae65f09d1ceda4b29b304e7360d4674605f3"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_pkai_acid__lam0.1__t0.1__seed0.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_pkai_acid__lam0.1__t0.1__seed0.json",
+        "sha256": "7ba758d96a40565e0782a41a7f14f3bbea13b3519f68564749d47810e4083809"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_pkai_acid__lam0.1__t0.1__seed1.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_pkai_acid__lam0.1__t0.1__seed1.json",
+        "sha256": "4e90896aaefb80f97b29871a50cf0a8fb7f9d4bce2d7671bf8ea9f26f1cd9f6c"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_pkai_acid__lam0.1__t0.1__seed2.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_pkai_acid__lam0.1__t0.1__seed2.json",
+        "sha256": "a2f29517accb3092195eeb948f59a0116cbc57efb4c302ab5045b45b05c65719"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_pkai_acid__lam0.1__t0.1__seed3.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_pkai_acid__lam0.1__t0.1__seed3.json",
+        "sha256": "6a03d08a8e6206cca2ca8a11ef0c0a8a98ecb3a4c1388e987ae496a600c1ace6"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_pkai_acid__lam0.1__t0.1__seed4.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_pkai_acid__lam0.1__t0.1__seed4.json",
+        "sha256": "d6793ce8b2704456711fac5839fe760fcdb5bc870283732b731145ac113e68e3"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_pkai_acid__lam0.1__t0.1__seed5.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_pkai_acid__lam0.1__t0.1__seed5.json",
+        "sha256": "2227b924442af12bbee3c706b1065809cf7b9c4061faccb53c63430aa933b154"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_pkai_acid__lam0.1__t0.1__seed6.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_pkai_acid__lam0.1__t0.1__seed6.json",
+        "sha256": "0588978c94f3699a03dc31a5304fe28c6587c24cb5cfbada73119ff0b5d9cbea"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_pkai_acid__lam0.1__t0.1__seed7.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_pkai_acid__lam0.1__t0.1__seed7.json",
+        "sha256": "73fee8703bec9a69f876aadd834b296814e05770a2a2f1b79496af449dfa7e7a"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_pkai_alk__lam0.1__t0.1__seed0.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_pkai_alk__lam0.1__t0.1__seed0.json",
+        "sha256": "4e81f17c0a2d29fc7d1cf885f7cb07177ce5cfb4fffffe3561659e97c7481a54"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_pkai_alk__lam0.1__t0.1__seed1.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_pkai_alk__lam0.1__t0.1__seed1.json",
+        "sha256": "c457ba7b616d0502167ea28218c3388e87bc15e02e9f2d2a8c0da50dec95d73b"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_pkai_alk__lam0.1__t0.1__seed2.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_pkai_alk__lam0.1__t0.1__seed2.json",
+        "sha256": "0f61cfcb918e156f04dc00f876153743462b6f931290c8a7ddaad7eb28c77e64"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_pkai_alk__lam0.1__t0.1__seed3.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_pkai_alk__lam0.1__t0.1__seed3.json",
+        "sha256": "e2b43f6adec6b65076a3c66b20a1ac1a4ac978a1c9fd69bfb40f8cdc328cf0c8"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_pkai_alk__lam0.1__t0.1__seed4.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_pkai_alk__lam0.1__t0.1__seed4.json",
+        "sha256": "c166f99711578c980bbe5a03c5b20e27f2751de981db5df464e56a2412de146f"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_pkai_alk__lam0.1__t0.1__seed5.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_pkai_alk__lam0.1__t0.1__seed5.json",
+        "sha256": "80ca98c4777689e7a91562b38299293bb7ba1e4e2bc27a7aaee2ae26a3dc579e"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_pkai_alk__lam0.1__t0.1__seed6.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_pkai_alk__lam0.1__t0.1__seed6.json",
+        "sha256": "f66ad1a4b55c225fbfc39c8594585357ee0cdcb808235de7f629f0c98963166b"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-018-back-helix-loop__pka_pkai_alk__lam0.1__t0.1__seed7.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__pka_pkai_alk__lam0.1__t0.1__seed7.json",
+        "sha256": "6addd9866c9cf53634f4b3224e869e61b2b92349ff7f54e4d1d76ff40fcc3b55"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_gqt_acid__lam0.174805__t0.1__seed0.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_gqt_acid__lam0.174805__t0.1__seed0.json",
+        "sha256": "5242a415206ac7c603acb6e9d7452d3139e3ba65e08a9b2ca78b072472b90b10"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_gqt_acid__lam0.174805__t0.1__seed1.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_gqt_acid__lam0.174805__t0.1__seed1.json",
+        "sha256": "c03242ddc631e74d80ce32d0fbf90e4e2de51913a177de0e9af03bfc089f85bf"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_gqt_acid__lam0.174805__t0.1__seed2.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_gqt_acid__lam0.174805__t0.1__seed2.json",
+        "sha256": "e495bf1bce2a56d59be80b85e4affb4caa4692f05751df21c8abd6dc5d5e4ba5"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_gqt_acid__lam0.174805__t0.1__seed3.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_gqt_acid__lam0.174805__t0.1__seed3.json",
+        "sha256": "8cfe901b1003929bd2a99268fb3bb2b0b922fb5cc36019d81977e5b36f5a6f3f"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_gqt_acid__lam0.174805__t0.1__seed4.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_gqt_acid__lam0.174805__t0.1__seed4.json",
+        "sha256": "201716fbae60b329b5d5f26bb4d58914390bafa1f69c170e5809405d1e5c8adc"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_gqt_acid__lam0.174805__t0.1__seed5.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_gqt_acid__lam0.174805__t0.1__seed5.json",
+        "sha256": "1edae707ec08eeb95e92bddad8404ea5307a4a9aa9ef5b72b10c3ce5fb80903d"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_gqt_acid__lam0.174805__t0.1__seed6.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_gqt_acid__lam0.174805__t0.1__seed6.json",
+        "sha256": "6bf06f438b665ca45a06801372d2fa43360cc4c7a59735e11d470fe8d2283710"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_gqt_acid__lam0.174805__t0.1__seed7.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_gqt_acid__lam0.174805__t0.1__seed7.json",
+        "sha256": "097fd0f3bac8d8fcf3fc78eb6bd8b3d4ef404070bc78c484a7e33a266f00c2cb"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_gqt_alk__lam0.246927__t0.1__seed0.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_gqt_alk__lam0.246927__t0.1__seed0.json",
+        "sha256": "2633b51b5c23cfe58ae5699feded065be3ee9903e29f04e2b31c70458a544714"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_gqt_alk__lam0.246927__t0.1__seed1.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_gqt_alk__lam0.246927__t0.1__seed1.json",
+        "sha256": "d86e8cfa05c11a820a8ac9daf0e05dac1bbd1293738535ffc80de788012b1f6e"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_gqt_alk__lam0.246927__t0.1__seed2.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_gqt_alk__lam0.246927__t0.1__seed2.json",
+        "sha256": "f17df83e254c101b3344fabfeb1bc6baf71476fdf070de86290485d8618e085e"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_gqt_alk__lam0.246927__t0.1__seed3.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_gqt_alk__lam0.246927__t0.1__seed3.json",
+        "sha256": "bb98ac092583d6b99fdcf06a67c67f896e3f58b2b2367c052b6043a81d91a785"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_gqt_alk__lam0.246927__t0.1__seed4.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_gqt_alk__lam0.246927__t0.1__seed4.json",
+        "sha256": "aacfdaaef03f2ce40f514e796be6ca59a77f7e9edef6f4e780e3f0c1fc21c1ed"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_gqt_alk__lam0.246927__t0.1__seed5.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_gqt_alk__lam0.246927__t0.1__seed5.json",
+        "sha256": "33e8cad20c0d651d8da9c3541b9574e06693c425a6b9a835ebd95aee76256557"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_gqt_alk__lam0.246927__t0.1__seed6.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_gqt_alk__lam0.246927__t0.1__seed6.json",
+        "sha256": "5763d9d62a1a4c45768c7a0cf11e1c3e797dcbb0571569b5d86dd0e1dce0fb3a"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_gqt_alk__lam0.246927__t0.1__seed7.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_gqt_alk__lam0.246927__t0.1__seed7.json",
+        "sha256": "4e9541441b7d209def827e17529b91ca7fb8173454d38a1951ece2b823c3a41c"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_pkai_acid__lam0.184558__t0.1__seed0.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_pkai_acid__lam0.184558__t0.1__seed0.json",
+        "sha256": "20f1b2ae40774e22784c8c987ac1db3c0ce3c5abea8cc2a8bd4054e06465fe4f"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_pkai_acid__lam0.184558__t0.1__seed1.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_pkai_acid__lam0.184558__t0.1__seed1.json",
+        "sha256": "d53e79823bb8f74e8ae4b659b475229867f12b661d61646e38a8449f911280cc"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_pkai_acid__lam0.184558__t0.1__seed2.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_pkai_acid__lam0.184558__t0.1__seed2.json",
+        "sha256": "bbf5250250c5ddf14196e1be68af590d5853294fdf94f8fc5abdac5f5a8c575b"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_pkai_acid__lam0.184558__t0.1__seed3.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_pkai_acid__lam0.184558__t0.1__seed3.json",
+        "sha256": "8b7fa65ab30718acf8fe0bbee738614c29274702df60e14aa12bf8f4fbf3c158"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_pkai_acid__lam0.184558__t0.1__seed4.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_pkai_acid__lam0.184558__t0.1__seed4.json",
+        "sha256": "d0afb8c23f988add29d7eca03c3bdc21f1c28353db2c27652b0652af9cf7db5d"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_pkai_acid__lam0.184558__t0.1__seed5.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_pkai_acid__lam0.184558__t0.1__seed5.json",
+        "sha256": "ca51da860e20fde69d4db9f5a8ad8a57823b159ec73a24f88d1ca09f6a4de7f8"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_pkai_acid__lam0.184558__t0.1__seed6.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_pkai_acid__lam0.184558__t0.1__seed6.json",
+        "sha256": "8136d1a86a3e09b6107bae91d1c4304c9d017f95a5332c369f1ac5a89d9c3f2e"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_pkai_acid__lam0.184558__t0.1__seed7.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_pkai_acid__lam0.184558__t0.1__seed7.json",
+        "sha256": "9c299265bc1754839a58c9e341091ba930b4a45f41de428bcec41ba1bde9958d"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_pkai_alk__lam0.253424__t0.1__seed0.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_pkai_alk__lam0.253424__t0.1__seed0.json",
+        "sha256": "07767bcf63f4ecf678f9bb55d19cd4a86afe6f9a587e24a1cbd25d1310c62307"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_pkai_alk__lam0.253424__t0.1__seed1.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_pkai_alk__lam0.253424__t0.1__seed1.json",
+        "sha256": "ef436dc2c43a6f86a0dd6f320cf90ba95afed0b83a1704e62a6cf6636625b2e5"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_pkai_alk__lam0.253424__t0.1__seed2.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_pkai_alk__lam0.253424__t0.1__seed2.json",
+        "sha256": "eecb4ac87cfdc275cfdeb5cfd369c24109147ae1606beeaf156794b964863f89"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_pkai_alk__lam0.253424__t0.1__seed3.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_pkai_alk__lam0.253424__t0.1__seed3.json",
+        "sha256": "ccb7ae1c4d361c4c4fb87d052ea88031b72b063466b8770a5f3b5c133f9aa237"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_pkai_alk__lam0.253424__t0.1__seed4.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_pkai_alk__lam0.253424__t0.1__seed4.json",
+        "sha256": "1bd4860804f70c8bdbc4a92d8774b0f89562d04e1439457c6dccddece478f715"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_pkai_alk__lam0.253424__t0.1__seed5.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_pkai_alk__lam0.253424__t0.1__seed5.json",
+        "sha256": "ba81f9f9dfda940c5d1caa9adabf3138c282f86bb517eeb086623bd3550592f3"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_pkai_alk__lam0.253424__t0.1__seed6.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_pkai_alk__lam0.253424__t0.1__seed6.json",
+        "sha256": "7cde9eb2cf1618b984ec329b0e2bc5a4b25178a31399aca448480b9caf356f58"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch3-2026-10-28/designs/ch3-023-gfp-vhh__pka_pkai_alk__lam0.253424__t0.1__seed7.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__pka_pkai_alk__lam0.253424__t0.1__seed7.json",
+        "sha256": "d20cbd04ab6658cb1079b15eb387eec6948bfd764683396e8a9a7213f771b713"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_gqt_acid__lam0.1__t0.1__seed0.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_gqt_acid__lam0.1__t0.1__seed0.json",
+        "sha256": "f990c02726c2688297013af40b3dd21fff8732b5d0f3ff2a2a9ecaa5b02e9564"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_gqt_acid__lam0.1__t0.1__seed1.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_gqt_acid__lam0.1__t0.1__seed1.json",
+        "sha256": "dd931df1fff851522183e933df3ad4e1a435fc3321bb5cece0cc768f3a20648f"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_gqt_acid__lam0.1__t0.1__seed2.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_gqt_acid__lam0.1__t0.1__seed2.json",
+        "sha256": "79cadfdc874ba70f810bcfc49babdf5a99e179b9d8833b0332570b50714c391d"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_gqt_acid__lam0.1__t0.1__seed3.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_gqt_acid__lam0.1__t0.1__seed3.json",
+        "sha256": "694b426a041bbe501f719735202eb7fa3369cea528351d1ab5c5909bce9c629f"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_gqt_acid__lam0.1__t0.1__seed4.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_gqt_acid__lam0.1__t0.1__seed4.json",
+        "sha256": "140aff095877cc8f00d94ac07c7cebc70b951c3f936061e1c9f5fd11b6a8eab1"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_gqt_acid__lam0.1__t0.1__seed5.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_gqt_acid__lam0.1__t0.1__seed5.json",
+        "sha256": "5f137d632c5480a3ca8a3abfdc61efdcef89c00f8de19c991f79ad2645c5f913"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_gqt_acid__lam0.1__t0.1__seed6.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_gqt_acid__lam0.1__t0.1__seed6.json",
+        "sha256": "54aadf76f7f5942d4f263858e91f0355f969276255b1d845fe76a7342034f94c"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_gqt_acid__lam0.1__t0.1__seed7.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_gqt_acid__lam0.1__t0.1__seed7.json",
+        "sha256": "2881fd23b5f160aa59e69d657dd767a767293213f6b6ca126fd9cbe8a44affeb"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_gqt_alk__lam0.165714__t0.1__seed0.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_gqt_alk__lam0.165714__t0.1__seed0.json",
+        "sha256": "efec495f7c4c1e37f004f6a6705e47298cf5f36670947f1f4b0fd10dbc57b17a"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_gqt_alk__lam0.165714__t0.1__seed1.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_gqt_alk__lam0.165714__t0.1__seed1.json",
+        "sha256": "918e224e1e6f4eb58e181fb941fe62f14cdf92a1d1c584c7ee0e288f40de28ba"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_gqt_alk__lam0.165714__t0.1__seed2.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_gqt_alk__lam0.165714__t0.1__seed2.json",
+        "sha256": "7517bd044580f8d16ce09bfdd126d05f45d1b8255a1486a024d11415020d38dd"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_gqt_alk__lam0.165714__t0.1__seed3.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_gqt_alk__lam0.165714__t0.1__seed3.json",
+        "sha256": "2abc9949d72ed5c39804090874bb7a9df817f217a522307963bb4d535d904679"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_gqt_alk__lam0.165714__t0.1__seed4.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_gqt_alk__lam0.165714__t0.1__seed4.json",
+        "sha256": "ed037d8086d9488c5c1bf560fdcbafe6915467ebda1d99aa6a8515f62b37918d"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_gqt_alk__lam0.165714__t0.1__seed5.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_gqt_alk__lam0.165714__t0.1__seed5.json",
+        "sha256": "b16f2be8e2e0966b31119eebc57d81259acf7a2c710b5c2dfb39c3b82bfd6907"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_gqt_alk__lam0.165714__t0.1__seed6.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_gqt_alk__lam0.165714__t0.1__seed6.json",
+        "sha256": "f9023a160350a1913ab72e2308e350a02e9829c0c82210e9da58678a27a3fe2a"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_gqt_alk__lam0.165714__t0.1__seed7.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_gqt_alk__lam0.165714__t0.1__seed7.json",
+        "sha256": "0d4520c87317cd019eba54e3b973d56c4f3ea6e06f80494dc37040e2f0f868d0"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_pkai_acid__lam0.1__t0.1__seed0.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_pkai_acid__lam0.1__t0.1__seed0.json",
+        "sha256": "c2813de0968e79b5b09dfc4e6ce96930c5751a3e127d3435514933da94fa495d"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_pkai_acid__lam0.1__t0.1__seed1.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_pkai_acid__lam0.1__t0.1__seed1.json",
+        "sha256": "2ac1ebaa5aacc75bf0408abedbb54e97e875d63e955ce9a7e7763b4c478c77d5"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_pkai_acid__lam0.1__t0.1__seed2.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_pkai_acid__lam0.1__t0.1__seed2.json",
+        "sha256": "1138dd5a78623e94ae7f46ff9cad36238a3defb60ca613c532013ab490986339"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_pkai_acid__lam0.1__t0.1__seed3.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_pkai_acid__lam0.1__t0.1__seed3.json",
+        "sha256": "9aecec15ec98ed259008c535189466898c35b52f056047f6bf1701503cfc32ea"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_pkai_acid__lam0.1__t0.1__seed4.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_pkai_acid__lam0.1__t0.1__seed4.json",
+        "sha256": "61e1e9e82c927bb271c77b9910f887b2066d1b6272f1042b857033e83ed2ca36"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_pkai_acid__lam0.1__t0.1__seed5.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_pkai_acid__lam0.1__t0.1__seed5.json",
+        "sha256": "0c0277ed6557b059c3c4d21f514760ac7c1784589bdaa3de3978f9789e1dc695"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_pkai_acid__lam0.1__t0.1__seed6.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_pkai_acid__lam0.1__t0.1__seed6.json",
+        "sha256": "8b97a7716125675462e9839e8f5b6327c763aee3a7351ad08e79e2134fd72d07"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_pkai_acid__lam0.1__t0.1__seed7.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_pkai_acid__lam0.1__t0.1__seed7.json",
+        "sha256": "6465962fcd70406227fdce558ea259713b6e7ef77016bd98f0e41ed3a7c62d15"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_pkai_alk__lam0.162805__t0.1__seed0.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_pkai_alk__lam0.162805__t0.1__seed0.json",
+        "sha256": "2e6fc0a7420a34fdaef52f018af54801a7028caa428b462bf74aad4412062777"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_pkai_alk__lam0.162805__t0.1__seed1.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_pkai_alk__lam0.162805__t0.1__seed1.json",
+        "sha256": "63c9e78940cd40dd2d4fa353a81b092f05372f6863a7f441c7be99a5d5d7be35"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_pkai_alk__lam0.162805__t0.1__seed2.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_pkai_alk__lam0.162805__t0.1__seed2.json",
+        "sha256": "4762ba39d47513da507529db6b6e7213c4c5ba2315e8e0eb0868da1773f433a8"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_pkai_alk__lam0.162805__t0.1__seed3.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_pkai_alk__lam0.162805__t0.1__seed3.json",
+        "sha256": "bfe188fdfecb03cdf5eda170e687b4c8471a1bcf535f6b1e796da6f036eaa68a"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_pkai_alk__lam0.162805__t0.1__seed4.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_pkai_alk__lam0.162805__t0.1__seed4.json",
+        "sha256": "62fd6f393065096f7dd189a7f5d277c56403499b87b3c975ef79d7e1cc1bc21b"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_pkai_alk__lam0.162805__t0.1__seed5.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_pkai_alk__lam0.162805__t0.1__seed5.json",
+        "sha256": "14d3bdf270c96530c6d141137c0948e3217882c0ad7229470175165fb1ca96d3"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_pkai_alk__lam0.162805__t0.1__seed6.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_pkai_alk__lam0.162805__t0.1__seed6.json",
+        "sha256": "7249e83be130712050db34ffdab698d981288334eb2dfdc5c45220a44a36d821"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/search-ch5-2026-10-28/designs/ch5-TCR-7OW6__pka_pkai_alk__lam0.162805__t0.1__seed7.json",
+        "local": "replacement-records/ch5-TCR-7OW6__pka_pkai_alk__lam0.162805__t0.1__seed7.json",
+        "sha256": "3226928d3de62f8739cffd98f9e63f048fa255b52422e93346dfff9cc877f670"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__vanilla__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__vanilla__lam0__t0.1__seed0.json",
+        "sha256": "454102969d972e352b6fc02db866d84fc426bc8fb0700e2e45cab8a9edb76f30"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__vanilla__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__vanilla__lam0__t0.1__seed1.json",
+        "sha256": "0292237d5f7e6b371b77c556890a6cdebe521722300037b4d2ccee0b7ddade7b"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__vanilla__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__vanilla__lam0__t0.1__seed2.json",
+        "sha256": "befdf5f8f4389413cfe3ccf8ac7f06e989dab5d196f2b7bee08f6b0b3c99b927"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__vanilla__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__vanilla__lam0__t0.1__seed3.json",
+        "sha256": "401c1832cfb88f71611e95a6cf701b0d7eded833fd9ba848544384b0a975b2ca"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__vanilla__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__vanilla__lam0__t0.1__seed4.json",
+        "sha256": "c0a581a197d8a27f54647f32c55d3481bc19e6319077455c4475291eeb384b01"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__vanilla__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__vanilla__lam0__t0.1__seed5.json",
+        "sha256": "117fd3e40ef2e1dc375150217bd6e585ddb7617d30656b1a4d0cb773538ba736"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__vanilla__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__vanilla__lam0__t0.1__seed6.json",
+        "sha256": "b05736b2c9cf416ebf2b31c17910a68a6b5a3936edcecc0a6d5ed23e7b417f2c"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__vanilla__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__vanilla__lam0__t0.1__seed7.json",
+        "sha256": "04e788d9e435190deda251992b094532939bcbdfa74120c3008e28dd65222d86"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__alk__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__alk__lam0__t0.1__seed0.json",
+        "sha256": "58b0c360bba0d7f1da3b116f8deae0d3dc10051a4c53e98776919876373f2cca"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__alk__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__alk__lam0__t0.1__seed1.json",
+        "sha256": "8ade7c1fcb76e97028d707d901c875f11c6bc90d7236dc728726ad4b7f953207"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__alk__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__alk__lam0__t0.1__seed2.json",
+        "sha256": "98849806aa8d7dfc64781e54b9df434de3335b08c875d0ad281841b5dc72d759"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__alk__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__alk__lam0__t0.1__seed3.json",
+        "sha256": "1b6a4da68e6c337d694db67032b780cdc6e4031d251302dbf0f349ed12ecabab"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__alk__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__alk__lam0__t0.1__seed4.json",
+        "sha256": "6be97e1aad3e5a185ec45f85cf8c3ec9cf98d376ac6b1003516d6740faba46a1"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__alk__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__alk__lam0__t0.1__seed5.json",
+        "sha256": "b1b76386ff966342b4a061be7dec63483f96f348099a9d4371383fea0549b3c5"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__alk__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__alk__lam0__t0.1__seed6.json",
+        "sha256": "3fa5698d6f058388d173ef6381b15b1b136cad400279dc4d7581451866339559"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__alk__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__alk__lam0__t0.1__seed7.json",
+        "sha256": "ce6105c4144239495e0ba52419ae15a7035a7cc63092598288159e9e2f598233"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__acid__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__acid__lam0__t0.1__seed0.json",
+        "sha256": "b37d5749d14fd899b62daaffd31d8d3eda4dc60d8a7d54187024843bc925e2fd"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__acid__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__acid__lam0__t0.1__seed1.json",
+        "sha256": "ee7d0b122dab36704874832c282b555348201265892fab256fb2535c4f647fef"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__acid__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__acid__lam0__t0.1__seed2.json",
+        "sha256": "d2877ab7f43849a84157f90ea0a0b95ed01c6724f4e24928cef08d3595faf768"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__acid__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__acid__lam0__t0.1__seed3.json",
+        "sha256": "bf7bfac1787fc536539b95164f75684006d0a8b6434cc1dd05763ef921341129"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__acid__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__acid__lam0__t0.1__seed4.json",
+        "sha256": "fbe7e5b031b1db684bbab91793c88ec78eedc70c7f5ae548b9a87ebe61e2e0a4"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__acid__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__acid__lam0__t0.1__seed5.json",
+        "sha256": "638542ae2097eb1142d7731ab934d0170795c423b74a4b3cc8c3a22e33dccfda"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__acid__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__acid__lam0__t0.1__seed6.json",
+        "sha256": "f3e943fe66a2985c771fbcd933240b586754435f3e554d765c93e3300a8be58d"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__acid__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__acid__lam0__t0.1__seed7.json",
+        "sha256": "5c679f1821bba844dda35a3fb980f5543d8f2e9442d993d69c97e6a7838b12e3"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__gibbs0__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__gibbs0__lam0__t0.1__seed0.json",
+        "sha256": "a538629ce2f65a44db9881567014cee83d5fd0acd4e41fd25b03d8eee6d1d1f7"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__gibbs0__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__gibbs0__lam0__t0.1__seed1.json",
+        "sha256": "e4bce9236d458bffee14e65793a8731028ae12b5fb45b69e7147e1d4812fa192"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__gibbs0__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__gibbs0__lam0__t0.1__seed2.json",
+        "sha256": "c6095341eb60a8b29b3fb376cb9aaf26158a7a222be2874519cbd19dc14a087c"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__gibbs0__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__gibbs0__lam0__t0.1__seed3.json",
+        "sha256": "09757b0ad2bbf25f768edc03489f85f38706c30ad2dea7886cacad1cb80e460b"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__gibbs0__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__gibbs0__lam0__t0.1__seed4.json",
+        "sha256": "91b1430fb55c8dc3c26263ee391ed00f02644d3a543f2efcfd98ccbacac4ad67"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__gibbs0__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__gibbs0__lam0__t0.1__seed5.json",
+        "sha256": "ff1fcd5cdebdeef7848944d46ebbcf30996ce6eb16adf9c2ec0355a63bab2cb9"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__gibbs0__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__gibbs0__lam0__t0.1__seed6.json",
+        "sha256": "42d3f1f78afb3983b7d02b87a32f72603e6ecd9bf0c5e67256058b59cdd0b24a"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh001-f135-c4__gibbs0__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch1-vhh001-f135-c4__gibbs0__lam0__t0.1__seed7.json",
+        "sha256": "8cde5d65c1945de7a28e339af1eab01da06eb3d86134965ae6934bc106787bca"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__vanilla__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__vanilla__lam0__t0.1__seed0.json",
+        "sha256": "2d5e3a5e02bab25a9338d45141bd85a4dd18cde98cd1a78fccf539cac92258e5"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__vanilla__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__vanilla__lam0__t0.1__seed1.json",
+        "sha256": "f22d4a20a908e6d599960b97b4beee961d77737900454c11b99a83cf26540de7"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__vanilla__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__vanilla__lam0__t0.1__seed2.json",
+        "sha256": "671e96967ff9203af09020ad913e4ab87034242adaa92d68f33fe9c5fc8b7c3b"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__vanilla__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__vanilla__lam0__t0.1__seed3.json",
+        "sha256": "27be29ccca6418bfd5086f9fb33f1857d44884013079781487be33f3c947a10b"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__vanilla__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__vanilla__lam0__t0.1__seed4.json",
+        "sha256": "3f37d18ba4da7a4560179f406b815ff16584e23cfb63a9b9279a3cef3e3cf3f1"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__vanilla__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__vanilla__lam0__t0.1__seed5.json",
+        "sha256": "58416e7cfcc0904432575a3dfb930638436e3c845ac80863c5b9d13577f5c28f"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__vanilla__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__vanilla__lam0__t0.1__seed6.json",
+        "sha256": "1c76fc8f639c809753a9103de863a935d64a2137b09f5fb19215298d594b60b7"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__vanilla__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__vanilla__lam0__t0.1__seed7.json",
+        "sha256": "a832cb2e1879e905b422a9c5116b04d48ce894b1b1e203dba805f7a6c00b09ae"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__alk__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__alk__lam0__t0.1__seed0.json",
+        "sha256": "0b6af5aba34abdce96100c4cd040adc9ea7c70f4f2851a7c8b4e98001fb00d75"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__alk__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__alk__lam0__t0.1__seed1.json",
+        "sha256": "e1167925c780efb9145780ed98e9f15651cd08afd38b151dbaa8650ae5f632d8"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__alk__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__alk__lam0__t0.1__seed2.json",
+        "sha256": "96ac3aa7224c46725bedecf7c98ace65b2211842cc21f5086c99bb24aaea6878"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__alk__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__alk__lam0__t0.1__seed3.json",
+        "sha256": "8d3a9daa224ffd4122232c9248c70309fd85e7d32490747495089c9a112a2688"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__alk__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__alk__lam0__t0.1__seed4.json",
+        "sha256": "09e7a8a3f45b2d82f8ebb38a77eeb4a5c1b027b3beaa94e4f49e3cf6fa0a44b0"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__alk__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__alk__lam0__t0.1__seed5.json",
+        "sha256": "65574d9ed6a7754a798f5111594b070f2ee09c0e8152713715b2f97a71e22818"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__alk__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__alk__lam0__t0.1__seed6.json",
+        "sha256": "5f1cdbdcf749362a4afc9cc6bd626d2e90aaa62ba8363a8dc63fee75a0230f23"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__alk__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__alk__lam0__t0.1__seed7.json",
+        "sha256": "4ba39302287633361916f1fbac983ae947648c997a71f9382eb28aa9d1742411"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__acid__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__acid__lam0__t0.1__seed0.json",
+        "sha256": "f23efbecdaef25364def1c504463a286c59f294a099d51c80b09e9b78f067eb9"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__acid__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__acid__lam0__t0.1__seed1.json",
+        "sha256": "9f69435ce24d6ab6555c7fe9b97ef376944ce2487907bc7d19754a6a359490bb"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__acid__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__acid__lam0__t0.1__seed2.json",
+        "sha256": "8f7300d485aa01a08da6e68f207c99933ebd0830472a78df8ae2e456bcb1a2a8"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__acid__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__acid__lam0__t0.1__seed3.json",
+        "sha256": "080beedcd86a33bb166973a05e046bcc376a524243b444eab40af87fcb7ba7d1"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__acid__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__acid__lam0__t0.1__seed4.json",
+        "sha256": "1ede8b13a3520da0e0138330ef29ac08f831b3c1f680030526cd2169e3bcadd9"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__acid__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__acid__lam0__t0.1__seed5.json",
+        "sha256": "26fa578af26a9774ad1f1cfa702dce884f35043e18710f0eef6304e31868307f"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__acid__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__acid__lam0__t0.1__seed6.json",
+        "sha256": "fb11e8d0229c67c2a9364759cc9c815007754cefedd2e36a533c4477d2c63e67"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__acid__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__acid__lam0__t0.1__seed7.json",
+        "sha256": "e4185a761185e07a560562ccfe569c3062f1c483f6b7eb94ab42d4f0b5452ed0"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__gibbs0__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__gibbs0__lam0__t0.1__seed0.json",
+        "sha256": "3e2983ecbb58b3335601b5599f28c7b3bd99dd5aaff56d4daa23404a3d3e11f2"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__gibbs0__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__gibbs0__lam0__t0.1__seed1.json",
+        "sha256": "958a7a2f8091aa6a5269e8c530f1694f6ffdaf88b0505d95e065c21d526fc998"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__gibbs0__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__gibbs0__lam0__t0.1__seed2.json",
+        "sha256": "6a491edd27c7050bbd39d14299d165f7a124547073530626e93636e7cefae18e"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__gibbs0__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__gibbs0__lam0__t0.1__seed3.json",
+        "sha256": "3bed2b87a1ee85256c9d7d07aa1afe8121cc413acd70d8a65b5f5239de5434af"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__gibbs0__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__gibbs0__lam0__t0.1__seed4.json",
+        "sha256": "381db85be872f38f37089a0d211195e537ecb0bf615c4202eb13fa224825dd70"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__gibbs0__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__gibbs0__lam0__t0.1__seed5.json",
+        "sha256": "6050a24994c73faa4867eb90aed0c647450e8460051aa730ad3914bfd8525e20"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__gibbs0__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__gibbs0__lam0__t0.1__seed6.json",
+        "sha256": "ac1588822843acdcf078557e62c34b0f679eeeab3a25ad2a8e472aea0abee992"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch1-vhh021-f58722-c31__gibbs0__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch1-vhh021-f58722-c31__gibbs0__lam0__t0.1__seed7.json",
+        "sha256": "4796eca005fe6c4affac411590ffc00d50afd48ad8ec16cee866ab54e5988a55"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__vanilla__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__vanilla__lam0__t0.1__seed0.json",
+        "sha256": "77dd5f65383942e4bcc49e85865894775defd96d9db1386c53463580d72bd226"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__vanilla__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__vanilla__lam0__t0.1__seed1.json",
+        "sha256": "bce66831717ef4e64838daa525e08252ed2255dfdf2b834724b344bbaef131ec"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__vanilla__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__vanilla__lam0__t0.1__seed2.json",
+        "sha256": "488b541a89ee5d32b10f53c9f56479b4cf57496e37e1508a57bf474d72781a49"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__vanilla__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__vanilla__lam0__t0.1__seed3.json",
+        "sha256": "53be77d37ee16c1f21c02502229e0ecc7178c4770a4fee280027e0a2dcfd3aaa"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__vanilla__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__vanilla__lam0__t0.1__seed4.json",
+        "sha256": "47f7efa6cef64d2cb15e45adf9dda98decbe0f23b395457aec6fe300039e7d39"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__vanilla__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__vanilla__lam0__t0.1__seed5.json",
+        "sha256": "7a89e8f1fafa465516717b71733b3ce144717c025444dd24deca2ff7ab65cadf"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__vanilla__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__vanilla__lam0__t0.1__seed6.json",
+        "sha256": "683a25231564a7faa9cfc45136ef2103b59dcac8704cf270d25d1a042fa9ce64"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__vanilla__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__vanilla__lam0__t0.1__seed7.json",
+        "sha256": "5172d97f6c7ac57a5badbaeba9e87c91b008178b6e745d7383e4d99b086634da"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__alk__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__alk__lam0__t0.1__seed0.json",
+        "sha256": "979f2d6849068bdd7cb31d71a7f6a45609a475a7d4791f6c7892e77f5b239535"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__alk__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__alk__lam0__t0.1__seed1.json",
+        "sha256": "aacb5ff9fc0b4462c2c45f29e59dfe490a8e65c7fa0ff9477e63828876f4e6cb"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__alk__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__alk__lam0__t0.1__seed2.json",
+        "sha256": "9c8982ae00d23d9cb3c28df3960c30edb93ebc41225330c9e477c8ed91d6b6ed"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__alk__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__alk__lam0__t0.1__seed3.json",
+        "sha256": "d58c297062d8f951cf0eecf811b7c8bf903f80d393cd7523eeade83199a383cc"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__alk__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__alk__lam0__t0.1__seed4.json",
+        "sha256": "fc3ca629637b38921d2ee2324dad1afd933581d08aca033581607613badb98a7"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__alk__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__alk__lam0__t0.1__seed5.json",
+        "sha256": "64bce39e14aca273b7c9c85951b6a2ae67a6a9828f25c15c884036e5b9de4e64"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__alk__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__alk__lam0__t0.1__seed6.json",
+        "sha256": "9eb5337064f08e1e7f9aa0e2ae02391e0683a5703b06daf690b72223752960cf"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__alk__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__alk__lam0__t0.1__seed7.json",
+        "sha256": "4ce83fe18954b3d9719ceec8721f933aaceb270fe4539c15c5ae1be1528a7c50"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__acid__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__acid__lam0__t0.1__seed0.json",
+        "sha256": "68239f90f6be3c27fdac954ae00e604035fb247811dbe530a243c4e3f193d607"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__acid__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__acid__lam0__t0.1__seed1.json",
+        "sha256": "e8ff0d9f05364e830b4e0ac451f96f4b4f8c53e20cc946970513babe43754781"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__acid__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__acid__lam0__t0.1__seed2.json",
+        "sha256": "567d5f0f552d6e28528ab3c86e77215371c658a7533e1bd5e92cabf2580c56bb"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__acid__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__acid__lam0__t0.1__seed3.json",
+        "sha256": "2bdd452749c485e872b327f273b5071891b5852d9c91180de10f42497413f2b2"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__acid__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__acid__lam0__t0.1__seed4.json",
+        "sha256": "231e5e76b4768828487c1b32ceb6c00dfffd57e5af8020a5c75c63a97704fcfd"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__acid__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__acid__lam0__t0.1__seed5.json",
+        "sha256": "6856cbe0472973c7f39cc429d18a43d39dda086dcb27d89057f9c8db7dc5e81f"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__acid__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__acid__lam0__t0.1__seed6.json",
+        "sha256": "7f491eac522c04cab84e939df1aa71aa697e1c089bd6a3de264ba2a6f75f947b"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__acid__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__acid__lam0__t0.1__seed7.json",
+        "sha256": "c9769d6e3fede8f63dcb2f1cb22b58d696bb249e88a5457b81e56b04c59020f8"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__gibbs0__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__gibbs0__lam0__t0.1__seed0.json",
+        "sha256": "0a2fd9dc315753efb2032140d7e552a424b7d0000d0cb80f660916b7db65ebab"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__gibbs0__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__gibbs0__lam0__t0.1__seed1.json",
+        "sha256": "cd7c7e8370f94d032fea865a0ccb182aa338ba93dfb440d09bf8b0fb1c95b96b"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__gibbs0__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__gibbs0__lam0__t0.1__seed2.json",
+        "sha256": "0384b461a142ae8a55889c08bac435fbdf46be6dc9e129d8745262cc48a4bc17"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__gibbs0__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__gibbs0__lam0__t0.1__seed3.json",
+        "sha256": "4215ca53298ce3e105d46fa7547d38096b26d8e615b809d49d68564bf5e53ee5"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__gibbs0__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__gibbs0__lam0__t0.1__seed4.json",
+        "sha256": "1bf38cf548fd67bb260e1b8f15f493ef38bfd297fb327f6d27202ca8efc2a8fc"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__gibbs0__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__gibbs0__lam0__t0.1__seed5.json",
+        "sha256": "4e08ba985e655cad65ae58af854043254175a4615a0adc8c112ae434af09605c"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__gibbs0__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__gibbs0__lam0__t0.1__seed6.json",
+        "sha256": "50005316fbf63677bb6b69f0b38f1c292ac5d564a86e4d5eb39b01ca51ddc90b"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch2-T2-N28-SA5022-SX5__gibbs0__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch2-T2-N28-SA5022-SX5__gibbs0__lam0__t0.1__seed7.json",
+        "sha256": "799da7cfa017b96a037b83abd3fa05ed5806152a37795f3def7c2c2c1a35b068"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__vanilla__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__vanilla__lam0__t0.1__seed0.json",
+        "sha256": "f1350b3312ee326d1a90f48f149a76dd0122533919b2ad26bdd5081ef301f097"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__vanilla__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__vanilla__lam0__t0.1__seed1.json",
+        "sha256": "77dc9d25e7c8a63fe74cdb3f646b6e184e23dc9a4c2aa8c76fd6ae906d7ac414"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__vanilla__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__vanilla__lam0__t0.1__seed2.json",
+        "sha256": "51fd572a790d2b9d4361e2a68f6e06da91db24eab8b3204c5bc7d708a5b34b64"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__vanilla__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__vanilla__lam0__t0.1__seed3.json",
+        "sha256": "c38a566300eba3552e4ed05472a8645a9d6f4fd37e1cfed8e356e7715785b95f"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__vanilla__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__vanilla__lam0__t0.1__seed4.json",
+        "sha256": "e7e11884714a28aa6ef86d66b375687471c1fba63609d55ec1119d8443881cec"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__vanilla__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__vanilla__lam0__t0.1__seed5.json",
+        "sha256": "ff54ed9cac1918fe1849d658c45d0c9c7428f891300458ab592ab6e6768e2cd0"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__vanilla__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__vanilla__lam0__t0.1__seed6.json",
+        "sha256": "c5a8d14c65be655ba3b875763e26ec6859f18e9dd3d5757298e1f25dca52713d"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__vanilla__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__vanilla__lam0__t0.1__seed7.json",
+        "sha256": "eb25ef77ebc1365420a3aabf560a9fdbe6722607c96f4056c38049ff012e7dd2"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__alk__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__alk__lam0__t0.1__seed0.json",
+        "sha256": "d70db7b2b9069e311529610e3edd13d0066161545c8696201a20665645e7b7c8"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__alk__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__alk__lam0__t0.1__seed1.json",
+        "sha256": "93f83c5601de67e31fb6753b28f1990cca224621f0015c228c3eb7c45d4c000a"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__alk__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__alk__lam0__t0.1__seed2.json",
+        "sha256": "e017edd56ad8c99ed06e64bfc3257faf6e28aa06623ae4ca2f3481cee0ab17a4"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__alk__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__alk__lam0__t0.1__seed3.json",
+        "sha256": "6e386792cedfc5b1e8387b58a89e7be73e6da0093fda0451022804c6d9f9faed"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__alk__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__alk__lam0__t0.1__seed4.json",
+        "sha256": "ed4666608f403500ae5079f315f3610ebe9e98c521328bbd33d5b0407f66eb94"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__alk__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__alk__lam0__t0.1__seed5.json",
+        "sha256": "ffd11400edfedc52f13564a47e8c83f8e8666eb7093ec8135d74d46595bcf308"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__alk__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__alk__lam0__t0.1__seed6.json",
+        "sha256": "fc2b5ac3de4ce7bb9773a1dd9ff6d76d6b6dd7c27cda2cb496a404c9d510b5c2"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__alk__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__alk__lam0__t0.1__seed7.json",
+        "sha256": "47adfed1d60f4b380058c0ab4596e7cc3813de9fb4afc23635896de0345ed38a"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__acid__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__acid__lam0__t0.1__seed0.json",
+        "sha256": "a5ccfba42b29cd0c86efd3270af9dc4e0763cd04c187cd59c52f7fe9dba68f34"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__acid__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__acid__lam0__t0.1__seed1.json",
+        "sha256": "a44b47045753825bebf526a1e251610bb84e3c6867c1bfac0a1e9b42e93c93e5"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__acid__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__acid__lam0__t0.1__seed2.json",
+        "sha256": "50984b620bb9250d2c789404d9ae8ad52684f58dedaa8f8a25054517fe2296aa"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__acid__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__acid__lam0__t0.1__seed3.json",
+        "sha256": "455a77162e4d7f24a517d8f16a71a82ab305837bfa5acb62b84d4625e479ff63"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__acid__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__acid__lam0__t0.1__seed4.json",
+        "sha256": "0a534d191205e99d892009573899e854ac52b6e7fd1a35a84e7aead4486bf7ec"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__acid__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__acid__lam0__t0.1__seed5.json",
+        "sha256": "f1bfec5d1144a5828281e10aa998258552277cf1428488abca161db8475b600d"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__acid__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__acid__lam0__t0.1__seed6.json",
+        "sha256": "0e426cb7329afbfe26381ca76e1786961d00f3b8d21a05cc24e8a468af6038f2"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__acid__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__acid__lam0__t0.1__seed7.json",
+        "sha256": "234138b1251dd93a78e3aadec481cf66957510f84bd5f105967324e4197ed82c"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__gibbs0__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__gibbs0__lam0__t0.1__seed0.json",
+        "sha256": "6f2a8c642386a1c06e8dd92a68ce6f99659c3723a0ebb3a2301b14de92c1b952"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__gibbs0__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__gibbs0__lam0__t0.1__seed1.json",
+        "sha256": "750651eeaa14cd2eb73695ab183dd18decb4ea3eaa5ba877663b410e1513e19e"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__gibbs0__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__gibbs0__lam0__t0.1__seed2.json",
+        "sha256": "8c0f4cb0bf52e47cfeac91bbf87638cb2fdc774806e04a01cb144ced797f1d0f"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__gibbs0__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__gibbs0__lam0__t0.1__seed3.json",
+        "sha256": "e10b2e0f02f6cdc37501aaf8348476780c9e211370467ddc179d33c644335c94"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__gibbs0__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__gibbs0__lam0__t0.1__seed4.json",
+        "sha256": "ff33f102b4c9e4c6f4219dd0cd3fa5fc80f6d818ebf533bad1a821d14be67bf8"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__gibbs0__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__gibbs0__lam0__t0.1__seed5.json",
+        "sha256": "47f32a5cef36a5ffd39d05266cd2e1b4518714b839ec7ff70a0a754efa766040"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__gibbs0__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__gibbs0__lam0__t0.1__seed6.json",
+        "sha256": "c6ac3d7c80a99682d87d9370fa212c98a9bd7a367ff37b614e4756df42aa4767"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-018-back-helix-loop__gibbs0__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch3-018-back-helix-loop__gibbs0__lam0__t0.1__seed7.json",
+        "sha256": "219f716fbe638178efb9eae9c2dbec49f4f10635a8c4849ecb909a29310f3c82"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__vanilla__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__vanilla__lam0__t0.1__seed0.json",
+        "sha256": "e30334ef5952092e77d709e337fa72c17b8d9bf5ddb11f8d2c6941631ecea7d2"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__vanilla__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__vanilla__lam0__t0.1__seed1.json",
+        "sha256": "593b3e87ab0ef17221ccfd84f23622fbfec21ccbaa065044c6eac035e9cc20a8"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__vanilla__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__vanilla__lam0__t0.1__seed2.json",
+        "sha256": "8c071c57b6e5a176a1812938787ee769dc9a0de3b697ffd740cd1a5c566f3368"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__vanilla__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__vanilla__lam0__t0.1__seed3.json",
+        "sha256": "e540911ddde90b6835ba451a1a2cb40dc5a3955c4f6da19101c8a6037e7f2251"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__vanilla__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__vanilla__lam0__t0.1__seed4.json",
+        "sha256": "f6fcbd60b0118b6c192f9417b92e18db828a450c76e3acdaeb649b07c7519215"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__vanilla__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__vanilla__lam0__t0.1__seed5.json",
+        "sha256": "1587426c88c2b347c61869f1dd777f0484882f4807cb25f63eca49fdb7b9913f"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__vanilla__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__vanilla__lam0__t0.1__seed6.json",
+        "sha256": "c8f122590b6fd88c9c16baf1bdf8b804b01214f761db56ad1a06224b9a3989bc"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__vanilla__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__vanilla__lam0__t0.1__seed7.json",
+        "sha256": "79d3231dc7e9c36e03f90cad632ca9238d84c25b9bca57da7833b29dba1e96df"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__alk__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__alk__lam0__t0.1__seed0.json",
+        "sha256": "cff98bacfa0ff4a6c6c2e1b1834f6fd69a320d7f786c17d26ee2da1f6eb04735"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__alk__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__alk__lam0__t0.1__seed1.json",
+        "sha256": "48d017b7e43fe34d2ffb5641d5f51d82f3163c67dbd31c9b8c4da577ba57df60"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__alk__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__alk__lam0__t0.1__seed2.json",
+        "sha256": "fe5667c7a5afd18ee8bd714decb766b886cd101278b36a9f068fd81a9049683e"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__alk__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__alk__lam0__t0.1__seed3.json",
+        "sha256": "0f95c82db3fdb73abf092cab515b11994205ab260f0420c67c3196d74569ab74"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__alk__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__alk__lam0__t0.1__seed4.json",
+        "sha256": "4eb57e26ed4e0109dbf6ba8ab69fb37c395e735013db7b0d1d5e8f0b0fd66071"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__alk__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__alk__lam0__t0.1__seed5.json",
+        "sha256": "6c9c402f6f3cc7be18b91365b2b18acf7a48d1af7a359bd27d0d125dcf3052d9"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__alk__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__alk__lam0__t0.1__seed6.json",
+        "sha256": "c85127893f725977d9345cbee8358116b6ad75202d6c6c1f4777cdc099166459"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__alk__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__alk__lam0__t0.1__seed7.json",
+        "sha256": "8b391943f392430f53127de061718b58db501ed2be5f21fd1e0a37afef20a8dd"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__acid__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__acid__lam0__t0.1__seed0.json",
+        "sha256": "a06f37a2dda528acca66427abe97a521ccdbbe35e1a3034e150fced3362564e7"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__acid__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__acid__lam0__t0.1__seed1.json",
+        "sha256": "214b93645a9361d9cc2c3f425a065ac998038263c8c6c4db01a33f99c0e3f3a1"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__acid__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__acid__lam0__t0.1__seed2.json",
+        "sha256": "fc05b0f21171f067cd596fc56ed52968f01915653652f4c8e9038b163ba0a6f9"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__acid__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__acid__lam0__t0.1__seed3.json",
+        "sha256": "83ff14977e952991bce3652c8f481ecb3a2efff5e6af1089d6fd5e6b3765cb62"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__acid__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__acid__lam0__t0.1__seed4.json",
+        "sha256": "2f2e78c1b3166661c6ad367f71fc5eec89493652edc5dc584fd52ae2ebd3b4d5"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__acid__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__acid__lam0__t0.1__seed5.json",
+        "sha256": "79447864bfe219337f206cc418d2bd9e1aebfe4257c60cc6788d5dc92c4f74ec"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__acid__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__acid__lam0__t0.1__seed6.json",
+        "sha256": "2aabe7fe6f82d535df2b04371809981095349aff30c03e851c616ed6852cd1dc"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__acid__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__acid__lam0__t0.1__seed7.json",
+        "sha256": "e99de93d50f196a5b6032a82a3362899915ebdbdcff5d8238fe1baba70b82539"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__gibbs0__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__gibbs0__lam0__t0.1__seed0.json",
+        "sha256": "a6b03cb32c5a22943d1ddef277407d924ed19d24ed4c83b49288781293dcbe7a"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__gibbs0__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__gibbs0__lam0__t0.1__seed1.json",
+        "sha256": "2c768b215427d36470038d31c1d5a16b3e3f14d7cd01c5f99c10db49af80983c"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__gibbs0__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__gibbs0__lam0__t0.1__seed2.json",
+        "sha256": "7f1e9295c5210cd6472c1a93aadffe11ea43ec49b077ddd1f45c97c538bdfa69"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__gibbs0__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__gibbs0__lam0__t0.1__seed3.json",
+        "sha256": "b2cf3f6dbbdd90dc16b5ca22a21f2455368cb76c883e189c66655aca3872ed36"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__gibbs0__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__gibbs0__lam0__t0.1__seed4.json",
+        "sha256": "92b2aa33a703d989bfdbc385f396178f4ee595609eba517e85266f50627d3167"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__gibbs0__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__gibbs0__lam0__t0.1__seed5.json",
+        "sha256": "24b137f56602020e0aad59c9a7bfce7a404f629f90caa98fe9f22c7577653e51"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__gibbs0__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__gibbs0__lam0__t0.1__seed6.json",
+        "sha256": "b25aa454c18974e1bd33172f6b39cf9d9f008f8fa2fbbe829b5d4aae70ad0f36"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch3-023-gfp-vhh__gibbs0__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch3-023-gfp-vhh__gibbs0__lam0__t0.1__seed7.json",
+        "sha256": "d5cd234d3888c6307f08aa99a9cf761c203199a69e73604cb4a40ef2114532ee"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__vanilla__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch5-TCR-7OW6__vanilla__lam0__t0.1__seed0.json",
+        "sha256": "4dbb363c48f4425c3e854393b543a388d5939f3134d2ce0c992a98f1849b57b0"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__vanilla__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch5-TCR-7OW6__vanilla__lam0__t0.1__seed1.json",
+        "sha256": "ff6c35896503d317be1c89206039d4d56e460da398902674cf6a24f626479459"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__vanilla__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch5-TCR-7OW6__vanilla__lam0__t0.1__seed2.json",
+        "sha256": "9d6bf74ece97db4800f3ad6770e49c48d2150c9477899d82ce336f79b9cf4792"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__vanilla__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch5-TCR-7OW6__vanilla__lam0__t0.1__seed3.json",
+        "sha256": "b5a27dd9591b3130bdff899ec76f4b198fe7d1e540b0c20fcbc9225ca35d432d"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__vanilla__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch5-TCR-7OW6__vanilla__lam0__t0.1__seed4.json",
+        "sha256": "f67d183128301491233cad9a58e7143d18459a9c82aebbd7722a3a1b7314b35c"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__vanilla__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch5-TCR-7OW6__vanilla__lam0__t0.1__seed5.json",
+        "sha256": "c911b9d9f72b711bc922eb11edc8a1bde0a50adec668ee19db47d9d1493a1543"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__vanilla__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch5-TCR-7OW6__vanilla__lam0__t0.1__seed6.json",
+        "sha256": "5b8dee0593989b30aabd5f1d1b62346db6858c6528b1435e03aac9ced384b500"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__vanilla__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch5-TCR-7OW6__vanilla__lam0__t0.1__seed7.json",
+        "sha256": "7ae9cce799a0100d166159076706a6caa27adcf25ac4a7af96331b7b24be1855"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__alk__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch5-TCR-7OW6__alk__lam0__t0.1__seed0.json",
+        "sha256": "9e92588678771f96e9a03ec67257d78e0d13b833a893a3bef735a182b86e68bb"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__alk__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch5-TCR-7OW6__alk__lam0__t0.1__seed1.json",
+        "sha256": "3ab8f3006ddf664b5111bed9c8a2d556613910ebaafb053d361daba16546558a"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__alk__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch5-TCR-7OW6__alk__lam0__t0.1__seed2.json",
+        "sha256": "eebb3936087e589e95e49efb9396af9fa1e09ba7fb70599f78910515ff1f03db"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__alk__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch5-TCR-7OW6__alk__lam0__t0.1__seed3.json",
+        "sha256": "234530b99e59b7ceeca3fd51e4880f0570d184aaefb7cac7bfd4e7450f9547f0"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__alk__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch5-TCR-7OW6__alk__lam0__t0.1__seed4.json",
+        "sha256": "f09f48d965435514b5f09da4a79fa7c9441c42fa02ad4b76788be194d3cd73de"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__alk__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch5-TCR-7OW6__alk__lam0__t0.1__seed5.json",
+        "sha256": "bdd91d6475629e1599932f0fd422155654a5637f7936a2b7cbc9b73ee215f6b4"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__alk__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch5-TCR-7OW6__alk__lam0__t0.1__seed6.json",
+        "sha256": "e4628c6d35c932816b2e2ae1857daa7a9d6d8f7e067f347054ab44926068c629"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__alk__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch5-TCR-7OW6__alk__lam0__t0.1__seed7.json",
+        "sha256": "9873ee0e9acceb0245079d9bd3dee1638ba30d291638c11f0f0abc4d944d5e1f"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__acid__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch5-TCR-7OW6__acid__lam0__t0.1__seed0.json",
+        "sha256": "78c32a34422e881856ec393737fcb0abf2e8fee6942098d85ad1bc30f8abd74c"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__acid__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch5-TCR-7OW6__acid__lam0__t0.1__seed1.json",
+        "sha256": "4d39514654f9e355d5991193ec098ed8162110a8686fa5f241ed6b3b98d01e59"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__acid__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch5-TCR-7OW6__acid__lam0__t0.1__seed2.json",
+        "sha256": "ed5163ce40c5d01dd1284ef4b29b63f9f485d73c808d64c647b34196883c3a48"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__acid__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch5-TCR-7OW6__acid__lam0__t0.1__seed3.json",
+        "sha256": "72d2441010bca3847de22e98bf6fbfc8ea0cfd24ac81217eebf23f48b8b7ceb7"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__acid__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch5-TCR-7OW6__acid__lam0__t0.1__seed4.json",
+        "sha256": "65e89ed1e848c88d4459a5654c2283b688174d8ff2ba3c5950f9ff939d7c3dd3"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__acid__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch5-TCR-7OW6__acid__lam0__t0.1__seed5.json",
+        "sha256": "136804adeac538615e0ebb8471e795906c3eb6c129928e1e06a396af802df8ac"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__acid__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch5-TCR-7OW6__acid__lam0__t0.1__seed6.json",
+        "sha256": "103a4b32e2b0907ccbae52c94abcd1ed0c0901f145676907968d4cb3e4b6e024"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__acid__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch5-TCR-7OW6__acid__lam0__t0.1__seed7.json",
+        "sha256": "5658188553b0c937e34c31ec70b2bafd8a99f30f233537529f0e2287c960a513"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__gibbs0__lam0__t0.1__seed0.json",
+        "local": "replacement-records/ch5-TCR-7OW6__gibbs0__lam0__t0.1__seed0.json",
+        "sha256": "3744367c4e2492c42092e3a420939ab0baa59cbb76a5d981b7c0c95fc9b0532f"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__gibbs0__lam0__t0.1__seed1.json",
+        "local": "replacement-records/ch5-TCR-7OW6__gibbs0__lam0__t0.1__seed1.json",
+        "sha256": "5f7e4143c4da166d2bf75b5432d6099f45fd89ba4a5742bee06cc681b04bf6c4"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__gibbs0__lam0__t0.1__seed2.json",
+        "local": "replacement-records/ch5-TCR-7OW6__gibbs0__lam0__t0.1__seed2.json",
+        "sha256": "22c8760f8fbd2a95086586226f4d48495f08b7707e44e607461f3ad2f8871615"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__gibbs0__lam0__t0.1__seed3.json",
+        "local": "replacement-records/ch5-TCR-7OW6__gibbs0__lam0__t0.1__seed3.json",
+        "sha256": "92c52793a444ffb16fbe48f816ba221f42467a591a81b04f24eeb5ff990eee62"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__gibbs0__lam0__t0.1__seed4.json",
+        "local": "replacement-records/ch5-TCR-7OW6__gibbs0__lam0__t0.1__seed4.json",
+        "sha256": "5b6ebd60471e55415a05557113be57310f55b8afca6d0166c5e913317d9d3635"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__gibbs0__lam0__t0.1__seed5.json",
+        "local": "replacement-records/ch5-TCR-7OW6__gibbs0__lam0__t0.1__seed5.json",
+        "sha256": "8240353aad0281b914218588adfff5d90eed28ebc50ab10a09513a3e89a7ec1f"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__gibbs0__lam0__t0.1__seed6.json",
+        "local": "replacement-records/ch5-TCR-7OW6__gibbs0__lam0__t0.1__seed6.json",
+        "sha256": "59509c4d2426ace91c2cf074bfbda7aa5a4038d0cfd9eccdbea04ea3a0b6744f"
+      },
+      {
+        "path": "027-extremophile-vs-pka-surface/anchors-all-2026-10-28/designs/ch5-TCR-7OW6__gibbs0__lam0__t0.1__seed7.json",
+        "local": "replacement-records/ch5-TCR-7OW6__gibbs0__lam0__t0.1__seed7.json",
+        "sha256": "c2d130c53e19ac7ebc3f8d90d647326568e3d39a70705cfff01924a7ca9b8c06"
+      }
+    ]
+  },
+  "replacement_plotting_code_sha256": "ac5d404836ea3c9c29850631e8811dfe8f8c90a8475154cd98ae0192c1f36770"
+}

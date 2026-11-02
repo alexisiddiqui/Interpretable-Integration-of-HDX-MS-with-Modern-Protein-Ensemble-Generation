@@ -1,0 +1,30 @@
+{
+  "source_repository": "/Users/alexi/Documents/opig-adaptyv-2026",
+  "source_commit": "f54c6d0505da5217b35c307a9a2edf3101b8e5dd",
+  "inputs": [
+    {
+      "source": "/Users/alexi/Documents/opig-adaptyv-2026/experiments/027-extremophile-vs-pka-surface/results/analysis.json",
+      "staged": ".experiments/opig-adaptyv-027/inputs/analysis.json",
+      "bytes": 1243028,
+      "sha256": "251bae121e4db2efea3a27b3775f261241bd86b6231c4e12029ad367ec0760e2"
+    },
+    {
+      "source": "/Users/alexi/Documents/opig-adaptyv-2026/experiments/027-extremophile-vs-pka-surface/results/fold-check-foldcheck-2026-10-28.json",
+      "staged": ".experiments/opig-adaptyv-027/inputs/fold-check-foldcheck-2026-10-28.json",
+      "bytes": 260830,
+      "sha256": "1d04744c9502dd2674aae5aa85709e911dce83f9ab2f50242855e8602c8815c9"
+    }
+  ],
+  "dependencies": {
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1"
+  },
+  "plotting_code_sha256": "e71b1249dd7c852b441bc0fa813d39d5481879f2aedcba4c6c80bc68bb3fc954",
+  "build_command": "python figures/jaxka-extremophile-monomer-refolding/make.py",
+  "output_sha256": {
+    "fig.pdf": "c4cdf26b30bf19569e85b67be2491698276910312c3d397ea920a78a7897e40e",
+    "fig.svg": "9b70f95f6989cc50ced3eeaca9cdf7a8d7412229472bab540a9893adb2f8e88c",
+    "fig.png": "6bbbc055e875e6914730e84a6b38b598c1e2a33b8d7e8619bac19534bcdf5389"
+  }
+}

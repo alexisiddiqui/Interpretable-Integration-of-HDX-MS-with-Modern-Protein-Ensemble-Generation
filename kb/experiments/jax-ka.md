@@ -2,12 +2,35 @@
 project: jax-ka
 local_repositories:
   - projects/4-jax-Ka/code
+  - /Users/alexi/Documents/opig-adaptyv-2026
 locations:
   - machine: isambard
     root: /scratch/u6xq/hussain.u6xq
   - machine: coulson
     root: /u/oc/lina4225
 experiments:
+  - id: opig-adaptyv-027
+    question: How do extremophile fine-tuning and pKa steering differ in surface chemistry, complex confidence and predicted pH-selective binding?
+    locations:
+      - machine: local
+        root: /Users/alexi/Documents/opig-adaptyv-2026/experiments/027-extremophile-vs-pka-surface
+        runs: [results]
+      - machine: modal
+        root: opig-design-runs:027-extremophile-vs-pka-surface
+        runs: [anchors-all-2026-10-28, anchors-target-2026-10-28, search-target-2026-10-28, complexcheck-target-2026-10-28, select-2026-10-29, selectcheck-2026-10-29, select-yield-2026-10-29, selectcheck-yield-2026-10-30]
+    authoritative_location: modal
+    status_command: /Users/alexi/Documents/opig-adaptyv-2026/.venv/bin/modal volume ls opig-design-runs 027-extremophile-vs-pka-surface --json
+    artifacts:
+      - results/analysis.json
+      - results/fold-check-foldcheck-2026-10-28.json
+      - results/fold-check-complexcheck-target-2026-10-28.json
+      - results/selectivity-sweep-select-2026-10-29.json
+      - results/selectivity-sweep-select-yield-2026-10-29.json
+      - results/fold-check-selectcheck-2026-10-29.json
+      - results/fold-check-selectcheck-yield-2026-10-30.json
+      - results/binding-ph-bindingph-select-2026-10-29.json
+      - results/binding-ph-bindingph-yield-2026-10-30.json
+    figures: [jaxka-extremophile-overlap, jaxka-extremophile-chemistry, jaxka-extremophile-complex-confidence, jaxka-complex-linkage-selectivity, jaxka-extremophile-monomer-refolding]
   - id: jaxka-training
     question: null
     locations:
@@ -90,6 +113,8 @@ experiments:
 # jax-Ka experiments
 
 Training is on isambard and data cleaning is on Coulson-Chemistry. Access requirements are recorded in [machines.yaml](machines.yaml).
+
+[Experiment 027](027-extremophile-vs-pka-surface.md) compares extremophile fine-tuning with pKa surface steering at matched charge changes, then tests complex confidence and predicted pH-selective binding with target context. The note records the three result arguments, the online mutation-ranking consequence and the data for the proposed figures. Its source runs are in the local `opig-adaptyv-2026` repository.
 
 Observed 2026-10-29.
 

@@ -1,0 +1,54 @@
+{
+  "source_repository": "/Users/alexi/Documents/opig-adaptyv-2026",
+  "source_commit": "f54c6d0505da5217b35c307a9a2edf3101b8e5dd",
+  "inputs": [
+    {
+      "source": "/Users/alexi/Documents/opig-adaptyv-2026/experiments/027-extremophile-vs-pka-surface/results/selectivity-sweep-select-2026-10-29.json",
+      "staged": ".experiments/opig-adaptyv-027/inputs/selectivity-sweep-select-2026-10-29.json",
+      "bytes": 1769,
+      "sha256": "0855394a7a6f8b2d35b3ed3b8b6fb84b0b32582e0568c3676ef05314ac87f933"
+    },
+    {
+      "source": "/Users/alexi/Documents/opig-adaptyv-2026/experiments/027-extremophile-vs-pka-surface/results/selectivity-sweep-select-yield-2026-10-29.json",
+      "staged": ".experiments/opig-adaptyv-027/inputs/selectivity-sweep-select-yield-2026-10-29.json",
+      "bytes": 674,
+      "sha256": "790e45b0f6f57ef80aa707f0507e637ce875509fcc6ff9e95aa79d28db5ddc89"
+    },
+    {
+      "source": "/Users/alexi/Documents/opig-adaptyv-2026/experiments/027-extremophile-vs-pka-surface/results/fold-check-selectcheck-2026-10-29.json",
+      "staged": ".experiments/opig-adaptyv-027/inputs/fold-check-selectcheck-2026-10-29.json",
+      "bytes": 48844,
+      "sha256": "8e6f76163a6a3e13d588ccde6d9bc6268f460126f47e58612a24b93d58943e4f"
+    },
+    {
+      "source": "/Users/alexi/Documents/opig-adaptyv-2026/experiments/027-extremophile-vs-pka-surface/results/fold-check-selectcheck-yield-2026-10-30.json",
+      "staged": ".experiments/opig-adaptyv-027/inputs/fold-check-selectcheck-yield-2026-10-30.json",
+      "bytes": 40299,
+      "sha256": "db0449041ada793791f089f99753f2137f8a5d9086cfd00e04254ab94be18a90"
+    },
+    {
+      "source": "/Users/alexi/Documents/opig-adaptyv-2026/experiments/027-extremophile-vs-pka-surface/results/binding-ph-bindingph-select-2026-10-29.json",
+      "staged": ".experiments/opig-adaptyv-027/inputs/binding-ph-bindingph-select-2026-10-29.json",
+      "bytes": 952052,
+      "sha256": "80ea1d238b95ce5cee1b0fadeb1290de610fd3b0f90a951b30c2e6cb9cd1c5fa"
+    },
+    {
+      "source": "/Users/alexi/Documents/opig-adaptyv-2026/experiments/027-extremophile-vs-pka-surface/results/binding-ph-bindingph-yield-2026-10-30.json",
+      "staged": ".experiments/opig-adaptyv-027/inputs/binding-ph-bindingph-yield-2026-10-30.json",
+      "bytes": 79056,
+      "sha256": "c86613f750f988d1f3d7163312a83f52a93e8c38511ee0f453c09e9c0977975c"
+    }
+  ],
+  "dependencies": {
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1"
+  },
+  "plotting_code_sha256": "e71b1249dd7c852b441bc0fa813d39d5481879f2aedcba4c6c80bc68bb3fc954",
+  "build_command": "python figures/jaxka-complex-linkage-selectivity/make.py",
+  "output_sha256": {
+    "fig.pdf": "e450f7a48c3c20fd7cebac565032608a801961420038363f14388d68a1468c34",
+    "fig.svg": "6a53dc6052130156246b1f17a8c9c0e4d439a99b30b657f35d81201a4efea672",
+    "fig.png": "b17f690fc4df403e19033d49c3190f6766cb05ecf6d55888a094185dd6ce72d9"
+  }
+}

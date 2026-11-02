@@ -1,0 +1,24 @@
+{
+  "source_repository": "/Users/alexi/Documents/opig-adaptyv-2026",
+  "source_commit": "f54c6d0505da5217b35c307a9a2edf3101b8e5dd",
+  "inputs": [
+    {
+      "source": "/Users/alexi/Documents/opig-adaptyv-2026/experiments/027-extremophile-vs-pka-surface/results/fold-check-complexcheck-target-2026-10-28.json",
+      "staged": ".experiments/opig-adaptyv-027/inputs/fold-check-complexcheck-target-2026-10-28.json",
+      "bytes": 870926,
+      "sha256": "f88ec18bdc85cc8979cdd74150b621ad507dd62353644c36081c23be8f51a7bb"
+    }
+  ],
+  "dependencies": {
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1"
+  },
+  "plotting_code_sha256": "e71b1249dd7c852b441bc0fa813d39d5481879f2aedcba4c6c80bc68bb3fc954",
+  "build_command": "python figures/jaxka-extremophile-complex-confidence/make.py",
+  "output_sha256": {
+    "fig.pdf": "414b85394ef4dad4dbee67b8de22951c8d2ce940188fcc7ba40d461b7ed45632",
+    "fig.svg": "cbf9a5282deedd914d5dbcf5770e1f25e492b8f9ecf50032229e918883a5f877",
+    "fig.png": "003793e3249f813da702cc0638939467a9681b9627fe17b738c7b5fc3042df31"
+  }
+}

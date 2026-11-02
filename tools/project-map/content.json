@@ -52,13 +52,13 @@
     {"id":"fk-maintenance","path":"projects/3-BioFeaturisers/meta-diffusion/plans/research/hdx_ensemble_guidance_v2_handoff.md","anchor":"## 6. Phase B: true-lineage","length":39,"label":"Corrected five-seed maintenance result","kind":"Research report"},
     {"id":"fk-bpti","path":"projects/3-BioFeaturisers/meta-diffusion/examples/BPTI/README.md","anchor":"# BPTI Case Study","length":7,"label":"BPTI guidance case-study design","kind":"README"},
     {"id":"ka-status","path":"projects/4-jax-Ka/README.md","anchor":"- **Thesis chapter:","length":8,"label":"jax-Ka chapter status","kind":"README"},
-    {"id":"ka-readme","path":"projects/4-jax-Ka/code/README.md","anchor":"## Default frozen GQT checkpoint","length":12,"label":"Default frozen relational GQT","kind":"README"},
+    {"id":"ka-readme","path":"projects/4-jax-Ka/code/README.md","anchor":"## Default GQT checkpoint","length":12,"label":"Default all-residue GQT","kind":"README"},
     {"id":"ka-ogqt","path":"projects/4-jax-Ka/code/docs/OGQT.md","anchor":"The orientation Graph Query Transformer","length":7,"label":"oGQT architecture","kind":"Documentation"},
-    {"id":"ka-card","path":"projects/4-jax-Ka/code/models/ogqt-relational-50-frozen/README.md","anchor":"Pinned experiment backbone","length":6,"label":"Relational checkpoint model card","kind":"README"},
+    {"id":"ka-card","path":"projects/4-jax-Ka/code/models/ogqt-allres15-siamese-50/README.md","anchor":"# Default all-residue GQT","length":28,"label":"Final all-residue model and Siamese training targets","kind":"README"},
     {"id":"ka-relations","path":"projects/4-jax-Ka/code/src/pkatrain/production_position.py","anchor":"def relation_index(graph):","length":8,"label":"Six relation types on graph edges","kind":"Code"},
-    {"id":"ka-evidence","path":"projects/4-jax-Ka/code/experiments/4_backbone/08_frozen_relational.md","anchor":"## Completed evidence","length":20,"label":"Relational and frozen-interface results","kind":"Experiment report"},
+    {"id":"ka-evidence","path":"projects/4-jax-Ka/code/experiments/4_backbone/08_frozen_relational.md","anchor":"## Completed evidence","length":7,"label":"Relational-edge comparison","kind":"Experiment report"},
     {"id":"ka-ph","path":"projects/4-jax-Ka/code/experiments/4_backbone/07_handoff.md","anchor":"| ph01 / ph1 |","length":4,"label":"Experimental-pH auxiliary (no gain)","kind":"Experiment report"},
-    {"id":"ka-torch","path":"projects/4-jax-Ka/code/docs/TORCH_STRUCTURES.md","anchor":"## Default frozen relational GQT","length":26,"label":"Coordinate-differentiable structural readout","kind":"Documentation"}
+    {"id":"ka-torch","path":"projects/4-jax-Ka/code/docs/TORCH_STRUCTURES.md","anchor":"## Default all-residue GQT","length":26,"label":"Coordinate-differentiable structural readout","kind":"Documentation"}
   ],
   "journey": [
     {"id":"problem","number":"01","title":"Ask what the data can distinguish","kicker":"The inverse problem","text":"HDX reports on exchange through an indirect, ensemble-level measurement. Multiple structural explanations can agree with those measurements.","takeaway":"Compare explanations and their uncertainty.","sources":["val-author"],"basis":"stated"},
@@ -180,24 +180,22 @@
       "manuscripts":[]
     },
     {
-      "id":"jax-ka","name":"jax-Ka","chapter":6,"color":"#7a62a6","verb":"Titrate","status":"Frozen relational oGQT default · interface experiments open","status_kind":"research","tagline":"Predict pKas and binding-induced shifts from the backbone, with coordinate gradients.",
+      "id":"jax-ka","name":"jax-Ka","chapter":6,"color":"#7a62a6","verb":"Titrate","status":"All-residue GQT · bound/free Siamese training","status_kind":"research","tagline":"Predict pKas and binding-induced shifts from the backbone, with coordinate gradients.",
       "question":"Can a backbone-only, differentiable pKa model supply protonation information to pH-dependent ensemble and design problems?",
-      "summary":"The default model is the orientation Graph Query Transformer (oGQT) with relational edges: a spatial residue graph with explicit sequence-offset edges and relation-specific attention projections, read by titratable-site query tokens that predict bounded shifts from group reference pKas. It is trained on PypKa-labelled pKPDB and pKAI-labelled PINDER complexes in bound and free states.",
+      "summary":"The default all-residue GQT uses backbone coordinates and sequence, relational residue layers, and a token for every residue. Shared bound/free branches learn pKa states and binding-induced shifts, with titratable-gate, burial-change and residue-contact supervision. Training uses PypKa-labelled pKPDB and pKAI-labelled PINDER complexes.",
       "inputs":"Backbone coordinates, residue identities and chain membership; bound and free (partner-removed) states for complexes.",
       "outputs":"Site pKas or shifts from reference pKas, bound-minus-free binding shifts, frozen site embeddings, and gradients with respect to sequence and backbone coordinates.",
-      "boundary":"Labels come from PypKa and pKAI, not experiment, so accuracy is bounded by the teachers; PKAD gives the experimental check. Backbone-only input gives zero side-chain derivatives, the free state is partner removal at the bound conformation, and frozen-interface probes were evaluated without an independent test set.",
+      "boundary":"Labels come from PypKa and pKAI, not experiment, so accuracy is bounded by the teachers; PKAD gives the experimental check. Backbone-only input gives zero side-chain derivatives and the free state is partner removal at the bound conformation. The final checkpoint model card reports validation results for seed 17.",
       "next":"Apply the frozen readout to MoPrP ensembles at pH 4 and pH 7, report PKAD accuracy for the default checkpoint, and decide the chapter's scope.",
       "sources":["ka-status","ka-readme","ka-card","ka-evidence"],
       "tags":["pKa","pH","protonation","graph transformer","relational edges","backbone-only","PypKa","pKAI","PINDER","binding shift","MoPrP"],
       "claims":[
-        {"id":"ka-relational","title":"Relational edges improve backbone-only pKa prediction","text":"At 50% of the training pool, the relational variant lowered mean selection error from 0.649 to 0.632 across three seeds; global site-query attention gave no consistent improvement.","kind":"reported check","basis":"stated","sources":["ka-evidence","ka-relations"]},
-        {"id":"ka-architecture","title":"Site queries read a geometric residue graph","text":"Residue edges carry distance, local-frame direction and relative orientation; nodes carry backbone dihedrals; each titratable site is a query token whose bounded output shift is added to a group reference pKa.","kind":"implementation","basis":"stated","sources":["ka-ogqt","ka-card"]},
+        {"id":"ka-relational","title":"Relational edges improve backbone-only pKa prediction","text":"At 50% of the training pool, the relational variant lowered mean selection error from 0.649 to 0.632 across three seeds.","kind":"reported check","basis":"stated","sources":["ka-evidence","ka-relations"]},
+        {"id":"ka-architecture","title":"Residue tokens read a geometric graph","text":"The final model uses relational residue layers, backbone orientation and dihedrals, and a token for every residue. Side-chain and terminal outputs predict bounded shifts from group reference pKas.","kind":"implementation","basis":"stated","sources":["ka-ogqt","ka-card"]},
         {"id":"ka-gradients","title":"The frozen readout differentiates through coordinates","text":"The structural endpoint rebuilds features from supplied coordinates and returns pKa or binding shift with input gradients while weights stay fixed.","kind":"implementation","basis":"stated","sources":["ka-torch"]},
         {"id":"ka-noph","title":"An experimental-pH auxiliary target gave no gain","text":"Adding structure-level experimental pH as an auxiliary target did not improve pKa selection; the head separated crystal from EM structures rather than pH.","kind":"reported check","basis":"stated","sources":["ka-ph"]}
       ],
-      "experiments":[
-        {"id":"ka-frozen-interface","title":"Frozen interface probes","text":"Per-site, pair, transformer, Siamese and distillation heads on frozen relational embeddings were compared by per-complex average precision for interface sites; none exceeded the small per-site MLP on free input.","state":"Completed, no independent test set","sources":["ka-evidence"]}
-      ],
+      "experiments":[],
       "modules":[
         {"id":"ka-ogqt-module","title":"pkanet.ogqt","text":"oGQT encoder, site tokens and shift head.","sources":["ka-ogqt"]},
         {"id":"ka-torch-module","title":"pkanet.torch.TorchStructureReadout","text":"Frozen bound and free readouts with gradients through sequence and backbone inputs.","sources":["ka-torch"]}
@@ -217,6 +215,6 @@
     {"title":"The thesis is an outline, not a completed results document","text":"Chapters 1–2 provide the agreed introduction/background headings. The project chapters remain placeholders, so scientific content is drawn from the project repositories and manuscripts.","sources":["thesis-identity","repo-status"]},
     {"title":"Current code and historical manuscripts have different authority","text":"The jaxENT manuscript is labelled outdated in the root README. Implemented capabilities, example designs, and historical manuscript conclusions are presented separately.","sources":["repo-status","jax-draft"]},
     {"title":"Guidance has a superseding interpretation","text":"The V2 handoff supersedes earlier Stage 3 claims. Supported-pool ambiguity and the corrected null_or_harmful maintenance verdict govern this map.","sources":["fk-v2","fk-supported","fk-maintenance"]},
-    {"title":"jax-Ka moved from a PROPKA surrogate to a learned graph model","text":"The earlier jaxpropka mean-field surrogate remains in the repository, but the default model is now the frozen relational oGQT checkpoint.","sources":["ka-readme","ka-card"]}
+    {"title":"jax-Ka moved from a PROPKA surrogate to a learned graph model","text":"The earlier jaxpropka mean-field surrogate remains in the repository, but the default model is now the all-residue GQT trained with bound/free Siamese objectives.","sources":["ka-readme","ka-card"]}
   ]
 }

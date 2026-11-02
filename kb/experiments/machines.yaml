@@ -1,7 +1,17 @@
 # Logical IDs are not SSH hostnames. null means not yet recorded or verified.
-# Access requirements supplied by the author; no connections tested here.
+# Verification dates record successful local, CLI or SSH access checks.
 # ssh_alias values are Host entries in the author's ~/.ssh/config, except isambard (see ssh_target).
 machines:
+  local:
+    name: Local macOS workstation
+    access_requirement: Local filesystem access
+    ssh_alias: null
+    last_verified_at: 2026-11-02
+  modal:
+    name: Modal shared opig workspace
+    access_requirement: Authenticated Modal CLI profile for the workspace containing opig-design-runs; repository access alone is insufficient
+    ssh_alias: null
+    last_verified_at: 2026-11-02
   coulson:
     name: Coulson-Chemistry
     access_requirement: Cisco VPN

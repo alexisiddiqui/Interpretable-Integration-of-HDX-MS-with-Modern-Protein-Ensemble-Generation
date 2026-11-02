@@ -1188,14 +1188,14 @@
       "chapter": 6,
       "color": "#7a62a6",
       "verb": "Titrate",
-      "status": "Frozen relational oGQT default · interface experiments open",
+      "status": "All-residue GQT · bound/free Siamese training",
       "status_kind": "research",
       "tagline": "Predict pKas and binding-induced shifts from the backbone, with coordinate gradients.",
       "question": "Can a backbone-only, differentiable pKa model supply protonation information to pH-dependent ensemble and design problems?",
-      "summary": "The default model is the orientation Graph Query Transformer (oGQT) with relational edges: a spatial residue graph with explicit sequence-offset edges and relation-specific attention projections, read by titratable-site query tokens that predict bounded shifts from group reference pKas. It is trained on PypKa-labelled pKPDB and pKAI-labelled PINDER complexes in bound and free states.",
+      "summary": "The default all-residue GQT uses backbone coordinates and sequence, relational residue layers, and a token for every residue. Shared bound/free branches learn pKa states and binding-induced shifts, with titratable-gate, burial-change and residue-contact supervision. Training uses PypKa-labelled pKPDB and pKAI-labelled PINDER complexes.",
       "inputs": "Backbone coordinates, residue identities and chain membership; bound and free (partner-removed) states for complexes.",
       "outputs": "Site pKas or shifts from reference pKas, bound-minus-free binding shifts, frozen site embeddings, and gradients with respect to sequence and backbone coordinates.",
-      "boundary": "Labels come from PypKa and pKAI, not experiment, so accuracy is bounded by the teachers; PKAD gives the experimental check. Backbone-only input gives zero side-chain derivatives, the free state is partner removal at the bound conformation, and frozen-interface probes were evaluated without an independent test set.",
+      "boundary": "Labels come from PypKa and pKAI, not experiment, so accuracy is bounded by the teachers; PKAD gives the experimental check. Backbone-only input gives zero side-chain derivatives and the free state is partner removal at the bound conformation. The final checkpoint model card reports validation results for seed 17.",
       "next": "Apply the frozen readout to MoPrP ensembles at pH 4 and pH 7, report PKAD accuracy for the default checkpoint, and decide the chapter's scope.",
       "sources": [
         "ka-status",
@@ -1220,7 +1220,7 @@
         {
           "id": "ka-relational",
           "title": "Relational edges improve backbone-only pKa prediction",
-          "text": "At 50% of the training pool, the relational variant lowered mean selection error from 0.649 to 0.632 across three seeds; global site-query attention gave no consistent improvement.",
+          "text": "At 50% of the training pool, the relational variant lowered mean selection error from 0.649 to 0.632 across three seeds.",
           "kind": "reported check",
           "basis": "stated",
           "sources": [
@@ -1230,8 +1230,8 @@
         },
         {
           "id": "ka-architecture",
-          "title": "Site queries read a geometric residue graph",
-          "text": "Residue edges carry distance, local-frame direction and relative orientation; nodes carry backbone dihedrals; each titratable site is a query token whose bounded output shift is added to a group reference pKa.",
+          "title": "Residue tokens read a geometric graph",
+          "text": "The final model uses relational residue layers, backbone orientation and dihedrals, and a token for every residue. Side-chain and terminal outputs predict bounded shifts from group reference pKas.",
           "kind": "implementation",
           "basis": "stated",
           "sources": [
@@ -1260,17 +1260,7 @@
           ]
         }
       ],
-      "experiments": [
-        {
-          "id": "ka-frozen-interface",
-          "title": "Frozen interface probes",
-          "text": "Per-site, pair, transformer, Siamese and distillation heads on frozen relational embeddings were compared by per-complex average precision for interface sites; none exceeded the small per-site MLP on free input.",
-          "state": "Completed, no independent test set",
-          "sources": [
-            "ka-evidence"
-          ]
-        }
-      ],
+      "experiments": [],
       "modules": [
         {
           "id": "ka-ogqt-module",
@@ -1403,7 +1393,7 @@
     },
     {
       "title": "jax-Ka moved from a PROPKA surrogate to a learned graph model",
-      "text": "The earlier jaxpropka mean-field surrogate remains in the repository, but the default model is now the frozen relational oGQT checkpoint.",
+      "text": "The earlier jaxpropka mean-field surrogate remains in the repository, but the default model is now the all-residue GQT trained with bound/free Siamese objectives.",
       "sources": [
         "ka-readme",
         "ka-card"
@@ -2595,8 +2585,8 @@
       "kind": "README",
       "start": 3,
       "end": 8,
-      "excerpt": "- **Thesis chapter:** `thesis/chapters/06-jax-ka.tex`\n- **Status:** frozen relational oGQT (backbone-only) is the default model; interface and binding-head experiments in progress\n\n| Folder | Submodule | Pinned commit |\n|---|---|---|\n| `code/` | [jax-Ka](https://github.com/alexisiddiqui/jax-Ka) (relational oGQT, `models/ogqt-relational-50-frozen`) | `f744071` |",
-      "sha256": "b8efa4710f6d2cb34b6de3abb2c20633b3b471ef9d8bd70f92a1c129672a9bcb",
+      "excerpt": "- **Thesis chapter:** `thesis/chapters/06-jax-ka.tex`\n- **Status:** all-residue GQT (backbone-only) is the default model, trained with shared bound/free Siamese objectives\n\n| Folder | Submodule | Pinned commit |\n|---|---|---|\n| `code/` | [jax-Ka](https://github.com/alexisiddiqui/jax-Ka) (all-residue GQT, `models/ogqt-allres15-siamese-50`) | `cfad775` |",
+      "sha256": "02dd0039246f7009ae2ae69497c826b970dc269aea1cf9b3fb1ea752e1bcb9e1",
       "href": "../projects/4-jax-Ka/README.md",
       "uses": [
         {
@@ -2609,14 +2599,14 @@
     "ka-readme": {
       "id": "ka-readme",
       "path": "projects/4-jax-Ka/code/README.md",
-      "anchor": "## Default frozen GQT checkpoint",
+      "anchor": "## Default GQT checkpoint",
       "length": 12,
-      "label": "Default frozen relational GQT",
+      "label": "Default all-residue GQT",
       "kind": "README",
       "start": 9,
       "end": 20,
-      "excerpt": "## Default frozen GQT checkpoint\n\nFor representation and auxiliary-head experiments, use the frozen **50% relational\nGQT, seed 17, epoch 18**, via\n`pkatrain.production_defaults.load_frozen_default()`. The pinned export is\n[`models/ogqt-relational-50-frozen`](models/ogqt-relational-50-frozen).\nFor differentiable structural inputs, use\n`TorchStructureReadout.from_default(features, state=\"bound\" | \"free\")`; see\n[the structural endpoint](docs/TORCH_STRUCTURES.md#default-frozen-relational-gqt).\nNew experiments start with one seed; the three-seed relational baseline is already\navailable. See [the current experiment summary](experiments/4_backbone/08_frozen_relational.md).\nThe standalone `ogqt predict` CLI remains a separate inference path.",
-      "sha256": "47c9d6fe668d0684ae8b819ea60b816c5a78cad10d40d4225cf5ef2c4863c01b",
+      "excerpt": "## Default GQT checkpoint\n\nThe default model is the **all-residue GQT** (50% training fraction, seed 17, epoch 17):\n[`models/ogqt-allres15-siamese-50`](models/ogqt-allres15-siamese-50). Every residue is a pKa\ntoken (side-chain, N-terminus and C-terminus outputs), with titratable-gate, burial and\nresidue contact-edge heads; inputs are backbone and sequence only.\n\n- Python: `pkatrain.production_defaults.load_default()` (all heads) or `load_frozen_default()`\n  (embeddings and query-site shifts).\n- Files: `ogqt predict` uses it when `--model` is omitted; see [standalone inference](docs/INFERENCE.md).\n- Gradients: `TorchStructureReadout.from_default(features, state=\"bound\" | \"free\")`; see\n  [the structural endpoint](docs/TORCH_STRUCTURES.md#default-all-residue-gqt).",
+      "sha256": "2b13ca3a536b9ba33edb90d04fe1b73c8230507a6fa380efae7ca08c28d67bea",
       "href": "../projects/4-jax-Ka/code/README.md",
       "uses": [
         {
@@ -2659,7 +2649,7 @@
         {
           "project": "jax-ka",
           "record": "ka-architecture",
-          "title": "Site queries read a geometric residue graph"
+          "title": "Residue tokens read a geometric graph"
         },
         {
           "project": "jax-ka",
@@ -2670,16 +2660,16 @@
     },
     "ka-card": {
       "id": "ka-card",
-      "path": "projects/4-jax-Ka/code/models/ogqt-relational-50-frozen/README.md",
-      "anchor": "Pinned experiment backbone",
-      "length": 6,
-      "label": "Relational checkpoint model card",
+      "path": "projects/4-jax-Ka/code/models/ogqt-allres15-siamese-50/README.md",
+      "anchor": "# Default all-residue GQT",
+      "length": 28,
+      "label": "Final all-residue model and Siamese training targets",
       "kind": "README",
-      "start": 3,
-      "end": 8,
-      "excerpt": "Pinned experiment backbone: `control-v2-50-relations-s17`, selected epoch 18,\n50% training fraction, seed 17. 189,730 parameters; width 64, orientation and\nbackbone dihedrals, relation projections, unweighted pKa objectives and burial\nauxiliary supervision. No learned interface head is included.\n\nUse `pkatrain.production_defaults.load_frozen_default()` for frozen embedding and",
-      "sha256": "edb3cfaaf89ce13a6aa2ce6afbe4ddb53b981ee541e9b6da5e188728408a8e9a",
-      "href": "../projects/4-jax-Ka/code/models/ogqt-relational-50-frozen/README.md",
+      "start": 1,
+      "end": 28,
+      "excerpt": "# Default all-residue GQT\n\nPinned default model (since 2026-10-21): training run\n`control-v2-50-relations-4-1-allres-cut15-cysmask-gate01-ressiamese-redge01-s17`, selected epoch 17 of 20,\n50% training fraction, seed 17. 180,000 parameters, width 64. Inputs are backbone and sequence only.\n\n## Architecture\n\n- Two relational residue layers over the 20 Å CA graph: 4 relation maps in layer 1 (±1, ±2, same chain, other chain),\n  1 in layer 2; backbone orientation edges (13 features) and backbone dihedrals (6 node features).\n- Every residue is a token (residue embedding + amino-acid embedding). Tokens pass a query block and a token-to-token\n  block whose neighbours are restricted to CA–CA ≤ 15 Å (same chain and across chains).\n- Each token has three outputs: side chain, N-terminus, C-terminus (terminus maps start as the identity).\n- Free state: the same graph with every edge between chains masked; outputs cannot depend on the partner.\n\n## Heads and training targets\n\n| head | output | target |\n|---|---|---|\n| pKa (`head`) | 8 tanh(·): shift from the group reference pKa (PKPDB_PK_MOD) | PINDER pKAI labels (bound, free, binding-shift Siamese loss) and pKPDB PypKa labels; bonded Cys excluded; Arg never labelled |\n| titratable gate (`aux_gate`) | logit per output | D/E/H/C/Y/K/R minus disulfide Cys (SG–SG < 2.3 Å); chain termini; weight 0.1, Cys ×10 |\n| burial (`aux_burial`) | logit per residue | 1 − clip(RSA) on every PINDER residue, bound and free branches, plus the bound − free change vs ΔRSA |\n| residue edges (`aux_redge`) | symmetric pair logit | cross-chain residue contacts (heavy atoms ≤ 10 Å), soft target; both branches, free distilled toward bound; weight 0.1 |\n\n## Validation (PINDER pool-v4 validation, 800 complexes; seed 17 only)\n\n| metric | value |\n|---|---:|",
+      "sha256": "b7957ebae10c2f28f73b4f9eaac13235b9a4999ef5ca2dc7198a758597f4c3b1",
+      "href": "../projects/4-jax-Ka/code/models/ogqt-allres15-siamese-50/README.md",
       "uses": [
         {
           "project": "jax-ka",
@@ -2689,7 +2679,7 @@
         {
           "project": "jax-ka",
           "record": "ka-architecture",
-          "title": "Site queries read a geometric residue graph"
+          "title": "Residue tokens read a geometric graph"
         },
         {
           "project": "valdx",
@@ -2706,10 +2696,10 @@
       "length": 8,
       "label": "Six relation types on graph edges",
       "kind": "Code",
-      "start": 67,
-      "end": 74,
+      "start": 165,
+      "end": 172,
       "excerpt": "def relation_index(graph):\n    nb=graph['neighbors'];chain=graph['position_chain'];pos=graph['position_seq'];seg=graph['position_segment']\n    same=chain[:,None]==chain[nb];diff=pos[nb]-pos[:,None]\n    rel=jnp.where(same,4,5)\n    for k,offset in enumerate((-2,-1,1,2)):\n        rel=jnp.where(same&(seg[:,None]==seg[nb])&(diff==offset),k,rel)\n    return rel.astype(jnp.int32)\n",
-      "sha256": "3b576888bcba43fdf18e3e6b77d5b585e51e88c8e939c1ded7666cc5519cc540",
+      "sha256": "206186f7fa6e30d69d3785f818604e8ea43e3516f48c95914c886928aebac835",
       "href": "../projects/4-jax-Ka/code/src/pkatrain/production_position.py",
       "uses": [
         {
@@ -2723,13 +2713,13 @@
       "id": "ka-evidence",
       "path": "projects/4-jax-Ka/code/experiments/4_backbone/08_frozen_relational.md",
       "anchor": "## Completed evidence",
-      "length": 20,
-      "label": "Relational and frozen-interface results",
+      "length": 7,
+      "label": "Relational-edge comparison",
       "kind": "Experiment report",
-      "start": 32,
-      "end": 51,
-      "excerpt": "## Completed evidence\n\nThe 50% relational model improved mean pKa selection from 0.649432 to 0.632378\nacross three seeds. Global site-query attention scored 0.649714 and did not give a\nconsistent improvement. Inverse-square-root shift weighting worsened overall\nselection, despite some middle-tail bin improvements.\n\nFrozen interface validation, three-seed mean per-complex average precision:\n\n| Experiment | Free-input AP |\n|---|---:|\n| Small per-site MLP | 0.471052 |\n| Partner free-token pair head | 0.450024 |\n| Capacity-matched per-site MLP | 0.465217 |\n| Shallow same-chain transformer | 0.461502 |\n| Shared bound/free Siamese small MLP | 0.431700 |\n| Shared bound/free Siamese matched MLP | 0.428007 |\n| Shared bound/free Siamese transformer | 0.445017 |\n| Separate fixed teacher, student weight 0.1 | 0.470135 |\n| Separate fixed teacher, student weight 1 | 0.460716 |",
-      "sha256": "93916662c269eb024dd1275eab6ae077d836768389ed50e0d9241c770336c31f",
+      "start": 36,
+      "end": 42,
+      "excerpt": "## Completed evidence\n\nThe 50% relational model improved mean pKa selection from 0.649432 to 0.632378\nacross three seeds. Global site-query attention scored 0.649714 and did not give a\nconsistent improvement. Inverse-square-root shift weighting worsened overall\nselection, despite some middle-tail bin improvements.\n",
+      "sha256": "25314b06a8ac8942472335c7572bc9af29cbfb16284b7c8663f482b47a7ed0b8",
       "href": "../projects/4-jax-Ka/code/experiments/4_backbone/08_frozen_relational.md",
       "uses": [
         {
@@ -2741,11 +2731,6 @@
           "project": "jax-ka",
           "record": "ka-relational",
           "title": "Relational edges improve backbone-only pKa prediction"
-        },
-        {
-          "project": "jax-ka",
-          "record": "ka-frozen-interface",
-          "title": "Frozen interface probes"
         },
         {
           "project": "jax-ka",
@@ -2778,14 +2763,14 @@
     "ka-torch": {
       "id": "ka-torch",
       "path": "projects/4-jax-Ka/code/docs/TORCH_STRUCTURES.md",
-      "anchor": "## Default frozen relational GQT",
+      "anchor": "## Default all-residue GQT",
       "length": 26,
       "label": "Coordinate-differentiable structural readout",
       "kind": "Documentation",
       "start": 10,
       "end": 35,
-      "excerpt": "## Default frozen relational GQT\n\nUse the pinned 50% relational checkpoint (seed 17, epoch 18) for new structural\nreadouts. This adapter rebuilds the backbone table, orientation/dihedral inputs\nand relation edges from the supplied coordinates:\n\n```python\nfrom pkanet.differentiable import StructureFeatures\nfrom pkanet.torch import TorchStructureReadout\n\nfeatures, arrays, metadata = StructureFeatures.from_file(\"protein.pdb\")\nbound = TorchStructureReadout.from_default(features, state=\"bound\")\nfree = TorchStructureReadout.from_default(features, state=\"free\")\n# sequence, backbone, sidechains are Torch tensors constructed from arrays.\nbinding_shift = bound(sequence, backbone, sidechains) - free(sequence, backbone, sidechains)\n```\n\nThe default output is absolute pKa; `output=\"shift\"` returns the model-compound\nshift instead. Both branches use identical fixed weights and site ordering.\nFree-state residue, site-query and site attention exclude partner chains. This\nis partner removal at the supplied conformation, not unbound structure prediction.\nThe model is backbone-only: side-chain input derivatives are zero. Discrete site\nidentities and chain membership stay fixed as in the standard adapter.\n\nThe portable forward retains sequence and coordinate gradients, including the\nattention switch derivatives. Weights are captured and the Torch module exposes",
-      "sha256": "0098c582872222387a44d2339ea3e08146e952147e6b76dd39e41c9583c9e49e",
+      "excerpt": "## Default all-residue GQT\n\n`from_default` uses the pinned all-residue model\n([`models/ogqt-allres15-siamese-50`](../models/ogqt-allres15-siamese-50)). Its adapter,\n`pkanet.allres.AllResidueStructureFeatures`, appends the backbone table to the dense\ntemplate graph and masks every edge between chains in the free state:\n\n```python\nfrom pkanet.differentiable import StructureFeatures\nfrom pkanet.torch import TorchStructureReadout\n\nfeatures, arrays, metadata = StructureFeatures.from_file(\"protein.pdb\")\nbound = TorchStructureReadout.from_default(features, state=\"bound\")\nfree = TorchStructureReadout.from_default(features, state=\"free\")\nbinding_shift = bound(sequence, backbone, sidechains) - free(sequence, backbone, sidechains)\nburial = TorchStructureReadout.from_default(features, state=\"free\", output=\"burial\")\n```\n\n`output` is `\"pka\"` (default) or `\"shift\"` at the template's query sites, `\"gate\"`\n(sigmoid titratable gate per residue for its side-chain, N-terminus and C-terminus\noutputs, `[N, 3]`) or `\"burial\"` (`[N]`). Weights are fixed; derivatives reach\nsequence and backbone coordinates, including the attention switch weights:\nindexed attention runs through `pkanet.attention_backend`, whose plain-JAX path\nmatches the Triton kernel's arithmetic and is used off CUDA (or with\n`GQT_ATTENTION=jax`). The model is backbone-only, so side-chain derivatives are zero.\nUse `model_path=` or `GQT_DEFAULT_MODEL` for the model directory outside a checkout.",
+      "sha256": "0d298d6c51c9c3cfc0d8563d5dd15e04770afe850261f942fc2fff58571c349a",
       "href": "../projects/4-jax-Ka/code/docs/TORCH_STRUCTURES.md",
       "uses": [
         {

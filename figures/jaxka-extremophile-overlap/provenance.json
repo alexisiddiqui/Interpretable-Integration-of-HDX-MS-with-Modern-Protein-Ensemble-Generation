@@ -1,0 +1,25 @@
+{
+  "source_repository": "/Users/alexi/Documents/opig-adaptyv-2026",
+  "source_commit": "f54c6d0505da5217b35c307a9a2edf3101b8e5dd",
+  "inputs": [
+    {
+      "source": "/Users/alexi/Documents/opig-adaptyv-2026/experiments/027-extremophile-vs-pka-surface/results/analysis.json",
+      "staged": ".experiments/opig-adaptyv-027/inputs/analysis.json",
+      "bytes": 1243028,
+      "sha256": "251bae121e4db2efea3a27b3775f261241bd86b6231c4e12029ad367ec0760e2"
+    }
+  ],
+  "dependencies": {
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1"
+  },
+  "plotting_code_sha256": "e71b1249dd7c852b441bc0fa813d39d5481879f2aedcba4c6c80bc68bb3fc954",
+  "build_command": "python figures/jaxka-extremophile-overlap/make.py",
+  "output_sha256": {
+    "fig.pdf": "c5b8acd870bf6d06c720bc8dd75c8008dde868d525ddbcd349c85b1b4e01d352",
+    "fig.svg": "164f06e00a20cd2030499d5216ad6fd47704e87374d3b5cc3c28790664608f70",
+    "fig.png": "37bd93f1fe8a96b7ed1f5e885a28185bb4a13ba60ab3779a13d96234fa394a5a"
+  },
+  "replacement_plotting_code_sha256": "ac5d404836ea3c9c29850631e8811dfe8f8c90a8475154cd98ae0192c1f36770"
+}

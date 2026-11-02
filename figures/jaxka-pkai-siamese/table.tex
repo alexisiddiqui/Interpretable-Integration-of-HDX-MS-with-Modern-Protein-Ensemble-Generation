@@ -1,0 +1,41 @@
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{@{}llcccc@{}}
+    \toprule
+        & & & & \multicolumn{2}{c}{\textbf{PINDER paired}} \\
+        \cmidrule(l){5-6}
+        \textbf{Input} & \textbf{Training} & \textbf{pKPDB} & \textbf{PINDER state} & \textbf{All sites} & \textbf{Interface} \\
+        \midrule
+        Backbone & pKPDB only & 1.045 & 0.865 & 0.210 & 0.467 \\
+                 & Joint      & 1.043 & 0.815 & 0.204 & 0.453 \\
+        All-atom & pKPDB only & 0.319 & 0.109 & 0.027 & 0.059 \\
+                 & Joint      & \textbf{0.287} & \textbf{0.034} & \textbf{0.016} & \textbf{0.034} \\
+        \midrule
+        \multicolumn{2}{@{}l}{Released pKAI} & 0.324 & 0.0070$^{*}$ & 0.0012$^{*}$ & 0.0028$^{*}$ \\
+        \bottomrule
+    \end{tabular}
+    \caption{Joint training of the pKAI architecture on pKPDB and PINDER, against pKPDB alone, on the full training pool. Values are validation mean squared errors (pKa$^2$) on the pKPDB validation set and the 400-complex PINDER validation cohort. Inputs are the native 15\,\AA{}, 250-slot environment, either all N, O and S atoms or backbone N and O only. Joint training adds the PINDER bound and free state losses and the Siamese binding-shift loss to the pKPDB loss, so its gain cannot be assigned to the Siamese loss alone. Paired errors score the predicted binding shift, over all PINDER validation sites or the 5,116 interface sites. Each arm is one model (seed 17; batch 4,096, cosine learning-rate schedule from $5.12\times10^{-4}$ over 40 epochs). Bold marks the lowest error among the trained arms. $^{*}$The PINDER labels are released pKAI's own predictions, so its PINDER errors are a floor rather than a target. Its pKPDB error is likely optimistic, because it was trained on pKPDB, probably including these validation structures.}
+    \label{tab:jaxka-pkai-joint}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{@{}llcccc@{}}
+    \toprule
+        & & \multicolumn{4}{c}{\textbf{Training fraction}} \\
+        \cmidrule(l){3-6}
+        \textbf{Input} & \textbf{Training} & \textbf{10\%} & \textbf{50\%} & \textbf{75\%} & \textbf{100\%} \\
+        \midrule
+        \multicolumn{2}{@{}l}{pKPDB training sites (thousands)} & 155 & 872 & 1,306 & 1,725 \\
+        \midrule
+        Backbone & pKPDB only & 1.075 & 1.104 & 1.078 & 1.075 \\
+                 & Joint      & 1.077 & 1.088 & 1.077 & 1.066 \\
+        All-atom & pKPDB only & 0.405 & 0.383 & 0.381 & 0.381 \\
+                 & Joint      & 0.357 & 0.314 & 0.309 & 0.305 \\
+        \bottomrule
+    \end{tabular}
+    \caption{pKPDB validation error (mean squared error, pKa$^2$) against training fraction for the four arms of \cref{tab:jaxka-pkai-joint}. With all-atom input, joint training improves at every fraction, by shrinking amounts, while pKPDB-only training stops improving from 50\%. Backbone input does not improve with more data under either objective. Fractions are nested subsets of both training pools, and the validation sets are fixed. Each arm is one model (seed 17; batch 4,096, constant learning rate $8\times10^{-6}$). These runs predate the cosine schedule, so their 100\% errors are higher than in \cref{tab:jaxka-pkai-joint}.}
+    \label{tab:jaxka-pkai-fraction}
+\end{table}

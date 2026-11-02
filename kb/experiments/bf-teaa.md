@@ -1,20 +1,20 @@
 # bf-teaa: blind two-state ensemble from Boltz-2 and HDX (TeaA)
 
-Protocol for the TeaA metadiffusion experiment in MaxENT-FK, as run on Isambard-AI 25–31 Oct 2026. Results and figures are in `examples/TeaA/RESULTS.md` of the MaxENT-FK repository (branch `teaa-iso-frame-uptake`, results commit `89f183c`; code commit `4a22611`). Locations are in [biofeaturisers.md](biofeaturisers.md).
+Protocol for the TeaA metadiffusion experiment in MaxENT-FK, as run on Isambard-AI 25–31 Oct 2026. The run record is in `examples/TeaA/RESULTS.md` of the MaxENT-FK repository (branch `teaa-iso-frame-uptake`, results commit `89f183c`; code commit `4a22611`). That record and every seed-42 number were produced with the synthetic amide H placed on the wrong side of the N (BioFeaturisers up to `43cc194`). Seed 43 was rerun with the corrected placement (BioFeaturisers `39b8069`, MaxENT-FK `39db4b3`, section 5), and the rerun is the reported seed-43 result. Locations are in [biofeaturisers.md](biofeaturisers.md).
 
 **Question.** Starting from the TeaA sequence and a Boltz-2 prediction, with no MD reference in any run, can a target-free hinge bias plus HDX guidance and MaxEnt reweighting produce an ensemble that fits the HDX data and recovers the open:closed populations?
 
 ## Design
 
 - **System.** TeaA, 309 residues. Lobe I is residues 1–122, 207–249 and 284–309; lobe II is residues 123–206 and 250–283 (`examples/TeaA/cv/derived/residue_structural_mapping.csv`).
-- **Target.** Synthetic HDX uptake from MD frames (15 open, 332 closed) at 40 % open : 60 % closed (`raw_data/iso_target_biofeat/manifest.json`). It is built with `examples/TeaA/generate_target.py --forward-model biofeat`, so the guidance forward model generated the target and carries no forward-model error. Timepoints are 10, 60, 600, 3600 and 7200 s; the forward model is BV with HDXrate intrinsic rates (pH 7.0, 300 K, `steepness_h` 1.0).
+- **Target.** Synthetic HDX uptake from MD frames (15 open, 332 closed) at 40 % open : 60 % closed (`raw_data/iso_target_biofeat/manifest.json`). It is built with `examples/TeaA/generate_target.py --forward-model biofeat`, so the guidance forward model generated the target and carries no forward-model error. Timepoints are 10, 60, 600, 3600 and 7200 s; the forward model is BV with HDXrate intrinsic rates (pH 7.0, 300 K in the resolved configs of the seed-43 runs and 298.15 K in the pinned `run.yaml`; `steepness_h` 1.0). The target is scored on the heavy-atom Boltz topology, which has no amide H, so the hydrogen-bond term depends on the synthetic H placement ([Sigmoid-switch BV forward model](../methods/Sigmoid-switch%20BV%20forward%20model%20%28BioFeaturisers%29.md)).
 - **Evaluation only.** The MD open and closed references (`examples/TeaA/cv/refs/`) enter the scoring and the answer key, never a run. Hinge states are lobe-II Cα RMSD after a lobe-I fit of at most 1.88 Å to open or 1.82 Å to closed.
 - **Sampler.** Boltz-2 through MaxENT-FK, 200 diffusion steps, bf16, K = 50 structures per run, one GPU. Conditioning is `tmsa`: no MSA, and Boltz's own MSA-conditioned prediction (`TeaA_boltz_msa_pred_s42_model0.pdb`) as the only template. The template is a Boltz prediction, not an MD or crystal structure; the unguided pool it gives is unimodal at the Boltz intermediate (θ spread 0.6°).
 - **Seeds.** Seeds 42 and 43 are separate pipelines. Every number for a seed derives from that seed's Boltz output, with disjoint seeds for history, continuation and refinement. Seed 43 is the reported result because its hinge axis is built from unguided from-noise pools only; seed 42 is the development run on which the recipe was tuned (its axis uses earlier, partly HDX-guided pools).
 
 ## Protocol
 
-Every run is `sbatch teaa_sdedit.sbatch <label> <seed> [flags] [key=value ...]` (`~/_submit/teaa_sdedit.sbatch`, which calls `~/_runtime/scripts/teaa_sdedit_pool.py` into `_runtime/runs/TeaA_sdedit/<label>_s<seed>_n<K>`). Overrides are dotted keys under `guidance.guidance_config`. Starting config is `examples/TeaA/run.yaml`.
+Every run is `sbatch teaa_sdedit.sbatch <label> <seed> [flags] [key=value ...]` (`~/_submit/teaa_sdedit.sbatch`, which calls `~/_runtime/scripts/teaa_sdedit_pool.py` into `_runtime/runs/TeaA_sdedit/<label>_s<seed>_n<K>`). Overrides are dotted keys that need the full prefix `guidance.guidance_config.`; the listings below omit it. A key given without the prefix is accepted and not applied, and the run proceeds on the defaults (alpha 1.0, lambda 100). Compare `resolved_config.yaml` (written when a run completes) with the intended values before scoring. Starting config is `examples/TeaA/run.yaml`.
 
 ### 1. Unguided pools and the blind hinge axis
 
@@ -58,7 +58,7 @@ The window `[0.7, 0.75]` is denoising steps 140–149 of 200. In it, each struct
 
 ### 3. Step 2: late-HDX refinement
 
-1. Seeds: a θ-stratified subset of the step-1 union, at most 25 structures per 6° bin, split into five seed sets `TeaA_step2_seeds/k1..k5` (245 structures for seed 42, 234 for seed 43, of which 233 pass the pLDDT filter below), as symlinks into the step-1 runs. No script for the selection was found.
+1. Seeds: a θ-stratified subset of the step-1 union, at most 25 structures per 6° bin, split into five seed sets `TeaA_step2_seeds/k1..k5` (245 structures for seed 42, 234 for seed 43, of which 233 pass the pLDDT filter below), as symlinks into the step-1 runs. The seed-43 selection is `~/_runtime/patch_test/seed2/make_seeds_s43.py`; no script for the seed-42 selection was found.
 2. Re-denoise from step 150 with HDX guidance:
 
 ```
@@ -71,14 +71,14 @@ refa025_k<i> <201..205> --seed-dir ~/_runtime/processed/TeaA_step2_seeds/k<i> \
   lambda_schedule.start_value=1000  gradient_every_step=true
 ```
 
-   Seed 43 uses seeds 401–405 and `refa025s43_k<i>`. One run is about 13–15 min. The MaxEnt refit runs every 5 steps, with 3 residue-split replicates (80 % train, `sequence_cluster` split).
+   Seed 43 uses seeds 401–405 and `refa025s43_k<i>`, submitted with `~/_runtime/patch_test/seed2/submit_step2_s43.sh`. One run is about 13–15 min. The MaxEnt refit runs every 5 steps, with 3 residue-split replicates (80 % train, `sequence_cluster` split).
 3. Control: the same seed sets with `--unguided` (`ctl_k1..5`, `ctls43_k1..5`). Alpha 1.0 and 0.5 (`ref_k*`, `refa05_k*`) were run for seed 42 only.
-4. Filter: structures with pLDDT below 0.7 are removed before scoring (run copies in `TeaA_sdedit_filt/*_p70`; no script for the copy was found).
+4. Filter: structures with pLDDT below 0.7 are removed before scoring (run copies in `TeaA_sdedit_filt/*_p70`; for seed 43, `~/_runtime/patch_test/seed2/make_filt_s43.py`).
 
 ### 4. Step 3: reweighting and evaluation
 
-1. MaxEnt over the union of the five refined pools, uniform prior, λ 100 and 1000: `analysis/teaa_scan_score.py`, with `SCAN_DUMP` set to write the per-structure weights (`TeaA_cv/sweep_a0.25_blind.csv`, `sweep_s43_a0.25_blind.csv`). `sweep_*_withref.csv` adds the true open and closed pools to the union.
-2. Weight against θ, `analysis/weight_vs_theta.py`; pool-level checks with 6° θ bins as uniform-weight pools, pairwise mixtures and a simplex fit, `analysis/theta_bin_mix.py` and `scan_pairmix.py`.
+1. MaxEnt over the union of the five refined pools, uniform prior, λ 100 and 1000: `analysis/teaa_scan_score.py` (batch wrapper `scan_score.sbatch`), with `SCAN_DUMP` set to write the per-structure weights (`TeaA_cv/sweep_a0.25_blind.csv`, `sweep_s43_a0.25_blind.csv`, and `sweep_s43fx_a0.25_blind.csv` for the rerun). `sweep_*_withref.csv` adds the true open and closed pools to the union.
+2. Weight against θ, `analysis/weight_vs_theta.py`; pool-level checks with 6° θ bins as uniform-weight pools, pairwise mixtures and a simplex fit, `analysis/theta_bin_mix.py` (batch wrapper `theta_bin_mix.sbatch`) and `scan_pairmix.py`. These scripts default to the seed-42 axis. For seed 43 set `BLIND_AXIS_JSON` to `blind_axis_s43.json`; results scored without it use the seed-42 axis, whose 6° bins differ from the seed-43 bins.
 3. Population recovery, `analysis/recovery.py`. This is the JAX-ENT definition (`jaxent.src.analysis.pf_variance`, `state_population`): base-2 Jensen–Shannon divergence over a strict support, recovery = 100 (1 − √JSD), with state from blind θ (open below −5°, closed above +5°, otherwise neither; target 0.40 / 0.60 / 0). It is an evaluation metric, never a loss.
 4. Geometry: `theta_eval.py`, `hinge_eval.py`, and `landscape_plots.py` for the Cα PCA (fit on the MD open and closed frames with equal state weighting) and the RMSD landscapes.
 
@@ -90,3 +90,29 @@ Analysis scripts and score dumps are under `~/_runtime/analysis/` (`TeaA_cv/` fo
 - A cap of 0.1 Å on the bias move is inert (0.4°/step against the 1.2°/step restoring pull); 1.0 Å works.
 - 150 structures are needed for the blind axis (bootstrap cos 5th percentile 0.49 for 50, 0.83 for 150).
 - HDX alpha 0.25 in the refinement fits as well as 1.0 and 0.5 without wrecked structures (at 1.0 eight structures with pLDDT 0.48–0.57 kept 5 % of the weight).
+
+### 5. Seed 43 rerun with the corrected amide H
+
+The synthetic-H error made the hydrogen-bond term near inert for every structure without H atoms, which includes the target (built on the Boltz topology) and all Boltz output. The target and the guided step 2 were therefore regenerated for seed 43, with BioFeaturisers `39b8069` vendored into MaxENT-FK (`externals/biofeaturisers`, commit `39db4b3`, local to Isambard and not pushed).
+
+- **Rerun.** Target (`~/_submit/teaa_gentarget.sbatch`, writing over `raw_data/iso_target_biofeat/`; the earlier files are in `~/_runtime/analysis/TeaA_cv/pre39b8069/`), five refinement jobs (`refa025s43fx_k1..5`, seeds 401–405, `~/_runtime/patch_test/seed2/submit_step2_s43fx.sh`), the pLDDT filter (234 structures pass, against 233 before) and scoring (`jobs_score_s43fx.txt`, dumps `*_s43fx_*` in `TeaA_cv/`).
+- **Not rerun.** The step-1 union (550 structures) and the unguided pools, because the bias and the unguided sampler use no HDX term. The union and the unguided control were re-weighted against the new target (`metad_s43fx_blind_weights.csv`, `step2_s43fx_ctl_blind.csv`).
+- **Discarded batch.** A first set of refinement jobs (7960205 to 7960209) ran without the override prefix and is kept as `*_BAD_overrides_not_applied`; it is not scored.
+
+Seed-43 results on the seed-43 axis (target 0.40 open : 0 intermediate : 0.60 closed). Strict recovery is the JAX-ENT definition above; the two-state figure is the same measure with the intermediate state removed.
+
+| MaxEnt, λ 1000 (λ 100) | Before the fix (`43cc194`) | Corrected (`39b8069`) |
+|---|---|---|
+| Refined, open : intermediate : closed | 0.410 : 0.280 : 0.310 | 0.459 : 0.106 : 0.435 |
+| Refined, strict recovery % | 58.3 (57.4) | 74.7 (70.1) |
+| Refined, two-state recovery % | 85.6 | 90.3 |
+| Unguided control, strict recovery % | 58.1 (62.5) | 54.0 (58.3) |
+| Step-1 union alone, strict recovery % | 88.6 | 84.0 |
+| Pool-level bin simplex, strict recovery % | 74.7 | 69.0 |
+| Refined fit floor, ESS | 0.00345, 19.1 | 0.00280, 16.0 |
+
+- Before the fix the refined ensemble did not beat its own unguided control on strict recovery. After it, refinement is about 20 points above the control at λ 1000.
+- The union alone and the bin simplex are slightly worse after the fix, so the gain is specific to the refined ensemble.
+- The open-side weight peaks at −18 to −12° (key −20.3°), against −30 to −36° before. The closed side peaks at +6 to +12° (key +9.1°). The 0 to +6° bin carries 0.002.
+- The true open and closed pools still fit best at 0.49 open (0.485 before), so the forward model does not separate 0.40 from 0.50 open and 0.459 is inside that limit.
+- One run per configuration with an ESS near 16; alpha 0.25 and λ were set on the pre-fix model and not retuned; the target changed with the model.
