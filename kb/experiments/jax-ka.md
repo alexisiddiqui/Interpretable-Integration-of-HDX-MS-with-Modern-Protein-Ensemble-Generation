@@ -43,10 +43,20 @@ experiments:
       - machine: isambard
         root: /scratch/u6xq/hussain.u6xq/_submission
         runs: ["gqt-*", "teacher-*", "nonlinear-*", "pkpdb-*", "coupled-titration-*", "residue-weights-*", "ph-edges-*", "site-edges-*"]
+      - machine: coulson
+        root: /u/oc/lina4225/_runtime/jax-Ka/pkabench/audits
+        runs: [relation-figures-v1, relation-memory-v1]
     authoritative_location: isambard
     status_command: null
-    artifacts: []
-    figures: []
+    # Paths are relative to the pkabench runtime root on the machine named before the colon.
+    artifacts:
+      - isambard:audits/relation-figures-v1/runs.csv                         # selection.json export of the 21 relation-map runs; pkabench.relation_plots; copied to figures/jaxka-relational-edges
+      - coulson:audits/relation-memory-v1/memory.csv                         # full-backprop memory and step time, 9 configs x 9 buckets, A40 job 779030; figures/jaxka-relational-memory
+      - coulson:audits/relation-memory-v1/edges.csv                          # attended pairs per sampled training graph
+      - coulson:audits/relation-memory-v1/coord.csv                          # coordinate-only gradient memory and time, job 779031; figures/jaxka-coordinate-gradients
+      - coulson:audits/relation-memory-v1/slurm.csv                          # host MaxRSS of the Isambard training jobs (GPU memory not recorded)
+    # jaxka-pkai-siamese holds tables transcribed from the jax-Ka note experiments/3_paired_complex/48_pkai_joint_scale.md.
+    figures: [jaxka-relational-edges, jaxka-relational-memory, jaxka-coordinate-gradients, jaxka-pkai-siamese]
   - id: jaxka-data-cleaning
     question: Which site labels stay trustworthy after components are stripped and unmodelled regions are masked, and how many sites and complexes survive in each split?
     locations:
