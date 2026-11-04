@@ -1,0 +1,29 @@
+{
+  "command": "python3 figures/jaxka-kras-pmhc-radial/make.py",
+  "scope": "target",
+  "radius_angstrom": 25,
+  "renderer": "Dashboard geometry with white print palette, DejaVu Sans typography, foreground labels and shared-scale four-panel composition",
+  "hashes": {
+    "dashboard-radial-maps.js": "60af679ab1221291a5a3a7247cbe969a8efb862ad3366e70d335da78e259eabb",
+    "electrostatics.pdf": "19ac4f4b3af45e302ecc93d787208bab56dc1783254bdb3f2839790cfcb1800b",
+    "electrostatics.png": "9f82817126e53aa577191e216b360813dacd26367e87f47cec51cdb67d1b5bd6",
+    "electrostatics.svg": "84e0e2860f2af878cc83273f95c57093c0d9107cd68a213ae26d0744442969f6",
+    "hydrophobicity.pdf": "57641db9bbc3166102cc25e53da3d68b58a09bf6fbc6928a65de2e26c3751087",
+    "hydrophobicity.png": "c0e1cdc6532393a8543acee49cec3d3f99970a24e535718504e711db83408d08",
+    "hydrophobicity.svg": "7627305ed08660d8a4e114d875bdd3eaff663cc81ac71ef8c5adda314a06de56",
+    "make.mjs": "cd32cfaea673fc31336a23f0e712c5da64c1930218de3cdc9c30f74b61066d4c",
+    "radial-data.json": "bd9c3153a25233b177d4f7429bf1fe7b9c14726024fc4e3d69597c6c9d76be17",
+    "shape.pdf": "bcd609ef46d31ccb107b9fe7ca78f0a3d823dc67c4fccdb63ada1de62a45e33c",
+    "shape.png": "3d80c86524e6fc4c86486e596dcf70790cf955a6775c5471cd1c6ca9f593bf58",
+    "shape.svg": "3f18f235c7369aea3559b579fc55c9262e28c9d0865be36558b348d76d22416d",
+    "size.pdf": "ef0b143fa63fbeb46ca10499cede9eb6d1795518838d2dc13cd5ffef1a1a2ff4",
+    "size.png": "291e813d0dbfd2cd9917de129f7ac66c49f3124386ea50314aab85dd94e1cb26",
+    "size.svg": "4944f077f38e0cf255e1a3ce94db25cb2ebda5556981750fc9e90355c4b3ea51",
+    "source.json": "04fad67149722c1c7f0c3e3e4ea7ae40e0441828d2ad4c86797f349c9e86b333",
+    "make.py": "c2e9487f1de81990b273c536a0a000f8190dbba1e60b72ced6db015fa0dd8518",
+    "combine.py": "d5372e870ad7919eed4e515933a2ef42d9319d4c5dcf148f330f7af6070aed70",
+    "fig.pdf": "165d7f90c67c3f2faffca55c9eb2f67a5af8b50733dcf0a0b21d82cd786c2f34",
+    "fig.svg": "86953c6c6dd115a1953f19db8bbb667a7fffdd32bfda74f4c513e91166a4ee94",
+    "fig.png": "b7a4620f1d01f746f5289e31e9ae0e1b8075455f729b0fac5241279239055df6"
+  }
+}

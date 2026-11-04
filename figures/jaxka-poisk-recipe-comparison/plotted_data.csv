@@ -1,0 +1,121 @@
+mode,readout,readout_label,model,pairwise_accuracy,n_pairs,source_row
+apo,edge_all,"Edges, Σp (whole Fv)",run4,0.44253442534425347,11111,edge_all
+apo,edge_all,"Edges, Σp (whole Fv)",hmask,0.5413554135541355,11111,edge_all
+apo,edge_all,"Edges, Σp (whole Fv)",drsa,0.5070650706507065,11111,edge_all
+apo,edge_cdr,"Edges, Σp (CDRs)",run4,0.44802448024480246,11111,edge_cdr
+apo,edge_cdr,"Edges, Σp (CDRs)",hmask,0.5848258482584826,11111,edge_cdr
+apo,edge_cdr,"Edges, Σp (CDRs)",drsa,0.5709657096570966,11111,edge_cdr
+apo,bur_all,"Edges × free exposure, Σp·x·y (whole Fv)",run4,0.3978039780397804,11111,bur_all
+apo,bur_all,"Edges × free exposure, Σp·x·y (whole Fv)",hmask,0.5374853748537486,11111,bur_all
+apo,bur_all,"Edges × free exposure, Σp·x·y (whole Fv)",drsa,0.5013050130501305,11111,bur_all
+apo,bur_cdr,"Edges × free exposure, Σp·x·y (CDRs)",run4,0.4779947799477995,11111,bur_cdr
+apo,bur_cdr,"Edges × free exposure, Σp·x·y (CDRs)",hmask,0.6080460804608047,11111,bur_cdr
+apo,bur_cdr,"Edges × free exposure, Σp·x·y (CDRs)",drsa,0.5827558275582756,11111,bur_cdr
+apo,bur_cdr_share,CDR share of Σp·x·y,run4,0.5046350463504635,11111,bur_cdr_share
+apo,bur_cdr_share,CDR share of Σp·x·y,hmask,0.6280262802628026,11111,bur_cdr_share
+apo,bur_cdr_share,CDR share of Σp·x·y,drsa,0.6012960129601296,11111,bur_cdr_share
+apo,edge_max_cdr,Max contact probability (CDRs),run4,0.4806948069480695,11111,edge_max_cdr
+apo,edge_max_cdr,Max contact probability (CDRs),hmask,0.6435064350643507,11111,edge_max_cdr
+apo,edge_max_cdr,Max contact probability (CDRs),drsa,0.6613266132661326,11111,edge_max_cdr
+apo,edge_top50_cdr,Top-50 mean contact probability (CDRs),run4,0.4365943659436594,11111,edge_top50_cdr
+apo,edge_top50_cdr,Top-50 mean contact probability (CDRs),hmask,0.7115471154711547,11111,edge_top50_cdr
+apo,edge_top50_cdr,Top-50 mean contact probability (CDRs),drsa,0.7130771307713077,11111,edge_top50_cdr
+apo,dbur_total,"Burial change Δb (predicted dRSA), Fv + antigen",run4,0.46530465304653046,11111,dbur_total
+apo,dbur_total,"Burial change Δb (predicted dRSA), Fv + antigen",hmask,0.6289262892628926,11111,dbur_total
+apo,dbur_total,"Burial change Δb (predicted dRSA), Fv + antigen",drsa,0.6293762937629376,11111,dbur_total
+apo,dbur_fv,"Burial change Δb (predicted dRSA), whole Fv",run4,0.4082440824408244,11111,dbur_fv
+apo,dbur_fv,"Burial change Δb (predicted dRSA), whole Fv",hmask,0.5183151831518316,11111,dbur_fv
+apo,dbur_fv,"Burial change Δb (predicted dRSA), whole Fv",drsa,0.5121051210512105,11111,dbur_fv
+apo,dbur_cdr,"Burial change Δb (predicted dRSA), CDRs",run4,0.46359463594635947,11111,dbur_cdr
+apo,dbur_cdr,"Burial change Δb (predicted dRSA), CDRs",hmask,0.5746557465574655,11111,dbur_cdr
+apo,dbur_cdr,"Burial change Δb (predicted dRSA), CDRs",drsa,0.5854558545585455,11111,dbur_cdr
+apo,dbur_cdr_frac,CDR share of Fv Δb,run4,0.4828548285482855,11111,dbur_cdr_frac
+apo,dbur_cdr_frac,CDR share of Fv Δb,hmask,0.5855458554585545,11111,dbur_cdr_frac
+apo,dbur_cdr_frac,CDR share of Fv Δb,drsa,0.6003060030600306,11111,dbur_cdr_frac
+apo,dbur_ag,"Burial change Δb (predicted dRSA), antigen",run4,0.4924849248492485,11111,dbur_ag
+apo,dbur_ag,"Burial change Δb (predicted dRSA), antigen",hmask,0.6377463774637746,11111,dbur_ag
+apo,dbur_ag,"Burial change Δb (predicted dRSA), antigen",drsa,0.6460264602646026,11111,dbur_ag
+apo,edge_x_dbur,"dRSA-weighted edges, Σp·Δb·Δb (whole Fv)",run4,0.45693456934569343,11111,edge_x_dbur
+apo,edge_x_dbur,"dRSA-weighted edges, Σp·Δb·Δb (whole Fv)",hmask,0.6254162541625417,11111,edge_x_dbur
+apo,edge_x_dbur,"dRSA-weighted edges, Σp·Δb·Δb (whole Fv)",drsa,0.6279362793627936,11111,edge_x_dbur
+apo,edge_x_dbur_cdr,"dRSA-weighted edges, Σp·Δb·Δb (CDRs)",run4,0.48951489514895147,11111,edge_x_dbur_cdr
+apo,edge_x_dbur_cdr,"dRSA-weighted edges, Σp·Δb·Δb (CDRs)",hmask,0.6670866708667087,11111,edge_x_dbur_cdr
+apo,edge_x_dbur_cdr,"dRSA-weighted edges, Σp·Δb·Δb (CDRs)",drsa,0.6754567545675457,11111,edge_x_dbur_cdr
+bound_conformers,edge_all,"Edges, Σp (whole Fv)",run4,0.4893387314439946,11115,bc_edge_all
+bound_conformers,edge_all,"Edges, Σp (whole Fv)",hmask,0.5410706252811516,11115,bc_edge_all
+bound_conformers,edge_all,"Edges, Σp (whole Fv)",drsa,0.5196581196581197,11115,bc_edge_all
+bound_conformers,edge_cdr,"Edges, Σp (CDRs)",run4,0.4824111560953666,11115,bc_edge_cdr
+bound_conformers,edge_cdr,"Edges, Σp (CDRs)",hmask,0.5892037786774629,11115,bc_edge_cdr
+bound_conformers,edge_cdr,"Edges, Σp (CDRs)",drsa,0.5738191632928475,11115,bc_edge_cdr
+bound_conformers,bur_all,"Edges × free exposure, Σp·x·y (whole Fv)",run4,0.4937471884840306,11115,bc_bur_all
+bound_conformers,bur_all,"Edges × free exposure, Σp·x·y (whole Fv)",hmask,0.5417903733693208,11115,bc_bur_all
+bound_conformers,bur_all,"Edges × free exposure, Σp·x·y (whole Fv)",drsa,0.5240665766981556,11115,bc_bur_all
+bound_conformers,bur_cdr,"Edges × free exposure, Σp·x·y (CDRs)",run4,0.5246963562753036,11115,bc_bur_cdr
+bound_conformers,bur_cdr,"Edges × free exposure, Σp·x·y (CDRs)",hmask,0.6165542060278902,11115,bc_bur_cdr
+bound_conformers,bur_cdr,"Edges × free exposure, Σp·x·y (CDRs)",drsa,0.5913630229419703,11115,bc_bur_cdr
+bound_conformers,bur_cdr_share,CDR share of Σp·x·y,run4,0.5362123256860098,11115,bc_bur_cdr_share
+bound_conformers,bur_cdr_share,CDR share of Σp·x·y,hmask,0.6440845704003598,11115,bc_bur_cdr_share
+bound_conformers,bur_cdr_share,CDR share of Σp·x·y,drsa,0.6139451192082771,11115,bc_bur_cdr_share
+bound_conformers,edge_max_cdr,Max contact probability (CDRs),run4,0.48268106162843005,11115,bc_edge_max_cdr
+bound_conformers,edge_max_cdr,Max contact probability (CDRs),hmask,0.6398560503823661,11115,bc_edge_max_cdr
+bound_conformers,edge_max_cdr,Max contact probability (CDRs),drsa,0.6565002249212776,11115,bc_edge_max_cdr
+bound_conformers,edge_top50_cdr,Top-50 mean contact probability (CDRs),run4,0.43850652271704904,11115,bc_edge_top50_cdr
+bound_conformers,edge_top50_cdr,Top-50 mean contact probability (CDRs),hmask,0.6930274403958614,11115,bc_edge_top50_cdr
+bound_conformers,edge_top50_cdr,Top-50 mean contact probability (CDRs),drsa,0.700314889788574,11115,bc_edge_top50_cdr
+bound_conformers,dbur_total,"Burial change Δb (predicted dRSA), Fv + antigen",run4,0.49869545659019343,11115,bc_dbur_total
+bound_conformers,dbur_total,"Burial change Δb (predicted dRSA), Fv + antigen",hmask,0.5916329284750338,11115,bc_dbur_total
+bound_conformers,dbur_total,"Burial change Δb (predicted dRSA), Fv + antigen",drsa,0.6076473234367972,11115,bc_dbur_total
+bound_conformers,dbur_fv,"Burial change Δb (predicted dRSA), whole Fv",run4,0.4642375168690958,11115,bc_dbur_fv
+bound_conformers,dbur_fv,"Burial change Δb (predicted dRSA), whole Fv",hmask,0.5408007197480882,11115,bc_dbur_fv
+bound_conformers,dbur_fv,"Burial change Δb (predicted dRSA), whole Fv",drsa,0.5338731443994602,11115,bc_dbur_fv
+bound_conformers,dbur_cdr,"Burial change Δb (predicted dRSA), CDRs",run4,0.5029239766081871,11115,bc_dbur_cdr
+bound_conformers,dbur_cdr,"Burial change Δb (predicted dRSA), CDRs",hmask,0.5990103463787674,11115,bc_dbur_cdr
+bound_conformers,dbur_cdr,"Burial change Δb (predicted dRSA), CDRs",drsa,0.6020692757534862,11115,bc_dbur_cdr
+bound_conformers,dbur_cdr_frac,CDR share of Fv Δb,run4,0.5174988753936123,11115,bc_dbur_cdr_frac
+bound_conformers,dbur_cdr_frac,CDR share of Fv Δb,hmask,0.6081871345029239,11115,bc_dbur_cdr_frac
+bound_conformers,dbur_cdr_frac,CDR share of Fv Δb,drsa,0.6167341430499326,11115,bc_dbur_cdr_frac
+bound_conformers,dbur_ag,"Burial change Δb (predicted dRSA), antigen",run4,0.5097615834457939,11115,bc_dbur_ag
+bound_conformers,dbur_ag,"Burial change Δb (predicted dRSA), antigen",hmask,0.5961313540260909,11115,bc_dbur_ag
+bound_conformers,dbur_ag,"Burial change Δb (predicted dRSA), antigen",drsa,0.6170940170940171,11115,bc_dbur_ag
+bound_conformers,edge_x_dbur,"dRSA-weighted edges, Σp·Δb·Δb (whole Fv)",run4,0.5083220872694557,11115,bc_edge_x_dbur
+bound_conformers,edge_x_dbur,"dRSA-weighted edges, Σp·Δb·Δb (whole Fv)",hmask,0.5877642825011246,11115,bc_edge_x_dbur
+bound_conformers,edge_x_dbur,"dRSA-weighted edges, Σp·Δb·Δb (whole Fv)",drsa,0.6010796221322537,11115,bc_edge_x_dbur
+bound_conformers,edge_x_dbur_cdr,"dRSA-weighted edges, Σp·Δb·Δb (CDRs)",run4,0.5325236167341431,11115,bc_edge_x_dbur_cdr
+bound_conformers,edge_x_dbur_cdr,"dRSA-weighted edges, Σp·Δb·Δb (CDRs)",hmask,0.6552406657669816,11115,bc_edge_x_dbur_cdr
+bound_conformers,edge_x_dbur_cdr,"dRSA-weighted edges, Σp·Δb·Δb (CDRs)",drsa,0.6705353126405758,11115,bc_edge_x_dbur_cdr
+complex,edge_all,"Edges, Σp (whole Fv)",run4,0.4642375168690958,11115,cx_edge_all
+complex,edge_all,"Edges, Σp (whole Fv)",hmask,0.5064327485380117,11115,cx_edge_all
+complex,edge_all,"Edges, Σp (whole Fv)",drsa,0.4841205578047683,11115,cx_edge_all
+complex,edge_cdr,"Edges, Σp (CDRs)",run4,0.457399910031489,11115,cx_edge_cdr
+complex,edge_cdr,"Edges, Σp (CDRs)",hmask,0.5365721997300945,11115,cx_edge_cdr
+complex,edge_cdr,"Edges, Σp (CDRs)",drsa,0.51102114260009,11115,cx_edge_cdr
+complex,edge_max_cdr,Max contact probability (CDRs),run4,0.5162393162393163,11115,cx_edge_max_cdr
+complex,edge_max_cdr,Max contact probability (CDRs),hmask,0.5100314889788574,11115,cx_edge_max_cdr
+complex,edge_max_cdr,Max contact probability (CDRs),drsa,0.5024741340530814,11115,cx_edge_max_cdr
+complex,edge_top50_cdr,Top-50 mean contact probability (CDRs),run4,0.5096716149347729,11115,cx_edge_top50_cdr
+complex,edge_top50_cdr,Top-50 mean contact probability (CDRs),hmask,0.5227170490328386,11115,cx_edge_top50_cdr
+complex,edge_top50_cdr,Top-50 mean contact probability (CDRs),drsa,0.5087719298245614,11115,cx_edge_top50_cdr
+complex,contacts,Contacts p > 0.5 (whole Fv),run4,0.5099865047233468,11115,cx_contacts
+complex,contacts,Contacts p > 0.5 (whole Fv),hmask,0.529374718848403,11115,cx_contacts
+complex,contacts,Contacts p > 0.5 (whole Fv),drsa,0.501259559154296,11115,cx_contacts
+complex,dbur_total,"Burial change Δb (predicted dRSA), Fv + antigen",run4,0.5443994601889339,11115,cx_dbur_total
+complex,dbur_total,"Burial change Δb (predicted dRSA), Fv + antigen",hmask,0.5491677912730545,11115,cx_dbur_total
+complex,dbur_total,"Burial change Δb (predicted dRSA), Fv + antigen",drsa,0.543859649122807,11115,cx_dbur_total
+complex,dbur_fv,"Burial change Δb (predicted dRSA), whole Fv",run4,0.5121907332433648,11115,cx_dbur_fv
+complex,dbur_fv,"Burial change Δb (predicted dRSA), whole Fv",hmask,0.52046783625731,11115,cx_dbur_fv
+complex,dbur_fv,"Burial change Δb (predicted dRSA), whole Fv",drsa,0.519208277103014,11115,cx_dbur_fv
+complex,dbur_cdr,"Burial change Δb (predicted dRSA), CDRs",run4,0.5095816464237517,11115,cx_dbur_cdr
+complex,dbur_cdr,"Burial change Δb (predicted dRSA), CDRs",hmask,0.5366621682411156,11115,cx_dbur_cdr
+complex,dbur_cdr,"Burial change Δb (predicted dRSA), CDRs",drsa,0.5177687809266757,11115,cx_dbur_cdr
+complex,dbur_cdr_frac,CDR share of Fv Δb,run4,0.49851551956815116,11115,cx_dbur_cdr_frac
+complex,dbur_cdr_frac,CDR share of Fv Δb,hmask,0.5442195231668916,11115,cx_dbur_cdr_frac
+complex,dbur_cdr_frac,CDR share of Fv Δb,drsa,0.5035537561853352,11115,cx_dbur_cdr_frac
+complex,dbur_ag,"Burial change Δb (predicted dRSA), antigen",run4,0.5748987854251012,11115,cx_dbur_ag
+complex,dbur_ag,"Burial change Δb (predicted dRSA), antigen",hmask,0.5752586594691858,11115,cx_dbur_ag
+complex,dbur_ag,"Burial change Δb (predicted dRSA), antigen",drsa,0.5653621232568601,11115,cx_dbur_ag
+complex,edge_x_dbur,"dRSA-weighted edges, Σp·Δb·Δb (whole Fv)",run4,0.549527665317139,11115,cx_edge_x_dbur
+complex,edge_x_dbur,"dRSA-weighted edges, Σp·Δb·Δb (whole Fv)",hmask,0.5624831309041836,11115,cx_edge_x_dbur
+complex,edge_x_dbur,"dRSA-weighted edges, Σp·Δb·Δb (whole Fv)",drsa,0.5490778227620333,11115,cx_edge_x_dbur
+complex,edge_x_dbur_cdr,"dRSA-weighted edges, Σp·Δb·Δb (CDRs)",run4,0.5479982006297796,11115,cx_edge_x_dbur_cdr
+complex,edge_x_dbur_cdr,"dRSA-weighted edges, Σp·Δb·Δb (CDRs)",hmask,0.5677013045434098,11115,cx_edge_x_dbur_cdr
+complex,edge_x_dbur_cdr,"dRSA-weighted edges, Σp·Δb·Δb (CDRs)",drsa,0.5508771929824562,11115,cx_edge_x_dbur_cdr

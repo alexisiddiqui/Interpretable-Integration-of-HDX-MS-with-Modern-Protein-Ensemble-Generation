@@ -1,0 +1,34 @@
+{
+  "source_repository": "/Users/alexi/Documents/opig-adaptyv-2026",
+  "source_commit": "cc143a5c51e954b0f2931f8fafa089784e694afc",
+  "source_file": "/Users/alexi/Documents/opig-adaptyv-2026/experiments/028-poisk-free-monomer/results/summary_gqt_outputs_run4_hmask_drsa.csv",
+  "source_sha256": "d0435e223fcabfd29caa8a4bfa67b9761f3a3ecf000f5902768a3131fae1bbeb",
+  "model_exports": {
+    "run4": "ogqt-allres15-siamese-50",
+    "hmask": "ogqt-allres15-within-hmask-50",
+    "drsa": "ogqt-allres15-within-drsa-50"
+  },
+  "model_seed": 17,
+  "source_uncommitted_changes": "",
+  "baseline_source_file": "/Users/alexi/Documents/opig-adaptyv-2026/experiments/028-poisk-free-monomer/results/summary_paper_models.csv",
+  "baseline_source_sha256": "3f2db11c7996552d129d6bb0d3f0c8667d07edf1ddd809d3136d20c76cc31f6f",
+  "visual_source_file": "/Users/alexi/Documents/opig-adaptyv-2026/experiments/028-poisk-free-monomer/figures.py",
+  "figure_id": "jaxka-poisk-recipe-comparison",
+  "inputs": {
+    "pairwise_accuracy.csv": "d0435e223fcabfd29caa8a4bfa67b9761f3a3ecf000f5902768a3131fae1bbeb",
+    "paper_baselines.csv": "3f2db11c7996552d129d6bb0d3f0c8667d07edf1ddd809d3136d20c76cc31f6f"
+  },
+  "plotting_code_sha256": "b02febddaf9e8b767197ba588219e624e250f4f35def584bb6afc92e052470ad",
+  "build_command": "python figures/jaxka-poisk-recipe-comparison/make.py",
+  "dependencies": {
+    "matplotlib": "3.11.2"
+  },
+  "selection": "Original general contact/burial readouts plus top-50 CDR contact probability; no hotspot-specific readouts.",
+  "visual_source": "Experiment 028 figures.py accuracy_chart; original mode colours, background, layout and reference lines.",
+  "values_plotted": 120,
+  "output_sha256": {
+    "fig.pdf": "48d071558853adbb21f86546c194e466ef4eba366e68c9d304c51df28691cdf9",
+    "fig.svg": "6efe3d1f910a5de45f851e7cdf66f3cbf61c73e05c8669decbc673f0729dd49f",
+    "fig.png": "1a8d63d9ccb089ad734d4d1f8b17cc5f825ca69c92ca163e948fe3929161a537"
+  }
+}

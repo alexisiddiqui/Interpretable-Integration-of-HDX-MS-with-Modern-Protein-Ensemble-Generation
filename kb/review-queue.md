@@ -66,10 +66,6 @@
 
 - [[SAXS with MD simulations and ensemble refinement gives minimal ensembles consistent with restraints, without overfitting.]] (`claims/SAXS with MD simulations and ensemble refinement gives minimal ensembles consistent with restraints, without overfitting..md`)
 
-## The synthetic amide-H direction was wrong until BioFeaturisers 39b8069 (2026-11-02), so every TeaA target and run used a near-inert hydrogen-bond term. Decide whether the TeaA target and runs are regenerated with the fixed placement, and whether bf-teaa.md carries the caveat, before the TeaA numbers are written up.
-
-- [[Sigmoid-switch BV forward model (BioFeaturisers)]] (`methods/Sigmoid-switch BV forward model (BioFeaturisers).md`)
-
 ## Trace the reported figures to their fitting and selection procedures before updating the manuscript, including whether coordinate-covariance rescoring was used and, where applicable, which validation block (conditional or marginal) selected the reported models.
 
 - [[Observation weighting and selection (jaxENT)]] (`methods/Observation weighting and selection (jaxENT).md`)

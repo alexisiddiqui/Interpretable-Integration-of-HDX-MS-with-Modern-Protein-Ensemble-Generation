@@ -1,0 +1,5 @@
+# The screened hit above the KRAS peptide groove
+
+ESMFold2 predictions of ID_1457932 with G12D pMHC (A), WT pMHC (B) and peptide-free MHC (C). HLA is light grey, β2m is darker grey and the peptide is magenta. The hit is coloured by saved residue-level pLDDT, with orange, yellow, light blue and dark blue denoting scores below 50, 50–70, 70–90 and at least 90, respectively. All complexes are aligned using HLA residues 1–180 Cα and rendered with a shared orthographic camera and physical scale. The final HLA alignment RMSD is 0.106 Å for WT and 0.285 Å for peptide-free MHC.
+
+Matched oblique close-ups (D–F) expose the peptide groove. These panels show HLA residues 1–180 and, in the peptide-loaded models, hit residues 280–305 as cartoons. The peptide and hit residues within 4.5 Å of it are shown as sticks. Other hit regions are omitted from the detail panels. The peptide-free panel retains the corresponding HLA view without transferring peptide or hit coordinates from the loaded complexes. The full predicted pose remains visible above. pLDDT describes local structural confidence and does not establish binding affinity or confidence in relative chain placement.

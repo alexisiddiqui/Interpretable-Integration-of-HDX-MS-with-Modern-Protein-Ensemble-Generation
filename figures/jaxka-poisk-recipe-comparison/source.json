@@ -1,0 +1,16 @@
+{
+  "source_repository": "/Users/alexi/Documents/opig-adaptyv-2026",
+  "source_commit": "cc143a5c51e954b0f2931f8fafa089784e694afc",
+  "source_file": "/Users/alexi/Documents/opig-adaptyv-2026/experiments/028-poisk-free-monomer/results/summary_gqt_outputs_run4_hmask_drsa.csv",
+  "source_sha256": "d0435e223fcabfd29caa8a4bfa67b9761f3a3ecf000f5902768a3131fae1bbeb",
+  "model_exports": {
+    "run4": "ogqt-allres15-siamese-50",
+    "hmask": "ogqt-allres15-within-hmask-50",
+    "drsa": "ogqt-allres15-within-drsa-50"
+  },
+  "model_seed": 17,
+  "source_uncommitted_changes": "",
+  "baseline_source_file": "/Users/alexi/Documents/opig-adaptyv-2026/experiments/028-poisk-free-monomer/results/summary_paper_models.csv",
+  "baseline_source_sha256": "3f2db11c7996552d129d6bb0d3f0c8667d07edf1ddd809d3136d20c76cc31f6f",
+  "visual_source_file": "/Users/alexi/Documents/opig-adaptyv-2026/experiments/028-poisk-free-monomer/figures.py"
+}

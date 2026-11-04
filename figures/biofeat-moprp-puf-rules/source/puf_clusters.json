@@ -1,0 +1,162 @@
+{
+ "F|ph4": {
+  "frames": 44352,
+  "runs": 56,
+  "top_source": "unbiased",
+  "top_share": 0.4449179292929293,
+  "msm_pct": 67.14502140383958,
+  "dG_vs_folded_like_msm": -0.0,
+  "maxcal_pct": 86.84002725276193,
+  "dG_vs_folded_like_maxcal": -0.0
+ },
+ "F|ph7": {
+  "frames": 48861,
+  "runs": 55,
+  "top_source": "unbiased",
+  "top_share": 0.4068889298213299,
+  "msm_pct": 80.86763709038969,
+  "dG_vs_folded_like_msm": -0.0,
+  "maxcal_pct": 97.16206842263249,
+  "dG_vs_folded_like_maxcal": -0.0
+ },
+ "B1|ph4": {
+  "frames": 22872,
+  "runs": 33,
+  "top_source": "ph4_3",
+  "top_share": 0.5039786638684854,
+  "msm_pct": 19.680215694030476,
+  "dG_vs_folded_like_msm": 0.7271217941584956,
+  "maxcal_pct": 0.21705834800103105,
+  "dG_vs_folded_like_maxcal": 3.549966513593251
+ },
+ "B1|ph7": {
+  "frames": 22716,
+  "runs": 32,
+  "top_source": "ph4_3",
+  "top_share": 0.5267652755766861,
+  "msm_pct": 12.087986216200159,
+  "dG_vs_folded_like_msm": 1.1260778806917253,
+  "maxcal_pct": 0.1626584875578842,
+  "dG_vs_folded_like_maxcal": 3.7874499511742084
+ },
+ "P1|ph4": {
+  "frames": 2581,
+  "runs": 12,
+  "top_source": "ph7_3",
+  "top_share": 1.0,
+  "msm_pct": 1.0302530782409671,
+  "dG_vs_folded_like_msm": 2.474839488285466,
+  "maxcal_pct": 0.11508806237849441,
+  "dG_vs_folded_like_maxcal": 3.9258796221677215
+ },
+ "P1|ph7": {
+  "frames": 3324,
+  "runs": 13,
+  "top_source": "ph7_3",
+  "top_share": 0.9972924187725631,
+  "msm_pct": 0.4393987532770242,
+  "dG_vs_folded_like_msm": 3.0899048608079,
+  "maxcal_pct": 0.00023128789288710862,
+  "dG_vs_folded_like_maxcal": 7.671630213143731
+ },
+ "P2|ph4": {
+  "frames": 601,
+  "runs": 13,
+  "top_source": "ph7_3",
+  "top_share": 0.9900166389351082,
+  "msm_pct": 0.20861435586474533,
+  "dG_vs_folded_like_msm": 3.4210808672867823,
+  "maxcal_pct": 0.022947771952189115,
+  "dG_vs_folded_like_maxcal": 4.881247845838551
+ },
+ "P2|ph7": {
+  "frames": 674,
+  "runs": 11,
+  "top_source": "ph7_3",
+  "top_share": 1.0,
+  "msm_pct": 2.702692682914888,
+  "dG_vs_folded_like_msm": 2.0135987391935877,
+  "maxcal_pct": 1.856715767024294e-05,
+  "dG_vs_folded_like_maxcal": 9.166036618922623
+ },
+ "B1X|ph4": {
+  "frames": 5745,
+  "runs": 22,
+  "top_source": "ph7_3",
+  "top_share": 0.9691906005221932,
+  "msm_pct": 3.0861631158960234,
+  "dG_vs_folded_like_msm": 1.8248099396497997,
+  "maxcal_pct": 0.3037755499793036,
+  "dG_vs_folded_like_maxcal": 3.350818747526555
+ },
+ "B1X|ph7": {
+  "frames": 3755,
+  "runs": 26,
+  "top_source": "ph7_3",
+  "top_share": 0.9733688415446072,
+  "msm_pct": 0.6777120663629161,
+  "dG_vs_folded_like_msm": 2.833172124394388,
+  "maxcal_pct": 0.00238708881687085,
+  "dG_vs_folded_like_maxcal": 6.288671597739854
+ },
+ "CORE|ph4": {
+  "frames": 3673,
+  "runs": 35,
+  "top_source": "ph7_2",
+  "top_share": 0.8401851347672202,
+  "msm_pct": 4.0323682471131335,
+  "dG_vs_folded_like_msm": 1.6663645014750164,
+  "maxcal_pct": 5.452514607613644,
+  "dG_vs_folded_like_maxcal": 1.639992900782473
+ },
+ "CORE|ph7": {
+  "frames": 1958,
+  "runs": 28,
+  "top_source": "ph7_2",
+  "top_share": 0.9300306435137896,
+  "msm_pct": 1.4360120684978348,
+  "dG_vs_folded_like_msm": 2.3882736040344787,
+  "maxcal_pct": 1.2371937520664888,
+  "dG_vs_folded_like_maxcal": 2.585328679842375
+ },
+ "A3|ph4": {
+  "frames": 1776,
+  "runs": 3,
+  "top_source": "ph4_1",
+  "top_share": 1.0,
+  "msm_pct": 2.9342468970227635,
+  "dG_vs_folded_like_msm": 1.8547172668691059,
+  "maxcal_pct": 3.6701517894979623,
+  "dG_vs_folded_like_maxcal": 1.874524445465354
+ },
+ "A3|ph7": {
+  "frames": 1036,
+  "runs": 4,
+  "top_source": "ph4_1",
+  "top_share": 1.0,
+  "msm_pct": 1.6039998591089093,
+  "dG_vs_folded_like_msm": 2.32272666873052,
+  "maxcal_pct": 1.3017733079542202,
+  "dG_vs_folded_like_maxcal": 2.5551820340540496
+ },
+ "UNIT|ph4": {
+  "frames": 880,
+  "runs": 17,
+  "top_source": "ph7_3",
+  "top_share": 0.3159090909090909,
+  "msm_pct": 1.883117207992318,
+  "dG_vs_folded_like_msm": 2.117497579744409,
+  "maxcal_pct": 3.378436617815459,
+  "dG_vs_folded_like_maxcal": 1.923594024761065
+ },
+ "UNIT|ph7": {
+  "frames": 156,
+  "runs": 13,
+  "top_source": "ph4_1",
+  "top_share": 0.32051282051282054,
+  "msm_pct": 0.18456126324857283,
+  "dG_vs_folded_like_msm": 3.603841640990368,
+  "maxcal_pct": 0.13366908592149618,
+  "dG_vs_folded_like_maxcal": 3.9037462155895324
+ }
+}

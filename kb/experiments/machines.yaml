@@ -29,4 +29,4 @@ machines:
     # The ~/.ssh/config alias `isambard` still points at the expired s5h project and does not work.
     ssh_alias: null
     ssh_target: hussain.u6xq@u6xq.aip2.isambard
-    last_verified_at: 2026-10-29T02:44Z
+    last_verified_at: 2026-11-04

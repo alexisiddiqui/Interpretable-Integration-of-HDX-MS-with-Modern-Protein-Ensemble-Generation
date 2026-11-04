@@ -1,6 +1,6 @@
 # biofeat-teaa-landscape-s43
 
-Reference figure set for the TeaA metadiffusion result (seed 43 only). It is not planned as a thesis figure. The set is the repository's `landscape_plots.py` outputs with every ensemble taken from seed 43 and the hinge coordinate from the seed-43 blind axis. The two-seed originals are `examples/TeaA/results/figures/*.png` in MaxENT-FK.
+Reference figure set for the TeaA metadiffusion result (seed 43 only), made before the synthetic amide H was corrected (BioFeaturisers `43cc194`). The corrected rerun is `biofeat-teaa-landscape-s43fx`. It is not planned as a thesis figure. The set is the repository's `landscape_plots.py` outputs with every ensemble taken from seed 43 and the hinge coordinate from the seed-43 blind axis. The two-seed originals are `examples/TeaA/results/figures/*.png` in MaxENT-FK.
 
 - `pca_logdensity`: Cα PCA fitted on the MD open and closed frames with equal state weighting, log10 density (Gaussian σ = 1.5 Å), dashed MD open and closed 95 % HPD regions. Twelve panels: MD open, MD closed, MD 40:60, MD open-closed-intermediate (890 frames), the unguided Boltz pool (150), the metadiffusion union (550) uniform and MaxEnt λ 1000, the refined pool (233, pLDDT ≥ 0.7) uniform and MaxEnt, the unguided control (234) uniform and MaxEnt, and the in-state pools (20 open + 20 closed).
 - `rmsd_lobeII`, `rmsd_allCA`: RMSD-to-open against RMSD-to-closed landscapes for the same panels; uniform panels are coloured by blind θ.

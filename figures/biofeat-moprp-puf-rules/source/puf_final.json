@@ -1,0 +1,197 @@
+{
+ "thresholds_nm": {
+  "core": 0.134141159504652,
+  "b1_corefit": 0.8242337006330485,
+  "b1_selffit": 0.2910061970353126,
+  "loop_corefit": 0.9639876544475552,
+  "loop_selffit": 0.21459150493144988,
+  "a1_corefit": 0.6577061200141903,
+  "a1_selffit": 0.07263803787529467,
+  "a1N_corefit": 0.8259906363487236,
+  "a1N_selffit": 0.04338783580809832,
+  "a1C_corefit": 0.44634547293186183,
+  "a1C_selffit": 0.044214084297418584,
+  "b2_corefit": 0.2534292116761206,
+  "b2_selffit": 0.1664961457252502,
+  "a3C_corefit": 0.6198274075984944,
+  "a3C_selffit": 0.35140757232904424,
+  "unit_corefit": 0.45494859099388085,
+  "unit_selffit": 0.2058846361935138
+ },
+ "b1 only|ph4": {
+  "dG_msm": 0.8235346245959269,
+  "dG_maxcal": 3.625695425117175,
+  "frames": 23176,
+  "runs": 33,
+  "runs80": 19,
+  "top_source": "ph4_3"
+ },
+ "b1 only|ph7": {
+  "dG_msm": 1.1545530066062373,
+  "dG_maxcal": 3.7985608025337676,
+  "frames": 22879,
+  "runs": 32,
+  "runs80": 20,
+  "top_source": "ph4_3"
+ },
+ "b1+loop|ph4": {
+  "dG_msm": 2.154669300000615,
+  "dG_maxcal": 3.8700002414033627,
+  "frames": 5573,
+  "runs": 12,
+  "runs80": 8,
+  "top_source": "ph7_3"
+ },
+ "b1+loop|ph7": {
+  "dG_msm": 2.0288400148136736,
+  "dG_maxcal": 6.919515002355727,
+  "frames": 5136,
+  "runs": 13,
+  "runs80": 8,
+  "top_source": "ph7_3"
+ },
+ "b1+loop+a1N|ph4": {
+  "dG_msm": 2.6047053883727793,
+  "dG_maxcal": 3.901257360664045,
+  "frames": 3134,
+  "runs": 12,
+  "runs80": 6,
+  "top_source": "ph7_3"
+ },
+ "b1+loop+a1N|ph7": {
+  "dG_msm": 2.414532385313382,
+  "dG_maxcal": 7.645108113164132,
+  "frames": 3780,
+  "runs": 13,
+  "runs80": 7,
+  "top_source": "ph7_3"
+ },
+ "b1+loop+a3C (PUF1 text)|ph4": {
+  "dG_msm": Infinity,
+  "dG_maxcal": Infinity,
+  "frames": 0,
+  "runs": 0,
+  "runs80": 0,
+  "top_source": "-"
+ },
+ "b1+loop+a3C (PUF1 text)|ph7": {
+  "dG_msm": Infinity,
+  "dG_maxcal": Infinity,
+  "frames": 0,
+  "runs": 0,
+  "runs80": 0,
+  "top_source": "-"
+ },
+ "b1+loop+a1N+a3C|ph4": {
+  "dG_msm": Infinity,
+  "dG_maxcal": Infinity,
+  "frames": 0,
+  "runs": 0,
+  "runs80": 0,
+  "top_source": "-"
+ },
+ "b1+loop+a1N+a3C|ph7": {
+  "dG_msm": Infinity,
+  "dG_maxcal": Infinity,
+  "frames": 0,
+  "runs": 0,
+  "runs80": 0,
+  "top_source": "-"
+ },
+ "a3C, b1 kept|ph4": {
+  "dG_msm": 2.0597415720470442,
+  "dG_maxcal": 1.9234260813596404,
+  "frames": 1814,
+  "runs": 3,
+  "runs80": 2,
+  "top_source": "ph4_1"
+ },
+ "a3C, b1 kept|ph7": {
+  "dG_msm": 2.4386589568756176,
+  "dG_maxcal": 2.56414237927811,
+  "frames": 1038,
+  "runs": 5,
+  "runs80": 1,
+  "top_source": "ph4_1"
+ },
+ "unit off, b1 kept|ph4": {
+  "dG_msm": 2.3411922009868906,
+  "dG_maxcal": 1.9859982627680584,
+  "frames": 882,
+  "runs": 17,
+  "runs80": 5,
+  "top_source": "ph7_3"
+ },
+ "unit off, b1 kept|ph7": {
+  "dG_msm": 3.7148310320103834,
+  "dG_maxcal": 3.904121170505621,
+  "frames": 159,
+  "runs": 13,
+  "runs80": 7,
+  "top_source": "ph4_1"
+ },
+ "unit off, b1 off|ph4": {
+  "dG_msm": 2.562988062163589,
+  "dG_maxcal": 3.896988267548895,
+  "frames": 3305,
+  "runs": 17,
+  "runs80": 6,
+  "top_source": "ph7_3"
+ },
+ "unit off, b1 off|ph7": {
+  "dG_msm": 1.964424443680395,
+  "dG_maxcal": 7.416542560250106,
+  "frames": 3854,
+  "runs": 19,
+  "runs80": 7,
+  "top_source": "ph7_3"
+ },
+ "a1+b2 off, core ok (PUF2 text)|ph4": {
+  "dG_msm": 3.3487521181953284,
+  "dG_maxcal": 3.472064408889811,
+  "frames": 662,
+  "runs": 18,
+  "runs80": 4,
+  "top_source": "ph7_3"
+ },
+ "a1+b2 off, core ok (PUF2 text)|ph7": {
+  "dG_msm": 2.122065427730767,
+  "dG_maxcal": 5.988431808283672,
+  "frames": 679,
+  "runs": 14,
+  "runs80": 3,
+  "top_source": "ph7_3"
+ },
+ "PUF2 seq (+b1+loop+a3C)|ph4": {
+  "dG_msm": Infinity,
+  "dG_maxcal": Infinity,
+  "frames": 0,
+  "runs": 0,
+  "runs80": 0,
+  "top_source": "-"
+ },
+ "PUF2 seq (+b1+loop+a3C)|ph7": {
+  "dG_msm": Infinity,
+  "dG_maxcal": Infinity,
+  "frames": 0,
+  "runs": 0,
+  "runs80": 0,
+  "top_source": "-"
+ },
+ "core distorted|ph4": {
+  "dG_msm": 1.6627308922827515,
+  "dG_maxcal": 1.6572645353752304,
+  "frames": 6909,
+  "runs": 52,
+  "runs80": 15,
+  "top_source": "ph7_3"
+ },
+ "core distorted|ph7": {
+  "dG_msm": 2.384385284522635,
+  "dG_maxcal": 2.5942389277202924,
+  "frames": 4470,
+  "runs": 48,
+  "runs80": 12,
+  "top_source": "ph7_3"
+ }
+}

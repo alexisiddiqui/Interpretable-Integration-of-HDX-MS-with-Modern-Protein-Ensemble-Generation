@@ -1,0 +1,34 @@
+{
+  "repository": "/Users/alexi/Documents/opig-adaptyv-2026",
+  "commit": "cc143a5c51e954b0f2931f8fafa089784e694afc",
+  "radial_source": "/Users/alexi/Documents/opig-adaptyv-2026/data/targets/challenge-5-kras-g12d-pmhc/structures/radial/radial-data.json",
+  "radial_source_sha256": "956de82dabeda0826cf61be42dc4ab3b4cc3b3007ecfe8a94f7d21eaa23994ea",
+  "renderer_source": "/Users/alexi/Documents/opig-adaptyv-2026/docs/challenge-5/structures/radial-maps.js",
+  "renderer_sha256": "60af679ab1221291a5a3a7247cbe969a8efb862ad3366e70d335da78e259eabb",
+  "structures": [
+    {
+      "source": "/Users/alexi/Documents/opig-adaptyv-2026/data/targets/challenge-5-kras-g12d-pmhc/structures/assembly1/7OW6.pdb",
+      "file": "structures/7OW6-mutant.pdb",
+      "sha256": "9efd424ce1a14e0743f362476a5b7225f3315d0819a850aaffb214e0643c6485",
+      "radial_key": "atlas:7OW6"
+    },
+    {
+      "source": "/Users/alexi/Documents/opig-adaptyv-2026/data/targets/challenge-5-kras-g12d-pmhc/structures/assembly1/7OW5.pdb",
+      "file": "structures/7OW5-wt.pdb",
+      "sha256": "982619543b39ac1f004be8fa95616b276509648144b9bb4d6b8c0f38f1eab122",
+      "radial_key": "atlas:7OW5"
+    },
+    {
+      "source": "/Users/alexi/Documents/opig-adaptyv-2026/data/designs/055-kras-top100-pilot/esmfold2-results/structures/coordinates/e5e0a296f95df3706cbd1015.cif.gz",
+      "file": "structures/ID_1457932-mutant.cif",
+      "sha256": "e33d532011d5649783426cc4189190e9b1354761d53e2c86316e5afa5909aa7f",
+      "radial_key": "prediction:9c499b768d2124c4f8db|g12d"
+    },
+    {
+      "source": "/Users/alexi/Documents/opig-adaptyv-2026/data/designs/055-kras-top100-pilot/esmfold2-results/structures/coordinates/b42e1ad230e2c44a6d552e7f.cif.gz",
+      "file": "structures/ID_1457932-wt.cif",
+      "sha256": "4af246f36b658e856b9bc4cf600d954b1dc72d105bb7b47897fb8e666fb46976",
+      "radial_key": "prediction:9c499b768d2124c4f8db|wt_matched"
+    }
+  ]
+}

@@ -13,7 +13,8 @@ locations:
 experiments:
   - id: bf-moprp
     status: primary
-    question: null
+    question: Do stationary MSMs of MoPrP at pH 4 and pH 7, built from basin-seeded unbiased trajectories and refined against HDX opening free energies, support a sequential pathway from Folded through PUF1 to PUF2, or a pH-gated parallel one?
+    # Protocol and MSM/MaxCal variants: bf-moprp.md.
     locations:
       - machine: coulson
         root: /u/oc/lina4225/_runtime/BioFeaturisers/cuda-86/campaigns
@@ -34,7 +35,7 @@ experiments:
       - moprp_results/msm_ext6_ck.png               # Chapman-Kolmogorov test, main model (local mirror only)
       - moprp_results/msm_ext6_mfpt.png             # opening / closing MFPTs, main model (local mirror only)
       - seeded_apo/msm/ext6_cartpca10_all-kmall_k100_lag5/{msm_fes,msm_its,msm_summary}.png  # main model on Coulson
-    figures: []
+    figures: [biofeat-moprp-msm-ext12, biofeat-moprp-flow-ext12, biofeat-moprp-paths-ext12, biofeat-moprp-puf-rules]
   - id: bf-gpu-stack-campaigns
     question: null
     locations:
@@ -90,12 +91,12 @@ experiments:
       - sweep_a0.25_blind.csv                   # per-structure MaxEnt weights, seed 42 (analysis root)
       - sweep_s43_a0.25_blind.csv               # seed 43 (analysis root)
       - metad_history.csv                       # bias deposits, seed 42 (analysis root); metad_history_s43.csv for seed 43
-    figures: [biofeat-teaa-landscape-s43]
+    figures: [biofeat-teaa-landscape-s43fx, biofeat-teaa-landscape-s43]
 ---
 
 # BioFeaturisers / MaxENT-FK experiments
 
-The BPTI metainference and metadynamics experiments are on Pegasus-Gate (two-stage ±0/±2 protocol in [bf-bpti.md](bf-bpti.md)), the MoPrP runs and the GPU-stack campaigns are on Coulson-Chemistry, and the TeaA metadiffusion experiment is on Isambard (protocol in [bf-teaa.md](bf-teaa.md)). Access requirements are recorded in [machines.yaml](machines.yaml).
+The BPTI metainference and metadynamics experiments are on Pegasus-Gate (two-stage ±0/±2 protocol in [bf-bpti.md](bf-bpti.md)), the MoPrP runs (protocol in [bf-moprp.md](bf-moprp.md)) and the GPU-stack campaigns are on Coulson-Chemistry, and the TeaA metadiffusion experiment is on Isambard (protocol in [bf-teaa.md](bf-teaa.md)). Access requirements are recorded in [machines.yaml](machines.yaml).
 
 Observed 2026-10-29; Isambard re-observed 2026-11-01. The machines hold different experiments, not replicas. Run output is under `_runtime/BioFeaturisers/` on Coulson and Pegasus; the repositories sit beside it.
 
@@ -104,4 +105,4 @@ Observed 2026-10-29; Isambard re-observed 2026-11-01. The machines hold differen
 
 - **Isambard:** `BioFeaturisers/` (branch `dev-PLUMED`, 15 uncommitted files), `MaxENT-FK/` (branch `teaa-iso-frame-uptake`, observed 2026-11-01 with `predict.py` and `run_config.py` modified, two commits ahead of origin, and an untracked 4.3 GB `core` file) and a `bioemu2/` clone are in the root. Run output is under `_runtime/runs/` (TeaA, HOIP and BPTI runs), with the sbatch sets in `_submission/` (about 20 `maxent-bioemu2-*` sets and `bpti-metadiffusion-torsion-v2`). The TeaA analysis scripts and score dumps are in `~/_runtime/analysis/`, and `~/_submit/teaa_sdedit.sbatch` launches the runs. `~/MaxENT-FK` is an older non-git copy in the home directory. The queue was empty. Only TeaA is recorded as an experiment; the HOIP, BPTI and `maxent-bioemu2-*` runs are not.
 
-BPTI and TeaA have protocol notes and selected artifact paths. BPTI has four registered thesis figures, linked from its protocol note and the chapter hub. The other campaigns retain location entries.
+BPTI, MoPrP and TeaA have protocol notes and selected artifact paths. The MoPrP protocol includes the later ext12 and segment-based MaxCal analyses; the ext6 artifact entries above retain the earlier comparisons. BPTI has four registered thesis figures, linked from its protocol note and the chapter hub. The other campaigns retain location entries.

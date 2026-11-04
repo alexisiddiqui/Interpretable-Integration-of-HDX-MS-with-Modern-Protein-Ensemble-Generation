@@ -1,12 +1,8 @@
 # 06 jax-Ka
 
-Chapter hub for `thesis/chapters/06-jax-ka.tex`. Moved from the §1.7 hub on 2026-10-14; argument order not yet set. Its place in the thesis is the pH thread ([[01-introduction]] §1.1 B (prions), §1.2 group 2, §1.3 group 2), and [[prion protein|MoPrP]] carries it. A pKa model that differentiates through backbone coordinates is a second forward model of the kind ch. 5 builds. The titration models (PROPKA, PypKa, constant-pH MD, pKAI, KaML) are introduced in the chapter preface, not in [[02-background]] §2.2.
+Chapter hub for `thesis/chapters/06-jax-ka.tex`. The first half develops backbone pKa and binding-shift prediction. The second develops a dRSA-weighted residue-pair edge binder through run 4, PeSTo hotspot augmentation and dRSA weighting, then tests its interpretation with negative construction, ANM consistency, POISK and an ATLAS screen against KRAS G12D pMHC. The shared bound/free representation connects the two halves (own; [[jaxka-edge-binder]]).
 
-Status sentence: in progress (frozen relational default, interface experiments open). **decision**: full research chapter, short chapter, or appendix. `DEADLINES.md` has no entry for it.
-
-Markers:
-- **gap**: something the chapter needs that has no verified source or manuscript form yet.
-- **decision**: a choice to make before writing.
+The pH motivation connects to [[01-introduction]] and [[prion protein|MoPrP]]. A pKa model that differentiates through backbone coordinates is a second forward model of the kind ch. 5 builds. The titration models (PROPKA, PypKa, constant-pH MD, pKAI, KaML) are introduced in the chapter preface, not in [[02-background]] §2.2. The edge-binder application asks whether the learned representation can prioritise structural candidates while controls distinguish sequence compatibility, partner recognition and predicted complex confidence (own; [[028-poisk-free-monomer]], [[046-atlas-kras-screen]]).
 
 ## Preface: computational titration models
 
@@ -56,22 +52,69 @@ Argument: a site keeps its label only if its error from removed or missing mater
 - **Training pools.** Pool-v4 holds 800 pKPDB groups and 800 PINDER clusters for validation, leaving 27,933 PINDER complexes and 56,191 pKPDB structures for training. Nested 10%, 50%, 75% and 100% subsets keep sequence groups whole.
 - **Experimental labels.** PKAD-3 (1,804 records) and PKAD-R (317 retained records) are evaluation-only (`experiments/1_benchmark/10_experimental_inventory.md`, `26_experimental_expansion.md`).
 
-## Detail moved from §1.7
+## Representation: shared bound/free predictions
 
-- The relational predecessor is a backbone-only pKa predictor, the orientation Graph Query Transformer (oGQT) with relational edges: a spatial residue graph plus explicit ±1 and ±2 sequence edges, a separate key and value projection per relation, and titratable-site query tokens. Trained on pKPDB (PypKa labels) and PINDER complexes labelled by pKAI in the bound and free states, with a binding-shift loss and a burial auxiliary. Its readout differentiates through backbone coordinates. Model record (`projects/4-jax-Ka/code` `models/ogqt-relational-50-frozen`). The final model, `models/ogqt-allres15-siamese-50`, gives every residue a token and trains shared bound/free branches on pKa states and binding shifts, with burial-change and residue-contact objectives (`models/ogqt-allres15-siamese-50/README.md`, Heads and training targets).
-- What the current results test: that relational edges improve backbone-only pKa prediction (selection error 0.649 to 0.632 over three seeds at 50% of the pool, `experiments/4_backbone/08_frozen_relational.md`); that an experimental-pH auxiliary adds nothing (the head learns crystal against EM, not pH; `07_handoff.md`).
-- The earlier Kd-ratio numbers (under 9% all-atom, 30% backbone, under 20% transformer) are not in the current records and are dropped.
-- Application to test: which MoPrP sites change protonation between pH 4 and pH 7, and whether they sit in the regions that unfold.
+- The relational predecessor is a backbone-only pKa predictor, the orientation Graph Query Transformer (oGQT) with relational edges: a spatial residue graph plus explicit ±1 and ±2 sequence edges, a separate key and value projection per relation, and titratable-site query tokens. Trained on pKPDB (PypKa labels) and PINDER complexes labelled by pKAI in the bound and free states, with a binding-shift loss and a burial auxiliary. Its readout differentiates through backbone coordinates. Model record (`projects/4-jax-Ka/code` `models/ogqt-relational-50-frozen`). The all-residue model, `models/ogqt-allres15-siamese-50` (run 4), gives every residue a token and trains shared bound/free branches on pKa states and binding shifts, with burial-change and residue-contact objectives (`models/ogqt-allres15-siamese-50/README.md`, Heads and training targets; [[jaxka-edge-binder#Representation and comparison]]).
+- An experimental-pH auxiliary adds nothing. The head learns crystal against EM, not pH; crystal-only targets remove the cost without providing useful pH prediction (`experiments/4_backbone/07_handoff.md`, Results so far).
 
-## Model results
+## Results: backbone pKa and binding-shift prediction
+
+Argument: removing side-chain coordinates changes what the model can infer. The pKAI controls establish the representation problem, the GQT ablations identify useful backbone features, and experimental pKas bound what agreement with computed labels establishes.
 
 - **Joint pKAI training.** Training the pKAI architecture on PINDER as well as pKPDB lowered every validation error with all-atom input (full pool: pKPDB MSE 0.287 against 0.319, interface paired MSE 0.034 against 0.059) and changed little with backbone input (pKPDB 1.043 against 1.045). With all-atom input, joint training kept improving as data grew, while pKPDB-only training levelled off at 0.381 from 50% of the pool (`tab:jaxka-pkai-joint`, `tab:jaxka-pkai-fraction`; `experiments/3_paired_complex/48_pkai_joint_scale.md`). The joint arm adds the PINDER state losses and the Siamese binding-shift loss together, so the gain belongs to PINDER training, not to the Siamese loss alone. Each arm is one seed.
+- **Backbone geometry.** At 100% data, plain width-64 backbone GQT has mean selection MAE 0.6503, against 0.6212 with orientation and dihedrals. Greater width or depth does not improve that backbone comparison. Side-chain dropout during training gives a further gain with backbone-only validation (`experiments/4_backbone/07_handoff.md`, Results so far). The pKAI baseline tables use MSE and do not form a numerical ranking with GQT selection MAE.
 - **Relational edges against width.** At 50% of the pool, relation maps beat added width at matched size. Widening the base GQT from 64 to 76 channels lowered selection error from 0.6494 to 0.6447 (139,810 to 195,070 parameters). ±1 and ±2 sequence edges with one shared projection gave 0.6427 (148,130), and six typed maps in both layers gave 0.6324 (189,730), below the width-76 control on all three seeds (`fig:jaxka-relational-edges`). On the full pool the gain disappears (0.6209 against 0.6212, with mixed signs across seeds).
 - **Cost of relation maps.** Relation maps add no attended pairs, because the ±1 and ±2 sequence edges always lie inside the 20 Å residue graph; they change only which projection each edge reads. At the 1,536-residue training bucket they cost 3–8% more GPU memory and 15–24% more step time than the width-64 base (`fig:jaxka-relational-memory`). Width 76 is slower than every relation map (266 ms against 115 ms per step), with 4 heads of 19 channels.
 - **Graph against full attention.** Letting layer 2 of the 4/1 model attend to every residue pair gave selection error 0.6344 against 0.6349 for graph attention (seed 17), within the 0.002 seed spread, for 28% more GPU memory and 29% more step time at 1,536 residues (`fig:jaxka-relational-edges`, `fig:jaxka-relational-memory`).
 - **Coordinate gradients.** The gradient of the predicted shifts with respect to backbone coordinates, for one complex in its bound and free states, costs 1.5–1.6 GiB and 84–87 ms at 1,500 residues for every graph configuration, and 67 ms with full attention (`fig:jaxka-coordinate-gradients`). The feature rebuild uses dense N × N candidate pairs, so these numbers describe the current implementation, not an online feature computation.
+- **Experimental pKas.** On 1,421 common PKAD-3 entries, run-4 all-residue GQT has RMSE 1.42 and MAE 0.82, against 1.31 and 0.84 for the model-compound null. These results do not establish an experimental RMSE advantage. Computed-label accuracy, experimental accuracy and large-shift accuracy remain separate assessments (`.experiments/jaxka-pkad/default-allres-report.md`, Common entries; [[A null model that assigns model-compound pKa values is hard to beat on experimental protein pKas.]]).
+
+## Results: developing the free-partner edge binder
+
+Argument: predicting a binding-induced change uses a bound/free comparison, but recognising a partner from free structures requires an additional test. Residue-pair contacts and burial supervision give run 4 an interface readout. Within-complex ranking, hotspot masking and dRSA weighting then test how training can improve it ([[jaxka-edge-binder]]).
+
+- **Run 4.** The width-64, 180,000-parameter all-residue model predicts contact edges from separately embedded free partners. On PINDER validation, its seed-17 free-edge AUROC is 0.669, contact AP 0.029 and within-complex contact AUROC 0.605. Its shared heads also retain pKa, gate and burial predictions ([[jaxka-edge-binder#Representation and comparison]]).
+- **Hotspot augmentation.** Within-complex ranking at weight 0.3 and asymmetric PeSTo hotspot masking improve local contact discrimination. PeSTo acts during training; inference uses unmasked backbone and sequence. Mean same-stratum swapped-partner accuracy across three seeds is 0.7563, and antibody/antigen swapped-partner accuracy is 0.6656 ([[jaxka-edge-binder#Run 4, hotspot masking and dRSA]]).
+- **dRSA weighting.** Weighting the within-complex target by the smaller burial change at the two contact residues raises mean surface-interface AUROC from 0.6598 to 0.7004, swapped-partner accuracy from 0.7563 to 0.7986 and antibody/antigen swapped-partner accuracy from 0.6656 to 0.7039. These improvements occur in each seed, while within-complex contact AUROC changes from 0.6575 to 0.6546. Binding-shift MAE and the large-shift strata do not improve consistently ([[jaxka-edge-binder#Run 4, hotspot masking and dRSA]]).
+
+## Results: negative construction and ANM consistency diagnose the gains
+
+Argument: a score can improve by recognising sequence families or training constructions. Negative controls therefore test what distinguishes partners, while ANM views test sensitivity to changes in free geometry. The two comparisons address different sources of uncertainty.
+
+- **Negative construction.** Retyped and cross-complex decoys raise overall swapped-partner accuracy from 0.7310 to 0.8255, while antibody/antigen accuracy falls from 0.6341 to 0.5659 and same-UniProt partner discrimination remains near chance. Within-complex noncontacts avoid changing the partner's source and improve local contact ranking. The retained hmask/dRSA recipes use within-ranking weight 0.3 with retyped-decoy training disabled ([[jaxka-edge-binder#Negative construction distinguishes contacts from sequence compatibility]]).
+- **ANM consistency.** Across three seeds, consistency training reduces the pKa penalty on the approximately 2 Å ANM view from 0.038–0.040 to 0.023–0.026. Crystal antibody/antigen swap accuracy increases in each seed, while overall swap accuracy decreases in each seed. Edge-only augmentation and its dRSA combination do not give a general improvement in partner discrimination ([[jaxka-edge-binder#ANM consistency changes robustness and discrimination differently]]).
+
+## Results: POISK improvement exposes a sequence shortcut
+
+Argument: POISK supplies an external binder/decoy comparison, but improved discrimination must depend on the supplied antigen before it can support partner recognition. Wrong-antigen, sequence-only and binders-only comparisons distinguish those possibilities ([[028-poisk-free-monomer]]).
+
+- **Apparent improvement.** On 11,111 apo binder/decoy pairs, top-50 CDR edge accuracy rises from 0.4366 for run 4 to 0.7115 for hmask and 0.7131 for dRSA. Predicted-dRSA-weighted CDR edge accuracy rises from 0.4895 to 0.6671 and 0.6755. These readouts use different reductions of the same model outputs (`jaxka-poisk-recipe-comparison`; [[028-poisk-free-monomer#Improvements depend on the readout]]).
+- **Sequence shortcut.** Against a wrong antigen, predicted-dRSA-weighted CDR accuracy remains 0.665 for hmask and 0.666 for dRSA. A trained GQT readout reaches about 0.89 using antibody-only features, and sequence composition with dipeptides reaches 0.95. Binder/decoy pool membership explains much of the apparent gain; antigen holdout does not remove it ([[028-poisk-free-monomer#Wrong-antigen and sequence controls identify the shortcut]]).
+- **Residual pairing signal.** Holding the antibody fixed and comparing its own antigen with wrong antigens reduces the learned hmask embedding-product readout to accuracy 0.566 and top-1-of-10 retrieval 0.147. The corresponding sequence-composition readout gives 0.532 and 0.124. This supports a small pairing signal under that comparison, bounded by the benchmark and learned readout ([[028-poisk-free-monomer#Removing the decoy pool exposes a smaller pairing signal]]).
+
+## Results: ATLAS screening supplies a structural candidate
+
+Argument: the wrong-antigen result limits blind-score interpretation, so the application uses the score to prioritise candidates for subsequent complex prediction with matched target controls. This tests practical candidate finding while keeping predicted confidence separate from measured binding ([[046-atlas-kras-screen]]).
+
+- **Library screen.** The hmask checkpoint scores all 69,060 high-confidence ATLAS hotspot-interface representatives, yielding 459,946 native fragments and 16,855,977 residue–fragment pairings against KRAS G12D pMHC. Source fragments retain WT and empty-MHC score contrasts. The screen used hmask; it does not measure the later dRSA checkpoint's screening performance ([[046-atlas-kras-screen#Completed blind screen]]).
+- **Top-100 prediction.** ESMFold2 completes 300 predictions for 100 intact source chains across G12D, WT and empty-MHC contexts. Three candidates pass the relative confidence gates. One, ID_1457932, has G12D interface iPTM 0.875 against WT 0.761, four source residues contacting the mutant peptide position and two original patch residues supporting those contacts ([[046-atlas-kras-screen#Top-100 complex prediction]]).
+- **Interpretation.** The lead supplies high predicted complex confidence with relative mutant preference. All three passing candidates retain WT iPTM above 0.7, so WT avoidance remains unresolved. Without a matched random-library prediction cohort, the result does not quantify enrichment caused by the ranking ([[046-atlas-kras-screen#Top-100 complex prediction]]).
+
+## Results: additional width and relation maps do not improve all objectives
+
+- **Width.** At 50% data, width 128 improves mean contact AP from 0.0458 to 0.0505 and overall swapped-partner accuracy from 0.7986 to 0.8120, while antibody/antigen accuracy falls from 0.7039 to 0.6806. Clean pKa selection is essentially unchanged, 0.6157 against 0.6156. These are three-seed descriptive means ([[jaxka-edge-binder#Width and relational-edge scaling]]).
+- **Relation maps.** Increasing 4/1 to 6/1 or 6/6 provides no consistent improvement across pKa, contact and partner-recognition metrics. Mean antibody/antigen swap accuracies are 0.6842 and 0.6925, against 0.7039 for 4/1. Retain the simpler dRSA recipe for the comparisons it supports ([[jaxka-edge-binder#Width and relational-edge scaling]]).
+
+## pH applications
+
+- [[027-extremophile-vs-pka-surface]] tests how extremophile fine-tuning and protonation-based steering differ at matched formal-charge changes, then compares complex pose retention and predicted pH-selective binding. It supplies an application of the pKa readout alongside the edge-binder screen.
+- A MoPrP extension would ask which sites change protonation between pH 4 and pH 7, and whether they sit in the regions that unfold (own).
+
+## Gaps
+
+- Completed 100% data comparisons with actual run protocols, hotspot-masking coverage and matched validation reports.
 
 ## Drafting sources
 
 - `projects/4-jax-Ka/code` experiment records (`experiments/4_backbone/`); chapter tex comments (`06-jax-ka.tex`).
-- Preface papers are seeded in `kb/papers/` (see the Preface section below); seven still lack PDFs.
+- [[jaxka-edge-binder]], [[028-poisk-free-monomer]] and [[046-atlas-kras-screen]] connect the second-half results to source reports, checkpoints and runtime artifacts.

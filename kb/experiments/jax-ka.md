@@ -9,6 +9,73 @@ locations:
   - machine: coulson
     root: /u/oc/lina4225
 experiments:
+  - id: jaxka-edge-binder
+    question: Which contact targets, negative constructions and geometry augmentations improve free-partner interface recognition while retaining backbone pKa prediction?
+    locations:
+      - machine: isambard
+        root: /scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits
+        runs: [residue-siamese-v1-50, residue-siamese-v1-50-v4, negatives-v1, hotspot-mask-v2, drsa-within-v1, anm-aug-v1, anm-edge-v1, drsa-anm-v1, drsa-cap-v1, drsa-rel-v1]
+      - machine: isambard
+        root: /scratch/u6xq/hussain.u6xq/_submission
+        runs: [residue-siamese-v1, hotspot-mask-v2, drsa-within-v1, anm-aug-v1, anm-edge-v1, drsa-anm-v1, drsa-cap-v1, drsa-rel-v1, datascale-v1]
+    authoritative_location: isambard
+    status_command: null
+    artifacts:
+      - negatives-v1/decoy-ranking/report.json
+      - negatives-v1/sweep/decoy-ranking/report.md
+      - anm-aug-v1/seeds/gates/gates.md
+      - anm-edge-v1/gates/gates.md
+      - drsa-within-v1/gates.md
+      - drsa-anm-v1/gates.md
+      - drsa-cap-v1/w128/s17/gates.md
+      - drsa-cap-v1/w128/s29/gates.md
+      - drsa-cap-v1/w128/s43/gates.md
+      - drsa-rel-v1/rel61/s17/gates.md
+      - drsa-rel-v1/rel61/s29/gates.md
+      - drsa-rel-v1/rel61/s43/gates.md
+      - drsa-rel-v1/rel66/s17/gates.md
+      - drsa-rel-v1/rel66/s29/gates.md
+      - drsa-rel-v1/rel66/s43/gates.md
+    figures: []
+  - id: opig-adaptyv-028
+    question: Do run-4, hmask and dRSA scores distinguish antibody binders from decoys through recognition of the supplied antigen?
+    locations:
+      - machine: local
+        root: /Users/alexi/Documents/opig-adaptyv-2026/experiments/028-poisk-free-monomer
+        runs: [results]
+      - machine: modal
+        root: opig-eval-runs:028-poisk-free-monomer
+        runs: [featcache, gqt]
+    authoritative_location: modal
+    status_command: null
+    artifacts:
+      - README.md
+      - results/summary_gqt_outputs_run4_hmask_drsa.csv
+      - results/summary_blind_drsa_wrong_antigen.csv
+      - results/logreg_summary.csv
+      - results/logreg_nodecoy_summary.csv
+    figures: [jaxka-poisk-recipe-comparison]
+  - id: opig-adaptyv-046
+    question: Can blind hmask-GQT screening of ATLAS interfaces prioritise a KRAS G12D pMHC candidate with predicted mutant preference?
+    locations:
+      - machine: local
+        root: /Users/alexi/Documents/opig-adaptyv-2026/experiments/046-atlas-fragment-hit
+        runs: [results/atlas-c5-hmask-fragments-20261031-a]
+      - machine: local
+        root: /Users/alexi/Documents/opig-adaptyv-2026/data/designs/055-kras-top100-pilot/esmfold2-results
+      - machine: modal
+        root: opig-atlas-surface-clusters:atlas-c5-hmask-fragments-20261031-a
+        runs: [full, esmfold2-target-msa/20261101-a/cases, top100-method-pilot/20261101-a]
+    authoritative_location: modal
+    status_command: null
+    artifacts:
+      - experiments/045-atlas-voronoi-clustering/interface_only/README.md
+      - experiments/046-atlas-fragment-hit/README.md
+      - experiments/055-kras-top100-pilot/README.md
+      - data/designs/055-kras-top100-pilot/esmfold2-results/RESULTS.md
+      - data/designs/055-kras-top100-pilot/esmfold2-results/candidate-results.csv
+      - data/designs/055-kras-top100-pilot/esmfold2-results/results.json
+    figures: []
   - id: opig-adaptyv-027
     question: How do extremophile fine-tuning and pKa steering differ in surface chemistry, complex confidence and predicted pH-selective binding?
     locations:
@@ -32,7 +99,7 @@ experiments:
       - results/binding-ph-bindingph-yield-2026-10-30.json
     figures: [jaxka-extremophile-overlap, jaxka-extremophile-chemistry, jaxka-extremophile-complex-confidence, jaxka-complex-linkage-selectivity, jaxka-extremophile-monomer-refolding]
   - id: jaxka-training
-    question: null
+    question: How accurately can backbone and sequence predict pKa and binding-induced pKa shifts, and which representations and training objectives improve the comparison?
     locations:
       - machine: isambard
         root: /scratch/u6xq/hussain.u6xq/jax-Ka/experiments
@@ -122,15 +189,16 @@ experiments:
 
 # jax-Ka experiments
 
-Training is on isambard and data cleaning is on Coulson-Chemistry. Access requirements are recorded in [machines.yaml](machines.yaml).
+[[06-jax-ka]] develops backbone pKa and binding-shift prediction, then extends the shared representation to a free-partner edge binder. Training is on Isambard and data cleaning is on Coulson-Chemistry. The external binder benchmark and ATLAS screen are in `/Users/alexi/Documents/opig-adaptyv-2026`, with bulk outputs on Modal. Access requirements are recorded in [machines.yaml](machines.yaml).
+
+[[jaxka-edge-binder]] records the run-4, hmask and dRSA recipes, negative-training comparisons, ANM consistency and final 50% width/relation-map ablations. Its source map identifies the Isambard audit reports and frozen `_submission` code snapshots. Nineteen reports and eight definition/launch files were downloaded with remote checksum verification to `.experiments/jaxka-binder-isambard-2026-11-04/`; `receipt.json` and `source-receipt.json` preserve exact source paths and hashes.
+
+[[028-poisk-free-monomer]] records the improvement across run 4, hmask and dRSA, the wrong-antigen and sequence-only controls, and the smaller pairing signal after removing the decoy pool. The source CSV `experiments/028-poisk-free-monomer/results/summary_gqt_outputs_run4_hmask_drsa.csv` is the consolidated comparison; the experiment report supplies the controls needed to interpret it.
+
+[[046-atlas-kras-screen]] connects interface-library construction (045), the 69,060-representative blind hmask screen (046) and the 100-source, 300-prediction ESMFold2 comparison (055). It records the checkpoint, target-context gates, high-confidence lead and WT comparison. The screen used hmask, not the later dRSA export.
 
 [Experiment 027](027-extremophile-vs-pka-surface.md) compares extremophile fine-tuning with pKa surface steering at matched charge changes, then tests complex confidence and predicted pH-selective binding with target context. The note records the three result arguments, the online mutation-ranking consequence and the data for the proposed figures. Its source runs are in the local `opig-adaptyv-2026` repository.
 
-Observed 2026-10-29.
+The backbone controls and early GQT comparisons remain in `projects/4-jax-Ka/code/experiments/4_backbone/` and `3_paired_complex/48_pkai_joint_scale.md`. The two machines hold checkouts of the same repository, but the frozen training snapshots identify the code used for later Isambard experiments. A current checkout commit is not a substitute for a run's recorded protocol and code hashes. Data-cleaning decisions remain in [[2026-10-29 jax-Ka masking noise targets]] and [[2026-10-29 jax-Ka data pipeline record and teacher]].
 
-- **Coulson:** three checkouts of `alexisiddiqui/jax-Ka` in the root: `jax-Ka/` (branch `benchmark`, 107 uncommitted files, last commit 2026-10-13), `jax-Ka-ph/` (`ph-aux`, clean) and `jax-Ka-augmentation-main/` (`main`, clean). Their `experiments/` layout matches `projects/4-jax-Ka/code/experiments/`. Run output sits in `_runtime/jax-Ka/` (`anm-pilot-v1`, `pkabench`, `logs`). The `anm-*` jobs (feature-cache pools, ten-mode runs) and the `pkai-scan` array were queued or running in the last ten days.
-- **Isambard:** `jax-Ka/` (branch `main`, clean, last commit 2026-10-21) and `jax-Ka-crop/` (a production-crop worktree), with the same `experiments/` layout. Run output is in `_runtime/jax-Ka/` (`ogqt-*`, `6sc6-*`, `pkabench`, `anm-pilot-v1`). The `_submission/` sets from 2026-10-27 to 2026-10-29 (`gqt-*`, `teacher-*`, `nonlinear-*`, `pkpdb-*`) are the most recent GQT work. `_wt/` holds worktrees (`ph-aux`, `pkai-*`). The queue was empty.
-
-Training and the benchmark experiments run on Isambard, which holds most of the experiments. Data cleaning (curation, the experimental admission and inventory scripts, the pKa benchmark caches and manifests) was done on Coulson. The two machines hold checkouts of the same repository, so a result's code state has to be read from the machine that produced it.
-
-The `jax-Ka` checkout on Coulson has uncommitted changes, so any result produced from it needs the code state recorded before it is used. The data-cleaning entry records its question and artifacts; the other entries do not yet. Decisions on the masking noise targets and the data pipeline record are in `kb/decisions/` (2026-10-29). Follow the [experiment entry format](README.md#experiment-entries) when recording individual experiments.
+Full-pool data-scaling definitions are in Isambard `_submission/datascale-v1/`. Completed 100% reports were not present at the checked expected paths. The launch script's hotspot-store coverage and fallback behaviour are recorded in [[jaxka-edge-binder#Data scaling]] so the completed comparison can be interpreted against its actual masking protocol. Live observations and source receipts remain under `.experiments/`; they are not evidence of completion for a later run.
