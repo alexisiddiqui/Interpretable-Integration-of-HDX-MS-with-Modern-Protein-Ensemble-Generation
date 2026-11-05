@@ -1,0 +1,367 @@
+{
+  "architecture": {
+    "dihedral_features": 6,
+    "ff": 128,
+    "orientation_edges": 13,
+    "width": 64
+  },
+  "checkpoint_sha256": "703e17a7e2fcb109d44e510eb58db802f4f0c1cf2a3e994fad73d1d7a2427607",
+  "code": {
+    "pkabench/experimental_ph.py": "32a1f4a0bdd5c7d21e499ebf9bd49046cf5bd65763a16d9afcb0fae4a76ff4f5",
+    "pkanet/model.py": "1183538950c01e7beacbe9a7574203583c3838453fa159f82ff84cdd43351ab7",
+    "pkanet/ogqt.py": "757428fc70903850654b336bd892b6b2e5e8b50762f4c04777a0eec1396356ff",
+    "pkanet/triton_attention.py": "7b036f58efc94b7060514ec473108b4d1b5d7bbfd61deb1b6ed88d84e74f6b6e",
+    "pkatrain/gqt_multitask_replay.py": "40752e4414fcb4227f5e99aa22a7c14d2063ce5df0cdeeb693d681ed758ace25",
+    "pkatrain/gqt_paired_pinder.py": "1fb13afa4da70d8b44767025b95d3f8ddcb1920f7e58d3fb48868c312f122a39",
+    "pkatrain/loading.py": "ea22981913598e5c48d18403639b96a094d34693cc3096fdaebc9c9744410de1",
+    "pkatrain/production_depth.py": "adc692ed8560aa3874d9535ad2652e27453e9c1ef551263cf5d658a5c246aed6",
+    "pkatrain/production_graphs.py": "1e9d774d767e02d5effc1c4330e9adb82451c65ae5c4df67b52675cc92a2b70c",
+    "pkatrain/production_inputs.py": "650ae29bf2d7402951586c43fe8c027db606296979247f9f30da5330486ed860",
+    "pkatrain/production_loading.py": "4034ba8388b1edc6bf00461a5cd3c7fadc7e40ed868f200ebabd39fac03abdf2",
+    "pkatrain/production_ph.py": "aebbb7a1e42963f5f74e0990cd4f61f889fb5174b7683b9ae70168a86b219364",
+    "pkatrain/production_position.py": "bd0ba86e09981fe152b3b51b54fcfa37e4c64f4ff7c8219539e509ecfe841286",
+    "pkatrain/production_residue.py": "98cb606e2a933cce31e9508af8edb9922b48649ae7af7c20076d92b17638e7e8",
+    "pkatrain/production_shift_weight.py": "35ba7f71379089d57a46eba68650e4285889e1830ae45b80813727f35463bd50",
+    "pkatrain/production_train.py": "8dfcfc62b25243d324511d0e71be99a5619a8afe9d546dc292db97dddfa94d55",
+    "pkatrain/site_graph_data.py": "eb5e657f74eafbe49c86c999ff64eeb93051ec6783e0eefe4739a83d6702d5f4"
+  },
+  "epochs_run": 20,
+  "model": "oGQT (pkanet.ogqt), shift head predicts pKa - PKPDB_PK_MOD[group]",
+  "parameter_count": 180000,
+  "params_sha256": "000ae61a87c88d0f883968944e355957f7465b3405a1beac1e0d7e2cd7901ea8",
+  "protocol": {
+    "architecture": {
+      "dihedral_features": 6,
+      "ff": 128,
+      "orientation_edges": 13,
+      "width": 64
+    },
+    "auxiliary": "AuxEngine ce burial-only: + 1.0 x burial cross-entropy vs soft target 1 - clip(RSA, 0, 1), PINDER free branch and pKPDB train_mask sites; one-logit head aux_burial on the final site embedding (pkatrain.production_aux)",
+    "batch": 16,
+    "contacts_verification_sha256": "b76ebd2866b9a01f749e385667e1ef60642b5fc9ccc91cdfd45da8dc3cd1df24",
+    "counts": {
+      "benchmark_val": 142,
+      "pinder_train": 13948,
+      "pinder_val": 800,
+      "pkpdb_train": 27778,
+      "pkpdb_val": 800
+    },
+    "dihedrals": "production_inputs.backbone_dihedrals: sin/cos phi, psi, omega from backbone-v1 appended to the node features (6); embedding +6 rows",
+    "disulfide_tables": {
+      "benchmark-val": "disulfide(4f34fb3ca2ef235ce5a360766fa4bec44961626876236abe8644b8853c3cd040+039e60166583b8e9f9bc472e6859b0d6c192fd27c7718f5dcc7db94eb8b42486)",
+      "pinder": "disulfide(72dc7807483d4c63d4638233359a341287a24245069e85ea696bd51d8b716dd8+847e495e1fa856fb177850eced4a256f677e175ea2263ff2c96b831638b8f3c4)",
+      "pkpdb": "disulfide(934aff946c60384d4419fc6cafea8a3727d5020cf8224df2ae4b34fd8835d756+14abce89af5b3332cb4db53e44469e701754c1099cf5a120b695c82e78c3384d)"
+    },
+    "drop_bonded_cys": "training pKa loss excludes Cys queries whose SG is within 2.3 A of another SG (sidechains-v1, bound structure; PINDER AB and free together); validation unchanged (production_gate)",
+    "dropout": "oGQT residual dropout 0.1 on attention and feed-forward outputs during training (DropoutEngine); one key per complex shared by its AB and free branches",
+    "fraction": 0.5,
+    "hotspot_mask": {
+      "augmentation": "hotspot-mask-v2: per visit (own stream [MASK2_SALT, crc32(id), visit]) masked with probability prob, else identity mask (every residue kept); sides one: the v1 rule on one chain drawn uniformly, the other chain fully unmasked; mask_side -1 / 0 / 1 / 2 (history pinder_mask_visit_fraction, pinder_mask_side_fraction = chain-1 share of one-sided visits)",
+      "buried_masked": true,
+      "definition": "third pass on the free branch with the residue-type one-hot zeroed on every residue outside the unmasked set: per chain the top round(keep x surface) surface residues (free RSA >= 0.1) by the oracle (NaN lowest, ties by a random draw; random: uniform), plus round(soft x rest) of the remaining surface residues at random; buried residues always masked (no interface chemistry). Edge BCE free part + free -> bound distillation and the within listwise loss on the masked pass; bound BCE, Siamese burial, gate, pKa unchanged (production_residue.hotspot_keep / mask_nodes; replaces the re-typed pass)",
+      "fallback": "complex without a store record -> random oracle for that visit (counted: history pinder_mask_fallbacks)",
+      "keep": 0.5,
+      "oracle": "pesto",
+      "oracle_field": "pesto",
+      "prob": 0.5,
+      "salt": 16381,
+      "salt2": 32749,
+      "sides": "one",
+      "soft": 0.0,
+      "store": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/training/gqt-production-v2/pinder/store-hotspot-v1",
+      "store_records": 14748,
+      "store_verification_sha256": "314a451bcb88561587ef495bda074d4f5e1c1166d364b09877c47ab01ecbdc46",
+      "surface_rsa_min": 0.1
+    },
+    "initialization": "scratch (pkanet.ogqt.initialize, PRNGKey(17))",
+    "manifests": {
+      "benchmark-val": "c28fb3fb1b26579623124ab22eb87d94684d2dd4fcd646f73d6e3625a1e460ab",
+      "pinder": "26e1d0ac4e42a82e4f7275a222eae07d2672afd715dbb1a6bbc75e5ed82879ca",
+      "pkpdb": "76d5ea8797f82e5c621741486f5dc1db65131aef13762a7c717b3dfcb01cd4f2"
+    },
+    "objective": "gqt_multitask_replay.JointEngine: pKPDB state-shift MSE (train_mask) + PINDER AB/free state-shift MSE + binding-shift MSE; equal coefficients; no site weights",
+    "optimizer": "AdamW weight decay 1e-4, global clip 1 after gradient summation",
+    "orientation": {
+      "definition": "production_inputs: residue edges + direction to i in j's frame, F_i^T F_j, signed sequence separation / 32 (13 features) from backbone-v1; residue and query block edge projections 20 -> 33",
+      "verification_sha256": {
+        "benchmark-val": "039e60166583b8e9f9bc472e6859b0d6c192fd27c7718f5dcc7db94eb8b42486",
+        "pinder": "847e495e1fa856fb177850eced4a256f677e175ea2263ff2c96b831638b8f3c4",
+        "pkpdb": "14abce89af5b3332cb4db53e44469e701754c1099cf5a120b695c82e78c3384d"
+      }
+    },
+    "pinder_weight_normalization": {
+      "burial": 0.74277261909763,
+      "interface": 0.23921649380161578
+    },
+    "production_variant": "relations-4-1-allres-cut15",
+    "residue_burial": "PINDER burial on every residue token of the free branch vs 1 - clip(rsa_free) (residue-rsa-v1), replacing the query-site term; pKPDB unchanged (production_residue)",
+    "residue_burial_siamese": "burial on both PINDER branches, every residue, bound vs 1 - clip(RSA_bound), free vs 1 - clip(RSA_free) (cross-entropy, averaged), + squared error of sigmoid(bound) - sigmoid(free) vs clip(RSA_free) - clip(RSA_bound) (residue-rsa-v1); pKPDB unchanged",
+    "residue_edges": {
+      "definition": "aux_redge symmetric pair scorer on normalised residue tokens; (free + bound) / 2 + Siamese distillation; soft target min(1, exp(-(d - 4) / 3)) <= 10 A (production_residue)",
+      "pairs_per_complex": 256,
+      "surface_rsa_min": 0.1,
+      "weight": 0.1
+    },
+    "residue_table_verification_sha256": "8d016e2bc5c2006beaabdac4e2dd48db17ca7efd0e2f6ca7471670a924c338db",
+    "run": "drsa-v1-50-within03-asym50-w064-s17",
+    "sampling": "full PINDER fraction per epoch; one pKPDB batch per PINDER batch from a continuing shuffled stream",
+    "schedule": "gqt_crop_radius.learning_rate x 1.4142 (1e-3 hold to epoch 10, cosine to 1e-5 by epoch 20); patience 8, min delta 0.001",
+    "seed": 17,
+    "selection": "min PINDER validation state MAE + interface paired MAE",
+    "smoke": false,
+    "test_data_included": false,
+    "titratable_gate": {
+      "cys_weight": 10.0,
+      "definition": "aux_gate logit on every all-residue token (side chain / N-terminus / C-terminus); BCE vs D/E/H/C/Y/K/R minus bonded Cys (per branch; free = same chain), node columns 20 / 21; per-structure weighted mean, PINDER branches averaged (production_gate)",
+      "weight": 0.1
+    },
+    "validation": [
+      "PINDER pool-v4 validation (pKAI, eval_mask)",
+      "pKPDB pool-v4 validation (pKPDB labels, train_mask)",
+      "benchmark-val 142 (PypKa)"
+    ],
+    "version": "gqt-production-joint-v1",
+    "within_listwise": {
+      "anchors": 64,
+      "candidates": 32,
+      "contact_A": 10.0,
+      "definition": "free branch; anchors = interface residues (surface, a cross-chain partner <= 10 A) of both chains; candidates = interface residues of the other chain, all contacts (soft target min(1, exp(-(d - 4) / 3))) + non-contacts (target 0); softmax cross-entropy vs normalised target, mean over valid anchors per complex, then over complexes (production_residue.within_sample / within_loss)",
+      "drsa_min": 1e-06,
+      "reserve": 8,
+      "surface_rsa_min": 0.1,
+      "target": "drsa",
+      "target_definition": "drsa-within-v1: contact target soft(d_ac) * min(dRSA_a, dRSA_c), dRSA = clip(RSA_free - RSA_bound, 0, 1) (residue-rsa-v1, NaN -> 0); non-contacts 0; anchors with summed target < 1e-6 dropped (valid 0; counted in history loader_counts.within); anchor eligibility and candidate sampling distance-defined, same draws as distance mode",
+      "weight": 0.3
+    }
+  },
+  "run": "drsa-v1-50-within03-asym50-w064-s17",
+  "selected_epoch": 18,
+  "validation": {
+    "auxiliary": {
+      "pinder_burial": {
+        "boundaries": [
+          {
+            "auroc": 0.9846947539651866,
+            "boundary": 0.1,
+            "positive_fraction": 0.13218083327760316,
+            "recall_at_fpr_0.1": 0.9719200607133822
+          },
+          {
+            "auroc": 0.9761687445385606,
+            "boundary": 0.25,
+            "positive_fraction": 0.2878017789072427,
+            "recall_at_fpr_0.1": 0.927617055884745
+          },
+          {
+            "auroc": 0.9617341666274142,
+            "boundary": 0.5,
+            "positive_fraction": 0.6751153614659265,
+            "recall_at_fpr_0.1": 0.8808816245666171
+          }
+        ],
+        "mean_cross_entropy": 0.5583762189555469,
+        "sites": 29906,
+        "spearman_vs_target": 0.9394160000432946
+      },
+      "pkpdb_burial": {
+        "boundaries": [
+          {
+            "auroc": 0.9807441486839543,
+            "boundary": 0.1,
+            "positive_fraction": 0.13158866426659283,
+            "recall_at_fpr_0.1": 0.9638723254998246
+          },
+          {
+            "auroc": 0.9738433311497838,
+            "boundary": 0.25,
+            "positive_fraction": 0.30670174466906674,
+            "recall_at_fpr_0.1": 0.927614747930775
+          },
+          {
+            "auroc": 0.9644017841430647,
+            "boundary": 0.5,
+            "positive_fraction": 0.7032216375888489,
+            "recall_at_fpr_0.1": 0.891178787083224
+          }
+        ],
+        "mean_cross_entropy": 0.5603835319241595,
+        "sites": 21666,
+        "spearman_vs_target": 0.9396485395489917
+      }
+    },
+    "benchmark": {
+      "bins": [
+        {
+          "bin": "<0.5",
+          "mae": 0.29352613552147594,
+          "sites": 3557
+        },
+        {
+          "bin": "0.5-1",
+          "mae": 0.4120668746241957,
+          "sites": 1766
+        },
+        {
+          "bin": "1-2",
+          "mae": 0.6802577447173275,
+          "sites": 1481
+        },
+        {
+          "bin": ">=2",
+          "mae": 1.202775536524263,
+          "sites": 1182
+        }
+      ],
+      "equal_bin_mae": 0.6471565728468156,
+      "group_macro_mse": 0.6005995082261446,
+      "overall": {
+        "complexes": 142,
+        "error_cancellation": null,
+        "error_cancellation_ci95": null,
+        "error_cancellation_groups": 0,
+        "groups": 76,
+        "mae": 0.5021588973965647,
+        "mae_ci95": [
+          0.5172246116830312,
+          0.5172246116830312
+        ],
+        "mae_groups": 76,
+        "rmse": 0.7291828501281871,
+        "rmse_ci95": [
+          0.7667891346995647,
+          0.7667891346995647
+        ],
+        "rmse_groups": 76,
+        "sign_accuracy": 0.9507330666599574,
+        "sign_accuracy_ci95": [
+          0.9463050396812134,
+          0.9463050396812134
+        ],
+        "sign_accuracy_groups": 76,
+        "sites": 7986,
+        "skill": 0.6680294067968063,
+        "skill_ci95": [
+          0.6446621802282432,
+          0.6446621802282432
+        ],
+        "skill_groups": 76,
+        "spearman": 0.8059793414526016,
+        "spearman_ci95": [
+          0.8058551186136484,
+          0.8058551186136484
+        ],
+        "spearman_groups": 76
+      },
+      "site_mae": 0.5445794213736733,
+      "site_mse": 0.6858501878527842
+    },
+    "pinder": {
+      "binding_shift_bins": [
+        {
+          "complexes": 730,
+          "lower": 0,
+          "mae": 0.08681893140323432,
+          "magnitude_bias": 0.05358776339726793,
+          "rmse": 0.18063404469314726,
+          "signed_bias": -0.004470868643815369,
+          "sites": 3758,
+          "upper": 0.1
+        },
+        {
+          "complexes": 478,
+          "lower": 0.1,
+          "mae": 0.17859239213791958,
+          "magnitude_bias": 0.040763573143115864,
+          "rmse": 0.2850943045123985,
+          "signed_bias": -0.003403726509957524,
+          "sites": 1518,
+          "upper": 0.25
+        },
+        {
+          "complexes": 361,
+          "lower": 0.25,
+          "mae": 0.2745742417112953,
+          "magnitude_bias": 0.016870685247026708,
+          "rmse": 0.39967255303566346,
+          "signed_bias": -0.0035177136843021098,
+          "sites": 962,
+          "upper": 0.5
+        },
+        {
+          "complexes": 293,
+          "lower": 0.5,
+          "mae": 0.41272747176605584,
+          "magnitude_bias": -0.06739780354819842,
+          "rmse": 0.5722548307144102,
+          "signed_bias": 0.026661864423111782,
+          "sites": 745,
+          "upper": 1.0
+        },
+        {
+          "complexes": 216,
+          "lower": 1.0,
+          "mae": 0.636121904340805,
+          "magnitude_bias": -0.3940160262166079,
+          "rmse": 0.7735032836602833,
+          "signed_bias": 0.030836411507749458,
+          "sites": 477,
+          "upper": 2.0
+        },
+        {
+          "complexes": 116,
+          "lower": 2.0,
+          "mae": 1.1274628048081223,
+          "magnitude_bias": -0.9534474200410087,
+          "rmse": 1.35479780367035,
+          "signed_bias": -0.28384946826391105,
+          "sites": 205,
+          "upper": 4.0
+        },
+        {
+          "complexes": 23,
+          "lower": 4.0,
+          "mae": 2.068179067812468,
+          "magnitude_bias": -2.0058461615913794,
+          "rmse": 2.3563972851930535,
+          "signed_bias": -0.433602395810579,
+          "sites": 38,
+          "upper": null
+        }
+      ],
+      "distance_bins": {
+        "4-6": {
+          "paired_mae": 0.21141638519396858,
+          "sites": 1411
+        },
+        "6-10": {
+          "paired_mae": 0.10469031506612882,
+          "sites": 3986
+        },
+        "<=4": {
+          "paired_mae": 0.4613796575957248,
+          "sites": 2313
+        },
+        ">10": {
+          "paired_mae": 0.010964946285148054,
+          "sites": 22196
+        }
+      },
+      "interface_paired_mae": 0.2313568766793355,
+      "interface_paired_mse": 0.19684559241122435,
+      "interface_sites": 7703,
+      "paired_mae": 0.06775072597894526,
+      "paired_mse": 0.05208616968771448,
+      "sites": 29906,
+      "state_mae": 0.3983788574367234,
+      "state_mse": 0.38946496718197443
+    },
+    "pkpdb": {
+      "site_mae": 0.48223414412268023,
+      "site_mse": 0.5459497904944655,
+      "sites": 21666,
+      "structure_macro_mae": 0.38537193372392836,
+      "structures": 800
+    },
+    "selection": 0.6297357341160589
+  }
+}

@@ -1,11 +1,11 @@
 ---
 project: jax-ka
-experiment_ids: [residue-siamese-v1, negatives-v1, hotspot-mask-v2, drsa-within-v1, anm-aug-v1, anm-edge-v1, drsa-anm-v1, drsa-cap-v1, drsa-rel-v1]
+experiment_ids: [residue-siamese-v1, negatives-v1, hotspot-mask-v2, drsa-within-v1, anm-aug-v1, anm-edge-v1, drsa-anm-v1, drsa-cap-v1, drsa-rel-v1, datascale-v1]
 authoritative_location: isambard
 runtime_root: /scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench
 submission_root: /scratch/u6xq/hussain.u6xq/_submission
 staged_inputs: .experiments/jaxka-binder-isambard-2026-11-04
-figures: []
+figures: [jaxka-pinder-recipe-comparison, jaxka-pinder-ablations]
 ---
 
 # From backbone pKa prediction to a free-partner edge binder
@@ -42,6 +42,8 @@ dRSA weighting retains that recipe and changes the within-ranking target to `sof
 | Clean pKa selection | 0.6047 | 0.6127 | 0.6157 |
 
 The matched hmask-to-dRSA comparison improves surface-interface AUROC from 0.6598 to 0.7004 and dRSA-weighted NDCG from 0.5195 to 0.5338. Surface-interface and swapped-partner improvements occur in each seed. The distance-defined within-complex AUROC decreases slightly. Binding-shift MAE over the fixed 29,305 clean sites changes from 0.06561 to 0.06608, with inconsistent large-shift gains across seeds. The edge-binder improvement therefore does not establish improved pKa prediction.
+
+The [PINDER recipe figure](../../figures/jaxka-pinder-recipe-comparison/fig.pdf) shows contact AP, antibody/antigen swap accuracy and clean binding-shift MAE across run4, hmask and dRSA. Individual seeds and arithmetic means remain visible. The [supporting ablation figure](../../figures/jaxka-pinder-ablations/fig.pdf) separates negative construction, ANM consistency and scaling. Both have regeneration scripts, frozen source reports, point-level data and captions in their figure directories.
 
 ## Negative construction distinguishes contacts from sequence compatibility
 
@@ -96,9 +98,17 @@ Sources are `audits/drsa-cap-v1/{w096,w128}/s*/gates.md` and `audits/drsa-rel-v1
 
 ## Data scaling
 
-The 100% data comparison is complete, as confirmed by the author; the current extension tests 40 epochs. The completed comparison's scores and executed protocol remain to be incorporated here. The [staged launch definition](../../.experiments/jaxka-binder-isambard-2026-11-04/source/_submission/datascale-v1/train.sbatch) specifies width-64, width-128, 6/1 and 6/6 arms at fraction 1.0. Its original PeSTo store covered the 50% pool and validation, with random-oracle fallback for uncovered examples. That launch definition alone does not establish the masking coverage used in the completed runs.
+At 100% data, the width-128 seed-17 model improves both contact AP and antibody/antigen swap accuracy relative to its 50% counterpart (0.0536 to 0.0619 and 0.6791 to 0.7147). Width 64 improves contact AP but reduces antibody/antigen accuracy (0.0463 to 0.0549 and 0.7023 to 0.6822). The width-128 result therefore extends the contact gain to partner discrimination under the full-data, 20-epoch schedule. This comparison uses one seed.
 
-## Gaps
+| Width | Epoch budget | Selected epoch | Edge AP | Antibody/antigen swap accuracy | All-strata swap accuracy | Clean state + interface MAE | Clean binding-shift MAE |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 64 | 20 | 20 | 0.0549 | 0.6822 | 0.8175 | 0.5930 | 0.06370 |
+| 128 | 20 | 20 | 0.0619 | 0.7147 | 0.8430 | 0.5895 | 0.06380 |
+| 64 | 40 | 15 | 0.0465 | 0.7054 | 0.8265 | 0.6023 | 0.06338 |
+| 128 | 40 | 34 | 0.0598 | 0.7054 | 0.8523 | 0.5931 | 0.06371 |
 
-- Scores, executed protocols and masking coverage from the completed 100% data comparison.
-- Matched results from the 40-epoch extension when complete.
+The 40-epoch schedule gives mixed gains. Width 64 improves antibody/antigen swap accuracy while contact AP falls; width 128 improves overall swap accuracy while both contact AP and antibody/antigen accuracy fall. Clean state-plus-interface MAE increases for both widths. Width 64 stopped after 31 epochs and selected epoch 15, while width 128 ran 40 epochs and selected epoch 34. The longer schedule holds the base learning rate at $10^{-3}$ through epoch 20 before cosine decay to $10^{-5}$ at epoch 40, with the same $\sqrt{2}$ multiplier and patience increased from 8 to 16. It changes the optimisation trajectory as well as the epoch budget.
+
+All four runs completed with exit code zero. Their executed protocols use `store-hotspot-v2`, covering 28,733 records, and every training epoch records zero masking fallbacks. They share the exported 50% dRSA model's pool-manifest hashes and the same 800-complex validation support, with 4,000 all-strata and 645 antibody/antigen swap comparisons. The actual masking coverage therefore resolves the uncertainty left by the earlier launch definition. Checkpoints remain selected by state-plus-interface MAE, with no selection on contact or partner-ranking performance.
+
+Sources are `audits/datascale-v1/{w064,w128,e40-w064,e40-w128}/{masked2,residue}/report.json` and their saved training protocols, histories, selections and resource records. The [download receipt](../../.experiments/jaxka-pinder-2026-11-05/receipt.json) records remote checksums. The [figure source map](../../figures/jaxka-pinder-ablations/source.json), [scaling audit](../../figures/jaxka-pinder-ablations/scaling-audit.json) and [extracted values](../../figures/jaxka-pinder-ablations/plotted-data.csv) retain the source paths and numerical results. The incorporated full-data comparison covers widths 64 and 128 at seed 17.

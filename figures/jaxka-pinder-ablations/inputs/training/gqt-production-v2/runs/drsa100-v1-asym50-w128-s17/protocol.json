@@ -1,0 +1,124 @@
+{
+  "architecture": {
+    "dihedral_features": 6,
+    "ff": 256,
+    "orientation_edges": 13,
+    "width": 128
+  },
+  "auxiliary": "AuxEngine ce burial-only: + 1.0 x burial cross-entropy vs soft target 1 - clip(RSA, 0, 1), PINDER free branch and pKPDB train_mask sites; one-logit head aux_burial on the final site embedding (pkatrain.production_aux)",
+  "batch": 16,
+  "code": {
+    "pkabench/experimental_ph.py": "32a1f4a0bdd5c7d21e499ebf9bd49046cf5bd65763a16d9afcb0fae4a76ff4f5",
+    "pkanet/model.py": "1183538950c01e7beacbe9a7574203583c3838453fa159f82ff84cdd43351ab7",
+    "pkanet/ogqt.py": "757428fc70903850654b336bd892b6b2e5e8b50762f4c04777a0eec1396356ff",
+    "pkanet/triton_attention.py": "7b036f58efc94b7060514ec473108b4d1b5d7bbfd61deb1b6ed88d84e74f6b6e",
+    "pkatrain/gqt_multitask_replay.py": "40752e4414fcb4227f5e99aa22a7c14d2063ce5df0cdeeb693d681ed758ace25",
+    "pkatrain/gqt_paired_pinder.py": "1fb13afa4da70d8b44767025b95d3f8ddcb1920f7e58d3fb48868c312f122a39",
+    "pkatrain/loading.py": "ea22981913598e5c48d18403639b96a094d34693cc3096fdaebc9c9744410de1",
+    "pkatrain/production_depth.py": "adc692ed8560aa3874d9535ad2652e27453e9c1ef551263cf5d658a5c246aed6",
+    "pkatrain/production_graphs.py": "1e9d774d767e02d5effc1c4330e9adb82451c65ae5c4df67b52675cc92a2b70c",
+    "pkatrain/production_inputs.py": "650ae29bf2d7402951586c43fe8c027db606296979247f9f30da5330486ed860",
+    "pkatrain/production_loading.py": "4034ba8388b1edc6bf00461a5cd3c7fadc7e40ed868f200ebabd39fac03abdf2",
+    "pkatrain/production_ph.py": "aebbb7a1e42963f5f74e0990cd4f61f889fb5174b7683b9ae70168a86b219364",
+    "pkatrain/production_position.py": "a0f7542d250f0d37f34af91d320e531e1bba57f706a4b78861e98d964d8be24c",
+    "pkatrain/production_residue.py": "0a5afbf3751ecc3edcbd02f9a8b1c3820f0d317639e1d690aeb845389141c1b3",
+    "pkatrain/production_shift_weight.py": "35ba7f71379089d57a46eba68650e4285889e1830ae45b80813727f35463bd50",
+    "pkatrain/production_train.py": "56ef29d2da48f2f8d25da797535608316f290469beb328460561722af5ef82bf",
+    "pkatrain/site_graph_data.py": "eb5e657f74eafbe49c86c999ff64eeb93051ec6783e0eefe4739a83d6702d5f4"
+  },
+  "contacts_verification_sha256": "b76ebd2866b9a01f749e385667e1ef60642b5fc9ccc91cdfd45da8dc3cd1df24",
+  "counts": {
+    "benchmark_val": 142,
+    "pinder_train": 27933,
+    "pinder_val": 800,
+    "pkpdb_train": 56191,
+    "pkpdb_val": 800
+  },
+  "dihedrals": "production_inputs.backbone_dihedrals: sin/cos phi, psi, omega from backbone-v1 appended to the node features (6); embedding +6 rows",
+  "disulfide_tables": {
+    "benchmark-val": "disulfide(4f34fb3ca2ef235ce5a360766fa4bec44961626876236abe8644b8853c3cd040+039e60166583b8e9f9bc472e6859b0d6c192fd27c7718f5dcc7db94eb8b42486)",
+    "pinder": "disulfide(72dc7807483d4c63d4638233359a341287a24245069e85ea696bd51d8b716dd8+847e495e1fa856fb177850eced4a256f677e175ea2263ff2c96b831638b8f3c4)",
+    "pkpdb": "disulfide(934aff946c60384d4419fc6cafea8a3727d5020cf8224df2ae4b34fd8835d756+14abce89af5b3332cb4db53e44469e701754c1099cf5a120b695c82e78c3384d)"
+  },
+  "drop_bonded_cys": "training pKa loss excludes Cys queries whose SG is within 2.3 A of another SG (sidechains-v1, bound structure; PINDER AB and free together); validation unchanged (production_gate)",
+  "dropout": "oGQT residual dropout 0.1 on attention and feed-forward outputs during training (DropoutEngine); one key per complex shared by its AB and free branches",
+  "fraction": 1.0,
+  "hotspot_mask": {
+    "augmentation": "hotspot-mask-v2: per visit (own stream [MASK2_SALT, crc32(id), visit]) masked with probability prob, else identity mask (every residue kept); sides one: the v1 rule on one chain drawn uniformly, the other chain fully unmasked; mask_side -1 / 0 / 1 / 2 (history pinder_mask_visit_fraction, pinder_mask_side_fraction = chain-1 share of one-sided visits)",
+    "buried_masked": true,
+    "definition": "third pass on the free branch with the residue-type one-hot zeroed on every residue outside the unmasked set: per chain the top round(keep x surface) surface residues (free RSA >= 0.1) by the oracle (NaN lowest, ties by a random draw; random: uniform), plus round(soft x rest) of the remaining surface residues at random; buried residues always masked (no interface chemistry). Edge BCE free part + free -> bound distillation and the within listwise loss on the masked pass; bound BCE, Siamese burial, gate, pKa unchanged (production_residue.hotspot_keep / mask_nodes; replaces the re-typed pass)",
+    "fallback": "complex without a store record -> random oracle for that visit (counted: history pinder_mask_fallbacks)",
+    "keep": 0.5,
+    "oracle": "pesto",
+    "oracle_field": "pesto",
+    "prob": 0.5,
+    "salt": 16381,
+    "salt2": 32749,
+    "sides": "one",
+    "soft": 0.0,
+    "store": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/training/gqt-production-v2/pinder/store-hotspot-v2",
+    "store_records": 28733,
+    "store_verification_sha256": "676b07e591fe9270080ecc26f4f5be7fddab4d7eb4549f11cea86d1a13c4b99b",
+    "surface_rsa_min": 0.1
+  },
+  "initialization": "scratch (pkanet.ogqt.initialize, PRNGKey(17))",
+  "manifests": {
+    "benchmark-val": "c28fb3fb1b26579623124ab22eb87d94684d2dd4fcd646f73d6e3625a1e460ab",
+    "pinder": "26e1d0ac4e42a82e4f7275a222eae07d2672afd715dbb1a6bbc75e5ed82879ca",
+    "pkpdb": "76d5ea8797f82e5c621741486f5dc1db65131aef13762a7c717b3dfcb01cd4f2"
+  },
+  "objective": "gqt_multitask_replay.JointEngine: pKPDB state-shift MSE (train_mask) + PINDER AB/free state-shift MSE + binding-shift MSE; equal coefficients; no site weights",
+  "optimizer": "AdamW weight decay 1e-4, global clip 1 after gradient summation",
+  "orientation": {
+    "definition": "production_inputs: residue edges + direction to i in j's frame, F_i^T F_j, signed sequence separation / 32 (13 features) from backbone-v1; residue and query block edge projections 20 -> 33",
+    "verification_sha256": {
+      "benchmark-val": "039e60166583b8e9f9bc472e6859b0d6c192fd27c7718f5dcc7db94eb8b42486",
+      "pinder": "847e495e1fa856fb177850eced4a256f677e175ea2263ff2c96b831638b8f3c4",
+      "pkpdb": "14abce89af5b3332cb4db53e44469e701754c1099cf5a120b695c82e78c3384d"
+    }
+  },
+  "pinder_weight_normalization": {
+    "burial": 0.7421809982306906,
+    "interface": 0.24078683194880096
+  },
+  "production_variant": "relations-4-1-allres-cut15",
+  "residue_burial": "PINDER burial on every residue token of the free branch vs 1 - clip(rsa_free) (residue-rsa-v1), replacing the query-site term; pKPDB unchanged (production_residue)",
+  "residue_burial_siamese": "burial on both PINDER branches, every residue, bound vs 1 - clip(RSA_bound), free vs 1 - clip(RSA_free) (cross-entropy, averaged), + squared error of sigmoid(bound) - sigmoid(free) vs clip(RSA_free) - clip(RSA_bound) (residue-rsa-v1); pKPDB unchanged",
+  "residue_edges": {
+    "definition": "aux_redge symmetric pair scorer on normalised residue tokens; (free + bound) / 2 + Siamese distillation; soft target min(1, exp(-(d - 4) / 3)) <= 10 A (production_residue)",
+    "pairs_per_complex": 256,
+    "surface_rsa_min": 0.1,
+    "weight": 0.1
+  },
+  "residue_table_verification_sha256": "8d016e2bc5c2006beaabdac4e2dd48db17ca7efd0e2f6ca7471670a924c338db",
+  "run": "drsa100-v1-asym50-w128-s17",
+  "sampling": "full PINDER fraction per epoch; one pKPDB batch per PINDER batch from a continuing shuffled stream",
+  "schedule": "gqt_crop_radius.learning_rate x 1.4142 (1e-3 hold to epoch 10, cosine to 1e-5 by epoch 20); patience 8, min delta 0.001",
+  "seed": 17,
+  "selection": "min PINDER validation state MAE + interface paired MAE",
+  "smoke": false,
+  "test_data_included": false,
+  "titratable_gate": {
+    "cys_weight": 10.0,
+    "definition": "aux_gate logit on every all-residue token (side chain / N-terminus / C-terminus); BCE vs D/E/H/C/Y/K/R minus bonded Cys (per branch; free = same chain), node columns 20 / 21; per-structure weighted mean, PINDER branches averaged (production_gate)",
+    "weight": 0.1
+  },
+  "validation": [
+    "PINDER pool-v4 validation (pKAI, eval_mask)",
+    "pKPDB pool-v4 validation (pKPDB labels, train_mask)",
+    "benchmark-val 142 (PypKa)"
+  ],
+  "version": "gqt-production-joint-v1",
+  "within_listwise": {
+    "anchors": 64,
+    "candidates": 32,
+    "contact_A": 10.0,
+    "definition": "free branch; anchors = interface residues (surface, a cross-chain partner <= 10 A) of both chains; candidates = interface residues of the other chain, all contacts (soft target min(1, exp(-(d - 4) / 3))) + non-contacts (target 0); softmax cross-entropy vs normalised target, mean over valid anchors per complex, then over complexes (production_residue.within_sample / within_loss)",
+    "drsa_min": 1e-06,
+    "reserve": 8,
+    "surface_rsa_min": 0.1,
+    "target": "drsa",
+    "target_definition": "drsa-within-v1: contact target soft(d_ac) * min(dRSA_a, dRSA_c), dRSA = clip(RSA_free - RSA_bound, 0, 1) (residue-rsa-v1, NaN -> 0); non-contacts 0; anchors with summed target < 1e-6 dropped (valid 0; counted in history loader_counts.within); anchor eligibility and candidate sampling distance-defined, same draws as distance mode",
+    "weight": 0.3
+  }
+}

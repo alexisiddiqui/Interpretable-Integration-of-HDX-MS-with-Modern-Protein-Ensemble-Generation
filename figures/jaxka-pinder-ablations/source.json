@@ -1,0 +1,273 @@
+{
+  "description": "Saved PINDER development-validation reports. No new inference. Companion recipe figure uses the same frozen inputs.",
+  "files": [
+    {
+      "input": "inputs/recipe-summary.json",
+      "source": "projects/4-jax-Ka/code/models/ogqt-allres15-within-drsa-50/validation-summary.json",
+      "sha256": "8783b6388194675e0106d51a8636aa14851f791eaa6a773c9bbcd7764987fdb7"
+    },
+    {
+      "input": "inputs/negatives.json",
+      "source": ".experiments/jaxka-binder-isambard-2026-11-04/source/_runtime/jax-Ka/pkabench/audits/negatives-v1/sweep/decoy-ranking/report.json",
+      "sha256": "00013dfb2a7855bf0486c465659f2cea3774ef825a41dc8c74072bb2a4fd2301"
+    },
+    {
+      "input": "inputs/anm.md",
+      "source": ".experiments/jaxka-binder-isambard-2026-11-04/anm-aug-v1/seeds/gates/gates.md",
+      "sha256": "0e67e9fe299b1540e5fcf1434f7ba8d2a15d9e3da0c72c0a26b330ce430f7182"
+    },
+    {
+      "input": "inputs/run4-residue.json",
+      "source": ".experiments/jaxka-pinder-2026-11-05/audits/negatives-v1/sweep/residue/report.json",
+      "sha256": "333056a804b9999b384f783265a00599e04a8831f2bc96e5857455bca575cbac",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/negatives-v1/sweep/residue/report.json"
+    },
+    {
+      "input": "inputs/w096-s17.md",
+      "source": ".experiments/jaxka-binder-isambard-2026-11-04/drsa-cap-v1/w096/s17/gates.md",
+      "sha256": "32495af7b86a68b5e54c3f7fb271890412fe6762bb242e5343376a5e4445c339"
+    },
+    {
+      "input": "inputs/w128-s17.md",
+      "source": ".experiments/jaxka-binder-isambard-2026-11-04/drsa-cap-v1/w128/s17/gates.md",
+      "sha256": "fac3f3e78067b4d043105da061ffdeac2b1df4411a7e3dfc3df2f80e06058240"
+    },
+    {
+      "input": "inputs/w128-s29.md",
+      "source": ".experiments/jaxka-binder-isambard-2026-11-04/drsa-cap-v1/w128/s29/gates.md",
+      "sha256": "c7b8f45f8cb6f85acc9fadd25655cd11d3f981d8ae1cc3c21ba20a4906140ec6"
+    },
+    {
+      "input": "inputs/w128-s43.md",
+      "source": ".experiments/jaxka-binder-isambard-2026-11-04/drsa-cap-v1/w128/s43/gates.md",
+      "sha256": "da6bbc16e4a93fbde47994866911102183b43ad44dd157b21ab13b532d646822"
+    },
+    {
+      "input": "inputs/rel61-s17.md",
+      "source": ".experiments/jaxka-binder-isambard-2026-11-04/drsa-rel-v1/rel61/s17/gates.md",
+      "sha256": "30a94e35e2141921d77c705511e7223555e63f66803e2f25c55606d243cb9afd"
+    },
+    {
+      "input": "inputs/rel61-s29.md",
+      "source": ".experiments/jaxka-binder-isambard-2026-11-04/drsa-rel-v1/rel61/s29/gates.md",
+      "sha256": "a473f7481b4ed2cb03fc849d1f9d68b77a68119665ca0234156aecc652b3eedb"
+    },
+    {
+      "input": "inputs/rel61-s43.md",
+      "source": ".experiments/jaxka-binder-isambard-2026-11-04/drsa-rel-v1/rel61/s43/gates.md",
+      "sha256": "29e21b11ee8fe10bbc794716c9e89222eb0f660c6dd20962adef581f06213e42"
+    },
+    {
+      "input": "inputs/rel66-s17.md",
+      "source": ".experiments/jaxka-binder-isambard-2026-11-04/drsa-rel-v1/rel66/s17/gates.md",
+      "sha256": "9ae4bacc5e27f48b847eae6047791fc386971b0bf64c75ac3fd5cd9c4908bf5a"
+    },
+    {
+      "input": "inputs/rel66-s29.md",
+      "source": ".experiments/jaxka-binder-isambard-2026-11-04/drsa-rel-v1/rel66/s29/gates.md",
+      "sha256": "7f80819b9079fbf16af52a30dfb00ecfe51b867693e3a438f4438940f0f2e890"
+    },
+    {
+      "input": "inputs/rel66-s43.md",
+      "source": ".experiments/jaxka-binder-isambard-2026-11-04/drsa-rel-v1/rel66/s43/gates.md",
+      "sha256": "64eb724d49deab22f4848c209245aa4137615c25aa00ef37d02ef2d92166557a"
+    },
+    {
+      "input": "inputs/training/gqt-production-v2/runs/drsa100e40-v1-asym50-w064-s17/selection.json",
+      "source": ".experiments/jaxka-pinder-2026-11-05/training/gqt-production-v2/runs/drsa100e40-v1-asym50-w064-s17/selection.json",
+      "sha256": "d1c900766fba6277e66ae91e6c0ded28b7fc2a2e53c329cdd09ac08968d48faa",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/training/gqt-production-v2/runs/drsa100e40-v1-asym50-w064-s17/selection.json"
+    },
+    {
+      "input": "inputs/training/gqt-production-v2/runs/drsa100e40-v1-asym50-w064-s17/protocol.json",
+      "source": ".experiments/jaxka-pinder-2026-11-05/training/gqt-production-v2/runs/drsa100e40-v1-asym50-w064-s17/protocol.json",
+      "sha256": "db8216e24fed983c964b08a07baca125baeb40d02e69d2193c8a958fec57fc13",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/training/gqt-production-v2/runs/drsa100e40-v1-asym50-w064-s17/protocol.json"
+    },
+    {
+      "input": "inputs/training/gqt-production-v2/runs/drsa100e40-v1-asym50-w064-s17/history.jsonl",
+      "source": ".experiments/jaxka-pinder-2026-11-05/training/gqt-production-v2/runs/drsa100e40-v1-asym50-w064-s17/history.jsonl",
+      "sha256": "b2d2a46666ca1d2d59b1e2bfbfa6dd5c3c178f466a66dcd7ecc5ffbcba31a393",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/training/gqt-production-v2/runs/drsa100e40-v1-asym50-w064-s17/history.jsonl"
+    },
+    {
+      "input": "inputs/training/gqt-production-v2/runs/drsa100-v1-asym50-w064-s17/selection.json",
+      "source": ".experiments/jaxka-pinder-2026-11-05/training/gqt-production-v2/runs/drsa100-v1-asym50-w064-s17/selection.json",
+      "sha256": "baedf09db8f88d0bc2b526db7bb497c5e0821d5714869d93a96522aac27b55f8",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/training/gqt-production-v2/runs/drsa100-v1-asym50-w064-s17/selection.json"
+    },
+    {
+      "input": "inputs/training/gqt-production-v2/runs/drsa100-v1-asym50-w064-s17/protocol.json",
+      "source": ".experiments/jaxka-pinder-2026-11-05/training/gqt-production-v2/runs/drsa100-v1-asym50-w064-s17/protocol.json",
+      "sha256": "5a550f6da83a1ebe20e518fd4466f277398ad52f81e7cdbf9b6dd8f0aad581eb",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/training/gqt-production-v2/runs/drsa100-v1-asym50-w064-s17/protocol.json"
+    },
+    {
+      "input": "inputs/training/gqt-production-v2/runs/drsa100-v1-asym50-w064-s17/history.jsonl",
+      "source": ".experiments/jaxka-pinder-2026-11-05/training/gqt-production-v2/runs/drsa100-v1-asym50-w064-s17/history.jsonl",
+      "sha256": "bd0a424a946f066a9313eae93e34f8c7088c3f9d5d1b22d92e7df03d2e1ea62f",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/training/gqt-production-v2/runs/drsa100-v1-asym50-w064-s17/history.jsonl"
+    },
+    {
+      "input": "inputs/training/gqt-production-v2/runs/drsa100-v1-asym50-w128-s17/selection.json",
+      "source": ".experiments/jaxka-pinder-2026-11-05/training/gqt-production-v2/runs/drsa100-v1-asym50-w128-s17/selection.json",
+      "sha256": "5ce5c2dc442aff7d0e869b180e85fa293055448659c15cead3529b6ebd2c8e73",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/training/gqt-production-v2/runs/drsa100-v1-asym50-w128-s17/selection.json"
+    },
+    {
+      "input": "inputs/training/gqt-production-v2/runs/drsa100-v1-asym50-w128-s17/protocol.json",
+      "source": ".experiments/jaxka-pinder-2026-11-05/training/gqt-production-v2/runs/drsa100-v1-asym50-w128-s17/protocol.json",
+      "sha256": "abae0478f6d00a82053e06e4b41f53d0dbc80ecac335fb166340c4381db391b1",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/training/gqt-production-v2/runs/drsa100-v1-asym50-w128-s17/protocol.json"
+    },
+    {
+      "input": "inputs/training/gqt-production-v2/runs/drsa100-v1-asym50-w128-s17/history.jsonl",
+      "source": ".experiments/jaxka-pinder-2026-11-05/training/gqt-production-v2/runs/drsa100-v1-asym50-w128-s17/history.jsonl",
+      "sha256": "d7de33afc72fb646cfa8043157202ff70388f58b1b13f44471f96c3f26768d5a",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/training/gqt-production-v2/runs/drsa100-v1-asym50-w128-s17/history.jsonl"
+    },
+    {
+      "input": "inputs/training/gqt-production-v2/runs/drsa100e40-v1-asym50-w128-s17/selection.json",
+      "source": ".experiments/jaxka-pinder-2026-11-05/training/gqt-production-v2/runs/drsa100e40-v1-asym50-w128-s17/selection.json",
+      "sha256": "4391a69750714d2c99d11e932f617bdbf7e45059f13b6e088d940cb4b961c10a",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/training/gqt-production-v2/runs/drsa100e40-v1-asym50-w128-s17/selection.json"
+    },
+    {
+      "input": "inputs/training/gqt-production-v2/runs/drsa100e40-v1-asym50-w128-s17/protocol.json",
+      "source": ".experiments/jaxka-pinder-2026-11-05/training/gqt-production-v2/runs/drsa100e40-v1-asym50-w128-s17/protocol.json",
+      "sha256": "c07764a5cb528ce4824cc8eba4a2616dbcb3925bc15b435510bde480890cec49",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/training/gqt-production-v2/runs/drsa100e40-v1-asym50-w128-s17/protocol.json"
+    },
+    {
+      "input": "inputs/training/gqt-production-v2/runs/drsa100e40-v1-asym50-w128-s17/history.jsonl",
+      "source": ".experiments/jaxka-pinder-2026-11-05/training/gqt-production-v2/runs/drsa100e40-v1-asym50-w128-s17/history.jsonl",
+      "sha256": "df43d64c949f0c51f31948ba9535d913c447e391ad0a7ad24f34358008a7f6cc",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/training/gqt-production-v2/runs/drsa100e40-v1-asym50-w128-s17/history.jsonl"
+    },
+    {
+      "input": "inputs/audits/datascale-v1/w128/train_resources.json",
+      "source": ".experiments/jaxka-pinder-2026-11-05/audits/datascale-v1/w128/train_resources.json",
+      "sha256": "3113d24ad2a467c0d2d8f540d08fb4188169971b811084f935a76a931803d01b",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/datascale-v1/w128/train_resources.json"
+    },
+    {
+      "input": "inputs/audits/datascale-v1/e40-w128/train_resources.json",
+      "source": ".experiments/jaxka-pinder-2026-11-05/audits/datascale-v1/e40-w128/train_resources.json",
+      "sha256": "df0ebfe371472e54135e133b0d4521174839485ec1625fbff4b9ab624d8bd926",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/datascale-v1/e40-w128/train_resources.json"
+    },
+    {
+      "input": "inputs/audits/datascale-v1/e40-w064/train_resources.json",
+      "source": ".experiments/jaxka-pinder-2026-11-05/audits/datascale-v1/e40-w064/train_resources.json",
+      "sha256": "406af7cfa54ad107031a5afa353fa02ed75dbe9271b02f78e58b47437169284c",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/datascale-v1/e40-w064/train_resources.json"
+    },
+    {
+      "input": "inputs/audits/datascale-v1/w064/train_resources.json",
+      "source": ".experiments/jaxka-pinder-2026-11-05/audits/datascale-v1/w064/train_resources.json",
+      "sha256": "69447b10158af8e9f1a58e24ed9456b4785ef774405cb400a73b24e1ce181054",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/datascale-v1/w064/train_resources.json"
+    },
+    {
+      "input": "inputs/audits/datascale-v1/w064/residue/report.json",
+      "source": ".experiments/jaxka-pinder-2026-11-05/audits/datascale-v1/w064/residue/report.json",
+      "sha256": "8532aa62fa25d3a0cd98f8bcb8036ab7261c8ddf691304e0f8fe190c51b3f074",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/datascale-v1/w064/residue/report.json"
+    },
+    {
+      "input": "inputs/audits/datascale-v1/w064/residue/report.md",
+      "source": ".experiments/jaxka-pinder-2026-11-05/audits/datascale-v1/w064/residue/report.md",
+      "sha256": "779e12b49201eadd4a83947a367ea055cb42c599b9ce6144724073e378ed8bb8",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/datascale-v1/w064/residue/report.md"
+    },
+    {
+      "input": "inputs/audits/datascale-v1/w064/masked2/report.json",
+      "source": ".experiments/jaxka-pinder-2026-11-05/audits/datascale-v1/w064/masked2/report.json",
+      "sha256": "ff4260ebe6dbc11331507d588c0566afda51160432936bf671bfa76e5159f1bb",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/datascale-v1/w064/masked2/report.json"
+    },
+    {
+      "input": "inputs/audits/datascale-v1/w064/masked2/report.md",
+      "source": ".experiments/jaxka-pinder-2026-11-05/audits/datascale-v1/w064/masked2/report.md",
+      "sha256": "fe2657440404dce0bc2ece0670287e8ce217f86725dbdd8694215e14217bb04d",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/datascale-v1/w064/masked2/report.md"
+    },
+    {
+      "input": "inputs/audits/datascale-v1/e40-w064/residue/report.json",
+      "source": ".experiments/jaxka-pinder-2026-11-05/audits/datascale-v1/e40-w064/residue/report.json",
+      "sha256": "f6940003c716bd837b6f9777cdb878894a321f9f149316cee9ca29c0bfaa1dc8",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/datascale-v1/e40-w064/residue/report.json"
+    },
+    {
+      "input": "inputs/audits/datascale-v1/e40-w064/residue/report.md",
+      "source": ".experiments/jaxka-pinder-2026-11-05/audits/datascale-v1/e40-w064/residue/report.md",
+      "sha256": "ed554d79d883a8ad34c10119b01dea1565556b2b97dba678560d2c322bcf5c4b",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/datascale-v1/e40-w064/residue/report.md"
+    },
+    {
+      "input": "inputs/audits/datascale-v1/e40-w064/masked2/report.json",
+      "source": ".experiments/jaxka-pinder-2026-11-05/audits/datascale-v1/e40-w064/masked2/report.json",
+      "sha256": "ddf2c92465e1da38dbe6a2f0b48c3867b794a797e2895de2fcbb2571c4606e75",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/datascale-v1/e40-w064/masked2/report.json"
+    },
+    {
+      "input": "inputs/audits/datascale-v1/e40-w064/masked2/report.md",
+      "source": ".experiments/jaxka-pinder-2026-11-05/audits/datascale-v1/e40-w064/masked2/report.md",
+      "sha256": "24d92ca1e9713c9f77a44db6135d54886261a674d3593ae166e02d92f82ce005",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/datascale-v1/e40-w064/masked2/report.md"
+    },
+    {
+      "input": "inputs/audits/datascale-v1/e40-w128/residue/report.json",
+      "source": ".experiments/jaxka-pinder-2026-11-05/audits/datascale-v1/e40-w128/residue/report.json",
+      "sha256": "d5859fd84b7ca13941a8b1687febf4ba1dc8c4b5e470f5d0c43fac91a0049f32",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/datascale-v1/e40-w128/residue/report.json"
+    },
+    {
+      "input": "inputs/audits/datascale-v1/e40-w128/residue/report.md",
+      "source": ".experiments/jaxka-pinder-2026-11-05/audits/datascale-v1/e40-w128/residue/report.md",
+      "sha256": "b3a122523465e0995327afccd30d333f0043cd329c039010cc4685cffae1851f",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/datascale-v1/e40-w128/residue/report.md"
+    },
+    {
+      "input": "inputs/audits/datascale-v1/e40-w128/masked2/report.json",
+      "source": ".experiments/jaxka-pinder-2026-11-05/audits/datascale-v1/e40-w128/masked2/report.json",
+      "sha256": "931802a6aef31b4782220e4e78dc3cb44add3cce99222320d75190a6cef6849d",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/datascale-v1/e40-w128/masked2/report.json"
+    },
+    {
+      "input": "inputs/audits/datascale-v1/e40-w128/masked2/report.md",
+      "source": ".experiments/jaxka-pinder-2026-11-05/audits/datascale-v1/e40-w128/masked2/report.md",
+      "sha256": "b99778602253f703bf20436e948d627153f3632896fbf2a01d772d9c31f08691",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/datascale-v1/e40-w128/masked2/report.md"
+    },
+    {
+      "input": "inputs/audits/datascale-v1/w128/residue/report.json",
+      "source": ".experiments/jaxka-pinder-2026-11-05/audits/datascale-v1/w128/residue/report.json",
+      "sha256": "d9f54df9719b2dea0a4fa35a411d12f0cc350eabdd1367086d62d298766ea79a",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/datascale-v1/w128/residue/report.json"
+    },
+    {
+      "input": "inputs/audits/datascale-v1/w128/residue/report.md",
+      "source": ".experiments/jaxka-pinder-2026-11-05/audits/datascale-v1/w128/residue/report.md",
+      "sha256": "98706462dc94c807461ece2f50bdef912acc31b5e34e68eeac8d13c42fea6a98",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/datascale-v1/w128/residue/report.md"
+    },
+    {
+      "input": "inputs/audits/datascale-v1/w128/masked2/report.json",
+      "source": ".experiments/jaxka-pinder-2026-11-05/audits/datascale-v1/w128/masked2/report.json",
+      "sha256": "f7ea66380ac43153529c5545f7098b37828fc696758b2e585e9982126aefaeda",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/datascale-v1/w128/masked2/report.json"
+    },
+    {
+      "input": "inputs/audits/datascale-v1/w128/masked2/report.md",
+      "source": ".experiments/jaxka-pinder-2026-11-05/audits/datascale-v1/w128/masked2/report.md",
+      "sha256": "0eec16760f98e04391d9cbf9992955b5a773dddf5ab4ba653065dc30d8865b79",
+      "remote_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/datascale-v1/w128/masked2/report.md"
+    },
+    {
+      "input": "inputs/drsa-model.json",
+      "source": "projects/4-jax-Ka/code/models/ogqt-allres15-within-drsa-50/model.json",
+      "sha256": "c49c20ec233d1dd103efc4094a040cac3027bf38d81d087492356234a69ad337"
+    }
+  ]
+}

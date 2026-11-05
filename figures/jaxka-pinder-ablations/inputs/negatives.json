@@ -1,0 +1,1185 @@
+{
+ "definition": "Same-class negatives scoring of the residue edge head on the 800 PINDER validation complexes (negatives-v1, 2026-10-29).\n\nExtends score_decoy.py (imported: validation set, LAYOUT, logits, retype arm, seeds) with the stratum / UniProt handling and\nthe wrong-partner control of decoy-rank-v1's check_similarity.py. Free branch only, selected checkpoint per selection.json,\nCPU jax. Receptor = chain code 0, partner = chain code 1; surface = free RSA >= 0.1; contact pairs C_i = receptor-surface x\npartner-surface pairs with soft target > 0.5; pair score = sigmoid(edge logit). Pairwise accuracy: true beats decoy, ties 1/2.\nStratum = pool-v4 pinder-val.tsv (hetero / homo / Ab/Ag); UniProt per chain code from the PINDER id (check_similarity.py).\n  (a) re-typed: score_decoy.py arm (1), unchanged.\n  (b) same-stratum swapped partner: 5 decoy complexes j per i with stratum(j) == stratum(i), j != i, and j not carrying i's\n      partner UniProt (when defined); decoy = mean over C_i of score(a, b'), b' drawn (fixed seed, with replacement) from\n      j's contact residues on j's partner side. Ab/Ag role matching: when i and j each have exactly one UNDEFINED-UniProt\n      chain (taken as the antibody), b' comes from j's chain with the role of i's partner (antibody for antibody), else\n      from j's chain code 1. Rows: all, hetero, homo, Ab/Ag (Ab/Ag-vs-Ab/Ag is a gate).\n  (c) surface-only same-stratum: true = mean over every receptor-surface x partner-surface pair of i; decoy = receptor\n      surface of i x surface of j's partner-role chain, j = the first of i's partners in (b).\n  (d) wrong-partner controls (check_similarity.py (4), hetero, surface-only score, receptor = chain code 0): B' = partner\n      chain of 5 random other hetero complexes whose partner UniProt differs (\"different protein\", gate), and B' = the\n      chain carrying B's UniProt in other hetero complexes (\"same UniProt, other complex\", up to 5). Extra Ab/Ag row with\n      role-matched complexes: receptor = antigen, B' = antibody chain of 5 other role-matched Ab/Ag complexes whose antigen\n      UniProt differs from i's (POISK-like wrong-antibody control).\n  (e) within-complex: anchors = interface residues (surface, a cross-chain partner <= 10 A; the training definition), with\n      at least one contact and one non-contact among the other chain's interface residues; per anchor AUROC (ties 1/2) of\n      contacts (<= 10 A) vs non-contact interface residues of the partner, and top-1 (highest-scoring candidate is a\n      contact); mean over anchors, overall and by stratum.\n  (f) edges: pooled AUROC / AP and macro AP of the true receptor x partner surface pairs, contact <= 10 A (score_decoy).\n  (g) curvature proxy (production_residue.curvature, free-branch graph, model-independent): mean on interface vs\n      non-interface surface residues, AUROC for interface among surface residues, Spearman with free RSA (all residues\n      with an RSA, and surface residues); per-residue values saved to curvature.npz.\n  pKa: clean selection (PINDER val state MAE + interface paired MAE without bonded-Cys sites) from the stored predictions\n      (score_residue.py's pka()).\n  python score_negatives.py OUT_DIR NAME=RUN [NAME=RUN ...]   (first NAME is the control printed beside the GATES)\n",
+ "seed": 20261031,
+ "validation": {
+  "complexes": 800,
+  "more_than_two_chains": 0,
+  "with_contacts": 800,
+  "surface_pairs_true": 18956558
+ },
+ "strata": {
+  "hetero": 466,
+  "homo": 205,
+  "Ab/Ag": 129
+ },
+ "ab_ag_with_role": 117,
+ "same_stratum_partners": {
+  "hetero": 5.0,
+  "homo": 5.0,
+  "Ab/Ag": 5.0
+ },
+ "runs": {
+  "run 4 w64": {
+   "run": "control-v2-50-relations-4-1-allres-cut15-cysmask-gate01-ressiamese-redge01-s17",
+   "width": 64,
+   "selected_epoch": 17,
+   "protocol": {},
+   "retyped": {
+    "accuracy": 0.843710292249047,
+    "comparisons": 787,
+    "binomial_se": 0.012944178608554442,
+    "skipped_by_rule": 13
+   },
+   "swap_same_stratum": {
+    "all": {
+     "n": 4000,
+     "accuracy": 0.731,
+     "se": 0.007011401429101032,
+     "margin": 0.024324275159209416
+    },
+    "hetero": {
+     "n": 2330,
+     "accuracy": 0.6965665236051503,
+     "se": 0.009524344272378664,
+     "margin": 0.02044507843131433
+    },
+    "homo": {
+     "n": 1025,
+     "accuracy": 0.8702439024390244,
+     "se": 0.010495966830829607,
+     "margin": 0.04124283791048693
+    },
+    "Ab/Ag": {
+     "n": 645,
+     "accuracy": 0.6341085271317829,
+     "se": 0.018966102072653215,
+     "margin": 0.011451409354459189
+    },
+    "role_matched_comparisons": 537
+   },
+   "surface_same_stratum": {
+    "all": {
+     "n": 800,
+     "accuracy": 0.56625,
+     "se": 0.017521805611152064,
+     "margin": 0.0051916879891700275
+    },
+    "hetero": {
+     "n": 466,
+     "accuracy": 0.5493562231759657,
+     "se": 0.023048929259006902,
+     "margin": 0.004945711545334527
+    },
+    "homo": {
+     "n": 205,
+     "accuracy": 0.6097560975609756,
+     "se": 0.03406977052534528,
+     "margin": 0.007103783810688361
+    },
+    "Ab/Ag": {
+     "n": 129,
+     "accuracy": 0.5581395348837209,
+     "se": 0.0437239219716771,
+     "margin": 0.0030416521706900673
+    },
+    "role_matched_comparisons": 108
+   },
+   "wrong_partner": {
+    "different_protein": {
+     "n": 2330,
+     "accuracy": 0.5570815450643777,
+     "se": 0.010290661986761507,
+     "margin": 0.004780699532942417
+    },
+    "same_uniprot": {
+     "n": 333,
+     "accuracy": 0.53003003003003,
+     "se": 0.027350368087536044,
+     "margin": 5.3266502985132116e-05
+    },
+    "abag_wrong_antibody": {
+     "n": 585,
+     "accuracy": 0.49914529914529915,
+     "se": 0.020672425561827874,
+     "margin": 0.000139081989362866
+    }
+   },
+   "within_complex": {
+    "anchors": 69825,
+    "complexes": 800,
+    "all": {
+     "auroc": 0.6052928558331312,
+     "top1": 0.25117078410311494,
+     "n": 69825
+    },
+    "hetero": {
+     "auroc": 0.5978831984563132,
+     "top1": 0.26330911850807764,
+     "n": 36892
+    },
+    "homo": {
+     "auroc": 0.6147267560508033,
+     "top1": 0.20581452497070055,
+     "n": 26451
+    },
+    "Ab/Ag": {
+     "auroc": 0.6089677995677676,
+     "top1": 0.367170626349892,
+     "n": 6482
+    }
+   },
+   "edges_10A_free": {
+    "pairs": 18956558,
+    "positive_rate": 0.0137913222432047,
+    "auroc": 0.6685589367189939,
+    "ap": 0.029096873610931943,
+    "macro_ap": 0.08197054239700911
+   },
+   "pka": {
+    "epoch": 17,
+    "selection": 0.6250613375572884,
+    "selection_no_bonded": 0.6047267370980378,
+    "state": 0.39937166333250895,
+    "interface": 0.22568967422477945,
+    "pkpdb": 0.48144150209140263,
+    "benchmark": 0.5029303662131557
+   },
+   "embed_seconds": 44.0,
+   "seconds": 158.6
+  },
+  "decoy both w64": {
+   "run": "decoy-v1-50-both-w064-s17",
+   "width": 64,
+   "selected_epoch": 17,
+   "protocol": {
+    "decoy_retype": {
+     "composition": {
+      "A": 5.5,
+      "C": 1.0,
+      "D": 5.0,
+      "E": 6.0,
+      "F": 4.5,
+      "G": 6.0,
+      "H": 2.5,
+      "I": 5.5,
+      "K": 6.0,
+      "L": 8.5,
+      "M": 2.5,
+      "N": 4.5,
+      "P": 4.5,
+      "Q": 4.0,
+      "R": 7.0,
+      "S": 6.0,
+      "T": 5.5,
+      "V": 6.0,
+      "W": 2.0,
+      "Y": 6.0
+     },
+     "definition": "third pass on the free branch with one chain's interface residues re-typed (D/E <-> K/R, others to an interface-composition type outside their chemistry class); softplus(margin - (logit_true - logit_decoy)) over sampled contacts with target > 0.5 (production_residue)",
+     "fraction": 0.5,
+     "interface_A": 6.0,
+     "margin": 1.0,
+     "minimum": 3,
+     "never_retyped": "GPC",
+     "slots": 32,
+     "weight": 0.1
+    },
+    "decoy_batch": {
+     "definition": "free-branch embeddings: contact pair (a_i, b_i) vs (a_i, b'_j), b'_j from complex j = i + 1..K (mod batch)'s own contact pairs; softplus(margin - (logit_true - logit_decoy)); homologous complexes may share a batch (production_residue)",
+     "margin": 1.0,
+     "partners": 4,
+     "weight": 0.1
+    }
+   },
+   "retyped": {
+    "accuracy": 0.9250317662007624,
+    "comparisons": 787,
+    "binomial_se": 0.009387060068096878,
+    "skipped_by_rule": 13
+   },
+   "swap_same_stratum": {
+    "all": {
+     "n": 4000,
+     "accuracy": 0.8255,
+     "se": 0.006001036368828304,
+     "margin": 0.2015943557762082
+    },
+    "hetero": {
+     "n": 2330,
+     "accuracy": 0.8343347639484978,
+     "se": 0.007702077798236447,
+     "margin": 0.17837448169318315
+    },
+    "homo": {
+     "n": 1025,
+     "accuracy": 0.968780487804878,
+     "se": 0.005432050706812848,
+     "margin": 0.3679500807812597
+    },
+    "Ab/Ag": {
+     "n": 645,
+     "accuracy": 0.5658914728682171,
+     "se": 0.01951577830361237,
+     "margin": 0.021110151874302038
+    },
+    "role_matched_comparisons": 537
+   },
+   "surface_same_stratum": {
+    "all": {
+     "n": 800,
+     "accuracy": 0.795,
+     "se": 0.014273007741888182,
+     "margin": 0.11213956600777021
+    },
+    "hetero": {
+     "n": 466,
+     "accuracy": 0.7854077253218884,
+     "se": 0.019017860947950774,
+     "margin": 0.09916555466497297
+    },
+    "homo": {
+     "n": 205,
+     "accuracy": 0.9707317073170731,
+     "se": 0.011772572449544433,
+     "margin": 0.21038158971094933
+    },
+    "Ab/Ag": {
+     "n": 129,
+     "accuracy": 0.5503875968992248,
+     "se": 0.04379843631759079,
+     "margin": 0.002885879392202772
+    },
+    "role_matched_comparisons": 108
+   },
+   "wrong_partner": {
+    "different_protein": {
+     "n": 2330,
+     "accuracy": 0.7763948497854077,
+     "se": 0.008631857527952853,
+     "margin": 0.099883578113206
+    },
+    "same_uniprot": {
+     "n": 333,
+     "accuracy": 0.524024024024024,
+     "se": 0.02736818511274441,
+     "margin": 0.005280947511284723
+    },
+    "abag_wrong_antibody": {
+     "n": 585,
+     "accuracy": 0.576068376068376,
+     "se": 0.0204318170752241,
+     "margin": 0.008362092675426333
+    }
+   },
+   "within_complex": {
+    "anchors": 69825,
+    "complexes": 800,
+    "all": {
+     "auroc": 0.5932812495178451,
+     "top1": 0.2418331543143573,
+     "n": 69825
+    },
+    "hetero": {
+     "auroc": 0.5849031597535785,
+     "top1": 0.2518161118941776,
+     "n": 36892
+    },
+    "homo": {
+     "auroc": 0.6103458872503963,
+     "top1": 0.20793164719670335,
+     "n": 26451
+    },
+    "Ab/Ag": {
+     "auroc": 0.5713293450006606,
+     "top1": 0.32335698858377043,
+     "n": 6482
+    }
+   },
+   "edges_10A_free": {
+    "pairs": 18956558,
+    "positive_rate": 0.0137913222432047,
+    "auroc": 0.6666603197305758,
+    "ap": 0.036841572812422854,
+    "macro_ap": 0.10530838765299551
+   },
+   "pka": {
+    "epoch": 17,
+    "selection": 0.6330891036526591,
+    "selection_no_bonded": 0.6121338187915827,
+    "state": 0.39976606925461994,
+    "interface": 0.23332303439803914,
+    "pkpdb": 0.48220035116806403,
+    "benchmark": 0.5058146868073516
+   },
+   "embed_seconds": 38.3,
+   "seconds": 152.2
+  },
+  "within 0.1 s17": {
+   "run": "neg-v1-50-within-w064-s17",
+   "width": 64,
+   "selected_epoch": 18,
+   "protocol": {
+    "decoy_retype": {
+     "composition": {
+      "A": 5.5,
+      "C": 1.0,
+      "D": 5.0,
+      "E": 6.0,
+      "F": 4.5,
+      "G": 6.0,
+      "H": 2.5,
+      "I": 5.5,
+      "K": 6.0,
+      "L": 8.5,
+      "M": 2.5,
+      "N": 4.5,
+      "P": 4.5,
+      "Q": 4.0,
+      "R": 7.0,
+      "S": 6.0,
+      "T": 5.5,
+      "V": 6.0,
+      "W": 2.0,
+      "Y": 6.0
+     },
+     "definition": "third pass on the free branch with one chain's interface residues re-typed (D/E <-> K/R, others to an interface-composition type outside their chemistry class); softplus(margin - (logit_true - logit_decoy)) over sampled contacts with target > 0.5 (production_residue)",
+     "fraction": 0.5,
+     "interface_A": 6.0,
+     "margin": 1.0,
+     "minimum": 3,
+     "never_retyped": "GPC",
+     "slots": 32,
+     "weight": 0.1
+    },
+    "within_listwise": {
+     "anchors": 64,
+     "candidates": 32,
+     "contact_A": 10.0,
+     "definition": "free branch; anchors = interface residues (surface, a cross-chain partner <= 10 A) of both chains; candidates = interface residues of the other chain, all contacts (soft target min(1, exp(-(d - 4) / 3))) + non-contacts (target 0); softmax cross-entropy vs normalised target, mean over valid anchors per complex, then over complexes (production_residue.within_sample / within_loss)",
+     "reserve": 8,
+     "surface_rsa_min": 0.1,
+     "weight": 0.1
+    }
+   },
+   "retyped": {
+    "accuracy": 0.9606099110546379,
+    "comparisons": 787,
+    "binomial_se": 0.006933933083239587,
+    "skipped_by_rule": 13
+   },
+   "swap_same_stratum": {
+    "all": {
+     "n": 4000,
+     "accuracy": 0.6945,
+     "se": 0.007283023925540819,
+     "margin": 0.07532699944685001
+    },
+    "hetero": {
+     "n": 2330,
+     "accuracy": 0.6716738197424893,
+     "se": 0.009728681979264102,
+     "margin": 0.07014078333412728
+    },
+    "homo": {
+     "n": 1025,
+     "accuracy": 0.7941463414634147,
+     "se": 0.012628961288368512,
+     "margin": 0.11230622333739697
+    },
+    "Ab/Ag": {
+     "n": 645,
+     "accuracy": 0.6186046511627907,
+     "se": 0.019125571855363056,
+     "margin": 0.035296269299304794
+    },
+    "role_matched_comparisons": 537
+   },
+   "surface_same_stratum": {
+    "all": {
+     "n": 800,
+     "accuracy": 0.58375,
+     "se": 0.017427920755930696,
+     "margin": 0.025122772969448898
+    },
+    "hetero": {
+     "n": 466,
+     "accuracy": 0.5579399141630901,
+     "se": 0.023006015557177892,
+     "margin": 0.022330422604880367
+    },
+    "homo": {
+     "n": 205,
+     "accuracy": 0.6390243902439025,
+     "se": 0.033544453135831646,
+     "margin": 0.035626051806772516
+    },
+    "Ab/Ag": {
+     "n": 129,
+     "accuracy": 0.5891472868217055,
+     "se": 0.043317178973290696,
+     "margin": 0.01851861101780233
+    },
+    "role_matched_comparisons": 108
+   },
+   "wrong_partner": {
+    "different_protein": {
+     "n": 2330,
+     "accuracy": 0.58068669527897,
+     "se": 0.010222621914186762,
+     "margin": 0.02509046244952703
+    },
+    "same_uniprot": {
+     "n": 333,
+     "accuracy": 0.512012012012012,
+     "se": 0.02739192311894921,
+     "margin": 0.001252419768443988
+    },
+    "abag_wrong_antibody": {
+     "n": 585,
+     "accuracy": 0.5111111111111111,
+     "se": 0.020667350824485297,
+     "margin": 0.003431421728851883
+    }
+   },
+   "within_complex": {
+    "anchors": 69825,
+    "complexes": 800,
+    "all": {
+     "auroc": 0.6386257909218804,
+     "top1": 0.2698890082348729,
+     "n": 69825
+    },
+    "hetero": {
+     "auroc": 0.6256084946874911,
+     "top1": 0.2764013878347609,
+     "n": 36892
+    },
+    "homo": {
+     "auroc": 0.6618766193135616,
+     "top1": 0.23628596272352653,
+     "n": 26451
+    },
+    "Ab/Ag": {
+     "auroc": 0.6178338179028634,
+     "top1": 0.36994754705337857,
+     "n": 6482
+    }
+   },
+   "edges_10A_free": {
+    "pairs": 18956558,
+    "positive_rate": 0.0137913222432047,
+    "auroc": 0.6846093548392169,
+    "ap": 0.036975213634653066,
+    "macro_ap": 0.09870647799899772
+   },
+   "pka": {
+    "epoch": 18,
+    "selection": 0.6275884166232251,
+    "selection_no_bonded": 0.6081839561990069,
+    "state": 0.39652161398410934,
+    "interface": 0.23106680263911572,
+    "pkpdb": 0.4799905747953382,
+    "benchmark": 0.5088060802110964
+   },
+   "embed_seconds": 38.2,
+   "seconds": 152.3
+  },
+  "within 0.3 s17": {
+   "run": "neg-v1-50-within03-w064-s17",
+   "width": 64,
+   "selected_epoch": 18,
+   "protocol": {
+    "decoy_retype": {
+     "composition": {
+      "A": 5.5,
+      "C": 1.0,
+      "D": 5.0,
+      "E": 6.0,
+      "F": 4.5,
+      "G": 6.0,
+      "H": 2.5,
+      "I": 5.5,
+      "K": 6.0,
+      "L": 8.5,
+      "M": 2.5,
+      "N": 4.5,
+      "P": 4.5,
+      "Q": 4.0,
+      "R": 7.0,
+      "S": 6.0,
+      "T": 5.5,
+      "V": 6.0,
+      "W": 2.0,
+      "Y": 6.0
+     },
+     "definition": "third pass on the free branch with one chain's interface residues re-typed (D/E <-> K/R, others to an interface-composition type outside their chemistry class); softplus(margin - (logit_true - logit_decoy)) over sampled contacts with target > 0.5 (production_residue)",
+     "fraction": 0.5,
+     "interface_A": 6.0,
+     "margin": 1.0,
+     "minimum": 3,
+     "never_retyped": "GPC",
+     "slots": 32,
+     "weight": 0.1
+    },
+    "within_listwise": {
+     "anchors": 64,
+     "candidates": 32,
+     "contact_A": 10.0,
+     "definition": "free branch; anchors = interface residues (surface, a cross-chain partner <= 10 A) of both chains; candidates = interface residues of the other chain, all contacts (soft target min(1, exp(-(d - 4) / 3))) + non-contacts (target 0); softmax cross-entropy vs normalised target, mean over valid anchors per complex, then over complexes (production_residue.within_sample / within_loss)",
+     "reserve": 8,
+     "surface_rsa_min": 0.1,
+     "weight": 0.3
+    }
+   },
+   "retyped": {
+    "accuracy": 0.9351969504447268,
+    "comparisons": 787,
+    "binomial_se": 0.008775298466787729,
+    "skipped_by_rule": 13
+   },
+   "swap_same_stratum": {
+    "all": {
+     "n": 4000,
+     "accuracy": 0.746,
+     "se": 0.006882659369749458,
+     "margin": 0.10183501644179065
+    },
+    "hetero": {
+     "n": 2330,
+     "accuracy": 0.7214592274678111,
+     "se": 0.009286933239758184,
+     "margin": 0.098082828340011
+    },
+    "homo": {
+     "n": 1025,
+     "accuracy": 0.8682926829268293,
+     "se": 0.010562727830537327,
+     "margin": 0.1516260730482124
+    },
+    "Ab/Ag": {
+     "n": 645,
+     "accuracy": 0.6403100775193798,
+     "se": 0.018896416220108368,
+     "margin": 0.03626410986127021
+    },
+    "role_matched_comparisons": 537
+   },
+   "surface_same_stratum": {
+    "all": {
+     "n": 800,
+     "accuracy": 0.625,
+     "se": 0.01711632992203644,
+     "margin": 0.033075411977251355
+    },
+    "hetero": {
+     "n": 466,
+     "accuracy": 0.592274678111588,
+     "se": 0.022764203875105932,
+     "margin": 0.0316398372403734
+    },
+    "homo": {
+     "n": 205,
+     "accuracy": 0.7414634146341463,
+     "se": 0.030579398404746078,
+     "margin": 0.04747176186093322
+    },
+    "Ab/Ag": {
+     "n": 129,
+     "accuracy": 0.5581395348837209,
+     "se": 0.0437239219716771,
+     "margin": 0.01538336625035481
+    },
+    "role_matched_comparisons": 108
+   },
+   "wrong_partner": {
+    "different_protein": {
+     "n": 2330,
+     "accuracy": 0.5896995708154507,
+     "se": 0.010190334286647099,
+     "margin": 0.031478808948304564
+    },
+    "same_uniprot": {
+     "n": 333,
+     "accuracy": 0.512012012012012,
+     "se": 0.02739192311894921,
+     "margin": 0.0011255988082573723
+    },
+    "abag_wrong_antibody": {
+     "n": 585,
+     "accuracy": 0.5401709401709401,
+     "se": 0.020605629285030517,
+     "margin": 0.00530204399137297
+    }
+   },
+   "within_complex": {
+    "anchors": 69825,
+    "complexes": 800,
+    "all": {
+     "auroc": 0.6637152643015616,
+     "top1": 0.29705692803437167,
+     "n": 69825
+    },
+    "hetero": {
+     "auroc": 0.650835299076564,
+     "top1": 0.30071560229860134,
+     "n": 36892
+    },
+    "homo": {
+     "auroc": 0.689715474363302,
+     "top1": 0.27390268798911194,
+     "n": 26451
+    },
+    "Ab/Ag": {
+     "auroc": 0.6309223177939277,
+     "top1": 0.3707189139154582,
+     "n": 6482
+    }
+   },
+   "edges_10A_free": {
+    "pairs": 18956558,
+    "positive_rate": 0.0137913222432047,
+    "auroc": 0.729271501929802,
+    "ap": 0.049921203820339814,
+    "macro_ap": 0.11054067695595458
+   },
+   "pka": {
+    "epoch": 18,
+    "selection": 0.6316717439330135,
+    "selection_no_bonded": 0.6120956228118786,
+    "state": 0.3976367254937947,
+    "interface": 0.23403501843921884,
+    "pkpdb": 0.4833895728592951,
+    "benchmark": 0.5013179104875183
+   },
+   "embed_seconds": 38.1,
+   "seconds": 150.7
+  },
+  "within 1.0 s17": {
+   "run": "neg-v1-50-within10-w064-s17",
+   "width": 64,
+   "selected_epoch": 18,
+   "protocol": {
+    "decoy_retype": {
+     "composition": {
+      "A": 5.5,
+      "C": 1.0,
+      "D": 5.0,
+      "E": 6.0,
+      "F": 4.5,
+      "G": 6.0,
+      "H": 2.5,
+      "I": 5.5,
+      "K": 6.0,
+      "L": 8.5,
+      "M": 2.5,
+      "N": 4.5,
+      "P": 4.5,
+      "Q": 4.0,
+      "R": 7.0,
+      "S": 6.0,
+      "T": 5.5,
+      "V": 6.0,
+      "W": 2.0,
+      "Y": 6.0
+     },
+     "definition": "third pass on the free branch with one chain's interface residues re-typed (D/E <-> K/R, others to an interface-composition type outside their chemistry class); softplus(margin - (logit_true - logit_decoy)) over sampled contacts with target > 0.5 (production_residue)",
+     "fraction": 0.5,
+     "interface_A": 6.0,
+     "margin": 1.0,
+     "minimum": 3,
+     "never_retyped": "GPC",
+     "slots": 32,
+     "weight": 0.1
+    },
+    "within_listwise": {
+     "anchors": 64,
+     "candidates": 32,
+     "contact_A": 10.0,
+     "definition": "free branch; anchors = interface residues (surface, a cross-chain partner <= 10 A) of both chains; candidates = interface residues of the other chain, all contacts (soft target min(1, exp(-(d - 4) / 3))) + non-contacts (target 0); softmax cross-entropy vs normalised target, mean over valid anchors per complex, then over complexes (production_residue.within_sample / within_loss)",
+     "reserve": 8,
+     "surface_rsa_min": 0.1,
+     "weight": 1.0
+    }
+   },
+   "retyped": {
+    "accuracy": 0.9008894536213469,
+    "comparisons": 787,
+    "binomial_se": 0.01065143987946907,
+    "skipped_by_rule": 13
+   },
+   "swap_same_stratum": {
+    "all": {
+     "n": 4000,
+     "accuracy": 0.7965,
+     "se": 0.006365684370120781,
+     "margin": 0.14222183492109203
+    },
+    "hetero": {
+     "n": 2330,
+     "accuracy": 0.7776824034334764,
+     "se": 0.008614103686840723,
+     "margin": 0.1401480706218619
+    },
+    "homo": {
+     "n": 1025,
+     "accuracy": 0.9278048780487805,
+     "se": 0.008083888602898133,
+     "margin": 0.21375177277001806
+    },
+    "Ab/Ag": {
+     "n": 645,
+     "accuracy": 0.6558139534883721,
+     "se": 0.018707127187099035,
+     "margin": 0.03604150084676183
+    },
+    "role_matched_comparisons": 537
+   },
+   "surface_same_stratum": {
+    "all": {
+     "n": 800,
+     "accuracy": 0.6825,
+     "se": 0.01645804324638868,
+     "margin": 0.04649639811021751
+    },
+    "hetero": {
+     "n": 466,
+     "accuracy": 0.6416309012875536,
+     "se": 0.02221339578636132,
+     "margin": 0.04927540778688553
+    },
+    "homo": {
+     "n": 205,
+     "accuracy": 0.8292682926829268,
+     "se": 0.026280141016964943,
+     "margin": 0.06345202240187273
+    },
+    "Ab/Ag": {
+     "n": 129,
+     "accuracy": 0.5968992248062015,
+     "se": 0.04318793797224223,
+     "margin": 0.009512510597685575
+    },
+    "role_matched_comparisons": 108
+   },
+   "wrong_partner": {
+    "different_protein": {
+     "n": 2330,
+     "accuracy": 0.6360515021459228,
+     "se": 0.009967543654686693,
+     "margin": 0.04645128984750499
+    },
+    "same_uniprot": {
+     "n": 333,
+     "accuracy": 0.481981981981982,
+     "se": 0.027382034783942123,
+     "margin": 0.003048990778292345
+    },
+    "abag_wrong_antibody": {
+     "n": 585,
+     "accuracy": 0.5521367521367522,
+     "se": 0.02055976317153129,
+     "margin": 0.00299864400366022
+    }
+   },
+   "within_complex": {
+    "anchors": 69825,
+    "complexes": 800,
+    "all": {
+     "auroc": 0.6870083830497073,
+     "top1": 0.32170426065162905,
+     "n": 69825
+    },
+    "hetero": {
+     "auroc": 0.6746778901778087,
+     "top1": 0.3279843868589396,
+     "n": 36892
+    },
+    "homo": {
+     "auroc": 0.716409644163519,
+     "top1": 0.2956409965596764,
+     "n": 26451
+    },
+    "Ab/Ag": {
+     "auroc": 0.637209522406179,
+     "top1": 0.39231718605368715,
+     "n": 6482
+    }
+   },
+   "edges_10A_free": {
+    "pairs": 18956558,
+    "positive_rate": 0.0137913222432047,
+    "auroc": 0.769417843032027,
+    "ap": 0.075019609794603,
+    "macro_ap": 0.12605537395896532
+   },
+   "pka": {
+    "epoch": 18,
+    "selection": 0.639816981248712,
+    "selection_no_bonded": 0.6209345967769788,
+    "state": 0.40181812133640454,
+    "interface": 0.23799885991230746,
+    "pkpdb": 0.486979113675418,
+    "benchmark": 0.5082199466044652
+   },
+   "embed_seconds": 38.2,
+   "seconds": 150.1
+  },
+  "within 0.1 s29": {
+   "run": "neg-v1-50-within-w064-s29",
+   "width": 64,
+   "selected_epoch": 19,
+   "protocol": {
+    "decoy_retype": {
+     "composition": {
+      "A": 5.5,
+      "C": 1.0,
+      "D": 5.0,
+      "E": 6.0,
+      "F": 4.5,
+      "G": 6.0,
+      "H": 2.5,
+      "I": 5.5,
+      "K": 6.0,
+      "L": 8.5,
+      "M": 2.5,
+      "N": 4.5,
+      "P": 4.5,
+      "Q": 4.0,
+      "R": 7.0,
+      "S": 6.0,
+      "T": 5.5,
+      "V": 6.0,
+      "W": 2.0,
+      "Y": 6.0
+     },
+     "definition": "third pass on the free branch with one chain's interface residues re-typed (D/E <-> K/R, others to an interface-composition type outside their chemistry class); softplus(margin - (logit_true - logit_decoy)) over sampled contacts with target > 0.5 (production_residue)",
+     "fraction": 0.5,
+     "interface_A": 6.0,
+     "margin": 1.0,
+     "minimum": 3,
+     "never_retyped": "GPC",
+     "slots": 32,
+     "weight": 0.1
+    },
+    "within_listwise": {
+     "anchors": 64,
+     "candidates": 32,
+     "contact_A": 10.0,
+     "definition": "free branch; anchors = interface residues (surface, a cross-chain partner <= 10 A) of both chains; candidates = interface residues of the other chain, all contacts (soft target min(1, exp(-(d - 4) / 3))) + non-contacts (target 0); softmax cross-entropy vs normalised target, mean over valid anchors per complex, then over complexes (production_residue.within_sample / within_loss)",
+     "reserve": 8,
+     "surface_rsa_min": 0.1,
+     "weight": 0.1
+    }
+   },
+   "retyped": {
+    "accuracy": 0.9606099110546379,
+    "comparisons": 787,
+    "binomial_se": 0.006933933083239587,
+    "skipped_by_rule": 13
+   },
+   "swap_same_stratum": {
+    "all": {
+     "n": 4000,
+     "accuracy": 0.687,
+     "se": 0.007331967675869827,
+     "margin": 0.06805625727706702
+    },
+    "hetero": {
+     "n": 2330,
+     "accuracy": 0.6643776824034334,
+     "se": 0.009782615252102904,
+     "margin": 0.06027258983055763
+    },
+    "homo": {
+     "n": 1025,
+     "accuracy": 0.7882926829268293,
+     "se": 0.012759972817879552,
+     "margin": 0.10964346371960203
+    },
+    "Ab/Ag": {
+     "n": 645,
+     "accuracy": 0.6077519379844961,
+     "se": 0.019224883740158558,
+     "margin": 0.030085805411591768
+    },
+    "role_matched_comparisons": 537
+   },
+   "surface_same_stratum": {
+    "all": {
+     "n": 800,
+     "accuracy": 0.56875,
+     "se": 0.017509762901735705,
+     "margin": 0.020160895150121236
+    },
+    "hetero": {
+     "n": 466,
+     "accuracy": 0.5429184549356223,
+     "se": 0.023076566260084974,
+     "margin": 0.016371847381709055
+    },
+    "homo": {
+     "n": 205,
+     "accuracy": 0.6439024390243903,
+     "se": 0.03344395297288939,
+     "margin": 0.03307682193803634
+    },
+    "Ab/Ag": {
+     "n": 129,
+     "accuracy": 0.5426356589147286,
+     "se": 0.043862205004091895,
+     "margin": 0.013323153045915663
+    },
+    "role_matched_comparisons": 108
+   },
+   "wrong_partner": {
+    "different_protein": {
+     "n": 2330,
+     "accuracy": 0.5609442060085837,
+     "se": 0.010281150796335426,
+     "margin": 0.019795110653816124
+    },
+    "same_uniprot": {
+     "n": 333,
+     "accuracy": 0.493993993993994,
+     "se": 0.02739785440689962,
+     "margin": 0.0012945552206128272
+    },
+    "abag_wrong_antibody": {
+     "n": 585,
+     "accuracy": 0.5076923076923077,
+     "se": 0.0206700091756217,
+     "margin": 0.004195589477748933
+    }
+   },
+   "within_complex": {
+    "anchors": 69825,
+    "complexes": 800,
+    "all": {
+     "auroc": 0.6364888404582768,
+     "top1": 0.2669817400644468,
+     "n": 69825
+    },
+    "hetero": {
+     "auroc": 0.6215097386162473,
+     "top1": 0.2738534099533774,
+     "n": 36892
+    },
+    "homo": {
+     "auroc": 0.6611162918562196,
+     "top1": 0.2320895240255567,
+     "n": 26451
+    },
+    "Ab/Ag": {
+     "auroc": 0.6212448275346688,
+     "top1": 0.37025609379821045,
+     "n": 6482
+    }
+   },
+   "edges_10A_free": {
+    "pairs": 18956558,
+    "positive_rate": 0.0137913222432047,
+    "auroc": 0.6716035833937293,
+    "ap": 0.03427077456788638,
+    "macro_ap": 0.09285864122066308
+   },
+   "pka": {
+    "epoch": 19,
+    "selection": 0.6370936528151591,
+    "selection_no_bonded": 0.6185380549951454,
+    "state": 0.40258599509953313,
+    "interface": 0.2345076577156259,
+    "pkpdb": 0.48232793913352534,
+    "benchmark": 0.5071659786512692
+   },
+   "embed_seconds": 38.3,
+   "seconds": 152.9
+  },
+  "within 0.1 s43": {
+   "run": "neg-v1-50-within-w064-s43",
+   "width": 64,
+   "selected_epoch": 17,
+   "protocol": {
+    "decoy_retype": {
+     "composition": {
+      "A": 5.5,
+      "C": 1.0,
+      "D": 5.0,
+      "E": 6.0,
+      "F": 4.5,
+      "G": 6.0,
+      "H": 2.5,
+      "I": 5.5,
+      "K": 6.0,
+      "L": 8.5,
+      "M": 2.5,
+      "N": 4.5,
+      "P": 4.5,
+      "Q": 4.0,
+      "R": 7.0,
+      "S": 6.0,
+      "T": 5.5,
+      "V": 6.0,
+      "W": 2.0,
+      "Y": 6.0
+     },
+     "definition": "third pass on the free branch with one chain's interface residues re-typed (D/E <-> K/R, others to an interface-composition type outside their chemistry class); softplus(margin - (logit_true - logit_decoy)) over sampled contacts with target > 0.5 (production_residue)",
+     "fraction": 0.5,
+     "interface_A": 6.0,
+     "margin": 1.0,
+     "minimum": 3,
+     "never_retyped": "GPC",
+     "slots": 32,
+     "weight": 0.1
+    },
+    "within_listwise": {
+     "anchors": 64,
+     "candidates": 32,
+     "contact_A": 10.0,
+     "definition": "free branch; anchors = interface residues (surface, a cross-chain partner <= 10 A) of both chains; candidates = interface residues of the other chain, all contacts (soft target min(1, exp(-(d - 4) / 3))) + non-contacts (target 0); softmax cross-entropy vs normalised target, mean over valid anchors per complex, then over complexes (production_residue.within_sample / within_loss)",
+     "reserve": 8,
+     "surface_rsa_min": 0.1,
+     "weight": 0.1
+    }
+   },
+   "retyped": {
+    "accuracy": 0.9440914866581956,
+    "comparisons": 787,
+    "binomial_se": 0.00818952374740394,
+    "skipped_by_rule": 13
+   },
+   "swap_same_stratum": {
+    "all": {
+     "n": 4000,
+     "accuracy": 0.68275,
+     "se": 0.007358709762927194,
+     "margin": 0.06894452936192562
+    },
+    "hetero": {
+     "n": 2330,
+     "accuracy": 0.6553648068669528,
+     "se": 0.009845627704072907,
+     "margin": 0.06372812925334258
+    },
+    "homo": {
+     "n": 1025,
+     "accuracy": 0.784390243902439,
+     "se": 0.012845125835501363,
+     "margin": 0.10871503850814535
+    },
+    "Ab/Ag": {
+     "n": 645,
+     "accuracy": 0.6201550387596899,
+     "se": 0.019110562307843,
+     "margin": 0.024587072583822117
+    },
+    "role_matched_comparisons": 537
+   },
+   "surface_same_stratum": {
+    "all": {
+     "n": 800,
+     "accuracy": 0.56625,
+     "se": 0.017521805611152064,
+     "margin": 0.021896574535518062
+    },
+    "hetero": {
+     "n": 466,
+     "accuracy": 0.5450643776824035,
+     "se": 0.023067785996521765,
+     "margin": 0.018659697227146114
+    },
+    "homo": {
+     "n": 205,
+     "accuracy": 0.6341463414634146,
+     "se": 0.03364120289256084,
+     "margin": 0.034933696736530934
+    },
+    "Ab/Ag": {
+     "n": 129,
+     "accuracy": 0.5348837209302325,
+     "se": 0.04391527484201927,
+     "margin": 0.012871572787407146
+    },
+    "role_matched_comparisons": 108
+   },
+   "wrong_partner": {
+    "different_protein": {
+     "n": 2330,
+     "accuracy": 0.565236051502146,
+     "se": 0.010269841208521403,
+     "margin": 0.02058630178064943
+    },
+    "same_uniprot": {
+     "n": 333,
+     "accuracy": 0.493993993993994,
+     "se": 0.02739785440689962,
+     "margin": 0.0002854611665723909
+    },
+    "abag_wrong_antibody": {
+     "n": 585,
+     "accuracy": 0.5025641025641026,
+     "se": 0.020672183935917646,
+     "margin": 0.0034962281000299627
+    }
+   },
+   "within_complex": {
+    "anchors": 69825,
+    "complexes": 800,
+    "all": {
+     "auroc": 0.6321799715680132,
+     "top1": 0.264718940207662,
+     "n": 69825
+    },
+    "hetero": {
+     "auroc": 0.6217596079484559,
+     "top1": 0.27304022552314866,
+     "n": 36892
+    },
+    "homo": {
+     "auroc": 0.6533985979070769,
+     "top1": 0.23110657442062682,
+     "n": 26451
+    },
+    "Ab/Ag": {
+     "auroc": 0.6049004543446465,
+     "top1": 0.3545202098117865,
+     "n": 6482
+    }
+   },
+   "edges_10A_free": {
+    "pairs": 18956558,
+    "positive_rate": 0.0137913222432047,
+    "auroc": 0.6742054560999367,
+    "ap": 0.035599767051252236,
+    "macro_ap": 0.09059181946126882
+   },
+   "pka": {
+    "epoch": 17,
+    "selection": 0.6341866638068239,
+    "selection_no_bonded": 0.6172090393164543,
+    "state": 0.4008700423456896,
+    "interface": 0.2333166214611343,
+    "pkpdb": 0.4871478670275498,
+    "benchmark": 0.5091847395201438
+   },
+   "embed_seconds": 38.2,
+   "seconds": 151.6
+  }
+ },
+ "curvature": {
+  "residues": 319787,
+  "mean_interface_surface": 0.4451771378517151,
+  "mean_noninterface_surface": 0.4334104657173157,
+  "mean_buried_rsa<0.1": 0.161018967628479,
+  "auroc_interface_among_surface": 0.519073779985727,
+  "spearman_rsa_all": 0.8367394382413078,
+  "spearman_rsa_surface": 0.6978680928398973,
+  "quantiles": {
+   "0.05": 0.07929229736328125,
+   "0.25": 0.19855430722236633,
+   "0.5": 0.3622840940952301,
+   "0.75": 0.48928341269493103,
+   "0.95": 0.6783332824707031
+  },
+  "definition": "production_residue.curvature on the free-branch residue graph; interface = surface with a cross-chain partner <= 10 A"
+ }
+}

@@ -1,0 +1,264 @@
+{
+ "definition": "Asymmetric hotspot-masked scoring of the residue edge head on the 800 PINDER validation complexes (hotspot-mask-v2, 2026-10-30).\n\nscore_masked.py (hotspot-mask-v1) with per-comparison chain masks. Free branch, selected checkpoint per selection.json, CPU jax.\nOracle: PeSTo (store-hotspot-v1) at each run's keep fraction (protocol hotspot_mask.keep; the control is scored at every keep\nof the other runs, --control-keeps overrides). Per complex the v1 eval mask (production_residue.hotspot_keep, soft 0, per-complex\nseed [EVAL_SEED, 0 (pesto), crc32(id)], identical to score_masked.py's pesto mode) gives the unmasked set of BOTH chains; the\nfree branch is chain-isolated, so a chain's masked embedding is read from the both-chains-masked pass (checked: a direct\nchain-1-only pass is computed and its rows compared, \"isolation\" in the report). Modes:\n  unmasked  every residue typed (score_masked.py unmasked; same draws, equal up to float summation order).\n  varying   mask ONLY the chain that varies between true and decoy in each comparison: the receptor / fixed side (chain code 0\n            of the true complex; the antigen in the Ab/Ag wrong-antibody control) reads full embeddings, the partner side\n            (true partner and every decoy partner chain) reads masked embeddings. Same-stratum swapped partner (all / hetero /\n            homo / Ab/Ag role-matched; Ab/Ag split by the varying chain's role: antibody / antigen), surface-only, wrong-partner\n            controls. Within-complex AUROC / top-1 and edge AUROC / AP / macro AP: chain code 1 masked, chain 0 full; the\n            chain-0-masked version (chain 0 masked, chain 1 full) is reported beside it (within_c0 / edges_c0).\n  both      v1-style symmetric mask (= score_masked.py pesto mode at that keep): reference; hotspot-only arm here only.\nMetric definitions, seeds and decoy draws as score_masked.py / score_negatives.py. Re-typed arm: unmasked and both modes.\npKa: clean selection from the stored predictions (score_residue.py pka()).\nGATES per run with the control beside, in unmasked and varying@keep: Ab/Ag-vs-Ab/Ag swapped, swapped partner all, wrong-partner\ndifferent protein, within AUROC, edge AUROC / AP, pKa clean.\n  python score_masked2.py OUT_DIR STORE NAME=RUN [NAME=RUN ...] [--modes unmasked,varying,both] [--control-keeps 0.25,0.5]\n  (the first NAME is the control)\n\nmin-aug-v1 (2026-10-31) adds mode altrow (--alt-store PATH, production_alt side store): the free branch with the ALT\n(minimised) geometry for the validation complexes that have a usable record (production_alt.AltConfig prob 1; use_alt), and\nthe unmasked-mode metrics (swapped partner, surface-only, wrong partner, within AUROC / top-1, edge AUROC / AP / macro AP) on\nthat subset twice: every embedding crystal (\"crystal\" row) and every embedding alt (\"alt\" row), same-stratum partners redrawn\ninside the subset (seed SEED) so true and decoy share the geometry source in both rows. Wrong-partner pools (hetero, Ab/Ag)\nare restricted to the subset. Alt-vs-crystal gap per complex (subset): true-pair score (mean sigmoid over contact pairs,\ntarget > 0.5) and surface-only score (mean over receptor surface x partner surface), alt minus crystal; reported as the\nmean differences and the fraction of complexes where the alt score is below the crystal score (a model that treats the two\ngeometries as equivalent sits near 0.5; the rank arm should sit at or below it). Surfaces / contacts are the crystal\nresidue-table definitions in both rows. Other modes unchanged; with only altrow the masked passes are skipped.\n\nanm-aug-v1 (2026-10-31): --alt-store takes ONE production_alt entry \"store[:keysuffix]\" (records <cid> or <cid>::<suffix>),\nso the same mode scores each geometry (minimised store-min-v1, ANM 1 A views :a1, 2 A views :a2) in its own OUT_DIR. The gap\nblock adds the logit-level true-pair gap (mean over contact pairs of the edge logit, alt minus crystal, per complex; mean\nand fraction of complexes with alt < crystal) beside the sigmoid-score gap.\n\ndrsa-within-v1 (2026-11-01): within_complex adds a graded ranking of the same anchors / candidate sets as within AUROC / top-1\n(anchor = interface residue with a contact and a non-contact; candidates = every interface residue of the other chain; the\ndistance metrics are unchanged): per anchor, the free-branch pair logits vs the dRSA-weighted target g(a, c) = soft(d_ac) *\nmin(dRSA_a, dRSA_c) for contacts (residue-rsa-v1 pairs <= 10 A), 0 otherwise, soft(d) = min(1, exp(-(d - 4) / 3)), dRSA =\nclip(RSA_free - RSA_bound, 0, 1) (NaN -> 0). ndcg_drsa = NDCG over the full candidate list (gain g, discount 1 / log2(rank + 1),\nanchors with sum g = 0 excluded, n_ndcg); spearman_drsa = Spearman (average ranks) of logits vs g (anchors with constant g\nexcluded); ndcg_distance = the same NDCG with gain soft(d_ac) for contacts (reference). Means over anchors\n(production_residue.ranking_metrics).\n",
+ "seed": 20261031,
+ "eval_seed": 20261030,
+ "oracle": "pesto",
+ "validation": {
+  "complexes": 800,
+  "more_than_two_chains": 0,
+  "with_contacts": 800,
+  "surface_pairs_true": 18956558
+ },
+ "modes": [
+  "unmasked"
+ ],
+ "store": {
+  "path": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/training/gqt-production-v2/pinder/store-hotspot-v1",
+  "verification_sha256": "314a451bcb88561587ef495bda074d4f5e1c1166d364b09877c47ab01ecbdc46",
+  "records": 14748,
+  "validation_records": 800
+ },
+ "strata": {
+  "hetero": 466,
+  "homo": 205,
+  "Ab/Ag": 129
+ },
+ "ab_ag_with_role": 117,
+ "ab_ag_antibody_is_chain1": 60,
+ "masks": {},
+ "runs": {
+  "e40-w064": {
+   "run": "drsa100e40-v1-asym50-w064-s17",
+   "width": 64,
+   "selected_epoch": 15,
+   "protocol": {
+    "within_listwise": {
+     "anchors": 64,
+     "candidates": 32,
+     "contact_A": 10.0,
+     "definition": "free branch; anchors = interface residues (surface, a cross-chain partner <= 10 A) of both chains; candidates = interface residues of the other chain, all contacts (soft target min(1, exp(-(d - 4) / 3))) + non-contacts (target 0); softmax cross-entropy vs normalised target, mean over valid anchors per complex, then over complexes (production_residue.within_sample / within_loss)",
+     "drsa_min": 1e-06,
+     "reserve": 8,
+     "surface_rsa_min": 0.1,
+     "target": "drsa",
+     "target_definition": "drsa-within-v1: contact target soft(d_ac) * min(dRSA_a, dRSA_c), dRSA = clip(RSA_free - RSA_bound, 0, 1) (residue-rsa-v1, NaN -> 0); non-contacts 0; anchors with summed target < 1e-6 dropped (valid 0; counted in history loader_counts.within); anchor eligibility and candidate sampling distance-defined, same draws as distance mode",
+     "weight": 0.3
+    },
+    "hotspot_mask": {
+     "augmentation": "hotspot-mask-v2: per visit (own stream [MASK2_SALT, crc32(id), visit]) masked with probability prob, else identity mask (every residue kept); sides one: the v1 rule on one chain drawn uniformly, the other chain fully unmasked; mask_side -1 / 0 / 1 / 2 (history pinder_mask_visit_fraction, pinder_mask_side_fraction = chain-1 share of one-sided visits)",
+     "buried_masked": true,
+     "definition": "third pass on the free branch with the residue-type one-hot zeroed on every residue outside the unmasked set: per chain the top round(keep x surface) surface residues (free RSA >= 0.1) by the oracle (NaN lowest, ties by a random draw; random: uniform), plus round(soft x rest) of the remaining surface residues at random; buried residues always masked (no interface chemistry). Edge BCE free part + free -> bound distillation and the within listwise loss on the masked pass; bound BCE, Siamese burial, gate, pKa unchanged (production_residue.hotspot_keep / mask_nodes; replaces the re-typed pass)",
+     "fallback": "complex without a store record -> random oracle for that visit (counted: history pinder_mask_fallbacks)",
+     "keep": 0.5,
+     "oracle": "pesto",
+     "oracle_field": "pesto",
+     "prob": 0.5,
+     "salt": 16381,
+     "salt2": 32749,
+     "sides": "one",
+     "soft": 0.0,
+     "store": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/training/gqt-production-v2/pinder/store-hotspot-v2",
+     "store_records": 28733,
+     "store_verification_sha256": "676b07e591fe9270080ecc26f4f5be7fddab4d7eb4549f11cea86d1a13c4b99b",
+     "surface_rsa_min": 0.1
+    }
+   },
+   "pka": {
+    "epoch": 15,
+    "selection": 0.6188223803691961,
+    "selection_no_bonded": 0.6023446420935246,
+    "state": 0.3924721613063688,
+    "interface": 0.2263502190628273,
+    "pkpdb": 0.47957585904133676,
+    "benchmark": 0.49766581559649115
+   },
+   "keeps": [
+    0.25
+   ],
+   "modes": {
+    "unmasked": {
+     "mode": "unmasked",
+     "keep": null,
+     "retyped": {
+      "accuracy": 0.8144853875476493,
+      "comparisons": 787,
+      "binomial_se": 0.01385617450149074,
+      "skipped_by_rule": 13
+     },
+     "swap_same_stratum": {
+      "all": {
+       "n": 4000,
+       "accuracy": 0.8265,
+       "se": 0.005987439978822335,
+       "margin": 0.10007657542184258
+      },
+      "hetero": {
+       "n": 2330,
+       "accuracy": 0.8158798283261802,
+       "se": 0.008029450460798252,
+       "margin": 0.10298220936443767
+      },
+      "homo": {
+       "n": 1025,
+       "accuracy": 0.926829268292683,
+       "se": 0.008134046227310985,
+       "margin": 0.13374042645765882
+      },
+      "Ab/Ag": {
+       "n": 645,
+       "accuracy": 0.7054263565891473,
+       "se": 0.017949110319706807,
+       "margin": 0.03608343682035703
+      },
+      "Ab/Ag varying antibody": {
+       "n": 300,
+       "accuracy": 0.7333333333333333,
+       "se": 0.02553138954016902,
+       "margin": 0.033423043983774894
+      },
+      "Ab/Ag varying antigen": {
+       "n": 285,
+       "accuracy": 0.6596491228070176,
+       "se": 0.028067097399721224,
+       "margin": 0.03590765261154525
+      },
+      "role_matched_comparisons": 537
+     },
+     "surface_same_stratum": {
+      "all": {
+       "n": 800,
+       "accuracy": 0.63625,
+       "se": 0.017008671960943925,
+       "margin": 0.024024101167720628
+      },
+      "hetero": {
+       "n": 466,
+       "accuracy": 0.6137339055793991,
+       "se": 0.022554873416921226,
+       "margin": 0.026054425216060263
+      },
+      "homo": {
+       "n": 205,
+       "accuracy": 0.7463414634146341,
+       "se": 0.030389013050108916,
+       "margin": 0.028274652064603053
+      },
+      "Ab/Ag": {
+       "n": 129,
+       "accuracy": 0.5426356589147286,
+       "se": 0.043862205004091895,
+       "margin": 0.009935000854641817
+      },
+      "Ab/Ag varying antibody": {
+       "n": 60,
+       "accuracy": 0.4666666666666667,
+       "se": 0.06440611887195306,
+       "margin": -0.0047320640587318556
+      },
+      "Ab/Ag varying antigen": {
+       "n": 57,
+       "accuracy": 0.5614035087719298,
+       "se": 0.06572532011099606,
+       "margin": 0.014955909226281802
+      },
+      "role_matched_comparisons": 108
+     },
+     "wrong_partner": {
+      "different_protein": {
+       "n": 2330,
+       "accuracy": 0.5974248927038627,
+       "se": 0.010159846706492016,
+       "margin": 0.024920286618865143
+      },
+      "same_uniprot": {
+       "n": 333,
+       "accuracy": 0.493993993993994,
+       "se": 0.02739785440689962,
+       "margin": 0.0009866776857101174
+      },
+      "abag_wrong_antibody": {
+       "n": 585,
+       "accuracy": 0.5487179487179488,
+       "se": 0.020574092142175485,
+       "margin": 0.0008909030408487699
+      }
+     },
+     "hotspot_only": null,
+     "within_complex": {
+      "anchors": 69825,
+      "complexes": 800,
+      "all": {
+       "auroc": 0.6546044715749354,
+       "top1": 0.29419262441818833,
+       "n": 69825,
+       "ndcg_drsa": 0.5363111020376676,
+       "spearman_drsa": 0.21339465080063136,
+       "ndcg_distance": 0.5172714363862987,
+       "n_ndcg": 37146,
+       "n_spearman": 37146
+      },
+      "hetero": {
+       "auroc": 0.6443566461965918,
+       "top1": 0.3106364523473924,
+       "n": 36892,
+       "ndcg_drsa": 0.548132187841578,
+       "spearman_drsa": 0.21608557738335657,
+       "ndcg_distance": 0.5301784861089176,
+       "n_ndcg": 19093,
+       "n_spearman": 19093
+      },
+      "homo": {
+       "auroc": 0.671388339901656,
+       "top1": 0.2459264300026464,
+       "n": 26451,
+       "ndcg_drsa": 0.5052571560341768,
+       "spearman_drsa": 0.20724449521537716,
+       "ndcg_distance": 0.47810700272559203,
+       "n_ndcg": 14710,
+       "n_spearman": 14710
+      },
+      "Ab/Ag": {
+       "auroc": 0.6444398114002613,
+       "top1": 0.39756248071582845,
+       "n": 6482,
+       "ndcg_drsa": 0.6054416896707185,
+       "spearman_drsa": 0.22508801825953617,
+       "ndcg_distance": 0.6036292821734772,
+       "n_ndcg": 3343,
+       "n_spearman": 3343
+      },
+      "anchor_chain0": {
+       "auroc": 0.6506956670081204,
+       "top1": 0.2986947256259989,
+       "n": 37540,
+       "ndcg_drsa": 0.5457030267590801,
+       "spearman_drsa": 0.20771060737615188,
+       "ndcg_distance": 0.5251077543912156,
+       "n_ndcg": 19177,
+       "n_spearman": 19177
+      },
+      "anchor_chain1": {
+       "auroc": 0.6591495086955248,
+       "top1": 0.28895772030354655,
+       "n": 32285,
+       "ndcg_drsa": 0.5262877874190172,
+       "spearman_drsa": 0.21946081479146248,
+       "ndcg_distance": 0.5081596080479192,
+       "n_ndcg": 17969,
+       "n_spearman": 17969
+      }
+     },
+     "edges_10A_free": {
+      "pairs": 18956558,
+      "positive_rate": 0.0137913222432047,
+      "auroc": 0.7267480357297719,
+      "ap": 0.04651591999685028,
+      "macro_ap": 0.10753361019175117
+     },
+     "seconds": 138.3
+    }
+   },
+   "seconds": 179.5
+  }
+ }
+}

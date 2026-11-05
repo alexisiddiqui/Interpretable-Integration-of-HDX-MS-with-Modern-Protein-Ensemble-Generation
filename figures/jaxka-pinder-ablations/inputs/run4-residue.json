@@ -1,0 +1,646 @@
+{
+ "run 4 w64": {
+  "run": "control-v2-50-relations-4-1-allres-cut15-cysmask-gate01-ressiamese-redge01-s17",
+  "pka": {
+   "epoch": 17,
+   "selection": 0.6250613375572884,
+   "selection_no_bonded": 0.6047267370980378,
+   "state": 0.39937166333250895,
+   "interface": 0.22568967422477945,
+   "pkpdb": 0.48144150209140263,
+   "benchmark": 0.5029303662131557,
+   "paired_all_no_bonded": 0.06321166241298386,
+   "paired_bins_no_bonded": {
+    "<=4": 0.4443144361037934,
+    "4-6": 0.2016178510292507,
+    "6-10": 0.09329862471524475,
+    ">10": 0.008789905245947376
+   }
+  },
+  "residue": {
+   "burial_subset": {
+    "residues": 37732
+   },
+   "burial_free": {
+    "auroc_rsa<0.1": 0.9719879627227783,
+    "auroc_rsa<0.25": 0.9676644802093506,
+    "auroc_rsa<0.5": 0.9534919261932373,
+    "spearman": 0.922401272553586
+   },
+   "burial_bound": {
+    "auroc_rsa<0.25": 0.9586809873580933,
+    "spearman": 0.907255170919357
+   },
+   "burial_binding": {
+    "mae_dprob_vs_drsa": 0.05746535211801529,
+    "spearman_dprob_vs_drsa": 0.8545950895466617,
+    "auroc_drsa>0.05": 0.9112036824226379
+   },
+   "interface_5A": {
+    "all residues": {
+     "predicted exposure (free)": {
+      "pooled_auroc": 0.6641076803207397,
+      "per_chain_median_auroc": 0.6161689460277557,
+      "chains": 1546
+     },
+     "measured free RSA": {
+      "pooled_auroc": 0.6676049828529358,
+      "per_chain_median_auroc": 0.6218407154083252,
+      "chains": 1546
+     },
+     "edge max (free)": {
+      "pooled_auroc": 0.7032353983926892,
+      "per_chain_median_auroc": 0.6749601847427935,
+      "chains": 1546
+     }
+    },
+    "surface residues": {
+     "predicted exposure (free)": {
+      "pooled_auroc": 0.5785860419273376,
+      "per_chain_median_auroc": 0.5341582894325256,
+      "chains": 1546
+     },
+     "measured free RSA": {
+      "pooled_auroc": 0.5815033316612244,
+      "per_chain_median_auroc": 0.5408771932125092,
+      "chains": 1546
+     },
+     "edge max (free)": {
+      "pooled_auroc": 0.6455900244862879,
+      "per_chain_median_auroc": 0.625,
+      "chains": 1546
+     }
+    },
+    "rate_all": 0.11799103778452533
+   },
+   "edges_10A": {
+    "free": {
+     "pairs": 18956558,
+     "positive_rate": 0.0137913222432047,
+     "auroc": 0.6685589366971015,
+     "ap": 0.029096874177843995,
+     "macro_ap": 0.08197055676057687
+    },
+    "bound": {
+     "pairs": 18956558,
+     "positive_rate": 0.0137913222432047,
+     "auroc": 0.8038542038672871,
+     "ap": 0.14070283648191062,
+     "macro_ap": 0.24691550353255878
+    }
+   }
+  }
+ },
+ "decoy both w64": {
+  "run": "decoy-v1-50-both-w064-s17",
+  "pka": {
+   "epoch": 17,
+   "selection": 0.6330891036526591,
+   "selection_no_bonded": 0.6121338187915827,
+   "state": 0.39976606925461994,
+   "interface": 0.23332303439803914,
+   "pkpdb": 0.48220035116806403,
+   "benchmark": 0.5058146868073516,
+   "paired_all_no_bonded": 0.06715132777706727,
+   "paired_bins_no_bonded": {
+    "<=4": 0.4586411793761066,
+    "4-6": 0.20367117329507317,
+    "6-10": 0.09918763150365248,
+    ">10": 0.011404728959475394
+   }
+  },
+  "residue": {
+   "burial_subset": {
+    "residues": 37732
+   },
+   "burial_free": {
+    "auroc_rsa<0.1": 0.9702640175819397,
+    "auroc_rsa<0.25": 0.9669426679611206,
+    "auroc_rsa<0.5": 0.9505823254585266,
+    "spearman": 0.9190166937117076
+   },
+   "burial_bound": {
+    "auroc_rsa<0.25": 0.9578901529312134,
+    "spearman": 0.9047615919692092
+   },
+   "burial_binding": {
+    "mae_dprob_vs_drsa": 0.05875890702009201,
+    "spearman_dprob_vs_drsa": 0.8473406026928683,
+    "auroc_drsa>0.05": 0.9040070176124573
+   },
+   "interface_5A": {
+    "all residues": {
+     "predicted exposure (free)": {
+      "pooled_auroc": 0.6656514406204224,
+      "per_chain_median_auroc": 0.6164101958274841,
+      "chains": 1546
+     },
+     "measured free RSA": {
+      "pooled_auroc": 0.6676049828529358,
+      "per_chain_median_auroc": 0.6218407154083252,
+      "chains": 1546
+     },
+     "edge max (free)": {
+      "pooled_auroc": 0.6920712886194741,
+      "per_chain_median_auroc": 0.6827045090202986,
+      "chains": 1546
+     }
+    },
+    "surface residues": {
+     "predicted exposure (free)": {
+      "pooled_auroc": 0.580368161201477,
+      "per_chain_median_auroc": 0.5365015864372253,
+      "chains": 1546
+     },
+     "measured free RSA": {
+      "pooled_auroc": 0.5815033316612244,
+      "per_chain_median_auroc": 0.5408771932125092,
+      "chains": 1546
+     },
+     "edge max (free)": {
+      "pooled_auroc": 0.6350467850565437,
+      "per_chain_median_auroc": 0.6442675048624618,
+      "chains": 1546
+     }
+    },
+    "rate_all": 0.11799103778452533
+   },
+   "edges_10A": {
+    "free": {
+     "pairs": 18956558,
+     "positive_rate": 0.0137913222432047,
+     "auroc": 0.6666603199783468,
+     "ap": 0.03684157233446401,
+     "macro_ap": 0.10530837840209002
+    },
+    "bound": {
+     "pairs": 18956558,
+     "positive_rate": 0.0137913222432047,
+     "auroc": 0.8834706937434825,
+     "ap": 0.09419909226062834,
+     "macro_ap": 0.3176940012312331
+    }
+   }
+  }
+ },
+ "within 0.1 s17": {
+  "run": "neg-v1-50-within-w064-s17",
+  "pka": {
+   "epoch": 18,
+   "selection": 0.6275884166232251,
+   "selection_no_bonded": 0.6081839561990069,
+   "state": 0.39652161398410934,
+   "interface": 0.23106680263911572,
+   "pkpdb": 0.4799905747953382,
+   "benchmark": 0.5088060802110964,
+   "paired_all_no_bonded": 0.06578589097569373,
+   "paired_bins_no_bonded": {
+    "<=4": 0.4506853349940331,
+    "4-6": 0.20226300842993014,
+    "6-10": 0.10021123259940712,
+    ">10": 0.010304719344618418
+   }
+  },
+  "residue": {
+   "burial_subset": {
+    "residues": 37732
+   },
+   "burial_free": {
+    "auroc_rsa<0.1": 0.9704000949859619,
+    "auroc_rsa<0.25": 0.9673904776573181,
+    "auroc_rsa<0.5": 0.9532583951950073,
+    "spearman": 0.9220523941732923
+   },
+   "burial_bound": {
+    "auroc_rsa<0.25": 0.958520233631134,
+    "spearman": 0.9059067132471585
+   },
+   "burial_binding": {
+    "mae_dprob_vs_drsa": 0.058143921196460724,
+    "spearman_dprob_vs_drsa": 0.8521061557745093,
+    "auroc_drsa>0.05": 0.9065883159637451
+   },
+   "interface_5A": {
+    "all residues": {
+     "predicted exposure (free)": {
+      "pooled_auroc": 0.6655474901199341,
+      "per_chain_median_auroc": 0.6187019050121307,
+      "chains": 1546
+     },
+     "measured free RSA": {
+      "pooled_auroc": 0.6676049828529358,
+      "per_chain_median_auroc": 0.6218407154083252,
+      "chains": 1546
+     },
+     "edge max (free)": {
+      "pooled_auroc": 0.7029675703731268,
+      "per_chain_median_auroc": 0.6966992522766287,
+      "chains": 1546
+     }
+    },
+    "surface residues": {
+     "predicted exposure (free)": {
+      "pooled_auroc": 0.580289363861084,
+      "per_chain_median_auroc": 0.5397396087646484,
+      "chains": 1546
+     },
+     "measured free RSA": {
+      "pooled_auroc": 0.5815033316612244,
+      "per_chain_median_auroc": 0.5408771932125092,
+      "chains": 1546
+     },
+     "edge max (free)": {
+      "pooled_auroc": 0.6451203317712352,
+      "per_chain_median_auroc": 0.6556563823351482,
+      "chains": 1546
+     }
+    },
+    "rate_all": 0.11799103778452533
+   },
+   "edges_10A": {
+    "free": {
+     "pairs": 18956558,
+     "positive_rate": 0.0137913222432047,
+     "auroc": 0.6846093542880236,
+     "ap": 0.03697521366038578,
+     "macro_ap": 0.09870647896664327
+    },
+    "bound": {
+     "pairs": 18956558,
+     "positive_rate": 0.0137913222432047,
+     "auroc": 0.8948576426510404,
+     "ap": 0.11987774746199352,
+     "macro_ap": 0.32769640269115496
+    }
+   }
+  }
+ },
+ "within 0.3 s17": {
+  "run": "neg-v1-50-within03-w064-s17",
+  "pka": {
+   "epoch": 18,
+   "selection": 0.6316717439330135,
+   "selection_no_bonded": 0.6120956228118786,
+   "state": 0.3976367254937947,
+   "interface": 0.23403501843921884,
+   "pkpdb": 0.4833895728592951,
+   "benchmark": 0.5013179104875183,
+   "paired_all_no_bonded": 0.0667049096678278,
+   "paired_bins_no_bonded": {
+    "<=4": 0.4591797214826,
+    "4-6": 0.20686744715375222,
+    "6-10": 0.09997688383412953,
+    ">10": 0.010398312999392019
+   }
+  },
+  "residue": {
+   "burial_subset": {
+    "residues": 37732
+   },
+   "burial_free": {
+    "auroc_rsa<0.1": 0.9710643291473389,
+    "auroc_rsa<0.25": 0.9677926301956177,
+    "auroc_rsa<0.5": 0.9532354474067688,
+    "spearman": 0.9225357976599045
+   },
+   "burial_bound": {
+    "auroc_rsa<0.25": 0.9586572051048279,
+    "spearman": 0.9069257330515718
+   },
+   "burial_binding": {
+    "mae_dprob_vs_drsa": 0.05759725347161293,
+    "spearman_dprob_vs_drsa": 0.8509943800989186,
+    "auroc_drsa>0.05": 0.9054516553878784
+   },
+   "interface_5A": {
+    "all residues": {
+     "predicted exposure (free)": {
+      "pooled_auroc": 0.6673608422279358,
+      "per_chain_median_auroc": 0.6193608641624451,
+      "chains": 1546
+     },
+     "measured free RSA": {
+      "pooled_auroc": 0.6676049828529358,
+      "per_chain_median_auroc": 0.6218407154083252,
+      "chains": 1546
+     },
+     "edge max (free)": {
+      "pooled_auroc": 0.7185639450540117,
+      "per_chain_median_auroc": 0.7002639944929714,
+      "chains": 1546
+     }
+    },
+    "surface residues": {
+     "predicted exposure (free)": {
+      "pooled_auroc": 0.5825396776199341,
+      "per_chain_median_auroc": 0.5392634570598602,
+      "chains": 1546
+     },
+     "measured free RSA": {
+      "pooled_auroc": 0.5815033316612244,
+      "per_chain_median_auroc": 0.5408771932125092,
+      "chains": 1546
+     },
+     "edge max (free)": {
+      "pooled_auroc": 0.6679023943112682,
+      "per_chain_median_auroc": 0.6674049464747139,
+      "chains": 1546
+     }
+    },
+    "rate_all": 0.11799103778452533
+   },
+   "edges_10A": {
+    "free": {
+     "pairs": 18956558,
+     "positive_rate": 0.0137913222432047,
+     "auroc": 0.729271500928488,
+     "ap": 0.04992120784512472,
+     "macro_ap": 0.11054069536986959
+    },
+    "bound": {
+     "pairs": 18956558,
+     "positive_rate": 0.0137913222432047,
+     "auroc": 0.8781208477247162,
+     "ap": 0.11668886703014705,
+     "macro_ap": 0.2900784971132424
+    }
+   }
+  }
+ },
+ "within 1.0 s17": {
+  "run": "neg-v1-50-within10-w064-s17",
+  "pka": {
+   "epoch": 18,
+   "selection": 0.639816981248712,
+   "selection_no_bonded": 0.6209345967769788,
+   "state": 0.40181812133640454,
+   "interface": 0.23799885991230746,
+   "pkpdb": 0.486979113675418,
+   "benchmark": 0.5082199466044652,
+   "paired_all_no_bonded": 0.06855256773929168,
+   "paired_bins_no_bonded": {
+    "<=4": 0.46594960541869346,
+    "4-6": 0.20728159230939455,
+    "6-10": 0.10355871047672055,
+    ">10": 0.01150641178924381
+   }
+  },
+  "residue": {
+   "burial_subset": {
+    "residues": 37732
+   },
+   "burial_free": {
+    "auroc_rsa<0.1": 0.9706129431724548,
+    "auroc_rsa<0.25": 0.9679608941078186,
+    "auroc_rsa<0.5": 0.9528384208679199,
+    "spearman": 0.9220767833299632
+   },
+   "burial_bound": {
+    "auroc_rsa<0.25": 0.9577610492706299,
+    "spearman": 0.9039714931066618
+   },
+   "burial_binding": {
+    "mae_dprob_vs_drsa": 0.05818566307425499,
+    "spearman_dprob_vs_drsa": 0.8489244851809189,
+    "auroc_drsa>0.05": 0.9027950167655945
+   },
+   "interface_5A": {
+    "all residues": {
+     "predicted exposure (free)": {
+      "pooled_auroc": 0.6670922636985779,
+      "per_chain_median_auroc": 0.6221059262752533,
+      "chains": 1546
+     },
+     "measured free RSA": {
+      "pooled_auroc": 0.6676049828529358,
+      "per_chain_median_auroc": 0.6218407154083252,
+      "chains": 1546
+     },
+     "edge max (free)": {
+      "pooled_auroc": 0.7344086962144641,
+      "per_chain_median_auroc": 0.702940577940578,
+      "chains": 1546
+     }
+    },
+    "surface residues": {
+     "predicted exposure (free)": {
+      "pooled_auroc": 0.5822702050209045,
+      "per_chain_median_auroc": 0.5405140519142151,
+      "chains": 1546
+     },
+     "measured free RSA": {
+      "pooled_auroc": 0.5815033316612244,
+      "per_chain_median_auroc": 0.5408771932125092,
+      "chains": 1546
+     },
+     "edge max (free)": {
+      "pooled_auroc": 0.6925156404090791,
+      "per_chain_median_auroc": 0.6702941176470588,
+      "chains": 1546
+     }
+    },
+    "rate_all": 0.11799103778452533
+   },
+   "edges_10A": {
+    "free": {
+     "pairs": 18956558,
+     "positive_rate": 0.0137913222432047,
+     "auroc": 0.7694178427060987,
+     "ap": 0.07501960997708072,
+     "macro_ap": 0.1260555685754107
+    },
+    "bound": {
+     "pairs": 18956558,
+     "positive_rate": 0.0137913222432047,
+     "auroc": 0.9023151199900116,
+     "ap": 0.18201783119159734,
+     "macro_ap": 0.30340451200460694
+    }
+   }
+  }
+ },
+ "within 0.1 s29": {
+  "run": "neg-v1-50-within-w064-s29",
+  "pka": {
+   "epoch": 19,
+   "selection": 0.6370936528151591,
+   "selection_no_bonded": 0.6185380549951454,
+   "state": 0.40258599509953313,
+   "interface": 0.2345076577156259,
+   "pkpdb": 0.48232793913352534,
+   "benchmark": 0.5071659786512692,
+   "paired_all_no_bonded": 0.06678350064718377,
+   "paired_bins_no_bonded": {
+    "<=4": 0.4535622253489688,
+    "4-6": 0.2104069919600118,
+    "6-10": 0.10142761634880904,
+    ">10": 0.01060740175138548
+   }
+  },
+  "residue": {
+   "burial_subset": {
+    "residues": 37732
+   },
+   "burial_free": {
+    "auroc_rsa<0.1": 0.9710411429405212,
+    "auroc_rsa<0.25": 0.9684284925460815,
+    "auroc_rsa<0.5": 0.9542469382286072,
+    "spearman": 0.9243433289952722
+   },
+   "burial_bound": {
+    "auroc_rsa<0.25": 0.9600656032562256,
+    "spearman": 0.9089144511824389
+   },
+   "burial_binding": {
+    "mae_dprob_vs_drsa": 0.05731676146388054,
+    "spearman_dprob_vs_drsa": 0.8560918369782101,
+    "auroc_drsa>0.05": 0.909588098526001
+   },
+   "interface_5A": {
+    "all residues": {
+     "predicted exposure (free)": {
+      "pooled_auroc": 0.6654192805290222,
+      "per_chain_median_auroc": 0.6184584498405457,
+      "chains": 1546
+     },
+     "measured free RSA": {
+      "pooled_auroc": 0.6676049828529358,
+      "per_chain_median_auroc": 0.6218407154083252,
+      "chains": 1546
+     },
+     "edge max (free)": {
+      "pooled_auroc": 0.6977435889903928,
+      "per_chain_median_auroc": 0.6929711826384537,
+      "chains": 1546
+     }
+    },
+    "surface residues": {
+     "predicted exposure (free)": {
+      "pooled_auroc": 0.5801205635070801,
+      "per_chain_median_auroc": 0.5375297665596008,
+      "chains": 1546
+     },
+     "measured free RSA": {
+      "pooled_auroc": 0.5815033316612244,
+      "per_chain_median_auroc": 0.5408771932125092,
+      "chains": 1546
+     },
+     "edge max (free)": {
+      "pooled_auroc": 0.6390743461299387,
+      "per_chain_median_auroc": 0.656883460454889,
+      "chains": 1546
+     }
+    },
+    "rate_all": 0.11799103778452533
+   },
+   "edges_10A": {
+    "free": {
+     "pairs": 18956558,
+     "positive_rate": 0.0137913222432047,
+     "auroc": 0.6716035829278544,
+     "ap": 0.03427077503530407,
+     "macro_ap": 0.09285863891332653
+    },
+    "bound": {
+     "pairs": 18956558,
+     "positive_rate": 0.0137913222432047,
+     "auroc": 0.8810094863813227,
+     "ap": 0.10747363292283339,
+     "macro_ap": 0.30964568396981984
+    }
+   }
+  }
+ },
+ "within 0.1 s43": {
+  "run": "neg-v1-50-within-w064-s43",
+  "pka": {
+   "epoch": 17,
+   "selection": 0.6341866638068239,
+   "selection_no_bonded": 0.6172090393164543,
+   "state": 0.4008700423456896,
+   "interface": 0.2333166214611343,
+   "pkpdb": 0.4871478670275498,
+   "benchmark": 0.5091847395201438,
+   "paired_all_no_bonded": 0.06581574483857072,
+   "paired_bins_no_bonded": {
+    "<=4": 0.4582430601204735,
+    "4-6": 0.2019484817325104,
+    "6-10": 0.10082926307884493,
+    ">10": 0.009457784221314137
+   }
+  },
+  "residue": {
+   "burial_subset": {
+    "residues": 37732
+   },
+   "burial_free": {
+    "auroc_rsa<0.1": 0.9727054238319397,
+    "auroc_rsa<0.25": 0.9691838622093201,
+    "auroc_rsa<0.5": 0.9545477628707886,
+    "spearman": 0.9240317882562706
+   },
+   "burial_bound": {
+    "auroc_rsa<0.25": 0.959773063659668,
+    "spearman": 0.9098844597707991
+   },
+   "burial_binding": {
+    "mae_dprob_vs_drsa": 0.05657188966870308,
+    "spearman_dprob_vs_drsa": 0.8580056853194298,
+    "auroc_drsa>0.05": 0.9092617034912109
+   },
+   "interface_5A": {
+    "all residues": {
+     "predicted exposure (free)": {
+      "pooled_auroc": 0.6666733026504517,
+      "per_chain_median_auroc": 0.61874058842659,
+      "chains": 1546
+     },
+     "measured free RSA": {
+      "pooled_auroc": 0.6676049828529358,
+      "per_chain_median_auroc": 0.6218407154083252,
+      "chains": 1546
+     },
+     "edge max (free)": {
+      "pooled_auroc": 0.6960414340212038,
+      "per_chain_median_auroc": 0.6842763795453906,
+      "chains": 1546
+     }
+    },
+    "surface residues": {
+     "predicted exposure (free)": {
+      "pooled_auroc": 0.5814616680145264,
+      "per_chain_median_auroc": 0.5390407145023346,
+      "chains": 1546
+     },
+     "measured free RSA": {
+      "pooled_auroc": 0.5815033316612244,
+      "per_chain_median_auroc": 0.5408771932125092,
+      "chains": 1546
+     },
+     "edge max (free)": {
+      "pooled_auroc": 0.6358612660306734,
+      "per_chain_median_auroc": 0.6514847472533243,
+      "chains": 1546
+     }
+    },
+    "rate_all": 0.11799103778452533
+   },
+   "edges_10A": {
+    "free": {
+     "pairs": 18956558,
+     "positive_rate": 0.0137913222432047,
+     "auroc": 0.674205456714556,
+     "ap": 0.035599768513192076,
+     "macro_ap": 0.09059182219466087
+    },
+    "bound": {
+     "pairs": 18956558,
+     "positive_rate": 0.0137913222432047,
+     "auroc": 0.8902590133518251,
+     "ap": 0.1372757983782567,
+     "macro_ap": 0.3179531406927399
+    }
+   }
+  }
+ }
+}

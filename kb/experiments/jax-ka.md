@@ -14,7 +14,7 @@ experiments:
     locations:
       - machine: isambard
         root: /scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits
-        runs: [residue-siamese-v1-50, residue-siamese-v1-50-v4, negatives-v1, hotspot-mask-v2, drsa-within-v1, anm-aug-v1, anm-edge-v1, drsa-anm-v1, drsa-cap-v1, drsa-rel-v1]
+        runs: [residue-siamese-v1-50, residue-siamese-v1-50-v4, negatives-v1, hotspot-mask-v2, drsa-within-v1, anm-aug-v1, anm-edge-v1, drsa-anm-v1, drsa-cap-v1, drsa-rel-v1, datascale-v1]
       - machine: isambard
         root: /scratch/u6xq/hussain.u6xq/_submission
         runs: [residue-siamese-v1, hotspot-mask-v2, drsa-within-v1, anm-aug-v1, anm-edge-v1, drsa-anm-v1, drsa-cap-v1, drsa-rel-v1, datascale-v1]
@@ -36,7 +36,11 @@ experiments:
       - drsa-rel-v1/rel66/s17/gates.md
       - drsa-rel-v1/rel66/s29/gates.md
       - drsa-rel-v1/rel66/s43/gates.md
-    figures: []
+      - datascale-v1/w064/masked2/report.json
+      - datascale-v1/w128/masked2/report.json
+      - datascale-v1/e40-w064/masked2/report.json
+      - datascale-v1/e40-w128/masked2/report.json
+    figures: [jaxka-pinder-recipe-comparison, jaxka-pinder-ablations]
   - id: opig-adaptyv-028
     question: Do run-4, hmask and dRSA scores distinguish antibody binders from decoys through recognition of the supplied antigen?
     locations:
@@ -201,4 +205,4 @@ experiments:
 
 The backbone controls and early GQT comparisons remain in `projects/4-jax-Ka/code/experiments/4_backbone/` and `3_paired_complex/48_pkai_joint_scale.md`. The two machines hold checkouts of the same repository, but the frozen training snapshots identify the code used for later Isambard experiments. A current checkout commit is not a substitute for a run's recorded protocol and code hashes. Data-cleaning decisions remain in [[2026-10-29 jax-Ka masking noise targets]] and [[2026-10-29 jax-Ka data pipeline record and teacher]].
 
-The 100% data comparison is complete, as confirmed by the author, and a 40-epoch extension is being tested. Its scores and executed protocol will extend [[jaxka-edge-binder#Data scaling]]. The staged full-pool launch definition is in Isambard `_submission/datascale-v1/`; its original hotspot-store coverage and fallback behaviour must be distinguished from the protocol actually used. Source receipts remain under `.experiments/`.
+[[jaxka-edge-binder#Data scaling]] incorporates the completed seed-17 width-64 and width-128 runs at 100% data under 20- and 40-epoch schedules. Width 128 improves contact AP and antibody/antigen discrimination at full data under the 20-epoch schedule; the longer schedule gives mixed gains. Executed protocols use the complete PeSTo store and the histories record zero fallback visits. `jaxka-pinder-recipe-comparison` and `jaxka-pinder-ablations` provide the main recipe comparison and supporting diagnostics, with frozen reports, regeneration scripts and captions. The full-data retrieval receipt is `.experiments/jaxka-pinder-2026-11-05/receipt.json`.

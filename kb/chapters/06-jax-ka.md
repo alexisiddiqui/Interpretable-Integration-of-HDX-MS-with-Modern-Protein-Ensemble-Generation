@@ -20,6 +20,8 @@ Paragraph outline for `thesis/chapters/06-jax-ka.tex`. Each bullet develops one 
 
 - **Shared graph features support state and binding-shift prediction.** Residues exchange information through spatial and sequence-relation edges carrying local-frame geometry; query tokens predict shifts from model-compound pKas. Shared bound/free weights train against state and binding-shift targets, with burial supervision. The appendix defines each loss, mask and reduction ([[A relational graph network gives each relation type its own weight matrix for messages between neighbours.]]; `projects/4-jax-Ka/code/models/ogqt-relational-50-frozen/model.json`).
 
+- **All-residue prediction permits changes in titratable-site identity.** We introduced a prediction token at every residue so that pKa-based sequence optimisation could change which positions were titratable. The earlier site representation restricted mutations to existing titratable sites. All-residue prediction retains a readout as residue identities change, with the titratability gate determining its contribution (own; [[jaxka-edge-binder#Representation and comparison]]).
+
 ## Backbone pKa and binding-shift prediction
 
 - **Joint pKAI training improves all-atom prediction more than backbone prediction.** At full data, joint training lowers all-atom pKPDB MSE from 0.319 to 0.287 and interface paired MSE from 0.059 to 0.034; backbone pKPDB MSE changes from 1.045 to 1.043. This comparison motivates testing a representation built around backbone geometry. It combines PINDER state and paired losses and uses one seed (`jaxka-pkai-siamese`; `projects/4-jax-Ka/code/experiments/4_backbone/09_backbone_baseline_results.md`).
@@ -32,9 +34,7 @@ Paragraph outline for `thesis/chapters/06-jax-ka.tex`. Each bullet develops one 
 
 - **Experimental accuracy remains limited by large pKa errors.** On 1,421 common PKAD-3 entries, run4 has RMSE 1.42 and MAE 0.82, against 1.31 and 0.84 for the model-compound null. The full comparison separates common-support performance, residue types and shift magnitudes, so agreement with computational teachers does not become a claim of experimental superiority (`.experiments/jaxka-pkad/default-allres-report.md`; [[A null model that assigns model-compound pKa values is hard to beat on experimental protein pKas.]]).
 
-## All-residue prediction and pKa-guided sequence design
-
-- **All-residue prediction permits changes in titratable-site identity.** We introduced a prediction token at every residue so that pKa-based sequence optimisation could change which positions were titratable. The earlier site representation restricted mutations to existing titratable sites. All-residue prediction retains a readout as residue identities change, with the titratability gate determining its contribution (own; [[jaxka-edge-binder#Representation and comparison]]).
+## pKa-guided sequence design
 
 - **Matched charge changes can arise through different sequence mechanisms.** Extremophile fine-tuning and pKa-guided steering alter surface chemistry differently even at matched formal-charge changes. Acidophile fine-tuning removes glutamate, whereas pKa steering adds lysine; the alkaliphile routes enrich acidic residues through different substitutions ([[027-extremophile-vs-pka-surface]]; `jaxka-extremophile-chemistry`, `jaxka-extremophile-overlap`).
 
@@ -46,7 +46,7 @@ Paragraph outline for `thesis/chapters/06-jax-ka.tex`. Each bullet develops one 
 
 - **Hotspot augmentation improves local contact discrimination.** Within-complex ranking and asymmetric PeSTo masking direct training towards exposed candidate interfaces. PeSTo is used during training; inference uses unmasked backbone and sequence. Hmask reaches mean same-stratum swap accuracy 0.7563 and antibody/antigen accuracy 0.6656 across three seeds ([[jaxka-edge-binder#Run 4, hotspot masking and dRSA]]).
 
-- **dRSA weighting favours contacts that bury exposed surface.** Weighting ranking targets by the smaller burial change at the two residues raises mean surface-interface AUROC from 0.6598 to 0.7004 and antibody/antigen swap accuracy from 0.6656 to 0.7039. The gains occur across seeds, while distance-defined within-complex AUROC and binding-shift MAE do not improve consistently ([[jaxka-edge-binder#Run 4, hotspot masking and dRSA]]).
+- **dRSA weighting favours contacts that bury exposed surface.** Weighting ranking targets by the smaller burial change at the two residues raises mean surface-interface AUROC from 0.6598 to 0.7004 and antibody/antigen swap accuracy from 0.6656 to 0.7039. The gains occur across seeds, while distance-defined within-complex AUROC and binding-shift MAE do not improve consistently ([[jaxka-edge-binder#Run 4, hotspot masking and dRSA]]; `jaxka-pinder-recipe-comparison`).
 
 ## Negative construction and geometric consistency
 
@@ -72,9 +72,9 @@ Paragraph outline for `thesis/chapters/06-jax-ka.tex`. Each bullet develops one 
 
 ## Scaling and implications
 
-- **Capacity gains depend on the objective being measured.** At 50% data, width 128 improves contact AP and overall swap accuracy while antibody/antigen accuracy falls from 0.7039 to 0.6806. Additional relation maps provide no consistent improvement. Data fraction and training duration complete the comparison of whether additional computation improves the retained recipe ([[jaxka-edge-binder#Width and relational-edge scaling]]).
+- **Full data extends the width-128 gain to partner discrimination in one seed.** Under the 20-epoch schedule, contact AP rises from 0.0536 to 0.0619 and antibody/antigen swap accuracy from 0.6791 to 0.7147 between the 50% and 100% pools. Width 64 improves contact AP but loses antibody/antigen accuracy. The full-data protocols use complete PeSTo coverage with no masking fallbacks ([[jaxka-edge-binder#Data scaling]]; `jaxka-pinder-ablations`).
 
-- **The two readouts support different decisions.** Differentiable pKa predictions allow protonation objectives to act on structure and sequence; free-partner edge predictions prioritise structural candidates. Experimental pKa comparisons, wrong-partner controls and complex prediction delimit the claims each readout supports. A MoPrP extension would connect predicted protonation changes between pH 4 and pH 7 to the regions that unfold (own; [[027-extremophile-vs-pka-surface]], [[028-poisk-free-monomer]], [[046-atlas-kras-screen]]).
+- **A longer schedule does not improve the reported objectives consistently.** At full data, the 40-epoch schedule reduces contact AP for both widths. Width 64 recovers antibody/antigen accuracy, while width 128 loses it; state-plus-interface MAE increases for both. The comparison changes learning-rate decay and stopping patience as well as the epoch budget, and retains the checkpoint selected by pKa error ([[jaxka-edge-binder#Data scaling]]).
 
 ## Appendix — loss functions and training recipes
 
@@ -89,8 +89,3 @@ Paragraph outline for `thesis/chapters/06-jax-ka.tex`. Each bullet develops one 
 - **Masking and consistency.** Specify which passes receive hotspot masks or alternative geometries and which losses remain on the original structures. Define edge-logit and pKa consistency penalties, their coefficients and whether gradients enter both branches. A recipe table identifies the active terms for run4, hmask, dRSA and the ANM ablations ([[jaxka-edge-binder]]; staged `_submission` launch definitions).
 
 - **Sequence-design objectives.** Define surface protonation steering and bound/free proton-linkage steering separately from model training, including pH, sign, surface/site gates, arginine treatment and how the objective enters the sampler ([[027-extremophile-vs-pka-surface]]; source experiment `guide.py` and `selectivity.py`).
-
-## Gaps
-
-- Incorporate the completed 100% data comparison and its executed protocol into the scaling paragraph.
-- Add the 40-epoch extension when its comparison is complete.

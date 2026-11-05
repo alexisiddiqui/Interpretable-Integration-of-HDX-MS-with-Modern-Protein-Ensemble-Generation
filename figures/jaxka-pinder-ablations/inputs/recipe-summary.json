@@ -1,0 +1,241 @@
+{
+  "binding": {
+    "checked_UTC": "2026-11-02 01:07:55",
+    "scope": "800 PINDER validation complexes, selected checkpoints, unmasked free-branch binding evaluations, means of seeds17/29/43; descriptive, no new statistical test",
+    "per_seed": {
+      "17": {
+        "control": {
+          "swap_all_accuracy": 0.765,
+          "swap_AbAg_accuracy": 0.6713178294573643,
+          "wrong_partner_accuracy": 0.5819742489270386,
+          "within_AUROC": 0.6611135022124728,
+          "dRSA_NDCG": 0.5221467944448188,
+          "dRSA_Spearman": 0.18442141217965746,
+          "edge_AP": 0.041747341643383756,
+          "surface_interface_AUROC": 0.6598408582751568,
+          "clean_pKa_state_plus_interface": 0.6118263290931576
+        },
+        "drsa": {
+          "swap_all_accuracy": 0.7955,
+          "swap_AbAg_accuracy": 0.7023255813953488,
+          "wrong_partner_accuracy": 0.5888412017167381,
+          "within_AUROC": 0.6550885166225738,
+          "dRSA_NDCG": 0.5348596670887088,
+          "dRSA_Spearman": 0.20798819699674537,
+          "edge_AP": 0.046321152891633355,
+          "surface_interface_AUROC": 0.7021001236355039,
+          "clean_pKa_state_plus_interface": 0.6101476179974847
+        }
+      },
+      "29": {
+        "control": {
+          "swap_all_accuracy": 0.75075,
+          "swap_AbAg_accuracy": 0.6666666666666666,
+          "wrong_partner_accuracy": 0.5798283261802575,
+          "within_AUROC": 0.657157529845529,
+          "dRSA_NDCG": 0.5196594349672162,
+          "dRSA_Spearman": 0.18012144219173934,
+          "edge_AP": 0.040215007228562735,
+          "surface_interface_AUROC": 0.6619862722558161,
+          "clean_pKa_state_plus_interface": 0.6154097765102009
+        },
+        "drsa": {
+          "swap_all_accuracy": 0.80275,
+          "swap_AbAg_accuracy": 0.7023255813953488,
+          "wrong_partner_accuracy": 0.6025751072961374,
+          "within_AUROC": 0.6558229901506163,
+          "dRSA_NDCG": 0.5347452924857402,
+          "dRSA_Spearman": 0.20891088414662257,
+          "edge_AP": 0.0454602338205252,
+          "surface_interface_AUROC": 0.7017104960439078,
+          "clean_pKa_state_plus_interface": 0.6227027118471489
+        }
+      },
+      "43": {
+        "control": {
+          "swap_all_accuracy": 0.75325,
+          "swap_AbAg_accuracy": 0.6589147286821705,
+          "wrong_partner_accuracy": 0.5793991416309013,
+          "within_AUROC": 0.6543125105166525,
+          "dRSA_NDCG": 0.5165963441786998,
+          "dRSA_Spearman": 0.17550760636740123,
+          "edge_AP": 0.03984950033741858,
+          "surface_interface_AUROC": 0.6574307179591504,
+          "clean_pKa_state_plus_interface": 0.610932699160475
+        },
+        "drsa": {
+          "swap_all_accuracy": 0.7975,
+          "swap_AbAg_accuracy": 0.7069767441860465,
+          "wrong_partner_accuracy": 0.5789699570815451,
+          "within_AUROC": 0.6528751312306995,
+          "dRSA_NDCG": 0.5319214526332423,
+          "dRSA_Spearman": 0.20504328275515032,
+          "edge_AP": 0.04551307960703753,
+          "surface_interface_AUROC": 0.6974716721240138,
+          "clean_pKa_state_plus_interface": 0.6142786144059761
+        }
+      }
+    },
+    "mean_over_seeds": {
+      "control": {
+        "swap_all_accuracy": 0.7563333333333333,
+        "swap_AbAg_accuracy": 0.6656330749354005,
+        "wrong_partner_accuracy": 0.5804005722460658,
+        "within_AUROC": 0.6575278475248848,
+        "dRSA_NDCG": 0.5194675245302449,
+        "dRSA_Spearman": 0.180016820246266,
+        "edge_AP": 0.04060394973645502,
+        "surface_interface_AUROC": 0.6597526161633744,
+        "clean_pKa_state_plus_interface": 0.6127229349212778
+      },
+      "drsa": {
+        "swap_all_accuracy": 0.7985833333333333,
+        "swap_AbAg_accuracy": 0.703875968992248,
+        "wrong_partner_accuracy": 0.5901287553648069,
+        "within_AUROC": 0.6545955460012965,
+        "dRSA_NDCG": 0.5338421374025638,
+        "dRSA_Spearman": 0.20731412129950608,
+        "edge_AP": 0.04576482210639869,
+        "surface_interface_AUROC": 0.7004274306011419,
+        "clean_pKa_state_plus_interface": 0.6157096480835366
+      }
+    }
+  },
+  "binding_shifts": {
+    "analysis": "Existing selected validation CSVs only; fixed 29305 clean-site teacher-endpoint annotation used for cluster labels; reproduces all six clean MAEs in existing residue reports to 1e-7; no new inference or uncertainty analysis",
+    "results": {
+      "17": {
+        "control": {
+          "selected_epoch": 18,
+          "metrics": {
+            "overall": {
+              "sites": 29305,
+              "MAE": 0.06595420128211564
+            },
+            "large2": {
+              "sites": 222,
+              "MAE": 1.295617615971882
+            },
+            "large4": {
+              "sites": 34,
+              "MAE": 2.1426795160069183
+            },
+            "cluster3_4_large2": {
+              "sites": 59,
+              "MAE": 1.5350179463877516
+            }
+          }
+        },
+        "drsa": {
+          "selected_epoch": 18,
+          "metrics": {
+            "overall": {
+              "sites": 29305,
+              "MAE": 0.06584637671412868
+            },
+            "large2": {
+              "sites": 222,
+              "MAE": 1.2667513164012014
+            },
+            "large4": {
+              "sites": 34,
+              "MAE": 2.0939178887535546
+            },
+            "cluster3_4_large2": {
+              "sites": 59,
+              "MAE": 1.4438488903944775
+            }
+          }
+        }
+      },
+      "29": {
+        "control": {
+          "selected_epoch": 20,
+          "metrics": {
+            "overall": {
+              "sites": 29305,
+              "MAE": 0.06587957764230955
+            },
+            "large2": {
+              "sites": 222,
+              "MAE": 1.1713394964835397
+            },
+            "large4": {
+              "sites": 34,
+              "MAE": 2.1280051399679745
+            },
+            "cluster3_4_large2": {
+              "sites": 59,
+              "MAE": 1.4314623097494497
+            }
+          }
+        },
+        "drsa": {
+          "selected_epoch": 20,
+          "metrics": {
+            "overall": {
+              "sites": 29305,
+              "MAE": 0.0669313979681376
+            },
+            "large2": {
+              "sites": 222,
+              "MAE": 1.2238129394649118
+            },
+            "large4": {
+              "sites": 34,
+              "MAE": 2.057785805533914
+            },
+            "cluster3_4_large2": {
+              "sites": 59,
+              "MAE": 1.460483380672285
+            }
+          }
+        }
+      },
+      "43": {
+        "control": {
+          "selected_epoch": 16,
+          "metrics": {
+            "overall": {
+              "sites": 29305,
+              "MAE": 0.0650036024831323
+            },
+            "large2": {
+              "sites": 222,
+              "MAE": 1.257582036610525
+            },
+            "large4": {
+              "sites": 34,
+              "MAE": 2.254651173072703
+            },
+            "cluster3_4_large2": {
+              "sites": 59,
+              "MAE": 1.469431398657419
+            }
+          }
+        },
+        "drsa": {
+          "selected_epoch": 16,
+          "metrics": {
+            "overall": {
+              "sites": 29305,
+              "MAE": 0.06546923097708011
+            },
+            "large2": {
+              "sites": 222,
+              "MAE": 1.2473028934317398
+            },
+            "large4": {
+              "sites": 34,
+              "MAE": 2.4013016714769253
+            },
+            "cluster3_4_large2": {
+              "sites": 59,
+              "MAE": 1.4613601730789167
+            }
+          }
+        }
+      }
+    }
+  }
+}

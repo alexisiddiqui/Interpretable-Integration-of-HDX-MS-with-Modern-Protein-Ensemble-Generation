@@ -1,0 +1,75 @@
+group,recipe,seed,metric,value,source,field,selected_epoch,epochs_run
+negatives,run 4 w64,17,all_accuracy,0.731,negatives.json,runs/run 4 w64/swap_same_stratum/all/accuracy,,
+negatives,run 4 w64,17,AbAg_accuracy,0.6341085271317829,negatives.json,runs/run 4 w64/swap_same_stratum/Ab/Ag/accuracy,,
+negatives,decoy both w64,17,all_accuracy,0.8255,negatives.json,runs/decoy both w64/swap_same_stratum/all/accuracy,,
+negatives,decoy both w64,17,AbAg_accuracy,0.5658914728682171,negatives.json,runs/decoy both w64/swap_same_stratum/Ab/Ag/accuracy,,
+negatives,within 0.1 s17,17,all_accuracy,0.6945,negatives.json,runs/within 0.1 s17/swap_same_stratum/all/accuracy,,
+negatives,within 0.1 s17,17,AbAg_accuracy,0.6186046511627907,negatives.json,runs/within 0.1 s17/swap_same_stratum/Ab/Ag/accuracy,,
+negatives,within 0.3 s17,17,all_accuracy,0.746,negatives.json,runs/within 0.3 s17/swap_same_stratum/all/accuracy,,
+negatives,within 0.3 s17,17,AbAg_accuracy,0.6403100775193798,negatives.json,runs/within 0.3 s17/swap_same_stratum/Ab/Ag/accuracy,,
+negatives,within 1.0 s17,17,all_accuracy,0.7965,negatives.json,runs/within 1.0 s17/swap_same_stratum/all/accuracy,,
+negatives,within 1.0 s17,17,AbAg_accuracy,0.6558139534883721,negatives.json,runs/within 1.0 s17/swap_same_stratum/Ab/Ag/accuracy,,
+anm,ctrl,17,AbAg_accuracy,0.6713,anm.md,Crystal/ctrl s17/AbAg_accuracy,,
+anm,ctrl,17,all_accuracy,0.765,anm.md,Crystal/ctrl s17/all_accuracy,,
+anm,anmcons,17,AbAg_accuracy,0.6915,anm.md,Crystal/anmcons s17/AbAg_accuracy,,
+anm,anmcons,17,all_accuracy,0.7575,anm.md,Crystal/anmcons s17/all_accuracy,,
+anm,ctrl,29,AbAg_accuracy,0.6667,anm.md,Crystal/ctrl s29/AbAg_accuracy,,
+anm,ctrl,29,all_accuracy,0.7508,anm.md,Crystal/ctrl s29/all_accuracy,,
+anm,anmcons,29,AbAg_accuracy,0.6713,anm.md,Crystal/anmcons s29/AbAg_accuracy,,
+anm,anmcons,29,all_accuracy,0.7418,anm.md,Crystal/anmcons s29/all_accuracy,,
+anm,ctrl,43,AbAg_accuracy,0.6589,anm.md,Crystal/ctrl s43/AbAg_accuracy,,
+anm,ctrl,43,all_accuracy,0.7532,anm.md,Crystal/ctrl s43/all_accuracy,,
+anm,anmcons,43,AbAg_accuracy,0.6667,anm.md,Crystal/anmcons s43/AbAg_accuracy,,
+anm,anmcons,43,all_accuracy,0.7515,anm.md,Crystal/anmcons s43/all_accuracy,,
+anm,ctrl,17,perturbation_penalty,0.0404,anm.md,Robustness/ctrl s17/pKa alt - crystal,,
+anm,anmcons,17,perturbation_penalty,0.0237,anm.md,Robustness/anmcons s17/pKa alt - crystal,,
+anm,ctrl,29,perturbation_penalty,0.0391,anm.md,Robustness/ctrl s29/pKa alt - crystal,,
+anm,anmcons,29,perturbation_penalty,0.0255,anm.md,Robustness/anmcons s29/pKa alt - crystal,,
+anm,ctrl,43,perturbation_penalty,0.0378,anm.md,Robustness/ctrl s43/pKa alt - crystal,,
+anm,anmcons,43,perturbation_penalty,0.0233,anm.md,Robustness/anmcons s43/pKa alt - crystal,,
+capacity,w064,17,edge_AP,0.046321152891633355,recipe-summary.json,binding/per_seed/17/drsa/edge_AP,,
+capacity,w064,17,AbAg_accuracy,0.7023255813953488,recipe-summary.json,binding/per_seed/17/drsa/swap_AbAg_accuracy,,
+capacity,w064,29,edge_AP,0.0454602338205252,recipe-summary.json,binding/per_seed/29/drsa/edge_AP,,
+capacity,w064,29,AbAg_accuracy,0.7023255813953488,recipe-summary.json,binding/per_seed/29/drsa/swap_AbAg_accuracy,,
+capacity,w064,43,edge_AP,0.04551307960703753,recipe-summary.json,binding/per_seed/43/drsa/edge_AP,,
+capacity,w064,43,AbAg_accuracy,0.7069767441860465,recipe-summary.json,binding/per_seed/43/drsa/swap_AbAg_accuracy,,
+capacity,w096,17,edge_AP,0.0491,w096-s17.md,unmasked/edge_AP,,
+capacity,w096,17,AbAg_accuracy,0.7054,w096-s17.md,unmasked/AbAg_accuracy,,
+capacity,w128,17,edge_AP,0.0536,w128-s17.md,unmasked/edge_AP,,
+capacity,w128,17,AbAg_accuracy,0.6791,w128-s17.md,unmasked/AbAg_accuracy,,
+capacity,w128,29,edge_AP,0.0509,w128-s29.md,unmasked/edge_AP,,
+capacity,w128,29,AbAg_accuracy,0.6744,w128-s29.md,unmasked/AbAg_accuracy,,
+capacity,w128,43,edge_AP,0.0471,w128-s43.md,unmasked/edge_AP,,
+capacity,w128,43,AbAg_accuracy,0.6884,w128-s43.md,unmasked/AbAg_accuracy,,
+capacity,rel61,17,edge_AP,0.0466,rel61-s17.md,unmasked/edge_AP,,
+capacity,rel61,17,AbAg_accuracy,0.6806,rel61-s17.md,unmasked/AbAg_accuracy,,
+capacity,rel61,29,edge_AP,0.045,rel61-s29.md,unmasked/edge_AP,,
+capacity,rel61,29,AbAg_accuracy,0.6992,rel61-s29.md,unmasked/AbAg_accuracy,,
+capacity,rel61,43,edge_AP,0.0459,rel61-s43.md,unmasked/edge_AP,,
+capacity,rel61,43,AbAg_accuracy,0.6729,rel61-s43.md,unmasked/AbAg_accuracy,,
+capacity,rel66,17,edge_AP,0.0465,rel66-s17.md,unmasked/edge_AP,,
+capacity,rel66,17,AbAg_accuracy,0.7085,rel66-s17.md,unmasked/AbAg_accuracy,,
+capacity,rel66,29,edge_AP,0.0448,rel66-s29.md,unmasked/edge_AP,,
+capacity,rel66,29,AbAg_accuracy,0.6806,rel66-s29.md,unmasked/AbAg_accuracy,,
+capacity,rel66,43,edge_AP,0.0447,rel66-s43.md,unmasked/edge_AP,,
+capacity,rel66,43,AbAg_accuracy,0.6884,rel66-s43.md,unmasked/AbAg_accuracy,,
+data,w064,17,edge_AP,0.054864526015303325,audits/datascale-v1/w064/masked2/report.json,modes/unmasked/edges_10A_free/ap,20,20
+data,w064,17,AbAg_accuracy,0.6821705426356589,audits/datascale-v1/w064/masked2/report.json,modes/unmasked/swap_same_stratum/Ab/Ag/accuracy,20,20
+data,w064,17,all_accuracy,0.8175,audits/datascale-v1/w064/masked2/report.json,modes/unmasked/swap_same_stratum/all/accuracy,20,20
+data,w064,17,selection_MAE_clean,0.5929880605110746,audits/datascale-v1/w064/residue/report.json,pka/selection_no_bonded,20,20
+data,w064,17,binding_MAE,0.06369709719002319,audits/datascale-v1/w064/residue/report.json,pka/paired_all_no_bonded,20,20
+data,w128,17,edge_AP,0.0618849636020912,audits/datascale-v1/w128/masked2/report.json,modes/unmasked/edges_10A_free/ap,20,20
+data,w128,17,AbAg_accuracy,0.7147286821705426,audits/datascale-v1/w128/masked2/report.json,modes/unmasked/swap_same_stratum/Ab/Ag/accuracy,20,20
+data,w128,17,all_accuracy,0.843,audits/datascale-v1/w128/masked2/report.json,modes/unmasked/swap_same_stratum/all/accuracy,20,20
+data,w128,17,selection_MAE_clean,0.5895302884284891,audits/datascale-v1/w128/residue/report.json,pka/selection_no_bonded,20,20
+data,w128,17,binding_MAE,0.0638016089331597,audits/datascale-v1/w128/residue/report.json,pka/paired_all_no_bonded,20,20
+data,e40-w064,17,edge_AP,0.04651591999685028,audits/datascale-v1/e40-w064/masked2/report.json,modes/unmasked/edges_10A_free/ap,15,31
+data,e40-w064,17,AbAg_accuracy,0.7054263565891473,audits/datascale-v1/e40-w064/masked2/report.json,modes/unmasked/swap_same_stratum/Ab/Ag/accuracy,15,31
+data,e40-w064,17,all_accuracy,0.8265,audits/datascale-v1/e40-w064/masked2/report.json,modes/unmasked/swap_same_stratum/all/accuracy,15,31
+data,e40-w064,17,selection_MAE_clean,0.6023446420935246,audits/datascale-v1/e40-w064/residue/report.json,pka/selection_no_bonded,15,31
+data,e40-w064,17,binding_MAE,0.06338194923567865,audits/datascale-v1/e40-w064/residue/report.json,pka/paired_all_no_bonded,15,31
+data,e40-w128,17,edge_AP,0.05983051436022878,audits/datascale-v1/e40-w128/masked2/report.json,modes/unmasked/edges_10A_free/ap,34,40
+data,e40-w128,17,AbAg_accuracy,0.7054263565891473,audits/datascale-v1/e40-w128/masked2/report.json,modes/unmasked/swap_same_stratum/Ab/Ag/accuracy,34,40
+data,e40-w128,17,all_accuracy,0.85225,audits/datascale-v1/e40-w128/masked2/report.json,modes/unmasked/swap_same_stratum/all/accuracy,34,40
+data,e40-w128,17,selection_MAE_clean,0.5930959579528048,audits/datascale-v1/e40-w128/residue/report.json,pka/selection_no_bonded,34,40
+data,e40-w128,17,binding_MAE,0.06370616873857621,audits/datascale-v1/e40-w128/residue/report.json,pka/paired_all_no_bonded,34,40

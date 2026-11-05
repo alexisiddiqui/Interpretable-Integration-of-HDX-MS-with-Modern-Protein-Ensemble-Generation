@@ -1,0 +1,22 @@
+group,recipe,seed,metric,value,source,field
+recipe,run4,17,edge_AP,0.029096873610931943,negatives.json,runs/run 4 w64/edges_10A_free/ap
+recipe,run4,17,AbAg_accuracy,0.6341085271317829,negatives.json,runs/run 4 w64/swap_same_stratum/Ab/Ag/accuracy
+recipe,run4,17,binding_MAE,0.06321166241298386,run4-residue.json,run 4 w64/pka/paired_all_no_bonded
+recipe,hmask,17,edge_AP,0.041747341643383756,recipe-summary.json,binding/per_seed/17/control/edge_AP
+recipe,hmask,17,AbAg_accuracy,0.6713178294573643,recipe-summary.json,binding/per_seed/17/control/swap_AbAg_accuracy
+recipe,hmask,17,binding_MAE,0.06595420128211564,recipe-summary.json,binding_shifts/results/17/control/metrics/overall/MAE
+recipe,dRSA,17,edge_AP,0.046321152891633355,recipe-summary.json,binding/per_seed/17/drsa/edge_AP
+recipe,dRSA,17,AbAg_accuracy,0.7023255813953488,recipe-summary.json,binding/per_seed/17/drsa/swap_AbAg_accuracy
+recipe,dRSA,17,binding_MAE,0.06584637671412868,recipe-summary.json,binding_shifts/results/17/drsa/metrics/overall/MAE
+recipe,hmask,29,edge_AP,0.040215007228562735,recipe-summary.json,binding/per_seed/29/control/edge_AP
+recipe,hmask,29,AbAg_accuracy,0.6666666666666666,recipe-summary.json,binding/per_seed/29/control/swap_AbAg_accuracy
+recipe,hmask,29,binding_MAE,0.06587957764230955,recipe-summary.json,binding_shifts/results/29/control/metrics/overall/MAE
+recipe,dRSA,29,edge_AP,0.0454602338205252,recipe-summary.json,binding/per_seed/29/drsa/edge_AP
+recipe,dRSA,29,AbAg_accuracy,0.7023255813953488,recipe-summary.json,binding/per_seed/29/drsa/swap_AbAg_accuracy
+recipe,dRSA,29,binding_MAE,0.0669313979681376,recipe-summary.json,binding_shifts/results/29/drsa/metrics/overall/MAE
+recipe,hmask,43,edge_AP,0.03984950033741858,recipe-summary.json,binding/per_seed/43/control/edge_AP
+recipe,hmask,43,AbAg_accuracy,0.6589147286821705,recipe-summary.json,binding/per_seed/43/control/swap_AbAg_accuracy
+recipe,hmask,43,binding_MAE,0.0650036024831323,recipe-summary.json,binding_shifts/results/43/control/metrics/overall/MAE
+recipe,dRSA,43,edge_AP,0.04551307960703753,recipe-summary.json,binding/per_seed/43/drsa/edge_AP
+recipe,dRSA,43,AbAg_accuracy,0.7069767441860465,recipe-summary.json,binding/per_seed/43/drsa/swap_AbAg_accuracy
+recipe,dRSA,43,binding_MAE,0.06546923097708011,recipe-summary.json,binding_shifts/results/43/drsa/metrics/overall/MAE

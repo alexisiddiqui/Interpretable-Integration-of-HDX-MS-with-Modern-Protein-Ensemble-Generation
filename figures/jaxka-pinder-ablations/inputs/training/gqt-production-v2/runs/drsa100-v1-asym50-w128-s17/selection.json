@@ -1,0 +1,235 @@
+{
+  "checkpoint_sha256": "50d53402c43c7e330e9db9e3e0ee86f00450236b04247f9f82e8a51da45ab25b",
+  "epochs_run": 20,
+  "parameter_count": 693856,
+  "selected_epoch": 20,
+  "test_data_included": false,
+  "validation": {
+    "auxiliary": {
+      "pinder_burial": {
+        "boundaries": [
+          {
+            "auroc": 0.9873597614025447,
+            "boundary": 0.1,
+            "positive_fraction": 0.13218083327760316,
+            "recall_at_fpr_0.1": 0.9792562610675436
+          },
+          {
+            "auroc": 0.9792985801101899,
+            "boundary": 0.25,
+            "positive_fraction": 0.2878017789072427,
+            "recall_at_fpr_0.1": 0.9387707679795515
+          },
+          {
+            "auroc": 0.9658586368975997,
+            "boundary": 0.5,
+            "positive_fraction": 0.6751153614659265,
+            "recall_at_fpr_0.1": 0.8973749380881625
+          }
+        ],
+        "mean_cross_entropy": 0.5562446225314222,
+        "sites": 29906,
+        "spearman_vs_target": 0.946761379981405
+      },
+      "pkpdb_burial": {
+        "boundaries": [
+          {
+            "auroc": 0.9841478525095232,
+            "boundary": 0.1,
+            "positive_fraction": 0.13158866426659283,
+            "recall_at_fpr_0.1": 0.9701858996843213
+          },
+          {
+            "auroc": 0.9774093244626822,
+            "boundary": 0.25,
+            "positive_fraction": 0.30670174466906674,
+            "recall_at_fpr_0.1": 0.9307750188111362
+          },
+          {
+            "auroc": 0.9677166443395299,
+            "boundary": 0.5,
+            "positive_fraction": 0.7032216375888489,
+            "recall_at_fpr_0.1": 0.9004988185875558
+          }
+        ],
+        "mean_cross_entropy": 0.5584926474200362,
+        "sites": 21666,
+        "spearman_vs_target": 0.9463817223237935
+      }
+    },
+    "benchmark": {
+      "bins": [
+        {
+          "bin": "<0.5",
+          "mae": 0.27885975231437016,
+          "sites": 3557
+        },
+        {
+          "bin": "0.5-1",
+          "mae": 0.4338803014660908,
+          "sites": 1766
+        },
+        {
+          "bin": "1-2",
+          "mae": 0.6709681507673964,
+          "sites": 1481
+        },
+        {
+          "bin": ">=2",
+          "mae": 1.118625035699369,
+          "sites": 1182
+        }
+      ],
+      "equal_bin_mae": 0.6255833100618066,
+      "group_macro_mse": 0.566083778665387,
+      "overall": {
+        "complexes": 142,
+        "error_cancellation": null,
+        "error_cancellation_ci95": null,
+        "error_cancellation_groups": 0,
+        "groups": 76,
+        "mae": 0.4852277748661631,
+        "mae_ci95": [
+          0.49970555685720947,
+          0.49970555685720947
+        ],
+        "mae_groups": 76,
+        "rmse": 0.7081723452360601,
+        "rmse_ci95": [
+          0.7515488723579247,
+          0.7515488723579247
+        ],
+        "rmse_groups": 76,
+        "sign_accuracy": 0.9525300911280342,
+        "sign_accuracy_ci95": [
+          0.9450561184822966,
+          0.9450561184822966
+        ],
+        "sign_accuracy_groups": 76,
+        "sites": 7986,
+        "skill": 0.6801653475354046,
+        "skill_ci95": [
+          0.6573589453400507,
+          0.6573589453400507
+        ],
+        "skill_groups": 76,
+        "spearman": 0.8177732301943856,
+        "spearman_ci95": [
+          0.8183988824412914,
+          0.8183988824412914
+        ],
+        "spearman_groups": 76
+      },
+      "site_mae": 0.5218194467400992,
+      "site_mse": 0.6541565211350864
+    },
+    "pinder": {
+      "binding_shift_bins": [
+        {
+          "complexes": 730,
+          "lower": 0,
+          "mae": 0.08594598283891097,
+          "magnitude_bias": 0.05391508358877158,
+          "rmse": 0.17669391054650344,
+          "signed_bias": -0.006091378440861375,
+          "sites": 3758,
+          "upper": 0.1
+        },
+        {
+          "complexes": 478,
+          "lower": 0.1,
+          "mae": 0.1683972687896081,
+          "magnitude_bias": 0.028750600873668125,
+          "rmse": 0.2553963759710743,
+          "signed_bias": -0.009162090484381743,
+          "sites": 1518,
+          "upper": 0.25
+        },
+        {
+          "complexes": 361,
+          "lower": 0.25,
+          "mae": 0.2751366325388827,
+          "magnitude_bias": 0.018696336358351915,
+          "rmse": 0.4133944590722181,
+          "signed_bias": -0.013608767405121342,
+          "sites": 962,
+          "upper": 0.5
+        },
+        {
+          "complexes": 293,
+          "lower": 0.5,
+          "mae": 0.41320102082802945,
+          "magnitude_bias": -0.06588349754378299,
+          "rmse": 0.558173251946916,
+          "signed_bias": 0.009044974322287028,
+          "sites": 745,
+          "upper": 1.0
+        },
+        {
+          "complexes": 216,
+          "lower": 1.0,
+          "mae": 0.6424228710354749,
+          "magnitude_bias": -0.3301048508886271,
+          "rmse": 0.7811683235790533,
+          "signed_bias": 0.0492915867415864,
+          "sites": 477,
+          "upper": 2.0
+        },
+        {
+          "complexes": 116,
+          "lower": 2.0,
+          "mae": 1.0454650770418528,
+          "magnitude_bias": -0.822723022521269,
+          "rmse": 1.2802572624463064,
+          "signed_bias": -0.2866920248219153,
+          "sites": 205,
+          "upper": 4.0
+        },
+        {
+          "complexes": 23,
+          "lower": 4.0,
+          "mae": 1.784876208556326,
+          "magnitude_bias": -1.720288213930632,
+          "rmse": 2.12191217071425,
+          "signed_bias": -0.7046604783911454,
+          "sites": 38,
+          "upper": null
+        }
+      ],
+      "distance_bins": {
+        "4-6": {
+          "paired_mae": 0.2008192167709127,
+          "sites": 1411
+        },
+        "6-10": {
+          "paired_mae": 0.10467434845672247,
+          "sites": 3986
+        },
+        "<=4": {
+          "paired_mae": 0.4494636221790837,
+          "sites": 2313
+        },
+        ">10": {
+          "paired_mae": 0.010394384572630694,
+          "sites": 22196
+        }
+      },
+      "interface_paired_mae": 0.22584831611414485,
+      "interface_paired_mse": 0.18317967791018913,
+      "interface_sites": 7703,
+      "paired_mae": 0.06590353059207467,
+      "paired_mse": 0.048459925458469603,
+      "sites": 29906,
+      "state_mae": 0.3820255566186104,
+      "state_mse": 0.3572789846042954
+    },
+    "pkpdb": {
+      "site_mae": 0.45755960939271384,
+      "site_mse": 0.4924157623604763,
+      "sites": 21666,
+      "structure_macro_mae": 0.36495001165383256,
+      "structures": 800
+    },
+    "selection": 0.6078738727327553
+  }
+}

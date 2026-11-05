@@ -1,0 +1,86 @@
+[
+  {
+    "arm": "w064",
+    "run": "drsa100-v1-asym50-w064-s17",
+    "selected_epoch": 20,
+    "epochs_run": 20,
+    "exit": 0,
+    "hotspot_fallbacks": 0,
+    "hotspot_records": 28733,
+    "schedule": "gqt_crop_radius.learning_rate x 1.4142 (1e-3 hold to epoch 10, cosine to 1e-5 by epoch 20); patience 8, min delta 0.001",
+    "validation": {
+      "complexes": 800,
+      "more_than_two_chains": 0,
+      "with_contacts": 800,
+      "surface_pairs_true": 18956558
+    },
+    "manifests": {
+      "benchmark-val": "c28fb3fb1b26579623124ab22eb87d94684d2dd4fcd646f73d6e3625a1e460ab",
+      "pinder": "26e1d0ac4e42a82e4f7275a222eae07d2672afd715dbb1a6bbc75e5ed82879ca",
+      "pkpdb": "76d5ea8797f82e5c621741486f5dc1db65131aef13762a7c717b3dfcb01cd4f2"
+    }
+  },
+  {
+    "arm": "w128",
+    "run": "drsa100-v1-asym50-w128-s17",
+    "selected_epoch": 20,
+    "epochs_run": 20,
+    "exit": 0,
+    "hotspot_fallbacks": 0,
+    "hotspot_records": 28733,
+    "schedule": "gqt_crop_radius.learning_rate x 1.4142 (1e-3 hold to epoch 10, cosine to 1e-5 by epoch 20); patience 8, min delta 0.001",
+    "validation": {
+      "complexes": 800,
+      "more_than_two_chains": 0,
+      "with_contacts": 800,
+      "surface_pairs_true": 18956558
+    },
+    "manifests": {
+      "benchmark-val": "c28fb3fb1b26579623124ab22eb87d94684d2dd4fcd646f73d6e3625a1e460ab",
+      "pinder": "26e1d0ac4e42a82e4f7275a222eae07d2672afd715dbb1a6bbc75e5ed82879ca",
+      "pkpdb": "76d5ea8797f82e5c621741486f5dc1db65131aef13762a7c717b3dfcb01cd4f2"
+    }
+  },
+  {
+    "arm": "e40-w064",
+    "run": "drsa100e40-v1-asym50-w064-s17",
+    "selected_epoch": 15,
+    "epochs_run": 31,
+    "exit": 0,
+    "hotspot_fallbacks": 0,
+    "hotspot_records": 28733,
+    "schedule": "stretched_learning_rate x 1.4142 (1e-3 hold to epoch 20, cosine to 1e-5 by epoch 40); patience 16, min delta 0.001",
+    "validation": {
+      "complexes": 800,
+      "more_than_two_chains": 0,
+      "with_contacts": 800,
+      "surface_pairs_true": 18956558
+    },
+    "manifests": {
+      "benchmark-val": "c28fb3fb1b26579623124ab22eb87d94684d2dd4fcd646f73d6e3625a1e460ab",
+      "pinder": "26e1d0ac4e42a82e4f7275a222eae07d2672afd715dbb1a6bbc75e5ed82879ca",
+      "pkpdb": "76d5ea8797f82e5c621741486f5dc1db65131aef13762a7c717b3dfcb01cd4f2"
+    }
+  },
+  {
+    "arm": "e40-w128",
+    "run": "drsa100e40-v1-asym50-w128-s17",
+    "selected_epoch": 34,
+    "epochs_run": 40,
+    "exit": 0,
+    "hotspot_fallbacks": 0,
+    "hotspot_records": 28733,
+    "schedule": "stretched_learning_rate x 1.4142 (1e-3 hold to epoch 20, cosine to 1e-5 by epoch 40); patience 16, min delta 0.001",
+    "validation": {
+      "complexes": 800,
+      "more_than_two_chains": 0,
+      "with_contacts": 800,
+      "surface_pairs_true": 18956558
+    },
+    "manifests": {
+      "benchmark-val": "c28fb3fb1b26579623124ab22eb87d94684d2dd4fcd646f73d6e3625a1e460ab",
+      "pinder": "26e1d0ac4e42a82e4f7275a222eae07d2672afd715dbb1a6bbc75e5ed82879ca",
+      "pkpdb": "76d5ea8797f82e5c621741486f5dc1db65131aef13762a7c717b3dfcb01cd4f2"
+    }
+  }
+]

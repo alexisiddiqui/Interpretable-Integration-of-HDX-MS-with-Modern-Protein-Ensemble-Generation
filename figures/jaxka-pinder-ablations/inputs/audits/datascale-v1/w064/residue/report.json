@@ -1,0 +1,96 @@
+{
+ "w064": {
+  "run": "drsa100-v1-asym50-w064-s17",
+  "pka": {
+   "epoch": 20,
+   "selection": 0.6114208486124468,
+   "selection_no_bonded": 0.5929880605110746,
+   "state": 0.3856633154345403,
+   "interface": 0.22575753317790656,
+   "pkpdb": 0.4648577548743009,
+   "benchmark": 0.4821784476091904,
+   "state_no_bonded": 0.3732985022114159,
+   "interface_no_bonded": 0.21968955829965867,
+   "paired_all_no_bonded": 0.06369709719002319,
+   "paired_bins_no_bonded": {
+    "<=4": 0.44030303200861654,
+    "4-6": 0.2038439157439007,
+    "6-10": 0.09641477866794579,
+    ">10": 0.009162512275367591
+   }
+  },
+  "residue": {
+   "burial_subset": {
+    "residues": 37732
+   },
+   "burial_free": {
+    "auroc_rsa<0.1": 0.9773287177085876,
+    "auroc_rsa<0.25": 0.9741597175598145,
+    "auroc_rsa<0.5": 0.958947479724884,
+    "spearman": 0.9336355214456865
+   },
+   "burial_bound": {
+    "auroc_rsa<0.25": 0.9648184776306152,
+    "spearman": 0.9210049740335088
+   },
+   "burial_binding": {
+    "mae_dprob_vs_drsa": 0.05433806777000427,
+    "spearman_dprob_vs_drsa": 0.8723120162264136,
+    "auroc_drsa>0.05": 0.9179086089134216
+   },
+   "interface_5A": {
+    "all residues": {
+     "predicted exposure (free)": {
+      "pooled_auroc": 0.6667464971542358,
+      "per_chain_median_auroc": 0.6209960281848907,
+      "chains": 1546
+     },
+     "measured free RSA": {
+      "pooled_auroc": 0.6676049828529358,
+      "per_chain_median_auroc": 0.6218407154083252,
+      "chains": 1546
+     },
+     "edge max (free)": {
+      "pooled_auroc": 0.7508001493156787,
+      "per_chain_median_auroc": 0.7200041037557894,
+      "chains": 1546
+     }
+    },
+    "surface residues": {
+     "predicted exposure (free)": {
+      "pooled_auroc": 0.5808841586112976,
+      "per_chain_median_auroc": 0.5405446588993073,
+      "chains": 1546
+     },
+     "measured free RSA": {
+      "pooled_auroc": 0.5815033316612244,
+      "per_chain_median_auroc": 0.5408771932125092,
+      "chains": 1546
+     },
+     "edge max (free)": {
+      "pooled_auroc": 0.7201271621087034,
+      "per_chain_median_auroc": 0.7,
+      "chains": 1546
+     }
+    },
+    "rate_all": 0.11799103778452533
+   },
+   "edges_10A": {
+    "free": {
+     "pairs": 18956558,
+     "positive_rate": 0.0137913222432047,
+     "auroc": 0.7457779047757258,
+     "ap": 0.05486452494239259,
+     "macro_ap": 0.11331252848264199
+    },
+    "bound": {
+     "pairs": 18956558,
+     "positive_rate": 0.0137913222432047,
+     "auroc": 0.8934818354519165,
+     "ap": 0.15929559437357943,
+     "macro_ap": 0.3108711848665997
+    }
+   }
+  }
+ }
+}
