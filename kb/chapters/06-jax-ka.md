@@ -4,7 +4,7 @@ Paragraph outline for `thesis/chapters/06-jax-ka.tex`. Each bullet develops one 
 
 ## Motivation and computational titration models
 
-- **Backbone pKa prediction supports mutation ranking during inverse folding.** Sharing the backbone representation used by ProteinMPNN and its variants allows protonation objectives to score candidate substitutions without rebuilding side chains for every candidate. The predictor must accommodate mutations that introduce or remove titratable groups, motivating its all-residue extension (own; [[027-extremophile-vs-pka-surface]]; [[jaxka-edge-binder]]).
+- **Backbone pKa prediction connects side-chain-dependent protonation to inverse folding.** Designing pH-dependent binding requires reconciling the side-chain environments that determine protonation with the backbone representation used by ProteinMPNN and its variants. A predictor that accepts backbone coordinates and sequence could help rank proposed mutations by predicted protonation behaviour without rebuilding side chains for every candidate (own; [[027-extremophile-vs-pka-surface]]).
 
 - **Titration methods trade computational cost against physical detail.** Introduce empirical PROPKA, Poisson–Boltzmann/Monte Carlo PypKa, constant-pH MD and learned pKAI/KaML predictors. Their assumptions define the reference against which a fast backbone model is assessed ([[@olssonPROPKA3ConsistentTreatment2011#^c1]]; [[PypKa computes protein pKa values with Poisson–Boltzmann electrostatics and Monte Carlo sampling of protonation states.]]; [[Standard molecular dynamics fixes one protonation state per titratable residue for the whole run, while constant-pH MD lets protonation states change.]]; [[@reisFastInterpretableDeep2022#^c1]]; [[@shenKaMLsPredictingProtein2025#^c1]]).
 
