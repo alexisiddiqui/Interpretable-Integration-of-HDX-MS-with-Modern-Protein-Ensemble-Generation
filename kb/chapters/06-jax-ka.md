@@ -4,7 +4,7 @@ Paragraph outline for `thesis/chapters/06-jax-ka.tex`. Each bullet develops one 
 
 ## Motivation and computational titration models
 
-- **Backbone pKa prediction connects protonation to optimisation.** A readout that differentiates through backbone coordinates can act as a forward model during structural optimisation. Sequence optimisation additionally requires the readout to accommodate changes in which residues are titratable. These requirements motivate the backbone representation and its all-residue extension (own; [[jaxka-edge-binder]]).
+- **Backbone pKa prediction supports mutation ranking during inverse folding.** Sharing the backbone representation used by ProteinMPNN and its variants allows protonation objectives to score candidate substitutions without rebuilding side chains for every candidate. The predictor must accommodate mutations that introduce or remove titratable groups, motivating its all-residue extension (own; [[027-extremophile-vs-pka-surface]]; [[jaxka-edge-binder]]).
 
 - **Titration methods trade computational cost against physical detail.** Introduce empirical PROPKA, Poisson–Boltzmann/Monte Carlo PypKa, constant-pH MD and learned pKAI/KaML predictors. Their assumptions define the reference against which a fast backbone model is assessed ([[@olssonPROPKA3ConsistentTreatment2011#^c1]]; [[PypKa computes protein pKa values with Poisson–Boltzmann electrostatics and Monte Carlo sampling of protonation states.]]; [[Standard molecular dynamics fixes one protonation state per titratable residue for the whole run, while constant-pH MD lets protonation states change.]]; [[@reisFastInterpretableDeep2022#^c1]]; [[@shenKaMLsPredictingProtein2025#^c1]]).
 
