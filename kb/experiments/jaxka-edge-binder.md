@@ -14,11 +14,15 @@ The second half of [[06-jax-ka]] develops a residue-pair edge binder from the sh
 
 ## Representation and comparison
 
+All-residue prediction was introduced to make pKa-based sequence optimisation accommodate changes in titratable-site identity. The earlier site representation restricted mutations to existing titratable sites. Giving every residue a token retains a prediction site as residue identities change, with a titratability gate determining its contribution. This design motivation precedes the use of the representation for contact prediction (own).
+
 Run 4 is `control-v2-50-relations-4-1-allres-cut15-cysmask-gate01-ressiamese-redge01-s17`, epoch 17. The model has 180,000 parameters and width 64. It uses backbone coordinates and sequence, orientation edges and backbone dihedrals, relation maps 4/1 in the two residue layers, and an all-residue token graph with a 15 Å cutoff. The heads predict pKa, titratability, burial and residue-pair contacts. Shared bound/free supervision includes binding-induced pKa shifts, burial changes and distillation of bound contact predictions into the free branch. The [run-4 model card](../../projects/4-jax-Ka/code/models/ogqt-allres15-siamese-50/README.md) records the architecture, targets and checkpoint.
 
 In PINDER, free means partner removal at the bound conformation. Cross-chain edges are masked while each partner is embedded; a subsequent pair head compares the separately embedded residues. These evaluations test free-branch prediction at a supplied conformation. POISK additionally supplies independently folded free partners.
 
 Unless stated otherwise, the following results reuse the 800-complex pool-v4 development validation cohort. Checkpoints are selected by PINDER state MAE plus interface binding-shift MAE. “Clean pKa selection” excludes bonded-Cys sites. Interface ranking does not select a checkpoint. AUROC, AP, ranking accuracy and pKa MAE measure different quantities.
+
+[[Loss functions and training recipes (jax-Ka)]] gives the complete retained objective and ablation coefficients, with the reductions, sampled populations and gradient paths checked against the frozen training implementations. Contact distillation detaches its bound target, while the executed ANM consistency recipes differentiate through both views. The titratability gate has its own BCE and does not multiply the pKa training loss.
 
 ## Run 4, hotspot masking and dRSA
 
@@ -53,6 +57,8 @@ The `negatives-v1` report evaluates true contacts against five same-stratum swap
 | Within-ranking coefficient 1.0 | 0.7965 | 0.6558 | 0.4820 | 0.6870 | 0.6209 |
 
 Cross-complex decoys increase overall swapped-partner accuracy while reducing antibody/antigen accuracy and leaving same-UniProt discrimination near chance. The hmask model record identifies the withdrawn decoy recipe's gain as a family-similarity shortcut. Within-complex ranking improves local contact discrimination with a pKa trade-off as its coefficient rises. The retained recipe uses coefficient 0.3 and turns off retyped-decoy training. These are comparisons of the recorded recipes, not isolated estimates of every loss term's contribution.
+
+The early within-ranking arms in this table retain a retyped-decoy coefficient of 0.1, including the 0.3 and 1.0 ranking variants. Hmask removes that term. The [saved run protocols](../../.experiments/jaxka-loss-audit/source/protocols/) and [[Loss functions and training recipes (jax-Ka)#Complete retained objective and recipe coefficients|loss table]] identify the active terms explicitly.
 
 The [weight-sweep report](../../.experiments/jaxka-binder-isambard-2026-11-04/negatives-v1/sweep/decoy-ranking/report.md) also reports a curvature proxy. It predicts interface membership among surface residues at AUROC 0.519, while correlating with surface RSA at Spearman 0.698. Curvature matching alone therefore supplies little interface-specific information.
 
@@ -90,8 +96,9 @@ Sources are `audits/drsa-cap-v1/{w096,w128}/s*/gates.md` and `audits/drsa-rel-v1
 
 ## Data scaling
 
-The full-pool launch definition `_submission/datascale-v1/train.sbatch` specifies width-64, width-128, 6/1 and 6/6 arms at fraction 1.0. The retrieved script notes that its original PeSTo store covered the 50% pool and validation, with random-oracle fallback on masked visits for uncovered examples. A completed data-scaling comparison needs the actual run protocol and masking coverage as well as its scores. The [staged launch definition](../../.experiments/jaxka-binder-isambard-2026-11-04/source/_submission/datascale-v1/train.sbatch) supplies scope, not a completed result.
+The 100% data comparison is complete, as confirmed by the author; the current extension tests 40 epochs. The completed comparison's scores and executed protocol remain to be incorporated here. The [staged launch definition](../../.experiments/jaxka-binder-isambard-2026-11-04/source/_submission/datascale-v1/train.sbatch) specifies width-64, width-128, 6/1 and 6/6 arms at fraction 1.0. Its original PeSTo store covered the 50% pool and validation, with random-oracle fallback for uncovered examples. That launch definition alone does not establish the masking coverage used in the completed runs.
 
 ## Gaps
 
-- Completed 100% data comparisons with the actual run protocols, masking coverage and matched validation reports.
+- Scores, executed protocols and masking coverage from the completed 100% data comparison.
+- Matched results from the 40-epoch extension when complete.
