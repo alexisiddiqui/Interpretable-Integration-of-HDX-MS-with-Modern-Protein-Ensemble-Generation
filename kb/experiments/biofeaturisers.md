@@ -13,7 +13,7 @@ locations:
 experiments:
   - id: bf-moprp
     status: primary
-    question: Do stationary MSMs of MoPrP at pH 4 and pH 7, built from basin-seeded unbiased trajectories and refined against HDX opening free energies, support a sequential pathway from Folded through PUF1 to PUF2, or a pH-gated parallel one?
+    question: Which states sampled by MoPrP at pH 4 and pH 7 match PUF1 and PUF2, how do they connect in basin-seeded unbiased trajectories, and how do stationary MSMs refined against HDX opening free energies differ between the two pH values?
     # Protocol and MSM/MaxCal variants: bf-moprp.md.
     locations:
       - machine: coulson

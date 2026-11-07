@@ -125,7 +125,7 @@ The two-constraint MaxCal was repeated at pH 4 with the structural labels as obs
 
 The table gives lag 5 ns, with ΔG in kcal mol⁻¹ against Folded-like. C reaches the HDX values by removing the β1-detached arm while keeping the band, so β1 opening then occurs mostly in the band. The candidates differ little in structure (β2 0.28–0.33 against 0.20 nm, α1 C 0.57–0.60 against 0.47–0.50 nm), and the band rests on the 12 pH 7 #3 seeds.
 
-Two pH differences hold at both lags, with 95 % intervals that do not overlap. β1-kept core distortion is 2.3–2.8 times more populated at pH 4, and the β1-kept unit shift is 7–10 times more populated at pH 4. In that unit-shift cluster α1 N sits 0.87–0.90 nm from the core with β1 near native, which is α1 displacement without β1 detachment, and it draws on 17 runs from several sources at pH 4. α3 C off separates at lag 5 only. No β1-displaced cluster separates by pH at either lag, including the candidates, and the PUF2 candidate at pH 7 is poorly determined (2.7 % at lag 5 and 0.9 % at lag 2, with an interval reaching 26 %). These intervals describe the MSM's sampling error and do not include the dependence on seeding.
+Two pH differences hold at both lags, with 95 % intervals that do not overlap. β1-kept core distortion is 2.3–2.8 times more populated at pH 4, and the β1-kept unit shift is 7–10 times more populated at pH 4. In that unit-shift cluster α1 N sits 0.87–0.90 nm from the core with β1 near native, which is α1 displacement without β1 detachment, and it draws on 17 runs from several sources at pH 4. α3 C off separates at lag 5 only. No β1-displaced cluster separates by pH at either lag, including the candidates, and the PUF2 candidate at pH 7 is poorly determined (2.7 % at lag 5 and 0.9 % at lag 2, with an interval reaching 26 %). These intervals describe the MSM's sampling error and do not include the dependence on seeding. Stage 2b did not test this difference in the shifted state, because most of its runs began production outside it (see the Stage 2b result).
 
 ### PUF1 and PUF2 candidate interconversion
 
@@ -147,7 +147,7 @@ The PUF2 candidate at pH 4 also depends on its β2 threshold. Raising it from 0.
 
 ## Follow-up campaign plan
 
-Agreed on 2026-11-04. Stages 0 and 1 are complete, and Stage 1 did not pass its gate. Stage 2b is approved and replaces Stage 2 as the next step. Stages 2 and 3 are not approved, and each `comp1400` job needs separate approval. Throughput is about 100 ns/day per run at 8 runs per A40, on the four A40s of `comp1400`.
+Agreed on 2026-11-04. Stages 0, 1 and 2b are complete. Stage 1 did not pass its gate, and the Stage 2b signal is not supported under its fixed rule. Stages 2 and 3 are not approved, and each `comp1400` job needs separate approval. Throughput is about 100 ns/day per run at 8 runs per A40, on the four A40s of `comp1400`.
 
 | Stage | Purpose | Runs | Simulation | Wall time | GPU-hours |
 |---|---|---|---|---|---|
@@ -223,3 +223,15 @@ Primary measures, with Benjamini–Hochberg correction across the two:
 Secondary measures, reported without a claim: exit rate from unit off, Folded-like to unit-off rate, unit-off occupancy with a 0.50 nm threshold, Folded-like occupancy, core-distorted occupancy and mean α1 N core-fit RMSD.
 
 The signal is supported if at least one primary measure has q < 0.05 in the expected direction and the other has the same direction. It is not supported if the 95 % interval on the pH 4 to pH 7 occupancy ratio lies below 2, because the existing signal is 7–10-fold. Any other outcome is inconclusive and is reported as such.
+
+### Stage 2b result
+
+Under the fixed rule the unit-off signal is not supported. All 24 runs reached 100 ns with no LINCS or SETTLE warnings and a longest bond of 0.223 nm (runs 781406, analysis 782312). Unit-off occupancy is 1.8 % at pH 4 and 2.6 % at pH 7, a ratio of 0.70 with a 95 % interval of 0.24–1.76, which lies below 2. Mean unit RMSD, which uses no threshold, is 0.308 nm at pH 4 and 0.313 nm at pH 7 (difference −0.005 nm, interval −0.028 to 0.019 nm). Both primary measures fall opposite to the expected direction (q = 0.70 for each), so these runs, which mostly began outside the state, do not show the 7–10-fold difference in the MSM.
+
+This result is narrower than a test of the shifted state, because the seeds lost most of their shift before production began. The seeds sit at 0.48–0.54 nm, but the first production frame has a median of 0.42 nm at pH 4 and 0.44 nm at pH 7, and only 5 of 24 runs begin production above the 0.45 nm threshold. Minimisation and the restrained ladder are all that lie between the seed and that frame, and the first committed stay is Folded-like in 23 of 24 runs. The runs therefore compare how the two pH values behave from just inside the threshold, where they exclude a twofold excess of unit-off occupancy at pH 4. They do not measure the lifetime of the shifted state, and they do not exclude a pH difference in that state.
+
+Rates are not resolved, because the state stays rare. The runs make 2 unit-off stays at pH 4 (2.8 ns) and 4 at pH 7 (12.0 ns), with 1 and 3 entries from Folded-like, and most frames are Folded-like at both pH values (88.9 and 87.1 %). The earlier asymmetry in committed time (32.6 against 3.1 ns) does not recur.
+
+Core-distorted occupancy is 3.7 % at pH 4 and 1.6 % at pH 7, a ratio of 2.4 that falls within the MSM's 2.3–2.8. It was a secondary measure, its interval includes zero (−1.1 to 6.0 percentage points, p = 0.31), and one pH 4 run begins in this state, so it carries no claim and is a hypothesis to fix in advance.
+
+The MSM unit-shift difference therefore stands, with its dependence on seeding, and Stage 2b neither confirms nor overturns it. A test of the shifted state would need seeds that keep their shift into production.
