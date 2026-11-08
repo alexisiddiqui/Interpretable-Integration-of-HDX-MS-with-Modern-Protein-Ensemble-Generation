@@ -1,0 +1,232 @@
+[
+[
+"exact",
+"pH 4 #3 PUF3",
+"pH 4 #3 β1-detached\narm, far"
+],
+[
+"exact",
+"β1 arm",
+"β1-detached arm"
+],
+[
+"exact",
+"PUF1",
+"core-distorted\nlobe"
+],
+[
+"exact",
+"PUF2",
+"β1-detached\narm, near"
+],
+[
+"exact",
+"PUF3",
+"β1-detached\narm, far"
+],
+[
+"exact",
+"PUF3-like",
+"detached\nβ1–α1 set"
+],
+[
+"exact",
+"PUF3L",
+"detached\nβ1–α1 set"
+],
+[
+"exact",
+"'PUF1'\nα2–α3 loop",
+"core-distorted\nlobe"
+],
+[
+"exact",
+"'PUF2'\nβ1 off",
+"β1-detached\narm, near"
+],
+[
+"exact",
+"'PUF3'\nβ1 off",
+"β1-detached\narm, far"
+],
+[
+"exact",
+"'PUF3-like'\nβ1 off",
+"detached\nβ1–α1 set"
+],
+[
+"exact",
+"'PUF1' (α2–α3 loop)",
+"core-distorted lobe"
+],
+[
+"exact",
+"'PUF2' (β1 off)",
+"β1-detached arm, near"
+],
+[
+"exact",
+"'PUF3' (β1 off, far)",
+"β1-detached arm, far"
+],
+[
+"exact",
+"'PUF3-like' (β1 off)",
+"detached β1–α1 set"
+],
+[
+"exact",
+"α2–α3 loop disordered  [basin 'PUF1']",
+"core-distorted lobe (α2–α3 loop disordered)"
+],
+[
+"exact",
+"β1 detached  [basin 'PUF2']",
+"β1-detached arm, near"
+],
+[
+"exact",
+"β1 detached, far  [basin 'PUF3']",
+"β1-detached arm, far"
+],
+[
+"exact",
+"β1 detached + loop–α3 lost  [basin 'PUF3-like']",
+"detached β1–α1 set (loop–α3 contacts lost)"
+],
+[
+"exact",
+"α2–α3 lobe",
+"core-distorted\nlobe"
+],
+[
+"exact",
+"β1–loop–α1\nband",
+"detached\nβ1–α1 set"
+],
+[
+"exact",
+"PUF1 vs Folded",
+"core-distorted lobe vs Folded"
+],
+[
+"exact",
+"pH 4: PUF1",
+"pH 4: core-distorted lobe"
+],
+[
+"exact",
+"pH 7: PUF1",
+"pH 7: core-distorted lobe"
+],
+[
+"exact",
+"PUF2 vs Folded",
+"β1-detached arm, near vs Folded"
+],
+[
+"exact",
+"pH 4: PUF2",
+"pH 4: β1-detached arm, near"
+],
+[
+"exact",
+"pH 7: PUF2",
+"pH 7: β1-detached arm, near"
+],
+[
+"exact",
+"PUF3 vs Folded",
+"β1-detached arm, far vs Folded"
+],
+[
+"exact",
+"pH 4: PUF3",
+"pH 4: β1-detached arm, far"
+],
+[
+"exact",
+"pH 7: PUF3",
+"pH 7: β1-detached arm, far"
+],
+[
+"exact",
+"PUF3-like vs Folded",
+"detached β1–α1 set vs Folded"
+],
+[
+"exact",
+"pH 4: PUF3-like",
+"pH 4: detached β1–α1 set"
+],
+[
+"exact",
+"pH 7: PUF3-like",
+"pH 7: detached β1–α1 set"
+],
+[
+"exact",
+"F→PUF1",
+"F→core-distorted lobe"
+],
+[
+"exact",
+"PUF1→F",
+"core-distorted lobe→F"
+],
+[
+"exact",
+"F→PUF2",
+"F→β1-detached arm, near"
+],
+[
+"exact",
+"PUF2→F",
+"β1-detached arm, near→F"
+],
+[
+"exact",
+"F→PUF3",
+"F→β1-detached arm, far"
+],
+[
+"exact",
+"PUF3→F",
+"β1-detached arm, far→F"
+],
+[
+"exact",
+"F→PUF3L",
+"F→detached β1–α1 set"
+],
+[
+"exact",
+"PUF3L→F",
+"detached β1–α1 set→F"
+],
+[
+"sub",
+"#3 PUF3-like",
+"#3 detached β1–α1 set"
+],
+[
+"sub",
+"#3 PUF3",
+"#3 β1-detached arm, far"
+],
+[
+"sub",
+"#2 PUF2",
+"#2 β1-detached arm, near"
+],
+[
+"sub",
+"#2 PUF1",
+"#2 core-distorted lobe"
+],
+[
+"sub",
+"MSM free energies of the PUF macrostates",
+"MSM free energies of the PCA macrostates"
+]
+]

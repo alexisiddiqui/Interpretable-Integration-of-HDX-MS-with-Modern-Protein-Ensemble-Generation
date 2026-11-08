@@ -19,6 +19,10 @@ Arrow styles (same colour/length reference per plane in all three rows: 0 to the
   --signed-delta         pH 7 - pH 4 row coloured by the signed speed change |drift pH 7| - |drift pH 4| on a
                          diverging blue (faster at pH 4) - grey - red (faster at pH 7) scale, +/- the reference
                          speed; arrows keep the direction (and, with --magnitude-contours, length) of the difference
+  --contour-planes <pca|dih|pca,dih>
+                         use the --magnitude-contours style on these planes only and unit arrows on the others (e.g.
+                         speed contours on the PCA plane, direction arrows on the dihedral plane); default: all planes
+                         with --magnitude-contours, none without
 
   --extend <ext_qc.npz[,ext_qc2.npz]> <ext_dihedrals.npz[,ext_dih2.npz]>
                          replace the runs present in the extension archives (same entries, longer production) by their
@@ -30,7 +34,7 @@ Arrow styles (same colour/length reference per plane in all three rows: 0 to the
                          different length can be pooled)
 
 Usage: python flow_map.py <qc.npz> <pca101_scores.npz> <basins_seed.json> <out_prefix> [tau_ns=1.0] [dihedrals.npz]
-                          [--magnitude-contours] [--signed-delta] [--extend <ext_qc.npz> <ext_dih.npz>]
+                          [--magnitude-contours] [--contour-planes <planes>] [--signed-delta] [--extend <ext_qc.npz> <ext_dih.npz>]
                           [--compare-early-late [split_ns]]
 """
 import json
@@ -71,6 +75,8 @@ SPLIT = pop_option("--compare-early-late", 1, ["20"])
 SPLIT_NS = float(SPLIT[0]) if SPLIT else None
 MAGNITUDE_CONTOURS = "--magnitude-contours" in sys.argv
 SIGNED_DELTA = "--signed-delta" in sys.argv
+_cp = pop_option("--contour-planes", 1)
+CONTOUR_PLANES = set(_cp[0].split(",")) if _cp else ({"pca", "dih"} if MAGNITUDE_CONTOURS else set())
 sys.argv = [a for a in sys.argv if a not in ("--magnitude-contours", "--signed-delta")]
 qc_path, scores_path, basins_path, prefix = sys.argv[1:5]
 TAU_NS = float(sys.argv[5]) if len(sys.argv) > 5 else 1.0
@@ -187,7 +193,7 @@ def draw_field(ax, fig, plane, P, v, valid, label, signed=None):
         cb.ax.yaxis.set_major_formatter(FuncFormatter(lambda x, _: f"{x:.2g}"))
         cb.set_label(f"{label} ({P['unit']})", fontsize=8)
 
-    if not MAGNITUDE_CONTOURS:
+    if plane not in CONTOUR_PLANES:
         # lengths scale ~1/tau (displacement saturates within the lag): unit arrows coloured by speed (or signed change)
         ax.quiver(X[valid], Y[valid], (ux / unit * sx)[valid], (uy / unit * sy)[valid], hue[valid],
                   cmap=cmap, norm=norm_panel, angles="xy", scale_units="xy", scale=1.0 / (0.8 * cell),
@@ -307,8 +313,14 @@ for col, (plane, P) in enumerate(ACTIVE):
     ax.set_title(f"pH 7 − pH 4 drift, same {len(runs) // 2} seeds (grey contours: unbiased MD, both pH pooled)",
                  loc="left", fontsize=9.5, color=INK)
 
-style = (f"speed as {N_BINS} contour lines; black arrows, length ∝ speed (key = reference speed; capped at 1.6×)"
-         if MAGNITUDE_CONTOURS else "arrows show direction only, coloured by speed")
+_contour = f"speed as {N_BINS} contour lines; black arrows, length ∝ speed (key = reference speed; capped at 1.6×)"
+_arrows = "arrows show direction only, coloured by speed"
+if CONTOUR_PLANES == {p for p, _ in ACTIVE}:
+    style = _contour
+elif not CONTOUR_PLANES:
+    style = _arrows
+else:
+    style = "; ".join(f"{PLANES[p]['title']}: {_contour if p in CONTOUR_PLANES else _arrows}" for p, _ in ACTIVE)
 style += f"; colours quantised in {N_BINS} bins; basin markers: dark green from pH 4 runs, mid green from pH 7 runs"
 if SIGNED_DELTA:
     style += "; bottom row hue = signed speed change (blue faster at pH 4, red faster at pH 7)"

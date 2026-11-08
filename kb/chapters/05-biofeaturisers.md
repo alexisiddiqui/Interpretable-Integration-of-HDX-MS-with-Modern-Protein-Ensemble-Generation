@@ -20,6 +20,24 @@ Status sentence: work in progress. Preliminary experiments; metadiffusion workin
 - [biofeat-bpti-seq0-controls](../../figures/biofeat-bpti-seq0-controls/fig.png) is retained in the experiment record. It shows that the ±0 MI+PB source covers the two principal Anton basins across the original sampling controls.
 - [biofeat-bpti-seq2-controls](../../figures/biofeat-bpti-seq2-controls/fig.png) is retained in the experiment record. It shows that ±2 MI and MI+PB from the original starts remain concentrated in the main basin, motivating the diversity stage.
 
+## MoPrP figures and section plan
+
+- [biofeat-moprp-basins](../../figures/biofeat-moprp-basins/moprp_basins_101.png) shows the MI+PB basins on the Cartesian PCA at each pH, with renders of representative frames. The seeds of the unbiased runs come from these circles.
+- [biofeat-moprp-paths-ext12](../../figures/biofeat-moprp-paths-ext12/seeded_paths_ext12_pca.png), with `seeded_paths_ext12_dih`, follows the seeded runs on the PCA plane and on the dRMSD–β1-deviation plane.
+- [biofeat-moprp-msm-ext12](../../figures/biofeat-moprp-msm-ext12/msm_ext12_main_fes.png) gives the stationary MSM free energy on both planes at each pH.
+- [biofeat-moprp-flow-ext12](../../figures/biofeat-moprp-flow-ext12/seeded_flow_ext12_tau1ns_pca_contours.png) gives the drift, with speed contours on the PCA plane, direction arrows on the dihedral plane and the pH 7 minus pH 4 change.
+
+Paragraph order, one finding each:
+
+1. Restrained sampling at pH 4 and pH 7 uses one HDX target vector, so the comparison changes only protonation and buffer. Restrained frame frequencies do not give populations, so unbiased runs are seeded from the sampled basins (12 per basin and pH, 12.48 μs) and built into MSMs.
+2. Basins figure. At pH 4 restrained sampling extends along the β1-detached arm, and at pH 7 it reaches the core-distorted lobe and the detached β1–α1 set.
+3. Basins figure. The arm is mostly β1 detached alone. The lobe keeps β1 and distorts the core (0.17–0.20 against 0.09 nm). The detached β1–α1 set displaces β1, the loop and α1 N, and it holds both PUF candidates. The PUF1 text rule, α3 C disorder with β1 detached, has no frames.
+4. Paths figure. β1 alone exchanges with the detached β1–α1 set, which almost never connects directly to Folded, and the lobe is a separate branch off Folded. The dihedral plane separates β1 detachment from the rest.
+5. MSM figure. At pH 4 the PUF1 candidate lies at 2.60 against 2.2 ± 0.2 kcal/mol and the PUF2 candidate at 3.35 against 3.1 ± 0.5. Both rest on the pH 7 #3 seeds, and MaxCal does not keep the agreement (3.90 and 3.47). The MSM makes β1 opening too easy (0.52 against 2.2 kcal/mol).
+6. MSM figure. pH 7 has a metastable state with PUF2-like character on the arm at PC (87.5, 17.5), at 0.65 against 1.7 kcal/mol at pH 4, where 72 % of the MSM weight meets the PUF2 text rule (0 % at pH 4). It only just meets the PUF2 candidate definition, because β2 shifts by 0.28–0.33 nm against a 0.25 nm threshold rather than detaching, and it rests on the pH 7 #3 seeds. Core distortion (2.3–2.8 times) and the unit shift (7–10 times) are more populated at pH 4.
+7. Flow figure. pH 7 has one clear slow corridor from Folded towards that metastable state on the arm, whereas pH 4 has a flat slow region that splits into two routes, towards the lobe and along the arm. These are the parallel pathways. Drift is measured in the projection, and early and late drift agree (median cosine 0.89–0.94), so runs of different lengths can be pooled.
+8. Seeding from the detached β1–α1 set cannot show Folded opening into it. These results depend on seeding, and constant-pH simulations are required to resolve these ambiguities, together with better paired experiments.
+
 ## Drafting sources
 
 - Chapter tex comments (`05-biofeaturisers.tex`); the README project table and `DEADLINES.md` for status.
