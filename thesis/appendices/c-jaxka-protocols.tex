@@ -655,6 +655,56 @@ Predicted confidence separated the methods more consistently than fold recovery.
 \begin{figure}[tbp]
     \centering
     \includegraphics[width=\textwidth]{jaxka-pinder-recipe-comparison/fig.pdf}
-    \caption[Contact prediction, partner discrimination and binding-shift error across recipes]{Contact prediction, partner discrimination and binding-shift error under run4, hotspot masking (hmask) and burial weighting (dRSA) on PINDER development validation. \textbf{(A)} Contact average precision among 18,956,558 cross-chain surface-residue pairs, with contacts defined within 10~\AA{} and a contact prevalence of 0.0138. \textbf{(B)} Accuracy of ranking the supplied antibody/antigen partner above a same-stratum swapped partner, over 645 comparisons from 129 complexes. \textbf{(C)} Binding-induced $\Delta\mathrm{p}K_a$ MAE excluding disulfide-bonded cysteines. Hmask and dRSA use a fixed 29,305-site evaluation; run4 uses its corresponding saved residue audit. All models use the 50\% training pool and unmasked separated-partner evaluation at bound conformations. Points show seed 17 for run4 and seeds 17, 29 and 43 for hmask and dRSA. Bars show arithmetic means; thin lines connect matching seeds. Checkpoints were selected by validation state MAE plus interface binding-shift MAE. The run4-to-hmask comparison changes ranking, negative supervision and masking together. These descriptive comparisons show contact and partner-ranking gains without a consistent improvement in binding-shift error.}
+    \caption[Contact prediction, partner discrimination and binding-shift error across recipes]{Contact prediction, partner discrimination and binding-shift error under run4, hotspot masking (hmask) and burial weighting (dRSA) on PINDER development validation. \textbf{(A)} Contact average precision among 18,956,558 cross-chain surface-residue pairs, with contacts defined within 10~\AA{} and a contact prevalence of 0.0138. \textbf{(B)} Accuracy of ranking the supplied antibody/antigen partner above a same-stratum swapped partner, over 645 comparisons from 129 complexes. \textbf{(C)} Binding-induced $\Delta\mathrm{p}K_a$ MAE excluding disulfide-bonded cysteines. Hmask and dRSA use a fixed 29,305-site evaluation; run4 uses its corresponding saved residue audit. All models use the 50\% training pool and unmasked separated-partner evaluation at bound conformations. Points show seed 17 for run4 and seeds 17, 29 and 43 for hmask and dRSA. Bars show arithmetic means; thin lines connect matching seeds. Checkpoints were selected by validation state MAE plus interface binding-shift MAE. The run4-to-hmask comparison changes ranking and masking together. These descriptive comparisons show contact and partner-ranking gains without a consistent improvement in binding-shift error.}
     \label{fig:jaxka-pinder-recipe-comparison}
 \end{figure}
+
+\section{Negative Construction and Geometric Consistency}
+\label{app:jaxka-negative-geometry}
+
+% Source: figures/jaxka-pinder-ablations/caption.md and plotted-data.csv.
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=\textwidth]{jaxka-pinder-ablations/fig.pdf}
+    \caption[Negative construction, geometric consistency and scaling]{Negative construction, ANM consistency and scaling of the free-partner edge binder. \textbf{(A)} Seed-17 swapped-partner accuracy across all strata and within the antibody/antigen stratum. ``Decoy both'' uses retyped and batch-swapped negatives. Early within-ranking variants retain retyped-decoy weight 0.1; labels give the ranking coefficient. \textbf{(B)} Crystal-conformation accuracy for hmask with and without ANM consistency. \textbf{(C)} Increase in clean state-plus-interface MAE on approximately 2~\AA{} ANM views relative to crystal views of the same 793 complexes. \textbf{(D)} Antibody/antigen accuracy at 50\% data, varying width and relation-map counts. The dashed line is the width-64, maps-4/1 mean. Points in B--D show seeds 17, 29 and 43, except width 96, which uses seed 17 only; short bars show means. Lines in B and C connect matching seeds. \textbf{(E, F)} Seed-17 contact AP and antibody/antigen accuracy at 50\% and 100\% data, under 20- and 40-epoch budgets. The longer schedule stretches learning-rate decay and doubles stopping patience. Width 64 stopped at epoch 31 and selected epoch 15; width 128 selected epoch 34 after 40 epochs. Both 100\% runs under the 20-epoch schedule selected epoch 20. Full-data runs used complete PeSTo coverage with zero masking fallbacks. Except C, evaluation uses the 800-complex development cohort and unmasked free branches. All-strata and antibody/antigen accuracies use 4,000 and 645 comparisons, respectively. Checkpoints were selected by state-plus-interface MAE. Lines in A, E and F connect discrete recipes; single-seed comparisons have no estimated uncertainty interval.}
+    \label{fig:jaxka-pinder-ablations}
+\end{figure}
+
+\subsection{Negatome Preparation Controls and Matched Training}
+\label{app:jaxka-negatome-comparisons}
+
+% Sources: kb/experiments/jaxka-negatome.md;
+% .experiments/jaxka-negatome-recovery/reports/matched/report.md;
+% .experiments/jaxka-negatome-recovery/negatome-matched-v1/reports/gates/gates.md.
+The Negatome 2.0 combined-stringent set combines literature and structural evidence for non-interaction.\supercite{blohmNegatomeDatabaseNoninteracting2014} Evaluation held each PINDER anchor fixed and compared its observed partner with a Negatome-listed non-partner. Contact probabilities were averaged over surface-residue pairs with RSA at least 0.1 and pLDDT at least 70. Accuracy was averaged within each complex before averaging complexes, with ties contributing one half.
+
+For the original apo plus Negatome model, replacing cropped observed partners with full-length AlphaFold models reduced accuracy from 0.881 to 0.550 on the same 74 complexes. Negative partners remained full-length models. In a separate 418-complex control without Negatome negatives, the model ranked the cropped version of the same partner above its full-length version in 95.0\% of cases. These controls identify preparation sensitivity without changing partner identity.
+
+Matched training supplied full-length AlphaFold models for both observed and Negatome partners, transferring positive contact labels by alignment. The two matched recipes differed in whether AlphaFold augmentation also acted on the ordinary free branch. The full matched evaluation contained 95 complexes (\cref{tab:jaxka-negatome-comparisons}), distinct from the 74-complex subset with both cropped and full-length scores. On that paired subset, apo plus matched Negatome training reached 0.529, against 0.550 for the original apo plus Negatome recipe. The full-cohort gain therefore did not extend uniformly across evaluation supports.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{lrrr}
+        \toprule
+        Training recipe & Negatome & Antibody/antigen & $\mathrm{p}K_a$ MAE \\
+        \midrule
+        Within-ranking control & 0.475 & 0.6382 & 0.6121 \\
+        Apo plus Negatome & 0.501 & 0.6090 & 0.6215 \\
+        Matched Negatome & 0.477 & 0.5798 & 0.6182 \\
+        Apo plus matched Negatome & 0.587 & 0.5933 & 0.6223 \\
+        \bottomrule
+    \end{tabular}
+    \caption[Matched Negatome training and transfer]{Matched Negatome training and transfer to antibody/antigen discrimination. Negatome accuracy uses full-length AlphaFold candidate partners on 95 complexes, with a reported standard error of approximately 0.051 for each recipe. Antibody/antigen swap accuracy uses all-AlphaFold inputs. Clean state-plus-interface $\mathrm{p}K_a$ MAE uses crystal-derived inputs. All recipes use seed 17 and retain the early within-ranking and retyped-decoy terms. ``Apo'' denotes AlphaFold augmentation of the ordinary free branch. These recipes are separate from hmask and dRSA.}
+    \label{tab:jaxka-negatome-comparisons}
+\end{table}
+
+\subsection{Edge-Only Geometric Augmentation}
+\label{app:jaxka-geometry-comparisons}
+
+% Sources: kb/experiments/jaxka-edge-binder.md, ANM consistency;
+% .experiments/jaxka-binder-isambard-2026-11-04/anm-edge-v1/gates/gates.md;
+% .experiments/jaxka-binder-isambard-2026-11-04/drsa-anm-v1/gates.md.
+Restricting alternative geometries to contact and ranking losses preserved crystal-derived inputs for $\mathrm{p}K_a$, burial and titratability supervision. At seed 17, antibody/antigen swap accuracy was 0.6620 with edge-only augmentation and 0.6698 with edge-only consistency, against 0.6713 for hmask. Neither variant improved the crystal-conformation comparison.
+
+Adding edge-only augmentation to dRSA retained crystal-defined burial targets. Antibody/\allowbreak antigen swap accuracy fell from 0.7023 to 0.6682, while dRSA-weighted NDCG changed from 0.5349 to 0.5334. On approximately 2~\AA{} ANM views, overall swap accuracy changed from 0.7874 to 0.7899. The small gain on perturbed inputs did not extend to crystal-conformation antibody/antigen discrimination.

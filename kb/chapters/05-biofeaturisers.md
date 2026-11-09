@@ -108,7 +108,7 @@ Paragraph order, one finding each:
 5. MSM figure. At pH 4 the PUF1 candidate lies at 2.60 against 2.2 ± 0.2 kcal/mol and the PUF2 candidate at 3.35 against 3.1 ± 0.5. Both rest on the pH 7 #3 seeds. The MSM makes β1 opening too easy (0.52 against 2.2 kcal/mol).
 6. MSM figure. pH 7 has a metastable state with PUF2-like character on the arm at PC (87.5, 17.5), at 0.65 against 1.7 kcal/mol at pH 4, where 72 % of the MSM weight meets the PUF2 text rule (0 % at pH 4). It only just meets the PUF2 candidate definition, because β2 shifts by 0.28–0.33 nm against a 0.25 nm threshold rather than detaching, and it rests on the pH 7 #3 seeds. Core distortion (2.3–2.8 times) and the unit shift (7–10 times) are more populated at pH 4.
 7. Flow figure. pH 7 has one clear slow corridor from Folded towards that metastable state on the arm, whereas pH 4 has a flat slow region that splits into two routes, towards the lobe and along the arm. These are the parallel pathways. Drift is measured in the projection, and early and late drift agree (median cosine 0.89–0.94), so runs of different lengths can be pooled.
-8. Seeding from the detached β1–α1 set cannot show Folded opening into it. These results depend on seeding, and constant-pH simulations are required to resolve these ambiguities, together with better paired experiments.
+8. No Folded-start run opens, and across the Folded seeds and unbiased MD 0 of 34,432 frames pass the β1 threshold at either pH. Seeding from the detached β1–α1 set cannot show Folded opening into it. These results depend on seeding, and constant-pH simulations are required to resolve these ambiguities, together with better paired experiments.
 
 ## TeaA figures and section plan
 
