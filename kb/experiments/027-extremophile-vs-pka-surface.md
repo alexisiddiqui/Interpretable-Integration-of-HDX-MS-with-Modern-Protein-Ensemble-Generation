@@ -143,7 +143,7 @@ Both fine-tunes reduced whole-complex pLDDT and binder scTM for TCR/pMHC. Pose r
 
 Target context preserved a usable TNF pose but did not make the surface-charge objective select pH-dependent binding. For pose-passing target-context designs, restrained OpenMM minimisation was followed by PROPKA, pKAI and pKAI+ predictions on the bound complex and separated partners. Protonation linkage gave predicted `log10[KD(pH)/KD(7.4)]`. Binder-site contributions were compared across arms because a target glutamate dominated some whole-complex PROPKA scores. Each design contributed its mean over passing refolds. [Binding readout][binding].
 
-At pH 6, surface-charge steering gave approximately zero release under pKAI and pKAI+. AcidSecMPNN alone retained a modest response through interface histidines, with median binder-site scores of +0.44, +0.28 and +0.18 under PROPKA, pKAI and pKAI+, respectively. A free-binder charge objective at pH 3 or 10 does not reward a difference between bound and free protonation or between pH 7.4 and 6.0. Disagreement between predictors prevents a consistent binding interpretation at pH 3 and 10.
+At pH 6, surface-charge steering gave approximately zero release under pKAI and pKAI+. AcidSecMPNN alone retained a modest response through interface histidines, with median binder-site scores of +0.43, +0.27 and +0.19 under PROPKA, pKAI and pKAI+, respectively. A free-binder charge objective at pH 3 or 10 does not reward a difference between bound and free protonation or between pH 7.4 and 6.0. Disagreement between predictors prevents a consistent binding interpretation at pH 3 and 10.
 
 The subsequent `pka_gqt_select` arm directly rewarded linkage between bound and free states at pH 7.4 and 6.0. It used vanilla ProteinMPNN with Gibbs sampling and target context on TNF. This objective included target sites as well as binder sites. Steering strength was swept rather than matched to formal surface charge, because linkage is a different physical quantity. Native-sequence GQT predicted a binder-site score of +0.42, within the three checking predictors' +0.19 to +0.58 range. [Linkage experiment][linkage].
 
@@ -160,7 +160,7 @@ The retained designs at strength 0.15 showed predicted release under all three c
 |---|---:|---:|---:|---:|
 | Source complex, rescored in yield run | 1 | +0.53 | +0.28 | +0.24 |
 | Linkage steering, 0.15 | 12 | +1.50 | +0.96 | +0.65 |
-| Linkage steering, 0.20 | 4 | +1.87 | +0.54 | +0.53 |
+| Linkage steering, 0.20 | 4 | +1.87 | +0.53 | +0.53 |
 
 These scores are binder-site contributions to predicted log10 KD ratios. They provide a computational proof of concept on one backbone; they are not measured affinities or complete experimental binding free energies. GQT's increasing objective alone is not validation. The three checking predictors provide the corroborating calculation, and none supports a 100-fold switch for any design under all three predictors. [Yield and selectivity results][yield].
 
@@ -172,7 +172,11 @@ GQT makes online ranking practical by sharing the protein representation across 
 
 Candidate scoring with GQT requires backbone coordinates and sequence, without side-chain reconstruction or minimisation. The backbone-pKAI comparator also avoids side-chain coordinates, but retains site-centred prediction. PROPKA checking of candidate sequences requires atomistic preparation in this workflow. The 027 timing probe measured 175 ms per batch of 20 candidates on the 595-residue complex, supporting online use; this is not itself a matched GQT-versus-pKAI timing benchmark (`results/selectivity-cost.json`).
 
-## Data for the three figures
+## Figure placement and data
+
+In the main text, the chemistry comparison is followed by a brief monomer-refolding result establishing compatibility with the design backbone, before moving to binding-pose retention and predicted pH-dependent binding. Keep the detailed scTM, pLDDT and mutation-load comparison in the appendix (`jaxka-extremophile-monomer-refolding`).
+
+Keep the full `jaxka-complex-linkage-selectivity` figure in the main text. Read the GQT linkage objective alongside pose retention to show the structural cost of stronger steering, then use PROPKA, pKAI and pKAI+ responses among retained designs to assess corroboration by checking predictors. Do not repeat the linkage-score panel as a separate cropped figure in the appendix.
 
 The figure drafts are [jaxka-extremophile-chemistry](../../figures/jaxka-extremophile-chemistry/fig.pdf), [jaxka-extremophile-complex-confidence](../../figures/jaxka-extremophile-complex-confidence/fig.pdf) and [jaxka-complex-linkage-selectivity](../../figures/jaxka-complex-linkage-selectivity/fig.pdf). The position-overlap and class-chemistry panels are now in [jaxka-extremophile-overlap](../../figures/jaxka-extremophile-overlap/fig.pdf). The supporting monomer figure is [jaxka-extremophile-monomer-refolding](../../figures/jaxka-extremophile-monomer-refolding/fig.pdf). Each folder also contains a PNG preview, SVG, plotted data, caption and provenance receipt. [Build instructions](../../figures/opig027-build.md) describe the input snapshot and shared code.
 

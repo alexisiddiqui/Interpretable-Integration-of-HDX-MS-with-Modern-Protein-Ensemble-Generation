@@ -1,6 +1,6 @@
 # bf-teaa: blind two-state ensemble from Boltz-2 and HDX (TeaA)
 
-Protocol for the TeaA metadiffusion experiment in MaxENT-FK, as run on Isambard-AI 25–31 Oct 2026. The run record is in `examples/TeaA/RESULTS.md` of the MaxENT-FK repository (branch `teaa-iso-frame-uptake`, results commit `89f183c`; code commit `4a22611`). That record and every seed-42 number were produced with the synthetic amide H placed on the wrong side of the N (BioFeaturisers up to `43cc194`). Seed 43 was rerun with the corrected placement (BioFeaturisers `39b8069`, MaxENT-FK `39db4b3`, section 5), and the rerun is the reported seed-43 result. Locations are in [biofeaturisers.md](biofeaturisers.md).
+Protocol for the TeaA metadiffusion experiment in MaxENT-FK, as run on Isambard-AI 25–31 Oct 2026. The run record is in `examples/TeaA/RESULTS.md` of the MaxENT-FK repository (branch `teaa-iso-frame-uptake`, results commit `89f183c`; code commit `4a22611`). That record and every seed-42 number were produced with the synthetic amide H placed on the wrong side of the N (BioFeaturisers up to `43cc194`). Seed 43 was rerun with the corrected placement (BioFeaturisers `39b8069`, MaxENT-FK `39db4b3`, section 5). The reported result is the Fiedler-lobe run of 3 Nov (section 6), which also uses the corrected placement. Locations are in [biofeaturisers.md](biofeaturisers.md).
 
 **Question.** Starting from the TeaA sequence and a Boltz-2 prediction, with no MD reference in any run, can a target-free hinge bias plus HDX guidance and MaxEnt reweighting produce an ensemble that fits the HDX data and recovers the open:closed populations?
 
@@ -10,7 +10,7 @@ Protocol for the TeaA metadiffusion experiment in MaxENT-FK, as run on Isambard-
 - **Target.** Synthetic HDX uptake from MD frames (15 open, 332 closed) at 40 % open : 60 % closed (`raw_data/iso_target_biofeat/manifest.json`). It is built with `examples/TeaA/generate_target.py --forward-model biofeat`, so the guidance forward model generated the target and carries no forward-model error. Timepoints are 10, 60, 600, 3600 and 7200 s; the forward model is BV with HDXrate intrinsic rates (pH 7.0, 300 K in the resolved configs of the seed-43 runs and 298.15 K in the pinned `run.yaml`; `steepness_h` 1.0). The target is scored on the heavy-atom Boltz topology, which has no amide H, so the hydrogen-bond term depends on the synthetic H placement ([Sigmoid-switch BV forward model](../methods/Sigmoid-switch%20BV%20forward%20model%20%28BioFeaturisers%29.md)).
 - **Evaluation only.** The MD open and closed references (`examples/TeaA/cv/refs/`) enter the scoring and the answer key, never a run. Hinge states are lobe-II Cα RMSD after a lobe-I fit of at most 1.88 Å to open or 1.82 Å to closed.
 - **Sampler.** Boltz-2 through MaxENT-FK, 200 diffusion steps, bf16, K = 50 structures per run, one GPU. Conditioning is `tmsa`: no MSA, and Boltz's own MSA-conditioned prediction (`TeaA_boltz_msa_pred_s42_model0.pdb`) as the only template. The template is a Boltz prediction, not an MD or crystal structure; the unguided pool it gives is unimodal at the Boltz intermediate (θ spread 0.6°).
-- **Seeds.** Seeds 42 and 43 are separate pipelines. Every number for a seed derives from that seed's Boltz output, with disjoint seeds for history, continuation and refinement. Seed 43 is the reported result because its hinge axis is built from unguided from-noise pools only; seed 42 is the development run on which the recipe was tuned (its axis uses earlier, partly HDX-guided pools).
+- **Seeds.** Seeds 42 and 43 are separate pipelines. Every number for a seed derives from that seed's Boltz output, with disjoint seeds for history, continuation and refinement. Seed 43 was the reported result before the Fiedler-lobe run (section 6) because its hinge axis is built from unguided from-noise pools only; seed 42 is the development run on which the recipe was tuned (its axis uses earlier, partly HDX-guided pools).
 
 ## Protocol
 
@@ -116,3 +116,38 @@ Seed-43 results on the seed-43 axis (target 0.40 open : 0 intermediate : 0.60 cl
 - The open-side weight peaks at −18 to −12° (key −20.3°), against −30 to −36° before. The closed side peaks at +6 to +12° (key +9.1°). The 0 to +6° bin carries 0.002.
 - The true open and closed pools still fit best at 0.49 open (0.485 before), so the forward model does not separate 0.40 from 0.50 open and 0.459 is inside that limit.
 - One run per configuration with an ESS near 16; alpha 0.25 and λ were set on the pre-fix model and not retuned; the target changed with the model.
+
+### 6. Regeneration of the corrected seed-43 refinement, and the Fiedler-lobe run (reported)
+
+Both were run on 3 Nov 2026 and are recorded on Isambard in `~/_runtime/analysis/fiedler/NOTES.md` and `~/_runtime/analysis/fiedler/s43fx/REPORT.md` (copies in `figures/biofeat-teaa-landscape-F/source/`).
+
+- **Regeneration.** The corrected seed-43 refinement runs of section 5 (jobs 7960257–7960261) were deleted, and `~/_submit/s43fx_re/submit.sh` reran them with the same seed sets, overrides, diffusion seeds 401–405, regenerated target and BioFeaturisers `39b8069` (jobs 8051545–8051549, scored 8052161–8052167). The record does not say why the first runs were deleted. The regenerated pool scores differently, so the section 5 refined numbers and `biofeat-teaa-landscape-s43fx` cannot be reproduced from the runs on disk.
+- **Fiedler lobes.** The hand lobe split is replaced by lobes from Boltz's pair representation. The pair norm (last recycle) is thresholded at its 95th percentile, and the sign of the Fiedler vector of its graph Laplacian splits residues 1–309, with the larger block as lobe I (169 residues, fitted) and the smaller as lobe II (140, measured). It agrees with the hand split on 0.929 of residues, and the 22 differences are hand-lobe-I residues moved to lobe II. Two seeds' pair dumps give the same vector.
+- **Fiedler axis.** Built from the same three unguided pools and base (`ung_noise_s43` model 6) with the Fiedler lobes (`blind_axis_fiedler.json`). It holds 0.515 of the rotation variance, its bootstrap |cos| has median 0.988 (5th percentile 0.902), and it lies at cos 0.972 to the seed-43 axis. Answer key, open −18.4°, closed +9.7°. The 150 unguided structures have θ from −2.2 to +1.8° (sd 0.63°).
+- **Stage 1.** Seed-43 overrides with only the lobes and axis replaced, run as `metadF_r1..r4_s52_n50` (from noise, seed 52) and `contF_c1..c8_s501..508_n50`, chained with `afterok` from repository HEAD `24ac1bd` (job ids in the notes). The union of rounds 2–4 and c1–c8 has 550 structures with θ from −41.0 to +24.7°.
+- **Stage 2.** At most 25 structures per 6° bin (rng 7) give 236 seeds in five sets. Refinement `refa025F_k1..5` uses the seed-43 overrides verbatim with diffusion seeds 601–605, and the control `ctlF_k1..5` uses seeds 611–615 on the same seed sets. The pLDDT filter removes none.
+- **Scoring.** Jobs 8049979 (union), 8050281 (refined), 8050282 (refined with in-state pools), 8050283 (control) and 8050284 (θ bins and in-state mixtures). Weight against θ from `weight_vs_theta_F.py` (`~/_runtime/analysis/fiedler/out/wvt_*.txt`).
+
+| Fiedler run | λ 1000 | λ 100 |
+|---|---|---|
+| Refined, open : intermediate : closed | 0.419 : 0.155 : 0.426 | 0.453 : 0.153 : 0.394 |
+| Refined, strict recovery % (two-state) | 70.3 (91.8) | 69.5 (88.5) |
+| Refined, fit floor (ESS) | 0.00268 (15.5) | 0.00350 (32.8) |
+| Control, open : intermediate : closed | 0.357 : 0.408 : 0.235 | 0.454 : 0.243 : 0.302 |
+| Control, strict recovery % (two-state) | 48.6 (82.7) | 60.1 (82.9) |
+| Control, fit floor (ESS) | 0.0110 (5.1) | 0.0119 (27.4) |
+| Union alone, open : intermediate : closed | 0.592 : 0.113 : 0.295 | 0.550 : 0.136 : 0.314 |
+| Union alone, strict recovery % (two-state) | 67.1 (77.1) | 66.9 (79.8) |
+| Union alone, fit floor (ESS) | 0.0108 (22.8) | 0.0116 (32.2) |
+| Refined with in-state pools, fit floor (ESS) | 0.00213 (18.5) | 0.00294 (83.7) |
+
+Uniform weights give 58.4 % (refined), 59.2 % (control) and 59.8 % (union). The refined λ 1000 weight peaks at −24 to −18° (0.188, containing the open reference) and at +12 to +24° (0.342, beyond the closed reference at +9.7°). On the MD PCA plane 9.8 % of the refined weight lies inside the MD open 95 % region and 7.7 % inside the closed one, against 40.0 and 59.5 % for the MD mixture (`figures/biofeat-teaa-landscape-F/summary.csv`).
+
+In-state mixtures (20 open and 20 closed `TeaA_inState` structures, uniform inside each pool) fit the target with MSE 0.0110 at 0 open, 0.00591 at 0.40, a minimum of 0.00572 at 0.491, 0.00573 at 0.50 and 0.0114 at 1. These are Boltz structures near each reference, not the target's MD frames, so the minimum MSE is not zero. The refined pool reaches a lower floor (0.0027) than any in-state mixture.
+
+| Same-settings comparison, λ 1000 | Section 5 run (deleted) | Regeneration | Fiedler run |
+|---|---|---|---|
+| open : intermediate : closed | 0.459 : 0.106 : 0.435 | 0.443 : 0.233 : 0.324 | 0.419 : 0.155 : 0.426 |
+| Strict recovery % (two-state) | 74.7 (90.3) | 61.6 (84.9) | 70.3 (91.8) |
+| Control strict recovery % | 54.0 | 54.0 | 48.6 |
+| Fit floor (ESS) | 0.0028 (16.0) | 0.0038 (18.0) | 0.0027 (15.5) |

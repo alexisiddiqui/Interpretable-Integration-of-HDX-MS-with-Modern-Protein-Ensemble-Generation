@@ -1,0 +1,48 @@
+[md_open] n=15
+[md_closed] n=332
+[md_intermediate] n=890
+[unguided] n=150
+[metad_union] weights matched 550/550 (csv rows 550), sum 1.000000, max |lobeII rmsd - csv| 0.0000 A, n_eff 22.8
+[metad_union] n=550
+[refined_a025] weights matched 236/236 (csv rows 236), sum 1.000000, max |lobeII rmsd - csv| 0.0000 A, n_eff 15.5
+[refined_a025] n=236
+[control] weights matched 236/236 (csv rows 236), sum 1.000000, max |lobeII rmsd - csv| 0.0000 A, n_eff 5.1
+[control] n=236
+[instate_open] n=20
+[instate_closed] n=20
+residues used: 309 CA (1-309); MD topology and Boltz PDBs both have 310
+PCA per-state: var explained PC1 0.8442 PC2 0.0164; corr(PC1, theta) MD frames unweighted 0.9934 weighted 0.9991; PC1 open ref -29.87 closed ref 24.46
+PCA per-frame: var explained PC1 0.4550 PC2 0.0705; corr(PC1, theta) MD frames unweighted 0.9939 weighted 0.9939; PC1 open ref -51.07 closed ref 3.27
+|cos(PC1 per-state, PC1 per-frame)| = 0.9988; |cos PC2| = 0.8922
+corr(PC1, theta): all structures 0.9957; generated only 0.9976; MD incl. intermediates 0.9885
+  corr(PC1, theta) md_open          0.9462
+  corr(PC1, theta) md_closed        0.9340
+  corr(PC1, theta) md_intermediate  0.9885
+  corr(PC1, theta) unguided         0.9417
+  corr(PC1, theta) metad_union      0.9981
+  corr(PC1, theta) refined_a025     0.9976
+  corr(PC1, theta) control          0.9980
+  corr(PC1, theta) instate_open     0.8086
+  corr(PC1, theta) instate_closed   0.9149
+wrote /home/u6xq/hussain.u6xq/_runtime/analysis/fiedler/landscapes_F/pca_logdensity.png
+open-closed ref RMSD: all-CA 3.214 A, lobe II after lobe-I fit 7.865 A
+wrote /home/u6xq/hussain.u6xq/_runtime/analysis/fiedler/landscapes_F/rmsd_allCA.png
+wrote /home/u6xq/hussain.u6xq/_runtime/analysis/fiedler/landscapes_F/rmsd_lobeII.png
+wrote /home/u6xq/hussain.u6xq/_runtime/analysis/fiedler/landscapes_F/summary_1d.png
+
+panel | n | n_eff | PC1_mean | PC1_sd | PC2_mean | theta_mean | f_in_MDopen95 | f_in_MDclosed95 | f_hinge_open | f_hinge_closed | rmsd_open | rmsd_closed | lobeII_open | lobeII_closed
+MD open (15 fr)                        |   15 |  15.000 | -23.150 |   2.305 |  -0.097 | -14.028 |   1.000 |   0.000 |   1.000 |   0.000 |   0.870 |   2.824 |   1.421 |   6.894
+MD closed (332 fr)                     |  332 | 332.000 |  23.150 |   2.544 |   0.097 |   8.251 |   0.000 |   0.991 |   0.000 |   1.000 |   3.129 |   0.869 |   7.583 |   1.155
+MD combined 40:60                      |  347 |  85.099 |   4.630 |  22.815 |   0.019 |  -0.660 |   0.400 |   0.595 |   0.400 |   0.600 |   2.226 |   1.651 |   5.118 |   3.451
+MD open-closed-intermediate (890 fr)   |  890 | 890.000 |  16.175 |  10.823 |  -1.963 |   4.517 |   0.024 |   0.625 |   0.013 |   0.546 |   2.813 |   1.218 |   6.699 |   2.114
+Unguided Boltz (150)                   |  150 | 150.000 |   7.932 |   1.161 |  -3.825 |   0.047 |   0.000 |   0.000 |   0.000 |   0.000 |   2.354 |   1.445 |   5.292 |   3.042
+Metad union, uniform (550)             |  550 | 550.000 |   3.883 |  21.660 |  -4.167 |  -2.447 |   0.051 |   0.156 |   0.035 |   0.038 |   2.411 |   1.924 |   5.341 |   4.247
+Metad union, MaxEnt λ1000              |  550 |  22.763 |  -6.543 |  31.770 |  -3.396 |  -8.246 |   0.094 |   0.134 |   0.090 |   0.131 |   2.392 |   2.582 |   5.273 |   6.058
+Refined α0.25, uniform (236, pLDDT≥0.7) |  236 | 236.000 |  -0.496 |  26.354 |  -4.238 |  -4.959 |   0.085 |   0.089 |   0.068 |   0.021 |   2.430 |   2.300 |   5.159 |   5.216
+Refined α0.25, MaxEnt λ1000            |  236 |  15.491 |   3.575 |  31.692 |  -3.047 |  -1.881 |   0.098 |   0.077 |   0.115 |   0.002 |   2.747 |   2.478 |   5.893 |   5.630
+Control, uniform (236)                 |  236 | 236.000 |  -1.897 |  26.764 |  -4.199 |  -5.887 |   0.089 |   0.102 |   0.076 |   0.021 |   2.343 |   2.289 |   5.113 |   5.254
+Control, MaxEnt λ1000                  |  236 |   5.126 |  -4.123 |  30.749 |  -2.957 |  -6.860 |   0.119 |   0.008 |   0.117 |   0.002 |   2.399 |   2.508 |   5.352 |   6.019
+In-state pools (20 open + 20 closed)   |   40 |  40.000 |   0.089 |  25.951 |   0.263 |  -3.638 |   0.500 |   0.500 |   0.500 |   0.500 |   1.936 |   1.800 |   4.448 |   4.148
+
+MD 95% HPD levels (density): open 0.001356, closed 0.0009402; grid 240x240, PC1 [-66.2,57.9] PC2 [-16.2,10.9]
+ref PCs: open [-29.87  -0.03], closed [24.46  3.96]; ref theta open -18.37 closed 9.65

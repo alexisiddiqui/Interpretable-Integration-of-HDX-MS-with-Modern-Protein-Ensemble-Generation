@@ -156,7 +156,22 @@ Explicit backbone geometry improved prediction within the earlier site-query gra
 % Source: figures/jaxka-relational-edges/fig.json, three-seed selection means.
 Relation-specific transformations improved prediction at 50\% of the training pool. We distinguished sequence neighbours, other same-chain neighbours and cross-chain neighbours using six relation maps in each residue-attention layer. Across three seeds, mean selection error fell from 0.6494 to 0.6324. A wider model with a similar parameter count scored 0.6447, while using one shared map per layer gave 0.6427 (\cref{fig:jaxka-relational-edges}). The reduction occurred in both PINDER state MAE (0.4102 to 0.3992) and interface binding-shift MAE (0.2393 to 0.2332), so the lower selection error did not arise from improving one target at the expense of the other. Distinguishing residue relationships improved prediction beyond increasing width or applying one shared transformation.
 
-\input{../figures/jaxka-relational-edges/figure}
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=\textwidth]{jaxka-relational-edges/fig.pdf}
+    \caption[Relation maps improve backbone prediction at comparable model size]{%
+        Relation maps improve backbone prediction at comparable model size.
+        Left to right, panels show validation selection error, PINDER state MAE and interface binding-shift MAE against parameter count for the earlier site-query model trained on 50\% of the pool.
+        Selection error is the sum of the two MAEs.
+        Grey points show width controls without relation maps; blue labels give the numbers of maps in the first and second residue-attention layers.
+        Six maps distinguish sequence offsets $-2,-1,+1,+2$, other same-chain neighbours and cross-chain neighbours.
+        Four maps combine opposite sequence offsets; one map is shared across all neighbours.
+        Filled circles and error bars show means and sample standard deviations over three seeds; faint points show individual runs.
+        Open circles and the rust diamond show seed 17 only.
+        The diamond expands second-layer attention in the 4/1 model to all residues; the other models attend the same graph neighbours.%
+    }
+    \label{fig:jaxka-relational-edges}
+\end{figure}
 
 % Sources: figures/jaxka-relational-edges/fig.json and
 % figures/jaxka-relational-memory/ORIGIN.md (A40, PINDER batch-step benchmark).
@@ -172,82 +187,67 @@ Large experimental shifts remained poorly predicted. Across the 1,489 entries fo
 \subsection{Sequence Preferences at Matched Surface-Charge Changes}
 \label{sec:jaxka-sequence-results}
 
-% Sources: kb/experiments/027-extremophile-vs-pka-surface.md,
-% "Experimental design" and "Residue chemistry"; figure surface_deltas.csv.
-Matching changes in formal surface charge did not reproduce the same residue preferences under extremophile fine-tuning and $\mathrm{p}K_a$-guided sampling. We compared AcidSecMPNN with GQT and pKAI steering towards positive surface charge at pH 3, using the all-residue run4 checkpoint selected at epoch 17 for GQT. Charge changes were matched relative to each method's own sampling control, so their agreement was imposed by the comparison. AcidSecMPNN raised charge mainly through glutamate depletion, whereas both steering methods favoured lysine enrichment (\cref{fig:jaxka-extremophile-chemistry}\,(G); full matrices in \cref{fig:jaxka-extremophile-chemistry-full}\,(A--C)). Across equally weighted challenges, surface glutamate decreased by 5.0 percentage points under fine-tuning, while lysine increased by 12.0 and 12.8 percentage points under GQT and pKAI steering, respectively. We examined replacement preferences at corresponding positions to identify which residues accounted for this distinction.
-
 % Source: kb/experiments/027-extremophile-vs-pka-surface.md,
-% "Different surface chemistry at matched charge changes"; figure panel G.
-Under fine-tuning, glutamate depletion included a preference for glutamine at the same positions (1.91 net replacements per 100 surface positions; \cref{fig:jaxka-extremophile-chemistry}\,(G)). This exchange replaces a terminal carboxylate with an amide. GQT and pKAI showed a small preference for the reverse exchange, while favouring alanine-to-lysine replacements that introduce a basic side chain (2.55 and 2.68, respectively). Fine-tuning therefore favoured removal of an acidic group through a chemically related replacement, whereas steering favoured addition of a basic group. This interpretation is specific to glutamate and glutamine, since the equivalent aspartate-to-asparagine preference was absent in all three arms.
+% "Different surface chemistry at matched charge changes".
+Matching changes in formal surface charge revealed different sequence mechanisms under extremophile fine-tuning and $\mathrm{p}K_a$-guided steering. We compared each method against its own sampling control, matching the signed charge change so that the comparison could resolve how that change was achieved. Acidophile fine-tuning raised formal charge mainly by removing glutamate, whereas GQT and pKAI steering predominantly added lysine. Both alkaliphile routes enriched acidic residues, but the fine-tune favoured glutamate more strongly and depleted proline, while steering distributed enrichment across aspartate and glutamate (\cref{fig:jaxka-extremophile-chemistry}\,(A--F)). Equal charge changes therefore produced different groups available for protonation, hydration and local interactions.
 
-% Source: kb/experiments/027-extremophile-vs-pka-surface.md,
-% "Different surface chemistry at matched charge changes"; figure panels G and H.
-{\emergencystretch=1em
-Proline depletion distinguished both fine-tunes from charge steering. AcidSecMPNN favoured proline-to-alanine exchanges (3.43 net replacements per 100 surface positions; \cref{fig:jaxka-extremophile-chemistry}\,(G)), while AlkSecMPNN favoured proline-to-glutamate exchanges more strongly than either steering method (6.96, compared with 0.83 for GQT and 0.68 for pKAI; \cref{fig:jaxka-extremophile-chemistry}\,(H)). The replacement residue determines how proline depletion contributes to charge. Introducing glutamate adds an acidic group, whereas replacing proline with alanine leaves formal side-chain charge unchanged. Matching formal charge therefore leaves this neutral exchange unconstrained.\par}
+The acidophile glutamate-to-glutamine preference illustrates this chemical distinction. Fine-tuning favoured this exchange at corresponding surface positions, replacing a terminal carboxylate with an amide while retaining a similar side-chain scaffold (1.91 net replacements per 100 surface positions; \cref{fig:jaxka-extremophile-chemistry}\,(G)). Both steering predictors showed a small preference in the reverse direction and instead favoured alanine-to-lysine exchanges (2.55 for GQT and 2.68 for pKAI). Removing a carboxylate and introducing a basic side chain can produce the same formal-charge change, but they alter hydrogen-bonding chemistry and the response to pH differently.
+
+Proline depletion exposed a larger difference that extended to the backbone. Acidophile fine-tuning favoured proline-to-alanine exchanges, whereas alkaliphile fine-tuning strongly favoured proline-to-glutamate exchanges (3.43 and 6.96 net replacements per 100 surface positions, respectively; \cref{fig:jaxka-extremophile-chemistry}\,(G, H)). The corresponding alkaliphile preferences under GQT and pKAI were only 0.83 and 0.68. Both replacements restore a backbone N--H donor, permitting hydrogen bonds with protein acceptors as well as water. Although removing proline releases its ring constraint, the restored donor can support intramolecular hydrogen bonds that constrain the resulting conformation. The alkaliphile route additionally introduces a carboxylate capable of hydration, hydrogen bonding and electrostatic interactions.
+
+% Interpretation: kb/chapters/06-jax-ka.md, proline and local-strain argument.
+These preferences suggest that adaptation to extreme pH changes the balance between local strain and the interactions stabilising the folded structure. Additional protein hydrogen bonds could favour a more constrained, locally strained conformation when their energetic contribution, together with solvent interactions, compensates for that strain. The pronounced proline substitutions therefore point to a possible reorganisation of the protein's hydrogen-bond network alongside surface charge. Matching net charge alone does not reproduce this chemistry.
 
 \begin{figure}[p]
     \centering
-    \includegraphics[width=\textwidth,trim=0 0 0 605,clip]{jaxka-extremophile-chemistry/fig.pdf}
-    \caption[Residue preferences at matched surface-charge changes]{Matched changes in formal surface charge produced different residue replacement preferences. Panels \textbf{(G, H)} retain the source labels and show the acid and alkaline directions. The complete matrices are in \cref{fig:jaxka-extremophile-chemistry-full}. Orange, green and blue denote extremophile fine-tuning, GQT and pKAI steering, respectively. Fine-tunes use vanilla ProteinMPNN controls; steering uses unsteered Gibbs controls. The signed preference for exchange $a\to b$ is $100\langle p_{\mathrm{control}}(a)p_{\mathrm{design}}(b)-p_{\mathrm{control}}(b)p_{\mathrm{design}}(a)\rangle$ over surface positions. Positive values favour the indicated exchange over its reverse. Points show backbones; circles, squares, triangles and diamonds identify challenges 1, 2, 3 and 5. Black bars average backbones within challenges, then weight challenges equally. Each arm and control contains eight designs per backbone; comparisons contain six backbones except pKAI alk, which has five. Shading marks amide/carboxylate comparisons (blue) and methionine enrichment routes (tan). These descriptively selected preferences compare sequence ensembles at corresponding positions, not mutation trajectories.}
+    \includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{jaxka-extremophile-chemistry/fig.pdf}
+    \caption[Residue preferences at matched surface-charge changes]{Matched changes in formal surface charge produced different residue replacement preferences. Fine-tunes use autoregressive vanilla ProteinMPNN controls; GQT and pKAI steering use unsteered Gibbs controls. \textbf{(A--F)} Rows denote control residues and columns design residues. Entries are $100\langle p_{\mathrm{control}}(a)p_{\mathrm{design}}(b)-p_{\mathrm{control}}(b)p_{\mathrm{design}}(a)\rangle$ over surface positions. Positive values favour row-to-column exchange over its reverse. The shared logarithmic scale colours positive means of at least 0.05 per 100 surface positions; pale cells include reverse preferences and smaller values. Numbers label means of at least 1.5. \textbf{(G, H)} Selected signed preferences in the acid and alkaline directions. Orange, green and blue denote fine-tuning, GQT and pKAI. Points show backbones; circles, squares, triangles and diamonds identify challenges 1, 2, 3 and 5. Black bars average backbones within challenges, then weight challenges equally. Each arm and control contains eight independent designs per backbone; comparisons contain six backbones except pKAI alk, which has five. Blue shading marks E/Q and D/N comparisons; tan marks methionine enrichment routes. Preferences compare sequence ensembles at corresponding positions, not observed mutation trajectories.}
     \label{fig:jaxka-extremophile-chemistry}
 \end{figure}
 
-Binder-only refolding largely recovered the design backbone (494 of 496 predictions with scTM above 0.5; \cref{fig:jaxka-extremophile-monomer-refolding}). This comparison did not test the binding pose. We therefore evaluated designs generated with fixed target context to distinguish retention of the binder fold from recovery of its interface.
-
-% Source: opig-adaptyv-2026/experiments/027-extremophile-vs-pka-surface/README.md,
-% section 7, target-context TNF comparison; complex figure design_level_metrics.csv.
-In the TNF complex predictions, AlkSecMPNN retained the binder fold but failed to recover its binding pose. These designs were generated with the target present as fixed ProteinMPNN context, and charge changes were matched again against the corresponding sampling controls. None of the 64 refolds from eight independent AlkSecMPNN designs passed the pose criterion, compared with 26 of 64 for vanilla ProteinMPNN (\cref{fig:jaxka-extremophile-complex-confidence}\,(B)). Mean binder scTM remained 0.963, while mean binder ipTM was only 0.227 (\cref{fig:jaxka-extremophile-complex-confidence}\,(A,C)). Recovery of the binder fold was therefore insufficient to preserve the predicted interface.
-
-% Source: opig-adaptyv-2026/experiments/027-extremophile-vs-pka-surface/README.md,
-% section 7, target-context TNF pose counts.
-Acidophile fine-tuning and charge steering did not show the same loss of TNF pose recovery. AcidSecMPNN recovered the pose in 23 of 64 refolds, compared with 26 of 64 for vanilla ProteinMPNN. The four steering arms recovered 19--31 of 64, compared with 23 of 64 for unsteered Gibbs sampling (\cref{fig:jaxka-extremophile-complex-confidence}\,(B)). Matched charge changes were therefore compatible with recovery of the TNF binding pose under AcidSecMPNN and both steering methods. AlkSecMPNN was the only arm for which no design recovered the pose in any refold.
-
-% Source: opig-adaptyv-2026/experiments/027-extremophile-vs-pka-surface/README.md,
-% section 7, target-context TCR/pMHC comparison; complex figure design_level_metrics.csv.
-Pose recovery was poor across the TCR/pMHC design arms, including both sampling controls. Each arm recovered the pose in at most 7 of 64 refolds, and no individual design passed in more than three of its eight predictions, compared with five of eight for the source sequence (\cref{fig:jaxka-extremophile-complex-confidence}\,(E)). The refolder could therefore recover the original interface, but recovery was infrequent after sequence redesign even with the target supplied as context. Unlike TNF, this failure extended to the unsteered controls and was not specific to extremophile fine-tuning or charge steering.
-
-\begin{figure}[p]
-    \centering
-    \includegraphics[width=\textwidth,height=0.64\textheight,keepaspectratio]{jaxka-extremophile-complex-confidence/fig.pdf}
-    \caption[Binder fold and binding-pose recovery with target context]{Binder fold recovery and binding-pose recovery after design with fixed target context. TNF is shown in \textbf{(A--C)} and TCR/pMHC in \textbf{(D--F)}. Points represent eight independent designs per arm, each summarised over four ESMFold2 models and two folding seeds. Native sequences contribute one reference point under the same eight-refold protocol. Black bars show means. \textbf{(A, D)} Mean binder ipTM; dashed lines mark 0.5. \textbf{(B, E)} Refolds passing both binder ipTM $\geq0.5$ and binder C$\alpha$ RMSD $\leq5$~\AA{} after target alignment. Labels give passing/total refolds, not independent-design counts. \textbf{(C, F)} Mean binder scTM in the complex. Fine-tunes use vanilla ProteinMPNN controls; steering uses unsteered Gibbs controls. AlkSecMPNN retained the TNF binder fold while losing pose recovery. Poor recovery across TCR/pMHC design arms prevents attributing its failure specifically to either intervention.}
-    \label{fig:jaxka-extremophile-complex-confidence}
-\end{figure}
-
-% Source: figures/jaxka-complex-linkage-selectivity/binding_per_design.csv,
-% visible AcidSecMPNN design medians, verified against the staged binding-ph select input.
-Among TNF designs with an accepted binding pose, only AcidSecMPNN gave a positive binder-site contribution to predicted weakening at pH 6.0 relative to pH 7.4 under all three predictors. Median contributions to $\log_{10}[K_D(6.0)/K_D(7.4)]$ were $+0.43$, $+0.27$ and $+0.19$ under PROPKA, pKAI and pKAI+, respectively (\cref{fig:jaxka-complex-linkage-selectivity}\,(C--E)). The surface-charge-steered arms remained near zero under pKAI and pKAI+, while PROPKA predicted small negative contributions. Matching surface-charge changes therefore did not reproduce the binder contribution to the pH response found under acidophile fine-tuning.
-
-% Source: opig-adaptyv-2026/experiments/027-extremophile-vs-pka-surface/README.md,
-% sections 8--9, interface-histidine attribution and the change in steering objective.
-Interface histidines accounted for the predicted AcidSecMPNN response. Surface-charge steering did not directly reward this binding-dependent protonation. Its objective scored the separated binder at pH 3 or 10, without comparing bound and separated states or the change between pH 7.4 and 6.0. To target the binding response directly, we replaced the surface-charge objective with a proton-linkage score that compared both states across this pH interval.
-
-% Source: figures/jaxka-complex-linkage-selectivity/steering_response.csv,
-% initial sweep at lambda 0.05 and 0.8; protocol in app:jaxka-proton-linkage.
-Stronger proton-linkage steering increased the predicted response, but the highest scores coincided with loss of pose recovery. We swept steering strength independently of formal-charge matching and used one complex refold per design. At $\lambda=0.05$, the median binder-site linkage score remained near zero and seven of eight designs retained the pose. At $\lambda=0.8$, the median score reached 7.25 and the median histidine count rose from one to eighteen, but none of eight designs retained the pose (\cref{fig:jaxka-complex-linkage-selectivity}\,(A,B)). We therefore examined intermediate strengths for designs that combined increased linkage with pose recovery.
-
-% Source: figures/jaxka-complex-linkage-selectivity/steering_response.csv,
-% 24-design follow-up populations.
-At intermediate strengths, $\lambda=0.15$ yielded more designs with a retained pose than $\lambda=0.20$. In the follow-up comparison of 24 designs per strength, 12 retained the pose at $\lambda=0.15$, compared with four at $\lambda=0.20$ (\cref{fig:jaxka-complex-linkage-selectivity}\,(B)). These structures allowed us to test whether the increased GQT score was accompanied by a larger predicted pH response under PROPKA, pKAI and pKAI+.
-
-% Sources: figures/jaxka-complex-linkage-selectivity/binding_per_design.csv and
-% staged binding-ph-bindingph-yield-2026-10-30.json, source-complex reference.
-{\emergencystretch=2em
-Among structurally accepted designs at $\lambda=0.15$, the median binder-site contribution exceeded that of the source complex under all three predictors. Median contributions to $\log_{10}[K_D(6.0)/K_D(7.4)]$ were $+1.50$, $+0.96$ and $+0.65$ under PROPKA, pKAI and pKAI+, respectively (\cref{fig:jaxka-complex-linkage-selectivity}\,(C--E)). Nine of the 24 generated designs both retained the binding pose and exceeded the source complex's binder-site contribution under all three predictors.\par}
-
-% Source: figures/jaxka-complex-linkage-selectivity/binding_per_design.csv,
-% select_yield design medians at lambda 0.20, and steering_response.csv.
-Increasing steering to $\lambda=0.20$ did not consistently improve the predicted binder response. Among its four structurally accepted designs, the PROPKA median rose to $+1.87$, while the pKAI and pKAI+ medians fell to $+0.53$ each (\cref{fig:jaxka-complex-linkage-selectivity}\,(C--E)). The higher GQT objective therefore came with lower pose recovery without agreement among the checking predictors on a further increase in binder-site linkage.
+Despite these differences in surface chemistry, binder-only refolding largely recovered the design backbone. Across 496 analysed designs, 494 predictions exceeded a self-consistency TM-score of 0.5, with challenge-weighted means of 0.92--0.96 across the matched arms (\cref{fig:jaxka-extremophile-monomer-refolding}; \cref{app:jaxka-design-results}). This compatibility allowed the next comparison to distinguish retention of the binder fold from retention of its binding pose.
 
 % Source: kb/experiments/027-extremophile-vs-pka-surface.md,
-% "Online mutation ranking as the next use of GQT"; proposed use, not a tested comparison.
-The loss of pose recovery at stronger steering makes structural compatibility a constraint on the use of the linkage score. A next step is to rank mutations proposed by an inverse-folding model according to their predicted change in linkage, with structural checks governing which candidates are retained. This comparison motivates mutation ranking; it does not test whether ranking improves design yield.
+% "Complex aware steering produces predicted pH selective binding".
+Target context alone did not make surface-charge steering select pH-dependent binding. On TNF, designs generated with the target present and retaining an accepted pose showed approximately zero binder-site contribution towards release at pH 6 under pKAI and pKAI+. Acidophile fine-tuning retained a modest predicted response through interface histidines, with median binder-site contributions to $\log_{10}[K_D(6.0)/K_D(7.4)]$ of $+0.43$, $+0.27$ and $+0.19$ under PROPKA, pKAI and pKAI+, respectively (\cref{fig:jaxka-complex-linkage-selectivity}\,(C--E)). A charge objective acting on the separated binder at pH 3 or 10 does not reward the difference between bound and free protonation that determines this binding response.
+
+To reward that difference directly, we replaced surface-charge steering with a proton-linkage objective comparing bound and separated states across pH 7.4 and 6.0. Increasing steering strength raised the GQT linkage score and histidine content, but reduced pose retention (\cref{fig:jaxka-complex-linkage-selectivity}\,(A, B)). At strength 0.05, the median binder-site score remained near zero and seven of eight designs retained the pose. At strength 0.8, the score reached 7.25, but none retained the pose. The objective could therefore be increased beyond the range compatible with recovery of the intended interface.
+
+% Sources: figures/jaxka-complex-linkage-selectivity/steering_response.csv
+% and binding_per_design.csv, 24-design follow-up populations.
+Intermediate steering produced designs combining pose retention with a larger predicted pH response. In follow-up populations of 24 designs, 12 retained the pose at strength 0.15, compared with four at 0.20 (\cref{fig:jaxka-complex-linkage-selectivity}\,(B)). Among retained designs at 0.15, median binder-site contributions were $+1.50$, $+0.96$ and $+0.65$ under PROPKA, pKAI and pKAI+, exceeding the rescored source complex under all three predictors (\cref{fig:jaxka-complex-linkage-selectivity}\,(C--E)). Nine of the 24 generated designs both retained the pose and exceeded the source response under every checking predictor. Increasing steering to 0.20 raised the PROPKA median but reduced the pKAI and pKAI+ medians, alongside the lower pose yield. These are predicted binder-site contributions conditional on structural acceptance, rather than measured affinity changes.
 
 \begin{figure}[p]
     \centering
-    \includegraphics[width=\textwidth,height=0.64\textheight,keepaspectratio]{jaxka-complex-linkage-selectivity/fig.pdf}
+    \includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{jaxka-complex-linkage-selectivity/fig.pdf}
     \caption[Predicted proton linkage and pose recovery under sequence steering]{Predicted proton linkage and pose recovery on TNF with fixed target context. \textbf{(A)} Median binder-site GQT linkage score and histidine count against steering strength $\lambda$; the dashed line marks the source-sequence score. \textbf{(B)} Pose-retaining designs with exact 95\% binomial intervals and passing/total counts. Each linkage-steered design received one ESMFold2 prediction. Follow-up populations contain 24 designs at $\lambda=0.15$ and $0.20$; the latter replaces the initial eight-design sample. \textbf{(C--E)} Binder-site contributions to predicted $\log_{10}[K_D(6.0)/K_D(7.4)]$ after minimisation under PROPKA, pKAI and pKAI+. Positive values contribute towards weaker binding at pH 6.0. Points show designs averaged over accepted refolds; black bars show medians and dashed lines the rescored source complex. Labels give scored/total designs; NA means no accepted pose. Surface-charge arms received eight refolds per design, whereas linkage-steered arms received one. These conditional binder-site scores exclude target-site contributions and are not complete affinity predictions.}
     \label{fig:jaxka-complex-linkage-selectivity}
 \end{figure}
 
+% Source: kb/experiments/027-extremophile-vs-pka-surface.md,
+% "Online mutation ranking as the next use of GQT".
+The useful design criterion is therefore the combination of predicted linkage, structural compatibility and corroboration by checking predictors. Increasing the steering objective alone sacrifices designs before establishing a consistently larger response. This trade-off motivates using GQT to rank proposals from a structurally informed sequence generator, with structural compatibility constraining which proposals are retained. The TNF comparison identifies the reason to test that strategy; its effect on design yield remains to be assessed.
+
 \subsection{Contact Prediction from Separately Embedded Partners}
 \label{sec:jaxka-interface-results}
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=\textwidth]{jaxka-pinder-recipe-comparison/fig.pdf}
+    \caption[Contact prediction, partner discrimination and binding-shift error across recipes]{Contact prediction, partner discrimination and binding-shift error under run4, hotspot masking (hmask) and dRSA weighting on PINDER development validation. A, average precision (AP) for contacts within 10~\AA{} among 18,956,558 cross-chain surface-residue pairs, with a contact prevalence of 0.0138. B, accuracy of ranking the supplied antibody/antigen partner above a same-stratum swapped partner, over 645 comparisons from 129 complexes. C, binding-induced $\Delta\mathrm{p}K_a$ MAE with bonded-Cys sites excluded. Hmask and dRSA use a fixed 29,305-site evaluation; run4 uses its corresponding saved residue audit. All models use the 50\% training pool and unmasked separated-partner evaluation, with partners embedded at their bound conformations. Points show seed 17 for run4 and seeds 17, 29 and 43 for hmask and dRSA. Short bars and numerical labels show arithmetic means; thin lines connect matching seeds across recipes. Checkpoints were selected by validation state MAE plus interface binding-shift MAE. The run4-to-hmask comparison changes within-complex ranking, negative supervision and hotspot augmentation together, so it does not isolate the effect of masking. These are descriptive recipe comparisons on the development cohort.}
+    \label{fig:jaxka-pinder-recipe-comparison}
+\end{figure}
+
+\subsection{POISK Binder/Decoy Discrimination}
+\label{sec:jaxka-poisk-results}
+
+% Source: figures/jaxka-poisk-recipe-comparison/plotted_data.csv,
+% apo, edge_top50_cdr; all three checkpoints use seed 17.
+On independently folded POISK partners, most of the improvement in the top-50 CDR contact readout occurred between run4 and hmask. Averaging the 50 highest contact probabilities between CDR residues and the antigen gave binder/decoy accuracies of 43.7\%, 71.2\% and 71.3\% for run4, hmask and dRSA, respectively, across 11,111 complete pairs (\cref{fig:jaxka-poisk-recipe-comparison}). All three checkpoints used seed 17. The gain was obtained without supplying a complex pose, but binder/decoy accuracy alone does not establish how much of that gain depends on recognising the supplied antigen.
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=\textwidth]{jaxka-poisk-recipe-comparison/fig.pdf}
+    \caption[POISK binder/decoy discrimination across run4, hmask and dRSA]{POISK binder/decoy discrimination across run4, hmask and dRSA. Blue denotes independently folded free monomers, using ABodyBuilder2 for Fvs and ESMFold for antigens, on 11,111 complete pairs. Orange denotes bound conformers embedded separately, and green denotes supplied Protenix-v2 complex poses, each on 11,115 pairs. Hollow circles, hollow diamonds and filled circles identify run4, hmask and dRSA, respectively; lines connect successive recipes. All three models use seed 17. Pairwise accuracy is the fraction of pairs in which the binder outscores its matched decoy, with ties contributing one half. The dashed line marks chance at 0.5. Dotted and solid vertical lines show Boltz-2 and Protenix-v2 ipSAE accuracy on the released 11,247-pair benchmark, whose support differs from the GQT comparisons. Contact sums, maxima and top-50 means aggregate residue-pair contact probabilities over the indicated Fv or CDR rows. In free-monomer modes, predicted burial change is free exposure multiplied by the best contact probability to the partner; in complex mode it is predicted bound minus free burial. Burial-weighted contacts multiply contact probability by the predicted burial contributions at both ends. Binder/decoy accuracy alone does not distinguish an antibody-intrinsic sequence signal from recognition of its antigen.}
+    \label{fig:jaxka-poisk-recipe-comparison}
+\end{figure}

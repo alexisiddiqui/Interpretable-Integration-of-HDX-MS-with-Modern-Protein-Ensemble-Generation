@@ -22,7 +22,7 @@ The method has two parts, and the second needs only a differentiable coordinate,
 
 ## Part A: constructing the hinge coordinate
 
-The coordinate is the rotation of one body of the protein relative to the other, so it needs a split into two bodies (for TeaA, lobe I and lobe II, written by hand). Its purpose is to give the bias a direction in which the model's own conformational variation is largest, without using a reference structure.
+The coordinate is the rotation of one body of the protein relative to the other, so it needs a split into two bodies. The reported TeaA run takes the split from Boltz's pair representation, as the two signs of the Fiedler vector of the graph Laplacian of the pair norm thresholded at its 95th percentile (lobe I 169 residues, lobe II 140, agreeing with the earlier hand split on 0.929 of residues; [[bf-teaa]] §6). Its purpose is to give the bias a direction in which the model's own conformational variation is largest, without using a reference structure.
 
 1. Draw about 150 unguided structures from noise. Fifty give a poorly determined axis; 150 give a stable one (bootstrap cosine, 5th percentile 0.49 against 0.83).
 2. Take the medoid (lowest mean all-Cα RMSD) as the base.
