@@ -1,0 +1,10 @@
+{
+  "host": "u6xq.aip2.isambard",
+  "results_source": "/scratch/u6xq/hussain.u6xq/_runtime/jax-Ka/pkabench/audits/default-evals-v1/pkad/",
+  "script_source": "/scratch/u6xq/hussain.u6xq/_submission/default-evals-v1/bench_pkad_eval.py",
+  "sha256": {
+    "benchmark.json": "70dbb84cf6327aae3b2bcfb9064bdc388a1afaa1f5285156b03b6c6c0409fb24",
+    "gqt-scoring.json": "7a13f14d4bcf44ac44a6e417b1340df3bec7be626501e621a12f13f5040da7f1",
+    "source_bench_pkad_eval.py": "dd90052a231498c485e5ce510bca741c844696cd03c8ea5fda7a701a0aec0935"
+  }
+}

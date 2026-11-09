@@ -1,0 +1,6 @@
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=\textwidth]{jaxka-component-cutoffs/fig.pdf}
+    \caption[Component-deletion calibration of site masks]{Component-deletion tests used to set site-exclusion distances. Each panel compares PROPKA 3.5.1 predictions before and after removing a nonprotein component, without moving the protein. Distance is measured from the site's titratable functional atoms to the nearest removed heavy atom. Grey density shows absolute changes in binding-induced shifts; blue and orange curves summarise changes in binding shifts and bound-state $\mathrm{p}K_a$s, respectively, with medians and 95th percentiles in 5~\AA{} bands. Exact-zero changes are shown separately below the logarithmic axis; nonzero changes below $10^{-5}$ are plotted at $10^{-5}$. Repeated observations within a complex are correlated. Horizontal lines mark the training and evaluation tolerances of 0.01 and 0.001 $\mathrm{p}K_a$ units; vertical lines mark exclusion distances. The buffer panel shows the frozen benchmark's 20~\AA{} evaluation cutoff, whereas pKPDB and PINDER preparation used 25~\AA{} (\cref{tab:jaxka-component-masks}). No changes were observed beyond 27~\AA{} in this calibration. PROPKA's finite interaction ranges limit the interpretation of vanishing errors at large distances.}
+    \label{fig:jaxka-component-cutoffs}
+\end{figure}

@@ -1,0 +1,49 @@
+% Generated from benchmark.json, archived with this table.
+\begin{table}[p]
+    \centering\small
+    \begin{tabular}{@{}lrr@{}}
+    \toprule
+    Predictor & MAE & RMSE \\
+    \midrule
+    GQT run4, all-residue & 0.82 & 1.42 \\
+    Model-compound null & 0.84 & 1.31 \\
+    PypKa, deposited & 0.77 & 1.20 \\
+    PypKa, repacked & 0.76 & 1.21 \\
+    pKAI, deposited & 0.80 & 1.28 \\
+    pKAI, repacked & 0.76 & 1.28 \\
+    pKAI+, deposited & 0.75 & 1.22 \\
+    pKAI+, repacked & 0.75 & 1.22 \\
+    PROPKA 3.5.1, deposited & 0.77 & 1.17 \\
+    PROPKA 3.5.1, repacked & 0.84 & 1.27 \\
+    \bottomrule
+    \end{tabular}
+    \caption{Experimental $\mathrm{p}K_a$ error on 1,421 PKAD-3 entries shared by the benchmark's single-prediction methods. Errors are in $\mathrm{p}K_a$ units. Run4 is the seed-17 all-residue model trained on 50\% of the eligible pool. Deposited and FASPR-repacked side chains give separate all-atom comparisons. The null assigns the KaML model-compound reference without structural information. All rows use identical entries; this table does not use split-specific offset calibration. Experimental measurements did not train GQT, but absence of structural overlap with all comparator training sets is not established.}
+    \label{tab:jaxka-experimental-common}
+\end{table}
+
+\begin{table}[p]
+    \centering\small
+    \textbf{(a) Run4 error by experimental shift magnitude}\par\medskip
+    \begin{tabular}{@{}lrr@{}}
+    \toprule
+    $|\mathrm{p}K_{a,\mathrm{exp}}-\mathrm{p}K_{a,\mathrm{model}}|$ & Entries & RMSE \\
+    \midrule
+    $<1$ & 1,079 & 0.63 \\
+    $1\leq |\Delta|<2$ & 252 & 1.13 \\
+    $\geq2$ & 158 & 3.85 \\
+    \bottomrule
+    \end{tabular}
+    \par\bigskip
+    \textbf{(b) Run4 RMSE over twenty experimental test splits}\par\medskip
+    \begin{tabular}{@{}lrr@{}}
+    \toprule
+    Sites & Uncalibrated & Offset-calibrated \\
+    \midrule
+    All & $1.21\pm0.21$ & $1.09\pm0.18$ \\
+    Acidic & $1.30\pm0.30$ & $1.14\pm0.27$ \\
+    Basic & $0.97\pm0.18$ & $0.96\pm0.16$ \\
+    \bottomrule
+    \end{tabular}
+    \caption{Experimental shift recovery and offset calibration for run4. (a) Uncalibrated errors over all 1,489 entries covered by run4, partitioned by absolute experimental departure from the benchmark's model-compound reference. This is a larger cohort than the common-entry set in \cref{tab:jaxka-experimental-common}. (b) Mean and standard deviation of test RMSE across the twenty KaML splits, with offsets fitted only to each split's training measurements. Test-entry coverage across the splits is 0.93. Acidic sites comprise Asp, Glu, Cys and Tyr; basic sites comprise His and Lys. Split means weight splits equally and are not pooled-entry RMSEs. The report does not stratify calibrated errors by shift magnitude.}
+    \label{tab:jaxka-experimental-diagnostics}
+\end{table}

@@ -1,0 +1,14 @@
+{
+ "GQT default all-residue (s17, 50%)": {
+  "run": "control-v2-50-relations-4-1-allres-cut15-cysmask-gate01-ressiamese-redge01-s17",
+  "sites": 1489,
+  "structures": 281,
+  "group_mismatches": 0
+ },
+ "GQT relational, previous default (s17, 50%)": {
+  "run": "control-v2-50-relations-s17",
+  "sites": 1489,
+  "structures": 281,
+  "group_mismatches": 0
+ }
+}

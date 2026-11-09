@@ -1,0 +1,36 @@
+\begin{figure}[tbp]
+    \centering
+    \begin{tikzpicture}[
+        box/.style={draw=black!55,rounded corners=2pt,align=center,
+            minimum height=1.05cm,text width=3.7cm,inner sep=6pt,font=\small},
+        flow/.style={-{Stealth[length=2mm]},thick,draw=black!65},
+        note/.style={align=center,font=\small,text width=4.2cm}]
+        \node[box,text width=12.9cm] (input) at (0,0)
+            {\textbf{Backbone coordinates and amino-acid identities}\\
+             Local frames, backbone dihedrals and residue neighbourhoods};
+        \node[box] (bound) at (-4.5,-1.65)
+            {\textbf{Bound complex}\\Within- and cross-chain edges};
+        \node[box] (free) at (0,-1.65)
+            {\textbf{Separated partners}\\Cross-chain edges masked};
+        \node[note] (fixed) at (4.5,-1.65)
+            {Same coordinates\\in both states};
+        \draw[flow] (input.south -| bound.north) -- (bound.north);
+        \draw[flow] (input.south -| free.north) -- (free.north);
+        \node[box,text width=8.2cm] (encoder) at (-2.25,-3.4)
+            {\textbf{Shared residue encoder and all-residue queries}\\
+             Two passes through the same model parameters};
+        \draw[flow] (bound.south) -- (bound.south |- encoder.north);
+        \draw[flow] (free.south) -- (free.south |- encoder.north);
+        \node[box] (pka) at (-4.5,-5.2)
+            {\textbf{State predictions}\\Environmental shift + reference};
+        \node[box] (aux) at (0,-5.2)
+            {\textbf{Auxiliary predictions}\\Titratability, burial, contacts};
+        \draw[flow] (encoder.south -| pka.north) -- (pka.north);
+        \draw[flow] (encoder.south -| aux.north) -- (aux.north);
+        \node[box,draw=blue!50!black] (shift) at (4.5,-5.2)
+            {\textbf{Binding-induced shift}\\$\mathrm{p}K_a^{AB}-\mathrm{p}K_a^{F}$};
+        \draw[flow] (pka.south) -- ++(0,-0.45) -| (shift.south);
+    \end{tikzpicture}
+    \caption[Backbone model and matched-state prediction]{Backbone model for individual-state and binding-induced $\mathrm{p}K_a$ prediction. Backbone coordinates and amino-acid identities supply two passes through the same residue encoder, query updates and prediction heads. The bound pass includes cross-chain edges; the separated pass masks these edges while holding coordinates fixed. Queries at every residue provide side-chain and terminal predictions, including positions whose titratability changes after substitution. Adding the group-specific model-compound reference to each predicted environmental shift gives its state $\mathrm{p}K_a$. Bound-minus-separated predictions give the binding-induced shift. Auxiliary heads predict titratability, burial and contacts. The separated contact readout combines independently encoded partners without access to their relative placement. The matched-state comparison excludes conformational relaxation.}
+    \label{fig:jaxka-model-overview}
+\end{figure}

@@ -159,6 +159,12 @@ Unrestricted batch swaps use four cyclic partner indices, excluding self and par
 
 The recorded early within-ranking arms retain retyped-decoy weight 0.1. Increasing their within coefficient is not an isolated comparison with run4. Hmask removes that retyped term. The [saved negative run protocols][protocols] and recipe table below preserve this distinction.
 
+### Negatome listwise supervision
+
+The earlier [[jaxka-negatome|Negatome recipes]] add a listwise cross-entropy term of coefficient 0.3. For each anchor, the candidate distribution contains distance-weighted contacts and zero-target noncontacts from its observed partner, plus up to 32 zero-target surface residues from a Negatome-listed non-partner. Targets are normalised over the combined candidate set. Losses are averaged over eligible anchor/negative slots within each complex and then across complexes. These runs retain within-ranking weight 0.3 and retyped-decoy weight 0.1; they are separate from the retained run4, hmask and dRSA objectives.
+
+The original recipe represents the observed partner through the cropped AlphaFold record and the Negatome non-partner as a full-length monomer. The matched follow-up presents both through the full-length monomer path and transfers positive contact labels by alignment. The [original protocol](../../.experiments/jaxka-negatome-recovery/runs/apo-v1-50-within03-aponeg-w064-s17/protocol.json), [matched protocol](../../.experiments/jaxka-negatome-recovery/runs/negm-v1-50-within03-aponegm-w064-s17/protocol.json) and [matched sampler](../../.experiments/jaxka-negatome-recovery/negatome-matched-v1/source/src/pkatrain/production_apo.py:279) define the populations and masks. The appendix recipe comparison includes both constructions, with and without AlphaFold augmentation of the ordinary separated-state branch.
+
 ## Hotspot masking and ANM routing
 
 Hotspot masking changes the input to existing losses and introduces no separate penalty. On half of PINDER visits, one chain is chosen uniformly. Its retained identities are the top half of exposed residues by PeSTo, rounded to the nearest integer with at least one retained when the surface is nonempty. Other identities on that chain, including buried ones, are zeroed; coordinates and the other chain remain intact. Missing oracle records use random surface selection. Only free contact BCE, distillation and within ranking use this pass. pKa, burial and gate losses use unmasked inputs. Source [hotspot implementation][residue], lines 617–700, and [driver][train], lines 635–640 and 662–671.

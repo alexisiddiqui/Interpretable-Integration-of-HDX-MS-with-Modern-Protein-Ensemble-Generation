@@ -31,3 +31,7 @@ GPU memory was not recorded during the Isambard training runs: `gres/gpumem` is 
 - The ±1, ±2 sequence edges of the relation maps are always inside the 20 Å residue graph, so they add no edges: the eight graph configurations attend identical pairs, and relation maps change only which projection each edge reads. Full attention replaces layer 2 with every allowed residue pair (N² in the bound branch, within-chain in the free branch).
 - Memory in the line panel is the compiled footprint (temporaries + arguments + outputs) of each size's executable. The measured peak is a running maximum over the process, so at small sizes it reports start-up overhead; from 640 residues the two agree within 2%.
 - w76 is slow at every size (2.3× w64 at 1,536 residues). It uses 4 heads of 19 channels, not a multiple of 8. Its Isambard training jobs also took 35 min against 21 min for w64.
+
+## Thesis presentation
+
+The SVG artwork is the editable source for the thesis. `figures/style_jaxka_artwork.py` removes the small methods notes beneath the axes, trims the unused margins and exports `fig.pdf` and `fig.png`. The notes are carried by `figure.tex` and the appendix protocol. Plotted axes, observations and numerical summaries are unchanged; `fig.json` retains the original analysis provenance. Run this presentation script again after regenerating the original cluster artwork.

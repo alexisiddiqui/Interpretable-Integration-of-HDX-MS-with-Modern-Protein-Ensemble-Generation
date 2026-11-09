@@ -1,0 +1,6 @@
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=\textwidth]{jaxka-relational-edges/fig.pdf}
+    \caption[Relation maps improve backbone prediction at comparable model size]{Relation-specific transformations lowered mean validation error relative to a wider model without relation maps at 50\% training data. Left to right, panels show checkpoint-selection error, PINDER state MAE and interface binding-shift MAE against parameter count. Selection error is the sum of the latter two metrics. Grey points show width controls; blue labels give the numbers of relation maps in the first and second residue-attention layers. Six maps distinguish sequence offsets $-2,-1,+1,+2$, other same-chain neighbours and cross-chain neighbours. Four maps combine positive and negative offsets of equal magnitude; one map is shared by all neighbours. All graph-restricted configurations attend the same residue pairs. Filled circles show means over seeds 17, 29 and 43, with error bars giving sample standard deviations and faint points showing individual runs. Open circles and the rust diamond show seed 17 only. The diamond replaces second-layer graph attention in the 4/1 model with attention to every allowed residue pair. These comparisons used the earlier site-query architecture.}
+    \label{fig:jaxka-relational-edges}
+\end{figure}

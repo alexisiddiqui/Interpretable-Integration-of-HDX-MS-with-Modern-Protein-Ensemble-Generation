@@ -6,3 +6,7 @@ Rendered on Coulson by `pkabench.cutoff_plots` (jax-Ka repo, `src/pkabench/cutof
 - Inputs (sha256 in `fig.json`): `audits/radial-error-v2-nearcomplete/anchor-analysis-v2/observations.csv` (terminal gaps, PypKa), `audits/radial-error-v2-nearcomplete/internal-anchor-analysis-v1/observations.csv` (internal gaps, PypKa), `audits/pinder-longgap-v1/results/ref_*.jsonl` (long gaps, pKAI).
 - `fig.json` holds, per panel and metric, the 5 Å band median, 95th percentile and bootstrap upper bound (seed 20261008), and the radius those bands imply (`band_radius_A`) next to the radius in force.
 - Regenerate: from `audits/cutoff-figures-v3`, `sbatch cutoff-plots.sbatch $PWD/components $PWD/gaps`, then copy the four files here.
+
+## Thesis presentation
+
+The SVG artwork is the editable source for the thesis. `figures/style_jaxka_artwork.py` removes the small methods notes beneath the axes, trims the unused margins and exports `fig.pdf` and `fig.png`. The notes are carried by `figure.tex` and the appendix protocol. Plotted axes, observations and numerical summaries are unchanged; `fig.json` retains the original analysis provenance. Run this presentation script again after regenerating the original cluster artwork.

@@ -1,0 +1,6 @@
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=\textwidth]{jaxka-relational-memory/fig.pdf}
+    \caption[Training-step cost of relation maps and unrestricted attention]{Training-step cost of relation maps and unrestricted attention. Left, attended residue pairs summed across both layers for 450 training graphs. Boxes show medians and interquartile ranges; whiskers extend to the most extreme observations within 1.5 interquartile ranges, with remaining observations plotted individually. Relation maps leave the attended pairs unchanged. Middle, compiled GPU memory footprint against padded graph size. Right, median step time over ten calls after warm-up. Measurements used one A40 GPU and backpropagation through 16 PINDER complexes in bound and separated states, omitting the pKPDB part of the update and the burial head. At 1,536 residues, unrestricted second-layer attention increased measured peak memory from 7.75 to 9.91 GiB and step time from 136 to 175 ms relative to the 4/1 graph model. The middle panel plots compiled footprints, separately from these measured process peaks. Configuration labels follow \cref{fig:jaxka-relational-edges}.}
+    \label{fig:jaxka-relational-memory}
+\end{figure}

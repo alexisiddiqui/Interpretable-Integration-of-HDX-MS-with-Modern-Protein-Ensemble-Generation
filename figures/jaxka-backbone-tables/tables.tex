@@ -1,0 +1,42 @@
+% Sources: experiments/3_paired_complex/48_pkai_joint_scale.md and
+% experiments/4_backbone/07_handoff.md in projects/4-jax-Ka/code.
+\begin{table}[p]
+    \centering\small
+    \begin{tabular}{@{}lllrr@{}}
+    \toprule
+    Input & Neighbour encoding & Training & pKPDB MSE & Interface MSE \\
+    \midrule
+    Backbone & Atom class & pKPDB & 1.045 & 0.467 \\
+             &            & Joint & 1.043 & 0.453 \\
+             & Residue identity & pKPDB & 0.972 & 0.422 \\
+             &                  & Joint & 0.966 & 0.400 \\
+             & Both & pKPDB & 0.931 & 0.430 \\
+             &      & Joint & 0.921 & 0.405 \\
+    \midrule
+    All-atom & Atom class & pKPDB & 0.319 & 0.059 \\
+             &            & Joint & 0.287 & 0.034 \\
+             & Residue identity & pKPDB & 0.500 & 0.146 \\
+             &                  & Joint & 0.498 & 0.099 \\
+             & Both & pKPDB & 0.311 & 0.071 \\
+             &      & Joint & 0.279 & 0.037 \\
+    \bottomrule
+    \end{tabular}
+    \caption{Neighbour chemistry and paired supervision in the pKAI architecture. All arms use the full training pool, seed 17 and the cosine schedule in \cref{app:jaxka-pkai-inputs}. Errors are unweighted validation MSEs in squared $\mathrm{p}K_a$ units; interface MSE evaluates binding-induced shifts. Atom-class, residue-identity and combined inputs correspond to \texttt{atom16}, \texttt{aa20} and \texttt{atom16aa20}. The query retains its own titratable-group identity in every arm. Input-layer sizes change with encoding, so these comparisons test the complete representations rather than isolating sequence information at fixed parameter count.}
+    \label{tab:jaxka-pkai-encodings}
+\end{table}
+
+\begin{table}[p]
+    \centering\small
+    \begin{tabular}{@{}lrrrr@{}}
+    \toprule
+    Geometric features & Parameters & Selection & State MAE & Shift MAE \\
+    \midrule
+    Neither & 139,270 & 0.6503 & 0.4143 & 0.2360 \\
+    Orientations & 139,426 & 0.6459 & 0.4106 & 0.2353 \\
+    Dihedrals & 139,654 & 0.6238 & 0.3960 & 0.2278 \\
+    Both & 139,810 & 0.6212 & 0.3923 & 0.2289 \\
+    \bottomrule
+    \end{tabular}
+    \caption{Backbone geometric features in the width-64 site-query model. Values are means across seeds 17, 29 and 43 at full training data under the 20-epoch schedule. Selection error is PINDER state MAE plus interface binding-shift MAE, both expressed in $\mathrm{p}K_a$ units. Each run contributes its selected checkpoint. ``Neither'' removes the tested orientation and dihedral features but retains distance-based graph geometry. These runs precede the all-residue readout and interface objectives.}
+    \label{tab:jaxka-geometry}
+\end{table}

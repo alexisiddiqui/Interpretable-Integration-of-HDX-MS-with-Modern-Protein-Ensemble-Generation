@@ -64,6 +64,8 @@ The early within-ranking arms in this table retain a retyped-decoy coefficient o
 
 The [weight-sweep report](../../.experiments/jaxka-binder-isambard-2026-11-04/negatives-v1/sweep/decoy-ranking/report.md) also reports a curvature proxy. It predicts interface membership among surface residues at AUROC 0.519, while correlating with surface RSA at Spearman 0.698. Curvature matching alone therefore supplies little interface-specific information.
 
+The [[jaxka-negatome|Negatome experiments]] add curated negative evidence and expose a separate dependence on structure preparation. The original Negatome-trained model falls from 0.881 to 0.550 accuracy when cropped true partners are replaced by full-length models on the same 74 complexes. Matching preparation during training gives limited, mixed gains. This control belongs in the results before the POISK sequence-shortcut analysis.
+
 ## ANM consistency changes robustness and discrimination differently
 
 `anm-aug-v1` draws minimised, approximately 1 Å ANM or approximately 2 Å ANM free-state views on half the visits. `anmtie` treats the alternative views as interchangeable training inputs. `anmcons` additionally penalises differences between alternative and crystal free-state edge logits and pKas, with weights 0.3 and 1.0 and gradients through both passes. Definitions are in the frozen `_submission/anm-aug-v1/train.sbatch`, retained in the [source snapshot](../../.experiments/jaxka-binder-isambard-2026-11-04/source/_submission/anm-aug-v1/train.sbatch).

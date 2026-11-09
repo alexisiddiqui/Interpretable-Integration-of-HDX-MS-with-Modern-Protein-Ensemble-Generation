@@ -5,3 +5,7 @@ Rendered on Coulson by `pkabench.cutoff_plots` (jax-Ka repo, `src/pkabench/cutof
 - Cluster output: `/u/oc/lina4225/_runtime/jax-Ka/pkabench/audits/cutoff-figures-v3/components/plots/component_cutoffs.{pdf,png,svg,json}`, copied here as `fig.*` unchanged.
 - Inputs (sha256 in `fig.json`): `audits/propka-components-v4-ligands/out/site_changes.csv` (ligands), `audits/buffer-propka-v2/site_changes.csv` (all buffers removed), `audits/glycan-propka-ccd-v1/site_changes.csv` (all glycans removed, native-eligible sites), `audits/propka-components-v1/site_changes.csv` (metals).
 - Regenerate: from `audits/cutoff-figures-v3`, `sbatch cutoff-plots.sbatch $PWD/components $PWD/gaps` (renders this figure and `jaxka-gap-cutoffs`), then copy the four files here.
+
+## Thesis presentation
+
+The SVG artwork is the editable source for the thesis. `figures/style_jaxka_artwork.py` removes the small methods notes beneath the axes, trims the unused margins and exports `fig.pdf` and `fig.png`. The notes are carried by `figure.tex` and the appendix protocol. Plotted axes, observations and numerical summaries are unchanged; `fig.json` retains the original analysis provenance. Run this presentation script again after regenerating the original cluster artwork.

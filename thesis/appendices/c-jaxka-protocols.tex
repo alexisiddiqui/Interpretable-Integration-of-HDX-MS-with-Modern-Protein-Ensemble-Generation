@@ -1,0 +1,632 @@
+\chapter{jax-Ka Protocols and Supporting Analyses}
+\label{app:jaxka-protocols}
+
+\section{Model-Compound References}
+\label{app:jaxka-references}
+
+To retain the reference convention used by the training labels, we use the historical pKPDB model-compound values when converting between $\mathrm{p}K_a$ values and environmental shifts (\cref{tab:jaxka-model-compound-values}). These references remain fixed during training. Arginine has no $\mathrm{p}K_a$ labels in this dataset and is excluded from $\mathrm{p}K_a$ supervision.
+
+% Implementation source: projects/4-jax-Ka/code/src/pkanet/model.py:10--16;
+% group order: projects/4-jax-Ka/code/src/pkabench/schema.py:11.
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{lr}
+        \toprule
+        Group & Reference $\mathrm{p}K_a$ \\
+        \midrule
+        Asp & 3.79 \\
+        Glu & 4.20 \\
+        His & 6.74 \\
+        Cys & 8.67 \\
+        Tyr & 9.59 \\
+        Lys & 10.46 \\
+        N-terminus & 7.99 \\
+        C-terminus & 2.90 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Fixed model-compound reference values used to express training targets and predictions as environmental $\mathrm{p}K_a$ shifts.}
+    \label{tab:jaxka-model-compound-values}
+\end{table}
+
+\section{Data Preparation and Evaluation Separation}
+\label{app:jaxka-data-preparation}
+
+\subsection{Structure Preparation and Component Masks}
+\label{app:jaxka-components}
+
+To keep bound/free differences attributable to partner removal, we generated both states from the same prepared complex. PDB2PQR reconstructed missing protein atoms where possible,\supercite{dolinskyPDB2PQRExpandingUpgrading2007} and the isolated partners retained the prepared coordinates without relaxation. Nonprotein components were removed, while their original coordinates were retained to identify nearby sites whose labels could depend on the omitted material. Repair records and sequence gaps likewise informed site eligibility. Preparation thus produced both the structural inputs and the information needed to exclude unreliable targets from training and evaluation.
+
+To retain usable sites in incomplete structures, we excluded individual targets according to their proximity to removed components or missing protein segments. Component-removal masks were guided by PROPKA deletion tests, with target errors of 0.01 $\mathrm{p}K_a$ units for training and 0.001 for evaluation. Gap masks used PypKa and pKAI deletion tests with a target error of 0.1 $\mathrm{p}K_a$ units. These different tolerances reflect the finite interaction ranges of PROPKA and the numerical noise of the PypKa calculations. The deletion tests are shown in \cref{fig:jaxka-component-cutoffs,fig:jaxka-gap-cutoffs}. The selected distances define operational exclusions under those predictors; they do not guarantee that omitted material has no effect beyond the cutoff.
+
+The pKPDB and PINDER preparation used the component exclusions in \cref{tab:jaxka-component-masks}. The frozen structural benchmark used a 20~\AA{} evaluation exclusion for buffers, compared with 25~\AA{} in these preparation pools. Component distances were measured from the site's titratable functional atoms to the original heavy-atom coordinates of the removed component. Sites on residues reconstructed by PDB2PQR were excluded from supervision. Reconstructed neighbouring residues remained in the structural input; evaluation additionally excluded sites within 15~\AA{} of rebuilt atoms on other residues.
+
+% Sources: src/pkabench/component_mask_policy.py (mask-all-v1),
+% experiments/1_benchmark/15_buffer_mask_revision.md, and
+% experiments/4_backbone/05_pinder_dataset.md in projects/4-jax-Ka/code.
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{lrr}
+        \toprule
+        Removed component & Training (\AA) & Evaluation (\AA) \\
+        \midrule
+        Buffer/additive & 15 & 25 \\
+        Other ligand & 15 & 25 \\
+        Glycan & 20 & 25 \\
+        Exposed ion & 25 & 25 \\
+        Buried/coordinated metal or metal complex & 30 & 30 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Component exclusion distances for pKPDB and PINDER under the \texttt{mask-all-v1} preparation policy. Sites closer than the listed distance to a removed component were excluded from the corresponding training or evaluation targets.}
+    \label{tab:jaxka-component-masks}
+\end{table}
+
+\input{../figures/jaxka-component-cutoffs/figure}
+
+\subsection{Gap Masks and Distance Definitions}
+\label{app:jaxka-gap-masks}
+
+Missing protein segments have no observed coordinates from which to measure site distances, so gap masks used the observed residues flanking each missing segment as anchors. Short-gap calibration measured distances to their backbone atoms; the long-gap extension used their C$\alpha$ atoms. Exclusion distances depended on gap length and whether the missing segment was internal or terminal. For lengths between those tested, the long-gap rule used the next larger calibrated length. Short terminal gaps of one to five residues retained cutoffs calibrated against binding-induced $\mathrm{p}K_a$ errors, while the longer-gap cutoffs also accounted for individual-state errors. The numerical thresholds and anchor requirements are given in \cref{tab:jaxka-gap-masks}.
+
+The pKPDB and PINDER preparation used the gap-anchor thresholds in \cref{tab:jaxka-gap-masks}. Distances were measured from the site's titratable functional atoms to the observed flanking residues. Short-gap anchors required complete observed N, C$\alpha$, C and O atoms. Terminal gaps of six to ten residues had to satisfy both the backbone-atom and C$\alpha$ thresholds.
+
+% Sources in projects/4-jax-Ka/code/src/pkabench:
+% anchor_tiers.py:terminal_radius, pkpdb_pilot_clean.py:gap_context,
+% long_gap_policy.py:site_usable, and supervision.py:clearance.
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{lrll}
+        \toprule
+        Gap type & Missing residues & Anchor & Minimum distance (\AA) \\
+        \midrule
+        Terminal & 1 & Backbone atoms & 10 \\
+        Terminal & 2--5 & Backbone atoms & 15 \\
+        Terminal & 6--10 & Backbone atoms and C$\alpha$ & 20 and 30 \\
+        Terminal & 11--20 & C$\alpha$ & 35 \\
+        Terminal & 21--30 & C$\alpha$ & 40 \\
+        Terminal & 31--50 & C$\alpha$ & 45 \\
+        Internal & 1--3 & Backbone atoms & 15 \\
+        Internal & 4--10 & C$\alpha$ & 20 \\
+        Internal & 11--20 & C$\alpha$ & 25 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Gap-anchor thresholds used in pKPDB and PINDER preparation. Distances are minima over the site's titratable functional atoms and the indicated observed anchor atoms. Both thresholds apply to terminal gaps of six to ten residues. The C$\alpha$ thresholds for longer gaps apply when the envelope-clearance rule described below does not already retain the site.}
+    \label{tab:jaxka-gap-masks}
+\end{table}
+
+Where no short-gap anchor rule applied, sites could pass if they lay at least 20~\AA{} beyond the estimated region accessible to the missing segment. Otherwise, retention required a calibrated long-gap C$\alpha$ threshold. Gaps beyond the tested lengths, or without usable anchors, excluded sites that failed this clearance rule.
+
+\input{../figures/jaxka-gap-cutoffs/figure}
+
+\subsection{Sequence Separation}
+\label{app:jaxka-sequence-separation}
+
+To limit sequence overlap between training and evaluation, we screened candidate training structures against the frozen structural benchmark and experimental reference proteins. Whole-chain exclusions used at least 70\% sequence identity over 80\% of both sequences for benchmark references, and at least 30\% identity over 80\% of both sequences for experimental references. An additional benchmark screen excluded fragment matches with at least 90\% identity over 80\% of the shorter sequence. Reserved PDB entries were also excluded. Antibody--antigen complexes followed a separate complementarity-determining-region (CDR) rule for antibody chains because conserved frameworks otherwise removed antibodies with different binding loops.
+
+For antibody--antigen complexes, antigen chains retained the whole-chain exclusions, while antibody chains were screened using their concatenated CDR sequences. Matches of at least 70\% identity to benchmark or experimental reference CDRs triggered exclusion, with heavy and light chains compared separately. Where reference chains lacked CDR annotations, we transferred them by alignment to SAbDab-annotated variable domains. Antibody heavy--light interfaces retained the whole-chain rules because their interface involves the framework. For pKPDB, an entry excluded through antibody-chain similarity was restored only when every offending chain passed the CDR screen and no other sequence exclusion remained.
+
+\subsection{Validation Pools and Nested Training Fractions}
+\label{app:jaxka-validation}
+
+For production model selection, we reserved one eligible structure from each of 800 pKPDB groups and 800 PINDER clusters. Selection was stratified by structure size and molecular category. We selected the pKPDB validation set first, then drew half the PINDER validation set from complexes containing a chain that matched a pKPDB validation chain at $\geq 70\%$ identity over $\geq 80\%$ of both sequences. This deliberately shared sequence coverage between the validation sets. Both training pools excluded the selected groups and any structure with a chain matching either validation set at the same threshold. These validation sets supported checkpoint selection and development reporting; the frozen structural benchmark and experimental $\mathrm{p}K_a$ values retained separate evaluation roles.
+
+With validation membership fixed, we varied the amount of training data through nested subsets containing 10\%, 50\%, 75\% and 100\% of eligible groups. Groups were ranked reproducibly within each molecular category and included with all their constituent structures, so the fractions refer to groups rather than structures or labelled sites. This construction allows data-scale comparisons without independently resampling the training population at each fraction.
+
+\input{../figures/jaxka-experimental-benchmark/protocol}
+
+\section{Model and Input Specifications}
+\label{app:jaxka-model-specifications}
+
+\subsection{Retained All-Residue Architecture}
+\label{app:jaxka-architecture}
+
+Residue nodes carried amino-acid identity and backbone dihedral features. C$\alpha$ separations defined a 20~\AA{} residue graph, with attention weights decreasing smoothly to zero over its outermost 2~\AA{}. Two residue-attention layers operated on this graph. The first used four relation maps for immediate sequence neighbours, second neighbours, other same-chain residues and residues on another chain. Positive and negative sequence offsets shared a map. The second layer shared one map across all neighbours.
+
+Every residue supplied a query token combining its encoded representation with a learned amino-acid identity embedding. Query tokens attended to encoded residues and then to one another, with both operations restricted to C$\alpha$ separations within 15~\AA{}. Side-chain, N-terminal and C-terminal outputs had separate titratability predictions. A linear head converted each final query representation to a scalar, transformed as $8\tanh(z)$ to bound the environmental shift to $\pm8$ $\mathrm{p}K_a$ units. The same parameters were used for bound and separated passes, with cross-chain edges masked in the separated pass.
+
+The contact head used the element-wise product and absolute difference of normalised residue representations. These symmetric operations made its score invariant to exchanging the two residues. The head was shared between the bound and separated representations.
+
+\subsection{Earlier Relational Architecture}
+\label{app:jaxka-relational-architecture}
+
+The earlier relational model used site-specific queries restricted to existing titratable groups. Its residue graph distinguished six neighbour classes, comprising sequence offsets of $-2$, $-1$, $+1$ and $+2$ within a continuous chain segment, other same-chain neighbours and neighbours on another chain. Each class selected a learned transformation of the neighbouring representation. Site-specific query tokens read the resulting representations to predict environmental shifts. This restriction to existing titratable groups was removed in the retained all-residue architecture. The earlier model's training objective is given in \cref{app:jaxka-relational-objective}.
+
+\subsection{pKAI Input Comparisons}
+\label{app:jaxka-pkai-inputs}
+
+All-atom pKAI controls retained the native atomic environment and query origin. Backbone models used the query residue's C$\alpha$ as the origin and neighbouring backbone nitrogen and oxygen atoms. Each representation was trained either on pKPDB labels alone or jointly with PINDER state and binding-shift labels, using the objective in \cref{app:jaxka-pkai-objective}. These representation comparisons used models trained from scratch. Released pKAI and pKAI+ were evaluated separately with their original weights and all-atom inputs.
+
+Removing side-chain coordinates also removes the atom classes that distinguish neighbouring chemical groups. To test whether sequence information could compensate for this loss, we compared encodings of atom class (\texttt{atom16}), neighbour residue identity (\texttt{aa20}), and both together (\texttt{atom16aa20}). Each query retained up to 250 neighbouring atoms within 15~\AA, ordered by distance, with each encoded feature weighted by the inverse squared distance to the query origin. Backbone inputs included only nitrogen and oxygen atoms from other residues. All encodings retained the query's titratable-group identity, and the network's input layer was resized to accommodate each representation.
+
+The pKAI comparisons used the frozen clean validation set from the 5,000-structure pKPDB pilot and a separate 400-complex PINDER cohort, comprising 11,455 eligible sites, of which 5,116 were interface sites. These are not the production validation pools in \cref{app:jaxka-validation}. Checkpoint selection minimised unweighted pKPDB MSE for pKPDB-only training, or the mean of pKPDB MSE, PINDER state MSE and all-site binding-shift MSE for joint training. Interface errors were reported at the selected checkpoint and did not enter selection.
+
+The full-pool encoding comparison used seed 17, batches of 4,096 sites and a cosine learning-rate schedule starting at $5.12\times10^{-4}$, with a 40-epoch cap. The separate fraction sweep retained the native atom-class encoding and used a constant learning rate of $8\times10^{-6}$ with a 400-epoch cap. Validation membership remained fixed across fractions. These schedules define separate comparisons; their full-pool endpoints are not interchangeable.
+
+\section{Loss Functions and Training Recipes}
+\label{app:jaxka-losses}
+
+\subsection{Averaging Conventions}
+\label{app:jaxka-loss-reductions}
+
+Structures differ in their number of eligible prediction sites. To prevent structures with more labels from dominating the objective, we first averaged losses within each structure and then across structures. For structure $c$, let $e_{ci}$ denote the loss at target $i$, and let $w_{ci}\geq0$ encode its eligibility and any weighting. With $N_c=\sum_i w_{ci}$, the within-structure mean is
+\begin{equation}
+    \bar e_c =
+    \begin{cases}
+        \displaystyle\frac{\sum_i w_{ci}e_{ci}}{N_c}, & N_c>0,\\[4pt]
+        0, & N_c=0.
+    \end{cases}
+    \label{eq:jaxka-within-structure-mean}
+\end{equation}
+Let $V$ contain the unpadded structures in a batch and $V_+=\{c\in V:N_c>0\}$. We distinguish two reductions,
+\begin{equation}
+    \mathcal M_0(e,w)=\frac{1}{\lvert V\rvert}\sum_{c\in V}\bar e_c,
+    \qquad
+    \mathcal M_+(e,w)=\frac{1}{\lvert V_+\rvert}\sum_{c\in V_+}\bar e_c.
+    \label{eq:jaxka-loss-reductions}
+\end{equation}
+An empty averaging set contributes zero. Primary $\mathrm{p}K_a$ losses use $\mathcal M_0$, so structures without eligible labels contribute zero but remain in the denominator. Auxiliary losses use $\mathcal M_+$, which excludes structures without eligible targets. Both reductions give equal weight to contributing structures after averaging their targets.
+
+\subsection{Primary pKa Losses}
+\label{app:jaxka-primary-losses}
+
+Let $k$ denote a labelled $\mathrm{p}K_a$ and $\hat{k}$ its prediction, with superscripts $B$ and $F$ identifying the bound and separated states. Site and structure indices are suppressed below. With eligibility masks $m^P$ for pKPDB and $m^I$ shared between the PINDER states, the three primary losses are
+\begin{equation}
+    \begin{aligned}
+        \mathcal L_P
+        &=\mathcal M_0\!\left((\hat{k}-k)^2,m^P\right),\\
+        \mathcal L_{\mathrm{state}}
+        &=\tfrac12\mathcal M_0\!\left((\hat{k}^{B}-k^{B})^2,m^I\right)
+          +\tfrac12\mathcal M_0\!\left((\hat{k}^{F}-k^{F})^2,m^I\right),\\
+        \mathcal L_{\mathrm{shift}}
+        &=\mathcal M_0\!\left(
+          \left[(\hat{k}^{B}-\hat{k}^{F})-(k^{B}-k^{F})\right]^2,m^I
+          \right).
+    \end{aligned}
+    \label{eq:jaxka-primary-losses}
+\end{equation}
+Their sum forms the primary $\mathrm{p}K_a$ objective, with unit coefficients and no additional weighting by burial, interface proximity or shift magnitude. The model-compound reference cancels from each prediction error, so these expressions are equivalent to regression on the shifts used internally by the model. The binding-shift loss propagates gradients through both state predictions; the predicted titratability does not modify either eligibility mask.
+
+Disulfide-bonded cysteines were excluded from $\mathrm{p}K_a$ training. For PINDER, the bound-state disulfide assignment excluded the corresponding site from both branches. Arginine had no $\mathrm{p}K_a$ targets from PypKa or pKAI and was excluded from regression, while remaining a positive target for titratability classification.
+
+\subsection{Titratability Loss}
+\label{app:jaxka-titratability-loss}
+
+For a logit $\ell$ and target $t\in[0,1]$, we write binary cross-entropy as
+\begin{equation}
+    b(\ell,t)=\log(1+\exp\ell)-t\ell.
+    \label{eq:jaxka-binary-cross-entropy}
+\end{equation}
+Let $g$ denote the titratability logit and $y$ its binary target for each side-chain or terminal output. Side-chain targets are positive for Asp, Glu, His, Cys, Tyr, Lys and Arg, excluding disulfide-bonded cysteines. Terminal targets follow the prepared chain-end assignments. Each PINDER state uses its own disulfide assignment. Weights $w^g$ are 10 for cysteine side-chain outputs, whether bonded or free, 1 for other real outputs and 0 for padding. The dataset-specific losses are
+\begin{equation}
+    \begin{aligned}
+        \mathcal L_{\mathrm{gate},P}
+        &=\mathcal M_+\!\left(b(g,y),w^g\right),\\
+        \mathcal L_{\mathrm{gate},I}
+        &=\tfrac12\sum_{s\in\{B,F\}}
+          \mathcal M_+\!\left(b(g^s,y^s),w^g\right).
+    \end{aligned}
+    \label{eq:jaxka-titratability-loss}
+\end{equation}
+The objective includes $0.1(\mathcal L_{\mathrm{gate},P}+\mathcal L_{\mathrm{gate},I})$. This weighting applies only to titratability classification; it does not weight the $\mathrm{p}K_a$ regression errors.
+
+\subsection{Burial and Burial-Change Losses}
+\label{app:jaxka-burial-losses}
+
+Burial supervision constrains both solvent exposure in each state and its change on binding. Let $r^s=\operatorname{clip}(\mathrm{RSA}^s,0,1)$, $u^s$ denote the predicted burial logit, and $\sigma$ denote the sigmoid function. The mask $m_s^{\mathrm{RSA}}$ identifies real residues with known RSA in state $s$. The PINDER loss is
+\begin{equation}
+    \begin{aligned}
+        \mathcal L_{\mathrm{bur},I}
+        ={}&\tfrac12\sum_{s\in\{B,F\}}
+        \mathcal M_+\!\left(b(u^s,1-r^s),m_s^{\mathrm{RSA}}\right)\\
+        &+\mathcal M_+\!\left(
+        \left[\sigma(u^B)-\sigma(u^F)-(r^F-r^B)\right]^2,
+        m_B^{\mathrm{RSA}}m_F^{\mathrm{RSA}}
+        \right).
+    \end{aligned}
+    \label{eq:jaxka-pinder-burial-loss}
+\end{equation}
+The first term supervises all residues with known RSA in each state. The second requires RSA in both states and propagates gradients through both predictions. Because each RSA is clipped separately, the change target can be negative.
+
+For pKPDB, burial supervision remains restricted to eligible $\mathrm{p}K_a$ query sites,
+\begin{equation}
+    \mathcal L_{\mathrm{bur},P}
+    =\mathcal M_+\!\left(b(u,1-r),m^P m_P^{\mathrm{RSA}}\right).
+    \label{eq:jaxka-pkpdb-burial-loss}
+\end{equation}
+Both dataset losses enter the objective with coefficient 1.
+
+\subsection{Contact Supervision and Distillation}
+\label{app:jaxka-contact-loss}
+
+Contact targets depend on the minimum heavy-atom distance $d$ between residues in the bound structure, measured in \AA{},
+\begin{equation}
+    t(d)=
+    \begin{cases}
+        \min\!\left(1,\exp[-(d-4)/3]\right), & d\leq10,\\
+        0, & d>10.
+    \end{cases}
+    \label{eq:jaxka-contact-target}
+\end{equation}
+Each complex supplies 256 cross-chain pairs whose residues have separated-state RSA of at least 0.1. Half are sampled with replacement from contacts and half randomly from exposed residues on different chains; the random sample can include contacts. Without eligible contacts, all pairs are sampled randomly. The pair mask $w_E$ is one for valid sampled pairs and zero for padding or complexes without two chains containing eligible surface residues.
+
+For bound and separated contact logits $\ell^B$ and $\ell^F$ on the same pairs, the loss is
+\begin{equation}
+    \begin{aligned}
+        \mathcal L_{\mathrm{edge}}
+        ={}&\tfrac12\sum_{s\in\{B,F\}}
+        \mathcal M_+\!\left(b(\ell^s,t),w_E\right)\\
+        &+\mathcal M_+\!\left(
+        b\!\left(\ell^F,\sigma(\operatorname{sg}(\ell^B))\right),w_E
+        \right),
+    \end{aligned}
+    \label{eq:jaxka-contact-loss}
+\end{equation}
+where $\operatorname{sg}$ stops gradients through its argument. The distillation term trains the separated prediction towards the current bound probability, while the bound prediction receives gradients from its supervised term. Both passes share model parameters. The objective includes $0.1\mathcal L_{\mathrm{edge}}$, giving effective coefficients of 0.05 for each supervised state and 0.1 for distillation.
+
+\subsection{Within-Complex Ranking}
+\label{app:jaxka-within-ranking}
+
+Within-complex ranking compares alternative partners for an anchor residue. We sampled up to 64 exposed interface anchors per complex, each with at least one contact and one noncontact among the opposite chain's interface residues. Each anchor received up to 32 candidates, sampled without replacement, with up to eight slots reserved for noncontacts.
+
+For anchor $a$, let $J_a$ contain its unpadded candidates, $\ell^F_{aj}$ denote their separated-partner contact logits, and $t_{aj}$ denote their target weights. The predicted and target distributions are
+\begin{equation}
+    p_{aj}=\frac{\exp\ell^F_{aj}}{\sum_{j'\in J_a}\exp\ell^F_{aj'}},
+    \qquad
+    q_{aj}=\frac{t_{aj}}{\sum_{j'\in J_a}t_{aj'}}.
+    \label{eq:jaxka-ranking-distributions}
+\end{equation}
+With $m_a$ identifying eligible anchors, the ranking loss is
+\begin{equation}
+    \mathcal L_{\mathrm{within}}
+    =\mathcal M_+\!\left(
+    -\sum_{j\in J_a}q_{aj}\log p_{aj},m_a
+    \right).
+    \label{eq:jaxka-within-ranking}
+\end{equation}
+Here the inner reduction averages anchors within each complex, and the outer reduction averages complexes containing eligible anchors. Distance-based ranking uses $t_{aj}=t(d_{aj})$. Hmask retains these targets but computes the separated-partner logits from the augmented sequence input. Its ranking term enters the objective with coefficient 0.3.
+
+Hmask restricts the sequence information available for contact prediction without adding a separate loss. With probability 0.5 on each PINDER visit, we selected one chain uniformly and retained identities for the top half of its exposed residues ranked by PeSTo score. The retained count was rounded to the nearest integer, with at least one residue retained on a nonempty surface. All other identity features on that chain, including those of buried residues, were zeroed. Coordinates and the other chain's identities remained intact. Missing PeSTo records triggered random selection from the exposed residues.
+
+Only separated-partner contact supervision, distillation and within-complex ranking used the masked input. The $\mathrm{p}K_a$, burial and titratability losses used unmasked inputs, as did the bound contact prediction supplying the distillation target. Inference used the complete sequence.
+
+To favour contacts whose residues become buried on association, we weighted the distance targets by the smaller burial increase of the two residues. For residue $i$ and candidate pair $(a,j)$,
+\begin{equation}
+    \rho_i=\operatorname{clip}\!\left(
+    \mathrm{RSA}_{F,i}-\mathrm{RSA}_{B,i},0,1\right),
+    \qquad
+    t^{\mathrm{dRSA}}_{aj}=t(d_{aj})\min(\rho_a,\rho_j).
+    \label{eq:jaxka-drsa-target}
+\end{equation}
+These weights use structural RSA values. Missing RSA differences contribute zero, and anchors with total target weight below $10^{-6}$ are excluded before normalisation. Unlike the burial-change loss, this weighting clips the RSA difference itself, so only increases in burial contribute.
+
+Candidate sampling and distance-based eligibility remain unchanged. The dRSA weighting redistributes target probability among the sampled candidates and excludes anchors with negligible total weight. We retained the hmask sequence augmentation and ranking coefficient of 0.3. Contact supervision and distillation retain their original targets.
+
+\subsection{Constructed-Negative Losses}
+\label{app:jaxka-negative-losses}
+
+Retyped and swapped-partner negatives train the contact head to distinguish an observed partner from a constructed decoy. Both use a smooth margin loss on sampled contacts whose distance target exceeds 0.5. For observed-partner and decoy logits $\ell_{\mathrm{true}}$ and $\ell_{\mathrm{decoy}}$,
+\begin{equation}
+    \mathcal L_{\mathrm{neg}}
+    =\mathcal M_+\!\left(
+    \operatorname{softplus}\!\left[1-(\ell_{\mathrm{true}}-\ell_{\mathrm{decoy}})\right],
+    m_{\mathrm{contact,decoy}}
+    \right),
+    \label{eq:jaxka-negative-loss}
+\end{equation}
+where $\operatorname{softplus}(x)=\log(1+\exp x)$, and the mask identifies eligible contact--decoy comparisons. The loss averages these comparisons within each complex, then averages complexes containing at least one eligible comparison. Gradients pass through both logits.
+
+The margin is one logit unit. The penalty decreases as the observed-partner score exceeds the decoy score, but remains nonzero beyond the margin. Retyping and partner swapping differ in how they construct the decoy; neither construction establishes experimentally that the resulting pair cannot bind.
+
+Retyped decoys alter interface chemistry while holding the backbone geometry fixed. We selected one chain uniformly and identified residues within 6 \AA{} of the opposite chain by minimum heavy-atom distance. Glycine, proline, cysteine and residues with unknown identity were excluded. Half the eligible residues were selected without replacement, rounded up and capped at 32. Visits yielding fewer than three substitutions contributed no retyping loss.
+
+Aspartate and glutamate were replaced by lysine or arginine, and lysine and arginine by aspartate or glutamate. Other residues were replaced by a type outside their original chemistry class, with glycine, proline and cysteine also excluded as replacements. The classes were aliphatic hydrophobic residues (AVLIM), aromatic residues (FWY), polar residues (STNQ), positive residues (KR), negative residues (DE) and histidine. Replacement probabilities followed fixed amino-acid composition weights, renormalised over the allowed types (\cref{tab:jaxka-retyping-weights}). The altered identities were supplied to a separate pass through the separated-partner branch.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{lr}
+        \toprule
+        Replacement residues & Relative weight \\
+        \midrule
+        W & 2 \\
+        H, M & 2.5 \\
+        Q & 4 \\
+        F, N & 4.5 \\
+        D & 5 \\
+        A, I, T & 5.5 \\
+        E, K, S, V, Y & 6 \\
+        R & 7 \\
+        L & 8.5 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Relative sampling weights for retyped decoys. Each listed residue receives the indicated weight. These fixed weights were renormalised over the replacements permitted for each original residue.}
+    \label{tab:jaxka-retyping-weights}
+\end{table}
+
+Partner swapping compares an observed contact with a pairing assembled from different complexes. For each sampled contact, we retained the anchor residue's separated-state embedding and replaced its partner embedding with one from another complex's sampled contacts. The unrestricted variant used the next four complexes in cyclic batch order, with self-pairs, padding and partners without eligible contacts excluded. Replacement residues were assigned cyclically through each donor complex's contact list.
+
+To restrict comparisons to the same interaction category, the same-category variant selected up to four eligible complexes in cyclic batch order. Antibody--antigen complexes supplied decoys for other antibody--antigen complexes, and non-antibody heteromers supplied decoys for other non-antibody heteromers. Homomers were excluded as both anchors and decoys. Missing partners contributed no loss. These training draws were separate from the five swapped partners per complex used for evaluation.
+
+The curvature-matched variant also restricted replacement residues by local geometry. We measured the directional imbalance of neighbouring residues using
+\begin{equation}
+    \kappa_i=
+    \frac{\left\|\sum_{j\in\mathcal N_i}w_{ij}\mathbf u_{ij}\right\|}
+    {\max\!\left(\sum_{j\in\mathcal N_i}w_{ij},10^{-6}\right)},
+    \qquad
+    w_{ij}=\sum_{b=0}^{7}
+    \exp\!\left[-\left(\frac{r_{ij}-4b/3}{1.5}\right)^2\right].
+    \label{eq:jaxka-curvature-proxy}
+\end{equation}
+Here $\mathcal N_i$ contains same-chain neighbours in the 20 \AA{} residue graph, excluding residue $i$, $r_{ij}$ is the C$\alpha$ distance expressed in \AA{}, and $\mathbf u_{ij}$ is the unit direction towards residue $j$ in residue $i$'s backbone frame. The proxy approaches zero when neighbouring directions balance and one when they point in the same direction. Invalid backbone frames give zero.
+
+We retained the same-category partner selection and chose, from each donor complex's sampled contacts, the partner residue whose proxy was closest to that of the original partner residue. Ties used the first sampled contact. This changed which residue supplied the decoy embedding; the margin loss remained unchanged.
+
+\subsection{Negatome Listwise Supervision}
+\label{app:jaxka-negatome-loss}
+
+Negatome supervision extends the ranking comparison to partners with curated evidence of non-interaction. We used the Negatome 2.0 combined-stringent set, which combines literature and structural evidence.\supercite{blohmNegatomeDatabaseNoninteracting2014} For each eligible PINDER complex, one chain supplied anchor residues for comparison with its observed partner and up to two Negatome-listed non-partners. Training excluded complexes whose observed interaction was itself listed in Negatome and limited reuse of each non-partner to twenty complexes.
+
+For each anchor $a$ and non-partner slot $s$, the candidate set $J_{as}$ contained up to 32 residues from the observed partner and 32 exposed residues from the non-partner. Observed contacts received distance-based target weights; other candidates received zero. With $p_{asj}$ and $q_{asj}$ defined by the same softmax and target normalisation as within-complex ranking (\cref{eq:jaxka-ranking-distributions}),
+\begin{equation}
+    \mathcal L_{\mathrm{Negatome}}
+    =\mathcal M_+\!\left(
+    -\sum_{j\in J_{as}}q_{asj}\log p_{asj},m_{as}
+    \right).
+    \label{eq:jaxka-negatome-loss}
+\end{equation}
+The mask $m_{as}$ identifies eligible anchor--non-partner comparisons. These are averaged within each complex, then across complexes containing eligible comparisons. The Negatome term entered the objective with coefficient 0.3. These recipes also retained ordinary within-complex ranking at 0.3 and retyped-decoy supervision at 0.1.
+
+The original Negatome recipe represented the observed partner by an AlphaFold chain cropped to the crystal-observed residues, while the non-partner was a full-length AlphaFold monomer. The matched follow-up represented both candidate partners as full-length monomers prepared through the same pipeline. Positive contact labels were transferred from the crystal structure by sequence alignment and retained only where the mapped partner residue passed the surface filter. Other eligible surface residues received zero target weight, except those aligned to crystal residues within the anchor's contact cutoff.
+
+Both constructions sampled up to 64 anchors per non-partner slot, each requiring at least one eligible positive contact. The matched variants differed in whether AlphaFold augmentation also replaced the ordinary separated-state input. The \texttt{negm} recipe retained the crystal-derived input for that branch; \texttt{aponegm} used AlphaFold structures with probability 0.5 when an eligible record was available. Both used full-length AlphaFold candidate partners for the Negatome loss.
+
+\subsection{Structural Augmentation and Consistency}
+\label{app:jaxka-structural-consistency}
+
+Structural consistency penalises differences between predictions from the original and alternative separated-state conformations. Let $X$ denote the crystal-derived conformation, $A$ the alternative, and $m_{\mathrm{alt}}$ identify visits that used an alternative structure. The contact-logit and $\mathrm{p}K_a$ penalties are
+\begin{equation}
+    \begin{aligned}
+        \mathcal L_{\mathrm{cons},E}
+        &=\mathcal M_+\!\left(
+        (\ell^A-\ell^X)^2,w_E m_{\mathrm{alt}}
+        \right),\\
+        \mathcal L_{\mathrm{cons},K}
+        &=\mathcal M_+\!\left(
+        (\hat{k}^A-\hat{k}^X)^2,m^I m_{\mathrm{alt}}
+        \right).
+    \end{aligned}
+    \label{eq:jaxka-consistency-losses}
+\end{equation}
+Each term averages eligible pairs or sites within a complex, then averages complexes that used an alternative structure and contained eligible comparisons. Both predictions use unmasked sequences and the same per-complex dropout key, so sequence masking and independent dropout draws do not contribute to the discrepancy. Gradients pass through both predictions.
+
+The full consistency variant used coefficients of 0.3 for contact logits and 1.0 for $\mathrm{p}K_a$. The edge-only consistency variant retained only the contact-logit penalty at 0.3. These penalties impose agreement between conformations; they do not establish that the corresponding physical quantities are invariant.
+
+On each training visit, structural augmentation was selected with probability 0.5, with equal probabilities for minimised structures and ANM perturbations of approximately 1 or 2 \AA{}. Missing or incompatible structures triggered selection from the remaining sources in cyclic order; if none was usable, the crystal-derived structure was retained.
+
+Full augmentation replaced the separated-state geometry for primary and auxiliary predictions. The original $\mathrm{p}K_a$ and contact labels were retained, while separated-state RSA came from the alternative structure. Edge-only augmentation instead supplied alternative geometry to contact and ranking predictions, while $\mathrm{p}K_a$, burial and titratability predictions retained the crystal-derived inputs. In the combined dRSA and edge-only augmentation recipe, ranking targets also retained the crystal-derived RSA differences. This recipe added no explicit consistency penalty.
+
+\subsection{Combined Objective and Recipe Coefficients}
+\label{app:jaxka-combined-objective}
+
+The run4 objective combines $\mathrm{p}K_a$ supervision with burial, titratability and contact prediction,
+\begin{equation}
+    \begin{aligned}
+        \mathcal L_0={}&
+        \mathcal L_P+\mathcal L_{\mathrm{state}}+\mathcal L_{\mathrm{shift}}
+        +\mathcal L_{\mathrm{bur},P}+\mathcal L_{\mathrm{bur},I}\\
+        &+0.1\left(\mathcal L_{\mathrm{gate},P}+\mathcal L_{\mathrm{gate},I}\right)
+        +0.1\mathcal L_{\mathrm{edge}}.
+    \end{aligned}
+    \label{eq:jaxka-total-loss}
+\end{equation}
+Hmask retains these coefficients and adds $0.3\mathcal L_{\mathrm{within}}$, with distance-based targets and the sequence augmentation defined in \cref{app:jaxka-within-ranking}. The dRSA recipe retains this objective and augmentation but replaces the within-complex target weights with their dRSA-weighted values. Neither recipe includes a constructed-negative or structural-consistency penalty.
+
+\Cref{tab:jaxka-recipe-coefficients} gives the additional coefficients for each recipe. The early within-ranking sweep retained retyped-decoy supervision at coefficient 0.1, whereas hmask removed it. The early within-ranking arms therefore differ from run4 in both their ranking contribution and their negative-training objective. Comparisons of those arms with hmask change negative supervision as well as sequence masking. The effect of masking cannot be isolated from that comparison alone.
+
+\begin{table}[p]
+    \centering
+    \small
+    \setlength{\tabcolsep}{4pt}
+    \renewcommand{\arraystretch}{1.15}
+    \textbf{(a) Ranking and negative supervision}\par\medskip
+    \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}Xcccc@{}}
+        \toprule
+        Recipe & Within target / coefficient & Retyped & \shortstack{Batch\\swap} & \shortstack{Same-category\\swap} & Negatome \\
+        \midrule
+        Run4 & None / 0 & 0 & 0 & 0 & 0 \\
+        Retyped + batch negatives & None / 0 & 0.1 & 0.1 & 0 & 0 \\
+        Early within-ranking sweep & Distance / 0.1, 0.3 or 1.0 & 0.1 & 0 & 0 & 0 \\
+        Within + category/curvature swaps & Distance / 0.1 & 0.1 & 0 & 0.1 & 0 \\
+        Hmask & Distance / 0.3 & 0 & 0 & 0 & 0 \\
+        dRSA & dRSA / 0.3 & 0 & 0 & 0 & 0 \\
+        Negatome variants & Distance / 0.3 & 0.1 & 0 & 0 & 0.3 \\
+        \bottomrule
+    \end{tabularx}
+
+    \bigskip
+    \textbf{(b) Structural augmentation and consistency}\par\medskip
+    \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{4.1cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}Xcc@{}}
+        \toprule
+        Recipe & Within target & Alternative geometry used for & \shortstack{Edge\\consistency} & \shortstack{$\mathrm{p}K_a$\\consistency} \\
+        \midrule
+        Full augmentation & Distance & All separated-state predictions & 0 & 0 \\
+        Full augmentation + consistency & Distance & All separated-state predictions & 0.3 & 1.0 \\
+        Edge-only augmentation & Distance & Contact and ranking predictions & 0 & 0 \\
+        Edge-only augmentation + consistency & Distance & Contact and ranking predictions & 0.3 & 0 \\
+        dRSA + ANM & dRSA & Contact and ranking predictions & 0 & 0 \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Coefficients added to the run4 objective $\mathcal L_0$ in \cref{eq:jaxka-total-loss}. All recipes retain its coefficients. Panel (a) gives ranking and negative-supervision terms; structural-consistency coefficients are zero. The Negatome row covers the original and matched preparations. Panel (b) gives structural variants, all of which retain hmask sequence augmentation and within-ranking coefficient 0.3. Their constructed-negative and Negatome coefficients are zero. A zero denotes an inactive term.}
+    \label{tab:jaxka-recipe-coefficients}
+\end{table}
+
+\subsection{Optimisation and Checkpoint Selection}
+\label{app:jaxka-optimisation}
+
+We trained run4, hmask and dRSA jointly on PINDER and pKPDB, combining one batch of 16 complexes with one batch of 16 pKPDB structures at each update. Each epoch traversed the selected PINDER training fraction, while pKPDB batches came from a continuing shuffled stream. Gradients from the two datasets were summed before clipping their global norm to 1 and applying an AdamW update with weight decay $10^{-4}$. Attention and feed-forward outputs used residual dropout of 0.1. Bound and separated passes shared the same dropout key for each complex, so their comparison did not introduce independently sampled dropout.
+
+The standard schedule allowed up to 20 epochs, holding the learning rate at $\sqrt{2}\times10^{-3}$ through epoch 10 before cosine decay to $\sqrt{2}\times10^{-5}$ by epoch 20. Checkpoints were selected by the sum of PINDER validation state MAE and interface binding-shift MAE. Early stopping used a patience of eight epochs, reset when this sum improved by more than 0.001 over the previous best. We retained the checkpoint with the lowest sum, irrespective of whether its improvement exceeded the stopping threshold. Contact and partner-ranking metrics were evaluated at this checkpoint, keeping model selection tied to $\mathrm{p}K_a$ prediction as the interface objectives were extended. Interface errors used the stored preparation flag, defined by a minimum residue-to-partner distance of at most 10~\AA{}. This geometric evaluation subset differs from the dRSA ranking weights.
+
+\subsection{Extended Training Schedule}
+\label{app:jaxka-extended-schedule}
+
+The full-data width-64 and width-128 comparisons also used a 40-epoch schedule. The learning rate remained at $\sqrt{2}\times10^{-3}$ through epoch 20, then decayed by a cosine schedule to $\sqrt{2}\times10^{-5}$ at epoch 40. Early-stopping patience increased to sixteen epochs, while the minimum improvement remained 0.001. Both widths retained the dRSA objective and used seed 17.
+
+\subsection{pKAI Baseline Objective}
+\label{app:jaxka-pkai-objective}
+
+The joint pKAI baseline averages errors across sampled sites rather than first averaging within structures. For squared errors $e_i$ and site weights $w_i$,
+\begin{equation}
+    \mathcal W(e,w)=
+    \frac{\sum_i w_i e_i}{\max\!\left(\sum_i w_i,10^{-8}\right)}.
+    \label{eq:jaxka-pkai-reduction}
+\end{equation}
+Its joint objective is
+\begin{equation}
+    \begin{aligned}
+        \mathcal L_{\mathrm{pKAI,joint}}
+        =\tfrac13\Bigl[{}&\mathcal W(e_P,w_b)
+        +\tfrac12\left\{\mathcal W(e_B,w_b)+\mathcal W(e_F,w_b)\right\}\\
+        &+\mathcal W(e_{\mathrm{shift}},w_I)\Bigr].
+    \end{aligned}
+    \label{eq:jaxka-pkai-loss}
+\end{equation}
+Here $e_P$, $e_B$, $e_F$ and $e_{\mathrm{shift}}$ are the squared pKPDB, bound-state, separated-state and binding-shift errors, respectively. Each term pools sites from its corresponding batch. Burial weights $w_b$ apply to absolute $\mathrm{p}K_a$ errors, while interface weights $w_I$ apply to binding-shift errors. The pKPDB-only control uses its single weighted loss without the factor $1/3$.
+
+Burial weighting gives greater weight to errors at buried sites,
+\begin{equation}
+    w_b(r)=0.4+0.6\left[1-\operatorname{clip}(r,0,1)\right],
+    \label{eq:jaxka-pkai-burial-weight}
+\end{equation}
+where $r$ is structural RSA. The weight ranges from 0.4 for fully exposed sites to 1 for fully buried sites. For PINDER, the separated-state RSA supplies the same weights to both bound-state and separated-state errors.
+
+Binding-shift weighting instead emphasises proximity to the partner,
+\begin{equation}
+    w_I(d)=\max\!\left(0.05,
+    \min\!\left[1,\exp\!\left(-\frac{d-4}{3}\right)\right]\right),
+    \label{eq:jaxka-pkai-interface-weight}
+\end{equation}
+where $d$ is the minimum heavy-atom distance to the partner in the bound structure, expressed in \AA{}. Sites within 4 \AA{} receive unit weight; beyond this distance, the weight decays exponentially to a floor of 0.05. Distant sites therefore continue to contribute to binding-shift supervision. These weights apply to training losses; validation errors are unweighted.
+
+\subsection{Earlier Relational GQT Objective}
+\label{app:jaxka-relational-objective}
+
+The earlier relational GQT model used the same three primary $\mathrm{p}K_a$ losses, with unit coefficients and no site weighting. Its auxiliary supervision was restricted to burial prediction at eligible $\mathrm{p}K_a$ query sites. A single-logit head predicted burial from the final site embedding, with binary cross-entropy against $1-\operatorname{clip}(\mathrm{RSA},0,1)$. The PINDER term used the separated-state structure, and the pKPDB term used sites selected by its training mask. Both burial terms had coefficient 1. This model did not include the all-residue titratability, contact or burial-change losses introduced in run4.
+
+\section{Backbone Comparison Results and Computational Cost}
+\label{app:jaxka-backbone-comparisons}
+
+The pKAI comparisons in \cref{tab:jaxka-pkai-joint,tab:jaxka-pkai-fraction,tab:jaxka-pkai-encodings} test representation and supervision within the same model family. The graph-model ablations in \cref{tab:jaxka-geometry,fig:jaxka-relational-edges} instead used the earlier site-query architecture, before all-residue readouts and interface heads were introduced. Geometry comparisons used the full training pool; relation-map comparisons used 50\%. Both used seeds 17, 29 and 43 and the standard 20-epoch schedule, except for the single-seed arms identified in the figure.
+
+\input{../figures/jaxka-pkai-siamese/table}
+\input{../figures/jaxka-backbone-tables/tables}
+
+To measure the cost of changing attention, we counted attended pairs across 150 PINDER complexes, each represented in bound and separated states, and 150 pKPDB structures from the 50\% training pool. Timing and memory measurements used one A40 GPU, one process per configuration and the largest training PINDER complex in each size bucket. Each update included 16 complexes in both states, full backpropagation and dropout of 0.1. This benchmark measured the PINDER part of a training update; it omitted the pKPDB part and the burial head. Parameters were freshly initialised. After compilation and a warm-up call, step time was the median of ten calls. Compiled memory footprints are plotted separately from the measured peak used for the 1,536-residue comparison (\cref{fig:jaxka-relational-memory}). Compiled footprints sum temporary, argument and output buffers and agree with measured peaks to within 2\% from 640 residues. The A40 had 46 GB of memory. The width-76 control used four attention heads of nineteen channels; its recorded training jobs took 35 minutes, compared with 21 minutes for width 64.
+
+\input{../figures/jaxka-relational-memory/figure}
+\input{../figures/jaxka-experimental-benchmark/tables}
+\clearpage
+
+\section{\texorpdfstring{$\mathrm{p}K_a$}{pKa}-Guided Sequence Sampling}
+\label{app:jaxka-sequence-sampling}
+
+We guided ProteinMPNN sequence sampling using predicted protonation behaviour. At each position, candidate substitutions were evaluated on the fixed backbone, and their scores modified the conditional probabilities used to sample the next residue. The predictor parameters remained fixed throughout.
+
+\subsection{Surface-Charge Steering}
+\label{app:jaxka-surface-charge}
+
+The surface-charge score favoured positive charge at pH 3 or negative charge at pH 10. Surface membership remained fixed during sampling, with $S$ containing residues whose input-structure RSA was at least 0.25. For each candidate sequence,
+\begin{equation}
+    J_Q=\epsilon\sum_{i\in S}\omega_i s_i f_i,
+    \qquad
+    f_i=\frac{1}{1+10^{s_i(h-\hat{k}_i)}}.
+    \label{eq:jaxka-surface-charge}
+\end{equation}
+Here $\hat{k}_i$ is the predicted $\mathrm{p}K_a$, $h$ is the evaluation pH, and $s_i$ is the charge of the ionised side chain. Aspartate, glutamate, cysteine and tyrosine have $s_i=-1$; lysine, arginine and histidine have $s_i=+1$. Other residues contribute zero. Setting $\epsilon=+1$ at pH 3 and $\epsilon=-1$ at pH 10 makes larger scores favourable in each direction.
+
+For GQT, the site weight $\omega_i$ was the predicted titratability probability. For pKAI, it was one where a $\mathrm{p}K_a$ prediction was available and zero otherwise. Missing predictions contributed zero, except that arginine was assigned unit weight and a fully ionised positive charge. Terminal sites were excluded.
+
+The score modified the probability of each substitution during Gibbs sampling. At position $p$, the probability of selecting amino acid $a$ was
+\begin{equation}
+    \pi_p(a\mid x)\propto
+    \exp\!\left[
+    \frac{
+    \log P_{\mathrm{MPNN}}(a\mid x_{-p},\mathcal B)
+    +\lambda\alpha J(x^{p\rightarrow a})
+    }{T}
+    \right],
+    \label{eq:jaxka-guided-sampling}
+\end{equation}
+normalised over the allowed amino acids. Here $x$ is the current sequence, $\mathcal B$ the fixed backbone, and $x^{p\rightarrow a}$ the sequence after substitution. The steering strength $\lambda$ controls the score contribution, $\alpha$ sets its scale, and $T$ is the sampling temperature. Surface-charge steering used $J=J_Q$. Each sampled substitution updated the sequence before the next position was evaluated.
+
+We calculated $\alpha$ once from the starting sequence as the ratio of the pooled standard deviation of ProteinMPNN log-probabilities to that of the guide scores. Before pooling, each position's values were centred on their mean over allowed amino acids. The resulting single scale factor was held fixed throughout sampling and preserved differences in score sensitivity between positions. Excluded amino acids contributed to neither pool.
+
+Each steered arm used eight design seeds and sampling temperature $T=0.1$. Gibbs sampling ran for at most ten sweeps and stopped when a complete sweep changed no residues. The designable positions were shuffled once per run and visited in that order throughout. Disulfide cysteines remained fixed, additional cysteines were excluded, and all other positions were designable. Buried positions could therefore change even though the charge score summed only surface contributions.
+
+To compare mutation preferences at matched charge changes, we fitted $\lambda$ separately for each backbone, predictor and steering direction. The matching statistic was
+\begin{equation}
+    C=\frac{N_K+N_R-N_D-N_E}{N_{\mathrm{surface}}},
+    \label{eq:jaxka-charge-matching}
+\end{equation}
+where each count refers to the fixed surface set. Histidine contributed to the denominator but not the numerator. We compared the steered change from unsteered Gibbs sampling with the corresponding AcidSecMPNN or AlkSecMPNN change from autoregressive vanilla ProteinMPNN. Matching required agreement within the backbone's replicate noise floor. It constrained the change in $C$, without requiring equal absolute charges or the same residue composition.
+
+\subsection{Design Cohorts and Statistical Comparisons}
+\label{app:jaxka-design-statistics}
+
+AcidSecMPNN and AlkSecMPNN used autoregressive decoding, with autoregressive vanilla ProteinMPNN as their control. GQT- and pKAI-guided arms used Gibbs sampling, with unsteered Gibbs sampling as their control. GQT guidance used the run4 checkpoint selected at epoch 17. The initial chemistry comparison used isolated binders for both sequence generation and $\mathrm{p}K_a$ prediction, and the autoregressive arms also used eight seeds and temperature 0.1.
+
+Autoregressive designs covered 34 binder backbones across five design challenges, while steering searches covered eight backbones. The main chemistry comparison used six backbones with matched charge changes across four challenges. The pKAI alkaliphile arm used five because one comparison could not be matched. Each guided arm was compared with its fine-tuned counterpart and sampling controls on the same backbone subset. Summaries gave each challenge equal weight, so challenges containing more backbones did not dominate the comparison.
+
+To resolve surface composition changes into residue replacement preferences, we compared residue frequencies at corresponding surface positions. For each residue pair $a,b$, we multiplied the control frequency of $a$ by the design frequency of $b$, then subtracted the reverse exchange. We averaged this difference over surface positions and multiplied by 100. Positive values indicate a preference for the $a$-to-$b$ exchange over its reverse. This calculation uses all independent control--design pairs, without pairing sequences by seed. It describes differences between sequence ensembles, rather than observed mutation trajectories.
+
+We separately measured whether fine-tuning and charge steering altered the same surface positions. A position was classified as changed when half the summed absolute differences between its design and control amino-acid frequencies was at least 0.25. We compared the resulting position sets using the Jaccard index, defined as their intersection divided by their union. To account for differences in the number of changed positions, we calculated a chance reference as the ratio of the expected intersection to the expected union for independent random sets of the observed sizes drawn from the same surface.
+
+To compare substitution chemistry, we grouped residues as acidic (DE), basic (HKR), polar (CNQSTY) or nonpolar (AFGILMPVW). For each arm, we counted control-to-design class exchanges over all independent sequence pairs at corresponding surface positions. We excluded exchanges within the same class and normalised the remaining twelve entries to sum to one. Pearson correlation between these profiles measured agreement in the relative frequencies of class changes.
+
+To assess how much agreement could arise from surface composition alone, we permuted the guided designs' surface positions relative to their control 2,000 times. Each permutation preserved the design composition but changed its positional correspondence with the control, after which we recalculated the profile and its correlation with the unchanged fine-tuned profile. We compared the observed correlation with the upper tail of this distribution and also with the fine-tune for the opposite steering direction. This tests agreement in aggregated substitution chemistry; it does not establish that the same exchanges occur at the same positions.
+
+\subsection{Structural Evaluation}
+\label{app:jaxka-design-structural-evaluation}
+
+To assess whether the sequence changes remained compatible with the design backbone, we refolded the analysed designs as isolated binders using ESMFold2.\supercite{biohubESMFold2ModelCard2026} Each backbone's source sequence provided a recovery control. Monomer refolding used the ESMFold2-Experimental model with 200 sampling steps, three loops, seed 0 and language-model dropout of 0.25. Structural agreement was measured by the self-consistency TM-score (scTM), calculated between the refold and design backbone using C$\alpha$ atoms paired by sequence position. We also recorded mean pLDDT as a measure of predicted structural confidence. This comparison assessed recovery of the binder fold; retaining its binding pose required a separate complex-level evaluation.
+
+For complex evaluation, we first checked whether the refolder could recover each source binding pose from its original sequence. Each complex was predicted using four ESMFold2 model variants and three folding seeds. A refold passed when binder C$\alpha$ RMSD after target alignment was at most 5 \AA{} and binder ipTM was at least 0.5. For the TNF trimer, alignment considered cyclic permutations of the target chains. Only the TNF and TCR/pMHC systems passed this recovery control, so subsequent complex comparisons were restricted to these two systems.
+
+On these systems, we repeated sequence generation with the target chains supplied as fixed ProteinMPNN context. Surface membership, charge scoring and $\mathrm{p}K_a$ prediction continued to use the isolated binder. Steering strengths were fitted again against the corresponding controls generated with target context. Each arm contained eight independently sampled designs, and each design was refolded with four ESMFold2 model variants and two folding seeds. The eight refolds per design measured consistency of pose recovery and were not treated as independent sequence designs.
+
+\subsection{Predicted pH-Dependent Binding}
+\label{app:jaxka-design-binding-evaluation}
+
+We assessed predicted pH-dependent binding only for TNF refolds that met the pose-recovery criteria. Before $\mathrm{p}K_a$ prediction, each complex underwent restrained OpenMM minimisation to relax its atomic geometry while limiting backbone movement.\supercite{eastmanOpenMM7Rapid2017} Missing atoms and hydrogens were added with PDBFixer, followed by up to 200 minimisation iterations using Amber14 with OBC2 implicit solvent. Backbone N, C$\alpha$, C and O atoms were harmonically restrained to their input positions with a force constant of $10\ \mathrm{kcal\,mol^{-1}\,\mathring{A}^{-2}}$. We then predicted $\mathrm{p}K_a$s with PROPKA, pKAI and pKAI+ for the minimised complex and its separated partners, retaining the same coordinates in both states.
+
+For each predictor, we summed proton-linkage contributions from sites with predictions in both bound and separated states to estimate $\log_{10}[K_D(h)/K_D(7.4)]$. Profiles were evaluated at pH 3, 4, 5, 6, 8, 9 and 10. Positive whole-complex scores indicated predicted weaker binding than at pH 7.4. We also reported binder-site contributions separately to distinguish changes arising in the binder from those arising in the target.
+
+Each design contributed its mean linkage score over refolds that passed the pose criteria and yielded valid predictions. Comparisons between design arms used these per-design values, so designs with more qualifying refolds did not receive greater weight. Binder-site sums were interpreted as contributions to the predicted binding response, rather than complete affinity predictions.
+
+\subsection{Proton-Linkage Steering}
+\label{app:jaxka-proton-linkage}
+
+To steer pH-dependent binding, we compared predicted protonation in bound and separated states across two pH values. With $h_{\mathrm{on}}=7.4$ and $h_{\mathrm{off}}=6.0$, define
+\begin{equation}
+    G(k)=
+    \log_{10}\!\left(1+10^{k-h_{\mathrm{on}}}\right)
+    -\log_{10}\!\left(1+10^{k-h_{\mathrm{off}}}\right).
+    \label{eq:jaxka-linkage-interval}
+\end{equation}
+The proton-linkage score was
+\begin{equation}
+    J_{\mathrm{link}}
+    =\sum_i\omega_i^{BF}
+    \left[G(\hat{k}_i^B)-G(\hat{k}_i^F)\right],
+    \qquad
+    \omega_i^{BF}=\min(\omega_i^B,\omega_i^F).
+    \label{eq:jaxka-linkage-score}
+\end{equation}
+A site contributed only where both states had finite $\mathrm{p}K_a$ predictions. The paired weight used the smaller of their titratability weights. Positive scores favoured a larger predicted dissociation constant at pH 6.0 than at pH 7.4. This score replaced $J_Q$ in \cref{eq:jaxka-guided-sampling}.
+
+Both binder and target sites contributed to the score. The target's separated-state prediction remained fixed, while its bound-state prediction was recalculated for each candidate binder sequence. The fixed positive-charge contribution assigned to arginine in surface-charge steering was not used here. A site with identical $\mathrm{p}K_a$s in both states contributes zero to the linkage score.
+
+We evaluated linkage steering on the TNF complex, with the target supplied as fixed ProteinMPNN context. Steering strength was swept independently of the formal-charge matching used for surface steering. The initial sweep used $\lambda\in\{0.025,0.05,0.1,0.2,0.4,0.8\}$, with eight design seeds per strength and an eight-seed unsteered Gibbs control. A follow-up evaluated 24 designs at each of $\lambda=0.15$ and $0.20$. The latter set included the eight designs from the initial sweep, so these were not additional independent samples.
+
+Each linkage-steered design underwent one complex refold using one ESMFold2 model variant and one folding seed. Pose recovery used the RMSD and ipTM criteria in \cref{app:jaxka-design-structural-evaluation}. We reported the proportion of designs retaining the pose with exact binomial confidence intervals. Passing designs underwent the same minimisation and three-predictor evaluation described in \cref{app:jaxka-design-binding-evaluation}.
