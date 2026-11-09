@@ -189,14 +189,14 @@ Large experimental shifts remained poorly predicted. Across the 1,489 entries fo
 
 % Source: kb/experiments/027-extremophile-vs-pka-surface.md,
 % "Different surface chemistry at matched charge changes".
-Matching changes in formal surface charge revealed different sequence mechanisms under extremophile fine-tuning and $\mathrm{p}K_a$-guided steering. We compared each method against its own sampling control, matching the signed charge change so that the comparison could resolve how that change was achieved. Acidophile fine-tuning raised formal charge mainly by removing glutamate, whereas GQT and pKAI steering predominantly added lysine. Both alkaliphile routes enriched acidic residues, but the fine-tune favoured glutamate more strongly and depleted proline, while steering distributed enrichment across aspartate and glutamate (\cref{fig:jaxka-extremophile-chemistry}\,(A--F)). Equal charge changes therefore produced different groups available for protonation, hydration and local interactions.
+Matching changes in formal surface charge revealed different residue preferences under extremophile fine-tuning and $\mathrm{p}K_a$-guided steering. We compared each method against its own sampling control, matching the signed charge change so that the comparison could resolve how that change was achieved. Acidophile fine-tuning raised formal charge mainly by removing glutamate, whereas GQT and pKAI steering predominantly added lysine. Both alkaliphile routes enriched acidic residues, but the fine-tune favoured glutamate more strongly and depleted proline, while steering distributed enrichment across aspartate and glutamate (\cref{fig:jaxka-extremophile-chemistry}\,(A--F)).
 
 The acidophile glutamate-to-glutamine preference illustrates this chemical distinction. Fine-tuning favoured this exchange at corresponding surface positions, replacing a terminal carboxylate with an amide while retaining a similar side-chain scaffold (1.91 net replacements per 100 surface positions; \cref{fig:jaxka-extremophile-chemistry}\,(G)). Both steering predictors showed a small preference in the reverse direction and instead favoured alanine-to-lysine exchanges (2.55 for GQT and 2.68 for pKAI). Removing a carboxylate and introducing a basic side chain can produce the same formal-charge change, but they alter hydrogen-bonding chemistry and the response to pH differently.
 
-Proline depletion exposed a larger difference that extended to the backbone. Acidophile fine-tuning favoured proline-to-alanine exchanges, whereas alkaliphile fine-tuning strongly favoured proline-to-glutamate exchanges (3.43 and 6.96 net replacements per 100 surface positions, respectively; \cref{fig:jaxka-extremophile-chemistry}\,(G, H)). The corresponding alkaliphile preferences under GQT and pKAI were only 0.83 and 0.68. Both replacements restore a backbone N--H donor, permitting hydrogen bonds with protein acceptors as well as water. Although removing proline releases its ring constraint, the restored donor can support intramolecular hydrogen bonds that constrain the resulting conformation. The alkaliphile route additionally introduces a carboxylate capable of hydration, hydrogen bonding and electrostatic interactions.
+Proline depletion exposed a larger difference that extended to the backbone. Acidophile fine-tuning favoured proline-to-alanine exchanges, whereas alkaliphile fine-tuning strongly favoured proline-to-glutamate exchanges (3.43 and 6.96 net replacements per 100 surface positions, respectively; \cref{fig:jaxka-extremophile-chemistry}\,(G, H)). The corresponding alkaliphile preferences under GQT and pKAI were only 0.83 and 0.68. Both replacements restore a backbone N--H donor, permitting hydrogen bonds with protein acceptors as well as water. Proline depletion therefore changes the available backbone interactions alongside surface chemistry.
 
 % Interpretation: kb/chapters/06-jax-ka.md, proline and local-strain argument.
-These preferences suggest that adaptation to extreme pH changes the balance between local strain and the interactions stabilising the folded structure. Additional protein hydrogen bonds could favour a more constrained, locally strained conformation when their energetic contribution, together with solvent interactions, compensates for that strain. The pronounced proline substitutions therefore point to a possible reorganisation of the protein's hydrogen-bond network alongside surface charge. Matching net charge alone does not reproduce this chemistry.
+The proline substitutions favoured by fine-tuning suggest a possible change in the balance between local strain and stabilising interactions. Removing proline releases its ring constraint, while restoring a backbone donor can support intramolecular hydrogen bonds that constrain the resulting conformation. Such interactions could favour a locally strained conformation when their energetic contribution, together with solvent interactions, compensates for that strain.
 
 \begin{figure}[p]
     \centering
@@ -205,7 +205,10 @@ These preferences suggest that adaptation to extreme pH changes the balance betw
     \label{fig:jaxka-extremophile-chemistry}
 \end{figure}
 
-Despite these differences in surface chemistry, binder-only refolding largely recovered the design backbone. Across 496 analysed designs, 494 predictions exceeded a self-consistency TM-score of 0.5, with challenge-weighted means of 0.92--0.96 across the matched arms (\cref{fig:jaxka-extremophile-monomer-refolding}; \cref{app:jaxka-design-results}). This compatibility allowed the next comparison to distinguish retention of the binder fold from retention of its binding pose.
+Despite these differences in surface chemistry, binder-only refolding largely recovered the design backbone. Across 496 analysed designs, 494 predictions exceeded a self-consistency TM-score of 0.5, with challenge-weighted means of 0.92--0.96 across the matched arms (\cref{fig:jaxka-extremophile-monomer-refolding}; \cref{app:jaxka-design-results}). Recovery of the binder fold leaves unresolved whether these sequence changes preserve the binding pose and produce a predicted pH-dependent binding response.
+
+\subsection{Predicted pH-Dependent Binding and Pose Retention}
+\label{sec:jaxka-linkage-results}
 
 % Source: kb/experiments/027-extremophile-vs-pka-surface.md,
 % "Complex aware steering produces predicted pH selective binding".
@@ -231,12 +234,7 @@ The useful design criterion is therefore the combination of predicted linkage, s
 \subsection{Contact Prediction from Separately Embedded Partners}
 \label{sec:jaxka-interface-results}
 
-\begin{figure}[tbp]
-    \centering
-    \includegraphics[width=\textwidth]{jaxka-pinder-recipe-comparison/fig.pdf}
-    \caption[Contact prediction, partner discrimination and binding-shift error across recipes]{Contact prediction, partner discrimination and binding-shift error under run4, hotspot masking (hmask) and dRSA weighting on PINDER development validation. A, average precision (AP) for contacts within 10~\AA{} among 18,956,558 cross-chain surface-residue pairs, with a contact prevalence of 0.0138. B, accuracy of ranking the supplied antibody/antigen partner above a same-stratum swapped partner, over 645 comparisons from 129 complexes. C, binding-induced $\Delta\mathrm{p}K_a$ MAE with bonded-Cys sites excluded. Hmask and dRSA use a fixed 29,305-site evaluation; run4 uses its corresponding saved residue audit. All models use the 50\% training pool and unmasked separated-partner evaluation, with partners embedded at their bound conformations. Points show seed 17 for run4 and seeds 17, 29 and 43 for hmask and dRSA. Short bars and numerical labels show arithmetic means; thin lines connect matching seeds across recipes. Checkpoints were selected by validation state MAE plus interface binding-shift MAE. The run4-to-hmask comparison changes within-complex ranking, negative supervision and hotspot augmentation together, so it does not isolate the effect of masking. These are descriptive recipe comparisons on the development cohort.}
-    \label{fig:jaxka-pinder-recipe-comparison}
-\end{figure}
+
 
 \subsection{POISK Binder/Decoy Discrimination}
 \label{sec:jaxka-poisk-results}

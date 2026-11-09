@@ -43,7 +43,7 @@ dRSA weighting retains that recipe and changes the within-ranking target to `sof
 
 The matched hmask-to-dRSA comparison improves surface-interface AUROC from 0.6598 to 0.7004 and dRSA-weighted NDCG from 0.5195 to 0.5338. Surface-interface and swapped-partner improvements occur in each seed. The distance-defined within-complex AUROC decreases slightly. Binding-shift MAE over the fixed 29,305 clean sites changes from 0.06561 to 0.06608, with inconsistent large-shift gains across seeds. The edge-binder improvement therefore does not establish improved pKa prediction.
 
-The [PINDER recipe figure](../../figures/jaxka-pinder-recipe-comparison/fig.pdf) shows contact AP, antibody/antigen swap accuracy and clean binding-shift MAE across run4, hmask and dRSA. Individual seeds and arithmetic means remain visible. The [supporting ablation figure](../../figures/jaxka-pinder-ablations/fig.pdf) separates negative construction, ANM consistency and scaling. Both have regeneration scripts, frozen source reports, point-level data and captions in their figure directories.
+The [PINDER recipe figure](../../figures/jaxka-pinder-recipe-comparison/fig.pdf) shows contact AP, antibody/antigen swap accuracy and clean binding-shift MAE across run4, hmask and dRSA. Individual seeds and arithmetic means remain visible. The [supporting ablation figure](../../figures/jaxka-pinder-ablations/fig.pdf) separates negative construction, ANM consistency and scaling. Both have regeneration scripts, frozen source reports, point-level data and captions in their figure directories. Keep the PINDER recipe figure in the thesis appendix, with the main-text recipe comparison referring to it.
 
 ## Negative construction distinguishes contacts from sequence compatibility
 

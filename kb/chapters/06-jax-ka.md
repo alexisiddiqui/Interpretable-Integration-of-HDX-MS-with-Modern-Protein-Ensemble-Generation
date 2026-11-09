@@ -40,11 +40,19 @@ Paragraph outline for `thesis/chapters/06-jax-ka.tex`. Each bullet develops one 
 
 - **Extremophile adaptation may favour additional local strain when stabilising interactions compensate for it.** The pronounced proline-to-alanine and proline-to-glutamate preferences restore backbone N–H donors that can hydrogen-bond with protein acceptors as well as water. Removing proline releases its ring constraint, but newly available intramolecular hydrogen bonds could stabilise and constrain the resulting conformation. Under highly acidic or basic conditions, these internal interactions, together with hydration and electrostatics, could compensate for additional local strain. The substitutions therefore suggest reorganisation of the protein's hydrogen-bond network alongside surface charge, a balance that charge matching alone does not reproduce ([[027-extremophile-vs-pka-surface]]; `jaxka-extremophile-chemistry`; own interpretation).
 
-- **Monomer refolding connects sequence chemistry to the binding comparison.** After interpreting the surface substitutions, briefly establish compatibility with the design backbone (494/496 predictions with scTM above 0.5), then ask whether the binding pose is also retained. Keep the detailed scTM, pLDDT and mutation-load comparison in the appendix ([[027-extremophile-vs-pka-surface]]; `jaxka-extremophile-monomer-refolding`).
+- **Monomer refolding connects sequence chemistry to the binding comparison.** After interpreting the surface substitutions, briefly establish compatibility with the design backbone (494/496 predictions with scTM above 0.5), then ask whether the binding pose is also retained ([[027-extremophile-vs-pka-surface]]; `jaxka-extremophile-monomer-refolding`).
 
 - **Target context alone does not make surface-charge steering select pH-dependent binding.** On TNF, a bound/free linkage objective increases predicted binder-site contributions to pH selectivity among designs retaining the pose, while stronger steering reduces pose retention. This trade-off motivates ranking sequence proposals under structural constraints ([[027-extremophile-vs-pka-surface]]; `jaxka-complex-linkage-selectivity`).
 
-- **Predicted linkage and pose retention must be interpreted together.** Increasing steering strength raises the GQT linkage objective while reducing pose retention. Show both in the main figure, followed by PROPKA, pKAI and pKAI+ responses among retained designs. This distinguishes optimisation of the design score, its structural cost and corroboration by checking predictors ([[027-extremophile-vs-pka-surface]]; `jaxka-complex-linkage-selectivity`).
+- **Predicted linkage and pose retention must be interpreted together.** Increasing steering strength raises the GQT linkage objective while reducing pose retention. Comparing these with PROPKA, pKAI and pKAI+ responses among retained designs distinguishes optimisation of the design score, its structural cost and corroboration by checking predictors ([[027-extremophile-vs-pka-surface]]; `jaxka-complex-linkage-selectivity`).
+
+### Sequence-design figures and section plan
+
+- [jaxka-extremophile-chemistry](../../figures/jaxka-extremophile-chemistry/fig.pdf) is the main-text chemistry figure. It supports the matched-charge comparison and the biochemical interpretation of residue preferences.
+- [jaxka-complex-linkage-selectivity](../../figures/jaxka-complex-linkage-selectivity/fig.pdf) goes in the main text as the full figure, keeping the linkage score, pose retention and checking-predictor responses together.
+- [jaxka-extremophile-monomer-refolding](../../figures/jaxka-extremophile-monomer-refolding/fig.pdf) goes in the appendix. A brief main-text reference bridges the chemistry comparison to binding; the appendix retains the detailed scTM, pLDDT and mutation-load comparison.
+- [jaxka-extremophile-overlap](../../figures/jaxka-extremophile-overlap/fig.pdf) is retained in the experiment record.
+- [jaxka-extremophile-complex-confidence](../../figures/jaxka-extremophile-complex-confidence/fig.pdf) is retained in the experiment record.
 
 ## Developing the free-partner edge binder
 
@@ -53,6 +61,10 @@ Paragraph outline for `thesis/chapters/06-jax-ka.tex`. Each bullet develops one 
 - **Hotspot augmentation improves local contact discrimination.** Within-complex ranking and asymmetric PeSTo masking direct training towards exposed candidate interfaces. PeSTo is used during training; inference uses unmasked backbone and sequence. Hmask reaches mean same-stratum swap accuracy 0.7563 and antibody/antigen accuracy 0.6656 across three seeds ([[jaxka-edge-binder#Run 4, hotspot masking and dRSA]]).
 
 - **dRSA weighting favours contacts that bury exposed surface.** Weighting ranking targets by the smaller burial change at the two residues raises mean surface-interface AUROC from 0.6598 to 0.7004 and antibody/antigen swap accuracy from 0.6656 to 0.7039. The gains occur across seeds, while distance-defined within-complex AUROC and binding-shift MAE do not improve consistently ([[jaxka-edge-binder#Run 4, hotspot masking and dRSA]]; `jaxka-pinder-recipe-comparison`).
+
+### Edge-binder figures and section plan
+
+- [jaxka-pinder-recipe-comparison](../../figures/jaxka-pinder-recipe-comparison/fig.pdf) goes in the appendix. The main text discusses the run4, hmask and dRSA comparisons and refers to this figure.
 
 ## Negative construction and geometric consistency
 
