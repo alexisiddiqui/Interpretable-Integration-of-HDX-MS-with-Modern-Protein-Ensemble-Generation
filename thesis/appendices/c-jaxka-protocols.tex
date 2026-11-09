@@ -630,3 +630,70 @@ Both binder and target sites contributed to the score. The target's separated-st
 We evaluated linkage steering on the TNF complex, with the target supplied as fixed ProteinMPNN context. Steering strength was swept independently of the formal-charge matching used for surface steering. The initial sweep used $\lambda\in\{0.025,0.05,0.1,0.2,0.4,0.8\}$, with eight design seeds per strength and an eight-seed unsteered Gibbs control. A follow-up evaluated 24 designs at each of $\lambda=0.15$ and $0.20$. The latter set included the eight designs from the initial sweep, so these were not additional independent samples.
 
 Each linkage-steered design underwent one complex refold using one ESMFold2 model variant and one folding seed. Pose recovery used the RMSD and ipTM criteria in \cref{app:jaxka-design-structural-evaluation}. We reported the proportion of designs retaining the pose with exact binomial confidence intervals. Passing designs underwent the same minimisation and three-predictor evaluation described in \cref{app:jaxka-design-binding-evaluation}.
+
+\section{Interface-Recipe Development Comparisons}
+\label{app:jaxka-interface-comparisons}
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=\textwidth]{jaxka-pinder-recipe-comparison/fig.pdf}
+    \caption[Contact prediction, partner discrimination and binding-shift error across recipes]{Contact prediction, partner discrimination and binding-shift error under run4, hotspot masking (hmask) and dRSA weighting on PINDER development validation. A, average precision (AP) for contacts within 10~\AA{} among 18,956,558 cross-chain surface-residue pairs, with a contact prevalence of 0.0138. B, accuracy of ranking the supplied antibody/antigen partner above a same-stratum swapped partner, over 645 comparisons from 129 complexes. C, binding-induced $\Delta\mathrm{p}K_a$ MAE with bonded-Cys sites excluded. Hmask and dRSA use a fixed 29,305-site evaluation; run4 uses its corresponding saved residue audit. All models use the 50\% training pool and unmasked separated-partner evaluation, with partners embedded at their bound conformations. Points show seed 17 for run4 and seeds 17, 29 and 43 for hmask and dRSA. Short bars and numerical labels show arithmetic means; thin lines connect matching seeds across recipes. Checkpoints were selected by validation state MAE plus interface binding-shift MAE. The run4-to-hmask comparison changes within-complex ranking, negative supervision and hotspot augmentation together, so it does not isolate the effect of masking. These are descriptive recipe comparisons on the development cohort.}
+    \label{fig:jaxka-pinder-recipe-comparison}
+\end{figure}
+
+
+\section{Supporting Sequence-Design Results}
+\label{app:jaxka-design-results}
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=\textwidth,height=0.64\textheight,keepaspectratio]{jaxka-extremophile-chemistry/fig.pdf}
+    \caption[Residue preferences at matched surface-charge changes]{Matched changes in formal surface charge produced different residue replacement preferences. Fine-tunes use autoregressive vanilla ProteinMPNN controls; GQT and pKAI steering use unsteered Gibbs controls. \textbf{(A--F)} Rows denote control residues and columns design residues. Entries are $100\langle p_{\mathrm{control}}(a)p_{\mathrm{design}}(b)-p_{\mathrm{control}}(b)p_{\mathrm{design}}(a)\rangle$ over surface positions. Positive values favour row-to-column exchange over its reverse. The shared logarithmic scale colours positive means of at least 0.05 per 100 surface positions; pale cells include reverse preferences and smaller values. Numbers label means of at least 1.5. \textbf{(G, H)} Selected signed preferences in the acid and alkaline directions. Orange, green and blue denote fine-tuning, GQT and pKAI. Points show backbones; circles, squares, triangles and diamonds identify challenges 1, 2, 3 and 5. Black bars average backbones within challenges, then weight challenges equally. Each arm and control contains eight independent designs per backbone; comparisons contain six backbones except pKAI alk, which has five. Blue shading marks E/Q and D/N comparisons; tan marks methionine enrichment routes. Preferences compare sequence ensembles at corresponding positions, not observed mutation trajectories.}
+    \label{fig:jaxka-extremophile-chemistry-full}
+\end{figure}
+
+% Source: kb/experiments/027-extremophile-vs-pka-surface.md,
+% "Different surface chemistry at matched charge changes"; position-agreement results.
+Despite these differences in replacement chemistry, fine-tuning and steering altered overlapping sets of surface positions. We compared their overlap with a chance expectation that accounted for the number of positions changed by each method. Challenge-weighted Jaccard scores ranged from 0.559 to 0.577, compared with chance expectations of 0.366 to 0.400 (\cref{fig:jaxka-extremophile-overlap}\,(A)). The methods therefore shared a positional preference beyond that expected from the extent of sequence modification alone. This overlap does not establish whether they favoured chemically similar replacements at those positions.
+
+% Source: opig-adaptyv-2026/experiments/027-extremophile-vs-pka-surface/README.md,
+% section 3, off-diagonal class-substitution comparisons and permutation upper tails.
+Agreement in substitution chemistry depended on the direction of steering. We grouped replacements into exchanges among acidic, basic, polar and nonpolar residues, then compared their agreement with permutations that preserved surface composition but shuffled residue positions. In the alkaline direction, agreement exceeded the upper 95\% permutation threshold for all six GQT and five pKAI comparisons. In the acid direction, only one of six backbones met this criterion for each predictor (\cref{fig:jaxka-extremophile-overlap}\,(B)). The alkaline comparisons therefore retained agreement in the types of chemical exchange despite their differences in individual residue preferences. This agreement concerns exchanges across the surface and does not establish that they occurred at the shared positions.
+
+
+
+% Source: opig-adaptyv-2026/experiments/027-extremophile-vs-pka-surface/README.md,
+% section 5, binder-only refolding and matched-tier self-consistency scores.
+These sequence changes were largely compatible with the design backbone in binder-only ESMFold2 predictions. Across all analysed designs, 494 of 496 refolds had a self-consistency TM-score above 0.5. Within the matched comparison, challenge-weighted mean scores ranged from 0.92 to 0.96 across the sampling arms (\cref{fig:jaxka-extremophile-monomer-refolding}\,(A)). The two low-scoring refolds were alkaline-steered designs from the same backbone, one generated with GQT and one with pKAI. Fold recovery therefore remained high despite the differences in surface chemistry. The target was absent from these predictions, so this comparison does not establish retention of the binding pose.
+
+% Source: opig-adaptyv-2026/experiments/027-extremophile-vs-pka-surface/README.md,
+% section 5, confidence differences and mutation-load qualification.
+Predicted confidence separated the methods more consistently than fold recovery. AlkSecMPNN had lower pLDDT than vanilla ProteinMPNN on all six matched backbones, and AcidSecMPNN on five of six (\cref{fig:jaxka-extremophile-monomer-refolding}\,(B)). Steered designs remained closer to their unsteered Gibbs control. The fine-tunes also changed more positions than steering (54--58\% compared with 31--33\%), including more buried residues. Their lower confidence therefore cannot be attributed to the preferred surface chemistry alone, because the extent and location of sequence modification also differed.
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=\textwidth]{jaxka-extremophile-overlap/fig.pdf}
+    \caption[Surface-position overlap and substitution chemistry]{Surface-position overlap and substitution chemistry under fine-tuning and charge steering. Each guided arm is compared with the fine-tune for the same direction, using changes relative to their respective sampling controls. A, Jaccard overlap of changed surface positions minus its chance expectation for sets of the same sizes. A position was classified as changed when half the summed absolute differences in design and control residue frequencies was at least 0.25. B, Pearson correlation between profiles of exchanges among acidic, basic, polar and nonpolar residue classes, excluding exchanges within a class, minus the mean correlation from 2,000 position permutations. Permutations preserve the guided design composition but shuffle its correspondence with control positions. Positive values indicate agreement above the permutation mean, without establishing agreement at shared positions. Points represent matched backbones, with six per comparison except pKAI alk, which contains five. Symbols identify challenges 1 (circles), 2 (squares), 3 (triangles) and 5 (diamonds). Black bars give means over backbones within each challenge, then over equally weighted challenges. Dashed lines mark the respective null expectations. Statistical definitions are given in \cref{app:jaxka-design-statistics}.}
+    \label{fig:jaxka-extremophile-overlap}
+\end{figure}
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=\textwidth]{jaxka-extremophile-monomer-refolding/fig.pdf}
+    \caption[Binder fold recovery and predicted structural confidence]{Binder fold recovery and predicted structural confidence after fine-tuning and surface-charge steering. A, self-consistency TM-score (scTM) between binder-only ESMFold2 predictions and the design backbone. B, mean binder pLDDT on a 0--1 scale. Points average eight designs within each matched backbone; native sequences provide one reference prediction per backbone. Comparisons contain six backbones, except pKAI alk, which contains five. Symbols identify challenges 1 (circles), 2 (squares), 3 (triangles) and 5 (diamonds). Black bars give means over backbones within each challenge, then over equally weighted challenges. Fine-tunes are compared with autoregressive vanilla ProteinMPNN, and GQT and pKAI steering with unsteered Gibbs sampling. Each sequence was predicted with one ESMFold2 model and one folding seed. The fine-tunes changed more positions, including more buried positions, so their lower pLDDT cannot be attributed to replacement chemistry alone. Monomer refolding assesses compatibility with the design backbone and does not establish stability or retention of the binding pose.}
+    \label{fig:jaxka-extremophile-monomer-refolding}
+\end{figure}
+
+\section{Supporting POISK Readout Comparison}
+\label{app:jaxka-poisk-readouts}
+
+% Source: figures/jaxka-poisk-recipe-comparison/plotted_data.csv,
+% apo, edge_top50_cdr; all three checkpoints use seed 17.
+On independently folded POISK partners, most of the improvement in the top-50 CDR contact readout occurred between run4 and hmask. Averaging the 50 highest contact probabilities between CDR residues and the antigen gave binder/decoy accuracies of 43.7\%, 71.2\% and 71.3\% for run4, hmask and dRSA, respectively, across 11,111 complete pairs (\cref{fig:jaxka-poisk-recipe-comparison}). All three checkpoints used seed 17. The gain was obtained without supplying a complex pose, but binder/decoy accuracy alone does not establish how much of that gain depends on recognising the supplied antigen.
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=\textwidth]{jaxka-poisk-recipe-comparison/fig.pdf}
+    \caption[POISK binder/decoy discrimination across run4, hmask and dRSA]{POISK binder/decoy discrimination across run4, hmask and dRSA. Blue denotes independently folded free monomers, using ABodyBuilder2 for Fvs and ESMFold for antigens, on 11,111 complete pairs. Orange denotes bound conformers embedded separately, and green denotes supplied Protenix-v2 complex poses, each on 11,115 pairs. Hollow circles, hollow diamonds and filled circles identify run4, hmask and dRSA, respectively; lines connect successive recipes. All three models use seed 17. Pairwise accuracy is the fraction of pairs in which the binder outscores its matched decoy, with ties contributing one half. The dashed line marks chance at 0.5. Dotted and solid vertical lines show Boltz-2 and Protenix-v2 ipSAE accuracy on the released 11,247-pair benchmark, whose support differs from the GQT comparisons. Contact sums, maxima and top-50 means aggregate residue-pair contact probabilities over the indicated Fv or CDR rows. In free-monomer modes, predicted burial change is free exposure multiplied by the best contact probability to the partner; in complex mode it is predicted bound minus free burial. Burial-weighted contacts multiply contact probability by the predicted burial contributions at both ends. Binder/decoy accuracy alone does not distinguish an antibody-intrinsic sequence signal from recognition of its antigen.}
+    \label{fig:jaxka-poisk-recipe-comparison}
+\end{figure}
