@@ -708,3 +708,70 @@ Matched training supplied full-length AlphaFold models for both observed and Neg
 Restricting alternative geometries to contact and ranking losses preserved crystal-derived inputs for $\mathrm{p}K_a$, burial and titratability supervision. At seed 17, antibody/antigen swap accuracy was 0.6620 with edge-only augmentation and 0.6698 with edge-only consistency, against 0.6713 for hmask. Neither variant improved the crystal-conformation comparison.
 
 Adding edge-only augmentation to dRSA retained crystal-defined burial targets. Antibody/\allowbreak antigen swap accuracy fell from 0.7023 to 0.6682, while dRSA-weighted NDCG changed from 0.5349 to 0.5334. On approximately 2~\AA{} ANM views, overall swap accuracy changed from 0.7874 to 0.7899. The small gain on perturbed inputs did not extend to crystal-conformation antibody/antigen discrimination.
+
+\section{POISK Antigen and Sequence Controls}
+\label{app:jaxka-poisk-controls}
+
+% Sources: kb/experiments/028-poisk-free-monomer.md;
+% /Users/alexi/Documents/opig-adaptyv-2026/experiments/028-poisk-free-monomer/
+% results/summary_blind_drsa_wrong_antigen.csv, logreg_summary.csv,
+% logreg_nodecoy_summary.csv; README.md, Outcome.
+The POISK controls distinguish binder/decoy pool discrimination from recognition of the supplied antigen. The fixed contact readouts compare binder/decoy ranking with the correct or a wrong antigen (\cref{tab:jaxka-poisk-wrong-antigen}). Separate logistic readouts test antibody-only and sequence-composition explanations (\cref{tab:jaxka-poisk-learned-controls}). The binders-only comparison then holds the antibody fixed and tests its own antigen against alternatives (\cref{tab:jaxka-poisk-binders-only}). These learned readouts were fitted on POISK and are distinct from the untrained contact aggregations.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{llrr}
+        \toprule
+        Readout & Recipe & Correct antigen & Wrong antigen \\
+        \midrule
+        Burial-weighted CDR contacts & run4 & 0.490 & 0.484 \\
+         & hmask & 0.667 & 0.665 \\
+         & dRSA & 0.675 & 0.666 \\
+        Maximum CDR contact probability & run4 & 0.481 & 0.482 \\
+         & hmask & 0.644 & 0.636 \\
+         & dRSA & 0.661 & 0.649 \\
+        \bottomrule
+    \end{tabular}
+    \caption[POISK correct- and wrong-antigen controls]{POISK binder/decoy pairwise accuracy using independently folded partners and fixed, untrained contact readouts. Each recipe uses seed 17. Burial-weighted contacts multiply contact probability by predicted burial contributions at both ends. Replacing the antigen leaves most of the binder/decoy discrimination intact. Values are reported to the precision of the saved control summary; chance is 0.5.}
+    \label{tab:jaxka-poisk-wrong-antigen}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{lrr}
+        \toprule
+        Learned readout features & run4 & hmask \\
+        \midrule
+        Pooled embeddings, antibody only & 0.894 & 0.891 \\
+        Antibody embeddings plus antibody--antigen products & 0.895 & 0.890 \\
+        Same features, wrong antigen & 0.892 & 0.890 \\
+        \midrule
+        VH/VL amino-acid composition, no GQT & \multicolumn{2}{c}{0.863} \\
+        VH/VL amino-acid and dipeptide composition, no GQT & \multicolumn{2}{c}{0.950} \\
+        \bottomrule
+    \end{tabular}
+    \caption[POISK antibody-only and sequence-composition controls]{POISK binder/decoy pairwise accuracy for learned blind readouts, averaged over five antigen-cluster splits. Antigens were clustered at 80\% sequence identity and whole clusters assigned to training or test sets. Logistic regression used binder-minus-decoy feature differences, with regularisation chosen by antigen-cluster-grouped cross-validation within training. Split standard deviations for the displayed readouts were below 0.008. Sequence-composition controls use no GQT features and are shared across recipe columns. Antibody-only and wrong-antigen performance identify discrimination that does not require the correct pairing.}
+    \label{tab:jaxka-poisk-learned-controls}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{llrr}
+        \toprule
+        Learned readout features & Recipe & Pairwise accuracy & Top-1 of 10 \\
+        \midrule
+        GQT summary scores & run4 & $0.498 \pm 0.012$ & --- \\
+         & hmask & $0.515 \pm 0.005$ & --- \\
+        Antibody--antigen embedding products & run4 & $0.538 \pm 0.008$ & 0.124 \\
+         & hmask & $0.566 \pm 0.011$ & 0.147 \\
+        Antigen embedding only & run4 & $0.501 \pm 0.004$ & 0.105 \\
+         & hmask & $0.498 \pm 0.004$ & 0.104 \\
+        Sequence-composition products & No GQT & $0.532 \pm 0.016$ & 0.124 \\
+        \bottomrule
+    \end{tabular}
+    \caption[POISK binders-only antigen ranking]{Learned blind readouts for POISK binders-only antigen ranking. Pairwise accuracy is mean $\pm$ standard deviation across five antigen-cluster splits; top-1 retrieval is the split mean. Each comparison holds the antibody fixed, so antibody-only features cancel. Alternative antigens come from different antigen clusters on the same side of the split, with three negatives per binder for training and nine for testing. Embedding products are elementwise products of pooled CDR or framework embeddings with the antigen embedding. The summary-score arm instead uses one stored wrong antigen and approximately 2,621 test binders per split, compared with approximately 5,459 for the other arms; top-1-of-10 retrieval is therefore not reported for that arm. Chance is 0.5 for pairwise accuracy and 0.1 for top-1-of-10 retrieval.}
+    \label{tab:jaxka-poisk-binders-only}
+\end{table}
