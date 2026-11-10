@@ -1,0 +1,248 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{xurl}
+\usepackage{hyperref}
+\usepackage[capitalise]{cleveref}
+
+\title{Co-folding models as binder/decoy judges on POISK:\\separate and competition scoring}
+\author{Alexander Hussain-Siddiqui}
+\date{}
+
+% Sidecar note. Source: opig-adaptyv-2026/experiments/028-poisk-free-monomer/README.md
+% ("Co-folding pilots" and "Competition (trimer) mode"); scripts mol1_pilot.py,
+% template_pilot.py, pilot_score.py, trimer_score.py; results/template_pilot_summary.csv,
+% results/trimer_pilot_summary.csv, results/trimer_pilot_jobs.csv.
+% Self-contained: compiles with pdflatex alone (no biber, no thesis preamble).
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+Whether a co-folding model separates a patent binder from its sequence-similar decoy depends on its inputs, and whether it still does so when it must choose between the two depends on the order in which the chains are listed.
+On 25 POISK pairs, ten co-folding configurations were scored on each antibody separately and in a single job that held both antibodies (competition scoring), with every pair run in both chain orders.
+Multiple sequence alignments (MSAs) on every chain gave the most consistent choice of binder, apo templates did not replace them, and three configurations favoured the first-listed antibody in 60--62\% of jobs.
+Twenty-five pairs rule out broken set-ups but cannot rank the models.
+\end{abstract}
+
+\section{Introduction}
+
+POISK pairs 11,247 patent antibody binders with a sequence-similar decoy against the same antigen, and six co-folding models separate them at best with 0.72 pairwise accuracy (Protenix-v2, ipSAE) \cite{poisk}.
+The jax-Ka contact model scores a pair from two independently folded partners, at a small fraction of the cost of co-folding, so co-folding is the comparator that its POISK results must be read against.
+A fair comparison depends on a prior question, which is which co-folding set-ups can be run at benchmark scale here, and how much of their accuracy rests on inputs that are expensive to supply.
+The principal input is the MSA, because POISK contains 17.7k heavy chains, 13.9k light chains and 750 antigens.
+
+Scoring each antibody against the antigen on its own asks whether a model is confident in the binder.
+It does not ask whether the model prefers the binder when the decoy is present.
+Competition scoring asks the second question by folding the antigen with both antibodies in one job, so that the two compete for the same surface.
+A model that is confident in every antibody could still choose correctly in competition, and a model that discriminates in separate jobs could lose that ability once it must choose.
+The chain order adds a second condition, because a model that favours the first-listed chain would appear to discriminate in a single order without doing so.
+
+We therefore ran ten co-folding configurations on a pilot of 25 pairs, first in separate jobs and then in competition with both chain orders.
+This design checks that each set-up works and shows which input choices matter.
+With 25 pairs it does not rank the models.
+
+\section{Methods}
+\label{sec:methods}
+
+\subsection{Benchmark and pilot pairs}
+
+The POISK release provides 11,247 binder/decoy pairs against 750 unique antigens (50--750 residues), with no VHHs \cite{poisk}.
+In each pair the decoy was selected for sequence similarity to the binder.
+We drew 25 pairs at random (seed 0), giving 50 complexes.
+Pairwise accuracy is the fraction of pairs in which the binder scores above its decoy, so chance is 0.5.
+With 25 pairs the binomial standard error is about 0.1.
+
+\subsection{Inputs}
+
+Antibody Fvs were taken as heavy and light chains.
+Apo structures for templates came from independent refolds of the free partners, with ABodyBuilder2 for each Fv \cite{abodybuilder2} and ESMFold for each antigen \cite{esmfold}.
+All 150 chains of the pilot (25 pairs, each with a binder Fv, a decoy Fv and an antigen) matched their refolds exactly by sequence.
+
+MSAs came from the public ColabFold server.
+The server returned 118 pilot chains in about four hours, the paper's MSAs are not released, and the shared evaluation cache held none of these chains.
+The 118 chains are now cached for later runs.
+This cost is why full-scale POISK, with 31.6k antibody chains to search, was not run with MSAs.
+
+\subsection{Co-folding configurations}
+
+Ten configurations were run, each on one L40S GPU, covering four models and three levels of evolutionary or structural input (\cref{tab:configs}).
+The models were Mol-1, Boltz-2 with Feynman--Kac (FK) steering \cite{boltz2}, ESMFold2 \cite{esmfold2} and Protenix v1 \cite{protenix}.
+Boltz-2 used the evaluation suite's apo-template runner, in which every residue is templated, with iPTM-guided FK resampling over three particles.
+ESMFold2 used the \texttt{biohub/ESMFold2} checkpoint at the evaluation-suite pin (20 loops, 200 steps, one diffusion sample, reference kernels), loaded in its own image.
+Mol-1 accepts inline mmCIF templates and needs \texttt{kalign} on the path.
+
+Protenix reads template hits only for four-character PDB-style identifiers with a release date, and it discards a hit that is an exact subsequence covering more than 95\% of the query.
+Its apo templates were therefore registered under synthetic identifiers (\texttt{z000} onwards) and trimmed to 95\% coverage.
+
+\begin{table}[ht]
+\centering
+\caption{Co-folding configurations in the pilot. Every configuration used one sample per job on one L40S GPU. ``MSA'' denotes ColabFold MSAs.}
+\label{tab:configs}
+\small
+\begin{tabularx}{\textwidth}{@{}lXXX@{}}
+\toprule
+Model & Single sequence & Apo templates & MSA \\
+\midrule
+Mol-1 & yes & yes (inline mmCIF) & -- \\
+Boltz-2 + FK & -- & yes (every residue) & every chain \\
+ESMFold2 & yes & -- & antigen only; every chain \\
+Protenix v1 & yes & yes (renamed, 95\% trimmed) & every chain \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Separate scoring}
+
+Each complex held the antigen and one antibody (heavy and light chains), and was predicted independently.
+Two scores were taken from each prediction.
+The overall ipTM is the model's complex-level confidence.
+The interface score is the mean of the two antigen--antibody chain-pair ipTMs.
+The paper's own runs on the same pairs (ColabFold MSAs, no templates) were taken from its released scores, with the full-Fv ipSAE as the interface score.
+
+\subsection{Competition scoring}
+
+Each competition job folded the antigen (chain A) with the binder Fv (chains B and C) and the decoy Fv (chains D and E), so that the model had to allocate the antigen surface.
+Each antibody was scored by the mean of the chain-pair ipTMs between the antigen and its two chains.
+The binder won a job when its score exceeded the decoy's.
+
+Every pair was run in both chain orders, with the binder listed first in one job and second in the other, giving 50 jobs per configuration.
+We report three quantities.
+Binder wins is the fraction of the 50 jobs in which the binder scored higher.
+Pairs won in both orders is the fraction of the 25 pairs in which the binder won in both jobs, and it is the measure that a first-listed preference cannot inflate.
+First-listed wins is the fraction of jobs won by whichever antibody was listed first, and a value of 0.5 means no order preference.
+
+The 16 largest Boltz-2 jobs with templates (about 1,000 tokens) exceeded 48~GB and were rerun on an H100.
+
+\subsection{Controls}
+
+A PeSTo control \cite{pesto} set the floor that any structure-based call must clear.
+PeSTo predicts interface residues on each apo chain on its own, so it cannot score a pairing.
+The antibody with the higher mean propensity over its CDRs (or, separately, over the whole Fv) was called the binder.
+This control sees neither the complex nor the chain order, so its separate and competition values are the same and its first-listed rate is 0.50 by construction.
+
+\section{Results}
+
+\subsection{Separate scoring}
+
+The best separate-mode configurations were Protenix v1 with MSAs on every chain (0.88 on ipTM), and ESMFold2 with MSAs on the antigen or on every chain (0.80), while Mol-1 reached 0.72 (\cref{tab:separate}).
+Protenix v1 with MSAs on every chain scored 0.88, against 0.92 for the paper's run of the same checkpoint, and 0.84 against 0.82 on the interface score.
+The gap to the paper is therefore small, and it was achieved without the paired MSAs that the paper also used.
+Protenix with apo templates and no MSAs reached only 0.68, and with neither it fell to 0.24.
+Apo templates therefore do not replace MSAs for Protenix.
+
+ESMFold2 with an MSA on the antigen alone gave 0.80 on ipTM and 0.76 on the interface score (median ipTM 0.80 for binders and 0.45 for decoys), level with the paper's Protenix-v2.
+Adding MSAs to the heavy and light chains left ipTM at 0.80 and raised the interface score to 0.84, a difference of two pairs.
+Because the evaluation suite keeps binders single-sequence, as designs have no homologues, the antigen-only set-up is the one that scales; it needs 750 antigen searches and not 31.6k antibody searches.
+
+Boltz-2 separated binders only weakly (0.60 on ipTM with either templates or MSAs), because it was confident on everything it was given.
+With templates the median ipTM was 0.79 for binders and 0.73 for decoys.
+Templates fixed the antigen fold for the models that otherwise lost it.
+Single-sequence Mol-1 placed the antigen a median 22.6~\AA{} from its apo structure, and with templates it placed it 2.7~\AA{} away (Protenix 2.5~\AA{}), while heavy and light chains folded within 0.3--0.8~\AA{} of their templates either way.
+A correct antigen fold did not guarantee discrimination, since Mol-1 stayed at 0.72 and Boltz-2 at 0.60 with it.
+
+\begin{table}[ht]
+\centering
+\caption{Binder-over-decoy accuracy on 25 POISK pairs scored in separate jobs. ipTM is the complex-level score. Interface is the mean antigen--antibody chain-pair ipTM for the configurations run here, and full-Fv ipSAE for the paper rows. Each value has a standard error of about 0.1. Time is per complex on one L40S, including model load and, for Mol-1, its CUDA build.}
+\label{tab:separate}
+\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Configuration & ipTM & Interface & Time (s) \\
+\midrule
+Mol-1, single sequence & 0.72 & 0.64 & 110 \\
+Mol-1, apo templates & 0.72 & 0.72 & 130 \\
+Boltz-2 + FK, apo templates & 0.60 & 0.60 & 74 \\
+Boltz-2 + FK, MSAs & 0.60 & 0.72 & 86 \\
+ESMFold2, single sequence & 0.64 & 0.72 & 78 \\
+ESMFold2, MSA on antigen only & 0.80 & 0.76 & 78 \\
+ESMFold2, MSAs on every chain & 0.80 & 0.84 & 82 \\
+Protenix v1, single sequence & 0.24 & 0.40 & 36 \\
+Protenix v1, apo templates & 0.68 & 0.68 & 39 \\
+Protenix v1, MSAs on every chain & 0.88 & 0.84 & 44 \\
+\midrule
+PeSTo, CDR propensity (control) & 0.56 & 0.56 & -- \\
+PeSTo, whole-Fv propensity (control) & 0.48 & 0.48 & -- \\
+\midrule
+Protenix-v2, paper (MSAs) & 0.80 & 0.74 & -- \\
+Protenix-v1, paper (MSAs) & 0.92 & 0.82 & -- \\
+Boltz-2, paper (MSAs) & 0.60 & 0.54 & -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Competition scoring}
+
+When the model had to choose, MSAs on every chain again gave the most consistent call (\cref{tab:competition}).
+Protenix v1 with MSAs chose the binder in 0.78 of jobs and in both orders for 18 of 25 pairs, followed by Boltz-2 with MSAs and ESMFold2 with MSAs on every chain at 15 of 25 each.
+Templates without MSAs did not help.
+Mol-1 and Protenix with templates won both orders for only 0.40 of pairs, below the 0.56 of the PeSTo control, which sees only the apo antibody.
+A template-only competition run therefore falls below a call made from the antibody alone.
+
+Competition also changed what Boltz-2 could do.
+In separate jobs it barely separated binders (0.60), but its template configuration reached 0.70 and its MSA configuration 0.76 when the decoy was present.
+
+\subsection{Chain order}
+
+Chain order biased some configurations.
+Boltz-2 with MSAs and ESMFold2 without antibody MSAs chose the first-listed antibody in 62\% and 60--62\% of jobs, respectively.
+A single-order competition run of either would have reported the binder-win rate of a model that partly follows the chain order.
+Pairs won in both orders is the measure that this cannot inflate, and it ranks Boltz-2 with MSAs (0.60) below Protenix v1 with MSAs (0.72) even though their binder-win rates differ by only 0.02.
+Protenix v1 with MSAs showed no order preference (0.52 first-listed wins).
+
+\begin{table}[ht]
+\centering
+\caption{Competition scoring on 25 POISK pairs, each run with the binder listed first and listed second (50 jobs per configuration). Binder wins is the fraction of jobs in which the binder's mean antigen chain-pair ipTM exceeded the decoy's. Pairs won in both orders is the fraction of the 25 pairs won in both jobs. First-listed wins is the fraction of jobs won by the first-listed antibody, where 0.50 is no order preference. Each value has a standard error of about 0.1.}
+\label{tab:competition}
+\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Configuration & Binder wins & Won in both orders & First-listed wins \\
+\midrule
+Mol-1, single sequence & 0.58 & 0.52 & 0.48 \\
+Mol-1, apo templates & 0.56 & 0.40 & 0.46 \\
+Boltz-2 + FK, apo templates & 0.70 & 0.48 & 0.52 \\
+Boltz-2 + FK, MSAs & 0.76 & 0.60 & 0.62 \\
+ESMFold2, single sequence & 0.68 & 0.44 & 0.62 \\
+ESMFold2, MSA on antigen only & 0.66 & 0.48 & 0.60 \\
+ESMFold2, MSAs on every chain & 0.72 & 0.60 & 0.50 \\
+Protenix v1, single sequence & 0.64 & 0.44 & 0.54 \\
+Protenix v1, apo templates & 0.62 & 0.40 & 0.52 \\
+Protenix v1, MSAs on every chain & 0.78 & 0.72 & 0.52 \\
+\midrule
+PeSTo, CDR propensity (control) & 0.56 & 0.56 & 0.50 \\
+PeSTo, whole-Fv propensity (control) & 0.48 & 0.48 & 0.50 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Discussion}
+
+These runs support two practical conclusions.
+Provided MSAs are supplied for every chain, Protenix v1 reproduces the paper's separate result and gives the most consistent choice in competition.
+When the antibody MSAs are not affordable, ESMFold2 with an antigen MSA is the best separate-mode set-up, but its competition result depends on the chain order and should be read from pairs won in both orders.
+
+Three limits bound this reading.
+The pilot holds 25 pairs, so differences of less than about 0.1 are not resolved, and the ranking among Protenix v1, Boltz-2 and ESMFold2 with MSAs is not established.
+The binders and decoys are patent antibodies selected for sequence similarity, so a configuration could separate the two pools through antibody features without recognising the antigen. The PeSTo control sets the level that antibody-only features reach (0.56).
+Finally, the full-scale costs below were estimated from separate-mode timings on an L40S, and full POISK was not run with these configurations.
+
+For 22,494 complexes, ESMFold2 with an antigen MSA would take about 490 GPU-hours (about \$950, plus the 750 antigen searches), Protenix with templates about 250 (about \$480), Boltz-2 with templates about 460 (about \$900) and Mol-1 with templates about 820 (about \$1.6k).
+Competition runs need both chain orders, and this requirement was later adopted as a certification rule for the KRAS G12D pMHC designs.
+
+\begin{thebibliography}{9}
+\bibitem{poisk} Tupikina \emph{et al.} POISK benchmark of antibody binders and decoys. \emph{bioRxiv} (2026). \url{https://doi.org/10.64898/2026.10.24.761513}; data at Zenodo 21775623.
+\bibitem{abodybuilder2} Abanades, B., Wong, W.K., Boyles, F., Georges, G., Bujotzek, A. and Deane, C.M. ImmuneBuilder: deep-learning models for predicting the structures of immune proteins. \emph{Commun.\ Biol.} \textbf{6}, 575 (2023).
+\bibitem{esmfold} Lin, Z. \emph{et al.} Evolutionary-scale prediction of atomic-level protein structure with a language model. \emph{Science} \textbf{379}, 1123--1130 (2023).
+\bibitem{esmfold2} Biohub. ESMFold2 model card (2026). \url{https://huggingface.co/biohub/ESMFold2}.
+\bibitem{boltz2} Passaro, S. \emph{et al.} Boltz-2: towards accurate and efficient binding affinity prediction. \emph{bioRxiv} (2025). \url{https://doi.org/10.1101/2025.06.14.659707}.
+\bibitem{protenix} ByteDance Protenix Team. Protenix: advancing structure prediction through a comprehensive AlphaFold3 reproduction. \emph{bioRxiv} (2025).
+\bibitem{pesto} Krapp, L.F., Abriata, L.A., Cort\'es Rodriguez, F. and Dal Peraro, M. PeSTo: parameter-free geometric deep learning for accurate prediction of protein binding interfaces. \emph{Nat.\ Commun.} \textbf{14}, 2175 (2023).
+\end{thebibliography}
+
+\end{document}
