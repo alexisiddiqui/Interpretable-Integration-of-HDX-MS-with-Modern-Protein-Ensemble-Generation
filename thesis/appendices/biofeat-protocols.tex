@@ -1,0 +1,38 @@
+\chapter{BioFeaturisers Protocols and Supporting Analyses}
+\label{app:biofeat-protocols}
+
+\section{Forward-Model Settings}
+\label{app:biofeat-forward}
+% BV parameter defaults, atom selections, acceptor set, synthetic amide-H placement and its correction
+% (kb/methods/Sigmoid-switch BV forward model). SAXS six-profile expansion, gridding and smoothing
+% correction (kb/methods/Differentiable SAXS forward model). No speed or accuracy numbers.
+
+\section{Simulation Settings}
+\label{app:biofeat-simulation}
+% Dynamics shared by BPTI and MoPrP, metainference noise settings, deposition settings and walls,
+% force plumbing (kb/methods/Metainference and parallel-bias metadynamics).
+
+\section{Metadiffusion Settings}
+\label{app:biofeat-metadiffusion}
+% Axis bootstrap against pool size, cap, window and guidance-weight comparisons, exact schedules
+% (bf-teaa §Settings that changed the outcome). Window steps 140--149 of 200 (sigma about 3.4 to 1.5 A);
+% alpha 0.3, h0 1 deg^2, sigma_theta 3 deg, kBT_theta 100 deg^2, cap 1.0 A; full update and deposition
+% equations; stratification (at most 25 per 6 deg bin), refinement from step 150 at alpha 0.25 and
+% lambda 1000; Fiedler threshold (pair norm at its 95th percentile)
+% (kb/methods/Hinge-coordinate metadiffusion).
+
+\section{BPTI Protocol}
+\label{app:biofeat-bpti}
+% Construct, solvation and preparation, start selection, residue-scaled uncertainty bounds, PCA,
+% second-basin boundary sensitivity (bf-bpti). Figure: biofeat-bpti-replica-retention.
+
+\section{MoPrP Protocol}
+\label{app:biofeat-moprp}
+% Force field, solvent and buffer, preparation ladder, seed accounting, MI+PB settings, rule table
+% with thresholds and priority, MSM choices, implied timescales, CK tests (bf-moprp).
+% Figure: biofeat-moprp-puf-rules.
+
+\section{TeaA Protocol}
+\label{app:biofeat-teaa}
+% Lobe residue ranges, seeds and schedules, tuning history, pLDDT filter counts, amide-H rerun
+% (bf-teaa §6). Figure: biofeat-teaa-landscape-F pca_logdensity.

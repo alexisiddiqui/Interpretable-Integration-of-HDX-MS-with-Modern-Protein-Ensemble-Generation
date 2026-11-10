@@ -18,20 +18,90 @@
 \section{Methods}
 \label{sec:biofeat-methods}
 
-\subsection{Heaviside Contact BV Model}
+\subsection{Shared Forward-Model Interface}
+\label{sec:biofeat-interface}
+
+One forward-model definition serves reweighting, restrained simulation and guided generation, because each needs the same chain from coordinates to observables to mismatch and back to derivatives. BioFeaturisers computes the observables (residue-wise $\ln P_f$, peptide uptake or a scattering profile) from coordinates in JAX\supercite{bradburyJAXComposableTransformations2018} and returns vector--Jacobian products, so each consumer passes the gradient of its own mismatch with respect to the observables and receives the gradient with respect to its own variables. jaxENT supplies frame weights and forward-model parameters over fixed structures (\cref{ch:jaxent}). PLUMED supplies coordinates at each MD step and receives an atomic force. % cite: PLUMED
+A PyTorch generator supplies coordinates during denoising and receives a coordinate gradient through a custom autograd function. % cite: PyTorch
+The forward model is therefore written and tested once, and the applications differ only in what they let the data change.
+
+\subsection{Smooth-Contact BV Model}
 \label{sec:biofeat-bv}
+
+The BV model counts heavy-atom contacts and hydrogen bonds with hard distance cutoffs (\cref{eq:bg-bv-feature}),\supercite{bestStructuralInterpretationHydrogen2006} so its prediction is piecewise constant in the coordinates and has no gradient to follow. BioFeaturisers replaces each step with a sigmoid,
+\begin{equation}
+    s(d;r,b)=\frac{1}{1+\exp[-b(r-d)]},
+    \label{eq:biofeat-switch}
+\end{equation}
+as in Wan et al.,\supercite{wanReconcilingSimulatedEnsembles2020} so predicted protection varies smoothly with every atom position, and a steep sigmoid recovers the hard cutoff. At a steepness of $5\,\text{\AA}^{-1}$ a contact switches over about $0.9\,\text{\AA}$ around its cutoff, so atoms near a cutoff carry fractional counts, and $\beta$ coefficients calibrated with hard cutoffs do not transfer automatically. Pairs on the same chain within $m$ residues of the probe are excluded from both counts, and $m$ is a modelling choice that the BPTI case varies.
+
+Predictions are combined across structures in $\ln P_f$ (\cref{eq:bg-bv-average}), before exchange is applied. Peptide uptake is therefore that of the geometric-mean protection, and it differs from the mean of per-frame uptakes wherever protection varies between frames.
 
 \subsection{SAXS Forward Model}
 \label{sec:biofeat-saxs}
 
+The same interface carries a SAXS profile, which constrains overall size and shape where HDX constrains residue environments. The profile is the Debye sum with FoXS form factors for the displaced solvent and the hydration layer.\supercite{debyeZerstreuungRontgenstrahlen1915,schneidman-duhovnyFoXSWebServer2010} No case in this chapter applies a SAXS restraint.
+
 \subsubsection{FFT SAXS}
 \label{sec:biofeat-saxs-fft}
+
+The profile is evaluated directly over atom pairs or, for large structures, on a grid by Fourier transform, so the cost scales with the grid rather than with the square of the atom count.
 
 \subsection{Metainference}
 \label{sec:biofeat-metainference}
 
+Metainference restrains the average over replicas and infers an uncertainty for each observation alongside the coordinates,\supercite{bonomiMetadynamicMetainferenceEnhanced2016} so the data act at the ensemble level at which they were measured and inconsistent observations are down-weighted by the sampling itself. BioFeaturisers supplies the observables through the interface of \cref{sec:biofeat-interface}, and the restraint's force on each observable is contracted with the JAX coordinate derivatives without forming the full Jacobian.
+
 \subsection{Metadynamics}
 \label{sec:biofeat-metadynamics}
 
+A restraint changes which structures are favoured but does not carry replicas over barriers, so exploration needs an additional bias. Parallel-bias metadynamics builds a one-dimensional history-dependent bias on each of several collective variables and combines them with conditional weights for their coupling, with walkers sharing one history.\supercite{pfaendtnerEfficientSamplingHighDimensional2015} In metainference with parallel-bias metadynamics (MI+PB) the total bias enters metainference as a reweighting term,\supercite{alamdariEfficientSamplingHighDimensional2021} which corrects the replica average that the restraint compares with the data. It does not turn pooled frames from a time-dependent bias into equilibrium populations, so restrained ensembles here supply coverage and candidates, and populations come from unbiased dynamics or reweighting.
+
 \subsection{Metadiffusion}
 \label{sec:biofeat-metadiffusion}
+
+In TeaA, HDX guidance applied at every denoising step of Boltz-2 left the ensemble at the Boltz intermediate, because the per-atom gradient was incoherent across atoms. % cite: Boltz-2
+A bias on one collective variable instead moves every atom coherently along it. Metadiffusion therefore separates two jobs. The bias supplies coverage of the coordinate, and the HDX data, through refinement and reweighting, decide which covered states are populated. Guided samples are not equilibrium-weighted (\cref{sec:bg-diffusion}), so the bias is never read as a free energy.
+
+The coordinate is the rotation of one lobe of the protein relative to the other, so it first needs a division into two lobes. That division comes from the generator itself, with no reference structure and no hand-chosen boundary. Boltz's pair representation records how strongly the trunk couples each pair of residues. Its Fiedler vector (the eigenvector of the second-smallest eigenvalue of the graph Laplacian) divides the residues by sign into two lobes, so residues that the trunk couples strongly fall in the same lobe. About 150 structures are then drawn from noise without guidance, and their medoid becomes the base. For each structure, lobe I is fitted onto the base, and the rotation carrying the base's lobe II onto the structure's lobe II is written as a rotation vector. The hinge axis is the principal direction of these vectors, and the hinge angle $\theta$ of a structure is its rotation-vector component along the axis.
+
+Biasing acts only in a short window late in the denoising, because displacements applied earlier are undone by the subsequent denoising, and below a noise level of about $1.5\,\text{\AA}$ the hinge angle no longer changes. The bias $V(\theta)$ is a sum of Gaussians in $\theta$. In each window step every residue is displaced with its C$\alpha$ down the gradient of the bias, by $-\alpha\,(\mathrm{d}V/\mathrm{d}\theta)\,\partial\theta/\partial\mathbf{x}_{\mathrm{C}\alpha}$ for a step size $\alpha$, and the displacement is rescaled per structure so that no atom moves further than a cap. One Gaussian is then deposited at each structure's $\theta$. Its height follows the well-tempered rule $h_0\exp[-V(\theta)/k_\mathrm{B}T_\theta]$, which lowers new deposits where the bias is already high,\supercite{barducciWelltemperedMetadynamicsSmoothly2008} with $h_0$ the initial height and $k_\mathrm{B}T_\theta$ an effective temperature in $\mathrm{deg}^2$ rather than a physical one. The HDX term is switched off inside the window. Each round re-noises the previous structures into the window and carries the deposits forward, so coverage of $\theta$ grows over rounds. The output is the union of the rounds after the first, which starts from an empty history.
+
+A bias on $\theta$ rotates the lobes rigidly, so it does not set the packing within each lobe, which is what the contact counts of the forward model measure. A subset of the union, stratified by $\theta$, is therefore re-denoised from late in the schedule with HDX guidance. At each guided step the denoised estimates of the $K$ structures give one ensemble prediction. Their $\ln P_f$ values are averaged under the current MaxEnt weights and converted to uptake. The squared mismatch between that uptake and the target is then differentiated with respect to the coordinates of every structure, so each structure moves according to its contribution to the ensemble error. MaxEnt refits the weights at intervals during denoising (\cref{sec:bg-maxent}, \cref{ch:jaxent}), each fit averaging three replicates trained on random 80\,\% splits of the residues. The guidance weight is low and scaled to the Boltz update, so the data adjust structures the generator still regards as plausible.
+
+After denoising, structures below pLDDT 0.7 are removed and MaxEnt is fitted once more over the refined pool with a uniform prior. The weight on each range of $\theta$ gives the populations.
+
+\subsection{Case-Study Designs}
+\label{sec:biofeat-cases}
+
+\paragraph{BPTI.}
+BPTI asks whether restrained sampling recovers the basins of a long reference simulation from a small fraction of its simulated time. The restraints used 41 residue-level HDX-NMR protection factors, and the 1.03\,ms Anton trajectory\supercite{shawAtomiclevelCharacterizationStructural2010} supplied the structural reference and none of the targets. The design separates generating diverse candidates from sampling with the correct exclusions. MI+PB with $\pm0$ exclusions, which remove only the probe residue from contact counting, generated the source ensemble, biased on the $\chi_3$ dihedrals of the three disulfides. Production used $\pm2$ exclusions, which also remove the two residues on either side.
+
+Four structures selected across the source ensemble, one per replica, seeded three matched conditions from identical coordinates. These were $\pm2$ MI+PB, $\pm2$ MI and unbiased MD, the last testing what the generated diversity retains under the force field alone. Each stage ran four 250 ns replicas, so a route consisting of the diversity stage and one $\pm2$ condition totals 2\,$\mu$s of production, 500-fold less simulated time than the Anton reference. All ensembles were projected without refitting onto the Anton C$\alpha$ PCA, and occupancy of the second basin was followed pooled, per replica and in 10 ns windows. These densities come from uniform frame counts, so they measure coverage and retention, not populations.
+
+\paragraph{MoPrP.}
+MoPrP compares pH 4 with pH 7 under one experimental restraint. Both systems were built from the same AlphaFold3 model of mouse PrP 122--230\supercite{abramsonAccurateStructurePrediction2024} with protonation fixed at each nominal pH by PDB2PQR and PROPKA.\supercite{dolinskyPDB2PQRExpandingUpgrading2007,olssonPROPKA3ConsistentTreatment2011} Both were restrained by the same 77 residue-wise $\ln P_f$ values, recovered by exPfact from the HDX-MS data of Moulick et al.\supercite{skinnerEstimatingConstraintsProtection2019,moulickPartiallyUnfoldedForms2015} The paired simulations therefore compare how the force field at each protonation responds to one restraint.
+
+MI+PB at each pH generated candidates, with the bias on five collective variables placed on the features of the partially unfolded forms (PUFs). These are the $\beta1$--$\beta2$ sheet contacts, the displacements of $\beta1$ and of the $\alpha1$--$\beta2$ unit, and the helicity of $\alpha1$ and of the C-terminal end of $\alpha3$. To follow how these states persist and connect, unbiased trajectories were seeded from three basins of each MI+PB ensemble on a Cartesian C$\alpha$ PCA fitted to the 20 NMR models of PDB 2L39. Twelve seeds per basin were each run at both target pH values, so every seed starts from the same frame at pH 4 and pH 7, for 12.48\,$\mu$s of production in total.
+
+\paragraph{TeaA.}
+TeaA asks whether metadiffusion recovers known populations with no MD structure in any run. The target is synthetic HDX uptake from MD frames at 40\,\% open and 60\,\% closed, made with the same forward model that guides the generation, so the comparison carries no forward-model error. Generation saw the sequence, Boltz-2's own MSA-conditioned prediction as its only template, and the uptake. The MD open and closed structures entered only the scoring.
+
+An unguided control from the same seed structures was reweighted in the same way, so the gain from guidance is measured against the generator's own coverage. States come from $\theta$ (open below $-5^\circ$, closed above $+5^\circ$, otherwise intermediate), and recovery is $100(1-\sqrt{\mathrm{JSD}})$ over the three states as in \cref{ch:jaxent}. Both are evaluation measures and never enter a loss. How sharply uptake agreement distinguishes open fractions sets how closely the recovered populations can be read. To measure it, mixtures of open and closed structures close to the MD references were scored against the target with the same forward model, at open fractions from 0 to 1.
+
+\subsection{MoPrP State Assignment and Dynamics}
+\label{sec:biofeat-moprp-analysis}
+
+The PUF descriptions combine local change in $\beta1$ with displacement of whole segments, so the MoPrP trajectories were followed on two planes. The PCA plane places frames by global Cartesian displacement from the NMR models, the projection on which the seeds were selected. The dihedral plane used for MoPrP in \cref{ch:jaxent} plots the Ramachandran dihedral RMSD to 2L39 (dRMSD) against the dihedral deviation of $\beta1$, which separates local change in $\beta1$ from global disorder.
+
+PUF1 and PUF2 are experimental forms, defined by which segments lose protection.\supercite{moulickPartiallyUnfoldedForms2015} PUF1 ($\Delta G_\mathrm{op}=2.2\pm0.2\,\mathrm{kcal\,mol^{-1}}$) disorders $\beta1$, the $\beta1$--$\alpha1$ loop and the C-terminal end of $\alpha3$, and PUF2 ($3.1\pm0.5\,\mathrm{kcal\,mol^{-1}}$) detaches $\alpha1$ and $\beta2$ from the $\alpha2$--$\alpha3$ core. To test these descriptions in simulated frames, we measured how far each segment moved relative to the core. Each frame was superposed on the disulfide-proximal core, and a segment counted as displaced when its core-fit RMSD exceeded the 99th percentile of Folded frames. The RMSD after superposing the segment on itself separates the two ways a segment can lose protection, because a segment that moves as a rigid body keeps a low self-fit RMSD and a disordered one does not.
+
+Each description was first applied literally, as a text rule. For PUF1 the text and the residue-level exchange data name different segments. The residues that exchange with the denaturant dependence of PUF1 ($m_\mathrm{op}=0.4$) span $\beta1$, the loop and the N-terminal half of $\alpha1$ (residues 127--148), so the PUF1 candidate follows the residue-level data and replaces $\alpha3$ C with $\alpha1$ N. The PUF2 candidate is its text rule, $\alpha1$ and $\beta2$ displaced with the core intact. A candidate is a simulated state that matches an experimental form, so PUF1 and PUF2 refer only to experiment. Regions of the PCA plane carry structural names instead (Folded, $\beta1$-detached arm, detached $\beta1$--$\alpha1$ set, core-distorted lobe).
+
+Seeded runs start away from equilibrium, so their frame counts reflect where they began. Markov state models (MSMs) estimate stationary populations from the transitions the runs make.\supercite{prinzMarkovModelsMolecular2011} The MSM used 100 microstates from $k$-means on 10 Cartesian PCs fitted to unbiased MD, with a reversible maximum-likelihood fit at a lag of 5 ns. Opening free energies follow the EX2 relation from the stationary probabilities of open and closed states (\cref{eq:bg-opening-free-energy}), which places them on the scale of the experimental values.
+
+Stationary populations do not show which way runs move, so drift was measured directly from the trajectories as the mean displacement per nanosecond on each plane, averaged in bins with at least 200 frame pairs from at least three runs. Drift describes motion in the projection, not in the full coordinates. Because every seed ran at both pH values, the pH 7 minus pH 4 change in drift compares the same 72 seeds.
+
+\section{Results}
+\label{sec:biofeat-results}
+% BPTI, MoPrP and TeaA subsections follow the hub section plans (next step).

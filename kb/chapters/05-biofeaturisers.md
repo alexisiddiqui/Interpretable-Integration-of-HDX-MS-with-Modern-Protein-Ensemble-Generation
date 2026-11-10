@@ -29,7 +29,7 @@ Sources: [[Sigmoid-switch BV forward model (BioFeaturisers)]]; [[Differentiable 
 
 - F1. The BV model counts heavy-atom contacts and hydrogen bonds with hard distance cutoffs ([[@bestStructuralInterpretationHydrogen2006]]), so its prediction is piecewise constant in the coordinates and has no gradient to follow. BioFeaturisers replaces each step with a sigmoid, s(d; r, b) = 1 / (1 + exp[−b(r − d)]), as in Wan et al. ([[@wanReconcilingSimulatedEnsembles2020]]), so predicted protection varies smoothly with every atom position, and a steep sigmoid recovers the hard cutoff. Pairs on the same chain within m residues of the probe are excluded from both counts, and m is a modelling choice that the BPTI case varies.
 - F2. The ensemble average is taken in ln P_f, before exchange, so peptide uptake is that of the geometric-mean protection and differs from the mean of per-frame uptakes wherever protection varies between frames. At a steepness of 5 Å⁻¹ a contact switches over about 0.9 Å around its cutoff, so atoms near a cutoff carry fractional counts, and β coefficients calibrated with hard cutoffs do not transfer automatically.
-- F3. The same interface carries a SAXS profile, which constrains overall size and shape where HDX constrains residue environments. The profile is the Debye sum with FoXS form factors for the displaced solvent and the hydration layer ([[@debyeZerstreuungRontgenstrahlen1915]], [[@schneidman-duhovnyFoXSWebServer2010]]). It is evaluated directly over atom pairs or, for large structures, on a grid by Fourier transform, so the cost scales with the grid rather than with the square of the atom count. No case in this chapter applies a SAXS restraint, and the speed and accuracy of the two kernels belong in the results.
+- F3. The same interface carries a SAXS profile, which constrains overall size and shape where HDX constrains residue environments. The profile is the Debye sum with FoXS form factors for the displaced solvent and the hydration layer ([[@debyeZerstreuungRontgenstrahlen1915]], [[@schneidman-duhovnyFoXSWebServer2010]]). It is evaluated directly over atom pairs or, for large structures, on a grid by Fourier transform, so the cost scales with the grid rather than with the square of the atom count. No case in this chapter applies a SAXS restraint.
 
 ### 3. Metainference with parallel-bias metadynamics (`sec:biofeat-metainference`, `sec:biofeat-metadynamics`)
 
@@ -131,6 +131,5 @@ Paragraph order, one finding each. Sources: [[bf-teaa]] §6; `figures/biofeat-te
 ## Gaps
 - The TeaA case has no MD metadynamics run with the same forward model, so the comparison planned for the metadiffusion case is open: drop it or run it.
 - No published pH 4 against pH 7 simulation of mouse PrP was found (human and bovine only); check again before calling the MoPrP runs the first mouse-specific comparison.
-- Methods citations with no bib entry: Boltz-2, HDXrate, ff19SB, OPC3, Amber99SB-ILDN and C-rescale.
-- The tex heading "Heaviside Contact BV Model" names the hard limit of a sigmoid model; rename it (e.g. "Smooth-contact BV model") or keep it.
+- Methods citations with no bib entry: Boltz-2, PyTorch, PLUMED, HDXrate, ff19SB, OPC3, Amber99SB-ILDN and C-rescale.
 - M2 needs the residue selection of `disp_puf2_unit` (on Coulson, not in the local archive) before "α1–β2 unit" stands.
