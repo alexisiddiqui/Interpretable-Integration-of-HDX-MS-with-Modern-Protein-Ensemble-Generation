@@ -1,0 +1,10 @@
+{
+  "reference": "opig-adaptyv experiments/075-kras-pmhc-refolder-benchmark/crystal_contacts.csv",
+  "TCR_peptide_residue_pairs": {
+    "7OW6": 14,
+    "7PB2": 14,
+    "7OW5": 17
+  },
+  "matched_reference": true,
+  "residue_identity_checks": "all mapped residues agree with display structure residue names"
+}

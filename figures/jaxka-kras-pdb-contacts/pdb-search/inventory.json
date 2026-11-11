@@ -1,0 +1,1284 @@
+[
+  {
+    "pdb": "7OW3",
+    "title": "Crystal structure of HLA-A*11:01 in complex with KRAS peptide (VVVGAGGVGK)",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "MHC class I antigen",
+        "sequence": "GSHSMRYFYTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEDGSHTIQIMYGCDVGPDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHAAEQQRAYLEGRCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRWE",
+        "chains": [
+          "A",
+          "D",
+          "G",
+          "J"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "Beta-2-microglobulin",
+        "sequence": "MIQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDM",
+        "chains": [
+          "B",
+          "E",
+          "H",
+          "K"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "KRAS peptide (VVVGAGGVGK)",
+        "sequence": "VVVGAGGVGK",
+        "chains": [
+          "C",
+          "F",
+          "I",
+          "L"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "7OW4",
+    "title": "Crystal structure of HLA-A*11:01 in complex with KRAS G12D peptide (VVVGADGVGK)",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "MHC class I antigen",
+        "sequence": "GSHSMRYFYTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEDGSHTIQIMYGCDVGPDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHAAEQQRAYLEGRCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRWEP",
+        "chains": [
+          "A",
+          "D",
+          "G",
+          "J"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "Beta-2-microglobulin",
+        "sequence": "MIQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDM",
+        "chains": [
+          "B",
+          "E",
+          "H",
+          "K"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "KRAS G12D peptide (VVVGADGVGK)",
+        "sequence": "VVVGADGVGK",
+        "chains": [
+          "C",
+          "F",
+          "I",
+          "L"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "7OW5",
+    "title": "Crystal structure of a TCR in complex with HLA-A*11:01 bound to KRAS peptide (VVVGAGGVGK)",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "MHC class I antigen",
+        "sequence": "GSHSMRYFYTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEDGSHTIQIMYGCDVGPDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHAAEQQRAYLEGRCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRWEP",
+        "chains": [
+          "A"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "Beta-2-microglobulin",
+        "sequence": "MIQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDM",
+        "chains": [
+          "B"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "KRAS peptide (VVVGAGGVGK)",
+        "sequence": "VVVGAGGVGK",
+        "chains": [
+          "C"
+        ]
+      },
+      {
+        "id": "4",
+        "description": "TCR alpha",
+        "sequence": "AQKVTQAQTEISVVEKEDVTLDCVYETRDTAYYLFWYKQPPSGELVFLIRQPWWGEQNEISGRYSWNFQKSTSSFNFTITASQVVDSAVYFCAMSVPSGDGSYQFTFGKGTKLSVIPNIQNPDPAVYQLRDSKSSDKSVCLFTDFDSQTNVSQSKDSDVYITDKCVLDMRSMDFKSNSAVAWSNKSDFACANAFNNSIIPEDT",
+        "chains": [
+          "D"
+        ]
+      },
+      {
+        "id": "5",
+        "description": "TCR beta",
+        "sequence": "MNAGVTQTPKFRVLKTGQSMTLLCAQDMNHEYMYWYRQDPGMGLRLIHYSVGEGTTAKGEVPDGYNVSRLKKQNFLLGLESAAPSQTSVYFCASKVGPGQHNSPLHFGNGTRLTVTEDLNKVFPPEVAVFEPSEAEISHTQKATLVCLATGFYPDHVELSWWVNGKEVHSGVCTDPQPLKEQPALNDSRYALSSRLRVSATFWQDPRNHFRCQVQFYGLSENDEWTQDRAKPVTQIVSAEAWGRAD",
+        "chains": [
+          "E"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "7OW6",
+    "title": "Crystal structure of a TCR in complex with HLA-A*11:01 bound to KRAS G12D peptide (VVVGADGVGK)",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "MHC class I antigen",
+        "sequence": "GSHSMRYFYTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEDGSHTIQIMYGCDVGPDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHAAEQQRAYLEGRCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRWEP",
+        "chains": [
+          "A"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "Beta-2-microglobulin",
+        "sequence": "MIQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDM",
+        "chains": [
+          "B"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "KRAS G12D peptide (VVVGADGVGK)",
+        "sequence": "VVVGADGVGK",
+        "chains": [
+          "C"
+        ]
+      },
+      {
+        "id": "4",
+        "description": "TCR alpha",
+        "sequence": "AQKVTQAQTEISVVEKEDVTLDCVYETRDTAYYLFWYKQPPSGELVFLIRQPWWGEQNEISGRYSWNFQKSTSSFNFTITASQVVDSAVYFCAMSVPSGDGSYQFTFGKGTKLSVIPNIQNPDPAVYQLRDSKSSDKSVCLFTDFDSQTNVSQSKDSDVYITDKCVLDMRSMDFKSNSAVAWSNKSDFACANAFNNSIIPEDT",
+        "chains": [
+          "D"
+        ]
+      },
+      {
+        "id": "5",
+        "description": "TCR beta",
+        "sequence": "MNAGVTQTPKFRVLKTGQSMTLLCAQDMNHEYMYWYRQDPGMGLRLIHYSVGEGTTAKGEVPDGYNVSRLKKQNFLLGLESAAPSQTSVYFCASKVGPGQHNSPLHFGNGTRLTVTEDLNKVFPPEVAVFEPSEAEISHTQKATLVCLATGFYPDHVELSWWVNGKEVHSGVCTDPQPLKEQPALNDSRYALSSRLRVSATFWQDPRNHFRCQVQFYGLSENDEWTQDRAKPVTQIVSAEAWGRAD",
+        "chains": [
+          "E"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "7PB2",
+    "title": "Crystal structure of JDI TCR in complex with HLA-A*11:01 bound to KRAS G12D peptide (VVVGADGVGK)",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "MHC class I antigen",
+        "sequence": "GSHSMRYFYTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEDGSHTIQIMYGCDVGPDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHAAEQQRAYLEGRCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRWEP",
+        "chains": [
+          "A",
+          "F"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "Beta-2-microglobulin",
+        "sequence": "MIQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDM",
+        "chains": [
+          "B",
+          "G"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "KRAS G12D peptide (VVVGADGVGK)",
+        "sequence": "VVVGADGVGK",
+        "chains": [
+          "C",
+          "H"
+        ]
+      },
+      {
+        "id": "4",
+        "description": "TCR alpha",
+        "sequence": "AQKVTQAQTEISVVEKEDVTLDCVYETRDTTYYLFWYKQPPSGELVFLIRRNSFDEQNEISGRYSWNFQKSTSSFNFTITASQVVDSAVYFCALSGPSGAGSYQLTFGKGTKLSVIPNIQNPDPAVYQLRDSKSSDKSVCLFTDFDSQTNVSQSKDSDVYITDKCVLDMRSMDFKSNSAVAWSNKSDFACANAFNNSIIPEDT",
+        "chains": [
+          "D",
+          "I"
+        ]
+      },
+      {
+        "id": "5",
+        "description": "TCR beta",
+        "sequence": "NAGVTQTPKFRVLKTGQSMTLLCAQDMNHEYMYWYRQDPGMGLRLIHYSVGEGTTAKGEVPDGYNVSRLKKQNFLLGLESAAPSQTSVYFCASSYGPGQHNSPLHFGNGTRLTVTEDLNKVFPPEVAVFEPSEAEISHTQKATLVCLATGFYPDHVELSWWVNGKEVHSGVCTDPQPLKEQPALNDSRYALSSRLRVSATFWQDPRNHFRCQVQFYGLSENDEWTQDRAKPVTQIVSAEAWGRAD",
+        "chains": [
+          "E",
+          "J"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "7STF",
+    "title": "Structure of KRAS G12V/HLA-A*03:01 in complex with antibody fragment V2",
+    "method": [
+      {
+        "method": "ELECTRON MICROSCOPY"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "IgG, Fab Heavy Chain V2",
+        "sequence": "EVQLVESGGGLVQPGGSLRLSCAASGFNLSYSDIHWVRQAPGKGLEWVAVVMPDSGHTNYADSVKGRFTISADTSKNTAYLQMNSLRAEDTAVYYCSRATNIPVYAFDYWGQGTLVTVSSASTKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEP",
+        "chains": [
+          "H"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "KRAS G12V (7-16)",
+        "sequence": "VVVGAVGVGK",
+        "chains": [
+          "C"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "IgG, Fab Light Chain V2",
+        "sequence": "DIQMTQSPSSLSASVGDRVTITCRASQDVNTAVAWYQQKPGKAPKLLIYSASFLYSGVPSRFSGSRSGTDFTLTISSLQPEDFATYYCQQSYYYFRPITFGQGTKVEIKRTVAAPSVFIFPPSDEQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSGNSQESVTEQDSKDSTYSLSSTLTLSKADYEKHKVYACEVTHQGLSSPVTKSFNRGEC",
+        "chains": [
+          "L"
+        ]
+      },
+      {
+        "id": "4",
+        "description": "HLA class I histocompatibility antigen, A alpha chain",
+        "sequence": "GSHSMRYFFTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEAGSHTIQIMYGCDVGSDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHEAEQLRAYLDGTCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRWELSSQP",
+        "chains": [
+          "A"
+        ]
+      },
+      {
+        "id": "5",
+        "description": "Beta-2-microglobulin",
+        "sequence": "EAIQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDM",
+        "chains": [
+          "B"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "8DVG",
+    "title": "Structure of KRAS WT(7-16)-HLA-A*03:01",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "HLA class I histocompatibility antigen, A-3 alpha chain",
+        "sequence": "MASGSHSMRYFFTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEAGSHTIQIMYGCDVGSDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHEAEQLRAYLDGTCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRWELSSQPGSLHHILDAQKMVWNHR",
+        "chains": [
+          "A"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "Beta-2-microglobulin",
+        "sequence": "MSRSVALAVLALLSLSGLEAIQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDM",
+        "chains": [
+          "B"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "VAL-VAL-VAL-GLY-ALA-GLY-GLY-VAL-GLY-LYS",
+        "sequence": "VVVGAGGVGK",
+        "chains": [
+          "C"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "8I5C",
+    "title": "Crystal structure of a TCR in complex with HLA-A*11:01 bound to KRAS peptide (VVGAVGVGK)",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "MHC class I antigen (Fragment)",
+        "sequence": "GSHSMRYFYTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEDGSHTIQIMYGCDVGPDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHAAEQQRAYLEGRCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWVAVVVPSGQEQRYTCHVQHEGLPKPLTLRW",
+        "chains": [
+          "A",
+          "F",
+          "K",
+          "P",
+          "U",
+          "Z",
+          "e",
+          "j",
+          "o",
+          "t"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "Beta-2-microglobulin",
+        "sequence": "IQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDM",
+        "chains": [
+          "B",
+          "G",
+          "L",
+          "Q",
+          "V",
+          "a",
+          "f",
+          "k",
+          "p",
+          "u"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "peptide KRAS-G12V-9",
+        "sequence": "VVGAVGVGK",
+        "chains": [
+          "C",
+          "H",
+          "M",
+          "R",
+          "W",
+          "b",
+          "g",
+          "l",
+          "q",
+          "v"
+        ]
+      },
+      {
+        "id": "4",
+        "description": "TCR alpha chain",
+        "sequence": "QQKVQQSPESLIVPEGGMASLNCTSSDRNVDYFWWYRQHSGKSPKMLMSIFSNGEKEEGRFTVHLNKASLHTSLHIRDSQPSDSALYLCAARDSNYQLIWGSGTKLIIKPDIQNPDPAVYQLRDSKSSDKSVCLFTDFDSQTNVSQSKDSDVYITDKCVLDMRSMDFKSNSAVAWSNKSDFACANAFNNSIIPEDTFFP",
+        "chains": [
+          "D",
+          "I",
+          "N",
+          "S",
+          "X",
+          "c",
+          "h",
+          "m",
+          "r",
+          "w"
+        ]
+      },
+      {
+        "id": "5",
+        "description": "TCR beta chain",
+        "sequence": "EAAVTQSPRNKVAVTGGKVTLSCNQTNNHNNMYWYRQDTGHGLRLIHYSYGAGSTEKGDIPDGYKASRPSQENFSLILELATPSQTSVYFCASGDTGGYEQYFGPGTRLTVLEDLKNVFPPEVAVFEPSEAEISHTQKATLVCLATGFYPDHVELSWWVNGKEVHSGVCTDPQPLKEQPALNDSRYALSSRLRVSATFWQDPRNHFRCQVQFYGLSENDEWTQDRAKPVTQIVSAEAWGRAD",
+        "chains": [
+          "E",
+          "J",
+          "O",
+          "T",
+          "Y",
+          "d",
+          "i",
+          "n",
+          "s",
+          "x"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "8I5D",
+    "title": "Crystal structure of a TCR in complex with HLA-A*11:01 bound to KRAS peptide (VVGAVGVGK)",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "TCR alpha chain",
+        "sequence": "SWALSVHEGESVTVNCSYKTSITALQWYRQKSGKGPAQLILIRSNEREKRNGRLRATLDTSSQSSSLSITATRCEDTAVYFCAASSGSWQLIFGSGTQLTVMPDIQNPDPAVYQLRDSKSSDKSVCLFTDFDSQTNVSQSKDSDVYITDKCVLDMRSMDFKSNSAVAWSNKSDFACANAFNNSIIPEDTFFPSP",
+        "chains": [
+          "A"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "TCR beta chain",
+        "sequence": "GVIQTPRHKVTGKGQEATLWCEPISGHSAVFWYRQTIVQGLEFLTYFRNQAPIDDSGMPKERFSAQMPNQSHSTLKIQSTQPQDSAVYLCASSLEGTVEETLYFGSGTRLTVLEDLKNVFPPEVAVFEPSEAEISHTQKATLVCLATGFYPDHVELSWWVNGKEVHSGVCTDPQPLKEQPALNDSRYALSSRLRVSATFWQDPRNHFRCQVQFYGLSENDEWTQDRAKPVTQIVSAEAWGRA",
+        "chains": [
+          "B"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "MHC class I antigen (Fragment)",
+        "sequence": "GSHSMRYFYTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEDGSHTIQIMYGCDVGPDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHAAEQQRAYLEGRCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWVAVVVPSGQEQRYTCHVQHEGLPKPLTLRW",
+        "chains": [
+          "H"
+        ]
+      },
+      {
+        "id": "4",
+        "description": "Beta-2-microglobulin",
+        "sequence": "IQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDM",
+        "chains": [
+          "L"
+        ]
+      },
+      {
+        "id": "5",
+        "description": "peptide KRAS-G12V-9",
+        "sequence": "VVGAVGVGK",
+        "chains": [
+          "P"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "8I5E",
+    "title": "Crystal structure of HLA-A*11:01 in complex with KRAS peptide (VVGAGGVGK)",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "MHC class I antigen (Fragment)",
+        "sequence": "GSHSMRYFYTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEDGSHTIQIMYGCDVGPDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHAAEQQRAYLEGRCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWVAVVVPSGQEQRYTCHVQHEGLPKPLTLRW",
+        "chains": [
+          "H"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "Beta-2-microglobulin",
+        "sequence": "IQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDM",
+        "chains": [
+          "L"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "KRAS-G12wt-9",
+        "sequence": "VVGAGGVGK",
+        "chains": [
+          "P"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "8K4T",
+    "title": "Crystal structure of HLA-A*11:01 in complex with KRAS G12C peptide (VVVGACGVGK)",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "HLA class I histocompatibility antigen, A alpha chain",
+        "sequence": "MGSHSMRYFYTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEDGSHTIQIMYGCDVGPDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHAAEQQRAYLEGRCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRWE",
+        "chains": [
+          "A",
+          "D"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "Beta-2-microglobulin",
+        "sequence": "MIQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDMGSGGSGAGLNDIFEAQKIEWHE",
+        "chains": [
+          "B",
+          "E"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "KRAS G12C peptide (VVVGACGVGK)",
+        "sequence": "VVVGACGVGK",
+        "chains": [
+          "C",
+          "F"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "8K4V",
+    "title": "Crystal structure of HLA-A*11:01 in complex with KRAS G12R peptide (VVVGARGVGK)",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "HLA class I histocompatibility antigen, A alpha chain",
+        "sequence": "MGSHSMRYFYTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEDGSHTIQIMYGCDVGPDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHAAEQQRAYLEGRCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRWE",
+        "chains": [
+          "A",
+          "D",
+          "G",
+          "J"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "Beta-2-microglobulin",
+        "sequence": "MIQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDMGSGGSGAGLNDIFEAQKIEWHE",
+        "chains": [
+          "B",
+          "E",
+          "H",
+          "K"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "KRAS G12R peptide (VVVGARGVGK)",
+        "sequence": "VVVGARGVGK",
+        "chains": [
+          "C",
+          "F",
+          "I",
+          "L"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "8K50",
+    "title": "Crystal structure of HLA-A*11:01 in complex with KRAS G12V peptide (VVVGARGVGK)",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "HLA class I histocompatibility antigen, A alpha chain",
+        "sequence": "MGSHSMRYFYTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEDGSHTIQIMYGCDVGPDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHAAEQQRAYLEGRCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRWE",
+        "chains": [
+          "A",
+          "D",
+          "G",
+          "J"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "Beta-2-microglobulin",
+        "sequence": "MIQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDMGSGGSGAGLNDIFEAQKIEWHE",
+        "chains": [
+          "B",
+          "E",
+          "H",
+          "K"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "KRAS G12V peptide (VVVGAVGVGK)",
+        "sequence": "VVVGAVGVGK",
+        "chains": [
+          "C",
+          "F",
+          "I",
+          "L"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "8RNI",
+    "title": "HLA-A*03:01 with KRAS-G12V-10mer",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "HLA class I histocompatibility antigen, A alpha chain",
+        "sequence": "GSHSMRYFFTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEAGSHTIQIMYGCDVGSDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHEAEQLRAYLDGTCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDTLTDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRWELS",
+        "chains": [
+          "A"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "Beta-2-microglobulin",
+        "sequence": "IQRTPKIQVYSRHPAEQGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDM",
+        "chains": [
+          "B"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "GTPase KRas, N-terminally processed",
+        "sequence": "VVVGAVGVGK",
+        "chains": [
+          "C"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "8VJZ",
+    "title": "HLA-A*03:01 with WT KRAS-10mer",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "HLA class I histocompatibility antigen, A alpha chain",
+        "sequence": "GSHSMRYFFTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEAGSHTIQIMYGCDVGSDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHEAEQLRAYLDGTCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRWELS",
+        "chains": [
+          "A"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "Beta-2-microglobulin",
+        "sequence": "IQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDM",
+        "chains": [
+          "B"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "GTPase KRas, N-terminally processed",
+        "sequence": "VVVGAGGVGK",
+        "chains": [
+          "C"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "8WTE",
+    "title": "Crystal structure of TCR in complex with HLA-A*11:01 bound to KRAS-G12V peptide (VVGAVGVGK)",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "T-cell receptor alpha chain",
+        "sequence": "QQKVQQSPESLIVPEGGMASLNCTSSDRNVDYFWWYRQHSGKSPKMLMSIFSNGEKEEGRFTVHLNKASLHTSLHIRDSQPSDSALYLCAARSSGSWQLIFGSGTQLTVMPDIQNPEPAVYQLKDPRSQDSTLCLFTDFDSQINVPKTMESGTFITDKCVLDMKAMDSKSNGAIAWSNQTSFTCQDIFKETNATYPSS",
+        "chains": [
+          "A",
+          "C"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "T-cell receptor beta chain",
+        "sequence": "KIIQKPKYLVAVTGSEKILICEQYLGHNAMYWYRQSAKKPLEFMFSYSYQKLMDNQTASSRFQPQSSKKNHLDLQITALKPDDSATYFCASSQDRGDSAETLYFGSGTRLTVLEDLRNVTPPKVSLFEPSKAEIANKQKATLVCLARGFFPDHVELSWWVNGKEVHSGVCTDPQAYKESNYSYCLSSRLRVSATFWHNPRNHFRCQVQFHGLSEEDKWPEGSPKPVTQNISAEAWGRAD",
+        "chains": [
+          "B",
+          "D"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "MHC class I antigen (Fragment)",
+        "sequence": "GSHSMRYFYTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEDGSHTIQIMYGCDVGPDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHAAEQQRAYLEGRCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRWE",
+        "chains": [
+          "E",
+          "H"
+        ]
+      },
+      {
+        "id": "4",
+        "description": "Beta-2-microglobulin",
+        "sequence": "IQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDM",
+        "chains": [
+          "F",
+          "I"
+        ]
+      },
+      {
+        "id": "5",
+        "description": "KRAS-G12V nonamer peptide",
+        "sequence": "VVGAVGVGK",
+        "chains": [
+          "G",
+          "J"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "8WUL",
+    "title": "Crystal structure of affinity enhanced TCR in complex with HLA-A*11:01 bound to KRAS-G12V peptide (VVGAVGVGK)",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "TCR alpha chain",
+        "sequence": "QQKVQQSPESLIVPEGGMASLNCTSSDRNVDYFWWYRQHSGKSPKMLMSIFSNGEKEEGRFTVHLNKASLHTSLHIRDSQPSDSALYLCAARSSGSWQLIFGSGTQLTVMPDIQNPEPAVYQLKDPRSQDSTLCLFTDFDSQINVPKTMESGTFITDKCVLDMKAMDSKSNGAIAWSNQTSFTCQDIFKETNATYPSS",
+        "chains": [
+          "A",
+          "C",
+          "E",
+          "G"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "TCR beta chain",
+        "sequence": "KIIQKPKYLVAVTGSEKILICEQYLGHNAMYWYRQSAKKPLEFMFSYSYQMLMDNQTASSRFQPQSSKKNHLDLQITALKPDDSATYFCASSQDRGDSAHTLYFGSGTRLTVLEDLRNVTPPKVSLFEPSKAEIANKQKATLVCLARGFFPDHVELSWWVNGKEVHSGVCTDPQAYKESNYSYCLSSRLRVSATFWHNPRNHFRCQVQFHGLSEEDKWPEGSPKPVTQNISAEAWGRAD",
+        "chains": [
+          "B",
+          "D",
+          "F",
+          "H"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "MHC class I antigen",
+        "sequence": "GSHSMRYFYTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEDGSHTIQIMYGCDVGPDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHAAEQQRAYLEGRCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRW",
+        "chains": [
+          "I",
+          "L",
+          "O",
+          "R"
+        ]
+      },
+      {
+        "id": "4",
+        "description": "Beta-2-microglobulin",
+        "sequence": "IQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDM",
+        "chains": [
+          "J",
+          "M",
+          "P",
+          "S"
+        ]
+      },
+      {
+        "id": "5",
+        "description": "KRAS-G12V nonamer peptide",
+        "sequence": "VVGAVGVGK",
+        "chains": [
+          "K",
+          "N",
+          "Q",
+          "T"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "9IKY",
+    "title": "Crystal structure of 1-2C-T96F TCR in complex with HLA-A*11:01 bound to KRAS-G12V peptide (VVGAVGVGK)",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "MHC class I antigen",
+        "sequence": "GSHSMRYFYTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEDGSHTIQIMYGCDVGPDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHAAEQQRAYLEGRCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRWE",
+        "chains": [
+          "A",
+          "F",
+          "K",
+          "P",
+          "U",
+          "Z",
+          "e",
+          "j",
+          "o",
+          "t"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "Beta-2-microglobulin",
+        "sequence": "MIQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDM",
+        "chains": [
+          "B",
+          "G",
+          "L",
+          "Q",
+          "V",
+          "a",
+          "f",
+          "k",
+          "p",
+          "u"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "VAL-VAL-GLY-ALA-VAL-GLY-VAL-GLY-LYS",
+        "sequence": "VVGAVGVGK",
+        "chains": [
+          "C",
+          "H",
+          "M",
+          "R",
+          "W",
+          "b",
+          "g",
+          "l",
+          "q",
+          "v"
+        ]
+      },
+      {
+        "id": "4",
+        "description": "1-2C-T96F TCR alpha chain",
+        "sequence": "QQKVQQSPESLIVPEGGMASLNCTSSDRNVDYFWWYRQHSGKSPKMLMSIFSNGEKEEGRFTVHLNKASLHTSLHIRDSQPSDSALYLCAARDSNYQLIWGSGTKLIIKPDIQNPDPAVYQLRDSKSSDKSVCLFTDFDSQTNVSQSKDSDVYITDKCVLDMRSMDFKSNSAVAWSNKSDFACANAFNNSIIPEDTFFPSPESS",
+        "chains": [
+          "D",
+          "I",
+          "N",
+          "S",
+          "X",
+          "c",
+          "h",
+          "m",
+          "r",
+          "w"
+        ]
+      },
+      {
+        "id": "5",
+        "description": "1-2C-T96F TCR beta chain",
+        "sequence": "EAAVTQSPRNKVAVTGGKVTLSCNQTNNHNNMYWYRQDTGHGLRLIHYSYGAGSTEKGDIPDGYKASRPSQENFSLILELATPSQTSVYFCASGDFGGYEQYFGPGTRLTVLEDLKNVFPPEVAVFEPSEAEISHTQKATLVCLATGFYPDHVELSWWVNGKEVHSGVCTDPQPLKEQPALNDSRYALSSRLRVSATFWQNPRNHFRCQVQFYGLSENDEWTQDRAKPVTQIVSAEAWGRAD",
+        "chains": [
+          "E",
+          "J",
+          "O",
+          "T",
+          "Y",
+          "d",
+          "i",
+          "n",
+          "s",
+          "x"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "9NFB",
+    "title": "Structure of the cross-HLA supertype antibody R302 bound to a class I MHC presenting a divarasib-modified KRAS-G12C peptide on HLA-A*02",
+    "method": [
+      {
+        "method": "ELECTRON MICROSCOPY"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "MHC class I antigen",
+        "sequence": "MGSHSMRYFFTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDGETRKVKAHSQTHRVDLGTLRGYYNQSEAGSHTVQRMYGCDVGSDWRFLRGYHQYAYDGKDYIALKEDLRSWTAADMAAQTTKHKWEAAHVAEQLRAYLEGTCVEWLRRYLENGKETLQRTDAPKTHMTHHAVSDHEATLRCWALSFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGQEQRYTCHVQHEGLPKPLTLRWEGGGSGLNDIFEAQKIEWHEGGGSHHHHHHHH",
+        "chains": [
+          "A"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "Beta-2-microglobulin",
+        "sequence": "GSIQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDM",
+        "chains": [
+          "B"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "GTPase KRas",
+        "sequence": "KLVVVGACGV",
+        "chains": [
+          "C"
+        ]
+      },
+      {
+        "id": "4",
+        "description": "R302 Fab light chain",
+        "sequence": "DIVMTQSPATLSLSPGERATLSCRASQSLSSSFLAWYQQKPGQAPRLLIYGASSRATGIPDRFSGSGSGTDFTLTISRLEPEDFAVYYCQQSESALTFGGGTKVEIKRTVAAPSVFIFPPSDSQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSGNSQESVTEQDSKDSTYSLSSTLTLSKADYEKHKVYACEVTHQGLSSPVTKSFNRGECGGGGSLPETG",
+        "chains": [
+          "D"
+        ]
+      },
+      {
+        "id": "5",
+        "description": "R302 Fab heavy chain",
+        "sequence": "EVQLLESGGGVVQPGRSLRLSCAASGFTFSSYGMHWVRQAPGKGLEWVAVISYDGSNKYYADSVKGRFTISRDNSKNTLYLQMNSLRAEDTAVYYCLYGGNSYGMDVWGQGTMVTVFNQIKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHT",
+        "chains": [
+          "E"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "9NFC",
+    "title": "Structure of the cross-HLA supertype antibody R302 bound to a class I MHC presenting a divarasib-modified KRAS-G12C peptide on HLA-A*03",
+    "method": [
+      {
+        "method": "ELECTRON MICROSCOPY"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "HLA class I histocompatibility antigen, A alpha chain",
+        "sequence": "MGSHSMRYFFTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEAGSHTIQIMYGCDVGSDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHEAEQLRAYLDGTCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRWEGGGSGLNDIFEAQKIEWHEGGGSHHHHHHHH",
+        "chains": [
+          "A"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "Beta-2-microglobulin",
+        "sequence": "GSIQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDM",
+        "chains": [
+          "B"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "GTPase KRas, N-terminally processed",
+        "sequence": "VVVGACGVGK",
+        "chains": [
+          "C"
+        ]
+      },
+      {
+        "id": "4",
+        "description": "R302 Fab light chain",
+        "sequence": "DIVMTQSPATLSLSPGERATLSCRASQSLSSSFLAWYQQKPGQAPRLLIYGASSRATGIPDRFSGSGSGTDFTLTISRLEPEDFAVYYCQQSESALTFGGGTKVEIKRTVAAPSVFIFPPSDSQLKSGTASVVCLLNNFYPREAKVQWKVDNALQSGNSQESVTEQDSKDSTYSLSSTLTLSKADYEKHKVYACEVTHQGLSSPVTKSFNRGECGGGGSLPETG",
+        "chains": [
+          "D"
+        ]
+      },
+      {
+        "id": "5",
+        "description": "R302 Fab heavy chain",
+        "sequence": "EVQLLESGGGVVQPGRSLRLSCAASGFTFSSYGMHWVRQAPGKGLEWVAVISYDGSNKYYADSVKGRFTISRDNSKNTLYLQMNSLRAEDTAVYYCLYGGNSYGMDVWGQGTMVTVFNQIKGPSVFPLAPSSKSTSGGTAALGCLVKDYFPEPVTVSWNSGALTSGVHTFPAVLQSSGLYSLSSVVTVPSSSLGTQTYICNVNHKPSNTKVDKKVEPKSCDKTHT",
+        "chains": [
+          "E"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "9UV8",
+    "title": "Crystal structure of HLA-A*11:01 in complex with KRAS G12D 9-mer peptide (VVGADGVGK)",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "HLA class I histocompatibility antigen, A alpha chain",
+        "sequence": "MGSHSMRYFYTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEDGSHTIQIMYGCDVGPDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHAAEQQRAYLEGRCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRWE",
+        "chains": [
+          "A"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "Beta-2-microglobulin",
+        "sequence": "MIQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDMGSGGSGAGLNDIFEAQKIEWHE",
+        "chains": [
+          "B"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "KRAS G12D-9mer (VVGADGVGK)",
+        "sequence": "VVGADGVGK",
+        "chains": [
+          "C"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "9WVE",
+    "title": "Crystal structure of HLA-A*11:01 in complex with KRAS G12A 10-mer peptide (VVVGAAGVGK)",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "HLA class I histocompatibility antigen, A alpha chain",
+        "sequence": "MGSHSMRYFYTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEDGSHTIQIMYGCDVGPDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHAAEQQRAYLEGRCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRWE",
+        "chains": [
+          "A",
+          "D",
+          "G",
+          "J"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "Beta-2-microglobulin",
+        "sequence": "MIQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDMGSGGSGAGLNDIFEAQKIEWHE",
+        "chains": [
+          "B",
+          "E",
+          "H",
+          "K"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "VAL-VAL-VAL-GLY-ALA-ALA-GLY-VAL-GLY-LYS",
+        "sequence": "VVVGAAGVGK",
+        "chains": [
+          "C",
+          "F",
+          "I",
+          "L"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "9WVF",
+    "title": "Crystal structure of HLA-A*11:01 in complex with KRAS G12S 10-mer peptide (VVVGASGVGK)",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "HLA class I histocompatibility antigen, A alpha chain",
+        "sequence": "MGSHSMRYFYTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEDGSHTIQIMYGCDVGPDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHAAEQQRAYLEGRCVEWLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRWE",
+        "chains": [
+          "A",
+          "D",
+          "G",
+          "J"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "Beta-2-microglobulin",
+        "sequence": "MIQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDM",
+        "chains": [
+          "B",
+          "E",
+          "H",
+          "K"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "VAL-VAL-VAL-GLY-ALA-SER-GLY-VAL-GLY-LYS",
+        "sequence": "VVVGASGVGK",
+        "chains": [
+          "C",
+          "F",
+          "I",
+          "L"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "9Y7Y",
+    "title": "KRAS-specific 24-246 TCR in complex with HLA-C*01:02 presenting KRAS G12V 9mer peptide (11-AVGVGKSAL-19)",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "24-246 TCR beta chain (TRBV6-5*01)",
+        "sequence": "NAGVTQTPKFQVLKTGQSMTLQCAQDMNHEYMSWYRQDPGMGLRLIHYSVGAGITDQGEVPNGYNVSRSTTEDFPLRLLSAAPSQTSVYFCASKNLGDTQYFGPGTRLTVLEDLKNVFPPEVAVFEPSKAEISRTQKATLVCLATGFYPPHVELSWWVNGKEVHDGVCTDPQPLKEQPALQDSRYALSSRLRVSATFWQDPRNHFRCQVQFYGLSENDEWTQDRAKPVTQIVSAEAWGRADCGSLEVLFQGP",
+        "chains": [
+          "B"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "MHC class I antigen",
+        "sequence": "MGSHSMKYFFTSVSRPGRGEPRFISVGYVDDTQFVRFDSDAASPRGEPRAPWVEQEGPEYWDRETQKYKRQAQTDRVSLRNLRGYYNQSEAGSHTLQWMCGCDLGPDGRLLRGYDQYAYDGKDYIALNEDLRSWTAADTAAQITQRKWEAAREAEQRRAYLEGTCVEWLRRYLENGKETLQRAEHPKTHVTHHPVSDHEATLRCWALGFYPAEITLTWQWDGEDQTQDTELVETRPAGDGTFQKWAAVMVPSGEEQRYTCHVQHEGLPEPLTLRWEPGSGGSGGSAGGGLNDIFEAQKIEWH",
+        "chains": [
+          "C"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "Beta-2-microglobulin",
+        "sequence": "MIQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDM",
+        "chains": [
+          "D"
+        ]
+      },
+      {
+        "id": "4",
+        "description": "KRAS G12V 9mer peptide",
+        "sequence": "AVGVGKSAL",
+        "chains": [
+          "P"
+        ]
+      },
+      {
+        "id": "5",
+        "description": "24-246 TCR alpha chain (TRAV12-1*01)",
+        "sequence": "RKEVEQDPGPFNVPEGATVAFNCTYSNSASQSFFWYRQDCRKEPKLLMSVYSSGNEDGRFTAQLNRASQYISLLIRDSKLSDSATYLCVVENRSGANNLFFGTGTRLTVIPYIQNPDPAVYQLRDSKSSDKFVCLFTDFDSQIQVSQSKDSDVYITDKCVLDMRSMDFKSNSAVAWSQKSDFTCANAFQNSIIPEDTFFPSPESSCGSLEVLFQGP",
+        "chains": [
+          "A"
+        ]
+      }
+    ]
+  },
+  {
+    "pdb": "9Z50",
+    "title": "Q61H_Sahin-1 TCR in complex with HLA-A*01:01 presenting KRAS Q61H 10mer peptide (55-ILDTAGHEEY-64)",
+    "method": [
+      {
+        "crystals_number": 1,
+        "method": "X-RAY DIFFRACTION"
+      }
+    ],
+    "entities": [
+      {
+        "id": "1",
+        "description": "GTPase KRas",
+        "sequence": "ILDTAGHEEY",
+        "chains": [
+          "E",
+          "P"
+        ]
+      },
+      {
+        "id": "2",
+        "description": "MHC class I antigen",
+        "sequence": "MGSHSMRYFFTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQKMEPRAPWIEQEGPEYWDQETRNMKAHSQTDRANLGTLRGYYNQSEDGSHTIQIMYGCDVGPDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAVHAAEQRRVYLEGRCVDGLRRYLENGKETLQRTDPPKTHMTHHPISDHEATLRCWALGFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGEEQRYTCHVQHEGLPKPLTLRWEPGSGGSGGSAGGGLNDIFEAQKIEWHE",
+        "chains": [
+          "C",
+          "F"
+        ]
+      },
+      {
+        "id": "3",
+        "description": "Beta-2-microglobulin",
+        "sequence": "MIQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDM",
+        "chains": [
+          "D",
+          "G"
+        ]
+      },
+      {
+        "id": "4",
+        "description": "Q61H_Sahin-1 alpha chain (TRAV14/DV4)",
+        "sequence": "QKITQTQPGMFVQEKEAVTLDCTYDTSDPSYGLFWYKQPSSGEMIFLIYQGSYDQQNATEGRYSLNFQKARKSANLVISASQLGDSAMYFCAMREGQDSSYKLIFGSGTRLLVRPYIQNPDPAVYQLRDSKSSDKFVCLFTDFDSQIQVSQSKDSDVYITDKCVLDMRSMDFKSNSAVAWSQKSDFTCANAFQNSIIPEDTFFPSPESSCGSLEVLFQ",
+        "chains": [
+          "A",
+          "H"
+        ]
+      },
+      {
+        "id": "5",
+        "description": "Q61H_Sahin-1 beta chain (TRBV9)",
+        "sequence": "ADSGVTQTPKHLITATGQRVTLRCSPRSGDLSVYWYQQSLDQGLQFLIQYYNGEERAKGNILERFSAQQFPDLHSELNLSSLELGDSALYFCASSVLGPNTEAFFGQGTRLTVVEDLKNVFPPEVAVFEPSKAEISRTQKATLVCLATGFYPPHVELSWWVNGKEVHDGVCTDPQPLKEQPALQDSRYALSSRLRVSATFWQDPRNHFRCQVQFYGLSENDEWTQDRAKPVTQIVSAEAWGRADCGSLEVLFQ",
+        "chains": [
+          "B",
+          "I"
+        ]
+      }
+    ]
+  }
+]

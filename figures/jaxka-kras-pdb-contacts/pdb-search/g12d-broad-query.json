@@ -1,0 +1,44 @@
+{
+  "query": {
+    "type": "group",
+    "logical_operator": "and",
+    "nodes": [
+      {
+        "type": "terminal",
+        "service": "seqmotif",
+        "parameters": {
+          "value": "VVVGADGVGK",
+          "pattern_type": "simple",
+          "sequence_type": "protein"
+        }
+      },
+      {
+        "type": "group",
+        "logical_operator": "or",
+        "nodes": [
+          {
+            "type": "terminal",
+            "service": "full_text",
+            "parameters": {
+              "value": "HLA"
+            }
+          },
+          {
+            "type": "terminal",
+            "service": "full_text",
+            "parameters": {
+              "value": "MHC"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "return_type": "entry",
+  "request_options": {
+    "paginate": {
+      "start": 0,
+      "rows": 1000
+    }
+  }
+}

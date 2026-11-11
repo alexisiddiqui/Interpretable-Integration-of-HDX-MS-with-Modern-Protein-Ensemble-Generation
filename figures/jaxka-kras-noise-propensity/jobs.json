@@ -9,9 +9,12 @@
   "cpu_render": 185654,
   "cluster": "srf_cpu_01",
   "analysis_status": "completed; residue and paired-difference checks passed",
-  "render_status": "completed; final outputs retrieved",
+  "render_status": "completed; groove PNG/PDF/SVG retrieved and visually checked",
   "scorer_verification": "Broadcast implementation matched exported pair_logits exactly on 12 residue pairs",
   "render_correction": 185657,
   "render_correction_failed": 185656,
-  "final_render_job": 185657
+  "final_render_job": 185724,
+  "peptide_visible_render": 185720,
+  "peptide_score_render": 185724,
+  "other_panels": "revised remote files complete; bulk retrieval timed out, local overview/difference figures retain previous revision"
 }

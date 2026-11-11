@@ -1,0 +1,1648 @@
+{
+  "entity_poly": {
+    "nstd_linkage": "no",
+    "nstd_monomer": "no",
+    "pdbx_seq_one_letter_code": "RKEVEQDPGPFNVPEGATVAFNCTYSNSASQSFFWYRQDCRKEPKLLMSVYSSGNEDGRFTAQLNRASQYISLLIRDSKLSDSATYLCVVENRSGANNLFFGTGTRLTVIPYIQNPDPAVYQLRDSKSSDKFVCLFTDFDSQIQVSQSKDSDVYITDKCVLDMRSMDFKSNSAVAWSQKSDFTCANAFQNSIIPEDTFFPSPESSCGSLEVLFQGP",
+    "pdbx_seq_one_letter_code_can": "RKEVEQDPGPFNVPEGATVAFNCTYSNSASQSFFWYRQDCRKEPKLLMSVYSSGNEDGRFTAQLNRASQYISLLIRDSKLSDSATYLCVVENRSGANNLFFGTGTRLTVIPYIQNPDPAVYQLRDSKSSDKFVCLFTDFDSQIQVSQSKDSDVYITDKCVLDMRSMDFKSNSAVAWSQKSDFTCANAFQNSIIPEDTFFPSPESSCGSLEVLFQGP",
+    "pdbx_strand_id": "A",
+    "rcsb_artifact_monomer_count": 0,
+    "rcsb_conflict_count": 0,
+    "rcsb_deletion_count": 0,
+    "rcsb_entity_polymer_type": "Protein",
+    "rcsb_insertion_count": 0,
+    "rcsb_mutation_count": 0,
+    "rcsb_non_std_monomer_count": 0,
+    "rcsb_sample_sequence_length": 216,
+    "type": "polypeptide(L)"
+  },
+  "entity_src_gen": [
+    {
+      "pdbx_alt_source_flag": "sample",
+      "pdbx_beg_seq_num": 1,
+      "pdbx_end_seq_num": 216,
+      "pdbx_gene_src_ncbi_taxonomy_id": "9606",
+      "pdbx_gene_src_scientific_name": "Homo sapiens",
+      "pdbx_host_org_ncbi_taxonomy_id": "9606",
+      "pdbx_host_org_scientific_name": "Homo sapiens",
+      "pdbx_seq_type": "Biological sequence",
+      "pdbx_src_id": 1
+    }
+  ],
+  "rcsb_entity_host_organism": [
+    {
+      "beg_seq_num": 1,
+      "end_seq_num": 216,
+      "ncbi_common_names": [
+        "human"
+      ],
+      "ncbi_parent_scientific_name": "Eukaryota",
+      "ncbi_scientific_name": "Homo sapiens",
+      "ncbi_taxonomy_id": 9606,
+      "pdbx_src_id": 1,
+      "provenance_source": "Primary Data",
+      "scientific_name": "Homo sapiens",
+      "taxonomy_lineage": [
+        {
+          "depth": 1,
+          "id": "131567",
+          "name": "cellular organisms"
+        },
+        {
+          "depth": 1,
+          "id": "131567",
+          "name": "biota"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eukaryota"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eucarya"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eucaryotae"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eukarya"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eukaryotae"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "eukaryotes"
+        },
+        {
+          "depth": 3,
+          "id": "33154",
+          "name": "Opisthokonta"
+        },
+        {
+          "depth": 3,
+          "id": "33154",
+          "name": "Fungi/Metazoa group"
+        },
+        {
+          "depth": 3,
+          "id": "33154",
+          "name": "opisthokonts"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "Metazoa"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "Animalia"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "animals"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "metazoans"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "multicellular animals"
+        },
+        {
+          "depth": 5,
+          "id": "6072",
+          "name": "Eumetazoa"
+        },
+        {
+          "depth": 6,
+          "id": "33213",
+          "name": "Bilateria"
+        },
+        {
+          "depth": 7,
+          "id": "33511",
+          "name": "Deuterostomia"
+        },
+        {
+          "depth": 7,
+          "id": "33511",
+          "name": "deuterostomes"
+        },
+        {
+          "depth": 8,
+          "id": "7711",
+          "name": "Chordata"
+        },
+        {
+          "depth": 8,
+          "id": "7711",
+          "name": "chordates"
+        },
+        {
+          "depth": 9,
+          "id": "89593",
+          "name": "Craniata"
+        },
+        {
+          "depth": 10,
+          "id": "7742",
+          "name": "Vertebrata"
+        },
+        {
+          "depth": 10,
+          "id": "7742",
+          "name": "vertebrates"
+        },
+        {
+          "depth": 11,
+          "id": "7776",
+          "name": "Gnathostomata"
+        },
+        {
+          "depth": 11,
+          "id": "7776",
+          "name": "jawed vertebrates"
+        },
+        {
+          "depth": 12,
+          "id": "117570",
+          "name": "Teleostomi"
+        },
+        {
+          "depth": 13,
+          "id": "117571",
+          "name": "Euteleostomi"
+        },
+        {
+          "depth": 13,
+          "id": "117571",
+          "name": "bony vertebrates"
+        },
+        {
+          "depth": 14,
+          "id": "8287",
+          "name": "Sarcopterygii"
+        },
+        {
+          "depth": 15,
+          "id": "1338369",
+          "name": "Dipnotetrapodomorpha"
+        },
+        {
+          "depth": 16,
+          "id": "32523",
+          "name": "Tetrapoda"
+        },
+        {
+          "depth": 16,
+          "id": "32523",
+          "name": "tetrapods"
+        },
+        {
+          "depth": 17,
+          "id": "32524",
+          "name": "Amniota"
+        },
+        {
+          "depth": 17,
+          "id": "32524",
+          "name": "amniotes"
+        },
+        {
+          "depth": 18,
+          "id": "40674",
+          "name": "Mammalia"
+        },
+        {
+          "depth": 18,
+          "id": "40674",
+          "name": "mammals"
+        },
+        {
+          "depth": 19,
+          "id": "32525",
+          "name": "Theria"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "Eutheria"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "Placentalia"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "eutherian mammals"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "placental mammals"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "placentals"
+        },
+        {
+          "depth": 21,
+          "id": "1437010",
+          "name": "Boreoeutheria"
+        },
+        {
+          "depth": 21,
+          "id": "1437010",
+          "name": "Boreotheria"
+        },
+        {
+          "depth": 22,
+          "id": "314146",
+          "name": "Euarchontoglires"
+        },
+        {
+          "depth": 23,
+          "id": "9443",
+          "name": "Primates"
+        },
+        {
+          "depth": 23,
+          "id": "9443",
+          "name": "Primata"
+        },
+        {
+          "depth": 23,
+          "id": "9443",
+          "name": "primate"
+        },
+        {
+          "depth": 23,
+          "id": "9443",
+          "name": "primates"
+        },
+        {
+          "depth": 24,
+          "id": "376913",
+          "name": "Haplorrhini"
+        },
+        {
+          "depth": 25,
+          "id": "314293",
+          "name": "Simiiformes"
+        },
+        {
+          "depth": 25,
+          "id": "314293",
+          "name": "Anthropoidea"
+        },
+        {
+          "depth": 26,
+          "id": "9526",
+          "name": "Catarrhini"
+        },
+        {
+          "depth": 27,
+          "id": "314295",
+          "name": "Hominoidea"
+        },
+        {
+          "depth": 27,
+          "id": "314295",
+          "name": "ape"
+        },
+        {
+          "depth": 27,
+          "id": "314295",
+          "name": "apes"
+        },
+        {
+          "depth": 28,
+          "id": "9604",
+          "name": "Hominidae"
+        },
+        {
+          "depth": 28,
+          "id": "9604",
+          "name": "Pongidae"
+        },
+        {
+          "depth": 28,
+          "id": "9604",
+          "name": "great apes"
+        },
+        {
+          "depth": 29,
+          "id": "207598",
+          "name": "Homininae"
+        },
+        {
+          "depth": 29,
+          "id": "207598",
+          "name": "Homo/Pan/Gorilla group"
+        },
+        {
+          "depth": 30,
+          "id": "9605",
+          "name": "Homo"
+        },
+        {
+          "depth": 30,
+          "id": "9605",
+          "name": "humans"
+        },
+        {
+          "depth": 31,
+          "id": "9606",
+          "name": "Homo sapiens"
+        },
+        {
+          "depth": 31,
+          "id": "9606",
+          "name": "human"
+        }
+      ]
+    }
+  ],
+  "rcsb_entity_source_organism": [
+    {
+      "beg_seq_num": 1,
+      "end_seq_num": 216,
+      "ncbi_common_names": [
+        "human"
+      ],
+      "ncbi_parent_scientific_name": "Eukaryota",
+      "ncbi_scientific_name": "Homo sapiens",
+      "ncbi_taxonomy_id": 9606,
+      "pdbx_src_id": 1,
+      "provenance_source": "Primary Data",
+      "scientific_name": "Homo sapiens",
+      "source_type": "genetically engineered",
+      "taxonomy_lineage": [
+        {
+          "depth": 1,
+          "id": "131567",
+          "name": "cellular organisms"
+        },
+        {
+          "depth": 1,
+          "id": "131567",
+          "name": "biota"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eukaryota"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eucarya"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eucaryotae"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eukarya"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eukaryotae"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "eukaryotes"
+        },
+        {
+          "depth": 3,
+          "id": "33154",
+          "name": "Opisthokonta"
+        },
+        {
+          "depth": 3,
+          "id": "33154",
+          "name": "Fungi/Metazoa group"
+        },
+        {
+          "depth": 3,
+          "id": "33154",
+          "name": "opisthokonts"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "Metazoa"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "Animalia"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "animals"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "metazoans"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "multicellular animals"
+        },
+        {
+          "depth": 5,
+          "id": "6072",
+          "name": "Eumetazoa"
+        },
+        {
+          "depth": 6,
+          "id": "33213",
+          "name": "Bilateria"
+        },
+        {
+          "depth": 7,
+          "id": "33511",
+          "name": "Deuterostomia"
+        },
+        {
+          "depth": 7,
+          "id": "33511",
+          "name": "deuterostomes"
+        },
+        {
+          "depth": 8,
+          "id": "7711",
+          "name": "Chordata"
+        },
+        {
+          "depth": 8,
+          "id": "7711",
+          "name": "chordates"
+        },
+        {
+          "depth": 9,
+          "id": "89593",
+          "name": "Craniata"
+        },
+        {
+          "depth": 10,
+          "id": "7742",
+          "name": "Vertebrata"
+        },
+        {
+          "depth": 10,
+          "id": "7742",
+          "name": "vertebrates"
+        },
+        {
+          "depth": 11,
+          "id": "7776",
+          "name": "Gnathostomata"
+        },
+        {
+          "depth": 11,
+          "id": "7776",
+          "name": "jawed vertebrates"
+        },
+        {
+          "depth": 12,
+          "id": "117570",
+          "name": "Teleostomi"
+        },
+        {
+          "depth": 13,
+          "id": "117571",
+          "name": "Euteleostomi"
+        },
+        {
+          "depth": 13,
+          "id": "117571",
+          "name": "bony vertebrates"
+        },
+        {
+          "depth": 14,
+          "id": "8287",
+          "name": "Sarcopterygii"
+        },
+        {
+          "depth": 15,
+          "id": "1338369",
+          "name": "Dipnotetrapodomorpha"
+        },
+        {
+          "depth": 16,
+          "id": "32523",
+          "name": "Tetrapoda"
+        },
+        {
+          "depth": 16,
+          "id": "32523",
+          "name": "tetrapods"
+        },
+        {
+          "depth": 17,
+          "id": "32524",
+          "name": "Amniota"
+        },
+        {
+          "depth": 17,
+          "id": "32524",
+          "name": "amniotes"
+        },
+        {
+          "depth": 18,
+          "id": "40674",
+          "name": "Mammalia"
+        },
+        {
+          "depth": 18,
+          "id": "40674",
+          "name": "mammals"
+        },
+        {
+          "depth": 19,
+          "id": "32525",
+          "name": "Theria"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "Eutheria"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "Placentalia"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "eutherian mammals"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "placental mammals"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "placentals"
+        },
+        {
+          "depth": 21,
+          "id": "1437010",
+          "name": "Boreoeutheria"
+        },
+        {
+          "depth": 21,
+          "id": "1437010",
+          "name": "Boreotheria"
+        },
+        {
+          "depth": 22,
+          "id": "314146",
+          "name": "Euarchontoglires"
+        },
+        {
+          "depth": 23,
+          "id": "9443",
+          "name": "Primates"
+        },
+        {
+          "depth": 23,
+          "id": "9443",
+          "name": "Primata"
+        },
+        {
+          "depth": 23,
+          "id": "9443",
+          "name": "primate"
+        },
+        {
+          "depth": 23,
+          "id": "9443",
+          "name": "primates"
+        },
+        {
+          "depth": 24,
+          "id": "376913",
+          "name": "Haplorrhini"
+        },
+        {
+          "depth": 25,
+          "id": "314293",
+          "name": "Simiiformes"
+        },
+        {
+          "depth": 25,
+          "id": "314293",
+          "name": "Anthropoidea"
+        },
+        {
+          "depth": 26,
+          "id": "9526",
+          "name": "Catarrhini"
+        },
+        {
+          "depth": 27,
+          "id": "314295",
+          "name": "Hominoidea"
+        },
+        {
+          "depth": 27,
+          "id": "314295",
+          "name": "ape"
+        },
+        {
+          "depth": 27,
+          "id": "314295",
+          "name": "apes"
+        },
+        {
+          "depth": 28,
+          "id": "9604",
+          "name": "Hominidae"
+        },
+        {
+          "depth": 28,
+          "id": "9604",
+          "name": "Pongidae"
+        },
+        {
+          "depth": 28,
+          "id": "9604",
+          "name": "great apes"
+        },
+        {
+          "depth": 29,
+          "id": "207598",
+          "name": "Homininae"
+        },
+        {
+          "depth": 29,
+          "id": "207598",
+          "name": "Homo/Pan/Gorilla group"
+        },
+        {
+          "depth": 30,
+          "id": "9605",
+          "name": "Homo"
+        },
+        {
+          "depth": 30,
+          "id": "9605",
+          "name": "humans"
+        },
+        {
+          "depth": 31,
+          "id": "9606",
+          "name": "Homo sapiens"
+        },
+        {
+          "depth": 31,
+          "id": "9606",
+          "name": "human"
+        }
+      ]
+    }
+  ],
+  "rcsb_polymer_entity": {
+    "formula_weight": 24.22,
+    "pdbx_description": "24-246 TCR alpha chain (TRAV12-1*01)",
+    "pdbx_number_of_molecules": 1,
+    "rcsb_multiple_source_flag": "N",
+    "rcsb_source_part_count": 1,
+    "rcsb_source_taxonomy_count": 1,
+    "src_method": "man",
+    "rcsb_macromolecular_names_combined": [
+      {
+        "name": "24-246 TCR alpha chain (TRAV12-1*01)",
+        "provenance_code": "ECO:0000304",
+        "provenance_source": "PDB Preferred Name"
+      }
+    ],
+    "rcsb_polymer_name_combined": {
+      "names": [
+        "24-246 tcr alpha chain (trav12-1*01)"
+      ],
+      "provenance_source": "PDB Preferred Name"
+    }
+  },
+  "rcsb_polymer_entity_container_identifiers": {
+    "asym_ids": [
+      "E"
+    ],
+    "auth_asym_ids": [
+      "A"
+    ],
+    "chem_comp_monomers": [
+      "ALA",
+      "ARG",
+      "ASN",
+      "ASP",
+      "CYS",
+      "GLN",
+      "GLU",
+      "GLY",
+      "ILE",
+      "LEU",
+      "LYS",
+      "MET",
+      "PHE",
+      "PRO",
+      "SER",
+      "THR",
+      "TRP",
+      "TYR",
+      "VAL"
+    ],
+    "entity_id": "5",
+    "entry_id": "9Y7Y",
+    "rcsb_id": "9Y7Y_5"
+  },
+  "rcsb_polymer_entity_feature": [
+    {
+      "name": "Hydropathy values",
+      "provenance_source": "biojava-7.3.0",
+      "type": "hydropathy",
+      "feature_positions": [
+        {
+          "beg_seq_id": 5,
+          "values": [
+            -2.24,
+            -1.92,
+            -1.18,
+            -1.18,
+            -1.18,
+            -0.97,
+            -0.97,
+            -0.62,
+            -0.24,
+            -0.28,
+            0.37,
+            0.26,
+            0.96,
+            0.1,
+            0.56,
+            0.87,
+            0.77,
+            0.48,
+            0.17,
+            -0.39,
+            -0.39,
+            -0.79,
+            -0.79,
+            -1.16,
+            -0.77,
+            -0.31,
+            -0.32,
+            -0.08,
+            -0.49,
+            -1.08,
+            -1.38,
+            -0.71,
+            -1.12,
+            -1.87,
+            -2.57,
+            -2.64,
+            -2.93,
+            -2.01,
+            -1.2,
+            -0.6,
+            -0.97,
+            0.0,
+            0.29,
+            0.59,
+            0.68,
+            1.07,
+            0.26,
+            -0.56,
+            -1.16,
+            -1.11,
+            -2.08,
+            -1.62,
+            -1.61,
+            -1.32,
+            -1.67,
+            -0.86,
+            -0.86,
+            -0.97,
+            -0.72,
+            -0.31,
+            -1.01,
+            -1.08,
+            -0.78,
+            -0.48,
+            -0.48,
+            0.33,
+            1.33,
+            0.63,
+            0.33,
+            0.63,
+            0.34,
+            0.27,
+            0.27,
+            -0.54,
+            -1.06,
+            -1.36,
+            -0.93,
+            -0.69,
+            -0.18,
+            0.53,
+            0.58,
+            1.13,
+            1.13,
+            0.83,
+            0.13,
+            0.12,
+            0.22,
+            0.0,
+            -0.67,
+            -1.52,
+            -1.57,
+            -0.87,
+            -0.17,
+            0.29,
+            0.3,
+            0.3,
+            0.02,
+            -0.09,
+            0.72,
+            0.22,
+            0.38,
+            0.57,
+            0.43,
+            0.37,
+            0.91,
+            0.6,
+            0.71,
+            0.11,
+            -0.2,
+            -0.84,
+            -1.14,
+            -0.5,
+            -0.5,
+            -1.39,
+            -0.58,
+            -0.69,
+            -0.9,
+            -0.6,
+            -0.86,
+            -1.14,
+            -1.7,
+            -1.94,
+            -1.99,
+            -2.1,
+            -1.13,
+            -0.47,
+            0.04,
+            0.79,
+            0.8,
+            0.5,
+            1.2,
+            1.24,
+            0.84,
+            -0.01,
+            0.21,
+            -0.6,
+            -0.44,
+            -0.46,
+            -0.46,
+            -0.86,
+            -0.9,
+            -1.2,
+            -0.9,
+            -1.79,
+            -0.93,
+            -1.54,
+            -0.96,
+            -0.64,
+            -0.94,
+            -0.94,
+            -0.28,
+            0.28,
+            1.09,
+            0.23,
+            0.59,
+            -0.41,
+            -0.42,
+            0.18,
+            0.22,
+            0.26,
+            -0.64,
+            -1.16,
+            -1.16,
+            -1.46,
+            -0.76,
+            -0.2,
+            -0.21,
+            0.08,
+            -0.32,
+            -0.28,
+            -0.62,
+            -0.32,
+            -0.62,
+            -0.51,
+            -1.06,
+            -0.98,
+            -0.68,
+            -0.98,
+            -0.39,
+            0.36,
+            0.06,
+            0.06,
+            -0.34,
+            0.23,
+            0.46,
+            0.08,
+            0.08,
+            -0.51,
+            -0.9,
+            -0.2,
+            0.5,
+            0.41,
+            -0.18,
+            -0.86,
+            -1.07,
+            -0.77,
+            -0.47,
+            -0.11,
+            -0.47,
+            -0.87,
+            -0.27,
+            -0.57,
+            0.08,
+            0.89,
+            1.29,
+            0.99,
+            0.67,
+            0.53
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Disordered regions",
+      "provenance_source": "IUPred2(short)",
+      "type": "disorder",
+      "feature_positions": [
+        {
+          "beg_seq_id": 1,
+          "values": [
+            0.96,
+            0.95,
+            0.89,
+            0.87,
+            0.85,
+            0.82,
+            0.76,
+            0.71,
+            0.63,
+            0.58,
+            0.47,
+            0.49,
+            0.41,
+            0.39,
+            0.37,
+            0.35,
+            0.34,
+            0.32,
+            0.27,
+            0.26,
+            0.25,
+            0.32,
+            0.25,
+            0.24,
+            0.15,
+            0.1,
+            0.09,
+            0.12,
+            0.12,
+            0.1,
+            0.11,
+            0.15,
+            0.15,
+            0.25,
+            0.25,
+            0.26,
+            0.2,
+            0.17,
+            0.17,
+            0.15,
+            0.1,
+            0.09,
+            0.09,
+            0.13,
+            0.2,
+            0.27,
+            0.35,
+            0.35,
+            0.34,
+            0.24,
+            0.33,
+            0.3,
+            0.31,
+            0.23,
+            0.2,
+            0.2,
+            0.23,
+            0.29,
+            0.33,
+            0.27,
+            0.25,
+            0.32,
+            0.26,
+            0.2,
+            0.13,
+            0.13,
+            0.13,
+            0.13,
+            0.13,
+            0.08,
+            0.13,
+            0.13,
+            0.16,
+            0.12,
+            0.18,
+            0.12,
+            0.07,
+            0.06,
+            0.04,
+            0.02,
+            0.04,
+            0.07,
+            0.07,
+            0.1,
+            0.14,
+            0.17,
+            0.17,
+            0.17,
+            0.11,
+            0.07,
+            0.07,
+            0.07,
+            0.07,
+            0.07,
+            0.08,
+            0.09,
+            0.09,
+            0.13,
+            0.13,
+            0.13,
+            0.21,
+            0.14,
+            0.09,
+            0.1,
+            0.1,
+            0.12,
+            0.16,
+            0.18,
+            0.16,
+            0.16,
+            0.17,
+            0.26,
+            0.18,
+            0.19,
+            0.2,
+            0.2,
+            0.19,
+            0.26,
+            0.27,
+            0.35,
+            0.41,
+            0.31,
+            0.32,
+            0.32,
+            0.24,
+            0.16,
+            0.13,
+            0.13,
+            0.06,
+            0.08,
+            0.12,
+            0.19,
+            0.13,
+            0.2,
+            0.15,
+            0.13,
+            0.14,
+            0.15,
+            0.14,
+            0.14,
+            0.13,
+            0.13,
+            0.15,
+            0.14,
+            0.15,
+            0.2,
+            0.28,
+            0.29,
+            0.18,
+            0.21,
+            0.15,
+            0.15,
+            0.13,
+            0.18,
+            0.17,
+            0.2,
+            0.2,
+            0.13,
+            0.12,
+            0.13,
+            0.12,
+            0.13,
+            0.1,
+            0.1,
+            0.13,
+            0.13,
+            0.13,
+            0.13,
+            0.13,
+            0.21,
+            0.27,
+            0.26,
+            0.25,
+            0.18,
+            0.17,
+            0.17,
+            0.17,
+            0.1,
+            0.18,
+            0.18,
+            0.18,
+            0.13,
+            0.1,
+            0.14,
+            0.2,
+            0.26,
+            0.32,
+            0.26,
+            0.18,
+            0.21,
+            0.21,
+            0.23,
+            0.34,
+            0.34,
+            0.43,
+            0.36,
+            0.37,
+            0.39,
+            0.41,
+            0.42,
+            0.36,
+            0.31,
+            0.3,
+            0.38,
+            0.35,
+            0.36,
+            0.38,
+            0.43,
+            0.54,
+            0.65,
+            0.67,
+            0.71,
+            0.71,
+            0.73,
+            0.77,
+            0.82
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Disordered binding sites",
+      "provenance_source": "Anchor2",
+      "type": "disorder_binding",
+      "feature_positions": [
+        {
+          "beg_seq_id": 1,
+          "values": [
+            0.37,
+            0.36,
+            0.36,
+            0.36,
+            0.36,
+            0.36,
+            0.36,
+            0.36,
+            0.36,
+            0.37,
+            0.38,
+            0.39,
+            0.39,
+            0.4,
+            0.4,
+            0.41,
+            0.42,
+            0.43,
+            0.43,
+            0.43,
+            0.43,
+            0.41,
+            0.4,
+            0.4,
+            0.41,
+            0.41,
+            0.42,
+            0.42,
+            0.43,
+            0.43,
+            0.42,
+            0.41,
+            0.4,
+            0.39,
+            0.39,
+            0.41,
+            0.42,
+            0.43,
+            0.42,
+            0.4,
+            0.39,
+            0.38,
+            0.38,
+            0.37,
+            0.36,
+            0.37,
+            0.37,
+            0.36,
+            0.34,
+            0.33,
+            0.31,
+            0.29,
+            0.26,
+            0.24,
+            0.22,
+            0.21,
+            0.2,
+            0.19,
+            0.19,
+            0.2,
+            0.2,
+            0.2,
+            0.21,
+            0.22,
+            0.23,
+            0.24,
+            0.25,
+            0.26,
+            0.28,
+            0.29,
+            0.31,
+            0.32,
+            0.33,
+            0.34,
+            0.33,
+            0.34,
+            0.34,
+            0.34,
+            0.35,
+            0.36,
+            0.36,
+            0.37,
+            0.37,
+            0.37,
+            0.38,
+            0.38,
+            0.38,
+            0.37,
+            0.36,
+            0.34,
+            0.33,
+            0.31,
+            0.3,
+            0.28,
+            0.26,
+            0.25,
+            0.24,
+            0.24,
+            0.24,
+            0.24,
+            0.24,
+            0.24,
+            0.25,
+            0.25,
+            0.26,
+            0.27,
+            0.29,
+            0.3,
+            0.31,
+            0.32,
+            0.34,
+            0.35,
+            0.35,
+            0.36,
+            0.36,
+            0.36,
+            0.36,
+            0.36,
+            0.35,
+            0.34,
+            0.33,
+            0.31,
+            0.31,
+            0.3,
+            0.29,
+            0.29,
+            0.28,
+            0.28,
+            0.29,
+            0.29,
+            0.3,
+            0.31,
+            0.31,
+            0.32,
+            0.33,
+            0.33,
+            0.33,
+            0.33,
+            0.33,
+            0.32,
+            0.3,
+            0.29,
+            0.28,
+            0.27,
+            0.28,
+            0.27,
+            0.26,
+            0.26,
+            0.26,
+            0.26,
+            0.26,
+            0.27,
+            0.28,
+            0.29,
+            0.29,
+            0.29,
+            0.3,
+            0.31,
+            0.32,
+            0.35,
+            0.35,
+            0.35,
+            0.35,
+            0.33,
+            0.32,
+            0.32,
+            0.32,
+            0.31,
+            0.29,
+            0.27,
+            0.26,
+            0.26,
+            0.26,
+            0.26,
+            0.27,
+            0.27,
+            0.25,
+            0.25,
+            0.25,
+            0.25,
+            0.26,
+            0.26,
+            0.26,
+            0.25,
+            0.26,
+            0.27,
+            0.29,
+            0.31,
+            0.33,
+            0.36,
+            0.38,
+            0.41,
+            0.43,
+            0.43,
+            0.42,
+            0.43,
+            0.42,
+            0.41,
+            0.38,
+            0.36,
+            0.34,
+            0.32,
+            0.31,
+            0.3,
+            0.3,
+            0.31,
+            0.33,
+            0.35,
+            0.38,
+            0.41,
+            0.42,
+            0.4,
+            0.38,
+            0.37,
+            0.35,
+            0.34
+          ]
+        }
+      ]
+    }
+  ],
+  "rcsb_polymer_entity_group_membership": [
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "2629_70",
+      "similarity_cutoff": 70.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 55,
+          "ref_beg_seq_id": 22
+        },
+        {
+          "entity_beg_seq_id": 56,
+          "length": 38,
+          "ref_beg_seq_id": 79
+        },
+        {
+          "entity_beg_seq_id": 94,
+          "length": 119,
+          "ref_beg_seq_id": 119
+        },
+        {
+          "entity_beg_seq_id": 213,
+          "length": 4,
+          "ref_beg_seq_id": 244
+        }
+      ]
+    },
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "385_30",
+      "similarity_cutoff": 30.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 2,
+          "ref_beg_seq_id": 20
+        },
+        {
+          "entity_beg_seq_id": 3,
+          "length": 25,
+          "ref_beg_seq_id": 23
+        },
+        {
+          "entity_beg_seq_id": 28,
+          "length": 26,
+          "ref_beg_seq_id": 50
+        },
+        {
+          "entity_beg_seq_id": 54,
+          "length": 2,
+          "ref_beg_seq_id": 79
+        },
+        {
+          "entity_beg_seq_id": 56,
+          "length": 12,
+          "ref_beg_seq_id": 83
+        },
+        {
+          "entity_beg_seq_id": 68,
+          "length": 26,
+          "ref_beg_seq_id": 96
+        },
+        {
+          "entity_beg_seq_id": 94,
+          "length": 3,
+          "ref_beg_seq_id": 126
+        },
+        {
+          "entity_beg_seq_id": 97,
+          "length": 111,
+          "ref_beg_seq_id": 131
+        },
+        {
+          "entity_beg_seq_id": 208,
+          "length": 9,
+          "ref_beg_seq_id": 249
+        }
+      ]
+    },
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "254939_95",
+      "similarity_cutoff": 95.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 216,
+          "ref_beg_seq_id": 1
+        }
+      ]
+    },
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "215_50",
+      "similarity_cutoff": 50.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 28,
+          "ref_beg_seq_id": 20
+        },
+        {
+          "entity_beg_seq_id": 29,
+          "length": 25,
+          "ref_beg_seq_id": 50
+        },
+        {
+          "entity_beg_seq_id": 54,
+          "length": 2,
+          "ref_beg_seq_id": 79
+        },
+        {
+          "entity_beg_seq_id": 56,
+          "length": 12,
+          "ref_beg_seq_id": 82
+        },
+        {
+          "entity_beg_seq_id": 68,
+          "length": 27,
+          "ref_beg_seq_id": 95
+        },
+        {
+          "entity_beg_seq_id": 95,
+          "length": 2,
+          "ref_beg_seq_id": 126
+        },
+        {
+          "entity_beg_seq_id": 97,
+          "length": 111,
+          "ref_beg_seq_id": 130
+        },
+        {
+          "entity_beg_seq_id": 208,
+          "length": 9,
+          "ref_beg_seq_id": 243
+        }
+      ]
+    },
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "94478_90",
+      "similarity_cutoff": 90.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 216,
+          "ref_beg_seq_id": 1
+        }
+      ]
+    },
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "251537_100",
+      "similarity_cutoff": 100.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 216,
+          "ref_beg_seq_id": 1
+        }
+      ]
+    }
+  ],
+  "rcsb_related_target_references": [
+    {
+      "related_resource_name": "Pharos",
+      "related_resource_version": "6.13.4",
+      "related_target_id": "14374",
+      "target_taxonomy_id": 9606,
+      "aligned_target": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 89,
+          "target_beg_seq_id": 22
+        }
+      ]
+    }
+  ],
+  "rcsb_id": "9Y7Y_5"
+}

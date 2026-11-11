@@ -1,0 +1,5177 @@
+{
+  "entity_poly": {
+    "nstd_linkage": "no",
+    "nstd_monomer": "no",
+    "pdbx_seq_one_letter_code": "MIQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDMGSGGSGAGLNDIFEAQKIEWHE",
+    "pdbx_seq_one_letter_code_can": "MIQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDMGSGGSGAGLNDIFEAQKIEWHE",
+    "pdbx_strand_id": "B,E",
+    "rcsb_artifact_monomer_count": 2,
+    "rcsb_conflict_count": 0,
+    "rcsb_deletion_count": 0,
+    "rcsb_entity_polymer_type": "Protein",
+    "rcsb_insertion_count": 0,
+    "rcsb_mutation_count": 0,
+    "rcsb_non_std_monomer_count": 0,
+    "rcsb_sample_sequence_length": 122,
+    "type": "polypeptide(L)"
+  },
+  "entity_src_gen": [
+    {
+      "gene_src_common_name": "human",
+      "pdbx_alt_source_flag": "sample",
+      "pdbx_beg_seq_num": 1,
+      "pdbx_end_seq_num": 122,
+      "pdbx_gene_src_gene": "B2M, CDABP0092, HDCMA22P",
+      "pdbx_gene_src_ncbi_taxonomy_id": "9606",
+      "pdbx_gene_src_scientific_name": "Homo sapiens",
+      "pdbx_host_org_ncbi_taxonomy_id": "562",
+      "pdbx_host_org_scientific_name": "Escherichia coli",
+      "pdbx_seq_type": "Biological sequence",
+      "pdbx_src_id": 1
+    }
+  ],
+  "rcsb_entity_host_organism": [
+    {
+      "beg_seq_num": 1,
+      "end_seq_num": 122,
+      "ncbi_common_names": [
+        "Bacillus coli",
+        "Bacterium coli",
+        "Bacterium coli commune",
+        "E. coli",
+        "Enterococcus coli",
+        "Escherichia/Shigella coli"
+      ],
+      "ncbi_parent_scientific_name": "Bacteria",
+      "ncbi_scientific_name": "Escherichia coli",
+      "ncbi_taxonomy_id": 562,
+      "pdbx_src_id": 1,
+      "provenance_source": "Primary Data",
+      "scientific_name": "Escherichia coli",
+      "taxonomy_lineage": [
+        {
+          "depth": 1,
+          "id": "131567",
+          "name": "cellular organisms"
+        },
+        {
+          "depth": 1,
+          "id": "131567",
+          "name": "biota"
+        },
+        {
+          "depth": 2,
+          "id": "2",
+          "name": "Bacteria"
+        },
+        {
+          "depth": 2,
+          "id": "2",
+          "name": "Bacteria (ex Cavalier-Smith 1987)"
+        },
+        {
+          "depth": 2,
+          "id": "2",
+          "name": "Bacteria Woese et al. 2024"
+        },
+        {
+          "depth": 2,
+          "id": "2",
+          "name": "Bacteriobiota"
+        },
+        {
+          "depth": 2,
+          "id": "2",
+          "name": "bacteria"
+        },
+        {
+          "depth": 2,
+          "id": "2",
+          "name": "eubacteria"
+        },
+        {
+          "depth": 3,
+          "id": "3379134",
+          "name": "Pseudomonadati"
+        },
+        {
+          "depth": 4,
+          "id": "1224",
+          "name": "Pseudomonadota"
+        },
+        {
+          "depth": 4,
+          "id": "1224",
+          "name": "\"Alphaproteobacteriota\" Whitman et al. 2018"
+        },
+        {
+          "depth": 4,
+          "id": "1224",
+          "name": "Alphaproteobacteriota"
+        },
+        {
+          "depth": 4,
+          "id": "1224",
+          "name": "Proteobacteria"
+        },
+        {
+          "depth": 4,
+          "id": "1224",
+          "name": "Proteobacteriota"
+        },
+        {
+          "depth": 4,
+          "id": "1224",
+          "name": "proteobacteria"
+        },
+        {
+          "depth": 4,
+          "id": "1224",
+          "name": "purple photosynthetic bacteria and relatives"
+        },
+        {
+          "depth": 5,
+          "id": "1236",
+          "name": "Gammaproteobacteria"
+        },
+        {
+          "depth": 5,
+          "id": "1236",
+          "name": "Proteobacteria gamma subdivision"
+        },
+        {
+          "depth": 5,
+          "id": "1236",
+          "name": "Pseudomonadia"
+        },
+        {
+          "depth": 5,
+          "id": "1236",
+          "name": "Purple bacteria, gamma subdivision"
+        },
+        {
+          "depth": 5,
+          "id": "1236",
+          "name": "g-proteobacteria"
+        },
+        {
+          "depth": 5,
+          "id": "1236",
+          "name": "gamma proteobacteria"
+        },
+        {
+          "depth": 5,
+          "id": "1236",
+          "name": "gamma subdivision"
+        },
+        {
+          "depth": 5,
+          "id": "1236",
+          "name": "gamma subgroup"
+        },
+        {
+          "depth": 6,
+          "id": "91347",
+          "name": "Enterobacterales"
+        },
+        {
+          "depth": 6,
+          "id": "91347",
+          "name": "Enterobacteriaceae and related endosymbionts"
+        },
+        {
+          "depth": 6,
+          "id": "91347",
+          "name": "Enterobacteriaceae group"
+        },
+        {
+          "depth": 6,
+          "id": "91347",
+          "name": "Enterobacteriales"
+        },
+        {
+          "depth": 7,
+          "id": "543",
+          "name": "Enterobacteriaceae"
+        },
+        {
+          "depth": 7,
+          "id": "543",
+          "name": "Enterobacteraceae"
+        },
+        {
+          "depth": 7,
+          "id": "543",
+          "name": "enterobacteria"
+        },
+        {
+          "depth": 8,
+          "id": "561",
+          "name": "Escherichia"
+        },
+        {
+          "depth": 9,
+          "id": "562",
+          "name": "Escherichia coli"
+        },
+        {
+          "depth": 9,
+          "id": "562",
+          "name": "Bacillus coli"
+        },
+        {
+          "depth": 9,
+          "id": "562",
+          "name": "Bacterium coli"
+        },
+        {
+          "depth": 9,
+          "id": "562",
+          "name": "Bacterium coli commune"
+        },
+        {
+          "depth": 9,
+          "id": "562",
+          "name": "E. coli"
+        },
+        {
+          "depth": 9,
+          "id": "562",
+          "name": "Enterococcus coli"
+        },
+        {
+          "depth": 9,
+          "id": "562",
+          "name": "Escherichia/Shigella coli"
+        }
+      ]
+    }
+  ],
+  "rcsb_entity_source_organism": [
+    {
+      "beg_seq_num": 1,
+      "common_name": "human",
+      "end_seq_num": 122,
+      "ncbi_common_names": [
+        "human"
+      ],
+      "ncbi_parent_scientific_name": "Eukaryota",
+      "ncbi_scientific_name": "Homo sapiens",
+      "ncbi_taxonomy_id": 9606,
+      "pdbx_src_id": 1,
+      "provenance_source": "Primary Data",
+      "scientific_name": "Homo sapiens",
+      "source_type": "genetically engineered",
+      "taxonomy_lineage": [
+        {
+          "depth": 1,
+          "id": "131567",
+          "name": "cellular organisms"
+        },
+        {
+          "depth": 1,
+          "id": "131567",
+          "name": "biota"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eukaryota"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eucarya"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eucaryotae"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eukarya"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eukaryotae"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "eukaryotes"
+        },
+        {
+          "depth": 3,
+          "id": "33154",
+          "name": "Opisthokonta"
+        },
+        {
+          "depth": 3,
+          "id": "33154",
+          "name": "Fungi/Metazoa group"
+        },
+        {
+          "depth": 3,
+          "id": "33154",
+          "name": "opisthokonts"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "Metazoa"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "Animalia"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "animals"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "metazoans"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "multicellular animals"
+        },
+        {
+          "depth": 5,
+          "id": "6072",
+          "name": "Eumetazoa"
+        },
+        {
+          "depth": 6,
+          "id": "33213",
+          "name": "Bilateria"
+        },
+        {
+          "depth": 7,
+          "id": "33511",
+          "name": "Deuterostomia"
+        },
+        {
+          "depth": 7,
+          "id": "33511",
+          "name": "deuterostomes"
+        },
+        {
+          "depth": 8,
+          "id": "7711",
+          "name": "Chordata"
+        },
+        {
+          "depth": 8,
+          "id": "7711",
+          "name": "chordates"
+        },
+        {
+          "depth": 9,
+          "id": "89593",
+          "name": "Craniata"
+        },
+        {
+          "depth": 10,
+          "id": "7742",
+          "name": "Vertebrata"
+        },
+        {
+          "depth": 10,
+          "id": "7742",
+          "name": "vertebrates"
+        },
+        {
+          "depth": 11,
+          "id": "7776",
+          "name": "Gnathostomata"
+        },
+        {
+          "depth": 11,
+          "id": "7776",
+          "name": "jawed vertebrates"
+        },
+        {
+          "depth": 12,
+          "id": "117570",
+          "name": "Teleostomi"
+        },
+        {
+          "depth": 13,
+          "id": "117571",
+          "name": "Euteleostomi"
+        },
+        {
+          "depth": 13,
+          "id": "117571",
+          "name": "bony vertebrates"
+        },
+        {
+          "depth": 14,
+          "id": "8287",
+          "name": "Sarcopterygii"
+        },
+        {
+          "depth": 15,
+          "id": "1338369",
+          "name": "Dipnotetrapodomorpha"
+        },
+        {
+          "depth": 16,
+          "id": "32523",
+          "name": "Tetrapoda"
+        },
+        {
+          "depth": 16,
+          "id": "32523",
+          "name": "tetrapods"
+        },
+        {
+          "depth": 17,
+          "id": "32524",
+          "name": "Amniota"
+        },
+        {
+          "depth": 17,
+          "id": "32524",
+          "name": "amniotes"
+        },
+        {
+          "depth": 18,
+          "id": "40674",
+          "name": "Mammalia"
+        },
+        {
+          "depth": 18,
+          "id": "40674",
+          "name": "mammals"
+        },
+        {
+          "depth": 19,
+          "id": "32525",
+          "name": "Theria"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "Eutheria"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "Placentalia"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "eutherian mammals"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "placental mammals"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "placentals"
+        },
+        {
+          "depth": 21,
+          "id": "1437010",
+          "name": "Boreoeutheria"
+        },
+        {
+          "depth": 21,
+          "id": "1437010",
+          "name": "Boreotheria"
+        },
+        {
+          "depth": 22,
+          "id": "314146",
+          "name": "Euarchontoglires"
+        },
+        {
+          "depth": 23,
+          "id": "9443",
+          "name": "Primates"
+        },
+        {
+          "depth": 23,
+          "id": "9443",
+          "name": "Primata"
+        },
+        {
+          "depth": 23,
+          "id": "9443",
+          "name": "primate"
+        },
+        {
+          "depth": 23,
+          "id": "9443",
+          "name": "primates"
+        },
+        {
+          "depth": 24,
+          "id": "376913",
+          "name": "Haplorrhini"
+        },
+        {
+          "depth": 25,
+          "id": "314293",
+          "name": "Simiiformes"
+        },
+        {
+          "depth": 25,
+          "id": "314293",
+          "name": "Anthropoidea"
+        },
+        {
+          "depth": 26,
+          "id": "9526",
+          "name": "Catarrhini"
+        },
+        {
+          "depth": 27,
+          "id": "314295",
+          "name": "Hominoidea"
+        },
+        {
+          "depth": 27,
+          "id": "314295",
+          "name": "ape"
+        },
+        {
+          "depth": 27,
+          "id": "314295",
+          "name": "apes"
+        },
+        {
+          "depth": 28,
+          "id": "9604",
+          "name": "Hominidae"
+        },
+        {
+          "depth": 28,
+          "id": "9604",
+          "name": "Pongidae"
+        },
+        {
+          "depth": 28,
+          "id": "9604",
+          "name": "great apes"
+        },
+        {
+          "depth": 29,
+          "id": "207598",
+          "name": "Homininae"
+        },
+        {
+          "depth": 29,
+          "id": "207598",
+          "name": "Homo/Pan/Gorilla group"
+        },
+        {
+          "depth": 30,
+          "id": "9605",
+          "name": "Homo"
+        },
+        {
+          "depth": 30,
+          "id": "9605",
+          "name": "humans"
+        },
+        {
+          "depth": 31,
+          "id": "9606",
+          "name": "Homo sapiens"
+        },
+        {
+          "depth": 31,
+          "id": "9606",
+          "name": "human"
+        }
+      ],
+      "rcsb_gene_name": [
+        {
+          "provenance_source": "Primary Data",
+          "value": "B2M"
+        },
+        {
+          "provenance_source": "Primary Data",
+          "value": "CDABP0092"
+        },
+        {
+          "provenance_source": "Primary Data",
+          "value": "HDCMA22P"
+        }
+      ]
+    }
+  ],
+  "rcsb_polymer_entity": {
+    "formula_weight": 14.166,
+    "pdbx_description": "Beta-2-microglobulin",
+    "pdbx_number_of_molecules": 2,
+    "rcsb_multiple_source_flag": "N",
+    "rcsb_source_part_count": 1,
+    "rcsb_source_taxonomy_count": 1,
+    "src_method": "man",
+    "rcsb_macromolecular_names_combined": [
+      {
+        "name": "Beta-2-microglobulin",
+        "provenance_code": "ECO:0000304",
+        "provenance_source": "PDB Preferred Name"
+      }
+    ],
+    "rcsb_polymer_name_combined": {
+      "names": [
+        "Beta-2-microglobulin"
+      ],
+      "provenance_source": "UniProt Name"
+    }
+  },
+  "rcsb_polymer_entity_align": [
+    {
+      "provenance_source": "SIFTS",
+      "reference_database_accession": "P61769",
+      "reference_database_name": "UniProt",
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 2,
+          "length": 99,
+          "ref_beg_seq_id": 21
+        }
+      ]
+    }
+  ],
+  "rcsb_polymer_entity_annotation": [
+    {
+      "annotation_id": "PF07654",
+      "assignment_version": "34.0",
+      "name": "Immunoglobulin C1-set domain (C1-set)",
+      "provenance_source": "Pfam",
+      "type": "Pfam"
+    },
+    {
+      "annotation_id": "GO:0006879",
+      "name": "intracellular iron ion homeostasis",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0006879",
+          "name": "intracellular iron ion homeostasis"
+        },
+        {
+          "id": "GO:0098771",
+          "name": "inorganic ion homeostasis"
+        },
+        {
+          "id": "GO:0019725",
+          "name": "cellular homeostasis"
+        },
+        {
+          "id": "GO:0048878",
+          "name": "chemical homeostasis"
+        },
+        {
+          "id": "GO:0042592",
+          "name": "homeostatic process"
+        },
+        {
+          "id": "GO:0030003",
+          "name": "intracellular monoatomic cation homeostasis"
+        },
+        {
+          "id": "GO:0050801",
+          "name": "monoatomic ion homeostasis"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0055082",
+          "name": "intracellular chemical homeostasis"
+        },
+        {
+          "id": "GO:0055080",
+          "name": "monoatomic cation homeostasis"
+        },
+        {
+          "id": "GO:0006873",
+          "name": "intracellular monoatomic ion homeostasis"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0009897",
+      "name": "external side of plasma membrane",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0071944",
+          "name": "cell periphery"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0009986",
+          "name": "cell surface"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        },
+        {
+          "id": "GO:0005886",
+          "name": "plasma membrane"
+        },
+        {
+          "id": "GO:0009897",
+          "name": "external side of plasma membrane"
+        },
+        {
+          "id": "GO:0098552",
+          "name": "side of membrane"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0016020",
+      "name": "membrane",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        }
+      ]
+    },
+    {
+      "annotation_id": "IPR036179",
+      "name": "Immunoglobulin-like domain superfamily",
+      "provenance_source": "UNIPROT",
+      "type": "InterPro",
+      "annotation_lineage": [
+        {
+          "id": "IPR036179",
+          "name": "Immunoglobulin-like domain superfamily"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0002726",
+      "name": "positive regulation of T cell cytokine production",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0002460",
+          "name": "adaptive immune response based on somatic recombination of immune receptors built from immunoglobulin superfamily domains"
+        },
+        {
+          "id": "GO:0032501",
+          "name": "multicellular organismal process"
+        },
+        {
+          "id": "GO:0002697",
+          "name": "regulation of immune effector process"
+        },
+        {
+          "id": "GO:0002449",
+          "name": "lymphocyte mediated immunity"
+        },
+        {
+          "id": "GO:0002456",
+          "name": "T cell mediated immunity"
+        },
+        {
+          "id": "GO:0002705",
+          "name": "positive regulation of leukocyte mediated immunity"
+        },
+        {
+          "id": "GO:0050794",
+          "name": "regulation of cellular process"
+        },
+        {
+          "id": "GO:0050896",
+          "name": "response to stimulus"
+        },
+        {
+          "id": "GO:0002369",
+          "name": "T cell cytokine production"
+        },
+        {
+          "id": "GO:0010557",
+          "name": "positive regulation of macromolecule biosynthetic process"
+        },
+        {
+          "id": "GO:0009893",
+          "name": "positive regulation of metabolic process"
+        },
+        {
+          "id": "GO:0050778",
+          "name": "positive regulation of immune response"
+        },
+        {
+          "id": "GO:0001816",
+          "name": "cytokine production"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0002443",
+          "name": "leukocyte mediated immunity"
+        },
+        {
+          "id": "GO:0002682",
+          "name": "regulation of immune system process"
+        },
+        {
+          "id": "GO:0010604",
+          "name": "positive regulation of macromolecule metabolic process"
+        },
+        {
+          "id": "GO:0002821",
+          "name": "positive regulation of adaptive immune response"
+        },
+        {
+          "id": "GO:0002726",
+          "name": "positive regulation of T cell cytokine production"
+        },
+        {
+          "id": "GO:0002684",
+          "name": "positive regulation of immune system process"
+        },
+        {
+          "id": "GO:0002709",
+          "name": "regulation of T cell mediated immunity"
+        },
+        {
+          "id": "GO:0050789",
+          "name": "regulation of biological process"
+        },
+        {
+          "id": "GO:0002718",
+          "name": "regulation of cytokine production involved in immune response"
+        },
+        {
+          "id": "GO:0006955",
+          "name": "immune response"
+        },
+        {
+          "id": "GO:0002819",
+          "name": "regulation of adaptive immune response"
+        },
+        {
+          "id": "GO:0002252",
+          "name": "immune effector process"
+        },
+        {
+          "id": "GO:0010468",
+          "name": "regulation of gene expression"
+        },
+        {
+          "id": "GO:0002703",
+          "name": "regulation of leukocyte mediated immunity"
+        },
+        {
+          "id": "GO:0009058",
+          "name": "biosynthetic process"
+        },
+        {
+          "id": "GO:0048583",
+          "name": "regulation of response to stimulus"
+        },
+        {
+          "id": "GO:0002702",
+          "name": "positive regulation of production of molecular mediator of immune response"
+        },
+        {
+          "id": "GO:0051240",
+          "name": "positive regulation of multicellular organismal process"
+        },
+        {
+          "id": "GO:0050776",
+          "name": "regulation of immune response"
+        },
+        {
+          "id": "GO:0008152",
+          "name": "metabolic process"
+        },
+        {
+          "id": "GO:0010556",
+          "name": "regulation of macromolecule biosynthetic process"
+        },
+        {
+          "id": "GO:0043170",
+          "name": "macromolecule metabolic process"
+        },
+        {
+          "id": "GO:0002700",
+          "name": "regulation of production of molecular mediator of immune response"
+        },
+        {
+          "id": "GO:0001819",
+          "name": "positive regulation of cytokine production"
+        },
+        {
+          "id": "GO:0019222",
+          "name": "regulation of metabolic process"
+        },
+        {
+          "id": "GO:0002824",
+          "name": "positive regulation of adaptive immune response based on somatic recombination of immune receptors built from immunoglobulin superfamily domains"
+        },
+        {
+          "id": "GO:0002708",
+          "name": "positive regulation of lymphocyte mediated immunity"
+        },
+        {
+          "id": "GO:0048518",
+          "name": "positive regulation of biological process"
+        },
+        {
+          "id": "GO:0048584",
+          "name": "positive regulation of response to stimulus"
+        },
+        {
+          "id": "GO:0002724",
+          "name": "regulation of T cell cytokine production"
+        },
+        {
+          "id": "GO:0002822",
+          "name": "regulation of adaptive immune response based on somatic recombination of immune receptors built from immunoglobulin superfamily domains"
+        },
+        {
+          "id": "GO:0009891",
+          "name": "positive regulation of biosynthetic process"
+        },
+        {
+          "id": "GO:0001817",
+          "name": "regulation of cytokine production"
+        },
+        {
+          "id": "GO:0002699",
+          "name": "positive regulation of immune effector process"
+        },
+        {
+          "id": "GO:0051239",
+          "name": "regulation of multicellular organismal process"
+        },
+        {
+          "id": "GO:0002367",
+          "name": "cytokine production involved in immune response"
+        },
+        {
+          "id": "GO:0048522",
+          "name": "positive regulation of cellular process"
+        },
+        {
+          "id": "GO:0002440",
+          "name": "production of molecular mediator of immune response"
+        },
+        {
+          "id": "GO:0009889",
+          "name": "regulation of biosynthetic process"
+        },
+        {
+          "id": "GO:0065007",
+          "name": "biological regulation"
+        },
+        {
+          "id": "GO:0060255",
+          "name": "regulation of macromolecule metabolic process"
+        },
+        {
+          "id": "GO:0010467",
+          "name": "gene expression"
+        },
+        {
+          "id": "GO:0009059",
+          "name": "macromolecule biosynthetic process"
+        },
+        {
+          "id": "GO:0002250",
+          "name": "adaptive immune response"
+        },
+        {
+          "id": "GO:0002706",
+          "name": "regulation of lymphocyte mediated immunity"
+        },
+        {
+          "id": "GO:0010628",
+          "name": "positive regulation of gene expression"
+        },
+        {
+          "id": "GO:0002376",
+          "name": "immune system process"
+        },
+        {
+          "id": "GO:0002711",
+          "name": "positive regulation of T cell mediated immunity"
+        },
+        {
+          "id": "GO:0002720",
+          "name": "positive regulation of cytokine production involved in immune response"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0042605",
+      "name": "peptide antigen binding",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0005488",
+          "name": "binding"
+        },
+        {
+          "id": "GO:0003823",
+          "name": "antigen binding"
+        },
+        {
+          "id": "GO:0042605",
+          "name": "peptide antigen binding"
+        },
+        {
+          "id": "GO:0003674",
+          "name": "molecular_function"
+        },
+        {
+          "id": "GO:0042277",
+          "name": "peptide binding"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0070062",
+      "name": "extracellular exosome",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0070062",
+          "name": "extracellular exosome"
+        },
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:1903561",
+          "name": "extracellular vesicle"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0043230",
+          "name": "extracellular organelle"
+        },
+        {
+          "id": "GO:0005576",
+          "name": "extracellular region"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0031982",
+          "name": "vesicle"
+        },
+        {
+          "id": "GO:0065010",
+          "name": "extracellular membrane-bounded organelle"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:1990712",
+      "name": "HFE-transferrin receptor complex",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0071944",
+          "name": "cell periphery"
+        },
+        {
+          "id": "GO:0032991",
+          "name": "protein-containing complex"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0098797",
+          "name": "plasma membrane protein complex"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        },
+        {
+          "id": "GO:0005886",
+          "name": "plasma membrane"
+        },
+        {
+          "id": "GO:0098802",
+          "name": "plasma membrane signaling receptor complex"
+        },
+        {
+          "id": "GO:0098796",
+          "name": "membrane protein complex"
+        },
+        {
+          "id": "GO:0043235",
+          "name": "signaling receptor complex"
+        },
+        {
+          "id": "GO:1990712",
+          "name": "HFE-transferrin receptor complex"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0071281",
+      "name": "cellular response to iron ion",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0051716",
+          "name": "cellular response to stimulus"
+        },
+        {
+          "id": "GO:0071281",
+          "name": "cellular response to iron ion"
+        },
+        {
+          "id": "GO:0071248",
+          "name": "cellular response to metal ion"
+        },
+        {
+          "id": "GO:0070887",
+          "name": "cellular response to chemical stimulus"
+        },
+        {
+          "id": "GO:0050896",
+          "name": "response to stimulus"
+        },
+        {
+          "id": "GO:0010038",
+          "name": "response to metal ion"
+        },
+        {
+          "id": "GO:0010039",
+          "name": "response to iron ion"
+        },
+        {
+          "id": "GO:0042221",
+          "name": "response to chemical"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0023026",
+      "name": "MHC class II protein complex binding",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0044877",
+          "name": "protein-containing complex binding"
+        },
+        {
+          "id": "GO:0005488",
+          "name": "binding"
+        },
+        {
+          "id": "GO:0023023",
+          "name": "MHC protein complex binding"
+        },
+        {
+          "id": "GO:0023026",
+          "name": "MHC class II protein complex binding"
+        },
+        {
+          "id": "GO:0003674",
+          "name": "molecular_function"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0042612",
+      "name": "MHC class I protein complex",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0042612",
+          "name": "MHC class I protein complex"
+        },
+        {
+          "id": "GO:0042611",
+          "name": "MHC protein complex"
+        },
+        {
+          "id": "GO:0071944",
+          "name": "cell periphery"
+        },
+        {
+          "id": "GO:0032991",
+          "name": "protein-containing complex"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0098797",
+          "name": "plasma membrane protein complex"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        },
+        {
+          "id": "GO:0005886",
+          "name": "plasma membrane"
+        },
+        {
+          "id": "GO:0098796",
+          "name": "membrane protein complex"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0031902",
+      "name": "late endosome membrane",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0010008",
+          "name": "endosome membrane"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0005768",
+          "name": "endosome"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        },
+        {
+          "id": "GO:0097708",
+          "name": "intracellular vesicle"
+        },
+        {
+          "id": "GO:0031902",
+          "name": "late endosome membrane"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0012505",
+          "name": "endomembrane system"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0030659",
+          "name": "cytoplasmic vesicle membrane"
+        },
+        {
+          "id": "GO:0098588",
+          "name": "bounding membrane of organelle"
+        },
+        {
+          "id": "GO:0031410",
+          "name": "cytoplasmic vesicle"
+        },
+        {
+          "id": "GO:0012506",
+          "name": "vesicle membrane"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0005770",
+          "name": "late endosome"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        },
+        {
+          "id": "GO:0031982",
+          "name": "vesicle"
+        },
+        {
+          "id": "GO:0031090",
+          "name": "organelle membrane"
+        }
+      ]
+    },
+    {
+      "annotation_id": "IPR003006",
+      "name": "Immunoglobulin/major histocompatibility complex, conserved site",
+      "provenance_source": "UNIPROT",
+      "type": "InterPro",
+      "annotation_lineage": [
+        {
+          "id": "IPR003006",
+          "name": "Immunoglobulin/major histocompatibility complex, conserved site"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0048261",
+      "name": "negative regulation of receptor-mediated endocytosis",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0032879",
+          "name": "regulation of localization"
+        },
+        {
+          "id": "GO:0098657",
+          "name": "import into cell"
+        },
+        {
+          "id": "GO:0051128",
+          "name": "regulation of cellular component organization"
+        },
+        {
+          "id": "GO:0050794",
+          "name": "regulation of cellular process"
+        },
+        {
+          "id": "GO:0006810",
+          "name": "transport"
+        },
+        {
+          "id": "GO:0048519",
+          "name": "negative regulation of biological process"
+        },
+        {
+          "id": "GO:0051051",
+          "name": "negative regulation of transport"
+        },
+        {
+          "id": "GO:0045806",
+          "name": "negative regulation of endocytosis"
+        },
+        {
+          "id": "GO:0016192",
+          "name": "vesicle-mediated transport"
+        },
+        {
+          "id": "GO:0016043",
+          "name": "cellular component organization"
+        },
+        {
+          "id": "GO:0051179",
+          "name": "localization"
+        },
+        {
+          "id": "GO:0048523",
+          "name": "negative regulation of cellular process"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0071840",
+          "name": "cellular component organization or biogenesis"
+        },
+        {
+          "id": "GO:0030100",
+          "name": "regulation of endocytosis"
+        },
+        {
+          "id": "GO:0050789",
+          "name": "regulation of biological process"
+        },
+        {
+          "id": "GO:0051129",
+          "name": "negative regulation of cellular component organization"
+        },
+        {
+          "id": "GO:0048261",
+          "name": "negative regulation of receptor-mediated endocytosis"
+        },
+        {
+          "id": "GO:0051049",
+          "name": "regulation of transport"
+        },
+        {
+          "id": "GO:0065007",
+          "name": "biological regulation"
+        },
+        {
+          "id": "GO:0048259",
+          "name": "regulation of receptor-mediated endocytosis"
+        },
+        {
+          "id": "GO:0060627",
+          "name": "regulation of vesicle-mediated transport"
+        },
+        {
+          "id": "GO:0051234",
+          "name": "establishment of localization"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0006897",
+          "name": "endocytosis"
+        },
+        {
+          "id": "GO:0006898",
+          "name": "receptor-mediated endocytosis"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0032398",
+      "name": "MHC class Ib protein complex",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0042611",
+          "name": "MHC protein complex"
+        },
+        {
+          "id": "GO:0071944",
+          "name": "cell periphery"
+        },
+        {
+          "id": "GO:0032991",
+          "name": "protein-containing complex"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0032398",
+          "name": "MHC class Ib protein complex"
+        },
+        {
+          "id": "GO:0098797",
+          "name": "plasma membrane protein complex"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        },
+        {
+          "id": "GO:0005886",
+          "name": "plasma membrane"
+        },
+        {
+          "id": "GO:0098796",
+          "name": "membrane protein complex"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0030670",
+      "name": "phagocytic vesicle membrane",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        },
+        {
+          "id": "GO:0097708",
+          "name": "intracellular vesicle"
+        },
+        {
+          "id": "GO:0045335",
+          "name": "phagocytic vesicle"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0030670",
+          "name": "phagocytic vesicle membrane"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0030659",
+          "name": "cytoplasmic vesicle membrane"
+        },
+        {
+          "id": "GO:0098588",
+          "name": "bounding membrane of organelle"
+        },
+        {
+          "id": "GO:0031410",
+          "name": "cytoplasmic vesicle"
+        },
+        {
+          "id": "GO:0012506",
+          "name": "vesicle membrane"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0030666",
+          "name": "endocytic vesicle membrane"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        },
+        {
+          "id": "GO:0031982",
+          "name": "vesicle"
+        },
+        {
+          "id": "GO:0031090",
+          "name": "organelle membrane"
+        },
+        {
+          "id": "GO:0030139",
+          "name": "endocytic vesicle"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0005765",
+      "name": "lysosomal membrane",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0005774",
+          "name": "vacuolar membrane"
+        },
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        },
+        {
+          "id": "GO:0000323",
+          "name": "lytic vacuole"
+        },
+        {
+          "id": "GO:0005773",
+          "name": "vacuole"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0098852",
+          "name": "lytic vacuole membrane"
+        },
+        {
+          "id": "GO:0098588",
+          "name": "bounding membrane of organelle"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0005765",
+          "name": "lysosomal membrane"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        },
+        {
+          "id": "GO:0031090",
+          "name": "organelle membrane"
+        },
+        {
+          "id": "GO:0005764",
+          "name": "lysosome"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0005794",
+      "name": "Golgi apparatus",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0005794",
+          "name": "Golgi apparatus"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0012505",
+          "name": "endomembrane system"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0005788",
+      "name": "endoplasmic reticulum lumen",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0031974",
+          "name": "membrane-enclosed lumen"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0012505",
+          "name": "endomembrane system"
+        },
+        {
+          "id": "GO:0070013",
+          "name": "intracellular organelle lumen"
+        },
+        {
+          "id": "GO:0005788",
+          "name": "endoplasmic reticulum lumen"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0043233",
+          "name": "organelle lumen"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0005783",
+          "name": "endoplasmic reticulum"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0048260",
+      "name": "positive regulation of receptor-mediated endocytosis",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0032879",
+          "name": "regulation of localization"
+        },
+        {
+          "id": "GO:0098657",
+          "name": "import into cell"
+        },
+        {
+          "id": "GO:0051130",
+          "name": "positive regulation of cellular component organization"
+        },
+        {
+          "id": "GO:0050794",
+          "name": "regulation of cellular process"
+        },
+        {
+          "id": "GO:0051128",
+          "name": "regulation of cellular component organization"
+        },
+        {
+          "id": "GO:0006810",
+          "name": "transport"
+        },
+        {
+          "id": "GO:0048518",
+          "name": "positive regulation of biological process"
+        },
+        {
+          "id": "GO:0016192",
+          "name": "vesicle-mediated transport"
+        },
+        {
+          "id": "GO:0016043",
+          "name": "cellular component organization"
+        },
+        {
+          "id": "GO:0051179",
+          "name": "localization"
+        },
+        {
+          "id": "GO:0045807",
+          "name": "positive regulation of endocytosis"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0071840",
+          "name": "cellular component organization or biogenesis"
+        },
+        {
+          "id": "GO:0048260",
+          "name": "positive regulation of receptor-mediated endocytosis"
+        },
+        {
+          "id": "GO:0048522",
+          "name": "positive regulation of cellular process"
+        },
+        {
+          "id": "GO:0030100",
+          "name": "regulation of endocytosis"
+        },
+        {
+          "id": "GO:0050789",
+          "name": "regulation of biological process"
+        },
+        {
+          "id": "GO:0051049",
+          "name": "regulation of transport"
+        },
+        {
+          "id": "GO:0065007",
+          "name": "biological regulation"
+        },
+        {
+          "id": "GO:0048259",
+          "name": "regulation of receptor-mediated endocytosis"
+        },
+        {
+          "id": "GO:0060627",
+          "name": "regulation of vesicle-mediated transport"
+        },
+        {
+          "id": "GO:0051234",
+          "name": "establishment of localization"
+        },
+        {
+          "id": "GO:0051050",
+          "name": "positive regulation of transport"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0006897",
+          "name": "endocytosis"
+        },
+        {
+          "id": "GO:0006898",
+          "name": "receptor-mediated endocytosis"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0000139",
+      "name": "Golgi membrane",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0000139",
+          "name": "Golgi membrane"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0005794",
+          "name": "Golgi apparatus"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0012505",
+          "name": "endomembrane system"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0098588",
+          "name": "bounding membrane of organelle"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        },
+        {
+          "id": "GO:0031090",
+          "name": "organelle membrane"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0002502",
+      "name": "peptide antigen assembly with MHC class I protein complex",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0002502",
+          "name": "peptide antigen assembly with MHC class I protein complex"
+        },
+        {
+          "id": "GO:0043933",
+          "name": "protein-containing complex organization"
+        },
+        {
+          "id": "GO:0002501",
+          "name": "peptide antigen assembly with MHC protein complex"
+        },
+        {
+          "id": "GO:0002397",
+          "name": "MHC class I protein complex assembly"
+        },
+        {
+          "id": "GO:0016043",
+          "name": "cellular component organization"
+        },
+        {
+          "id": "GO:0044085",
+          "name": "cellular component biogenesis"
+        },
+        {
+          "id": "GO:0019882",
+          "name": "antigen processing and presentation"
+        },
+        {
+          "id": "GO:0022607",
+          "name": "cellular component assembly"
+        },
+        {
+          "id": "GO:0002376",
+          "name": "immune system process"
+        },
+        {
+          "id": "GO:0065003",
+          "name": "protein-containing complex assembly"
+        },
+        {
+          "id": "GO:0002474",
+          "name": "antigen processing and presentation of peptide antigen via MHC class I"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0002396",
+          "name": "MHC protein complex assembly"
+        },
+        {
+          "id": "GO:0071840",
+          "name": "cellular component organization or biogenesis"
+        },
+        {
+          "id": "GO:0048002",
+          "name": "antigen processing and presentation of peptide antigen"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0042824",
+      "name": "MHC class I peptide loading complex",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0032991",
+          "name": "protein-containing complex"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0042824",
+          "name": "MHC class I peptide loading complex"
+        },
+        {
+          "id": "GO:0031984",
+          "name": "organelle subcompartment"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        },
+        {
+          "id": "GO:0098796",
+          "name": "membrane protein complex"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0012505",
+          "name": "endomembrane system"
+        },
+        {
+          "id": "GO:0098827",
+          "name": "endoplasmic reticulum subcompartment"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0042175",
+          "name": "nuclear outer membrane-endoplasmic reticulum membrane network"
+        },
+        {
+          "id": "GO:0005783",
+          "name": "endoplasmic reticulum"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        },
+        {
+          "id": "GO:0031090",
+          "name": "organelle membrane"
+        },
+        {
+          "id": "GO:0140534",
+          "name": "endoplasmic reticulum protein-containing complex"
+        },
+        {
+          "id": "GO:0005789",
+          "name": "endoplasmic reticulum membrane"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0035580",
+      "name": "specific granule lumen",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0031983",
+          "name": "vesicle lumen"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0097708",
+          "name": "intracellular vesicle"
+        },
+        {
+          "id": "GO:0031974",
+          "name": "membrane-enclosed lumen"
+        },
+        {
+          "id": "GO:0060205",
+          "name": "cytoplasmic vesicle lumen"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0034774",
+          "name": "secretory granule lumen"
+        },
+        {
+          "id": "GO:0012505",
+          "name": "endomembrane system"
+        },
+        {
+          "id": "GO:0070013",
+          "name": "intracellular organelle lumen"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0031410",
+          "name": "cytoplasmic vesicle"
+        },
+        {
+          "id": "GO:0043233",
+          "name": "organelle lumen"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0035580",
+          "name": "specific granule lumen"
+        },
+        {
+          "id": "GO:0030141",
+          "name": "secretory granule"
+        },
+        {
+          "id": "GO:0099503",
+          "name": "secretory vesicle"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        },
+        {
+          "id": "GO:0031982",
+          "name": "vesicle"
+        },
+        {
+          "id": "GO:0042581",
+          "name": "specific granule"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0050768",
+      "name": "negative regulation of neurogenesis",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0032501",
+          "name": "multicellular organismal process"
+        },
+        {
+          "id": "GO:0050794",
+          "name": "regulation of cellular process"
+        },
+        {
+          "id": "GO:0050793",
+          "name": "regulation of developmental process"
+        },
+        {
+          "id": "GO:0048869",
+          "name": "cellular developmental process"
+        },
+        {
+          "id": "GO:0048519",
+          "name": "negative regulation of biological process"
+        },
+        {
+          "id": "GO:0048468",
+          "name": "cell development"
+        },
+        {
+          "id": "GO:0045595",
+          "name": "regulation of cell differentiation"
+        },
+        {
+          "id": "GO:0050767",
+          "name": "regulation of neurogenesis"
+        },
+        {
+          "id": "GO:0060284",
+          "name": "regulation of cell development"
+        },
+        {
+          "id": "GO:0051960",
+          "name": "regulation of nervous system development"
+        },
+        {
+          "id": "GO:0050768",
+          "name": "negative regulation of neurogenesis"
+        },
+        {
+          "id": "GO:0007275",
+          "name": "multicellular organism development"
+        },
+        {
+          "id": "GO:0022008",
+          "name": "neurogenesis"
+        },
+        {
+          "id": "GO:0030154",
+          "name": "cell differentiation"
+        },
+        {
+          "id": "GO:0048856",
+          "name": "anatomical structure development"
+        },
+        {
+          "id": "GO:0048523",
+          "name": "negative regulation of cellular process"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0051961",
+          "name": "negative regulation of nervous system development"
+        },
+        {
+          "id": "GO:0051239",
+          "name": "regulation of multicellular organismal process"
+        },
+        {
+          "id": "GO:0045596",
+          "name": "negative regulation of cell differentiation"
+        },
+        {
+          "id": "GO:0048731",
+          "name": "system development"
+        },
+        {
+          "id": "GO:0032502",
+          "name": "developmental process"
+        },
+        {
+          "id": "GO:2000026",
+          "name": "regulation of multicellular organismal development"
+        },
+        {
+          "id": "GO:0050789",
+          "name": "regulation of biological process"
+        },
+        {
+          "id": "GO:0051093",
+          "name": "negative regulation of developmental process"
+        },
+        {
+          "id": "GO:0065007",
+          "name": "biological regulation"
+        },
+        {
+          "id": "GO:0007399",
+          "name": "nervous system development"
+        },
+        {
+          "id": "GO:0010721",
+          "name": "negative regulation of cell development"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0051241",
+          "name": "negative regulation of multicellular organismal process"
+        },
+        {
+          "id": "GO:0160108",
+          "name": "animal gross anatomical part developmental process"
+        }
+      ]
+    },
+    {
+      "annotation_id": "IPR013783",
+      "name": "Immunoglobulin-like fold",
+      "provenance_source": "UNIPROT",
+      "type": "InterPro",
+      "annotation_lineage": [
+        {
+          "id": "IPR013783",
+          "name": "Immunoglobulin-like fold"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0002715",
+      "name": "regulation of natural killer cell mediated immunity",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0002449",
+          "name": "lymphocyte mediated immunity"
+        },
+        {
+          "id": "GO:0031347",
+          "name": "regulation of defense response"
+        },
+        {
+          "id": "GO:0002697",
+          "name": "regulation of immune effector process"
+        },
+        {
+          "id": "GO:0002831",
+          "name": "regulation of response to biotic stimulus"
+        },
+        {
+          "id": "GO:0044419",
+          "name": "biological process involved in interspecies interaction between organisms"
+        },
+        {
+          "id": "GO:0050896",
+          "name": "response to stimulus"
+        },
+        {
+          "id": "GO:0032101",
+          "name": "regulation of response to external stimulus"
+        },
+        {
+          "id": "GO:0009607",
+          "name": "response to biotic stimulus"
+        },
+        {
+          "id": "GO:0006950",
+          "name": "response to stress"
+        },
+        {
+          "id": "GO:0080134",
+          "name": "regulation of response to stress"
+        },
+        {
+          "id": "GO:0045087",
+          "name": "innate immune response"
+        },
+        {
+          "id": "GO:0002443",
+          "name": "leukocyte mediated immunity"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0002682",
+          "name": "regulation of immune system process"
+        },
+        {
+          "id": "GO:0043207",
+          "name": "response to external biotic stimulus"
+        },
+        {
+          "id": "GO:0002228",
+          "name": "natural killer cell mediated immunity"
+        },
+        {
+          "id": "GO:0002715",
+          "name": "regulation of natural killer cell mediated immunity"
+        },
+        {
+          "id": "GO:0050789",
+          "name": "regulation of biological process"
+        },
+        {
+          "id": "GO:0006955",
+          "name": "immune response"
+        },
+        {
+          "id": "GO:0051707",
+          "name": "response to other organism"
+        },
+        {
+          "id": "GO:0006952",
+          "name": "defense response"
+        },
+        {
+          "id": "GO:0045088",
+          "name": "regulation of innate immune response"
+        },
+        {
+          "id": "GO:0065007",
+          "name": "biological regulation"
+        },
+        {
+          "id": "GO:0140546",
+          "name": "defense response to symbiont"
+        },
+        {
+          "id": "GO:0009605",
+          "name": "response to external stimulus"
+        },
+        {
+          "id": "GO:0002252",
+          "name": "immune effector process"
+        },
+        {
+          "id": "GO:0002703",
+          "name": "regulation of leukocyte mediated immunity"
+        },
+        {
+          "id": "GO:0002706",
+          "name": "regulation of lymphocyte mediated immunity"
+        },
+        {
+          "id": "GO:0048583",
+          "name": "regulation of response to stimulus"
+        },
+        {
+          "id": "GO:0002376",
+          "name": "immune system process"
+        },
+        {
+          "id": "GO:0098542",
+          "name": "defense response to other organism"
+        },
+        {
+          "id": "GO:0050776",
+          "name": "regulation of immune response"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0002477",
+      "name": "antigen processing and presentation of exogenous peptide antigen via MHC class Ib",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0019882",
+          "name": "antigen processing and presentation"
+        },
+        {
+          "id": "GO:0002428",
+          "name": "antigen processing and presentation of peptide antigen via MHC class Ib"
+        },
+        {
+          "id": "GO:0002376",
+          "name": "immune system process"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0002475",
+          "name": "antigen processing and presentation via MHC class Ib"
+        },
+        {
+          "id": "GO:0002477",
+          "name": "antigen processing and presentation of exogenous peptide antigen via MHC class Ib"
+        },
+        {
+          "id": "GO:0002478",
+          "name": "antigen processing and presentation of exogenous peptide antigen"
+        },
+        {
+          "id": "GO:0048002",
+          "name": "antigen processing and presentation of peptide antigen"
+        },
+        {
+          "id": "GO:0019884",
+          "name": "antigen processing and presentation of exogenous antigen"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0050680",
+      "name": "negative regulation of epithelial cell proliferation",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0008285",
+          "name": "negative regulation of cell population proliferation"
+        },
+        {
+          "id": "GO:0050789",
+          "name": "regulation of biological process"
+        },
+        {
+          "id": "GO:0008283",
+          "name": "cell population proliferation"
+        },
+        {
+          "id": "GO:0050794",
+          "name": "regulation of cellular process"
+        },
+        {
+          "id": "GO:0065007",
+          "name": "biological regulation"
+        },
+        {
+          "id": "GO:0048519",
+          "name": "negative regulation of biological process"
+        },
+        {
+          "id": "GO:0042127",
+          "name": "regulation of cell population proliferation"
+        },
+        {
+          "id": "GO:0048523",
+          "name": "negative regulation of cellular process"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0050678",
+          "name": "regulation of epithelial cell proliferation"
+        },
+        {
+          "id": "GO:0050673",
+          "name": "epithelial cell proliferation"
+        },
+        {
+          "id": "GO:0050680",
+          "name": "negative regulation of epithelial cell proliferation"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0033572",
+      "name": "transferrin transport",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0045184",
+          "name": "establishment of protein localization"
+        },
+        {
+          "id": "GO:0006810",
+          "name": "transport"
+        },
+        {
+          "id": "GO:0006826",
+          "name": "iron ion transport"
+        },
+        {
+          "id": "GO:0051234",
+          "name": "establishment of localization"
+        },
+        {
+          "id": "GO:0030001",
+          "name": "metal ion transport"
+        },
+        {
+          "id": "GO:0051179",
+          "name": "localization"
+        },
+        {
+          "id": "GO:0015031",
+          "name": "protein transport"
+        },
+        {
+          "id": "GO:0033036",
+          "name": "macromolecule localization"
+        },
+        {
+          "id": "GO:0033572",
+          "name": "transferrin transport"
+        },
+        {
+          "id": "GO:0000041",
+          "name": "transition metal ion transport"
+        },
+        {
+          "id": "GO:0006811",
+          "name": "monoatomic ion transport"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0008104",
+          "name": "intracellular protein localization"
+        },
+        {
+          "id": "GO:0006812",
+          "name": "monoatomic cation transport"
+        }
+      ]
+    },
+    {
+      "annotation_id": "IPR007110",
+      "name": "Immunoglobulin-like domain",
+      "provenance_source": "UNIPROT",
+      "type": "InterPro",
+      "annotation_lineage": [
+        {
+          "depth": 1,
+          "id": "IPR007110",
+          "name": "Immunoglobulin-like domain"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0042802",
+      "name": "identical protein binding",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0042802",
+          "name": "identical protein binding"
+        },
+        {
+          "id": "GO:0005515",
+          "name": "protein binding"
+        },
+        {
+          "id": "GO:0005488",
+          "name": "binding"
+        },
+        {
+          "id": "GO:0003674",
+          "name": "molecular_function"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0050778",
+      "name": "positive regulation of immune response",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0050789",
+          "name": "regulation of biological process"
+        },
+        {
+          "id": "GO:0050896",
+          "name": "response to stimulus"
+        },
+        {
+          "id": "GO:0006955",
+          "name": "immune response"
+        },
+        {
+          "id": "GO:0065007",
+          "name": "biological regulation"
+        },
+        {
+          "id": "GO:0048518",
+          "name": "positive regulation of biological process"
+        },
+        {
+          "id": "GO:0048584",
+          "name": "positive regulation of response to stimulus"
+        },
+        {
+          "id": "GO:0050778",
+          "name": "positive regulation of immune response"
+        },
+        {
+          "id": "GO:0048583",
+          "name": "regulation of response to stimulus"
+        },
+        {
+          "id": "GO:0002376",
+          "name": "immune system process"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0050776",
+          "name": "regulation of immune response"
+        },
+        {
+          "id": "GO:0002682",
+          "name": "regulation of immune system process"
+        },
+        {
+          "id": "GO:0002684",
+          "name": "positive regulation of immune system process"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0005925",
+      "name": "focal adhesion",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0070161",
+          "name": "anchoring junction"
+        },
+        {
+          "id": "GO:0030054",
+          "name": "cell junction"
+        },
+        {
+          "id": "GO:0005925",
+          "name": "focal adhesion"
+        },
+        {
+          "id": "GO:0030055",
+          "name": "cell-substrate junction"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0006955",
+      "name": "immune response",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0050896",
+          "name": "response to stimulus"
+        },
+        {
+          "id": "GO:0006955",
+          "name": "immune response"
+        },
+        {
+          "id": "GO:0002376",
+          "name": "immune system process"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0007608",
+      "name": "sensory perception of smell",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0032501",
+          "name": "multicellular organismal process"
+        },
+        {
+          "id": "GO:0003008",
+          "name": "system process"
+        },
+        {
+          "id": "GO:0007606",
+          "name": "sensory perception of chemical stimulus"
+        },
+        {
+          "id": "GO:0007600",
+          "name": "sensory perception"
+        },
+        {
+          "id": "GO:0050877",
+          "name": "nervous system process"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0007608",
+          "name": "sensory perception of smell"
+        }
+      ]
+    },
+    {
+      "annotation_id": "IPR050160",
+      "name": "Major Histocompatibility Complex/Immunoglobulin",
+      "provenance_source": "UNIPROT",
+      "type": "InterPro",
+      "annotation_lineage": [
+        {
+          "id": "IPR050160",
+          "name": "Major Histocompatibility Complex/Immunoglobulin"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0009986",
+      "name": "cell surface",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0009986",
+          "name": "cell surface"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:1990000",
+      "name": "amyloid fibril formation",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0016043",
+          "name": "cellular component organization"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0008152",
+          "name": "metabolic process"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0044238",
+          "name": "primary metabolic process"
+        },
+        {
+          "id": "GO:0019538",
+          "name": "protein metabolic process"
+        },
+        {
+          "id": "GO:0043170",
+          "name": "macromolecule metabolic process"
+        },
+        {
+          "id": "GO:0071840",
+          "name": "cellular component organization or biogenesis"
+        },
+        {
+          "id": "GO:0097435",
+          "name": "supramolecular fiber organization"
+        },
+        {
+          "id": "GO:1990000",
+          "name": "amyloid fibril formation"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0051289",
+      "name": "protein homotetramerization",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0043933",
+          "name": "protein-containing complex organization"
+        },
+        {
+          "id": "GO:0051289",
+          "name": "protein homotetramerization"
+        },
+        {
+          "id": "GO:0016043",
+          "name": "cellular component organization"
+        },
+        {
+          "id": "GO:0044085",
+          "name": "cellular component biogenesis"
+        },
+        {
+          "id": "GO:0022607",
+          "name": "cellular component assembly"
+        },
+        {
+          "id": "GO:0051259",
+          "name": "protein complex oligomerization"
+        },
+        {
+          "id": "GO:0051262",
+          "name": "protein tetramerization"
+        },
+        {
+          "id": "GO:0065003",
+          "name": "protein-containing complex assembly"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0051260",
+          "name": "protein homooligomerization"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0071840",
+          "name": "cellular component organization or biogenesis"
+        }
+      ]
+    },
+    {
+      "annotation_id": "IPR003597",
+      "name": "Immunoglobulin C1-set",
+      "provenance_source": "UNIPROT",
+      "type": "InterPro",
+      "annotation_lineage": [
+        {
+          "depth": 1,
+          "id": "IPR007110",
+          "name": "Immunoglobulin-like domain"
+        },
+        {
+          "depth": 2,
+          "id": "IPR003597",
+          "name": "Immunoglobulin C1-set"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0042613",
+      "name": "MHC class II protein complex",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0042611",
+          "name": "MHC protein complex"
+        },
+        {
+          "id": "GO:0071944",
+          "name": "cell periphery"
+        },
+        {
+          "id": "GO:0042613",
+          "name": "MHC class II protein complex"
+        },
+        {
+          "id": "GO:0032991",
+          "name": "protein-containing complex"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0098797",
+          "name": "plasma membrane protein complex"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        },
+        {
+          "id": "GO:0005886",
+          "name": "plasma membrane"
+        },
+        {
+          "id": "GO:0098796",
+          "name": "membrane protein complex"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0031905",
+      "name": "early endosome lumen",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0005769",
+          "name": "early endosome"
+        },
+        {
+          "id": "GO:0005768",
+          "name": "endosome"
+        },
+        {
+          "id": "GO:0097708",
+          "name": "intracellular vesicle"
+        },
+        {
+          "id": "GO:0031974",
+          "name": "membrane-enclosed lumen"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0012505",
+          "name": "endomembrane system"
+        },
+        {
+          "id": "GO:0070013",
+          "name": "intracellular organelle lumen"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0031410",
+          "name": "cytoplasmic vesicle"
+        },
+        {
+          "id": "GO:0043233",
+          "name": "organelle lumen"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        },
+        {
+          "id": "GO:0031982",
+          "name": "vesicle"
+        },
+        {
+          "id": "GO:0031904",
+          "name": "endosome lumen"
+        },
+        {
+          "id": "GO:0031905",
+          "name": "early endosome lumen"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0005886",
+      "name": "plasma membrane",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0071944",
+          "name": "cell periphery"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005886",
+          "name": "plasma membrane"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0019886",
+      "name": "antigen processing and presentation of exogenous peptide antigen via MHC class II",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0019886",
+          "name": "antigen processing and presentation of exogenous peptide antigen via MHC class II"
+        },
+        {
+          "id": "GO:0019882",
+          "name": "antigen processing and presentation"
+        },
+        {
+          "id": "GO:0002504",
+          "name": "antigen processing and presentation of peptide or polysaccharide antigen via MHC class II"
+        },
+        {
+          "id": "GO:0002376",
+          "name": "immune system process"
+        },
+        {
+          "id": "GO:0002495",
+          "name": "antigen processing and presentation of peptide antigen via MHC class II"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0002478",
+          "name": "antigen processing and presentation of exogenous peptide antigen"
+        },
+        {
+          "id": "GO:0048002",
+          "name": "antigen processing and presentation of peptide antigen"
+        },
+        {
+          "id": "GO:0019884",
+          "name": "antigen processing and presentation of exogenous antigen"
+        }
+      ]
+    },
+    {
+      "annotation_id": "IPR015707",
+      "name": "Beta-2-Microglobulin",
+      "provenance_source": "UNIPROT",
+      "type": "InterPro",
+      "annotation_lineage": [
+        {
+          "id": "IPR015707",
+          "name": "Beta-2-Microglobulin"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0002503",
+      "name": "peptide antigen assembly with MHC class II protein complex",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0002503",
+          "name": "peptide antigen assembly with MHC class II protein complex"
+        },
+        {
+          "id": "GO:0043933",
+          "name": "protein-containing complex organization"
+        },
+        {
+          "id": "GO:0002501",
+          "name": "peptide antigen assembly with MHC protein complex"
+        },
+        {
+          "id": "GO:0002399",
+          "name": "MHC class II protein complex assembly"
+        },
+        {
+          "id": "GO:0016043",
+          "name": "cellular component organization"
+        },
+        {
+          "id": "GO:0044085",
+          "name": "cellular component biogenesis"
+        },
+        {
+          "id": "GO:0019882",
+          "name": "antigen processing and presentation"
+        },
+        {
+          "id": "GO:0002504",
+          "name": "antigen processing and presentation of peptide or polysaccharide antigen via MHC class II"
+        },
+        {
+          "id": "GO:0022607",
+          "name": "cellular component assembly"
+        },
+        {
+          "id": "GO:0002376",
+          "name": "immune system process"
+        },
+        {
+          "id": "GO:0065003",
+          "name": "protein-containing complex assembly"
+        },
+        {
+          "id": "GO:0002495",
+          "name": "antigen processing and presentation of peptide antigen via MHC class II"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0002396",
+          "name": "MHC protein complex assembly"
+        },
+        {
+          "id": "GO:0071840",
+          "name": "cellular component organization or biogenesis"
+        },
+        {
+          "id": "GO:0048002",
+          "name": "antigen processing and presentation of peptide antigen"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0055038",
+      "name": "recycling endosome membrane",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0010008",
+          "name": "endosome membrane"
+        },
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        },
+        {
+          "id": "GO:0005768",
+          "name": "endosome"
+        },
+        {
+          "id": "GO:0097708",
+          "name": "intracellular vesicle"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0055037",
+          "name": "recycling endosome"
+        },
+        {
+          "id": "GO:0012505",
+          "name": "endomembrane system"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0030659",
+          "name": "cytoplasmic vesicle membrane"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0098588",
+          "name": "bounding membrane of organelle"
+        },
+        {
+          "id": "GO:0055038",
+          "name": "recycling endosome membrane"
+        },
+        {
+          "id": "GO:0012506",
+          "name": "vesicle membrane"
+        },
+        {
+          "id": "GO:0031410",
+          "name": "cytoplasmic vesicle"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        },
+        {
+          "id": "GO:0031982",
+          "name": "vesicle"
+        },
+        {
+          "id": "GO:0031090",
+          "name": "organelle membrane"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:1904724",
+      "name": "tertiary granule lumen",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:1904724",
+          "name": "tertiary granule lumen"
+        },
+        {
+          "id": "GO:0031974",
+          "name": "membrane-enclosed lumen"
+        },
+        {
+          "id": "GO:0097708",
+          "name": "intracellular vesicle"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0012505",
+          "name": "endomembrane system"
+        },
+        {
+          "id": "GO:0070013",
+          "name": "intracellular organelle lumen"
+        },
+        {
+          "id": "GO:0070820",
+          "name": "tertiary granule"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0043233",
+          "name": "organelle lumen"
+        },
+        {
+          "id": "GO:0031410",
+          "name": "cytoplasmic vesicle"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0030141",
+          "name": "secretory granule"
+        },
+        {
+          "id": "GO:0099503",
+          "name": "secretory vesicle"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        },
+        {
+          "id": "GO:0031982",
+          "name": "vesicle"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0042803",
+      "name": "protein homodimerization activity",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0042802",
+          "name": "identical protein binding"
+        },
+        {
+          "id": "GO:0005515",
+          "name": "protein binding"
+        },
+        {
+          "id": "GO:0005488",
+          "name": "binding"
+        },
+        {
+          "id": "GO:0042803",
+          "name": "protein homodimerization activity"
+        },
+        {
+          "id": "GO:0046983",
+          "name": "protein dimerization activity"
+        },
+        {
+          "id": "GO:0003674",
+          "name": "molecular_function"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0071316",
+      "name": "cellular response to nicotine",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0051716",
+          "name": "cellular response to stimulus"
+        },
+        {
+          "id": "GO:0070887",
+          "name": "cellular response to chemical stimulus"
+        },
+        {
+          "id": "GO:0050896",
+          "name": "response to stimulus"
+        },
+        {
+          "id": "GO:0042221",
+          "name": "response to chemical"
+        },
+        {
+          "id": "GO:0071316",
+          "name": "cellular response to nicotine"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0035094",
+          "name": "response to nicotine"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0005576",
+      "name": "extracellular region",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005576",
+          "name": "extracellular region"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0031901",
+      "name": "early endosome membrane",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0010008",
+          "name": "endosome membrane"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0005769",
+          "name": "early endosome"
+        },
+        {
+          "id": "GO:0005768",
+          "name": "endosome"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        },
+        {
+          "id": "GO:0097708",
+          "name": "intracellular vesicle"
+        },
+        {
+          "id": "GO:0031901",
+          "name": "early endosome membrane"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0012505",
+          "name": "endomembrane system"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0030659",
+          "name": "cytoplasmic vesicle membrane"
+        },
+        {
+          "id": "GO:0098588",
+          "name": "bounding membrane of organelle"
+        },
+        {
+          "id": "GO:0031410",
+          "name": "cytoplasmic vesicle"
+        },
+        {
+          "id": "GO:0012506",
+          "name": "vesicle membrane"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        },
+        {
+          "id": "GO:0031982",
+          "name": "vesicle"
+        },
+        {
+          "id": "GO:0031090",
+          "name": "organelle membrane"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:2000774",
+      "name": "positive regulation of cellular senescence",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0051716",
+          "name": "cellular response to stimulus"
+        },
+        {
+          "id": "GO:0050789",
+          "name": "regulation of biological process"
+        },
+        {
+          "id": "GO:0050794",
+          "name": "regulation of cellular process"
+        },
+        {
+          "id": "GO:0050896",
+          "name": "response to stimulus"
+        },
+        {
+          "id": "GO:2000772",
+          "name": "regulation of cellular senescence"
+        },
+        {
+          "id": "GO:0065007",
+          "name": "biological regulation"
+        },
+        {
+          "id": "GO:0048518",
+          "name": "positive regulation of biological process"
+        },
+        {
+          "id": "GO:0090398",
+          "name": "cellular senescence"
+        },
+        {
+          "id": "GO:2000774",
+          "name": "positive regulation of cellular senescence"
+        },
+        {
+          "id": "GO:0033554",
+          "name": "cellular response to stress"
+        },
+        {
+          "id": "GO:0006950",
+          "name": "response to stress"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0048522",
+          "name": "positive regulation of cellular process"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0019885",
+      "name": "antigen processing and presentation of endogenous peptide antigen via MHC class I",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0019882",
+          "name": "antigen processing and presentation"
+        },
+        {
+          "id": "GO:0002376",
+          "name": "immune system process"
+        },
+        {
+          "id": "GO:0002483",
+          "name": "antigen processing and presentation of endogenous peptide antigen"
+        },
+        {
+          "id": "GO:0002474",
+          "name": "antigen processing and presentation of peptide antigen via MHC class I"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0048002",
+          "name": "antigen processing and presentation of peptide antigen"
+        },
+        {
+          "id": "GO:0019883",
+          "name": "antigen processing and presentation of endogenous antigen"
+        },
+        {
+          "id": "GO:0019885",
+          "name": "antigen processing and presentation of endogenous peptide antigen via MHC class I"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0007611",
+      "name": "learning or memory",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0007610",
+          "name": "behavior"
+        },
+        {
+          "id": "GO:0032501",
+          "name": "multicellular organismal process"
+        },
+        {
+          "id": "GO:0003008",
+          "name": "system process"
+        },
+        {
+          "id": "GO:0007611",
+          "name": "learning or memory"
+        },
+        {
+          "id": "GO:0050877",
+          "name": "nervous system process"
+        },
+        {
+          "id": "GO:0050890",
+          "name": "cognition"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0005198",
+      "name": "structural molecule activity",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0005198",
+          "name": "structural molecule activity"
+        },
+        {
+          "id": "GO:0003674",
+          "name": "molecular_function"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0012507",
+      "name": "ER to Golgi transport vesicle membrane",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0030133",
+          "name": "transport vesicle"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        },
+        {
+          "id": "GO:0097708",
+          "name": "intracellular vesicle"
+        },
+        {
+          "id": "GO:0030658",
+          "name": "transport vesicle membrane"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0012505",
+          "name": "endomembrane system"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0030659",
+          "name": "cytoplasmic vesicle membrane"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0098588",
+          "name": "bounding membrane of organelle"
+        },
+        {
+          "id": "GO:0030662",
+          "name": "coated vesicle membrane"
+        },
+        {
+          "id": "GO:0030134",
+          "name": "COPII-coated ER to Golgi transport vesicle"
+        },
+        {
+          "id": "GO:0012506",
+          "name": "vesicle membrane"
+        },
+        {
+          "id": "GO:0031410",
+          "name": "cytoplasmic vesicle"
+        },
+        {
+          "id": "GO:0012507",
+          "name": "ER to Golgi transport vesicle membrane"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0030135",
+          "name": "coated vesicle"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        },
+        {
+          "id": "GO:0031982",
+          "name": "vesicle"
+        },
+        {
+          "id": "GO:0031090",
+          "name": "organelle membrane"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0034757",
+      "name": "negative regulation of iron ion transport",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0032879",
+          "name": "regulation of localization"
+        },
+        {
+          "id": "GO:0050789",
+          "name": "regulation of biological process"
+        },
+        {
+          "id": "GO:0006810",
+          "name": "transport"
+        },
+        {
+          "id": "GO:0051049",
+          "name": "regulation of transport"
+        },
+        {
+          "id": "GO:0043271",
+          "name": "negative regulation of monoatomic ion transport"
+        },
+        {
+          "id": "GO:0043269",
+          "name": "regulation of monoatomic ion transport"
+        },
+        {
+          "id": "GO:0065007",
+          "name": "biological regulation"
+        },
+        {
+          "id": "GO:0048519",
+          "name": "negative regulation of biological process"
+        },
+        {
+          "id": "GO:0006826",
+          "name": "iron ion transport"
+        },
+        {
+          "id": "GO:0034756",
+          "name": "regulation of iron ion transport"
+        },
+        {
+          "id": "GO:0051051",
+          "name": "negative regulation of transport"
+        },
+        {
+          "id": "GO:0051234",
+          "name": "establishment of localization"
+        },
+        {
+          "id": "GO:0030001",
+          "name": "metal ion transport"
+        },
+        {
+          "id": "GO:0051179",
+          "name": "localization"
+        },
+        {
+          "id": "GO:0006811",
+          "name": "monoatomic ion transport"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0000041",
+          "name": "transition metal ion transport"
+        },
+        {
+          "id": "GO:0006812",
+          "name": "monoatomic cation transport"
+        },
+        {
+          "id": "GO:0010959",
+          "name": "regulation of metal ion transport"
+        },
+        {
+          "id": "GO:0034757",
+          "name": "negative regulation of iron ion transport"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0050870",
+      "name": "positive regulation of T cell activation",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0032501",
+          "name": "multicellular organismal process"
+        },
+        {
+          "id": "GO:0050794",
+          "name": "regulation of cellular process"
+        },
+        {
+          "id": "GO:0002694",
+          "name": "regulation of leukocyte activation"
+        },
+        {
+          "id": "GO:0048518",
+          "name": "positive regulation of biological process"
+        },
+        {
+          "id": "GO:0050865",
+          "name": "regulation of cell activation"
+        },
+        {
+          "id": "GO:1903039",
+          "name": "positive regulation of leukocyte cell-cell adhesion"
+        },
+        {
+          "id": "GO:0046649",
+          "name": "lymphocyte activation"
+        },
+        {
+          "id": "GO:0007159",
+          "name": "leukocyte cell-cell adhesion"
+        },
+        {
+          "id": "GO:0045321",
+          "name": "leukocyte activation"
+        },
+        {
+          "id": "GO:0022409",
+          "name": "positive regulation of cell-cell adhesion"
+        },
+        {
+          "id": "GO:0051251",
+          "name": "positive regulation of lymphocyte activation"
+        },
+        {
+          "id": "GO:0050867",
+          "name": "positive regulation of cell activation"
+        },
+        {
+          "id": "GO:0007155",
+          "name": "cell adhesion"
+        },
+        {
+          "id": "GO:0098609",
+          "name": "cell-cell adhesion"
+        },
+        {
+          "id": "GO:0042110",
+          "name": "T cell activation"
+        },
+        {
+          "id": "GO:0002696",
+          "name": "positive regulation of leukocyte activation"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0051239",
+          "name": "regulation of multicellular organismal process"
+        },
+        {
+          "id": "GO:0002682",
+          "name": "regulation of immune system process"
+        },
+        {
+          "id": "GO:0022407",
+          "name": "regulation of cell-cell adhesion"
+        },
+        {
+          "id": "GO:0002684",
+          "name": "positive regulation of immune system process"
+        },
+        {
+          "id": "GO:0048522",
+          "name": "positive regulation of cellular process"
+        },
+        {
+          "id": "GO:0050789",
+          "name": "regulation of biological process"
+        },
+        {
+          "id": "GO:0050870",
+          "name": "positive regulation of T cell activation"
+        },
+        {
+          "id": "GO:0045785",
+          "name": "positive regulation of cell adhesion"
+        },
+        {
+          "id": "GO:0030155",
+          "name": "regulation of cell adhesion"
+        },
+        {
+          "id": "GO:0001775",
+          "name": "cell activation"
+        },
+        {
+          "id": "GO:0065007",
+          "name": "biological regulation"
+        },
+        {
+          "id": "GO:0050863",
+          "name": "regulation of T cell activation"
+        },
+        {
+          "id": "GO:0002376",
+          "name": "immune system process"
+        },
+        {
+          "id": "GO:1903037",
+          "name": "regulation of leukocyte cell-cell adhesion"
+        },
+        {
+          "id": "GO:0051240",
+          "name": "positive regulation of multicellular organismal process"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0051249",
+          "name": "regulation of lymphocyte activation"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:2000978",
+      "name": "negative regulation of forebrain neuron differentiation",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0032501",
+          "name": "multicellular organismal process"
+        },
+        {
+          "id": "GO:2000978",
+          "name": "negative regulation of forebrain neuron differentiation"
+        },
+        {
+          "id": "GO:0050794",
+          "name": "regulation of cellular process"
+        },
+        {
+          "id": "GO:0048869",
+          "name": "cellular developmental process"
+        },
+        {
+          "id": "GO:0050793",
+          "name": "regulation of developmental process"
+        },
+        {
+          "id": "GO:0030900",
+          "name": "forebrain development"
+        },
+        {
+          "id": "GO:0048519",
+          "name": "negative regulation of biological process"
+        },
+        {
+          "id": "GO:0045595",
+          "name": "regulation of cell differentiation"
+        },
+        {
+          "id": "GO:2000977",
+          "name": "regulation of forebrain neuron differentiation"
+        },
+        {
+          "id": "GO:0021953",
+          "name": "central nervous system neuron differentiation"
+        },
+        {
+          "id": "GO:0007275",
+          "name": "multicellular organism development"
+        },
+        {
+          "id": "GO:0022008",
+          "name": "neurogenesis"
+        },
+        {
+          "id": "GO:0030182",
+          "name": "neuron differentiation"
+        },
+        {
+          "id": "GO:0030154",
+          "name": "cell differentiation"
+        },
+        {
+          "id": "GO:0048856",
+          "name": "anatomical structure development"
+        },
+        {
+          "id": "GO:0048523",
+          "name": "negative regulation of cellular process"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0045596",
+          "name": "negative regulation of cell differentiation"
+        },
+        {
+          "id": "GO:0048731",
+          "name": "system development"
+        },
+        {
+          "id": "GO:0032502",
+          "name": "developmental process"
+        },
+        {
+          "id": "GO:0060322",
+          "name": "head development"
+        },
+        {
+          "id": "GO:0050789",
+          "name": "regulation of biological process"
+        },
+        {
+          "id": "GO:0021872",
+          "name": "forebrain generation of neurons"
+        },
+        {
+          "id": "GO:0051093",
+          "name": "negative regulation of developmental process"
+        },
+        {
+          "id": "GO:0048513",
+          "name": "animal organ development"
+        },
+        {
+          "id": "GO:0065007",
+          "name": "biological regulation"
+        },
+        {
+          "id": "GO:0007420",
+          "name": "brain development"
+        },
+        {
+          "id": "GO:0007399",
+          "name": "nervous system development"
+        },
+        {
+          "id": "GO:0048699",
+          "name": "generation of neurons"
+        },
+        {
+          "id": "GO:0007417",
+          "name": "central nervous system development"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0021879",
+          "name": "forebrain neuron differentiation"
+        },
+        {
+          "id": "GO:0160108",
+          "name": "animal gross anatomical part developmental process"
+        },
+        {
+          "id": "GO:0045665",
+          "name": "negative regulation of neuron differentiation"
+        },
+        {
+          "id": "GO:0045664",
+          "name": "regulation of neuron differentiation"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0034756",
+      "name": "regulation of iron ion transport",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0032879",
+          "name": "regulation of localization"
+        },
+        {
+          "id": "GO:0050789",
+          "name": "regulation of biological process"
+        },
+        {
+          "id": "GO:0006810",
+          "name": "transport"
+        },
+        {
+          "id": "GO:0051049",
+          "name": "regulation of transport"
+        },
+        {
+          "id": "GO:0043269",
+          "name": "regulation of monoatomic ion transport"
+        },
+        {
+          "id": "GO:0034756",
+          "name": "regulation of iron ion transport"
+        },
+        {
+          "id": "GO:0065007",
+          "name": "biological regulation"
+        },
+        {
+          "id": "GO:0006826",
+          "name": "iron ion transport"
+        },
+        {
+          "id": "GO:0051234",
+          "name": "establishment of localization"
+        },
+        {
+          "id": "GO:0030001",
+          "name": "metal ion transport"
+        },
+        {
+          "id": "GO:0051179",
+          "name": "localization"
+        },
+        {
+          "id": "GO:0006811",
+          "name": "monoatomic ion transport"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0000041",
+          "name": "transition metal ion transport"
+        },
+        {
+          "id": "GO:0010959",
+          "name": "regulation of metal ion transport"
+        },
+        {
+          "id": "GO:0006812",
+          "name": "monoatomic cation transport"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0005783",
+      "name": "endoplasmic reticulum",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0043227",
+          "name": "membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0043229",
+          "name": "intracellular organelle"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005622",
+          "name": "intracellular anatomical structure"
+        },
+        {
+          "id": "GO:0043226",
+          "name": "organelle"
+        },
+        {
+          "id": "GO:0005783",
+          "name": "endoplasmic reticulum"
+        },
+        {
+          "id": "GO:0005737",
+          "name": "cytoplasm"
+        },
+        {
+          "id": "GO:0043231",
+          "name": "intracellular membrane-bounded organelle"
+        },
+        {
+          "id": "GO:0012505",
+          "name": "endomembrane system"
+        }
+      ]
+    }
+  ],
+  "rcsb_polymer_entity_container_identifiers": {
+    "asym_ids": [
+      "B",
+      "E"
+    ],
+    "auth_asym_ids": [
+      "B",
+      "E"
+    ],
+    "chem_comp_monomers": [
+      "ALA",
+      "ARG",
+      "ASN",
+      "ASP",
+      "CYS",
+      "GLN",
+      "GLU",
+      "GLY",
+      "HIS",
+      "ILE",
+      "LEU",
+      "LYS",
+      "MET",
+      "PHE",
+      "PRO",
+      "SER",
+      "THR",
+      "TRP",
+      "TYR",
+      "VAL"
+    ],
+    "entity_id": "2",
+    "entry_id": "8K4T",
+    "rcsb_id": "8K4T_2",
+    "uniprot_ids": [
+      "P61769"
+    ],
+    "reference_sequence_identifiers": [
+      {
+        "database_accession": "P61769",
+        "database_name": "UniProt",
+        "entity_sequence_coverage": 0.8114754098360656,
+        "provenance_source": "SIFTS",
+        "reference_sequence_coverage": 0.8319327731092437
+      }
+    ]
+  },
+  "rcsb_polymer_entity_feature": [
+    {
+      "assignment_version": "34.0",
+      "feature_id": "PF07654",
+      "name": "Immunoglobulin C1-set domain (C1-set)",
+      "provenance_source": "Pfam",
+      "type": "Pfam",
+      "feature_positions": [
+        {
+          "beg_seq_id": 8,
+          "end_seq_id": 88
+        }
+      ]
+    },
+    {
+      "assignment_version": "V1.0",
+      "feature_id": "range_feature_2",
+      "name": "initiating methionine",
+      "provenance_source": "PDB",
+      "type": "artifact",
+      "feature_positions": [
+        {
+          "beg_seq_id": 1,
+          "end_seq_id": 1
+        }
+      ]
+    },
+    {
+      "assignment_version": "V1.0",
+      "feature_id": "range_feature_3",
+      "name": "expression tag",
+      "provenance_source": "PDB",
+      "type": "artifact",
+      "feature_positions": [
+        {
+          "beg_seq_id": 101,
+          "end_seq_id": 122
+        }
+      ]
+    },
+    {
+      "name": "Hydropathy values",
+      "provenance_source": "biojava-7.3.0",
+      "type": "hydropathy",
+      "feature_positions": [
+        {
+          "beg_seq_id": 5,
+          "values": [
+            -0.76,
+            -0.5,
+            -1.14,
+            -0.84,
+            -0.84,
+            -1.12,
+            -1.12,
+            -0.49,
+            -1.38,
+            -1.38,
+            -1.89,
+            -2.18,
+            -2.18,
+            -2.07,
+            -1.4,
+            -0.8,
+            -1.39,
+            -0.72,
+            -0.48,
+            0.03,
+            0.38,
+            0.42,
+            1.12,
+            0.46,
+            -0.14,
+            0.16,
+            -0.51,
+            0.13,
+            -0.72,
+            -0.17,
+            -0.51,
+            -0.4,
+            0.38,
+            0.12,
+            -0.18,
+            0.17,
+            -0.72,
+            -0.83,
+            -0.8,
+            -0.8,
+            -1.66,
+            -1.61,
+            -1.57,
+            -1.53,
+            -1.58,
+            -1.58,
+            -0.66,
+            -1.24,
+            -0.54,
+            -0.2,
+            -1.1,
+            -1.1,
+            -0.84,
+            -0.84,
+            -0.14,
+            -0.71,
+            -0.2,
+            -0.09,
+            -0.14,
+            0.14,
+            0.46,
+            0.17,
+            0.57,
+            0.18,
+            0.14,
+            -0.36,
+            -1.17,
+            -1.46,
+            -1.7,
+            -2.01,
+            -1.77,
+            -1.88,
+            -1.52,
+            -1.84,
+            -1.3,
+            -1.3,
+            -1.22,
+            -0.37,
+            -0.06,
+            0.51,
+            0.22,
+            -0.44,
+            -0.12,
+            -1.02,
+            -0.13,
+            0.69,
+            -0.21,
+            -0.23,
+            -1.04,
+            -1.46,
+            -1.46,
+            -1.07,
+            -0.68,
+            -1.27,
+            -1.78,
+            -1.39,
+            -1.38,
+            -1.03,
+            -0.33,
+            0.01,
+            0.22,
+            -0.12,
+            -0.42,
+            0.12,
+            0.48,
+            0.18,
+            0.42,
+            -0.17,
+            -0.56,
+            -0.48,
+            -0.48,
+            -0.19,
+            -1.04,
+            -1.74
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Disordered binding sites",
+      "provenance_source": "Anchor2",
+      "type": "disorder_binding",
+      "feature_positions": [
+        {
+          "beg_seq_id": 1,
+          "values": [
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.41,
+            0.41,
+            0.42,
+            0.43,
+            0.42,
+            0.42,
+            0.41,
+            0.41,
+            0.4,
+            0.4,
+            0.39,
+            0.39,
+            0.39,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.39,
+            0.38,
+            0.38,
+            0.38,
+            0.38,
+            0.37,
+            0.37,
+            0.37,
+            0.37,
+            0.37,
+            0.37,
+            0.37,
+            0.37,
+            0.36,
+            0.34,
+            0.32,
+            0.31,
+            0.3,
+            0.29,
+            0.28,
+            0.28,
+            0.27,
+            0.27,
+            0.26,
+            0.26,
+            0.27,
+            0.28,
+            0.3,
+            0.31,
+            0.33,
+            0.34,
+            0.36,
+            0.39,
+            0.42,
+            0.42,
+            0.39,
+            0.37,
+            0.36,
+            0.36,
+            0.37,
+            0.39,
+            0.41,
+            0.43,
+            0.43,
+            0.4,
+            0.38,
+            0.36,
+            0.34,
+            0.33,
+            0.33,
+            0.33,
+            0.34,
+            0.34,
+            0.34,
+            0.33,
+            0.33,
+            0.33,
+            0.33,
+            0.33,
+            0.33,
+            0.33,
+            0.33,
+            0.32,
+            0.32,
+            0.33,
+            0.34,
+            0.34,
+            0.33,
+            0.34,
+            0.33,
+            0.33,
+            0.34,
+            0.34,
+            0.34,
+            0.35,
+            0.37,
+            0.38,
+            0.4,
+            0.42,
+            0.43,
+            0.41,
+            0.39,
+            0.37,
+            0.35,
+            0.33,
+            0.31,
+            0.31,
+            0.31,
+            0.31,
+            0.31,
+            0.31,
+            0.32,
+            0.32,
+            0.32,
+            0.33
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Disordered regions",
+      "provenance_source": "IUPred2(short)",
+      "type": "disorder",
+      "feature_positions": [
+        {
+          "beg_seq_id": 1,
+          "values": [
+            0.87,
+            0.84,
+            0.81,
+            0.76,
+            0.75,
+            0.68,
+            0.65,
+            0.62,
+            0.57,
+            0.53,
+            0.5,
+            0.52,
+            0.51,
+            0.43,
+            0.43,
+            0.38,
+            0.29,
+            0.23,
+            0.3,
+            0.28,
+            0.25,
+            0.32,
+            0.35,
+            0.35,
+            0.35,
+            0.27,
+            0.31,
+            0.25,
+            0.25,
+            0.18,
+            0.13,
+            0.12,
+            0.12,
+            0.17,
+            0.23,
+            0.22,
+            0.19,
+            0.27,
+            0.3,
+            0.23,
+            0.25,
+            0.31,
+            0.3,
+            0.28,
+            0.21,
+            0.2,
+            0.18,
+            0.17,
+            0.2,
+            0.2,
+            0.17,
+            0.24,
+            0.17,
+            0.12,
+            0.08,
+            0.05,
+            0.04,
+            0.04,
+            0.04,
+            0.04,
+            0.03,
+            0.03,
+            0.04,
+            0.04,
+            0.04,
+            0.05,
+            0.06,
+            0.1,
+            0.06,
+            0.06,
+            0.04,
+            0.07,
+            0.05,
+            0.09,
+            0.12,
+            0.13,
+            0.18,
+            0.17,
+            0.23,
+            0.24,
+            0.27,
+            0.35,
+            0.3,
+            0.23,
+            0.23,
+            0.16,
+            0.18,
+            0.17,
+            0.17,
+            0.22,
+            0.24,
+            0.31,
+            0.31,
+            0.37,
+            0.37,
+            0.39,
+            0.43,
+            0.44,
+            0.45,
+            0.46,
+            0.45,
+            0.37,
+            0.32,
+            0.38,
+            0.41,
+            0.44,
+            0.5,
+            0.42,
+            0.45,
+            0.39,
+            0.41,
+            0.43,
+            0.47,
+            0.51,
+            0.55,
+            0.59,
+            0.63,
+            0.68,
+            0.71,
+            0.81,
+            0.85,
+            0.87
+          ]
+        }
+      ]
+    }
+  ],
+  "rcsb_polymer_entity_feature_summary": [
+    {
+      "count": 1,
+      "coverage": 0.66393,
+      "type": "Pfam"
+    },
+    {
+      "count": 2,
+      "coverage": 0.18852,
+      "maximum_length": 22,
+      "minimum_length": 1,
+      "type": "artifact"
+    }
+  ],
+  "rcsb_polymer_entity_group_membership": [
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "2_100",
+      "similarity_cutoff": 100.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 122,
+          "ref_beg_seq_id": 69
+        }
+      ]
+    },
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "10_70",
+      "similarity_cutoff": 70.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 122,
+          "ref_beg_seq_id": 69
+        }
+      ]
+    },
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "29_30",
+      "similarity_cutoff": 30.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 122,
+          "ref_beg_seq_id": 69
+        }
+      ]
+    },
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "21_50",
+      "similarity_cutoff": 50.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 122,
+          "ref_beg_seq_id": 69
+        }
+      ]
+    },
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "6_90",
+      "similarity_cutoff": 90.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 122,
+          "ref_beg_seq_id": 69
+        }
+      ]
+    },
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "7_95",
+      "similarity_cutoff": 95.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 122,
+          "ref_beg_seq_id": 69
+        }
+      ]
+    },
+    {
+      "aggregation_method": "matching_uniprot_accession",
+      "group_id": "P61769",
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 2,
+          "length": 99,
+          "ref_beg_seq_id": 21
+        }
+      ]
+    }
+  ],
+  "rcsb_related_target_references": [
+    {
+      "related_resource_name": "ChEMBL",
+      "related_resource_version": "37",
+      "related_target_id": "CHEMBL5465401",
+      "target_taxonomy_id": 9606,
+      "aligned_target": [
+        {
+          "entity_beg_seq_id": 2,
+          "length": 98,
+          "target_beg_seq_id": 21
+        }
+      ]
+    },
+    {
+      "related_resource_name": "ChEMBL",
+      "related_resource_version": "37",
+      "related_target_id": "CHEMBL1741302",
+      "target_taxonomy_id": 9606,
+      "aligned_target": [
+        {
+          "entity_beg_seq_id": 2,
+          "length": 98,
+          "target_beg_seq_id": 21
+        }
+      ]
+    },
+    {
+      "related_resource_name": "DrugBank",
+      "related_resource_version": "5.1",
+      "related_target_id": "P61769",
+      "target_taxonomy_id": 9606,
+      "aligned_target": [
+        {
+          "entity_beg_seq_id": 2,
+          "length": 98,
+          "target_beg_seq_id": 21
+        }
+      ]
+    },
+    {
+      "related_resource_name": "Pharos",
+      "related_resource_version": "6.13.4",
+      "related_target_id": "13763",
+      "target_taxonomy_id": 9606,
+      "aligned_target": [
+        {
+          "entity_beg_seq_id": 2,
+          "length": 98,
+          "target_beg_seq_id": 21
+        }
+      ]
+    }
+  ],
+  "rcsb_target_cofactors": [
+    {
+      "binding_assay_value": 3.75,
+      "binding_assay_value_type": "pKd",
+      "cofactor_InChIKey": "MWKSRKSEWLRPBL-UHFFFAOYSA-N",
+      "cofactor_SMILES": "Cc1ccc(C(=O)Nc2cccc(C(F)(F)F)c2)cc1Nc1nc(-c2cccnc2)nc2nn(C)cc12",
+      "cofactor_resource_id": "CHEMBL5653589",
+      "neighbor_flag": "N",
+      "resource_name": "ChEMBL",
+      "resource_version": "37",
+      "target_resource_id": "CHEMBL1741302"
+    },
+    {
+      "cofactor_InChIKey": "JTEDVYBZBROSJT-UHFFFAOYSA-N",
+      "cofactor_SMILES": "OC(=O)CCCC1=CNC2=C1C=CC=C2",
+      "cofactor_chem_comp_id": "3IB",
+      "cofactor_name": "3-Indolebutyric Acid",
+      "cofactor_resource_id": "DB02740",
+      "neighbor_flag": "N",
+      "pubmed_ids": [
+        10592235
+      ],
+      "resource_name": "DrugBank",
+      "resource_version": "5.1",
+      "target_resource_id": "P61769"
+    },
+    {
+      "cofactor_InChIKey": "PYUSHNKNPOHWEZ-YFKPBYRVSA-N",
+      "cofactor_SMILES": "[H]C(=O)N[C@@H](CCSC)C(O)=O",
+      "cofactor_chem_comp_id": "FME",
+      "cofactor_name": "N-Formylmethionine",
+      "cofactor_resource_id": "DB04464",
+      "neighbor_flag": "N",
+      "pubmed_ids": [
+        10592235
+      ],
+      "resource_name": "DrugBank",
+      "resource_version": "5.1",
+      "target_resource_id": "P61769"
+    },
+    {
+      "cofactor_InChIKey": "RYGMFSIKBFXOCR-UHFFFAOYSA-N",
+      "cofactor_SMILES": "[Cu]",
+      "cofactor_name": "Copper",
+      "cofactor_resource_id": "DB09130",
+      "mechanism_of_action": "Copper is absorbed from the gut via high affinity copper uptake protein and likely through low affinity copper uptake protein and natural resistance-associated macrophage protein-2 [A19528]. It is believed that copper is reduced to the Cu1+ form prior to transport. Once inside the enterocyte, it is bound to copper transport protein ATOX1 which shuttles the ion to copper transporting ATPase-1 on the golgi membrane which take up copper into the golgi apparatus. Once copper has been secreted by enterocytes into the systemic circulation it remain largely bound by ceruloplasmin (65-90%), albumin (18%), and alpha 2-macroglobulin (12%). \r\n\r\nCopper is an essential element in the body and is incorporated into many oxidase enzymes as a cofactor [A19518]. It is also a component of zinc/copper super oxide dismutase, giving it an anti-oxidant role. Copper defiency occurs in Occipital Horn Syndrome and Menke's disease both of which are associated with impaired development of connective tissue due to the lack of copper to act as a cofactor in protein-lysine-6-oxidase. Menke's disease is also associated with progressive neurological impairment leading to death in infancy. The precise mechanisms of the effects of copper deficiency are vague due to the wide range of enzymes which use the ion as a cofactor.\r\n\r\nCopper appears to reduce the viabilty and motility of spermatozoa [A19526]. This reduces the likelihood of fertilization with a copper IUD, producing copper's contraceptive effect [A19526]. The exact mechanism of copper's effect on sperm are unknown.",
+      "neighbor_flag": "N",
+      "pubmed_ids": [
+        16513784
+      ],
+      "resource_name": "DrugBank",
+      "resource_version": "5.1",
+      "target_resource_id": "P61769"
+    },
+    {
+      "cofactor_name": "Opium",
+      "cofactor_resource_id": "DB11130",
+      "mechanism_of_action": "Opium produces its effects by activating specific G protein-coupled receptors in the brain, spinal cord, and peripheral nervous system. There are three major classes of opioid receptors being \u03b4-opioid, \u03ba-opioid and \u03bc-opioid. Opium will generate an agonist activity which will later open the potassium channels and prevent the opening of voltage-gated calcium channels. This activity causes a reduction in neuronal excitability and inhibits the release of pain neurotransmitters.[T136]\r\n\r\nThe addictive character of opium is related to the binding to the \u03bc-opioid receptors, which will activate dopaminergic neurons in the ventral tegmental area of the midbrain and thus, enhance the dopamine release in the nucleus accumbens. This mechanism involves the reward activity of the mesolimbic dopaminergic pathway.[T137]",
+      "neighbor_flag": "N",
+      "pubmed_ids": [
+        874779
+      ],
+      "resource_name": "DrugBank",
+      "resource_version": "5.1",
+      "target_resource_id": "P61769"
+    }
+  ],
+  "rcsb_id": "8K4T_2"
+}

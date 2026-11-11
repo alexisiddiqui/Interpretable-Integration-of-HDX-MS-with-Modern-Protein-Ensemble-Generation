@@ -1,0 +1,76 @@
+{
+  "engine": "3.1.0",
+  "settings": {
+    "bg_rgb": [
+      1,
+      1,
+      1
+    ],
+    "ray_opaque_background": 1,
+    "antialias": 2,
+    "max_threads": 4,
+    "surface_quality": 1,
+    "two_sided_lighting": 1,
+    "ambient": 0.45,
+    "direct": 0.38,
+    "reflect": 0.22,
+    "specular": 0.15,
+    "shininess": 18,
+    "ray_trace_mode": 1,
+    "ray_trace_gain": 0.1,
+    "ray_shadows": 0,
+    "depth_cue": 0,
+    "cartoon_fancy_helices": 1,
+    "cartoon_flat_sheets": 1,
+    "cartoon_side_chain_helper": 1
+  },
+  "score_limits": [
+    0.0,
+    1.0
+  ],
+  "cameras": {
+    "groove": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.9271838665008545,
+      0.3746066093444824,
+      0.0,
+      -0.3746066093444824,
+      0.9271838665008545,
+      0.0,
+      0.0,
+      -201.45606994628906,
+      -3.2772483825683594,
+      0.56988525390625,
+      -6.979831695556641,
+      158.82949829101562,
+      244.0826416015625,
+      -20.0
+    ]
+  },
+  "frame_basis": [
+    [
+      0.444265753030777,
+      0.8885153532028198,
+      0.11475387215614319
+    ],
+    [
+      0.14786171913146973,
+      -0.199051171541214,
+      0.9687701463699341
+    ],
+    [
+      0.8836089968681335,
+      -0.41342368721961975,
+      -0.21980901062488556
+    ]
+  ],
+  "frame_origin": [
+    -42.94860076904297,
+    19.946399688720703,
+    0.2856000065803528
+  ],
+  "peptide": "same observed contact-frequency scale as HLA; P6 labelled"
+}

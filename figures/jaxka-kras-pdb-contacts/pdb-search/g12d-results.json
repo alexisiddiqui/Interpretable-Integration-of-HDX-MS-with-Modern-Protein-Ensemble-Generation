@@ -1,0 +1,19 @@
+{
+  "query_id": "cf64615a-3f74-47ac-b022-4d2f5ea2941e",
+  "result_type": "entry",
+  "total_count": 3,
+  "result_set": [
+    {
+      "identifier": "7OW4",
+      "score": 1.0
+    },
+    {
+      "identifier": "7OW6",
+      "score": 1.0
+    },
+    {
+      "identifier": "7PB2",
+      "score": 1.0
+    }
+  ]
+}

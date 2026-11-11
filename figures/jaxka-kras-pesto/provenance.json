@@ -1,0 +1,11 @@
+{
+  "source": "/Users/alexi/Documents/opig-adaptyv-2026/experiments/080-kras-atlas-p6-edge-screen/figures/pesto_per_residue.csv",
+  "sha256": "81454ee6f3a4b6d2bf837d7273a483081d26722672afdd9c946f915e463ad487",
+  "source_experiment": "043 c5-vhh-full-20261031-a, table exported by experiment 080 pesto_compare.py",
+  "pesto_revision": "ba651aa",
+  "checkpoint": "i_v4_1_2021-09-07_11-21",
+  "channel": 0,
+  "scope": "each intact assembly independently",
+  "mapping": "all 385/385/375 author residue keys verified against GQT figure inputs",
+  "precision": "uses existing CSV precision"
+}

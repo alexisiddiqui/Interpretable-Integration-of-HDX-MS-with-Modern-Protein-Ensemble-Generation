@@ -4,7 +4,7 @@ Paragraph outline for `thesis/chapters/06-jax-ka.tex`. Each bullet develops one 
 
 ## Motivation and computational titration models
 
-- **Backbone pKa prediction connects side-chain-dependent protonation to inverse folding.** Designing pH-dependent binding requires reconciling the side-chain environments that determine protonation with the backbone representation used by ProteinMPNN and its variants. A predictor that accepts backbone coordinates and sequence could help rank proposed mutations by predicted protonation behaviour without rebuilding side chains for every candidate (own; [[027-extremophile-vs-pka-surface]]).
+- **Backbone pKa prediction connects side-chain-dependent protonation to inverse folding.** Designing pH-dependent binding requires reconciling the side-chain environments that determine protonation with the backbone representation used by ProteinMPNN and its variants. A predictor that accepts backbone coordinates and sequence could help rank proposed mutations by predicted protonation behaviour without rebuilding side chains for every candidate (own; [[027-extremophile-vs-pka-surface]]). The shared backbone representation also supports interaction screening through contact scores between separately encoded partners. This second application requires distinguishing partner recognition from contact recovery within known complexes (own; [[jaxka-edge-binder#Representation and comparison]]).
 
 - **Titration methods trade computational cost against physical detail.** Introduce empirical PROPKA, Poisson–Boltzmann/Monte Carlo PypKa, constant-pH MD and learned pKAI/KaML predictors. Their assumptions define the reference against which a fast backbone model is assessed ([[@olssonPROPKA3ConsistentTreatment2011#^c1]]; [[PypKa computes protein pKa values with Poisson–Boltzmann electrostatics and Monte Carlo sampling of protonation states.]]; [[Standard molecular dynamics fixes one protonation state per titratable residue for the whole run, while constant-pH MD lets protonation states change.]]; [[@reisFastInterpretableDeep2022#^c1]]; [[@shenKaMLsPredictingProtein2025#^c1]]).
 
@@ -36,7 +36,7 @@ Paragraph outline for `thesis/chapters/06-jax-ka.tex`. Each bullet develops one 
 
 ## pKa-guided sequence design
 
-- **Matched charge changes can arise through different sequence mechanisms.** Extremophile fine-tuning and pKa-guided steering alter surface chemistry differently even at matched formal-charge changes. Acidophile fine-tuning removes glutamate, whereas pKa steering adds lysine; the alkaliphile routes enrich acidic residues through different substitutions ([[027-extremophile-vs-pka-surface]]; `jaxka-extremophile-chemistry`).
+- **Matched charge changes can arise through different sequence mechanisms.** Given the limited recovery of large experimental shifts, the initial design comparison assesses how protonation-guided steering changes sequence preferences. Extremophile fine-tuning and pKa-guided steering alter surface chemistry differently even at matched formal-charge changes. Acidophile fine-tuning removes glutamate, whereas pKa steering adds lysine; the alkaliphile routes enrich acidic residues through different substitutions ([[027-extremophile-vs-pka-surface]]; `jaxka-extremophile-chemistry`).
 
 - **Extremophile adaptation may favour additional local strain when stabilising interactions compensate for it.** The pronounced proline-to-alanine and proline-to-glutamate preferences restore backbone N–H donors that can hydrogen-bond with protein acceptors as well as water. Removing proline releases its ring constraint, but newly available intramolecular hydrogen bonds could stabilise and constrain the resulting conformation. Under highly acidic or basic conditions, these internal interactions, together with hydration and electrostatics, could compensate for additional local strain. The substitutions therefore suggest reorganisation of the protein's hydrogen-bond network alongside surface charge, a balance that charge matching alone does not reproduce ([[027-extremophile-vs-pka-surface]]; `jaxka-extremophile-chemistry`; own interpretation).
 
@@ -82,13 +82,21 @@ Paragraph outline for `thesis/chapters/06-jax-ka.tex`. Each bullet develops one 
 
 - **Hmask and dRSA improve external binder/decoy discrimination over run4.** On 11,111 independently folded apo pairs, binder/decoy pairwise accuracy using the top-50 CDR edge mean rises from 0.4366 to 0.7115 and 0.7131; predicted-dRSA-weighted CDR accuracy rises from 0.4895 to 0.6671 and 0.6755. These are different reductions of the same outputs ([[028-poisk-free-monomer#Improvements depend on the readout]]; `jaxka-poisk-recipe-comparison`).
 
-- **Most of the gain survives replacing the antigen, including for dRSA.** Wrong-antigen weighted-CDR accuracies remain 0.665 and 0.666 for hmask and dRSA. In the matched learned-readout comparison, dRSA gives accuracy 0.897 with antibody-only features, 0.893 with the correct antigen and 0.896 with a wrong antigen. Sequence composition alone reaches 0.949. Binder/decoy pool membership therefore supplies a shortcut that antigen holdout does not remove ([[028-poisk-free-monomer#Wrong-antigen and sequence controls identify the shortcut]]).
+- **Most of the burial-weighted CDR discrimination survives replacing the antigen, including for dRSA.** Wrong-antigen weighted-CDR accuracies remain 0.665 and 0.666 for hmask and dRSA. In the matched learned-readout comparison, dRSA gives accuracy 0.897 with antibody-only features, 0.893 with the correct antigen and 0.896 with a wrong antigen. Sequence composition alone reaches 0.949. Binder/decoy pool membership therefore supplies a shortcut that antigen holdout does not remove ([[028-poisk-free-monomer#Wrong-antigen and sequence controls identify the shortcut]]).
 
 - **Removing the decoy pool exposes limited antigen discrimination in the summary scores.** Holding each antibody fixed removes antibody-only pool discrimination. Learned combinations of the 18 GQT summary scores then rank the correct antigen against a stored wrong antigen at accuracies 0.501, 0.515 and 0.528 for run4, hmask and dRSA. This comparison uses one alternative antigen and a smaller evaluation support than the embedding-product analyses ([[028-poisk-free-monomer#Removing the decoy pool exposes a smaller pairing signal]]).
 
 - **Hmask retains a modest pairing signal under the elementwise embedding readout; dRSA is close to sequence composition.** With the antibody fixed, pairwise accuracy is 0.539 for run4, 0.562 for hmask and 0.535 for dRSA, against 0.532 for sequence-composition products. Top-1-of-10 retrieval is 0.124, 0.146 and 0.128, against 0.125 for composition and 0.1 by chance. dRSA's stronger binder/decoy discrimination therefore does not translate into better antigen pairing under this trained readout ([[028-poisk-free-monomer#Removing the decoy pool exposes a smaller pairing signal]]).
 
 - **Matched target contexts and complex prediction investigate blind-score priorities.** POISK does not establish partner specificity of the untrained screening scores or prospective enrichment. The KRAS application used blind scores as candidate priorities, then investigated the proposed interactions through matched target-context comparisons and complex prediction ([[028-poisk-free-monomer#Pose-dependent signal and screening consequence]]).
+
+## Scaling and implications
+
+- Scaling comparisons refer to panels D–F of [jaxka-pinder-ablations](../../figures/jaxka-pinder-ablations/fig.pdf) in the appendix.
+
+- **Full data extends the width-128 gain to partner discrimination in one seed.** Under the 20-epoch schedule, contact AP rises from 0.0536 to 0.0619 and antibody/antigen swap accuracy from 0.6791 to 0.7147 between the 50% and 100% pools. Width 64 improves contact AP but loses antibody/antigen accuracy. The full-data protocols use complete PeSTo coverage with no masking fallbacks ([[jaxka-edge-binder#Data scaling]]; `jaxka-pinder-ablations`).
+
+- **A longer schedule does not improve the reported objectives consistently.** At full data, the 40-epoch schedule reduces contact AP for both widths. Width 64 recovers antibody/antigen accuracy, while width 128 loses it; state-plus-interface MAE increases for both. The comparison changes learning-rate decay and stopping patience as well as the epoch budget, and retains the checkpoint selected by pKa error ([[jaxka-edge-binder#Data scaling]]).
 
 ## KRAS pMHC screening
 
@@ -99,14 +107,6 @@ Paragraph outline for `thesis/chapters/06-jax-ka.tex`. Each bullet develops one 
 - **Top-100 prediction identifies one high-confidence lead.** Across 300 ESMFold2 predictions, three candidates pass relative confidence gates. ID_1457932 reaches G12D interface iPTM 0.875 against WT 0.761, with four residues contacting mutant peptide position P6. All three candidates retain WT iPTM above 0.7, so predicted mutant preference does not establish WT avoidance ([[046-atlas-kras-screen#Top-100 complex prediction]]).
 
 - **Structural comparisons locate the candidate interaction at the peptide groove.** Compare the crystal TCR and screened hit in mutant and WT contexts through electrostatics and hydrophobicity, then show the hit's aligned G12D, WT and peptide-free predictions. The maps describe saved contact surfaces and the renders separate component identity from local confidence. Without a matched random-library prediction cohort, the screen does not quantify enrichment from GQT ranking ([[046-atlas-kras-screen#Mutation-centred radial comparison]]; `jaxka-kras-pmhc-radial`, `jaxka-kras-pmhc-plddt`).
-
-## Scaling and implications
-
-- Scaling comparisons refer to panels D–F of [jaxka-pinder-ablations](../../figures/jaxka-pinder-ablations/fig.pdf) in the appendix.
-
-- **Full data extends the width-128 gain to partner discrimination in one seed.** Under the 20-epoch schedule, contact AP rises from 0.0536 to 0.0619 and antibody/antigen swap accuracy from 0.6791 to 0.7147 between the 50% and 100% pools. Width 64 improves contact AP but loses antibody/antigen accuracy. The full-data protocols use complete PeSTo coverage with no masking fallbacks ([[jaxka-edge-binder#Data scaling]]; `jaxka-pinder-ablations`).
-
-- **A longer schedule does not improve the reported objectives consistently.** At full data, the 40-epoch schedule reduces contact AP for both widths. Width 64 recovers antibody/antigen accuracy, while width 128 loses it; state-plus-interface MAE increases for both. The comparison changes learning-rate decay and stopping patience as well as the epoch budget, and retains the checkpoint selected by pKa error ([[jaxka-edge-binder#Data scaling]]).
 
 ## Appendix — loss functions and training recipes
 

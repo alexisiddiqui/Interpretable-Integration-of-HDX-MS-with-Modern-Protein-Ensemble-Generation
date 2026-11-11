@@ -1,0 +1,35 @@
+{
+  "queried_utc": "2026-11-11T15:05:09.866294+00:00",
+  "apis": [
+    "https://search.rcsb.org/rcsbsearch/v2/query",
+    "https://data.rcsb.org/rest/v1/core"
+  ],
+  "exact_peptide_hits": {
+    "g12d": [
+      "7OW4",
+      "7OW6",
+      "7PB2"
+    ],
+    "wt": [
+      "7OW3",
+      "7OW5",
+      "8DVG",
+      "8VJZ"
+    ]
+  },
+  "broader_checks": "unanchored peptide motifs plus HLA/MHC annotations; KRAS+HLA title search",
+  "inventory_entries": 25,
+  "eligible_contact_entries": [
+    "7OW6",
+    "7PB2",
+    "7OW5"
+  ],
+  "additional_eligible_contact_entries": [],
+  "other_exact_hits": {
+    "7OW4": "Excluded from external-contact fraction: G12D pMHC without binding partner",
+    "7OW3": "Excluded from external-contact fraction: WT pMHC without binding partner",
+    "8DVG": "Excluded: HLA-A*03:01 and no external binding partner",
+    "8VJZ": "Excluded: HLA-A*03:01 and no external binding partner"
+  },
+  "interpretation": "No new matching partner-bound contact structures in these API queries. Unbound pMHC entries do not count as zero-contact binder observations. No claim of exhaustive coverage of mismatched peptides, alleles, modified peptides or unannotated constructs."
+}

@@ -1,0 +1,35 @@
+{
+  "cutoff_angstrom": 4.5,
+  "partner": "TCR chains D/E; all internal pMHC contacts excluded",
+  "aggregation": "contact structures / structures in which residue is observed",
+  "scope": "Exact G12D/WT decamers on HLA-A*11:01 with an external TCR, verified by saved RCSB API searches; no additional eligible entries found",
+  "g12d": [
+    "7OW6",
+    "7PB2"
+  ],
+  "wt": [
+    "7OW5"
+  ],
+  "empty": [],
+  "structures": {
+    "7OW6": {
+      "observed_residues": 385,
+      "contact_residues": 22,
+      "peptide_contact_residues": 6,
+      "sha256": "402423bf4450a5df23173efcf14466f990606bb399929eab5d105f65be4df10e"
+    },
+    "7PB2": {
+      "observed_residues": 382,
+      "contact_residues": 20,
+      "peptide_contact_residues": 6,
+      "sha256": "c47b2102c3a2619145b2dd1e641df23b573b12b0b258e3c9a0650e1af1a99538"
+    },
+    "7OW5": {
+      "observed_residues": 384,
+      "contact_residues": 22,
+      "peptide_contact_residues": 6,
+      "sha256": "a36877aac99e71aee7d4e9514483391ad5eac36d83e1cfbef1949a7f0001135d"
+    }
+  },
+  "pdb_api_audit": "pdb-search/summary.json"
+}

@@ -1,0 +1,18 @@
+{
+  "query": {
+    "type": "terminal",
+    "service": "seqmotif",
+    "parameters": {
+      "value": "^VVVGADGVGK$",
+      "pattern_type": "regex",
+      "sequence_type": "protein"
+    }
+  },
+  "return_type": "entry",
+  "request_options": {
+    "paginate": {
+      "start": 0,
+      "rows": 1000
+    }
+  }
+}

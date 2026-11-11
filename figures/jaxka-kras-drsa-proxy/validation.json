@@ -1,0 +1,14 @@
+{
+  "g12d": {
+    "max_csv_rounding_error": 1.1178192482752536e-08,
+    "score_within_plot_scale": true
+  },
+  "wt": {
+    "max_csv_rounding_error": 1.0019829299601213e-08,
+    "score_within_plot_scale": true
+  },
+  "empty": {
+    "max_csv_rounding_error": 1.1402535415871995e-08,
+    "score_within_plot_scale": true
+  }
+}

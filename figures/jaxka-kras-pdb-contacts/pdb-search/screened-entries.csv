@@ -1,0 +1,26 @@
+pdb,title,short_peptide_sequences,decision,url
+7OW3,Crystal structure of HLA-A*11:01 in complex with KRAS peptide (VVVGAGGVGK),VVVGAGGVGK,Excluded from external-contact fraction: WT pMHC without binding partner,https://www.rcsb.org/structure/7OW3
+7OW4,Crystal structure of HLA-A*11:01 in complex with KRAS G12D peptide (VVVGADGVGK),VVVGADGVGK,Excluded from external-contact fraction: G12D pMHC without binding partner,https://www.rcsb.org/structure/7OW4
+7OW5,Crystal structure of a TCR in complex with HLA-A*11:01 bound to KRAS peptide (VVVGAGGVGK),VVVGAGGVGK,"Included: WT decamer, HLA-A*11:01, TCR-bound",https://www.rcsb.org/structure/7OW5
+7OW6,Crystal structure of a TCR in complex with HLA-A*11:01 bound to KRAS G12D peptide (VVVGADGVGK),VVVGADGVGK,"Included: G12D decamer, HLA-A*11:01, TCR-bound",https://www.rcsb.org/structure/7OW6
+7PB2,Crystal structure of JDI TCR in complex with HLA-A*11:01 bound to KRAS G12D peptide (VVVGADGVGK),VVVGADGVGK,"Included: G12D decamer, HLA-A*11:01, TCR-bound",https://www.rcsb.org/structure/7PB2
+7STF,Structure of KRAS G12V/HLA-A*03:01 in complex with antibody fragment V2,VVVGAVGVGK,Excluded: different peptide sequence or HLA context,https://www.rcsb.org/structure/7STF
+8DVG,Structure of KRAS WT(7-16)-HLA-A*03:01,VVVGAGGVGK,Excluded: HLA-A*03:01 and no external binding partner,https://www.rcsb.org/structure/8DVG
+8I5C,Crystal structure of a TCR in complex with HLA-A*11:01 bound to KRAS peptide (VVGAVGVGK),VVGAVGVGK,Excluded: different peptide sequence or HLA context,https://www.rcsb.org/structure/8I5C
+8I5D,Crystal structure of a TCR in complex with HLA-A*11:01 bound to KRAS peptide (VVGAVGVGK),VVGAVGVGK,Excluded: different peptide sequence or HLA context,https://www.rcsb.org/structure/8I5D
+8I5E,Crystal structure of HLA-A*11:01 in complex with KRAS peptide (VVGAGGVGK),VVGAGGVGK,Excluded: different peptide sequence or HLA context,https://www.rcsb.org/structure/8I5E
+8K4T,Crystal structure of HLA-A*11:01 in complex with KRAS G12C peptide (VVVGACGVGK),VVVGACGVGK,Excluded: different peptide sequence or HLA context,https://www.rcsb.org/structure/8K4T
+8K4V,Crystal structure of HLA-A*11:01 in complex with KRAS G12R peptide (VVVGARGVGK),VVVGARGVGK,Excluded: different peptide sequence or HLA context,https://www.rcsb.org/structure/8K4V
+8K50,Crystal structure of HLA-A*11:01 in complex with KRAS G12V peptide (VVVGARGVGK),VVVGAVGVGK,Excluded: different peptide sequence or HLA context,https://www.rcsb.org/structure/8K50
+8RNI,HLA-A*03:01 with KRAS-G12V-10mer,VVVGAVGVGK,Excluded: different peptide sequence or HLA context,https://www.rcsb.org/structure/8RNI
+8VJZ,HLA-A*03:01 with WT KRAS-10mer,VVVGAGGVGK,Excluded: HLA-A*03:01 and no external binding partner,https://www.rcsb.org/structure/8VJZ
+8WTE,Crystal structure of TCR in complex with HLA-A*11:01 bound to KRAS-G12V peptide (VVGAVGVGK),VVGAVGVGK,Excluded: different peptide sequence or HLA context,https://www.rcsb.org/structure/8WTE
+8WUL,Crystal structure of affinity enhanced TCR in complex with HLA-A*11:01 bound to KRAS-G12V peptide (VVGAVGVGK),VVGAVGVGK,Excluded: different peptide sequence or HLA context,https://www.rcsb.org/structure/8WUL
+9IKY,Crystal structure of 1-2C-T96F TCR in complex with HLA-A*11:01 bound to KRAS-G12V peptide (VVGAVGVGK),VVGAVGVGK,Excluded: different peptide sequence or HLA context,https://www.rcsb.org/structure/9IKY
+9NFB,Structure of the cross-HLA supertype antibody R302 bound to a class I MHC presenting a divarasib-modified KRAS-G12C peptide on HLA-A*02,KLVVVGACGV,Excluded: different peptide sequence or HLA context,https://www.rcsb.org/structure/9NFB
+9NFC,Structure of the cross-HLA supertype antibody R302 bound to a class I MHC presenting a divarasib-modified KRAS-G12C peptide on HLA-A*03,VVVGACGVGK,Excluded: different peptide sequence or HLA context,https://www.rcsb.org/structure/9NFC
+9UV8,Crystal structure of HLA-A*11:01 in complex with KRAS G12D 9-mer peptide (VVGADGVGK),VVGADGVGK,Excluded: different peptide sequence or HLA context,https://www.rcsb.org/structure/9UV8
+9WVE,Crystal structure of HLA-A*11:01 in complex with KRAS G12A 10-mer peptide (VVVGAAGVGK),VVVGAAGVGK,Excluded: different peptide sequence or HLA context,https://www.rcsb.org/structure/9WVE
+9WVF,Crystal structure of HLA-A*11:01 in complex with KRAS G12S 10-mer peptide (VVVGASGVGK),VVVGASGVGK,Excluded: different peptide sequence or HLA context,https://www.rcsb.org/structure/9WVF
+9Y7Y,KRAS-specific 24-246 TCR in complex with HLA-C*01:02 presenting KRAS G12V 9mer peptide (11-AVGVGKSAL-19),AVGVGKSAL,Excluded: different peptide sequence or HLA context,https://www.rcsb.org/structure/9Y7Y
+9Z50,Q61H_Sahin-1 TCR in complex with HLA-A*01:01 presenting KRAS Q61H 10mer peptide (55-ILDTAGHEEY-64),ILDTAGHEEY,Excluded: different peptide sequence or HLA context,https://www.rcsb.org/structure/9Z50

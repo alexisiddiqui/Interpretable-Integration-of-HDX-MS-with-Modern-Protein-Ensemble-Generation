@@ -1,0 +1,505 @@
+{
+  "audit_author": [
+    {
+      "identifier_ORCID": "0000-0003-3407-9661",
+      "name": "Sim, M.J.W.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "identifier_ORCID": "0000-0003-0475-1891",
+      "name": "Sun, P.D.",
+      "pdbx_ordinal": 2
+    }
+  ],
+  "cell": {
+    "Z_PDB": 12,
+    "angle_alpha": 90.0,
+    "angle_beta": 90.0,
+    "angle_gamma": 120.0,
+    "length_a": 155.339,
+    "length_b": 155.339,
+    "length_c": 85.335,
+    "volume": 1783277.108
+  },
+  "citation": [
+    {
+      "country": "GW",
+      "id": "primary",
+      "journal_abbrev": "Eur.J.Immunol.",
+      "journal_id_ASTM": "EJIMAF",
+      "journal_id_CSD": "0794",
+      "journal_id_ISSN": "0014-2980",
+      "journal_volume": "54",
+      "page_first": "e2451079",
+      "page_last": "e2451079",
+      "pdbx_database_id_DOI": "10.1002/eji.202451079",
+      "pdbx_database_id_PubMed": 39030753,
+      "rcsb_authors": [
+        "Sim, M.J.W.",
+        "Hanada, K.I.",
+        "Stotz, Z.",
+        "Yu, Z.",
+        "Lu, J.",
+        "Brennan, P.",
+        "Quastel, M.",
+        "Gillespie, G.M.",
+        "Long, E.O.",
+        "Yang, J.C.",
+        "Sun, P.D."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "Eur J Immunol",
+      "title": "Identification and structural characterization of a mutant KRAS-G12V specific TCR restricted by HLA-A3.",
+      "year": 2024
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "8RNI",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb8rni/pdb",
+      "pdbx_database_accession": "pdb_00008rni"
+    },
+    {
+      "database_code": "D_1292135802",
+      "database_id": "WWPDB"
+    }
+  ],
+  "diffrn": [
+    {
+      "ambient_temp": 100.0,
+      "crystal_id": "1",
+      "id": "1",
+      "pdbx_serial_crystal_experiment": "N"
+    }
+  ],
+  "diffrn_detector": [
+    {
+      "detector": "PIXEL",
+      "diffrn_id": "1",
+      "pdbx_collection_date": "2019-08-17T00:00:00.000+00:00",
+      "type": "DECTRIS EIGER X 16M"
+    }
+  ],
+  "diffrn_radiation": [
+    {
+      "diffrn_id": "1",
+      "pdbx_diffrn_protocol": "SINGLE WAVELENGTH",
+      "pdbx_monochromatic_or_laue_m_l": "M",
+      "pdbx_scattering_type": "x-ray",
+      "wavelength_id": "1"
+    }
+  ],
+  "diffrn_source": [
+    {
+      "diffrn_id": "1",
+      "pdbx_synchrotron_beamline": "22-BM",
+      "pdbx_synchrotron_site": "APS",
+      "pdbx_wavelength_list": "0.97",
+      "source": "SYNCHROTRON",
+      "type": "APS BEAMLINE 22-BM"
+    }
+  ],
+  "entry": {
+    "id": "8RNI"
+  },
+  "exptl": [
+    {
+      "crystals_number": 1,
+      "method": "X-RAY DIFFRACTION"
+    }
+  ],
+  "exptl_crystal": [
+    {
+      "density_Matthews": 3.33,
+      "density_percent_sol": 63.12,
+      "id": "1"
+    }
+  ],
+  "exptl_crystal_grow": [
+    {
+      "crystal_id": "1",
+      "method": "VAPOR DIFFUSION, SITTING DROP",
+      "pdbx_details": "0.1M ammonium citrate tribasic pH7, 12% PEG 3350",
+      "temp": 298.0
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2025-01-22T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_support": [
+    {
+      "country": "United States",
+      "funding_organization": "National Institutes of Health/National Institute Of Allergy and Infectious Diseases (NIH/NIAID)",
+      "ordinal": 1
+    }
+  ],
+  "pdbx_database_related": [
+    {
+      "content_type": "unspecified",
+      "db_id": "8VJZ",
+      "db_name": "PDB"
+    }
+  ],
+  "pdbx_database_status": {
+    "SG_entry": "N",
+    "deposit_site": "PDBE",
+    "pdb_format_compatible": "Y",
+    "process_site": "PDBE",
+    "recvd_initial_deposition_date": "2024-01-10T00:00:00.000+00:00",
+    "status_code": "REL",
+    "status_code_sf": "REL"
+  },
+  "pdbx_initial_refinement_model": [
+    {
+      "accession_code": "2XPG",
+      "id": 1,
+      "source_name": "PDB",
+      "type": "experimental model"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "molprobity,validation-pack,xtriage,eds,mogul,validation_schema,percentiles,writexml,writecif,writepdf",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-03-19T23:51:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_diffraction": [
+    {
+      "B_factor_type": "FULL",
+      "CCP4_version": "9.0.010 (Gargrove)",
+      "DCC_R": 0.2334,
+      "DCC_Rfree": 0.2826,
+      "EDS_R": 0.2338,
+      "EDS_res_high": 2.49,
+      "EDS_res_low": 44.84,
+      "Fo_Fc_correlation": 0.933,
+      "I_over_sigma": "1.69(2.48A)",
+      "Padilla_Yeates_L2_mean": 0.333,
+      "Padilla_Yeates_L_mean": 0.5,
+      "Wilson_B_aniso": "[48.175,48.175,37.044,0.000,0.000,0.000]",
+      "Wilson_B_estimate": 43.952,
+      "acentric_outliers": 1,
+      "bulk_solvent_b": 41.517,
+      "bulk_solvent_k": 0.347,
+      "centric_outliers": 0,
+      "data_anisotropy": 0.25,
+      "data_completeness": 99.8,
+      "density_fitness_version": "1.0.12",
+      "exp_method": "x-ray",
+      "num_miller_indices": 21774,
+      "number_reflns_R_free": 1083,
+      "percent_RSRZ_outliers": 5.7,
+      "percent_free_reflections": 4.95,
+      "trans_NCS_details": "The largest off-origin peak in the Patterson function is 4.62% of the height of the origin peak. No significant pseudotranslation is detected."
+    }
+  ],
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 0.58,
+      "bonds_RMSZ": 0.36,
+      "clashscore": 8.41,
+      "num_H_reduce": 3011,
+      "num_angles_RMSZ": 4363,
+      "num_bonds_RMSZ": 3219,
+      "percent_ramachandran_outliers": 0.0,
+      "percent_rotamer_outliers": 2.4
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2024-01-10T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2025-01-22T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 0,
+    "revision_date": "2025-01-22T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "entry_id": "8RNI",
+    "model_ids": [
+      1
+    ],
+    "non_polymer_entity_ids": [
+      "4"
+    ],
+    "polymer_entity_ids": [
+      "1",
+      "2",
+      "3"
+    ],
+    "pubmed_id": 39030753,
+    "rcsb_id": "8RNI"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 2,
+    "deposited_atom_count": 3222,
+    "deposited_branched_entity_instance_count": 0,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 0,
+    "deposited_model_count": 1,
+    "deposited_modeled_polymer_monomer_count": 386,
+    "deposited_nonpolymer_entity_instance_count": 6,
+    "deposited_polymer_entity_instance_count": 3,
+    "deposited_polymer_monomer_count": 386,
+    "deposited_solvent_atom_count": 49,
+    "deposited_unmodeled_polymer_monomer_count": 0,
+    "diffrn_radiation_wavelength_maximum": 0.97,
+    "diffrn_radiation_wavelength_minimum": 0.97,
+    "disulfide_bond_count": 3,
+    "entity_count": 5,
+    "experimental_method": "X-ray",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 0,
+    "inter_mol_metalic_bond_count": 0,
+    "molecular_weight": 45.12,
+    "na_polymer_entity_types": "Other",
+    "nonpolymer_entity_count": 1,
+    "nonpolymer_molecular_weight_maximum": 0.09,
+    "nonpolymer_molecular_weight_minimum": 0.09,
+    "polymer_composition": "heteromeric protein",
+    "polymer_entity_count": 3,
+    "polymer_entity_count_DNA": 0,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 0,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 3,
+    "polymer_entity_taxonomy_count": 3,
+    "polymer_molecular_weight_maximum": 31.92,
+    "polymer_molecular_weight_minimum": 0.89,
+    "polymer_monomer_count_maximum": 277,
+    "polymer_monomer_count_minimum": 10,
+    "resolution_combined": [
+      2.49
+    ],
+    "selected_polymer_entity_types": "Protein (only)",
+    "software_programs_combined": [
+      "HKL-2000",
+      "MOLREP",
+      "PHENIX",
+      "REFMAC",
+      "SCALEPACK"
+    ],
+    "solvent_entity_count": 1,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10,
+    "diffrn_resolution_high": {
+      "provenance_source": "Depositor assigned",
+      "value": 2.48
+    }
+  },
+  "rcsb_primary_citation": {
+    "country": "GW",
+    "id": "primary",
+    "journal_abbrev": "Eur.J.Immunol.",
+    "journal_id_ASTM": "EJIMAF",
+    "journal_id_CSD": "0794",
+    "journal_id_ISSN": "0014-2980",
+    "journal_volume": "54",
+    "page_first": "e2451079",
+    "page_last": "e2451079",
+    "pdbx_database_id_DOI": "10.1002/eji.202451079",
+    "pdbx_database_id_PubMed": 39030753,
+    "rcsb_ORCID_identifiers": [
+      "0000-0003-3407-9661",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "0000-0002-1075-870X",
+      "?",
+      "?",
+      "?"
+    ],
+    "rcsb_authors": [
+      "Sim, M.J.W.",
+      "Hanada, K.I.",
+      "Stotz, Z.",
+      "Yu, Z.",
+      "Lu, J.",
+      "Brennan, P.",
+      "Quastel, M.",
+      "Gillespie, G.M.",
+      "Long, E.O.",
+      "Yang, J.C.",
+      "Sun, P.D."
+    ],
+    "rcsb_journal_abbrev": "Eur J Immunol",
+    "title": "Identification and structural characterization of a mutant KRAS-G12V specific TCR restricted by HLA-A3.",
+    "year": 2024
+  },
+  "refine": [
+    {
+      "B_iso_mean": 48.99,
+      "ls_R_factor_R_free": 0.2763,
+      "ls_R_factor_R_work": 0.2268,
+      "ls_R_factor_obs": 0.2293,
+      "ls_d_res_high": 2.49,
+      "ls_d_res_low": 44.84,
+      "ls_number_reflns_R_free": 1072,
+      "ls_number_reflns_R_work": 20489,
+      "ls_number_reflns_obs": 21561,
+      "ls_percent_reflns_R_free": 4.97,
+      "ls_percent_reflns_obs": 98.67,
+      "overall_SU_ML": 0.3787,
+      "pdbx_diffrn_id": [
+        "1"
+      ],
+      "pdbx_ls_cross_valid_method": "FREE R-VALUE",
+      "pdbx_ls_sigma_F": 1.36,
+      "pdbx_method_to_determine_struct": "MOLECULAR REPLACEMENT",
+      "pdbx_overall_phase_error": 31.3591,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "pdbx_solvent_shrinkage_radii": 0.9,
+      "pdbx_solvent_vdw_probe_radii": 1.1,
+      "pdbx_stereochemistry_target_values": "GeoStd + Monomer Library + CDL v1.2",
+      "solvent_model_details": "FLAT BULK SOLVENT MODEL"
+    }
+  ],
+  "refine_hist": [
+    {
+      "cycle_id": "LAST",
+      "d_res_high": 2.49,
+      "d_res_low": 44.84,
+      "number_atoms_solvent": 49,
+      "number_atoms_total": 3222,
+      "pdbx_number_atoms_ligand": 36,
+      "pdbx_number_atoms_nucleic_acid": 0,
+      "pdbx_number_atoms_protein": 3137,
+      "pdbx_refine_id": "X-RAY DIFFRACTION"
+    }
+  ],
+  "refine_ls_restr": [
+    {
+      "dev_ideal": 0.0087,
+      "number": 3249,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "f_bond_d"
+    },
+    {
+      "dev_ideal": 1.0037,
+      "number": 4399,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "f_angle_d"
+    },
+    {
+      "dev_ideal": 0.0512,
+      "number": 451,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "f_chiral_restr"
+    },
+    {
+      "dev_ideal": 0.0082,
+      "number": 576,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "f_plane_restr"
+    },
+    {
+      "dev_ideal": 8.3211,
+      "number": 446,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "f_dihedral_angle_d"
+    }
+  ],
+  "reflns": [
+    {
+      "B_iso_Wilson_estimate": 43.74,
+      "d_resolution_high": 2.48,
+      "d_resolution_low": 44.84,
+      "number_obs": 21774,
+      "pdbx_CC_half": 1.0,
+      "pdbx_diffrn_id": [
+        "1"
+      ],
+      "pdbx_netI_over_sigmaI": 20.73,
+      "pdbx_ordinal": 1,
+      "pdbx_redundancy": 1.145632406,
+      "percent_possible_obs": 98.63
+    }
+  ],
+  "reflns_shell": [
+    {
+      "d_res_high": 2.487,
+      "d_res_low": 2.576,
+      "meanI_over_sigI_obs": 1.99,
+      "number_unique_obs": 2014,
+      "pdbx_CC_half": 1.0,
+      "pdbx_diffrn_id": [
+        "1"
+      ],
+      "pdbx_ordinal": 1,
+      "percent_possible_all": 94.24
+    }
+  ],
+  "software": [
+    {
+      "classification": "refinement",
+      "name": "REFMAC",
+      "pdbx_ordinal": 1,
+      "version": "1.20.1_4487"
+    },
+    {
+      "classification": "refinement",
+      "name": "PHENIX",
+      "pdbx_ordinal": 2,
+      "version": "1.20.1_4487"
+    },
+    {
+      "classification": "data reduction",
+      "name": "HKL-2000",
+      "pdbx_ordinal": 3
+    },
+    {
+      "classification": "data scaling",
+      "name": "SCALEPACK",
+      "pdbx_ordinal": 4
+    },
+    {
+      "classification": "phasing",
+      "name": "MOLREP",
+      "pdbx_ordinal": 5
+    }
+  ],
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "HLA-A*03:01 with KRAS-G12V-10mer"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "IMMUNE SYSTEM",
+    "text": "HLA-A*03:01 with KRAS-G12V-10mer, IMMUNE SYSTEM"
+  },
+  "symmetry": {
+    "Int_Tables_number": 177,
+    "space_group_name_H_M": "P 6 2 2",
+    "space_group_name_Hall": "P 6 2"
+  },
+  "rcsb_id": "8RNI"
+}

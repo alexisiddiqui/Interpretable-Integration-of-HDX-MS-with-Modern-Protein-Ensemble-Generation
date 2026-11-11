@@ -1,0 +1,107 @@
+{
+  "query_id": "87a9c8e9-6c75-49ac-bcb8-c708309d8348",
+  "result_type": "entry",
+  "total_count": 25,
+  "result_set": [
+    {
+      "identifier": "8RNI",
+      "score": 1.0
+    },
+    {
+      "identifier": "8VJZ",
+      "score": 1.0
+    },
+    {
+      "identifier": "8DVG",
+      "score": 0.9119127057430554
+    },
+    {
+      "identifier": "9Y7Y",
+      "score": 0.8144485485874811
+    },
+    {
+      "identifier": "7OW3",
+      "score": 0.8054833710229564
+    },
+    {
+      "identifier": "8I5E",
+      "score": 0.8054833710229564
+    },
+    {
+      "identifier": "7OW4",
+      "score": 0.7753207688117576
+    },
+    {
+      "identifier": "7STF",
+      "score": 0.7753207688117576
+    },
+    {
+      "identifier": "8K4T",
+      "score": 0.7753207688117576
+    },
+    {
+      "identifier": "8K4V",
+      "score": 0.7753207688117576
+    },
+    {
+      "identifier": "8K50",
+      "score": 0.7753207688117576
+    },
+    {
+      "identifier": "9UV8",
+      "score": 0.7213002752880576
+    },
+    {
+      "identifier": "9WVE",
+      "score": 0.7213002752880576
+    },
+    {
+      "identifier": "9WVF",
+      "score": 0.7213002752880576
+    },
+    {
+      "identifier": "9NFB",
+      "score": 0.7007514831854239
+    },
+    {
+      "identifier": "9NFC",
+      "score": 0.7007514831854239
+    },
+    {
+      "identifier": "7OW5",
+      "score": 0.6970179740557265
+    },
+    {
+      "identifier": "8I5C",
+      "score": 0.6970179740557265
+    },
+    {
+      "identifier": "8I5D",
+      "score": 0.6970179740557265
+    },
+    {
+      "identifier": "8WTE",
+      "score": 0.6970179740557265
+    },
+    {
+      "identifier": "7OW6",
+      "score": 0.6743172488571652
+    },
+    {
+      "identifier": "7PB2",
+      "score": 0.6743172488571652
+    },
+    {
+      "identifier": "9Z50",
+      "score": 0.6743172488571652
+    },
+    {
+      "identifier": "8WUL",
+      "score": 0.6530486179428998
+    },
+    {
+      "identifier": "9IKY",
+      "score": 0.6330805939271079
+    }
+  ]
+}

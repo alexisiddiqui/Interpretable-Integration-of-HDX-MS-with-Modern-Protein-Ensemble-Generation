@@ -1,0 +1,1993 @@
+{
+  "entity_poly": {
+    "nstd_linkage": "no",
+    "nstd_monomer": "no",
+    "pdbx_seq_one_letter_code": "QQKVQQSPESLIVPEGGMASLNCTSSDRNVDYFWWYRQHSGKSPKMLMSIFSNGEKEEGRFTVHLNKASLHTSLHIRDSQPSDSALYLCAARSSGSWQLIFGSGTQLTVMPDIQNPEPAVYQLKDPRSQDSTLCLFTDFDSQINVPKTMESGTFITDKCVLDMKAMDSKSNGAIAWSNQTSFTCQDIFKETNATYPSS",
+    "pdbx_seq_one_letter_code_can": "QQKVQQSPESLIVPEGGMASLNCTSSDRNVDYFWWYRQHSGKSPKMLMSIFSNGEKEEGRFTVHLNKASLHTSLHIRDSQPSDSALYLCAARSSGSWQLIFGSGTQLTVMPDIQNPEPAVYQLKDPRSQDSTLCLFTDFDSQINVPKTMESGTFITDKCVLDMKAMDSKSNGAIAWSNQTSFTCQDIFKETNATYPSS",
+    "pdbx_strand_id": "C,A,E,G",
+    "rcsb_artifact_monomer_count": 0,
+    "rcsb_conflict_count": 0,
+    "rcsb_deletion_count": 0,
+    "rcsb_entity_polymer_type": "Protein",
+    "rcsb_insertion_count": 0,
+    "rcsb_mutation_count": 0,
+    "rcsb_non_std_monomer_count": 0,
+    "rcsb_sample_sequence_length": 198,
+    "type": "polypeptide(L)"
+  },
+  "entity_src_gen": [
+    {
+      "pdbx_alt_source_flag": "sample",
+      "pdbx_beg_seq_num": 1,
+      "pdbx_end_seq_num": 198,
+      "pdbx_gene_src_ncbi_taxonomy_id": "10090",
+      "pdbx_gene_src_scientific_name": "Mus musculus",
+      "pdbx_host_org_ncbi_taxonomy_id": "562",
+      "pdbx_host_org_scientific_name": "Escherichia coli",
+      "pdbx_seq_type": "Biological sequence",
+      "pdbx_src_id": 1
+    }
+  ],
+  "rcsb_entity_host_organism": [
+    {
+      "beg_seq_num": 1,
+      "end_seq_num": 198,
+      "ncbi_common_names": [
+        "Bacillus coli",
+        "Bacterium coli",
+        "Bacterium coli commune",
+        "E. coli",
+        "Enterococcus coli",
+        "Escherichia/Shigella coli"
+      ],
+      "ncbi_parent_scientific_name": "Bacteria",
+      "ncbi_scientific_name": "Escherichia coli",
+      "ncbi_taxonomy_id": 562,
+      "pdbx_src_id": 1,
+      "provenance_source": "Primary Data",
+      "scientific_name": "Escherichia coli",
+      "taxonomy_lineage": [
+        {
+          "depth": 1,
+          "id": "131567",
+          "name": "cellular organisms"
+        },
+        {
+          "depth": 1,
+          "id": "131567",
+          "name": "biota"
+        },
+        {
+          "depth": 2,
+          "id": "2",
+          "name": "Bacteria"
+        },
+        {
+          "depth": 2,
+          "id": "2",
+          "name": "Bacteria (ex Cavalier-Smith 1987)"
+        },
+        {
+          "depth": 2,
+          "id": "2",
+          "name": "Bacteria Woese et al. 2024"
+        },
+        {
+          "depth": 2,
+          "id": "2",
+          "name": "Bacteriobiota"
+        },
+        {
+          "depth": 2,
+          "id": "2",
+          "name": "bacteria"
+        },
+        {
+          "depth": 2,
+          "id": "2",
+          "name": "eubacteria"
+        },
+        {
+          "depth": 3,
+          "id": "3379134",
+          "name": "Pseudomonadati"
+        },
+        {
+          "depth": 4,
+          "id": "1224",
+          "name": "Pseudomonadota"
+        },
+        {
+          "depth": 4,
+          "id": "1224",
+          "name": "\"Alphaproteobacteriota\" Whitman et al. 2018"
+        },
+        {
+          "depth": 4,
+          "id": "1224",
+          "name": "Alphaproteobacteriota"
+        },
+        {
+          "depth": 4,
+          "id": "1224",
+          "name": "Proteobacteria"
+        },
+        {
+          "depth": 4,
+          "id": "1224",
+          "name": "Proteobacteriota"
+        },
+        {
+          "depth": 4,
+          "id": "1224",
+          "name": "proteobacteria"
+        },
+        {
+          "depth": 4,
+          "id": "1224",
+          "name": "purple photosynthetic bacteria and relatives"
+        },
+        {
+          "depth": 5,
+          "id": "1236",
+          "name": "Gammaproteobacteria"
+        },
+        {
+          "depth": 5,
+          "id": "1236",
+          "name": "Proteobacteria gamma subdivision"
+        },
+        {
+          "depth": 5,
+          "id": "1236",
+          "name": "Pseudomonadia"
+        },
+        {
+          "depth": 5,
+          "id": "1236",
+          "name": "Purple bacteria, gamma subdivision"
+        },
+        {
+          "depth": 5,
+          "id": "1236",
+          "name": "g-proteobacteria"
+        },
+        {
+          "depth": 5,
+          "id": "1236",
+          "name": "gamma proteobacteria"
+        },
+        {
+          "depth": 5,
+          "id": "1236",
+          "name": "gamma subdivision"
+        },
+        {
+          "depth": 5,
+          "id": "1236",
+          "name": "gamma subgroup"
+        },
+        {
+          "depth": 6,
+          "id": "91347",
+          "name": "Enterobacterales"
+        },
+        {
+          "depth": 6,
+          "id": "91347",
+          "name": "Enterobacteriaceae and related endosymbionts"
+        },
+        {
+          "depth": 6,
+          "id": "91347",
+          "name": "Enterobacteriaceae group"
+        },
+        {
+          "depth": 6,
+          "id": "91347",
+          "name": "Enterobacteriales"
+        },
+        {
+          "depth": 7,
+          "id": "543",
+          "name": "Enterobacteriaceae"
+        },
+        {
+          "depth": 7,
+          "id": "543",
+          "name": "Enterobacteraceae"
+        },
+        {
+          "depth": 7,
+          "id": "543",
+          "name": "enterobacteria"
+        },
+        {
+          "depth": 8,
+          "id": "561",
+          "name": "Escherichia"
+        },
+        {
+          "depth": 9,
+          "id": "562",
+          "name": "Escherichia coli"
+        },
+        {
+          "depth": 9,
+          "id": "562",
+          "name": "Bacillus coli"
+        },
+        {
+          "depth": 9,
+          "id": "562",
+          "name": "Bacterium coli"
+        },
+        {
+          "depth": 9,
+          "id": "562",
+          "name": "Bacterium coli commune"
+        },
+        {
+          "depth": 9,
+          "id": "562",
+          "name": "E. coli"
+        },
+        {
+          "depth": 9,
+          "id": "562",
+          "name": "Enterococcus coli"
+        },
+        {
+          "depth": 9,
+          "id": "562",
+          "name": "Escherichia/Shigella coli"
+        }
+      ]
+    }
+  ],
+  "rcsb_entity_source_organism": [
+    {
+      "beg_seq_num": 1,
+      "end_seq_num": 198,
+      "ncbi_common_names": [
+        "house mouse",
+        "mouse"
+      ],
+      "ncbi_parent_scientific_name": "Eukaryota",
+      "ncbi_scientific_name": "Mus musculus",
+      "ncbi_taxonomy_id": 10090,
+      "pdbx_src_id": 1,
+      "provenance_source": "Primary Data",
+      "scientific_name": "Mus musculus",
+      "source_type": "genetically engineered",
+      "taxonomy_lineage": [
+        {
+          "depth": 1,
+          "id": "131567",
+          "name": "cellular organisms"
+        },
+        {
+          "depth": 1,
+          "id": "131567",
+          "name": "biota"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eukaryota"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eucarya"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eucaryotae"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eukarya"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "Eukaryotae"
+        },
+        {
+          "depth": 2,
+          "id": "2759",
+          "name": "eukaryotes"
+        },
+        {
+          "depth": 3,
+          "id": "33154",
+          "name": "Opisthokonta"
+        },
+        {
+          "depth": 3,
+          "id": "33154",
+          "name": "Fungi/Metazoa group"
+        },
+        {
+          "depth": 3,
+          "id": "33154",
+          "name": "opisthokonts"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "Metazoa"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "Animalia"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "animals"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "metazoans"
+        },
+        {
+          "depth": 4,
+          "id": "33208",
+          "name": "multicellular animals"
+        },
+        {
+          "depth": 5,
+          "id": "6072",
+          "name": "Eumetazoa"
+        },
+        {
+          "depth": 6,
+          "id": "33213",
+          "name": "Bilateria"
+        },
+        {
+          "depth": 7,
+          "id": "33511",
+          "name": "Deuterostomia"
+        },
+        {
+          "depth": 7,
+          "id": "33511",
+          "name": "deuterostomes"
+        },
+        {
+          "depth": 8,
+          "id": "7711",
+          "name": "Chordata"
+        },
+        {
+          "depth": 8,
+          "id": "7711",
+          "name": "chordates"
+        },
+        {
+          "depth": 9,
+          "id": "89593",
+          "name": "Craniata"
+        },
+        {
+          "depth": 10,
+          "id": "7742",
+          "name": "Vertebrata"
+        },
+        {
+          "depth": 10,
+          "id": "7742",
+          "name": "vertebrates"
+        },
+        {
+          "depth": 11,
+          "id": "7776",
+          "name": "Gnathostomata"
+        },
+        {
+          "depth": 11,
+          "id": "7776",
+          "name": "jawed vertebrates"
+        },
+        {
+          "depth": 12,
+          "id": "117570",
+          "name": "Teleostomi"
+        },
+        {
+          "depth": 13,
+          "id": "117571",
+          "name": "Euteleostomi"
+        },
+        {
+          "depth": 13,
+          "id": "117571",
+          "name": "bony vertebrates"
+        },
+        {
+          "depth": 14,
+          "id": "8287",
+          "name": "Sarcopterygii"
+        },
+        {
+          "depth": 15,
+          "id": "1338369",
+          "name": "Dipnotetrapodomorpha"
+        },
+        {
+          "depth": 16,
+          "id": "32523",
+          "name": "Tetrapoda"
+        },
+        {
+          "depth": 16,
+          "id": "32523",
+          "name": "tetrapods"
+        },
+        {
+          "depth": 17,
+          "id": "32524",
+          "name": "Amniota"
+        },
+        {
+          "depth": 17,
+          "id": "32524",
+          "name": "amniotes"
+        },
+        {
+          "depth": 18,
+          "id": "40674",
+          "name": "Mammalia"
+        },
+        {
+          "depth": 18,
+          "id": "40674",
+          "name": "mammals"
+        },
+        {
+          "depth": 19,
+          "id": "32525",
+          "name": "Theria"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "Eutheria"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "Placentalia"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "eutherian mammals"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "placental mammals"
+        },
+        {
+          "depth": 20,
+          "id": "9347",
+          "name": "placentals"
+        },
+        {
+          "depth": 21,
+          "id": "1437010",
+          "name": "Boreoeutheria"
+        },
+        {
+          "depth": 21,
+          "id": "1437010",
+          "name": "Boreotheria"
+        },
+        {
+          "depth": 22,
+          "id": "314146",
+          "name": "Euarchontoglires"
+        },
+        {
+          "depth": 23,
+          "id": "314147",
+          "name": "Glires"
+        },
+        {
+          "depth": 23,
+          "id": "314147",
+          "name": "Rodents and rabbits"
+        },
+        {
+          "depth": 24,
+          "id": "9989",
+          "name": "Rodentia"
+        },
+        {
+          "depth": 24,
+          "id": "9989",
+          "name": "rodent"
+        },
+        {
+          "depth": 24,
+          "id": "9989",
+          "name": "rodents"
+        },
+        {
+          "depth": 25,
+          "id": "1963758",
+          "name": "Myomorpha"
+        },
+        {
+          "depth": 25,
+          "id": "1963758",
+          "name": "mice and others"
+        },
+        {
+          "depth": 26,
+          "id": "337687",
+          "name": "Muroidea"
+        },
+        {
+          "depth": 27,
+          "id": "10066",
+          "name": "Muridae"
+        },
+        {
+          "depth": 28,
+          "id": "39107",
+          "name": "Murinae"
+        },
+        {
+          "depth": 29,
+          "id": "10088",
+          "name": "Mus"
+        },
+        {
+          "depth": 29,
+          "id": "10088",
+          "name": "mice"
+        },
+        {
+          "depth": 29,
+          "id": "10088",
+          "name": "mouse"
+        },
+        {
+          "depth": 30,
+          "id": "862507",
+          "name": "Mus"
+        },
+        {
+          "depth": 31,
+          "id": "10090",
+          "name": "Mus musculus"
+        },
+        {
+          "depth": 31,
+          "id": "10090",
+          "name": "house mouse"
+        },
+        {
+          "depth": 31,
+          "id": "10090",
+          "name": "mouse"
+        }
+      ]
+    }
+  ],
+  "rcsb_polymer_entity": {
+    "formula_weight": 22.106,
+    "pdbx_description": "TCR alpha chain",
+    "pdbx_mutation": "T159C",
+    "pdbx_number_of_molecules": 4,
+    "rcsb_multiple_source_flag": "N",
+    "rcsb_source_part_count": 1,
+    "rcsb_source_taxonomy_count": 1,
+    "src_method": "man",
+    "rcsb_macromolecular_names_combined": [
+      {
+        "name": "TCR alpha chain",
+        "provenance_code": "ECO:0000304",
+        "provenance_source": "PDB Preferred Name"
+      }
+    ],
+    "rcsb_polymer_name_combined": {
+      "names": [
+        "T-cell receptor alpha chain constant",
+        "TRAV7D-2"
+      ],
+      "provenance_source": "UniProt Name"
+    }
+  },
+  "rcsb_polymer_entity_align": [
+    {
+      "provenance_source": "SIFTS",
+      "reference_database_accession": "Q5R1I3",
+      "reference_database_name": "UniProt",
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 91,
+          "ref_beg_seq_id": 21
+        }
+      ]
+    },
+    {
+      "provenance_source": "SIFTS",
+      "reference_database_accession": "P01849",
+      "reference_database_name": "UniProt",
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 113,
+          "length": 86,
+          "ref_beg_seq_id": 1
+        }
+      ]
+    }
+  ],
+  "rcsb_polymer_entity_annotation": [
+    {
+      "annotation_id": "PF07686",
+      "assignment_version": "34.0",
+      "name": "Immunoglobulin V-set domain (V-set)",
+      "provenance_source": "Pfam",
+      "type": "Pfam"
+    },
+    {
+      "annotation_id": "PF09291",
+      "assignment_version": "34.0",
+      "name": "Domain of unknown function (DUF1968) (DUF1968)",
+      "provenance_source": "Pfam",
+      "type": "Pfam"
+    },
+    {
+      "annotation_id": "IPR007110",
+      "name": "Immunoglobulin-like domain",
+      "provenance_source": "UNIPROT",
+      "type": "InterPro",
+      "annotation_lineage": [
+        {
+          "depth": 1,
+          "id": "IPR007110",
+          "name": "Immunoglobulin-like domain"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0042605",
+      "name": "peptide antigen binding",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0005488",
+          "name": "binding"
+        },
+        {
+          "id": "GO:0003823",
+          "name": "antigen binding"
+        },
+        {
+          "id": "GO:0042605",
+          "name": "peptide antigen binding"
+        },
+        {
+          "id": "GO:0003674",
+          "name": "molecular_function"
+        },
+        {
+          "id": "GO:0042277",
+          "name": "peptide binding"
+        }
+      ]
+    },
+    {
+      "annotation_id": "IPR013106",
+      "name": "Immunoglobulin V-set domain",
+      "provenance_source": "UNIPROT",
+      "type": "InterPro",
+      "annotation_lineage": [
+        {
+          "depth": 1,
+          "id": "IPR013106",
+          "name": "Immunoglobulin V-set domain"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0038023",
+      "name": "signaling receptor activity",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0060089",
+          "name": "molecular transducer activity"
+        },
+        {
+          "id": "GO:0038023",
+          "name": "signaling receptor activity"
+        },
+        {
+          "id": "GO:0003674",
+          "name": "molecular_function"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0009897",
+      "name": "external side of plasma membrane",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0071944",
+          "name": "cell periphery"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0009986",
+          "name": "cell surface"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        },
+        {
+          "id": "GO:0005886",
+          "name": "plasma membrane"
+        },
+        {
+          "id": "GO:0009897",
+          "name": "external side of plasma membrane"
+        },
+        {
+          "id": "GO:0098552",
+          "name": "side of membrane"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0002360",
+      "name": "T cell lineage commitment",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0032502",
+          "name": "developmental process"
+        },
+        {
+          "id": "GO:0032501",
+          "name": "multicellular organismal process"
+        },
+        {
+          "id": "GO:0048869",
+          "name": "cellular developmental process"
+        },
+        {
+          "id": "GO:0030097",
+          "name": "hemopoiesis"
+        },
+        {
+          "id": "GO:0001775",
+          "name": "cell activation"
+        },
+        {
+          "id": "GO:0048468",
+          "name": "cell development"
+        },
+        {
+          "id": "GO:1903131",
+          "name": "mononuclear cell differentiation"
+        },
+        {
+          "id": "GO:0002360",
+          "name": "T cell lineage commitment"
+        },
+        {
+          "id": "GO:0046649",
+          "name": "lymphocyte activation"
+        },
+        {
+          "id": "GO:0030098",
+          "name": "lymphocyte differentiation"
+        },
+        {
+          "id": "GO:0045321",
+          "name": "leukocyte activation"
+        },
+        {
+          "id": "GO:0042110",
+          "name": "T cell activation"
+        },
+        {
+          "id": "GO:0002376",
+          "name": "immune system process"
+        },
+        {
+          "id": "GO:0030154",
+          "name": "cell differentiation"
+        },
+        {
+          "id": "GO:0048856",
+          "name": "anatomical structure development"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0030217",
+          "name": "T cell differentiation"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0045165",
+          "name": "cell fate commitment"
+        },
+        {
+          "id": "GO:0002521",
+          "name": "leukocyte differentiation"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0042105",
+      "name": "alpha-beta T cell receptor complex",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0032991",
+          "name": "protein-containing complex"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0098797",
+          "name": "plasma membrane protein complex"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        },
+        {
+          "id": "GO:0005886",
+          "name": "plasma membrane"
+        },
+        {
+          "id": "GO:0098796",
+          "name": "membrane protein complex"
+        },
+        {
+          "id": "GO:0042105",
+          "name": "alpha-beta T cell receptor complex"
+        },
+        {
+          "id": "GO:0071944",
+          "name": "cell periphery"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0098802",
+          "name": "plasma membrane signaling receptor complex"
+        },
+        {
+          "id": "GO:0043235",
+          "name": "signaling receptor complex"
+        },
+        {
+          "id": "GO:0042101",
+          "name": "T cell receptor complex"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0005886",
+      "name": "plasma membrane",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0071944",
+          "name": "cell periphery"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        },
+        {
+          "id": "GO:0005886",
+          "name": "plasma membrane"
+        },
+        {
+          "id": "GO:0016020",
+          "name": "membrane"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0009986",
+      "name": "cell surface",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0009986",
+          "name": "cell surface"
+        },
+        {
+          "id": "GO:0110165",
+          "name": "cellular anatomical structure"
+        },
+        {
+          "id": "GO:0005575",
+          "name": "cellular_component"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0009617",
+      "name": "response to bacterium",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0044419",
+          "name": "biological process involved in interspecies interaction between organisms"
+        },
+        {
+          "id": "GO:0050896",
+          "name": "response to stimulus"
+        },
+        {
+          "id": "GO:0051707",
+          "name": "response to other organism"
+        },
+        {
+          "id": "GO:0009617",
+          "name": "response to bacterium"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0009605",
+          "name": "response to external stimulus"
+        },
+        {
+          "id": "GO:0043207",
+          "name": "response to external biotic stimulus"
+        },
+        {
+          "id": "GO:0009607",
+          "name": "response to biotic stimulus"
+        }
+      ]
+    },
+    {
+      "annotation_id": "GO:0051289",
+      "name": "protein homotetramerization",
+      "provenance_source": "UNIPROT",
+      "type": "GO",
+      "annotation_lineage": [
+        {
+          "id": "GO:0043933",
+          "name": "protein-containing complex organization"
+        },
+        {
+          "id": "GO:0051289",
+          "name": "protein homotetramerization"
+        },
+        {
+          "id": "GO:0016043",
+          "name": "cellular component organization"
+        },
+        {
+          "id": "GO:0044085",
+          "name": "cellular component biogenesis"
+        },
+        {
+          "id": "GO:0022607",
+          "name": "cellular component assembly"
+        },
+        {
+          "id": "GO:0051259",
+          "name": "protein complex oligomerization"
+        },
+        {
+          "id": "GO:0051262",
+          "name": "protein tetramerization"
+        },
+        {
+          "id": "GO:0065003",
+          "name": "protein-containing complex assembly"
+        },
+        {
+          "id": "GO:0008150",
+          "name": "biological_process"
+        },
+        {
+          "id": "GO:0051260",
+          "name": "protein homooligomerization"
+        },
+        {
+          "id": "GO:0009987",
+          "name": "cellular process"
+        },
+        {
+          "id": "GO:0071840",
+          "name": "cellular component organization or biogenesis"
+        }
+      ]
+    },
+    {
+      "annotation_id": "IPR015370",
+      "name": "T-cell receptor alpha chain, constant domain",
+      "provenance_source": "UNIPROT",
+      "type": "InterPro",
+      "annotation_lineage": [
+        {
+          "id": "IPR015370",
+          "name": "T-cell receptor alpha chain, constant domain"
+        }
+      ]
+    },
+    {
+      "annotation_id": "IPR013783",
+      "name": "Immunoglobulin-like fold",
+      "provenance_source": "UNIPROT",
+      "type": "InterPro",
+      "annotation_lineage": [
+        {
+          "id": "IPR013783",
+          "name": "Immunoglobulin-like fold"
+        }
+      ]
+    },
+    {
+      "annotation_id": "IPR036179",
+      "name": "Immunoglobulin-like domain superfamily",
+      "provenance_source": "UNIPROT",
+      "type": "InterPro",
+      "annotation_lineage": [
+        {
+          "id": "IPR036179",
+          "name": "Immunoglobulin-like domain superfamily"
+        }
+      ]
+    },
+    {
+      "annotation_id": "IPR051006",
+      "name": "T cell receptor variable domain",
+      "provenance_source": "UNIPROT",
+      "type": "InterPro",
+      "annotation_lineage": [
+        {
+          "id": "IPR051006",
+          "name": "T cell receptor variable domain"
+        }
+      ]
+    }
+  ],
+  "rcsb_polymer_entity_container_identifiers": {
+    "asym_ids": [
+      "A",
+      "C",
+      "E",
+      "G"
+    ],
+    "auth_asym_ids": [
+      "A",
+      "C",
+      "E",
+      "G"
+    ],
+    "chem_comp_monomers": [
+      "ALA",
+      "ARG",
+      "ASN",
+      "ASP",
+      "CYS",
+      "GLN",
+      "GLU",
+      "GLY",
+      "HIS",
+      "ILE",
+      "LEU",
+      "LYS",
+      "MET",
+      "PHE",
+      "PRO",
+      "SER",
+      "THR",
+      "TRP",
+      "TYR",
+      "VAL"
+    ],
+    "entity_id": "1",
+    "entry_id": "8WUL",
+    "rcsb_id": "8WUL_1",
+    "uniprot_ids": [
+      "P01849",
+      "Q5R1I3"
+    ],
+    "reference_sequence_identifiers": [
+      {
+        "database_accession": "P01849",
+        "database_name": "UniProt",
+        "entity_sequence_coverage": 0.43434343434343436,
+        "provenance_source": "SIFTS",
+        "reference_sequence_coverage": 0.6323529411764706
+      },
+      {
+        "database_accession": "Q5R1I3",
+        "database_name": "UniProt",
+        "entity_sequence_coverage": 0.4595959595959596,
+        "provenance_source": "SIFTS",
+        "reference_sequence_coverage": 0.8125
+      }
+    ]
+  },
+  "rcsb_polymer_entity_feature": [
+    {
+      "assignment_version": "34.0",
+      "feature_id": "PF07686",
+      "name": "Immunoglobulin V-set domain (V-set)",
+      "provenance_source": "Pfam",
+      "type": "Pfam",
+      "feature_positions": [
+        {
+          "beg_seq_id": 6,
+          "end_seq_id": 91
+        }
+      ]
+    },
+    {
+      "name": "Hydropathy values",
+      "provenance_source": "biojava-7.3.0",
+      "type": "hydropathy",
+      "feature_positions": [
+        {
+          "beg_seq_id": 5,
+          "values": [
+            -2.18,
+            -1.88,
+            -1.07,
+            -0.13,
+            -0.13,
+            0.08,
+            0.08,
+            0.12,
+            0.26,
+            0.86,
+            1.14,
+            0.63,
+            0.56,
+            -0.3,
+            0.16,
+            0.47,
+            0.42,
+            0.38,
+            -0.22,
+            -0.92,
+            -1.22,
+            -1.18,
+            -1.18,
+            -1.6,
+            -1.21,
+            -1.22,
+            -1.23,
+            -0.99,
+            -0.99,
+            -0.99,
+            -1.81,
+            -1.51,
+            -1.41,
+            -2.16,
+            -2.14,
+            -2.22,
+            -2.51,
+            -1.8,
+            -0.99,
+            -0.42,
+            -0.42,
+            0.12,
+            0.87,
+            0.87,
+            0.66,
+            1.04,
+            0.44,
+            -0.41,
+            -1.01,
+            -1.31,
+            -1.86,
+            -2.67,
+            -2.27,
+            -1.96,
+            -1.44,
+            -1.41,
+            -0.56,
+            -0.56,
+            -0.6,
+            -0.36,
+            0.06,
+            0.17,
+            -0.11,
+            -0.66,
+            -0.39,
+            -0.39,
+            -0.36,
+            0.58,
+            -0.12,
+            -0.42,
+            -0.93,
+            -0.97,
+            -1.07,
+            -1.07,
+            -1.88,
+            -1.61,
+            -1.91,
+            -0.99,
+            -0.74,
+            -0.23,
+            0.43,
+            0.81,
+            1.1,
+            0.99,
+            0.99,
+            0.7,
+            0.23,
+            0.29,
+            -0.23,
+            -0.9,
+            -0.68,
+            -0.38,
+            0.43,
+            0.48,
+            0.48,
+            0.48,
+            0.49,
+            0.2,
+            1.01,
+            0.51,
+            0.48,
+            0.38,
+            0.24,
+            -0.06,
+            0.49,
+            0.18,
+            0.18,
+            -0.42,
+            -0.73,
+            -1.38,
+            -1.39,
+            -0.74,
+            -0.5,
+            -1.39,
+            -0.58,
+            -0.62,
+            -0.83,
+            -0.62,
+            -0.94,
+            -1.23,
+            -2.09,
+            -2.33,
+            -2.03,
+            -2.53,
+            -1.68,
+            -1.01,
+            -0.41,
+            0.4,
+            0.41,
+            0.41,
+            1.11,
+            0.81,
+            0.8,
+            -0.01,
+            0.21,
+            -0.6,
+            -0.44,
+            -0.54,
+            -0.59,
+            -0.98,
+            -0.38,
+            -0.68,
+            -0.38,
+            -0.92,
+            -0.61,
+            -0.77,
+            -0.09,
+            0.27,
+            -0.04,
+            -0.69,
+            -0.02,
+            0.53,
+            1.0,
+            0.69,
+            0.59,
+            -0.34,
+            -0.07,
+            0.53,
+            0.58,
+            0.21,
+            -0.69,
+            -1.2,
+            -1.2,
+            -1.46,
+            -0.82,
+            -0.52,
+            -0.53,
+            -0.24,
+            -0.24,
+            -0.2,
+            -0.5,
+            -0.19,
+            -0.23,
+            -0.12,
+            -0.7,
+            -0.62,
+            -0.91,
+            -1.21,
+            -0.32,
+            0.38,
+            0.02,
+            -0.28,
+            -0.67,
+            -0.98,
+            -1.06,
+            -0.74,
+            -0.5,
+            -1.18,
+            -1.58,
+            -1.23
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Disordered regions",
+      "provenance_source": "IUPred2(short)",
+      "type": "disorder",
+      "feature_positions": [
+        {
+          "beg_seq_id": 1,
+          "values": [
+            0.96,
+            0.92,
+            0.86,
+            0.85,
+            0.82,
+            0.79,
+            0.75,
+            0.69,
+            0.64,
+            0.6,
+            0.5,
+            0.51,
+            0.45,
+            0.45,
+            0.5,
+            0.48,
+            0.49,
+            0.48,
+            0.45,
+            0.38,
+            0.4,
+            0.38,
+            0.36,
+            0.33,
+            0.22,
+            0.15,
+            0.13,
+            0.14,
+            0.15,
+            0.16,
+            0.16,
+            0.21,
+            0.2,
+            0.28,
+            0.28,
+            0.24,
+            0.19,
+            0.16,
+            0.15,
+            0.11,
+            0.09,
+            0.09,
+            0.14,
+            0.2,
+            0.28,
+            0.37,
+            0.46,
+            0.47,
+            0.46,
+            0.48,
+            0.4,
+            0.4,
+            0.35,
+            0.35,
+            0.27,
+            0.27,
+            0.31,
+            0.34,
+            0.36,
+            0.3,
+            0.36,
+            0.45,
+            0.45,
+            0.37,
+            0.37,
+            0.29,
+            0.28,
+            0.28,
+            0.28,
+            0.28,
+            0.31,
+            0.38,
+            0.39,
+            0.44,
+            0.4,
+            0.39,
+            0.31,
+            0.23,
+            0.2,
+            0.17,
+            0.21,
+            0.21,
+            0.21,
+            0.21,
+            0.29,
+            0.29,
+            0.28,
+            0.29,
+            0.21,
+            0.16,
+            0.1,
+            0.09,
+            0.09,
+            0.09,
+            0.09,
+            0.12,
+            0.13,
+            0.18,
+            0.2,
+            0.23,
+            0.29,
+            0.33,
+            0.26,
+            0.27,
+            0.27,
+            0.3,
+            0.31,
+            0.43,
+            0.39,
+            0.4,
+            0.39,
+            0.47,
+            0.4,
+            0.39,
+            0.41,
+            0.44,
+            0.43,
+            0.5,
+            0.51,
+            0.58,
+            0.62,
+            0.58,
+            0.52,
+            0.51,
+            0.44,
+            0.38,
+            0.33,
+            0.33,
+            0.22,
+            0.25,
+            0.31,
+            0.4,
+            0.32,
+            0.4,
+            0.35,
+            0.36,
+            0.32,
+            0.31,
+            0.28,
+            0.29,
+            0.27,
+            0.27,
+            0.27,
+            0.25,
+            0.27,
+            0.31,
+            0.38,
+            0.38,
+            0.27,
+            0.28,
+            0.22,
+            0.22,
+            0.18,
+            0.23,
+            0.2,
+            0.24,
+            0.21,
+            0.21,
+            0.21,
+            0.23,
+            0.21,
+            0.21,
+            0.19,
+            0.16,
+            0.2,
+            0.2,
+            0.21,
+            0.2,
+            0.22,
+            0.31,
+            0.36,
+            0.35,
+            0.33,
+            0.27,
+            0.3,
+            0.33,
+            0.31,
+            0.24,
+            0.24,
+            0.27,
+            0.26,
+            0.26,
+            0.23,
+            0.25,
+            0.23,
+            0.28,
+            0.33,
+            0.32,
+            0.37,
+            0.41,
+            0.46,
+            0.5,
+            0.62,
+            0.67,
+            0.77,
+            0.8,
+            0.84,
+            0.9
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Disordered binding sites",
+      "provenance_source": "Anchor2",
+      "type": "disorder_binding",
+      "feature_positions": [
+        {
+          "beg_seq_id": 1,
+          "values": [
+            0.43,
+            0.43,
+            0.43,
+            0.43,
+            0.43,
+            0.43,
+            0.43,
+            0.43,
+            0.43,
+            0.43,
+            0.41,
+            0.4,
+            0.4,
+            0.39,
+            0.39,
+            0.39,
+            0.39,
+            0.39,
+            0.4,
+            0.41,
+            0.41,
+            0.42,
+            0.42,
+            0.42,
+            0.42,
+            0.42,
+            0.42,
+            0.42,
+            0.41,
+            0.41,
+            0.41,
+            0.4,
+            0.39,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.41,
+            0.41,
+            0.41,
+            0.4,
+            0.4,
+            0.4,
+            0.41,
+            0.41,
+            0.42,
+            0.43,
+            0.42,
+            0.41,
+            0.4,
+            0.39,
+            0.38,
+            0.38,
+            0.38,
+            0.38,
+            0.38,
+            0.38,
+            0.39,
+            0.39,
+            0.39,
+            0.38,
+            0.39,
+            0.39,
+            0.39,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.41,
+            0.42,
+            0.42,
+            0.43,
+            0.43,
+            0.43,
+            0.42,
+            0.42,
+            0.41,
+            0.4,
+            0.4,
+            0.39,
+            0.39,
+            0.39,
+            0.39,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.41,
+            0.41,
+            0.41,
+            0.42,
+            0.41,
+            0.42,
+            0.42,
+            0.41,
+            0.41,
+            0.42,
+            0.42,
+            0.41,
+            0.41,
+            0.41,
+            0.41,
+            0.41,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.4,
+            0.41,
+            0.41,
+            0.41,
+            0.42,
+            0.42,
+            0.43,
+            0.43,
+            0.42,
+            0.42,
+            0.41,
+            0.41,
+            0.41,
+            0.41,
+            0.41,
+            0.42,
+            0.42,
+            0.43,
+            0.43,
+            0.42,
+            0.41,
+            0.4,
+            0.39,
+            0.39,
+            0.39,
+            0.39,
+            0.39,
+            0.4,
+            0.4,
+            0.41,
+            0.42,
+            0.42,
+            0.43,
+            0.43,
+            0.43,
+            0.43,
+            0.42,
+            0.42,
+            0.42,
+            0.43,
+            0.43,
+            0.43,
+            0.43,
+            0.43,
+            0.43,
+            0.43,
+            0.43,
+            0.43,
+            0.43,
+            0.42,
+            0.41,
+            0.4,
+            0.4,
+            0.4,
+            0.39,
+            0.39,
+            0.38,
+            0.38,
+            0.39,
+            0.4,
+            0.41,
+            0.41,
+            0.41,
+            0.4,
+            0.41,
+            0.42,
+            0.43,
+            0.43,
+            0.43,
+            0.43,
+            0.42,
+            0.41,
+            0.41,
+            0.41,
+            0.41,
+            0.38,
+            0.36,
+            0.34,
+            0.32,
+            0.3,
+            0.29,
+            0.29,
+            0.28,
+            0.26,
+            0.25
+          ]
+        }
+      ]
+    }
+  ],
+  "rcsb_polymer_entity_feature_summary": [
+    {
+      "count": 1,
+      "coverage": 0.43434,
+      "type": "Pfam"
+    }
+  ],
+  "rcsb_polymer_entity_group_membership": [
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "84941_90",
+      "similarity_cutoff": 90.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 198,
+          "ref_beg_seq_id": 1
+        }
+      ]
+    },
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "215_50",
+      "similarity_cutoff": 50.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 29,
+          "ref_beg_seq_id": 20
+        },
+        {
+          "entity_beg_seq_id": 30,
+          "length": 1,
+          "ref_beg_seq_id": 50
+        },
+        {
+          "entity_beg_seq_id": 31,
+          "length": 22,
+          "ref_beg_seq_id": 52
+        },
+        {
+          "entity_beg_seq_id": 53,
+          "length": 3,
+          "ref_beg_seq_id": 77
+        },
+        {
+          "entity_beg_seq_id": 56,
+          "length": 13,
+          "ref_beg_seq_id": 81
+        },
+        {
+          "entity_beg_seq_id": 69,
+          "length": 25,
+          "ref_beg_seq_id": 95
+        },
+        {
+          "entity_beg_seq_id": 94,
+          "length": 98,
+          "ref_beg_seq_id": 127
+        },
+        {
+          "entity_beg_seq_id": 192,
+          "length": 7,
+          "ref_beg_seq_id": 229
+        }
+      ]
+    },
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "2017_70",
+      "similarity_cutoff": 70.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 1,
+          "ref_beg_seq_id": 38
+        },
+        {
+          "entity_beg_seq_id": 2,
+          "length": 50,
+          "ref_beg_seq_id": 40
+        },
+        {
+          "entity_beg_seq_id": 52,
+          "length": 42,
+          "ref_beg_seq_id": 91
+        },
+        {
+          "entity_beg_seq_id": 94,
+          "length": 4,
+          "ref_beg_seq_id": 135
+        },
+        {
+          "entity_beg_seq_id": 98,
+          "length": 94,
+          "ref_beg_seq_id": 140
+        },
+        {
+          "entity_beg_seq_id": 192,
+          "length": 7,
+          "ref_beg_seq_id": 238
+        }
+      ]
+    },
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "60250_100",
+      "similarity_cutoff": 100.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 198,
+          "ref_beg_seq_id": 1
+        }
+      ]
+    },
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "76950_95",
+      "similarity_cutoff": 95.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 198,
+          "ref_beg_seq_id": 1
+        }
+      ]
+    },
+    {
+      "aggregation_method": "sequence_identity",
+      "group_id": "2045_30",
+      "similarity_cutoff": 30.0,
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 28,
+          "ref_beg_seq_id": 36
+        },
+        {
+          "entity_beg_seq_id": 29,
+          "length": 4,
+          "ref_beg_seq_id": 65
+        },
+        {
+          "entity_beg_seq_id": 33,
+          "length": 23,
+          "ref_beg_seq_id": 70
+        },
+        {
+          "entity_beg_seq_id": 56,
+          "length": 38,
+          "ref_beg_seq_id": 95
+        },
+        {
+          "entity_beg_seq_id": 94,
+          "length": 35,
+          "ref_beg_seq_id": 139
+        },
+        {
+          "entity_beg_seq_id": 129,
+          "length": 63,
+          "ref_beg_seq_id": 175
+        },
+        {
+          "entity_beg_seq_id": 192,
+          "length": 7,
+          "ref_beg_seq_id": 242
+        }
+      ]
+    },
+    {
+      "aggregation_method": "matching_uniprot_accession",
+      "group_id": "Q5R1I3",
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 1,
+          "length": 91,
+          "ref_beg_seq_id": 21
+        }
+      ]
+    },
+    {
+      "aggregation_method": "matching_uniprot_accession",
+      "group_id": "P01849",
+      "aligned_regions": [
+        {
+          "entity_beg_seq_id": 113,
+          "length": 86,
+          "ref_beg_seq_id": 1
+        }
+      ]
+    }
+  ],
+  "rcsb_id": "8WUL_1"
+}

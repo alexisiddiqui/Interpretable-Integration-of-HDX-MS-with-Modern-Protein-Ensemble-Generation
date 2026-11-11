@@ -1,0 +1,521 @@
+{
+  "audit_author": [
+    {
+      "name": "Lu, D.",
+      "pdbx_ordinal": 1
+    },
+    {
+      "name": "Chen, Y.",
+      "pdbx_ordinal": 2
+    },
+    {
+      "name": "Jiang, M.",
+      "pdbx_ordinal": 3
+    },
+    {
+      "name": "Tan, S.G.",
+      "pdbx_ordinal": 4
+    },
+    {
+      "name": "Chai, Y.",
+      "pdbx_ordinal": 5
+    },
+    {
+      "name": "Gao, G.F.",
+      "pdbx_ordinal": 6
+    }
+  ],
+  "cell": {
+    "Z_PDB": 2,
+    "angle_alpha": 90.0,
+    "angle_beta": 100.88,
+    "angle_gamma": 90.0,
+    "length_a": 49.14,
+    "length_b": 67.697,
+    "length_c": 73.1,
+    "volume": 238805.512
+  },
+  "citation": [
+    {
+      "country": "UK",
+      "id": "primary",
+      "journal_abbrev": "Nat Commun",
+      "journal_id_ISSN": "2041-1723",
+      "rcsb_authors": [
+        "Lu, D.",
+        "Chen, Y.",
+        "Jiang, M.",
+        "Tan, S.G.",
+        "Chai, Y.",
+        "Gao, G.F."
+      ],
+      "rcsb_is_primary": "Y",
+      "rcsb_journal_abbrev": "Nat Commun",
+      "title": "Crystal structure of a TCR in complex with HLA-A*11:01 bound to KRAS peptide (VVGAVGVGK)",
+      "year": 2023
+    }
+  ],
+  "database_2": [
+    {
+      "database_code": "8I5E",
+      "database_id": "PDB",
+      "pdbx_DOI": "10.2210/pdb8i5e/pdb",
+      "pdbx_database_accession": "pdb_00008i5e"
+    },
+    {
+      "database_code": "D_1300034979",
+      "database_id": "WWPDB"
+    }
+  ],
+  "diffrn": [
+    {
+      "ambient_temp": 100.0,
+      "crystal_id": "1",
+      "id": "1",
+      "pdbx_serial_crystal_experiment": "N"
+    }
+  ],
+  "diffrn_detector": [
+    {
+      "detector": "PIXEL",
+      "diffrn_id": "1",
+      "pdbx_collection_date": "2022-11-15T00:00:00.000+00:00",
+      "type": "DECTRIS PILATUS 6M"
+    }
+  ],
+  "diffrn_radiation": [
+    {
+      "diffrn_id": "1",
+      "pdbx_diffrn_protocol": "SINGLE WAVELENGTH",
+      "pdbx_monochromatic_or_laue_m_l": "M",
+      "pdbx_scattering_type": "x-ray",
+      "wavelength_id": "1"
+    }
+  ],
+  "diffrn_source": [
+    {
+      "diffrn_id": "1",
+      "pdbx_synchrotron_beamline": "BL19U1",
+      "pdbx_synchrotron_site": "SSRF",
+      "pdbx_wavelength_list": "0.97853",
+      "source": "SYNCHROTRON",
+      "type": "SSRF BEAMLINE BL19U1"
+    }
+  ],
+  "entry": {
+    "id": "8I5E"
+  },
+  "exptl": [
+    {
+      "crystals_number": 1,
+      "method": "X-RAY DIFFRACTION"
+    }
+  ],
+  "exptl_crystal": [
+    {
+      "density_Matthews": 2.7,
+      "density_percent_sol": 54.42,
+      "id": "1"
+    }
+  ],
+  "exptl_crystal_grow": [
+    {
+      "crystal_id": "1",
+      "method": "VAPOR DIFFUSION, SITTING DROP",
+      "pdbx_details": "0.1 M Tris. 8.0. 25% v/v PEG 350 MME.",
+      "temp": 291.15
+    }
+  ],
+  "pdbx_audit_revision_category": [
+    {
+      "category": "pdbx_entry_details",
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "revision_ordinal": 2
+    },
+    {
+      "category": "pdbx_modification_feature",
+      "data_content_type": "Structure model",
+      "ordinal": 2,
+      "revision_ordinal": 2
+    }
+  ],
+  "pdbx_audit_revision_details": [
+    {
+      "data_content_type": "Structure model",
+      "ordinal": 1,
+      "provider": "repository",
+      "revision_ordinal": 1,
+      "type": "Initial release"
+    }
+  ],
+  "pdbx_audit_revision_group": [
+    {
+      "data_content_type": "Structure model",
+      "group": "Structure summary",
+      "ordinal": 1,
+      "revision_ordinal": 2
+    }
+  ],
+  "pdbx_audit_revision_history": [
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 0,
+      "ordinal": 1,
+      "revision_date": "2023-08-23T00:00:00.000+00:00"
+    },
+    {
+      "data_content_type": "Structure model",
+      "major_revision": 1,
+      "minor_revision": 1,
+      "ordinal": 2,
+      "revision_date": "2024-11-20T00:00:00.000+00:00"
+    }
+  ],
+  "pdbx_audit_support": [
+    {
+      "country": "China",
+      "funding_organization": "National Natural Science Foundation of China (NSFC)",
+      "grant_number": "2022YFC2302900",
+      "ordinal": 1
+    },
+    {
+      "country": "China",
+      "funding_organization": "National Natural Science Foundation of China (NSFC)",
+      "grant_number": "2021YFC2301400",
+      "ordinal": 2
+    },
+    {
+      "country": "China",
+      "funding_organization": "National Natural Science Foundation of China (NSFC)",
+      "grant_number": "92169208",
+      "ordinal": 3
+    },
+    {
+      "country": "China",
+      "funding_organization": "National Natural Science Foundation of China (NSFC)",
+      "grant_number": "32222031",
+      "ordinal": 4
+    }
+  ],
+  "pdbx_database_status": {
+    "SG_entry": "N",
+    "deposit_site": "PDBJ",
+    "pdb_format_compatible": "Y",
+    "process_site": "PDBJ",
+    "recvd_initial_deposition_date": "2023-01-25T00:00:00.000+00:00",
+    "status_code": "REL",
+    "status_code_sf": "REL"
+  },
+  "pdbx_initial_refinement_model": [
+    {
+      "accession_code": "7S8Q",
+      "id": 1,
+      "source_name": "PDB",
+      "type": "experimental model"
+    }
+  ],
+  "pdbx_vrpt_summary": {
+    "attempted_validation_steps": "molprobity,validation-pack,xtriage,eds,validation_schema,percentiles,writexml,writecif,writepdf",
+    "ligands_for_buster_report": "N",
+    "report_creation_date": "2026-03-10T08:57:00.000+00:00"
+  },
+  "pdbx_vrpt_summary_diffraction": [
+    {
+      "B_factor_type": "FULL",
+      "CCP4_version": "9.0.010 (Gargrove)",
+      "DCC_R": 0.1838,
+      "DCC_Rfree": 0.2348,
+      "EDS_R": 0.1935,
+      "EDS_res_high": 2.2,
+      "EDS_res_low": 39.3,
+      "Fo_Fc_correlation": 0.95,
+      "I_over_sigma": "2.15(2.20A)",
+      "Padilla_Yeates_L2_mean": 0.324,
+      "Padilla_Yeates_L_mean": 0.49,
+      "Wilson_B_aniso": "[34.408,30.729,31.751,0.000,-0.544,0.000]",
+      "Wilson_B_estimate": 31.98,
+      "acentric_outliers": 0,
+      "bulk_solvent_b": 32.845,
+      "bulk_solvent_k": 0.349,
+      "centric_outliers": 0,
+      "data_anisotropy": 0.114,
+      "data_completeness": 96.09,
+      "density_fitness_version": "1.0.12",
+      "exp_method": "x-ray",
+      "num_miller_indices": 23026,
+      "number_reflns_R_free": 1083,
+      "percent_RSRZ_outliers": 1.57,
+      "percent_free_reflections": 4.52,
+      "trans_NCS_details": "The largest off-origin peak in the Patterson function is 6.82% of the height of the origin peak. No significant pseudotranslation is detected."
+    }
+  ],
+  "pdbx_vrpt_summary_geometry": [
+    {
+      "angles_RMSZ": 0.55,
+      "bonds_RMSZ": 0.35,
+      "clashscore": 5.12,
+      "num_H_reduce": 2937,
+      "num_angles_RMSZ": 4334,
+      "num_bonds_RMSZ": 3200,
+      "percent_ramachandran_outliers": 0.0,
+      "percent_rotamer_outliers": 0.3
+    }
+  ],
+  "rcsb_accession_info": {
+    "deposit_date": "2023-01-25T00:00:00.000+00:00",
+    "has_released_experimental_data": "Y",
+    "initial_release_date": "2023-08-23T00:00:00.000+00:00",
+    "major_revision": 1,
+    "minor_revision": 1,
+    "revision_date": "2024-11-20T00:00:00.000+00:00",
+    "status_code": "REL"
+  },
+  "rcsb_entry_container_identifiers": {
+    "assembly_ids": [
+      "1"
+    ],
+    "entity_ids": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "entry_id": "8I5E",
+    "model_ids": [
+      1
+    ],
+    "polymer_entity_ids": [
+      "1",
+      "2",
+      "3"
+    ],
+    "rcsb_id": "8I5E"
+  },
+  "rcsb_entry_info": {
+    "assembly_count": 1,
+    "branched_entity_count": 0,
+    "cis_peptide_count": 2,
+    "deposited_atom_count": 3278,
+    "deposited_branched_entity_instance_count": 0,
+    "deposited_deuterated_water_count": 0,
+    "deposited_hydrogen_atom_count": 0,
+    "deposited_model_count": 1,
+    "deposited_modeled_polymer_monomer_count": 382,
+    "deposited_nonpolymer_entity_instance_count": 0,
+    "deposited_polymer_entity_instance_count": 3,
+    "deposited_polymer_monomer_count": 382,
+    "deposited_solvent_atom_count": 161,
+    "deposited_unmodeled_polymer_monomer_count": 0,
+    "diffrn_radiation_wavelength_maximum": 0.9785,
+    "diffrn_radiation_wavelength_minimum": 0.9785,
+    "disulfide_bond_count": 3,
+    "entity_count": 4,
+    "experimental_method": "X-ray",
+    "experimental_method_count": 1,
+    "inter_mol_covalent_bond_count": 0,
+    "inter_mol_metalic_bond_count": 0,
+    "molecular_weight": 44.25,
+    "na_polymer_entity_types": "Other",
+    "nonpolymer_entity_count": 0,
+    "polymer_composition": "heteromeric protein",
+    "polymer_entity_count": 3,
+    "polymer_entity_count_DNA": 0,
+    "polymer_entity_count_RNA": 0,
+    "polymer_entity_count_nucleic_acid": 0,
+    "polymer_entity_count_nucleic_acid_hybrid": 0,
+    "polymer_entity_count_protein": 3,
+    "polymer_entity_taxonomy_count": 3,
+    "polymer_molecular_weight_maximum": 31.75,
+    "polymer_molecular_weight_minimum": 0.74,
+    "polymer_monomer_count_maximum": 274,
+    "polymer_monomer_count_minimum": 9,
+    "resolution_combined": [
+      2.2
+    ],
+    "selected_polymer_entity_types": "Protein (only)",
+    "software_programs_combined": [
+      "COOT",
+      "HKL-2000",
+      "MOLREP",
+      "PHENIX"
+    ],
+    "solvent_entity_count": 1,
+    "structure_determination_methodology": "experimental",
+    "structure_determination_methodology_priority": 10,
+    "diffrn_resolution_high": {
+      "provenance_source": "Depositor assigned",
+      "value": 2.2
+    }
+  },
+  "rcsb_primary_citation": {
+    "country": "UK",
+    "id": "primary",
+    "journal_abbrev": "Nat Commun",
+    "journal_id_ISSN": "2041-1723",
+    "rcsb_ORCID_identifiers": [
+      "?",
+      "?",
+      "?",
+      "?",
+      "?",
+      "?"
+    ],
+    "rcsb_authors": [
+      "Lu, D.",
+      "Chen, Y.",
+      "Jiang, M.",
+      "Tan, S.G.",
+      "Chai, Y.",
+      "Gao, G.F."
+    ],
+    "rcsb_journal_abbrev": "Nat Commun",
+    "title": "Crystal structure of a TCR in complex with HLA-A*11:01 bound to KRAS peptide (VVGAVGVGK)",
+    "year": 2023
+  },
+  "refine": [
+    {
+      "B_iso_mean": 35.71,
+      "ls_R_factor_R_free": 0.2353,
+      "ls_R_factor_R_work": 0.1824,
+      "ls_R_factor_obs": 0.1849,
+      "ls_d_res_high": 2.2,
+      "ls_d_res_low": 39.3,
+      "ls_number_reflns_R_free": 1083,
+      "ls_number_reflns_R_work": 21943,
+      "ls_number_reflns_obs": 23026,
+      "ls_percent_reflns_R_free": 4.7,
+      "ls_percent_reflns_obs": 96.1,
+      "overall_SU_ML": 0.2471,
+      "pdbx_diffrn_id": [
+        "1"
+      ],
+      "pdbx_ls_cross_valid_method": "FREE R-VALUE",
+      "pdbx_ls_sigma_F": 1.36,
+      "pdbx_method_to_determine_struct": "MOLECULAR REPLACEMENT",
+      "pdbx_overall_phase_error": 24.5888,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "pdbx_solvent_shrinkage_radii": 0.9,
+      "pdbx_solvent_vdw_probe_radii": 1.11,
+      "pdbx_starting_model": "7S8Q",
+      "pdbx_stereochemistry_target_values": "GeoStd + Monomer Library",
+      "solvent_model_details": "FLAT BULK SOLVENT MODEL"
+    }
+  ],
+  "refine_hist": [
+    {
+      "cycle_id": "LAST",
+      "d_res_high": 2.2,
+      "d_res_low": 39.3,
+      "number_atoms_solvent": 161,
+      "number_atoms_total": 3278,
+      "pdbx_number_atoms_ligand": 0,
+      "pdbx_number_atoms_nucleic_acid": 0,
+      "pdbx_number_atoms_protein": 3117,
+      "pdbx_refine_id": "X-RAY DIFFRACTION"
+    }
+  ],
+  "refine_ls_restr": [
+    {
+      "dev_ideal": 0.0075,
+      "number": 3203,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "f_bond_d"
+    },
+    {
+      "dev_ideal": 0.9073,
+      "number": 4346,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "f_angle_d"
+    },
+    {
+      "dev_ideal": 0.0523,
+      "number": 439,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "f_chiral_restr"
+    },
+    {
+      "dev_ideal": 0.0067,
+      "number": 576,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "f_plane_restr"
+    },
+    {
+      "dev_ideal": 3.1826,
+      "number": 1893,
+      "pdbx_refine_id": "X-RAY DIFFRACTION",
+      "type": "f_dihedral_angle_d"
+    }
+  ],
+  "reflns": [
+    {
+      "B_iso_Wilson_estimate": 32.17,
+      "d_resolution_high": 2.2,
+      "d_resolution_low": 50.0,
+      "number_obs": 23921,
+      "pdbx_Rmerge_I_obs": 0.125,
+      "pdbx_diffrn_id": [
+        "1"
+      ],
+      "pdbx_netI_over_sigmaI": 14.8,
+      "pdbx_ordinal": 1,
+      "pdbx_redundancy": 6.7,
+      "percent_possible_obs": 99.9
+    }
+  ],
+  "reflns_shell": [
+    {
+      "Rmerge_I_obs": 1.103,
+      "d_res_high": 2.2,
+      "d_res_low": 2.28,
+      "number_unique_obs": 2361,
+      "pdbx_diffrn_id": [
+        "1"
+      ],
+      "pdbx_ordinal": 1
+    }
+  ],
+  "software": [
+    {
+      "classification": "data reduction",
+      "name": "HKL-2000",
+      "pdbx_ordinal": 1
+    },
+    {
+      "classification": "refinement",
+      "name": "PHENIX",
+      "pdbx_ordinal": 2,
+      "version": "1.13_2998"
+    },
+    {
+      "classification": "model building",
+      "name": "Coot",
+      "pdbx_ordinal": 3
+    },
+    {
+      "classification": "data scaling",
+      "name": "HKL-2000",
+      "pdbx_ordinal": 4
+    },
+    {
+      "classification": "phasing",
+      "name": "MOLREP",
+      "pdbx_ordinal": 5
+    }
+  ],
+  "struct": {
+    "pdbx_CASP_flag": "N",
+    "title": "Crystal structure of HLA-A*11:01 in complex with KRAS peptide (VVGAGGVGK)"
+  },
+  "struct_keywords": {
+    "pdbx_keywords": "IMMUNE SYSTEM",
+    "text": "KRAS, MHC, IMMUNE SYSTEM"
+  },
+  "symmetry": {
+    "Int_Tables_number": 4,
+    "space_group_name_H_M": "P 1 21 1",
+    "space_group_name_Hall": "P 2yb"
+  },
+  "rcsb_id": "8I5E"
+}

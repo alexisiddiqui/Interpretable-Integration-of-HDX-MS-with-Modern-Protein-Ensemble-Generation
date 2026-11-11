@@ -19,6 +19,22 @@ fig.subplots_adjust(left=.025,right=.975,bottom=.12,top=.95,hspace=.12,wspace=.0
 cax=fig.add_axes([.3,.065,.4,.018]);fig.colorbar(ScalarMappable(norm=Normalize(*p['score_limits']),cmap=red),cax=cax,orientation='horizontal',label='Noise-averaged hmask contact-head response')
 for ext in ['png','pdf','svg']:fig.savefig(r/f'fig.{ext}',dpi=300,facecolor='white')
 plt.close(fig)
+fig,ax=plt.subplots(1,3,figsize=(10,5.1))
+for a,n,t in zip(ax,['g12d','wt','empty'],['G12D · Asp6','WT · Gly6','Peptide-free MHC']):
+ a.imshow(plt.imread(r/f'{n}-groove.png'));a.axis('off');a.set_title(t,loc='left',fontsize=11)
+fig.subplots_adjust(left=.015,right=.985,top=.84,bottom=.43,wspace=.02)
+fig.text(.5,.95,'Peptide sticks and HLA surface share one scale · P6 labelled · N → C left to right',ha='center',fontsize=9)
+for col,n in enumerate(['g12d','wt']):
+ with (r/f'{n}.csv').open() as f:rows=[v for v in csv.DictReader(f) if v['chain']=='C']
+ rows.sort(key=lambda v:int(v['number']));values=np.array([float(v['score']) for v in rows])
+ strip=fig.add_axes([.04+col*.33,.30,.28,.045])
+ strip.imshow(values[None,:],aspect='auto',cmap=red,vmin=p['score_limits'][0],vmax=p['score_limits'][1])
+ strip.set_xticks(range(10),[f'{i+1}\n{aa}' for i,aa in enumerate('VVVGADGVGK' if n=='g12d' else 'VVVGAGGVGK')],fontsize=7)
+ strip.set_yticks([]);strip.set_title('Peptide residue response',fontsize=8,loc='left',pad=4)
+ for i,v in enumerate(values):strip.text(i,0,f'{v:.2f}',ha='center',va='center',fontsize=6,color='white' if v>.22 else 'black')
+cax=fig.add_axes([.3,.14,.4,.022]);fig.colorbar(ScalarMappable(norm=Normalize(*p['score_limits']),cmap=red),cax=cax,orientation='horizontal',label='Noise-averaged hmask contact-head response')
+for ext in ['png','pdf','svg']:fig.savefig(r/f'groove.{ext}',dpi=300,facecolor='white')
+plt.close(fig)
 fig,ax=plt.subplots(1,2,figsize=(8,3.8))
 for a,n,title in zip(ax,['wt','empty'],['G12D − WT','G12D − peptide-free']):
  a.imshow(plt.imread(r/f'delta-{n}.png'));a.axis('off');a.set_title(title,loc='left',fontsize=11)

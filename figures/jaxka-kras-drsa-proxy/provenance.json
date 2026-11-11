@@ -1,0 +1,297 @@
+{
+  "definition": "(1 - sigmoid(hmask burial_logit)) * mean_noise(sigmoid(hmask contact_logit))",
+  "interpretation": "Noise-based proxy for potential additional burial; not a measured RSA difference or calibrated delta-RSA prediction.",
+  "unit": "Entire pMHC graph retained, no external binding partner",
+  "source_provenance": {
+    "model": "/scratch/bulk/hussain/tnf-gqt-retro/jax-ka-305b074/models/ogqt-allres15-within-hmask-50",
+    "params_sha256": "fd46dd6159ddcec450213c5d2d83be8bb73dc4ff611d1e65c13d19c3ef6a17ce",
+    "state": "bound: intact assembly, no external partner",
+    "seeds": [
+      17,
+      29,
+      43,
+      71
+    ],
+    "vectors_per_seed": 8192,
+    "noise": "iid Gaussian N(0,1) before learned edge layer norm",
+    "sensitivity": "variance-one iid uniform before same norm",
+    "jax": "0.7.1",
+    "devices": "[CpuDevice(id=0)]",
+    "audit": {
+      "g12d": {
+        "n": 385,
+        "range": [
+          0.07598572969436646,
+          0.30362191796302795
+        ],
+        "max_seed_sd": 0.002469956874847412,
+        "max_half_full_difference": 0.0008380860090255737,
+        "uniform_pearson": 0.9993889783367378,
+        "uniform_max_abs": 0.007490888237953186
+      },
+      "wt": {
+        "n": 385,
+        "range": [
+          0.07589554786682129,
+          0.30196574330329895
+        ],
+        "max_seed_sd": 0.0024699047207832336,
+        "max_half_full_difference": 0.000838056206703186,
+        "uniform_pearson": 0.9994000301953834,
+        "uniform_max_abs": 0.007500782608985901
+      },
+      "empty": {
+        "n": 375,
+        "range": [
+          0.07580456137657166,
+          0.30223795771598816
+        ],
+        "max_seed_sd": 0.002470491686835885,
+        "max_half_full_difference": 0.0008381158113479614,
+        "uniform_pearson": 0.9995174086422195,
+        "uniform_max_abs": 0.006345219910144806
+      }
+    },
+    "structures": {
+      "g12d": "c590360e85f95456b584cdf7fe764fbf41e3ac428d52df059f9414fbf84bb238",
+      "wt": "89e78ca5e4ab86b9a1009d252d7e6662bda155044b56164ae0c6a1d7be8db367",
+      "empty": "b26a08af5d54e44b73934ee710cd0ada46b7d0f6d02d5181a858d9a7d23eaed8"
+    }
+  },
+  "source_csv_sha256": {
+    "g12d": "2aa4dee9d17d3de2b8523b6f0139984b2239f22bdbb9ae2b210c3aef4dc43f8b",
+    "wt": "357d47b05d66e5c41375f8c32b1ef74fbd998a937982968a20dd456019d88b11",
+    "empty": "fd03c5983640259bec8579a61b4fa179a0d4405f0a50b735172974f9af5a983e"
+  },
+  "audit": {
+    "g12d": {
+      "residues": 385,
+      "range": [
+        0.0002811470816278458,
+        0.23748238654496667
+      ],
+      "max_seed_sd": 0.0009740794046831131,
+      "peptide": [
+        {
+          "chain": "C",
+          "number": "1",
+          "insertion": "",
+          "score": 0.042362407135230304,
+          "exposure": 0.2136668562889099,
+          "noise_contact": 0.19826382,
+          "seed_sd": 0.00046458375130265954,
+          "uniform_score": 0.04224527923794985
+        },
+        {
+          "chain": "C",
+          "number": "2",
+          "insertion": "",
+          "score": 0.003405188552045822,
+          "exposure": 0.02586960792541504,
+          "noise_contact": 0.13162892,
+          "seed_sd": 4.9527082394480706e-05,
+          "uniform_score": 0.0035543881527066233
+        },
+        {
+          "chain": "C",
+          "number": "3",
+          "insertion": "",
+          "score": 0.00761372483428955,
+          "exposure": 0.0650177001953125,
+          "noise_contact": 0.11710234,
+          "seed_sd": 0.0001143646717453003,
+          "uniform_score": 0.008031301338882446
+        },
+        {
+          "chain": "C",
+          "number": "4",
+          "insertion": "",
+          "score": 0.041032273748636244,
+          "exposure": 0.41527867317199707,
+          "noise_contact": 0.0988066,
+          "seed_sd": 0.00034763430384981633,
+          "uniform_score": 0.042809851268821954
+        },
+        {
+          "chain": "C",
+          "number": "5",
+          "insertion": "",
+          "score": 0.02219524999615252,
+          "exposure": 0.19055038690567017,
+          "noise_contact": 0.11647969,
+          "seed_sd": 0.00031580708311486247,
+          "uniform_score": 0.02335382874210477
+        },
+        {
+          "chain": "C",
+          "number": "6",
+          "insertion": "",
+          "score": 0.02111809518977165,
+          "exposure": 0.19827890396118164,
+          "noise_contact": 0.10650702,
+          "seed_sd": 0.00019752726829204558,
+          "uniform_score": 0.021809874423379897
+        },
+        {
+          "chain": "C",
+          "number": "7",
+          "insertion": "",
+          "score": 0.05978297108720064,
+          "exposure": 0.5610231161117554,
+          "noise_contact": 0.10656062,
+          "seed_sd": 0.0004352229055437231,
+          "uniform_score": 0.06193763646693944
+        },
+        {
+          "chain": "C",
+          "number": "8",
+          "insertion": "",
+          "score": 0.03951909152274847,
+          "exposure": 0.27925217151641846,
+          "noise_contact": 0.14151758,
+          "seed_sd": 0.0004393528589389086,
+          "uniform_score": 0.04022977992169261
+        },
+        {
+          "chain": "C",
+          "number": "9",
+          "insertion": "",
+          "score": 0.014147618864181042,
+          "exposure": 0.14627671241760254,
+          "noise_contact": 0.09671819,
+          "seed_sd": 0.0001631915955900669,
+          "uniform_score": 0.015208844125526904
+        },
+        {
+          "chain": "C",
+          "number": "10",
+          "insertion": "",
+          "score": 0.022200621981887818,
+          "exposure": 0.10955047607421875,
+          "noise_contact": 0.20265199,
+          "seed_sd": 0.00018733157700805665,
+          "uniform_score": 0.02200775508224487
+        }
+      ]
+    },
+    "wt": {
+      "residues": 385,
+      "range": [
+        0.00027921721158742906,
+        0.23737714574664592
+      ],
+      "max_seed_sd": 0.0009776585955722093,
+      "peptide": [
+        {
+          "chain": "C",
+          "number": "1",
+          "insertion": "",
+          "score": 0.04013325718966663,
+          "exposure": 0.2043859362602234,
+          "noise_contact": 0.19636017,
+          "seed_sd": 0.00043915378062974814,
+          "uniform_score": 0.040017942644428615
+        },
+        {
+          "chain": "C",
+          "number": "2",
+          "insertion": "",
+          "score": 0.0034960372109478707,
+          "exposure": 0.027566373348236084,
+          "noise_contact": 0.12682253,
+          "seed_sd": 5.0734429833179716e-05,
+          "uniform_score": 0.0036638067104727027
+        },
+        {
+          "chain": "C",
+          "number": "3",
+          "insertion": "",
+          "score": 0.010133403647535325,
+          "exposure": 0.09270715713500977,
+          "noise_contact": 0.109305516,
+          "seed_sd": 0.000151994274111557,
+          "uniform_score": 0.010756140798800468
+        },
+        {
+          "chain": "C",
+          "number": "4",
+          "insertion": "",
+          "score": 0.03771722094588101,
+          "exposure": 0.4075022339820862,
+          "noise_contact": 0.09255709,
+          "seed_sd": 0.0003367314554821545,
+          "uniform_score": 0.03972722979001999
+        },
+        {
+          "chain": "C",
+          "number": "5",
+          "insertion": "",
+          "score": 0.02370124258712649,
+          "exposure": 0.21675902605056763,
+          "noise_contact": 0.10934374,
+          "seed_sd": 0.0003213660216346622,
+          "uniform_score": 0.025205422340092064
+        },
+        {
+          "chain": "C",
+          "number": "6",
+          "insertion": "",
+          "score": 0.017942473277279734,
+          "exposure": 0.2129153609275818,
+          "noise_contact": 0.08427045,
+          "seed_sd": 0.00024791072581264973,
+          "uniform_score": 0.018919107521240115
+        },
+        {
+          "chain": "C",
+          "number": "7",
+          "insertion": "",
+          "score": 0.055383376192398075,
+          "exposure": 0.5859928131103516,
+          "noise_contact": 0.09451204,
+          "seed_sd": 0.00039214050716560365,
+          "uniform_score": 0.057775935624931336
+        },
+        {
+          "chain": "C",
+          "number": "8",
+          "insertion": "",
+          "score": 0.038282164573806524,
+          "exposure": 0.29347169399261475,
+          "noise_contact": 0.13044585,
+          "seed_sd": 0.0004039217616342545,
+          "uniform_score": 0.03940546269916654
+        },
+        {
+          "chain": "C",
+          "number": "9",
+          "insertion": "",
+          "score": 0.013987494996525048,
+          "exposure": 0.1622675657272339,
+          "noise_contact": 0.08620019,
+          "seed_sd": 0.00015204068485078813,
+          "uniform_score": 0.0152046291195184
+        },
+        {
+          "chain": "C",
+          "number": "10",
+          "insertion": "",
+          "score": 0.02232629044754207,
+          "exposure": 0.11323827505111694,
+          "noise_contact": 0.19716205,
+          "seed_sd": 0.0001908338405045569,
+          "uniform_score": 0.022176008535573482
+        }
+      ]
+    },
+    "empty": {
+      "residues": 375,
+      "range": [
+        0.0005029513334357739,
+        0.2352422737495148
+      ],
+      "max_seed_sd": 0.0009549085526171923,
+      "peptide": []
+    }
+  }
+}

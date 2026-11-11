@@ -1,0 +1,33 @@
+{
+  "query": {
+    "type": "group",
+    "logical_operator": "and",
+    "nodes": [
+      {
+        "type": "terminal",
+        "service": "text",
+        "parameters": {
+          "attribute": "struct.title",
+          "operator": "contains_words",
+          "value": "KRAS"
+        }
+      },
+      {
+        "type": "terminal",
+        "service": "text",
+        "parameters": {
+          "attribute": "struct.title",
+          "operator": "contains_words",
+          "value": "HLA"
+        }
+      }
+    ]
+  },
+  "return_type": "entry",
+  "request_options": {
+    "paginate": {
+      "start": 0,
+      "rows": 1000
+    }
+  }
+}

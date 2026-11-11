@@ -1,0 +1,23 @@
+{
+  "query_id": "5d1ccd40-950e-4f98-87c5-c72ce8d2134b",
+  "result_type": "entry",
+  "total_count": 4,
+  "result_set": [
+    {
+      "identifier": "8VJZ",
+      "score": 0.8213298005344988
+    },
+    {
+      "identifier": "8DVG",
+      "score": 0.7850011053291197
+    },
+    {
+      "identifier": "7OW3",
+      "score": 0.7632488524996391
+    },
+    {
+      "identifier": "7OW5",
+      "score": 0.7632488524996391
+    }
+  ]
+}
