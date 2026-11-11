@@ -53,6 +53,7 @@ Two checks measured the error and its correction. On 5PTI the reversed H lay $2.
 
 \subsection{SAXS Forward Model}
 \label{app:biofeat-saxs}
+\label{sec:biofeat-saxs-fft}
 
 The profile is the Debye double sum over atom pairs at distance $r_{ik}$,
 \begin{equation}
@@ -109,6 +110,28 @@ The two systems differ in force field, solvent, protonation and restraint (\cref
 A PLUMED Python interface action evaluates the HDX observables from the current protein coordinates and passes them, in a fixed target order, to the metainference action. The force that metainference applies to each observable is returned to the JAX endpoint and contracted with the coordinate derivatives as a vector--Jacobian product, so the atomic force is computed without forming the observable-by-coordinate Jacobian. The endpoint takes coordinates in nm and returns derivatives with respect to them. In MI+PB the metainference action receives the total sampling bias, the parallel-bias energy plus any wall energies, as its reweighting argument; MI alone has none.
 
 \paragraph{Metainference and parallel-bias settings.}
+The collective variables are defined in \cref{tab:biofeat-cvs}.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}X@{}}
+    \toprule
+        \textbf{System} & \textbf{CV} & \textbf{Definition} \\
+    \midrule
+        BPTI & Three disulfide $\chi_3$ angles & C$\beta$--S--S--C$\beta$ torsion for Cys5--Cys55, Cys14--Cys38 and Cys30--Cys51 (rad). \\
+        MoPrP & $\beta1$--$\beta2$ contacts & Sum of smooth contact counts over selected atom pairs between the two strands (PLUMED \texttt{COORDINATION}, rational switch with $r_0=0.45$ nm, exponents 6 and 12). \\
+        MoPrP & $\alpha1$--$\beta2$ unit displacement & Optimal-fit RMSD to the reference for the unit (PLUMED \texttt{RMSD}, nm). \\
+        MoPrP & $\beta1$ displacement & Optimal-fit RMSD to the reference for $\beta1$ (PLUMED \texttt{RMSD}, nm). \\
+        MoPrP & $\alpha3$ C helicity & Similarity of 18 backbone torsions to their reference values (PLUMED \texttt{ALPHABETA}, dimensionless). \\
+        MoPrP & $\alpha1$ helicity & Similarity of 14 backbone torsions to their reference values (PLUMED \texttt{ALPHABETA}, dimensionless). \\
+        TeaA & Hinge angle $\theta$ & Component of the lobe-II rotation vector along the hinge axis after fitting lobe I to the base (degrees, \cref{eq:biofeat-theta}). \\
+    \bottomrule
+    \end{tabularx}
+    \caption{Collective variables used for biased sampling. MoPrP sampling CVs are evaluated against the simulation reference; the segment rules used to assign simulated PUF candidates are defined separately in \cref{tab:biofeat-moprp-rules}.}
+    \label{tab:biofeat-cvs}
+\end{table}
+
 Both systems used four replicas with the Gaussian noise model per observation (\texttt{MGAUSS}), an evaluation stride of 10 steps, averaging over 100 steps and the standard error of the mean as the initial uncertainty of the replica average (\cref{tab:biofeat-mipb}). For BPTI the uncertainty bounds were scaled per residue. Base values of 2, 10 and 20 for $\sigma_\mathrm{min}$, $\sigma_0$ and $\sigma_\mathrm{max}$ were multiplied by each residue's standard deviation in $\ln P_f$, divided by the median standard deviation over residues. The $\pm2$ production used the profile built for $\pm2$ exclusions, so the per-residue bounds differ between the two stages. Parallel-bias metadynamics shared one history across the four walkers.
 
 \begin{table}[htbp]
@@ -136,7 +159,7 @@ Both systems used four replicas with the Gaussian noise model per observation (\
 \label{app:biofeat-metadiffusion}
 
 \paragraph{Hinge coordinate.}
-The lobes come from the Boltz-2 pair representation of the last recycle. Its norm was thresholded at the 95th percentile to give a residue graph, and the sign of the Fiedler vector of the graph Laplacian divided the 309 residues of TeaA into lobe I (169 residues, fitted) and lobe II (140, measured). The pair representations of two seeds gave the same vector.
+The lobes come from the Boltz-2 pair representation of the last recycle. Its norm was thresholded at the 95th percentile to give a residue graph. The Fiedler vector is the eigenvector of the second-smallest eigenvalue of the graph Laplacian; its sign divided the 309 residues of TeaA into lobe I (169 residues, fitted) and lobe II (140, measured). The pair representations of two seeds gave the same vector.
 
 The reference pool was three unguided runs of 50 structures drawn from noise, and its medoid (lowest mean all-C$\alpha$ RMSD) became the base. For each pool structure, lobe I was fitted onto the base, and the rotation carrying the base's lobe II onto the structure's lobe II gave a rotation vector $\mathbf{w}(x)$. The hinge axis $\hat{\mathbf{a}}$ is the first right singular vector of the matrix whose rows are these rotation vectors, and the hinge angle of any structure is
 \begin{equation}
@@ -147,7 +170,7 @@ The reference pool was three unguided runs of 50 structures drawn from noise, an
 The axis carried 51.5\,\% of the rotation variance, and its bootstrap $|\cos|$ had a median of 0.988 (5th percentile 0.902). The pool size of 150 was set on an earlier lobe division, where 50 structures gave a poorly determined axis (5th-percentile bootstrap cosine 0.49 against 0.83 for 150).
 
 \paragraph{Bias.}
-The bias is a sum of Gaussians of width $\sigma_\theta$ deposited at the angles $\theta_j$ the structures had when each was added, and each height falls with the bias already present,
+The bias is a sum of Gaussians of width $\sigma_\theta$ deposited at the angles $\theta_j$ the structures had when each was added, and each height follows the well-tempered rule,\supercite{barducciWelltemperedMetadynamicsSmoothly2008}
 \begin{equation}
     V(\theta)=\sum_j h_j\exp\!\left[-\frac{(\theta-\theta_j)^2}{2\sigma_\theta^2}\right],
     \qquad
@@ -170,16 +193,13 @@ with $\mathrm{d}V/\mathrm{d}\theta$ in degrees and $\partial\theta/\partial\math
     \midrule
         Sampler & Boltz-2, 200 denoising steps, bf16, $K=50$ structures per run, one GPU % cite: Boltz-2
         \\
-        Conditioning & No MSA; Boltz-2's own MSA-conditioned prediction as the only template \\
-        HDX target & Uptake at 10, 60, 600, 3600 and 7200 s from 15 open and 332 closed MD frames at 40:60; intrinsic rates at pH 7.0 and 300 K \\
         Bias window & Steps 140--149 ($\sigma$ from about 3.4 to $1.5\,\text{\AA}$); HDX guidance off \\
         Bias parameters & $\alpha=0.3$, $h_0=1\,\mathrm{deg}^2$, $\sigma_\theta=3^\circ$, $k_\mathrm{B}T_\theta=100\,\mathrm{deg}^2$, cap $1.0\,\text{\AA}$ per atom \\
         Rounds & Four from noise (seed 52), then eight continuations from step 140 (seeds 501--508), deposits carried throughout \\
         Union & Rounds 2--4 and the eight continuations, 550 structures \\
         Refinement seeds & At most 25 structures per $6^\circ$ bin of $\theta$, 236 structures in five sets \\
         Refinement & From step 150; HDX guidance weight 0.25, normalised to the Boltz update, over the final quarter of the schedule; torsion projection; $\lambda=1000$; diffusion seeds 601--605 \\
-        MaxEnt refits & Every 5 steps, three replicates on random 80\,\% residue splits \\
-        Control & Same seed sets denoised without guidance, diffusion seeds 611--615 \\
+        MaxEnt refits & Every 5 steps, averaging three replicates on random 80\,\% residue splits \\
         Filter & pLDDT below 0.7 removed (none of 236) \\
         Final reweighting & MaxEnt with a uniform prior, $\lambda=100$ and 1000 \\
     \bottomrule
@@ -188,7 +208,9 @@ with $\mathrm{d}V/\mathrm{d}\theta$ in degrees and $\partial\theta/\partial\math
     \label{tab:biofeat-metadiffusion}
 \end{table}
 
-\paragraph{Settings fixed by diagnostics.}
+\subsection{Development Diagnostics}
+\label{app:biofeat-metadiffusion-diagnostics}
+
 The cap and the window decide whether the bias moves the hinge at all. With a cap of $0.1\,\text{\AA}$ the bias moved $\theta$ by $0.4^\circ$ per step, less than the $1.2^\circ$ per step by which the denoiser pulled it back, so $\theta$ did not change. Raising the cap to $1.0\,\text{\AA}$ overcame this pull. Outside steps 140--149 the bias had no lasting effect, because at higher noise the subsequent denoising undid the displacement and below about $1.5\,\text{\AA}$ the hinge no longer moved.
 
 The guidance weight decides how far refinement may distort structures to fit the data. A weight of 0.25 fitted the target as well as 1.0 and 0.5. At 1.0, eight structures with pLDDT 0.48--0.57 together carried 5\,\% of the MaxEnt weight. The cap, window and guidance weight were chosen on a development run before the amide-H correction and were not retuned.
@@ -257,8 +279,32 @@ Preparation comprised minimisation, 20 ps of restrained NVT at a 1 fs timestep, 
 \paragraph{Seeded unbiased runs.}
 A Cartesian C$\alpha$ PCA fitted to the 20 aligned NMR models of 2L39 over PrP 123--223 defined the plane on which three basins were selected from each pH's MI+PB ensemble, giving six source groups. Twenty-four frames per group were selected with temporal spacing, and the twelve even-numbered frames of each group were rebuilt and run at both target pH values (144 runs). Each seed was minimised and equilibrated with restraints referenced to its own structure (20 ps NVT and three 200 ps restrained NPT stages, 0.62 ns in total) before unrestrained production without metainference or PLUMED, saved every 10 ps. Production ran for 20 ns, and 120 runs that did not start in Folded were extended to 100 ns, giving 12.48\,$\mu$s. Four 500 ns unbiased replicas at each pH added Folded-state coverage. Each extended trajectory replaced its short version, and quality control checked whole molecules, disulfide integrity, constraint warnings, thermodynamic traces and structural drift.
 
-\paragraph{Segment rules.}
+\subsection{Structural Assignment}
+\label{app:biofeat-moprp-assignment}
+
 Each frame was superposed on the disulfide-proximal core (residues 175--187 and 201--216), and each segment's core-fit RMSD was compared with a threshold at the 99th percentile of Folded frames, pooled over pH (\cref{tab:biofeat-moprp-segments}). Folded frames are those within 10 PC units of the Folded centre on the PCA plane. A segment is displaced when its core-fit RMSD exceeds its threshold. $\alpha3$ C counts as off when either its core-fit or its self-fit RMSD exceeds its threshold, so it covers disorder as well as displacement. The core is distorted when its own RMSD exceeds its threshold, and intact otherwise.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{@{}lcc@{}}
+    \toprule
+        \textbf{Segment} & \textbf{Residues} & \textbf{Core-fit threshold (nm)} \\
+    \midrule
+        $\beta1$ & 127--132 & 0.82 \\
+        $\beta1$--$\alpha1$ loop & 133--143 & 0.96 \\
+        $\alpha1$ & 144--153 & 0.66 \\
+        $\alpha1$ N & 144--148 & 0.83 \\
+        $\alpha1$ C & 149--153 & 0.45 \\
+        $\beta2$ & 154--167 & 0.25 \\
+        $\alpha1$--$\beta2$ unit & 144--167 & 0.45 \\
+        $\alpha3$ C & 217--223 & 0.62 (self-fit 0.35) \\
+        Core & 175--187, 201--216 & 0.13 (own RMSD) \\
+    \bottomrule
+    \end{tabular}
+    \caption{MoPrP segments and displacement thresholds, each the 99th percentile of Folded frames pooled over pH.}
+    \label{tab:biofeat-moprp-segments}
+\end{table}
 
 The rules in \cref{tab:biofeat-moprp-rules} combine these tests. The text rules take each experimental description literally, and the candidates follow \cref{sec:biofeat-moprp-analysis}. Rules can overlap, and each is evaluated on its own. \Cref{fig:biofeat-moprp-puf-rules} maps where each rule is met.
 
@@ -282,10 +328,45 @@ The rules in \cref{tab:biofeat-moprp-rules} combine these tests. The text rules 
     \label{tab:biofeat-moprp-rules}
 \end{table}
 
+For exclusive frame assignments, the first matching condition in \cref{tab:biofeat-moprp-clusters} takes precedence. Folded-like is the residual class and differs from the Folded PCA region used to calibrate thresholds. Landscape regions describe the geometry and structural character of the projection (\cref{tab:biofeat-moprp-regions}); historical seed identifiers remain defined by the circles in \cref{tab:biofeat-moprp-basins}.
 
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{@{}c>{\raggedright\arraybackslash}p{0.29\textwidth}>{\raggedright\arraybackslash}X@{}}
+    \toprule
+        \textbf{Priority} & \textbf{Cluster} & \textbf{Assignment condition} \\
+    \midrule
+        1 & PUF2 candidate & $\beta1$, $\alpha1$ and $\beta2$ displaced; core intact. \\
+        2 & PUF1 candidate & $\beta1$, loop and $\alpha1$ N displaced; core intact. \\
+        3 & $\beta1$ alone & $\beta1$ displaced; loop and $\alpha1$ N not displaced; core intact. \\
+        4 & $\beta1$ + partial & Any remaining frame with $\beta1$ displaced, including partial loop or $\alpha1$ N displacement, or core distortion. \\
+        5 & $\beta1$ kept, core distorted & $\beta1$ not displaced; core RMSD above its threshold. \\
+        6 & $\beta1$ kept, $\alpha3$ C off & $\beta1$ not displaced; $\alpha3$ C core-fit or self-fit RMSD above its threshold. \\
+        7 & $\beta1$ kept, unit off & $\beta1$ not displaced; $\alpha1$--$\beta2$ unit displaced; core intact. \\
+        8 & Folded-like & All remaining frames. \\
+    \bottomrule
+    \end{tabularx}
+    \caption{Mutually exclusive MoPrP structural clusters. Each frame takes the first condition it meets, from top to bottom. Displacement means core-fit RMSD above the segment threshold in \cref{tab:biofeat-moprp-segments}; a segment is kept when it does not exceed that threshold. These frame-level assignments are distinct from the geometric regions of the PCA plane and from the 100 microstates used for the MSM.}
+    \label{tab:biofeat-moprp-clusters}
+\end{table}
 
-\paragraph{Markov state models and drift.}
-The MSM features were 10 Cartesian PCs fitted to unbiased MD. $k$-means gave 100 microstates, and a reversible maximum-likelihood model was fitted on the connected count set at lags of 2 and 5 ns, with 5 ns reported. Implied timescales and Chapman--Kolmogorov tests were computed at both lags. Not every macrostate passed the Chapman--Kolmogorov test. We therefore used the MSM to estimate stationary populations and did not interpret its transition rates. Drift was the mean displacement over $\tau=1$ ns divided by $\tau$, averaged in bins with at least 200 frame pairs from at least three runs.
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.25\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+    \toprule
+        \textbf{Observed region} & \textbf{Structural identification} & \textbf{Relation to PUF signatures} \\
+    \midrule
+        Folded basin & Native region of the NMR PCA plane; circles of radius 10 PC units around the pH-specific Folded centres. & Reference for segment displacement thresholds. \\
+        $\beta1$-detached arm & Extended region with $\beta1$ displaced and most $\alpha1$--$\beta2$ packing against the core retained. Segment rules distinguish $\beta1$ alone from further opening along the arm. & $\beta1$ opening is one component of the PUF signatures. Joint opening of the PUF1 and PUF2 units identifies the PUF3 signature within the broader landscape. \\
+        Core-distorted lobe & Region with $\beta1$ retained and increased RMSD of the disulfide-proximal core, including disorder around the $\alpha2$--$\alpha3$ loop. & Core distortion is distinguished from displacement of the PUF2 unit relative to an intact core. \\
+        Detached $\beta1$--$\alpha1$ slice & Region along the lower edge of the arm where $\beta1$ is displaced together with the loop or $\alpha1$ N. The joint displacement rules identify the PUF candidates within it. & Contains the PUF1 and PUF2 candidate signatures; the amount and co-occurrence of unit opening determine the PUF interpretation. \\
+    \bottomrule
+    \end{tabularx}
+    \caption{Structural regions observed in the MoPrP simulations on the common NMR PCA projection. Region names describe the shape and structural character of the sampled landscape. Frame-level assignments use the segment thresholds and priority rules in \cref{tab:biofeat-moprp-segments,tab:biofeat-moprp-clusters}; the seed circles are listed separately in \cref{tab:biofeat-moprp-basins}.}
+    \label{tab:biofeat-moprp-regions}
+\end{table}
 
 \begin{figure}[htbp]
     \centering
@@ -294,7 +375,27 @@ The MSM features were 10 Cartesian PCs fitted to unbiased MD. $k$-means gave 100
     \label{fig:biofeat-moprp-puf-rules}
 \end{figure}
 
+\subsection{MSM Estimation and Diagnostics}
+\label{app:biofeat-moprp-msm}
+
+The MSM features were 10 Cartesian PCs fitted to unbiased MD. $k$-means gave 100 microstates, and a reversible maximum-likelihood model was fitted on the connected count set at lags of 2 and 5 ns, with 5 ns reported. Implied timescales and Chapman--Kolmogorov tests were computed at both lags. Not every macrostate passed the Chapman--Kolmogorov test; transition rates were therefore not interpreted.
+
+\subsection{Projected Drift}
+\label{app:biofeat-moprp-drift}
+
+Drift was the mean displacement over $\tau=1$ ns divided by $\tau$, averaged in bins with at least 200 frame pairs from at least three runs.
+
 \section{TeaA Protocol}
 \label{app:biofeat-teaa}
 
-The Fiedler lobes agreed with a hand division (lobe I residues 1--122, 207--249 and 284--309; lobe II 123--206 and 250--283) on 92.9\,\% of residues, and the 22 differences were hand-lobe-I residues assigned to lobe II. On the Fiedler axis the MD open reference lies at $\theta=-18.4^\circ$ and the closed reference at $+9.7^\circ$, and the 150 unguided structures lay between $-2.2^\circ$ and $+1.8^\circ$ (standard deviation $0.63^\circ$). The target and every run used the corrected amide-H placement (\cref{app:biofeat-bv}).
+\subsection{Target, Control and Evaluation}
+\label{app:biofeat-teaa-evaluation}
+
+Generation used no MSA and took Boltz-2's own MSA-conditioned prediction as its only template. The synthetic target combined 15 open and 332 closed MD frames with total state weights of 40\,\% and 60\,\%, respectively. Uptake was calculated at 10, 60, 600, 3600 and 7200 s with intrinsic rates at pH 7.0 and 300 K. The target and generation used the same forward model and corrected amide-H placement (\cref{app:biofeat-bv}).
+
+The unguided control denoised the same refinement seed sets with diffusion seeds 611--615, then used the same filtering and final reweighting as the guided pool (\cref{tab:biofeat-metadiffusion}). Evaluation assigned open, intermediate and closed states by the angle thresholds in \cref{sec:biofeat-cases}. To assess how uptake agreement constrains the open fraction, mixtures of structures close to the MD open and closed references were scored at fractions from 0 to 1 with the same forward model.
+
+\subsection{Lobe and Reference Checks}
+\label{app:biofeat-teaa-checks}
+
+The Fiedler lobes agreed with a hand division (lobe I residues 1--122, 207--249 and 284--309; lobe II 123--206 and 250--283) on 92.9\,\% of residues, and the 22 differences were hand-lobe-I residues assigned to lobe II. On the Fiedler axis the MD open reference lies at $\theta=-18.4^\circ$ and the closed reference at $+9.7^\circ$, and the 150 unguided structures lay between $-2.2^\circ$ and $+1.8^\circ$ (standard deviation $0.63^\circ$).
