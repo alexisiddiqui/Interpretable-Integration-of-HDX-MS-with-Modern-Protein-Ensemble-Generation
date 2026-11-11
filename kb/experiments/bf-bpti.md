@@ -62,7 +62,7 @@ The production label is `matched-seq0-starts-250ns`, with 10 ps trajectory spaci
 
 The five-ensemble figure compares the ±0 MI+PB source, ±2 MI+PB, ±2 MI, matched unbiased runs and Anton. The plotted quantity is −ln(p/p_max) from uniform frame counts, with independent colour scales. It shows sampled conformational coverage. MI replica weights alone do not remove the time-dependent PB bias, so these panels are sampling densities, not equilibrium free-energy estimates.
 
-The second basin is defined by Anton PC1 < −0.55. Starts 1 and 2 begin in that basin. The analysis reports pooled occupancy, per-replica traces, 10 ns windows and sensitivity to boundaries at −0.65 and −0.45 (`scripts/analyse-matched-pca.py`, lines 65–124).
+The second basin is defined by Anton PC1 < −0.55. Starts 1 and 2 begin in that basin. The analysis reports pooled occupancy, per-replica traces, 10 ns windows and sensitivity to boundaries at −0.65 and −0.45 (`scripts/analyse-matched-pca.py`, lines 65–124). Over the final 50 ns these give 34.3–38.9 % (±2 MI+PB), 33.0–46.2 % (±2 MI) and 16.7–26.4 % (unbiased) across the three boundaries (`figures/biofeat-bpti-matched-starts/summary.json`).
 
 | Ensemble | Second-basin frames, full run (%) | Final 50 ns (%) |
 |---|---|---|

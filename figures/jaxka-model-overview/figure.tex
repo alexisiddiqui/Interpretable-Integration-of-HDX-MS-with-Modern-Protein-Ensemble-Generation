@@ -1,36 +1,91 @@
+% Retained all-residue variant: relations-4-1-allres-cut15.
+% Data flow: pkatrain/production_position.py, all_residue_tokens and functions.
+% Readouts: pkanet/allres.py, outputs and pair_logits.
 \begin{figure}[tbp]
     \centering
     \begin{tikzpicture}[
-        box/.style={draw=black!55,rounded corners=2pt,align=center,
-            minimum height=1.05cm,text width=3.7cm,inner sep=6pt,font=\small},
+        box/.style={draw=black!50,rounded corners=2pt,align=center,
+            inner sep=5pt,font=\footnotesize},
         flow/.style={-{Stealth[length=2mm]},thick,draw=black!65},
-        note/.style={align=center,font=\small,text width=4.2cm}]
-        \node[box,text width=12.9cm] (input) at (0,0)
+        read/.style={-{Stealth[length=1.5mm]},draw=blue!55!black,thin},
+        residue/.style={circle,draw=blue!65!black,fill=blue!12,
+            minimum size=6.5mm,inner sep=0pt,font=\small},
+        query/.style={rectangle,rounded corners=1pt,draw=orange!75!black,
+            fill=orange!15,minimum size=6.5mm,inner sep=0pt,font=\small},
+        note/.style={align=center,font=\footnotesize}]
+        \node[box,text width=13.5cm] (input) at (0,0)
             {\textbf{Backbone coordinates and amino-acid identities}\\
-             Local frames, backbone dihedrals and residue neighbourhoods};
-        \node[box] (bound) at (-4.5,-1.65)
-            {\textbf{Bound complex}\\Within- and cross-chain edges};
-        \node[box] (free) at (0,-1.65)
-            {\textbf{Separated partners}\\Cross-chain edges masked};
-        \node[note] (fixed) at (4.5,-1.65)
-            {Same coordinates\\in both states};
+             Node features and local-frame edge geometry};
+        \node[box,text width=6.2cm] (bound) at (-3.6,-1.3)
+            {\textbf{Bound complex, $AB$}\\Within- and cross-chain edges};
+        \node[box,text width=6.2cm] (free) at (3.6,-1.3)
+            {\textbf{Separated partners, $F$}\\Cross-chain edges masked};
         \draw[flow] (input.south -| bound.north) -- (bound.north);
         \draw[flow] (input.south -| free.north) -- (free.north);
-        \node[box,text width=8.2cm] (encoder) at (-2.25,-3.4)
-            {\textbf{Shared residue encoder and all-residue queries}\\
-             Two passes through the same model parameters};
-        \draw[flow] (bound.south) -- (bound.south |- encoder.north);
-        \draw[flow] (free.south) -- (free.south |- encoder.north);
-        \node[box] (pka) at (-4.5,-5.2)
-            {\textbf{State predictions}\\Environmental shift + reference};
-        \node[box] (aux) at (0,-5.2)
-            {\textbf{Auxiliary predictions}\\Titratability, burial, contacts};
-        \draw[flow] (encoder.south -| pka.north) -- (pka.north);
-        \draw[flow] (encoder.south -| aux.north) -- (aux.north);
-        \node[box,draw=blue!50!black] (shift) at (4.5,-5.2)
-            {\textbf{Binding-induced shift}\\$\mathrm{p}K_a^{AB}-\mathrm{p}K_a^{F}$};
-        \draw[flow] (pka.south) -- ++(0,-0.45) -| (shift.south);
+        \node[note] at (0,-2.05)
+            {Same coordinates; the mask applies to all attention stages};
+
+        % The enclosure shares parameters across state passes, not across layers.
+        \draw[draw=blue!45!black,fill=blue!2,rounded corners=3pt]
+            (-7,-2.5) rectangle (7,-11.5);
+        \coordinate (boundpass) at (-6,-2.5);
+        \coordinate (freepass) at (6,-2.5);
+        \draw[flow] (bound.south -| boundpass) -- (boundpass);
+        \draw[flow] (free.south -| freepass) -- (freepass);
+        \node[note,font=\small\bfseries] at (0,-2.85)
+            {Shared GQT parameters across bound and separated passes};
+
+        \node[box,text width=3.4cm,fill=white] (resenc) at (-4.8,-4.35)
+            {\textbf{Residue encoder}\\
+             Inductive, two blocks\\20~\AA{}; 4 then 1 maps};
+        \draw[flow] (-4.8,-3.25) -- (resenc.north);
+        \node[note,text width=3.5cm] at (4.8,-4.35)
+            {\textbf{Residues $h_j$}\\Keys and values};
+        \foreach \i/\x in {1/-1.65,2/-0.55,3/0.55,4/1.65} {
+            \node[residue] (r\i) at (\x,-4.35) {$h_{\i}$};
+            \node[query] (q\i) at (\x,-6.25) {$q'_{\i}$};
+        }
+        \draw[flow] (resenc.east) -- (r1.west);
+        \foreach \i/\j in {1/1,1/2,2/1,2/2,2/3,3/2,3/3,3/4,4/3,4/4}
+            \draw[read] (r\i.south) -- (q\j.north);
+        \node[note,text width=3.5cm] at (4.8,-5.4)
+            {\textbf{Bipartite attention}\\Residues $\to$ queries\\15~\AA{} + FF};
+        \node[box,text width=3.4cm,fill=white] (init) at (-4.8,-6.25)
+            {\textbf{Query initialisation}\\$q_i^0=h_i+e(a_i)$};
+        \draw[flow] (resenc.south) -- node[left,font=\footnotesize] {$h_i$} (init.north);
+        \draw[flow] (init.east) -- (q1.west);
+        \node[note,text width=3.5cm] at (4.8,-6.45)
+            {\textbf{Updated queries $q_i^\prime$}\\One per residue};
+
+        \node[box,fill=white,text width=8.6cm] (qupdate) at (0,-7.55)
+            {\textbf{Query--query attention + FF} within 15~\AA\\
+             Final residue tokens $z_i$};
+        \foreach \i in {1,2,3,4}
+            \draw[flow] (q\i.south) -- (qupdate.north -| q\i.south);
+
+        % All heads branch from final query tokens, not from encoder residues h.
+        \node[box,fill=white,text width=6cm] (maps) at (-3.6,-9)
+            {\textbf{Three representations per residue}\\
+             Side chain $z_i$; learned terminal maps\\
+             $T_N(z_i)$ and $T_C(z_i)$};
+        \node[box,fill=white,text width=6cm] (struct) at (3.6,-9.65)
+            {\textbf{Structural heads from $z_i$}\\
+             Burial from each final token\\
+             Contacts from normalised token pairs\\
+             $[\,\tilde z_i\odot\tilde z_j,\;|\tilde z_i-\tilde z_j|\,]$};
+        \draw[flow] (qupdate.south -| maps.north) -- (maps.north);
+        \draw[flow] (qupdate.south -| struct.north) -- (struct.north);
+        \node[box,fill=white,text width=6cm] (heads) at (-3.6,-10.55)
+            {\textbf{Shared scalar heads}\\
+             Shift $8\tanh(w^\top t+b)$; titratability\\
+             $t\in\{z_i,T_N(z_i),T_C(z_i)\}$};
+        \draw[flow] (maps.south) -- (heads.north);
+        \node[box,draw=blue!55!black,text width=13.5cm] (shift) at (0,-12.2)
+            {Add the group reference to obtain $\mathrm{p}K_a^{AB}$ and $\mathrm{p}K_a^{F}$\\
+             \textbf{Binding-induced shift}\quad
+             $\Delta\mathrm{p}K_a=\mathrm{p}K_a^{AB}-\mathrm{p}K_a^{F}$};
+        \draw[flow] (heads.south) -- (shift.north -| heads.south);
     \end{tikzpicture}
-    \caption[Backbone model and matched-state prediction]{Backbone model for individual-state and binding-induced $\mathrm{p}K_a$ prediction. Backbone coordinates and amino-acid identities supply two passes through the same residue encoder, query updates and prediction heads. The bound pass includes cross-chain edges; the separated pass masks these edges while holding coordinates fixed. Queries at every residue provide side-chain and terminal predictions, including positions whose titratability changes after substitution. Adding the group-specific model-compound reference to each predicted environmental shift gives its state $\mathrm{p}K_a$. Bound-minus-separated predictions give the binding-induced shift. Auxiliary heads predict titratability, burial and contacts. The separated contact readout combines independently encoded partners without access to their relative placement. The matched-state comparison excludes conformational relaxation.}
+    \caption[Shared GQT encoder and bipartite query readout]{The retained all-residue GQT architecture. Bound and separated passes share all model parameters and coordinates; the separated pass masks cross-chain edges at every attention stage. Local operations are shared across residues and proteins, while each attention layer has its own parameters. The inductive residue encoder applies two attention blocks with four and one relation maps, respectively. Blue circles denote its outputs $h_i$. Each query starts from $h_i$ plus a learned amino-acid embedding $e(a_i)$. Bipartite cross-attention reads the encoded residues into the query set, followed by query--query attention to produce final tokens $z_i$ (orange squares show the intermediate queries). Arrows between node sets show schematic information flow. Each attention block includes a residual feed-forward update (FF). Learned affine maps produce N- and C-terminal representations from $z_i$ before shared shift and titratability heads. Burial and contact heads also read the final tokens, with contacts scored from symmetric features of normalised token pairs. The separated contact readout therefore combines independently encoded partners without their relative placement. Group-specific references convert environmental shifts to state $\mathrm{p}K_a$ values; their bound-minus-separated difference excludes conformational relaxation.}
     \label{fig:jaxka-model-overview}
 \end{figure}

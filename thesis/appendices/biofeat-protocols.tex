@@ -3,36 +3,298 @@
 
 \section{Forward-Model Settings}
 \label{app:biofeat-forward}
-% BV parameter defaults, atom selections, acceptor set, synthetic amide-H placement and its correction
-% (kb/methods/Sigmoid-switch BV forward model). SAXS six-profile expansion, gridding and smoothing
-% correction (kb/methods/Differentiable SAXS forward model). No speed or accuracy numbers.
+
+\subsection{Smooth-Contact BV Model}
+\label{app:biofeat-bv}
+
+For the amide of residue $i$ in structure $j$, heavy-atom contacts are counted from the amide N to every heavy atom $a$, and hydrogen bonds from the amide H to every backbone carbonyl O atom $k$, each through the switch of \cref{eq:biofeat-switch},
+\begin{equation}
+    N_C(i,j)=\sum_{a\in\mathcal{V}_C(i)} s\!\left(\lVert\mathbf{x}_{\mathrm{N}_i}-\mathbf{x}_a\rVert;r_C,b_C\right),
+    \qquad
+    N_H(i,j)=\sum_{k\in\mathcal{V}_H(i)} s\!\left(\lVert\mathbf{x}_{\mathrm{H}_i}-\mathbf{x}_k\rVert;r_H,b_H\right),
+    \label{eq:biofeat-counts}
+\end{equation}
+where $\mathcal{V}_C(i)$ and $\mathcal{V}_H(i)$ hold the atoms that pass the sequence exclusion. A pair on the same chain is dropped when its residue separation is at most $m$, so $m=2$ removes residues $i-2$ to $i+2$ and $m=0$ removes only residue $i$. Protection follows \cref{eq:bg-bv-feature} with an offset $\beta_0$, averaged over structures with weights $w_j$,
+\begin{equation}
+    \ln P_{f,i}=\sum_j w_j\left[\beta_0+\beta_C N_C(i,j)+\beta_H N_H(i,j)\right],
+    \label{eq:biofeat-lnpf}
+\end{equation}
+with uniform weights when none are given. Peptide uptake follows \cref{eq:bg-residue-uptake}, summed over the exchangeable residues of each peptide, with intrinsic rates from HDXrate. % cite: HDXrate
+BioFeaturisers calls HDXrate without the meter-to-pD correction, so the pH supplied is taken as the final pD.
+
+The defaults are given in \cref{tab:biofeat-bv-defaults}. Hydrogen-bond acceptors are backbone carbonyl O atoms only, so side-chain and water acceptors are not counted. The 10--90\,\% width of the switch is $2\ln9/b$, which is $0.88\,\text{\AA}$ at $b=5\,\text{\AA}^{-1}$. The default hydrogen-bond cutoff of $2.5\,\text{\AA}$ differs from the $2.4\,\text{\AA}$ of the hard-cutoff model.
+
+Each case changed some of these defaults. BPTI compared $m=0$ with $m=2$ (\cref{sec:biofeat-cases}). MoPrP used $\beta_C=0.105$ and $\beta_H=0.601$, fixed in its build. TeaA used $b_H=1\,\text{\AA}^{-1}$, and its coefficients were not refitted.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{@{}llc@{}}
+    \toprule
+        \textbf{Parameter} & \textbf{Symbol} & \textbf{Default} \\
+    \midrule
+        Burial coefficient & $\beta_C$ & 0.35 \\
+        Hydrogen-bond coefficient & $\beta_H$ & 2.0 \\
+        Offset & $\beta_0$ & 0 \\
+        Contact cutoff & $r_C$ & $6.5\,\text{\AA}$ \\
+        Hydrogen-bond cutoff & $r_H$ & $2.5\,\text{\AA}$ \\
+        Switch steepness & $b_C$, $b_H$ & $5\,\text{\AA}^{-1}$ \\
+        Sequence exclusion & $m$ & 2 \\
+    \bottomrule
+    \end{tabular}
+    \caption{Default parameters of the smooth-contact BV model (\cref{eq:biofeat-switch,eq:biofeat-counts,eq:biofeat-lnpf}).}
+    \label{tab:biofeat-bv-defaults}
+\end{table}
+
+\paragraph{Synthetic amide hydrogens.}
+The TeaA target and runs reported in \cref{ch:biofeaturisers} were made with BioFeaturisers version \texttt{39b8069}, which corrected the placement of synthetic amide hydrogens. Structures without amide H, which include all Boltz-2 output and the topology on which the TeaA target is scored, receive one $1.01\,\text{\AA}$ from the amide N. It lies in the peptide plane, pointing away from both the C$\alpha$ and the preceding carbonyl C, and therefore trans to the preceding C=O. Up to version \texttt{43cc194} the sign of this placement was reversed, which put the H between the two neighbours.
+
+Two checks measured the error and its correction. On 5PTI the reversed H lay $2.02\,\text{\AA}$ from its DSSP position for all 57 residues tested, against a mean of $0.10\,\text{\AA}$ after correction (maximum $0.22\,\text{\AA}$). On the TeaA open MD frame, which carries explicit H, the reversed placement gave a mean $N_H$ of 0.35 at $b_H=1\,\text{\AA}^{-1}$ and 0.002 at $5\,\text{\AA}^{-1}$, against 0.78 and 0.61 from the explicit H, while the corrected placement reproduced the explicit values (correlation 1.00 and 0.99). The reversed placement therefore counted less than half of the hydrogen bonds at the steepness used for TeaA and almost none at the default. The BPTI and MoPrP simulations carry explicit H and are unaffected.
+
+\subsection{SAXS Forward Model}
+\label{app:biofeat-saxs}
+
+The profile is the Debye double sum over atom pairs at distance $r_{ik}$,
+\begin{equation}
+    I(q)=\sum_i\sum_k f_i(q)\,f_k(q)\,\frac{\sin(q\,r_{ik})}{q\,r_{ik}},
+    \label{eq:biofeat-debye}
+\end{equation}
+where each atom carries one effective form factor that combines the vacuum factor, the displaced-solvent factor and a hydration term weighted by the atom's solvent-accessible fraction $s_i$,
+\begin{equation}
+    f_i(q)=f_i^{\mathrm{vac}}(q)-c_1f_i^{\mathrm{exc}}(q)+c_2\,s_i\,f^{\mathrm{w}}(q).
+    \label{eq:biofeat-saxs-ff}
+\end{equation}
+Here $c_1$ scales the excluded volume and $c_2$ the density of the hydration layer.\supercite{schneidman-duhovnyFoXSWebServer2010} The default form factors are united-atom factors that include the bound hydrogens, as in FoXS. Expanding the square of the sum gives six partial profiles,
+\begin{equation}
+    I(q)=I_{aa}-c_1I_{ac}+c_1^2I_{cc}+c_2I_{as}-c_1c_2I_{cs}+c_2^2I_{ss},
+    \label{eq:biofeat-saxs-six}
+\end{equation}
+where $a$ denotes the vacuum factor, $c$ the excluded volume and $s$ the hydration layer, and each $I_{xy}$ is the Debye sum with $f_x$ and $f_y$ in place of the effective factors. The pair sum is therefore computed once, and $c_1$ and $c_2$ can be refitted afterwards. For an ensemble, the partial profiles are averaged over frames with the ensemble weights. The accessible fraction $s_i$ comes from a smooth accessible-area model of the coordinates (sharpness 10), so the hydration term also responds to coordinate changes.
+
+The default profile has 300 values of $q$ from 0.01 to $0.50\,\text{\AA}^{-1}$, with $c_1=1$ and $c_2=0$. An optional grid search over $c_1$ from 0.95 to 1.12 and $c_2$ from 0 to 4 follows the FoXS fit and lies outside the differentiable path. The direct kernel pads the atom list to a multiple of 512 and sweeps it in blocks of $512\times512$ atoms, so the full distance matrix is never stored, and a custom pullback gives the coordinate gradient.
+
+The grid kernel spreads each form-factor channel onto a regular grid with a normalised Gaussian stencil (spacing $4\,\text{\AA}$, width $3\,\text{\AA}$, radius three cells) and Fourier transforms the density.\supercite{chamberlainFittingHighresolutionElectron2023} The profile at each $q$ is the inner product of the power spectrum with the transform of $\sin(qr)/(qr)$ on the grid distances, multiplied by $\exp[(\sigma q)^2]$, where $\sigma$ is the stencil width, to undo the Gaussian smoothing.\supercite{greengardAcceleratingNonuniformFast2004} The form factors are written as a low-rank sum of atom-type curves plus one solvent channel (at most 64 channels), and each channel needs one transform. The smoothing correction is exact only for an untruncated isotropic Gaussian, so the finite stencil leaves a small residual bias.
 
 \section{Simulation Settings}
 \label{app:biofeat-simulation}
-% Dynamics shared by BPTI and MoPrP, metainference noise settings, deposition settings and walls,
-% force plumbing (kb/methods/Metainference and parallel-bias metadynamics).
+
+BPTI and MoPrP were simulated with GROMACS\supercite{abrahamGROMACSHighPerformance2015} and PLUMED,\supercite{bonomiPromotingTransparencyReproducibility2019} with the BioFeaturisers JAX endpoint called from PLUMED. Both used a 2 fs timestep with hydrogen-bond constraints, PME electrostatics,\supercite{essmannSmoothParticleMesh1995} 1.0 nm electrostatic and van der Waals cutoffs, V-rescale temperature coupling (1 ps)\supercite{bussiCanonicalSamplingVelocity2007} and C-rescale pressure coupling (5 ps) at 1 bar. % cite: C-rescale
+The two systems differ in force field, solvent, protonation and restraint (\cref{tab:biofeat-systems}).
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+    \toprule
+        & \textbf{BPTI} & \textbf{MoPrP} \\
+    \midrule
+        Structure & 5PTI model 1, chain A & AlphaFold3 model\supercite{abramsonAccurateStructurePrediction2024} \\
+        Residues & 1--58, charged termini, disulfides 5--55, 14--38 and 30--51 & PrP 122--230 (109 residues), disulfide 178--213 \\
+        Force field & Amber99SB-ILDN % cite: Amber99SB-ILDN
+        & ff19SB % cite: ff19SB
+        \\
+        Water & TIP3P\supercite{jorgensenComparisonSimplePotential1983} & OPC3\supercite{izadiAccuracyLimitRigid2016} \\
+        Box & Dodecahedron, 1.2 nm padding & Dodecahedron, 1.4 nm padding \\
+        Ions & Cl$^-$ to neutralise, no added salt & 20 mM acetate buffer, neutralising ions, no added salt \\
+        Temperature & 298 K & 298.15 K \\
+        Protonation & Standard states at pH 7 & PDB2PQR and PROPKA at pH 4 or 7, fixed \\
+        HDX restraint & 41 residue protection factors (HDX-NMR) & 77 residue $\ln P_f$ values (exPfact) \\
+    \bottomrule
+    \end{tabularx}
+    \caption{Simulation systems. Both used the dynamics settings given in the text.}
+    \label{tab:biofeat-systems}
+\end{table}
+
+\paragraph{Observation and force path.}
+A PLUMED Python interface action evaluates the HDX observables from the current protein coordinates and passes them, in a fixed target order, to the metainference action. The force that metainference applies to each observable is returned to the JAX endpoint and contracted with the coordinate derivatives as a vector--Jacobian product, so the atomic force is computed without forming the observable-by-coordinate Jacobian. The endpoint takes coordinates in nm and returns derivatives with respect to them. In MI+PB the metainference action receives the total sampling bias, the parallel-bias energy plus any wall energies, as its reweighting argument; MI alone has none.
+
+\paragraph{Metainference and parallel-bias settings.}
+Both systems used four replicas with the Gaussian noise model per observation (\texttt{MGAUSS}), an evaluation stride of 10 steps, averaging over 100 steps and the standard error of the mean as the initial uncertainty of the replica average (\cref{tab:biofeat-mipb}). For BPTI the uncertainty bounds were scaled per residue. Base values of 2, 10 and 20 for $\sigma_\mathrm{min}$, $\sigma_0$ and $\sigma_\mathrm{max}$ were multiplied by each residue's standard deviation in $\ln P_f$, divided by the median standard deviation over residues. The $\pm2$ production used the profile built for $\pm2$ exclusions, so the per-residue bounds differ between the two stages. Parallel-bias metadynamics shared one history across the four walkers.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+    \toprule
+        & \textbf{BPTI} & \textbf{MoPrP} \\
+    \midrule
+        Uncertainty bounds & Scaled per residue (text) & $\sigma_0=2.5$, $\sigma_\mathrm{min}=0.5$, $\sigma_\mathrm{max}=10$ \\
+        Collective variables & $\chi_3$ of Cys5--Cys55, Cys14--Cys38, Cys30--Cys51 & $\beta1$--$\beta2$ contacts, $\alpha1$--$\beta2$ unit displacement, $\beta1$ displacement, $\alpha3$ C helicity, $\alpha1$ helicity \\
+        Gaussian widths & 0.14, 0.17, 0.14 rad & 2.0, 0.025 nm, 0.02 nm, 0.25, 0.25 \\
+        Height & $0.1\,\mathrm{kJ\,mol^{-1}}$ & $0.1\,\mathrm{kJ\,mol^{-1}}$ \\
+        Deposition pace & 1000 steps (2 ps) & 1000 steps (2 ps) \\
+        Bias factor & 10 & 6 \\
+        Grid & $-\pi$ to $\pi$, 200 bins & -- \\
+        Walls & None & Upper walls on the displacements (3 and 2.5 nm), lower walls on the helicities (9 and 7), $\kappa=500$ \\
+    \bottomrule
+    \end{tabularx}
+    \caption{Metainference uncertainty bounds and parallel-bias metadynamics settings for MI+PB.}
+    \label{tab:biofeat-mipb}
+\end{table}
 
 \section{Metadiffusion Settings}
 \label{app:biofeat-metadiffusion}
-% Axis bootstrap against pool size, cap, window and guidance-weight comparisons, exact schedules
-% (bf-teaa §Settings that changed the outcome). Window steps 140--149 of 200 (sigma about 3.4 to 1.5 A);
-% alpha 0.3, h0 1 deg^2, sigma_theta 3 deg, kBT_theta 100 deg^2, cap 1.0 A; full update and deposition
-% equations; stratification (at most 25 per 6 deg bin), refinement from step 150 at alpha 0.25 and
-% lambda 1000; Fiedler threshold (pair norm at its 95th percentile)
-% (kb/methods/Hinge-coordinate metadiffusion).
+
+\paragraph{Hinge coordinate.}
+The lobes come from the Boltz-2 pair representation of the last recycle. Its norm was thresholded at the 95th percentile to give a residue graph, and the sign of the Fiedler vector of the graph Laplacian divided the 309 residues of TeaA into lobe I (169 residues, fitted) and lobe II (140, measured). The pair representations of two seeds gave the same vector.
+
+The reference pool was three unguided runs of 50 structures drawn from noise, and its medoid (lowest mean all-C$\alpha$ RMSD) became the base. For each pool structure, lobe I was fitted onto the base, and the rotation carrying the base's lobe II onto the structure's lobe II gave a rotation vector $\mathbf{w}(x)$. The hinge axis $\hat{\mathbf{a}}$ is the first right singular vector of the matrix whose rows are these rotation vectors, and the hinge angle of any structure is
+\begin{equation}
+    \theta(x)=\frac{180}{\pi}\,\mathbf{w}(x)\cdot\hat{\mathbf{a}}.
+    \label{eq:biofeat-theta}
+\end{equation}
+
+The axis carried 51.5\,\% of the rotation variance, and its bootstrap $|\cos|$ had a median of 0.988 (5th percentile 0.902). The pool size of 150 was set on an earlier lobe division, where 50 structures gave a poorly determined axis (5th-percentile bootstrap cosine 0.49 against 0.83 for 150).
+
+\paragraph{Bias.}
+The bias is a sum of Gaussians of width $\sigma_\theta$ deposited at the angles $\theta_j$ the structures had when each was added, and each height falls with the bias already present,
+\begin{equation}
+    V(\theta)=\sum_j h_j\exp\!\left[-\frac{(\theta-\theta_j)^2}{2\sigma_\theta^2}\right],
+    \qquad
+    h_j=h_0\exp\!\left[-\frac{V(\theta_j)}{k_\mathrm{B}T_\theta}\right],
+    \label{eq:biofeat-metad-bias}
+\end{equation}
+with $V$ and $k_\mathrm{B}T_\theta$ in $\mathrm{deg}^2$. In each window step every residue is displaced with its C$\alpha$ by
+\begin{equation}
+    \Delta\mathbf{x}_{\mathrm{C}\alpha}=-\alpha\,\frac{\mathrm{d}V}{\mathrm{d}\theta}\,\frac{\partial\theta}{\partial\mathbf{x}_{\mathrm{C}\alpha}},
+    \label{eq:biofeat-metad-move}
+\end{equation}
+with $\mathrm{d}V/\mathrm{d}\theta$ in degrees and $\partial\theta/\partial\mathbf{x}$ in degrees per \AA, so the product is read as a displacement in \AA. The displacement is then rescaled per structure so that no atom moves further than the cap. One round from noise starts every structure near $\theta=0$, so the range grows by about $1^\circ$ per round, and continuation rounds re-noise the previous structures into the window to extend it. The settings are listed in \cref{tab:biofeat-metadiffusion}.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}X@{}}
+    \toprule
+        \textbf{Setting} & \textbf{Value} \\
+    \midrule
+        Sampler & Boltz-2, 200 denoising steps, bf16, $K=50$ structures per run, one GPU % cite: Boltz-2
+        \\
+        Conditioning & No MSA; Boltz-2's own MSA-conditioned prediction as the only template \\
+        HDX target & Uptake at 10, 60, 600, 3600 and 7200 s from 15 open and 332 closed MD frames at 40:60; intrinsic rates at pH 7.0 and 300 K \\
+        Bias window & Steps 140--149 ($\sigma$ from about 3.4 to $1.5\,\text{\AA}$); HDX guidance off \\
+        Bias parameters & $\alpha=0.3$, $h_0=1\,\mathrm{deg}^2$, $\sigma_\theta=3^\circ$, $k_\mathrm{B}T_\theta=100\,\mathrm{deg}^2$, cap $1.0\,\text{\AA}$ per atom \\
+        Rounds & Four from noise (seed 52), then eight continuations from step 140 (seeds 501--508), deposits carried throughout \\
+        Union & Rounds 2--4 and the eight continuations, 550 structures \\
+        Refinement seeds & At most 25 structures per $6^\circ$ bin of $\theta$, 236 structures in five sets \\
+        Refinement & From step 150; HDX guidance weight 0.25, normalised to the Boltz update, over the final quarter of the schedule; torsion projection; $\lambda=1000$; diffusion seeds 601--605 \\
+        MaxEnt refits & Every 5 steps, three replicates on random 80\,\% residue splits \\
+        Control & Same seed sets denoised without guidance, diffusion seeds 611--615 \\
+        Filter & pLDDT below 0.7 removed (none of 236) \\
+        Final reweighting & MaxEnt with a uniform prior, $\lambda=100$ and 1000 \\
+    \bottomrule
+    \end{tabularx}
+    \caption{Metadiffusion, refinement and reweighting settings for the TeaA run reported in \cref{ch:biofeaturisers}.}
+    \label{tab:biofeat-metadiffusion}
+\end{table}
+
+\paragraph{Settings fixed by diagnostics.}
+The cap and the window decide whether the bias moves the hinge at all. With a cap of $0.1\,\text{\AA}$ the bias moved $\theta$ by $0.4^\circ$ per step, less than the $1.2^\circ$ per step by which the denoiser pulled it back, so $\theta$ did not change. Raising the cap to $1.0\,\text{\AA}$ overcame this pull. Outside steps 140--149 the bias had no lasting effect, because at higher noise the subsequent denoising undid the displacement and below about $1.5\,\text{\AA}$ the hinge no longer moved.
+
+The guidance weight decides how far refinement may distort structures to fit the data. A weight of 0.25 fitted the target as well as 1.0 and 0.5. At 1.0, eight structures with pLDDT 0.48--0.57 together carried 5\,\% of the MaxEnt weight. The cap, window and guidance weight were chosen on a development run before the amide-H correction and were not retuned.
 
 \section{BPTI Protocol}
 \label{app:biofeat-bpti}
-% Construct, solvation and preparation, start selection, residue-scaled uncertainty bounds, PCA,
-% second-basin boundary sensitivity (bf-bpti). Figure: biofeat-bpti-replica-retention.
+
+The starting structure was model 1, chain A of 5PTI with charged termini and the three native disulfides. All six cysteines are disulfide-bonded and BPTI has no histidines, so standard protonation at pH 7 needed no assignment. The restraints were 41 residue-level HDX-NMR protection factors, stored as $\log_{10}P_f$ and converted to $\ln P_f$, and only the measured residues were exchange-enabled.
+
+The $\pm0$ source was four 250 ns MI+PB replicas saved every 10 ps, giving 25,001 frames per replica and 100,004 in total. Four starts were selected from all source frames in variance-normalised C$\alpha$ PC1--PC2 space of the Anton basis, as cluster representatives with one from each replica and at least 55 ns between their source times (\cref{tab:biofeat-bpti-starts}). No basin restriction or time truncation was applied. Each complete solvated frame was extracted and checked against its protein trajectory, given new velocities and warmed for 1 ps without bias. Every condition received the same warmed coordinates for each start, and both metainference and parallel-bias histories started afresh.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{@{}ccccc@{}}
+    \toprule
+        \textbf{Start} & \textbf{Source replica} & \textbf{Source time (ns)} & \textbf{PC1} & \textbf{PC2} \\
+    \midrule
+        1 & 4 & 187.18 & $-0.838$ & $-0.279$ \\
+        2 & 1 & 249.52 & $-0.794$ & $0.226$ \\
+        3 & 3 & 52.24 & $-0.070$ & $-0.401$ \\
+        4 & 2 & 131.80 & $0.063$ & $0.085$ \\
+    \bottomrule
+    \end{tabular}
+    \caption{BPTI starts selected from the $\pm0$ MI+PB source, with their positions on the Anton PCA. Starts 1 and 2 lie in the second basin (PC1 $<-0.55$).}
+    \label{tab:biofeat-bpti-starts}
+\end{table}
+
+All ensembles were projected without refitting onto the Anton C$\alpha$ PCA, after aligning all 58 C$\alpha$ atoms to 5PTI. PC1 and PC2 explained 21.9\,\% and 13.6\,\% of the reference variance, and the reference held 4,125 frames. Moving the second-basin boundary from PC1 $=-0.55$ to $-0.65$ or $-0.45$ changed the final-50 ns fractions to 34.3--38.9\,\% for $\pm2$ MI+PB, 33.0--46.2\,\% for $\pm2$ MI and 16.7--26.4\,\% for unbiased MD, so both restrained conditions stayed above unbiased MD at every boundary. \Cref{fig:biofeat-bpti-replica-retention} follows each start under the three conditions.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth, keepaspectratio]{biofeat-bpti-replica-retention/fig.png}
+    \caption{Retention of the selected starts in the second basin of BPTI. Each panel follows the four starts under one condition ($\pm2$ MI+PB, $\pm2$ MI and unbiased MD), and colour identifies the same start across panels. Points are 1 ns means of Anton PC1. The dashed line marks the second-basin boundary at PC1 $=-0.55$, and shading marks the final 50 ns. Legend percentages are frame fractions in the second basin over that interval, calculated before averaging. Starts 1 and 2 begin in the second basin.}
+    \label{fig:biofeat-bpti-replica-retention}
+\end{figure}
 
 \section{MoPrP Protocol}
 \label{app:biofeat-moprp}
-% Force field, solvent and buffer, preparation ladder, seed accounting, MI+PB settings, rule table
-% with thresholds and priority, MSM choices, implied timescales, CK tests (bf-moprp).
-% Figure: biofeat-moprp-puf-rules.
+
+\paragraph{Construct and restraint targets.}
+The construct was the 109-residue AlphaFold3 model of mouse PrP 122--230 (local numbering plus 121 gives PrP numbering), with the Cys178--Cys213 disulfide retained. Structural analysis used the 101 HDX residues, PrP 123--223. Of these, 24 had no determined protection factor and were excluded, leaving 77 targets, of which 28 are $\ln P_f=0$. The D$_2$O labelling condition was approximated with H$_2$O and fixed protonation at the nominal pH, so isotope effects are not modelled, and one topology was kept for each pH throughout.
+
+\paragraph{Restrained sampling.}
+Preparation comprised minimisation, 20 ps of restrained NVT at a 1 fs timestep, three 200 ps NPT stages with C$\alpha$ restraints of 500, 50 and $5\,\mathrm{kJ\,mol^{-1}\,nm^{-2}}$, and 200 ps of unrestrained NPT. Four replicas then received independent velocities and 50 ns of relaxation. MI ran for 250 ns and MI+PB for 500 ns per replica at each pH.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{@{}lcl>{\raggedright\arraybackslash}X@{}}
+    \toprule
+        \textbf{Seed label} & \textbf{Source pH} & \textbf{Centre (PC1, PC2)} & \textbf{Structural region} \\
+    \midrule
+        Folded & 4 & $(7.5,-27.5)$ & Native basin. \\
+        Folded & 7 & $(12.5,-17.5)$ & Native basin. \\
+        PUF2 & 4 & $(60,0)$ & Near part of the $\beta1$-detached arm. \\
+        PUF3 & 4 & $(92.5,42.5)$ & Far end of the $\beta1$-detached arm. \\
+        PUF1 & 7 & $(12.5,-77.5)$ & Core-distorted lobe. \\
+        PUF3-like & 7 & $(77.5,-27.5)$ & Detached $\beta1$--$\alpha1$ set. \\
+    \bottomrule
+    \end{tabularx}
+    \caption{Operational definitions of the six MoPrP seed basins. Each basin contains frames within a radius of 10 PC units of its centre on the Cartesian C$\alpha$ PCA fitted to the 20 NMR models of 2L39. Source pH identifies the restrained ensemble from which seeds were drawn; every selected seed was subsequently run at both pH values. PUF labels in this table are the historical seed identifiers and do not assign the experimental PUF1 or PUF2 forms to these regions.}
+    \label{tab:biofeat-moprp-basins}
+\end{table}
+
+\paragraph{Seeded unbiased runs.}
+A Cartesian C$\alpha$ PCA fitted to the 20 aligned NMR models of 2L39 over PrP 123--223 defined the plane on which three basins were selected from each pH's MI+PB ensemble, giving six source groups. Twenty-four frames per group were selected with temporal spacing, and the twelve even-numbered frames of each group were rebuilt and run at both target pH values (144 runs). Each seed was minimised and equilibrated with restraints referenced to its own structure (20 ps NVT and three 200 ps restrained NPT stages, 0.62 ns in total) before unrestrained production without metainference or PLUMED, saved every 10 ps. Production ran for 20 ns, and 120 runs that did not start in Folded were extended to 100 ns, giving 12.48\,$\mu$s. Four 500 ns unbiased replicas at each pH added Folded-state coverage. Each extended trajectory replaced its short version, and quality control checked whole molecules, disulfide integrity, constraint warnings, thermodynamic traces and structural drift.
+
+\paragraph{Segment rules.}
+Each frame was superposed on the disulfide-proximal core (residues 175--187 and 201--216), and each segment's core-fit RMSD was compared with a threshold at the 99th percentile of Folded frames, pooled over pH (\cref{tab:biofeat-moprp-segments}). Folded frames are those within 10 PC units of the Folded centre on the PCA plane. A segment is displaced when its core-fit RMSD exceeds its threshold. $\alpha3$ C counts as off when either its core-fit or its self-fit RMSD exceeds its threshold, so it covers disorder as well as displacement. The core is distorted when its own RMSD exceeds its threshold, and intact otherwise.
+
+The rules in \cref{tab:biofeat-moprp-rules} combine these tests. The text rules take each experimental description literally, and the candidates follow \cref{sec:biofeat-moprp-analysis}. Rules can overlap, and each is evaluated on its own. \Cref{fig:biofeat-moprp-puf-rules} maps where each rule is met.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabularx}{\textwidth}{@{}l>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+    \toprule
+        \textbf{Rule} & \textbf{Displaced} & \textbf{Further conditions} \\
+    \midrule
+        $\beta1$ alone & $\beta1$ & Loop and $\alpha1$ N not displaced \\
+        PUF1 candidate & $\beta1$, loop, $\alpha1$ N & Core intact \\
+        PUF1 text rule & $\beta1$, loop, $\alpha3$ C off & Core intact \\
+        PUF2 candidate and text rule & $\alpha1$, $\beta2$ & Core intact \\
+        $\alpha3$ C off, $\beta1$ kept & $\alpha3$ C off & $\beta1$ not displaced \\
+        Unit off, $\beta1$ kept & $\alpha1$--$\beta2$ unit & $\beta1$ not displaced, core intact \\
+        Core distorted & -- & Core distorted \\
+    \bottomrule
+    \end{tabularx}
+    \caption{MoPrP segment rules. Segments and thresholds are given in \cref{tab:biofeat-moprp-segments}.}
+    \label{tab:biofeat-moprp-rules}
+\end{table}
+
+
+
+\paragraph{Markov state models and drift.}
+The MSM features were 10 Cartesian PCs fitted to unbiased MD. $k$-means gave 100 microstates, and a reversible maximum-likelihood model was fitted on the connected count set at lags of 2 and 5 ns, with 5 ns reported. Implied timescales and Chapman--Kolmogorov tests were computed at both lags. Not every macrostate passed the Chapman--Kolmogorov test. We therefore used the MSM to estimate stationary populations and did not interpret its transition rates. Drift was the mean displacement over $\tau=1$ ns divided by $\tau$, averaged in bins with at least 200 frame pairs from at least three runs.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth, keepaspectratio]{biofeat-moprp-puf-rules/moprp_puf_rules.png}
+    \caption{Where each MoPrP segment rule is met. Rows are rules ($\beta1$ alone, the PUF1 candidate, the PUF2 candidate, the $\alpha1$--$\beta2$ unit displaced with $\beta1$ kept, and $\alpha3$ C off with $\beta1$ kept), and columns are the PCA and dihedral planes for runs at pH 4 and pH 7. Colour gives the fraction of frames in each bin that meet the rule. Black contours are MSM free energy at 1, 2 and $3\,\mathrm{kcal\,mol^{-1}}$, dashed circles are the seed basins, and the red cross marks the pH 7 minimum. The PUF1 text rule has no frames and is not shown.}
+    \label{fig:biofeat-moprp-puf-rules}
+\end{figure}
 
 \section{TeaA Protocol}
 \label{app:biofeat-teaa}
-% Lobe residue ranges, seeds and schedules, tuning history, pLDDT filter counts, amide-H rerun
-% (bf-teaa §6). Figure: biofeat-teaa-landscape-F pca_logdensity.
+
+The Fiedler lobes agreed with a hand division (lobe I residues 1--122, 207--249 and 284--309; lobe II 123--206 and 250--283) on 92.9\,\% of residues, and the 22 differences were hand-lobe-I residues assigned to lobe II. On the Fiedler axis the MD open reference lies at $\theta=-18.4^\circ$ and the closed reference at $+9.7^\circ$, and the 150 unguided structures lay between $-2.2^\circ$ and $+1.8^\circ$ (standard deviation $0.63^\circ$). The target and every run used the corrected amide-H placement (\cref{app:biofeat-bv}).

@@ -80,13 +80,19 @@ Paragraph outline for `thesis/chapters/06-jax-ka.tex`. Each bullet develops one 
 
 ## POISK diagnoses the source of apparent improvement
 
-- **Run4, hmask and dRSA improve external binder/decoy discrimination.** On 11,111 apo pairs, top-50 CDR edge accuracy rises from 0.4366 to 0.7115 and 0.7131; predicted-dRSA-weighted CDR accuracy rises from 0.4895 to 0.6671 and 0.6755. These are different reductions of the same outputs ([[028-poisk-free-monomer#Improvements depend on the readout]]; `jaxka-poisk-recipe-comparison`).
+- **Hmask and dRSA improve external binder/decoy discrimination over run4.** On 11,111 independently folded apo pairs, binder/decoy pairwise accuracy using the top-50 CDR edge mean rises from 0.4366 to 0.7115 and 0.7131; predicted-dRSA-weighted CDR accuracy rises from 0.4895 to 0.6671 and 0.6755. These are different reductions of the same outputs ([[028-poisk-free-monomer#Improvements depend on the readout]]; `jaxka-poisk-recipe-comparison`).
 
-- **Most of the gain survives replacing the antigen.** Wrong-antigen weighted-CDR accuracies remain 0.665 and 0.666 for hmask and dRSA. Antibody-only learned readouts and sequence-composition controls expose binder/decoy pool membership as a shortcut that antigen holdout does not remove ([[028-poisk-free-monomer#Wrong-antigen and sequence controls identify the shortcut]]).
+- **Most of the gain survives replacing the antigen, including for dRSA.** Wrong-antigen weighted-CDR accuracies remain 0.665 and 0.666 for hmask and dRSA. In the matched learned-readout comparison, dRSA gives accuracy 0.897 with antibody-only features, 0.893 with the correct antigen and 0.896 with a wrong antigen. Sequence composition alone reaches 0.949. Binder/decoy pool membership therefore supplies a shortcut that antigen holdout does not remove ([[028-poisk-free-monomer#Wrong-antigen and sequence controls identify the shortcut]]).
 
-- **Removing the decoy pool reveals a smaller pairing signal.** With the antibody fixed, the learned hmask readout ranks its own antigen against wrong antigens at accuracy 0.566 and top-1-of-10 retrieval 0.147. Sequence-composition products give 0.532 and 0.124. This supports using blind scores to prioritise candidates for structural testing ([[028-poisk-free-monomer#Removing the decoy pool exposes a smaller pairing signal]]).
+- **Removing the decoy pool exposes limited antigen discrimination in the summary scores.** Holding each antibody fixed removes antibody-only pool discrimination. Learned combinations of the 18 GQT summary scores then rank the correct antigen against a stored wrong antigen at accuracies 0.501, 0.515 and 0.528 for run4, hmask and dRSA. This comparison uses one alternative antigen and a smaller evaluation support than the embedding-product analyses ([[028-poisk-free-monomer#Removing the decoy pool exposes a smaller pairing signal]]).
+
+- **Hmask retains a modest pairing signal under the elementwise embedding readout; dRSA is close to sequence composition.** With the antibody fixed, pairwise accuracy is 0.539 for run4, 0.562 for hmask and 0.535 for dRSA, against 0.532 for sequence-composition products. Top-1-of-10 retrieval is 0.124, 0.146 and 0.128, against 0.125 for composition and 0.1 by chance. dRSA's stronger binder/decoy discrimination therefore does not translate into better antigen pairing under this trained readout ([[028-poisk-free-monomer#Removing the decoy pool exposes a smaller pairing signal]]).
+
+- **Matched target contexts and complex prediction investigate blind-score priorities.** POISK does not establish partner specificity of the untrained screening scores or prospective enrichment. The KRAS application used blind scores as candidate priorities, then investigated the proposed interactions through matched target-context comparisons and complex prediction ([[028-poisk-free-monomer#Pose-dependent signal and screening consequence]]).
 
 ## KRAS pMHC screening
+
+- **The groove-facing mutation makes specificity a peptide–MHC recognition problem.** Asp6 is buried in the TCR-bound HLA-A*11:01 decamer complex. Challenge 5 of the 2026 Anthropic × Adaptyv Bio competition required G12D binding with WT and peptide-free MHC avoidance, giving the matched target contexts their purpose ([[046-atlas-kras-screen#Target rationale and competition context]]).
 
 - **Matched target contexts guide candidate selection.** The hmask checkpoint screens 69,060 ATLAS interface representatives against G12D pMHC with WT and peptide-free controls, retaining native fragments and their residue-edge assignments. The application tests the hmask branch, preceding dRSA ([[046-atlas-kras-screen#Completed blind screen]]).
 
@@ -95,6 +101,8 @@ Paragraph outline for `thesis/chapters/06-jax-ka.tex`. Each bullet develops one 
 - **Structural comparisons locate the candidate interaction at the peptide groove.** Compare the crystal TCR and screened hit in mutant and WT contexts through electrostatics and hydrophobicity, then show the hit's aligned G12D, WT and peptide-free predictions. The maps describe saved contact surfaces and the renders separate component identity from local confidence. Without a matched random-library prediction cohort, the screen does not quantify enrichment from GQT ranking ([[046-atlas-kras-screen#Mutation-centred radial comparison]]; `jaxka-kras-pmhc-radial`, `jaxka-kras-pmhc-plddt`).
 
 ## Scaling and implications
+
+- Scaling comparisons refer to panels D–F of [jaxka-pinder-ablations](../../figures/jaxka-pinder-ablations/fig.pdf) in the appendix.
 
 - **Full data extends the width-128 gain to partner discrimination in one seed.** Under the 20-epoch schedule, contact AP rises from 0.0536 to 0.0619 and antibody/antigen swap accuracy from 0.6791 to 0.7147 between the 50% and 100% pools. Width 64 improves contact AP but loses antibody/antigen accuracy. The full-data protocols use complete PeSTo coverage with no masking fallbacks ([[jaxka-edge-binder#Data scaling]]; `jaxka-pinder-ablations`).
 

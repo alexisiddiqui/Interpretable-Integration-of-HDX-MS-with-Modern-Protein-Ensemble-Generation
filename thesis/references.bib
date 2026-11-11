@@ -3540,3 +3540,53 @@
   url = {https://huggingface.co/biohub/ESMFold2},
   urldate = {2026-11-08}
 }
+
+@article{chamberlainFittingHighresolutionElectron2023,
+  title = {Fitting High-Resolution Electron Density Maps from Atomic Models to Solution Scattering Data},
+  author = {Chamberlain, Sarah R. and Moore, Stephen and Grant, Thomas D.},
+  year = 2023,
+  month = dec,
+  journal = {Biophysical Journal},
+  volume = {122},
+  number = {23},
+  pages = {4567--4581},
+  issn = {0006-3495},
+  doi = {10.1016/j.bpj.2023.10.034},
+  urldate = {2026-11-10},
+  abstract = {Solution scattering techniques, such as small- and wide-angle X-ray scattering (SWAXS), provide valuable insights into the structure and dynamics of biological macromolecules in solution. In this study, we present an approach to accurately predict solution X-ray scattering profiles at wide angles from atomic models by generating high-resolution electron density maps. Our method accounts for the excluded volume of bulk solvent by calculating unique adjusted atomic volumes directly from the atomic coordinates. This approach eliminates the need for one of the free fitting parameters commonly used in existing algorithms, resulting in improved accuracy of the calculated SWAXS profile. An implicit model of the hydration shell is generated that uses the form factor of water. Two parameters, namely the bulk solvent density and the mean hydration shell contrast, are adjusted to best fit the data. Results using eight publicly available SWAXS profiles show high-quality fits to the data. In each case, the optimized parameter values show small adjustments demonstrating that the default values are close to the true solution. Disabling parameter optimization produces significantly more accurate predicted scattering profiles compared to the leading software. The algorithm is computationally efficient, comparable to the leading software and up to 10 times faster for large molecules. The algorithm is encoded in a command line script called denss.pdb2mrc.py and is available open source as part of the DENSS v1.7.0 software package. In addition to improving the ability to compare atomic models to experimental SWAXS data, these developments pave the way for increasing the accuracy of modeling algorithms using SWAXS data and decreasing the risk of overfitting.}
+}
+
+@article{greengardAcceleratingNonuniformFast2004,
+  title = {Accelerating the {{Nonuniform Fast Fourier Transform}}},
+  author = {Greengard, Leslie and Lee, June-Yub},
+  year = 2004,
+  month = jan,
+  journal = {SIAM Rev.},
+  volume = {46},
+  number = {3},
+  pages = {443--454},
+  issn = {0036-1445, 1095-7200},
+  doi = {10.1137/S003614450343200X},
+  urldate = {2026-11-10},
+  abstract = {The nonequispaced Fourier transform arises in a variety of application areas, from medical imaging to radio astronomy to the numerical solution of partial differential equations. In a typical problem, one is given an irregular sampling of N data in the frequency domain and one is interested in reconstructing the corresponding function in the physical domain. When the sampling is uniform, the fast Fourier transform (FFT) allows this calculation to be computed in \$O(N \textbackslash log N)\$ operations rather than \$O(N\textasciicircum 2)\$ operations. Unfortunately, when the sampling is nonuniform, the FFT does not apply. Over the last few years, a number of algorithms have been developed to overcome this limitation and are often referred to as \textbraceleft\textbackslash em nonuniform FFTs\textbraceright{} (NUFFTs). These rely on a mixture of interpolation and the judicious use of the FFT on an oversampled grid [A. Dutt and V. Rokhlin, \textbraceleft\textbackslash em SIAM J.\textbackslash{} Sci.\textbackslash{} Comput.\textbraceright, 14 (1993), pp. 1368--1383].\textbackslash\textbackslash{} \textbackslash indent\% In this paper, we observe that one of the standard interpolation or ``gridding" schemes, based on Gaussians, can be accelerated by a significant factor without precomputation and storage of the interpolation weights. This is of particular value in two- and three-dimensional settings, saving either \$10\textasciicircum d N\$ in storage in d dimensions or a factor of about 5--10 in CPU time (independent of dimension).},
+  langid = {english}
+}
+
+
+@article{pooleTherapeuticHighAffinity2022,
+  title = {Therapeutic High Affinity T Cell Receptor Targeting a {KRASG12D} Cancer Neoantigen},
+  author = {Poole, Andrew and Karuppiah, Vijaykumar and Hartt, Annabelle and Haidar, Jaafar N. and Moureau, Sylvie and Dobrzycki, Tomasz and Hayes, Conor and Rowley, Christopher and Dias, Jorge and Harper, Stephen and Barnbrook, Keir and Hock, Miriam and Coles, Charlotte and Yang, Wei and Aleksic, Milos and Lin, Aimee Bence and Robinson, Ross and Dukes, Joe D. and Liddy, Nathaniel and Van der Kamp, Marc and Plowman, Gregory D. and Vuidepot, Annelise and Cole, David K. and Whale, Andrew D. and Chillakuri, Chandramouli},
+  date = {2022-09-10},
+  journaltitle = {Nature Communications},
+  volume = {13},
+  eid = {5333},
+  doi = {10.1038/s41467-022-32811-1}
+}
+
+@online{anthropicAdaptyvKRASChallenge2026,
+  title = {Challenge 05: {KRAS G12D pMHC}},
+  author = {{Anthropic} and {Adaptyv Bio}},
+  year = {2026},
+  url = {https://proteinbase.com/competitions/anthropic-adaptyv-2026/challenges/pmhc},
+  urldate = {2026-11-10}
+}

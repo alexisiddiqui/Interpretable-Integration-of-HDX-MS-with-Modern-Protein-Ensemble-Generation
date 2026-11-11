@@ -1,0 +1,17 @@
+{
+  "remote_directory": "/scratch/bulk/hussain/kras-noise-propensity-20261110",
+  "gpu_startup_failed": [
+    80803,
+    80805
+  ],
+  "gpu_cancelled_while_pending": 80804,
+  "cpu_analysis": 185653,
+  "cpu_render": 185654,
+  "cluster": "srf_cpu_01",
+  "analysis_status": "completed; residue and paired-difference checks passed",
+  "render_status": "completed; final outputs retrieved",
+  "scorer_verification": "Broadcast implementation matched exported pair_logits exactly on 12 residue pairs",
+  "render_correction": 185657,
+  "render_correction_failed": 185656,
+  "final_render_job": 185657
+}

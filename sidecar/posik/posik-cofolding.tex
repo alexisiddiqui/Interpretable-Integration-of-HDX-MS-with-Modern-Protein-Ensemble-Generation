@@ -18,6 +18,8 @@
 % template_pilot.py, pilot_score.py, trimer_score.py; results/template_pilot_summary.csv,
 % results/trimer_pilot_summary.csv, results/trimer_pilot_jobs.csv.
 % Self-contained: compiles with pdflatex alone (no biber, no thesis preamble).
+% Antigen-swap control: Pegasus-Gate:/scratch/bulk/hussain/poisk-protenix-control-20261110.
+% Local results, donor assignments, script and provenance: protenix-control-20261110/.
 
 \begin{document}
 \maketitle
@@ -27,6 +29,9 @@
 Whether a co-folding model separates a patent binder from its sequence-similar decoy depends on its inputs, and whether it still does so when it must choose between the two depends on the order in which the chains are listed.
 On 25 POISK pairs, ten co-folding configurations were scored on each antibody separately and in a single job that held both antibodies (competition scoring), with every pair run in both chain orders.
 Multiple sequence alignments (MSAs) on every chain gave the most consistent choice of binder, apo templates did not replace them, and three configurations favoured the first-listed antibody in 60--62\% of jobs.
+ESMFold2 with MSAs on every chain combined lower confidence for decoys with a first-listed win rate of 50\%, although aggregate order balance did not imply that each pair was insensitive to chain order.
+On the wider benchmark, trained antibody-only readouts reached 89--90\% pairwise accuracy from embeddings and 95\% from sequence composition, showing that high discrimination need not require antigen recognition.
+A subsequent Protenix control on the same 25 pairs reduced ipTM accuracy from 0.76 with the correct antigen to 0.48 with a sequence-dissimilar replacement, supporting antigen-dependent discrimination without establishing accurate binding geometry.
 Twenty-five pairs rule out broken set-ups but cannot rank the models.
 \end{abstract}
 
@@ -82,7 +87,7 @@ Its apo templates were therefore registered under synthetic identifiers (\texttt
 
 \begin{table}[ht]
 \centering
-\caption{Co-folding configurations in the pilot. Every configuration used one sample per job on one L40S GPU. ``MSA'' denotes ColabFold MSAs.}
+\caption{Co-folding configurations in the pilot, run on one L40S GPU per job. One prediction per complex was scored; the Protenix template/MSA runner generated five samples from one seed and scored sample 0. ``MSA'' denotes ColabFold MSAs.}
 \label{tab:configs}
 \small
 \begin{tabularx}{\textwidth}{@{}lXXX@{}}
@@ -126,6 +131,39 @@ PeSTo predicts interface residues on each apo chain on its own, so it cannot sco
 The antibody with the higher mean propensity over its CDRs (or, separately, over the whole Fv) was called the binder.
 This control sees neither the complex nor the chain order, so its separate and competition values are the same and its first-listed rate is 0.50 by construction.
 
+\subsection{Learned antibody-only and sequence controls}
+\label{sec:logreg-methods}
+
+To establish how much binder/decoy discrimination was available without the antigen, we fitted logistic regressions to antibody features on the wider POISK benchmark.
+Each training example was the binder-minus-decoy feature difference, supplied in both orientations to a model with no intercept.
+Antigens were clustered with CD-HIT at 80\% identity, and whole clusters were assigned to training or test sets, with approximately half the pairs in each, for five split seeds.
+Feature differences were scaled using training-set standard deviations; L2 regularisation was selected by five-fold cross-validation grouped by antigen cluster within the training set.
+Accuracy is the fraction of held-out pairs in which the binder scores higher, with half credit for ties, rather than thresholded classification accuracy on individual antibodies.
+
+The embedding controls used three GQT representations, denoted Run 4, hmask and dRSA, with matched coverage of 22,274 records from independently folded partners.
+Antibody-only features comprised mean CDR and framework embeddings and two antibody exposure summaries.
+The antigen-conditioned readout added elementwise products with the mean antigen embedding; a shuffled-antigen control replaced that embedding while retaining the antibody features.
+Sequence controls used VH and VL amino-acid frequencies and chain lengths (42 features), with or without dipeptide frequencies (842 features in total), and required neither structures nor GQT.
+The embedding arms averaged 5,449 test pairs per split and the sequence controls 5,549, so their supports differ slightly.
+We report means and standard deviations across splits; these describe partition variability, not uncertainty from independent replicate experiments.
+The analysis is documented in \path{kb/experiments/028-poisk-free-monomer.md}; the matched results are retained alongside this note in \path{logreg_blind_all3_summary.csv}.
+
+\subsection{Antigen-swap control}
+\label{sec:swap-methods}
+
+To test whether Protenix discrimination required the supplied antigen, we reran the 25 pilot pairs with their correct antigen and with a replacement from another pilot pair.
+The binder and decoy in each pair received the same replacement, while their heavy and light chains were held fixed.
+Replacement antigens had less than 30\% sequence identity to the original, measured as identical aligned residues divided by the shorter sequence length under global alignment (match 1, mismatch 0, gap opening $-1$, gap extension $-0.1$).
+Among eligible antigens, we chose the closest in length by absolute log length ratio, with ties resolved by pair identifier.
+Donors could be reused, and replacement pairs were not experimentally verified non-binders.
+
+The 100 complexes used the original cached unpaired MSAs, with each MSA query checked against its chain sequence, and no templates.
+We used Protenix package 2.0.0 with checkpoint \texttt{protenix\_base\_20250630\_v1.0.0}, seed 101, ten recycling cycles, 200 diffusion steps and five samples in bf16, scoring sample 0 as in the original template/MSA runner.
+Chain order was antigen, heavy chain, light chain.
+The interface score averaged all four directional antigen--antibody chain-pair ipTM entries, and tied binder/decoy scores received half credit.
+Jobs ran on Pegasus A40, A100 and RTX 6000 Ada GPUs; correct-antigen reruns provided the comparison within this execution environment.
+Results and donor assignments are retained alongside this note in \path{protenix-control-20261110/}.
+
 \section{Results}
 
 \subsection{Separate scoring}
@@ -140,11 +178,17 @@ ESMFold2 with an MSA on the antigen alone gave 0.80 on ipTM and 0.76 on the inte
 Adding MSAs to the heavy and light chains left ipTM at 0.80 and raised the interface score to 0.84, a difference of two pairs.
 Because the evaluation suite keeps binders single-sequence, as designs have no homologues, the antigen-only set-up is the one that scales; it needs 750 antigen searches and not 31.6k antibody searches.
 
-Boltz-2 separated binders only weakly (0.60 on ipTM with either templates or MSAs), because it was confident on everything it was given.
-With templates the median ipTM was 0.79 for binders and 0.73 for decoys.
-Templates fixed the antigen fold for the models that otherwise lost it.
+ESMFold2 with MSAs on every chain retained a confidence separation between binders and decoys (median ipTM 0.77 versus 0.45; median interface score 0.56 versus 0.20).
+These medians were close to those with an antigen MSA alone (ipTM 0.80 versus 0.45; interface score 0.56 versus 0.20), so the gain from antibody MSAs was in pairwise interface ranking rather than a larger separation of the marginal confidence medians.
+Boltz-2 assigned high confidence to both pools and separated them more weakly (0.60 ipTM accuracy with either templates or MSAs).
+Its median ipTM was 0.79 for binders and 0.73 for decoys with templates, and 0.82 versus 0.79 with MSAs.
+ESMFold2's lower confidence on decoys is useful for discrimination, but these scores have not been calibrated as probabilities of binding.
+
+Apo templates improved agreement with the independently folded antigen without consistently improving binder/decoy ranking.
 Single-sequence Mol-1 placed the antigen a median 22.6~\AA{} from its apo structure, and with templates it placed it 2.7~\AA{} away (Protenix 2.5~\AA{}), while heavy and light chains folded within 0.3--0.8~\AA{} of their templates either way.
-A correct antigen fold did not guarantee discrimination, since Mol-1 stayed at 0.72 and Boltz-2 at 0.60 with it.
+Mol-1 nevertheless stayed at 0.72 ipTM accuracy, while Protenix improved from 0.24 to 0.68 but remained below its MSA configuration.
+These templates constrain the component folds; they supply no reference antibody--antigen interface.
+Agreement with an apo prediction therefore cannot establish that the model has recovered the binding geometry.
 
 \begin{table}[ht]
 \centering
@@ -176,13 +220,69 @@ Boltz-2, paper (MSAs) & 0.60 & 0.54 & -- \\
 \end{tabular}
 \end{table}
 
+\subsection{Sequence-only readouts separate the benchmark labels}
+\label{sec:logreg-results}
+
+Logistic regression on antibody-only embeddings ranked binders above decoys in 89--90\% of held-out pairs across all three GQT representations (\cref{tab:logreg}).
+Adding antibody--antigen products barely changed accuracy, and replacing the antigen embedding retained essentially the same discrimination.
+The learned readout therefore did not require the correct antigen to distinguish the benchmark labels.
+
+Sequence composition alone recovered much of this discrimination, reaching 0.864 accuracy with amino-acid frequencies and chain lengths, and 0.949 after adding dipeptide frequencies.
+These features contain no structural or antigen information, so sequence differences between the binder and decoy pools are sufficient for high pairwise accuracy.
+Antigen-cluster separation does not remove this signal, and it does not impose separation between antibody sequence clusters.
+These trained readouts use thousands of test pairs per split and cannot be ranked directly against untrained confidence scores on the 25-pair co-folding pilot.
+
+\begin{table}[ht]
+\centering
+\caption{Learned binder-over-decoy accuracy on the wider POISK benchmark, reported as mean $\pm$ standard deviation across five antigen-cluster splits. Embedding features include antibody exposure summaries. Sequence controls include chain lengths, use no GQT representation and are fitted once per split. Their results are shared across the three columns. These are pairwise ranking accuracies, not per-antibody classification accuracies.}
+\label{tab:logreg}
+\small
+\begin{tabularx}{\textwidth}{@{}Xccc@{}}
+\toprule
+Readout & Run 4 & hmask & dRSA \\
+\midrule
+Antibody-only embeddings & $0.894\pm0.006$ & $0.891\pm0.004$ & $0.897\pm0.008$ \\
+Plus correct-antigen products & $0.895\pm0.004$ & $0.889\pm0.008$ & $0.893\pm0.009$ \\
+With shuffled-antigen products & $0.892\pm0.004$ & $0.890\pm0.004$ & $0.896\pm0.006$ \\
+\midrule
+VH/VL amino-acid composition & \multicolumn{3}{c}{$0.864\pm0.008$} \\
+Plus dipeptide composition & \multicolumn{3}{c}{$0.949\pm0.004$} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Replacing the antigen removes most discrimination}
+\label{sec:swap-results}
+
+Protenix ranked the binder above its decoy in 19 of 25 pairs with the correct antigen, but only 12 of 25 with a replacement antigen (ipTM accuracy 0.76 versus 0.48; \cref{tab:swap}).
+The antigen--antibody interface score gave the same direction of change, falling from 18 to 12 pairs (0.72 versus 0.48).
+These results argue against a wholly antigen-independent antibody signal explaining discrimination in this control.
+They do not identify whether the informative dependence comes from sequence compatibility, evolutionary information or the predicted interface geometry.
+
+The correct-antigen rerun scored three fewer pairs correctly than the original pilot on each metric (0.76 versus 0.88 for ipTM and 0.72 versus 0.84 for the interface score).
+The cause of this difference has not been isolated, so the antigen-swap comparison uses the matched rerun rather than the original pilot as its baseline.
+
+\begin{table}[ht]
+\centering
+\caption{Completed Protenix antigen-swap control on the same 25 pilot pairs (100 complexes). Entries give binder-over-decoy accuracy, with the number of correctly ranked pairs in parentheses. Both conditions used cached MSAs on every chain and no templates. Chance accuracy is 0.50.}
+\label{tab:swap}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Score & Correct antigen & Replacement antigen \\
+\midrule
+ipTM & 0.76 (19/25) & 0.48 (12/25) \\
+Antigen--antibody interface & 0.72 (18/25) & 0.48 (12/25) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \subsection{Competition scoring}
 
 When the model had to choose, MSAs on every chain again gave the most consistent call (\cref{tab:competition}).
 Protenix v1 with MSAs chose the binder in 0.78 of jobs and in both orders for 18 of 25 pairs, followed by Boltz-2 with MSAs and ESMFold2 with MSAs on every chain at 15 of 25 each.
-Templates without MSAs did not help.
 Mol-1 and Protenix with templates won both orders for only 0.40 of pairs, below the 0.56 of the PeSTo control, which sees only the apo antibody.
-A template-only competition run therefore falls below a call made from the antibody alone.
+Templates did not improve this measure for either model relative to its single-sequence configuration.
+The comparison with PeSTo also includes a consistency requirement, because an antibody-only score is unchanged when chain order is reversed.
 
 Competition also changed what Boltz-2 could do.
 In separate jobs it barely separated binders (0.60), but its template configuration reached 0.70 and its MSA configuration 0.76 when the decoy was present.
@@ -194,6 +294,11 @@ Boltz-2 with MSAs and ESMFold2 without antibody MSAs chose the first-listed anti
 A single-order competition run of either would have reported the binder-win rate of a model that partly follows the chain order.
 Pairs won in both orders is the measure that this cannot inflate, and it ranks Boltz-2 with MSAs (0.60) below Protenix v1 with MSAs (0.72) even though their binder-win rates differ by only 0.02.
 Protenix v1 with MSAs showed no order preference (0.52 first-listed wins).
+
+For ESMFold2, supplying antibody MSAs improved both aggregate order balance and the number of pairs won in both orders.
+The first-listed win rate fell from 0.60 with an antigen MSA alone to 0.50 with MSAs on every chain, while binder wins rose from 0.66 to 0.72 and pairs won in both orders rose from 12 to 15 of 25.
+Thus antibody MSAs changed competition behaviour despite leaving separate-mode ipTM accuracy unchanged.
+Aggregate balance does not establish order invariance for individual pairs, and winning both orders measures discrimination together with consistency under chain reversal.
 
 \begin{table}[ht]
 \centering
@@ -224,13 +329,26 @@ PeSTo, whole-Fv propensity (control) & 0.48 & 0.48 & 0.50 \\
 \section{Discussion}
 
 These runs support two practical conclusions.
-Provided MSAs are supplied for every chain, Protenix v1 reproduces the paper's separate result and gives the most consistent choice in competition.
+Provided MSAs are supplied for every chain, Protenix v1 approached the paper's separate result in the original pilot and gave the most consistent choice in competition, although the subsequent correct-antigen rerun scored lower.
 When the antibody MSAs are not affordable, ESMFold2 with an antigen MSA is the best separate-mode set-up, but its competition result depends on the chain order and should be read from pairs won in both orders.
+
+Templates and MSAs address different deficiencies in this pilot.
+Apo templates constrain component folds, but their improved structural agreement does not consistently translate into binder/decoy discrimination or stable competition outcomes.
+Where antibody homologues are available, ESMFold2 with MSAs on every chain combines confidence separation between binders and decoys with aggregate balance between chain orders.
+The additional antibody MSAs improve interface ranking and competition consistency, while the confidence separation is already present with an antigen MSA alone.
+This makes the all-chain configuration a useful comparator for natural antibodies, with separate checks for confidence discrimination, chain-order effects and antigen dependence; the Protenix antigen-swap result cannot supply the last check for ESMFold2.
 
 Three limits bound this reading.
 The pilot holds 25 pairs, so differences of less than about 0.1 are not resolved, and the ranking among Protenix v1, Boltz-2 and ESMFold2 with MSAs is not established.
-The binders and decoys are patent antibodies selected for sequence similarity, so a configuration could separate the two pools through antibody features without recognising the antigen. The PeSTo control sets the level that antibody-only features reach (0.56).
+The binders and decoys are patent antibodies selected for sequence similarity, so a configuration could separate the two pools through antibody features without recognising the antigen. PeSTo tests one antibody-only readout (0.56), not the full information available from antibody sequence.
 Finally, the full-scale costs below were estimated from separate-mode timings on an L40S, and full POISK was not run with these configurations.
+
+The antigen-swap control narrows this concern for Protenix, because discrimination fell to near chance when the antigen was replaced (\cref{sec:swap-results}).
+The learned controls nevertheless establish that antibody sequence differences can support high accuracy without the correct partner (\cref{sec:logreg-results}).
+Protenix could therefore use antibody sequence features whose contribution depends on the supplied antigen, without recovering the physical binding interface.
+The present control establishes antigen dependence, but neither dimer-training bias nor greater sequence sensitivity than other co-folding models was tested.
+POISK accuracy should therefore be assessed alongside antigen-swap controls and binders-only comparisons that hold the antibody fixed and rank candidate antigens.
+Applying these comparisons across models, followed by an assessment of interface geometry against structural references, would distinguish label discrimination from partner recognition and pose accuracy.
 
 For 22,494 complexes, ESMFold2 with an antigen MSA would take about 490 GPU-hours (about \$950, plus the 750 antigen searches), Protenix with templates about 250 (about \$480), Boltz-2 with templates about 460 (about \$900) and Mol-1 with templates about 820 (about \$1.6k).
 Competition runs need both chain orders, and this requirement was later adopted as a certification rule for the KRAS G12D pMHC designs.

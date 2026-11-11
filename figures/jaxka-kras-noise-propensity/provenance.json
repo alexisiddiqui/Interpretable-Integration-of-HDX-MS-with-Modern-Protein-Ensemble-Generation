@@ -1,0 +1,56 @@
+{
+  "model": "/scratch/bulk/hussain/tnf-gqt-retro/jax-ka-305b074/models/ogqt-allres15-within-hmask-50",
+  "params_sha256": "fd46dd6159ddcec450213c5d2d83be8bb73dc4ff611d1e65c13d19c3ef6a17ce",
+  "state": "bound: intact assembly, no external partner",
+  "seeds": [
+    17,
+    29,
+    43,
+    71
+  ],
+  "vectors_per_seed": 8192,
+  "noise": "iid Gaussian N(0,1) before learned edge layer norm",
+  "sensitivity": "variance-one iid uniform before same norm",
+  "jax": "0.7.1",
+  "devices": "[CpuDevice(id=0)]",
+  "audit": {
+    "g12d": {
+      "n": 385,
+      "range": [
+        0.07598572969436646,
+        0.30362191796302795
+      ],
+      "max_seed_sd": 0.002469956874847412,
+      "max_half_full_difference": 0.0008380860090255737,
+      "uniform_pearson": 0.9993889783367378,
+      "uniform_max_abs": 0.007490888237953186
+    },
+    "wt": {
+      "n": 385,
+      "range": [
+        0.07589554786682129,
+        0.30196574330329895
+      ],
+      "max_seed_sd": 0.0024699047207832336,
+      "max_half_full_difference": 0.000838056206703186,
+      "uniform_pearson": 0.9994000301953834,
+      "uniform_max_abs": 0.007500782608985901
+    },
+    "empty": {
+      "n": 375,
+      "range": [
+        0.07580456137657166,
+        0.30223795771598816
+      ],
+      "max_seed_sd": 0.002470491686835885,
+      "max_half_full_difference": 0.0008381158113479614,
+      "uniform_pearson": 0.9995174086422195,
+      "uniform_max_abs": 0.006345219910144806
+    }
+  },
+  "structures": {
+    "g12d": "c590360e85f95456b584cdf7fe764fbf41e3ac428d52df059f9414fbf84bb238",
+    "wt": "89e78ca5e4ab86b9a1009d252d7e6662bda155044b56164ae0c6a1d7be8db367",
+    "empty": "b26a08af5d54e44b73934ee710cd0ada46b7d0f6d02d5181a858d9a7d23eaed8"
+  }
+}

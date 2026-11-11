@@ -1,0 +1,57 @@
+{
+ "name": "pmhc",
+ "target": "KRAS G12D peptide on HLA-A*11:01 (challenge 5)",
+ "reference": "experiments/075-kras-pmhc-refolder-benchmark/crystal/7OW6.pdb",
+ "description": "The 7OW6 crystal: HLA heavy chain A (groove 1-180), b2m B, peptide C (VVVGADGVGK, P6 = Asp6), TCR D+E. Every KRAS render script superposes on HLA 1-180 CA (render_107.py:59-63, fig_design.py:74-81, render_103.py:72-75) and the write-up's C5 scenes look onto the groove from the TCR side with the peptide N to C left to right (c5-target-states, c5-contact-sheet, c5-opendde-empty-rejection SIDE axes).",
+ "fit": "chain A and resi 1-180 and name CA",
+ "zoom": "(chain A and resi 1-180) or chain C",
+ "buffer": 4.0,
+ "rule": {
+  "kind": "axes",
+  "right": [
+   "chain C and resi 1 and name CA",
+   "chain C and resi 10 and name CA"
+  ],
+  "toward": [
+   "chain A and resi 1-180",
+   "chain D+E"
+  ]
+ },
+ "source": [
+  "writeup/figures/c5-target-states/render_pymol.py:14-16",
+  "experiments/107-kras-sctv-campaign/renders/render_107.py:59-63"
+ ],
+ "sha256": "402423bf4450a5df23173efcf14466f990606bb399929eab5d105f65be4df10e",
+ "view": [
+  0.361289,
+  0.870717,
+  0.333649,
+  -0.147498,
+  -0.299948,
+  0.942484,
+  0.920714,
+  -0.389721,
+  0.020061,
+  0.0,
+  0.0,
+  -183.639056,
+  -42.74945,
+  10.424691,
+  -0.991397,
+  165.041292,
+  202.23682,
+  20.0
+ ],
+ "built": {
+  "date": "2026-11-07",
+  "atoms": 1536,
+  "buffer_angstrom": 4.0,
+  "square_px_bbox": [
+   101.0,
+   127.4,
+   935.8,
+   865.8
+  ],
+  "tool": "writeup/figures/frames/build_frames.py"
+ }
+}

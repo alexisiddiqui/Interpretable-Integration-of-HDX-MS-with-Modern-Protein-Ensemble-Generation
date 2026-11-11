@@ -716,7 +716,9 @@ Adding edge-only augmentation to dRSA retained crystal-defined burial targets. A
 % /Users/alexi/Documents/opig-adaptyv-2026/experiments/028-poisk-free-monomer/
 % results/summary_blind_drsa_wrong_antigen.csv, logreg_summary.csv,
 % logreg_nodecoy_summary.csv; README.md, Outcome.
-The POISK controls distinguish binder/decoy pool discrimination from recognition of the supplied antigen. The fixed contact readouts compare binder/decoy ranking with the correct or a wrong antigen (\cref{tab:jaxka-poisk-wrong-antigen}). Separate logistic readouts test antibody-only and sequence-composition explanations (\cref{tab:jaxka-poisk-learned-controls}). The binders-only comparison then holds the antibody fixed and tests its own antigen against alternatives (\cref{tab:jaxka-poisk-binders-only}). These learned readouts were fitted on POISK and are distinct from the untrained contact aggregations.
+% Matched learned controls: .experiments/poisk-drsa-20261110/collected/results/
+% logreg_blind_all3_summary.csv and logreg_nodecoy_all3_summary.csv.
+The POISK controls distinguish binder/decoy pool discrimination from recognition of the supplied antigen. The fixed contact readouts compare binder/decoy ranking with the correct or a wrong antigen (\cref{tab:jaxka-poisk-wrong-antigen}). Separate logistic readouts test antibody-only and sequence-composition explanations (\cref{tab:jaxka-poisk-learned-controls}). The binders-only comparison then holds the antibody fixed and tests its own antigen against alternatives (\cref{tab:jaxka-poisk-binders-only}). These learned readouts were fitted on POISK and are distinct from the untrained contact aggregations. The learned comparisons use the matched three-model rerun, with identical pooled-record support of 22,274 records. Summary-score readouts use 18 features, including seven predicted-burial summaries added after the initial run4/hmask analysis.
 
 \begin{table}[htbp]
     \centering
@@ -740,38 +742,79 @@ The POISK controls distinguish binder/decoy pool discrimination from recognition
 \begin{table}[htbp]
     \centering
     \small
-    \begin{tabular}{lrr}
+    \begin{tabularx}{\textwidth}{Xrrr}
         \toprule
-        Learned readout features & run4 & hmask \\
+        Learned readout features & run4 & hmask & dRSA \\
         \midrule
-        Pooled embeddings, antibody only & 0.894 & 0.891 \\
-        Antibody embeddings plus antibody--antigen products & 0.895 & 0.890 \\
-        Same features, wrong antigen & 0.892 & 0.890 \\
+        GQT summary scores (18 features) & $0.697 \pm 0.009$ & $0.741 \pm 0.005$ & $0.777 \pm 0.011$ \\
+        Pooled embeddings, antibody only & $0.894 \pm 0.006$ & $0.891 \pm 0.004$ & $0.897 \pm 0.008$ \\
+        Antibody embeddings plus correct-antigen products & $0.895 \pm 0.004$ & $0.889 \pm 0.008$ & $0.893 \pm 0.009$ \\
+        Same features, wrong antigen & $0.892 \pm 0.004$ & $0.890 \pm 0.004$ & $0.896 \pm 0.006$ \\
         \midrule
-        VH/VL amino-acid composition, no GQT & \multicolumn{2}{c}{0.863} \\
-        VH/VL amino-acid and dipeptide composition, no GQT & \multicolumn{2}{c}{0.950} \\
+        VH/VL amino-acid composition, no GQT & \multicolumn{3}{c}{$0.864 \pm 0.008$} \\
+        VH/VL amino-acid and dipeptide composition, no GQT & \multicolumn{3}{c}{$0.949 \pm 0.004$} \\
         \bottomrule
-    \end{tabular}
-    \caption[POISK antibody-only and sequence-composition controls]{POISK binder/decoy pairwise accuracy for learned blind readouts, averaged over five antigen-cluster splits. Antigens were clustered at 80\% sequence identity and whole clusters assigned to training or test sets. Logistic regression used binder-minus-decoy feature differences, with regularisation chosen by antigen-cluster-grouped cross-validation within training. Split standard deviations for the displayed readouts were below 0.008. Sequence-composition controls use no GQT features and are shared across recipe columns. Antibody-only and wrong-antigen performance identify discrimination that does not require the correct pairing.}
+    \end{tabularx}
+    \caption[POISK antibody-only and sequence-composition controls]{POISK binder/decoy pairwise accuracy for learned blind readouts, reported as mean $\pm$ SD across five antigen-cluster splits. Antigens were clustered at 80\% sequence identity and whole clusters assigned to training or test sets. Logistic regression used binder-minus-decoy feature differences, with regularisation chosen by antigen-cluster-grouped cross-validation within training. GQT arms averaged approximately 5,449 test pairs per split, compared with 5,549 for sequence controls. Sequence-composition controls use no GQT features and are shared across recipe columns. Antibody-only and wrong-antigen performance identify discrimination that does not require the correct pairing.}
     \label{tab:jaxka-poisk-learned-controls}
 \end{table}
 
 \begin{table}[htbp]
     \centering
     \small
-    \begin{tabular}{llrr}
+    \begin{tabularx}{\textwidth}{Xlrr}
         \toprule
         Learned readout features & Recipe & Pairwise accuracy & Top-1 of 10 \\
         \midrule
-        GQT summary scores & run4 & $0.498 \pm 0.012$ & --- \\
-         & hmask & $0.515 \pm 0.005$ & --- \\
-        Antibody--antigen embedding products & run4 & $0.538 \pm 0.008$ & 0.124 \\
-         & hmask & $0.566 \pm 0.011$ & 0.147 \\
+        GQT summary scores (18 features) & run4 & $0.501 \pm 0.005$ & --- \\
+         & hmask & $0.515 \pm 0.010$ & --- \\
+         & dRSA & $0.528 \pm 0.006$ & --- \\
+        \addlinespace
+        Elementwise embedding products & run4 & $0.539 \pm 0.009$ & 0.124 \\
+         & hmask & $0.562 \pm 0.013$ & 0.146 \\
+         & dRSA & $0.535 \pm 0.011$ & 0.128 \\
+        \addlinespace
+        Bilinear embedding products & run4 & $0.530 \pm 0.015$ & 0.123 \\
+         & hmask & $0.551 \pm 0.015$ & 0.134 \\
+         & dRSA & $0.547 \pm 0.011$ & 0.135 \\
+        \addlinespace
         Antigen embedding only & run4 & $0.501 \pm 0.004$ & 0.105 \\
          & hmask & $0.498 \pm 0.004$ & 0.104 \\
-        Sequence-composition products & No GQT & $0.532 \pm 0.016$ & 0.124 \\
+         & dRSA & $0.500 \pm 0.003$ & 0.105 \\
+        \addlinespace
+        Sequence-composition products & No GQT & $0.532 \pm 0.016$ & 0.125 \\
+        \bottomrule
+    \end{tabularx}
+    \caption[POISK binders-only antigen ranking]{Learned blind readouts for POISK binders-only antigen ranking. Pairwise accuracy is mean $\pm$ SD across five antigen-cluster splits; top-1 retrieval is the split mean. Each comparison holds the antibody fixed, so antibody-only features cancel. Alternative antigens come from different antigen clusters on the same side of the split, with three negatives per binder for training and nine for testing. Elementwise products combine pooled CDR or framework embeddings with the antigen embedding; bilinear products use outer products after reducing each representation to 16 principal components fitted on training data. The summary-score arm instead uses one stored wrong antigen and approximately 2,621 test binders per split, compared with approximately 5,459 for the other arms; top-1-of-10 retrieval is therefore not reported for that arm. Chance is 0.5 for pairwise accuracy and 0.1 for top-1-of-10 retrieval. Split SDs are not a significance test of differences between recipes.}
+    \label{tab:jaxka-poisk-binders-only}
+\end{table}
+
+
+\section{KRAS pMHC Screening and Candidate Assessment}
+\label{app:jaxka-kras-screening}
+
+% Sources: kb/experiments/046-atlas-kras-screen.md;
+% experiments/045-atlas-voronoi-clustering/interface_only/README.md;
+% experiments/046-atlas-fragment-hit/README.md;
+% experiments/055-kras-top100-pilot/README.md and candidate-results.csv.
+The screen used the hmask checkpoint before dRSA training. The high-confidence ATLAS population contained 171,265 exact-sequence-deduplicated source chains. Exposed residues at native protein contact interfaces were intersected with isolated-chain PeSTo interface predictions, and surface-fingerprint clustering reduced the library to 69,060 representatives. The hotspot-80 cutoff is a fingerprint-similarity score, not an 80\% sequence-identity threshold. All representatives scored without failure, producing 459,946 unique native fragments and 16,855,977 residue--fragment pairings. Retaining 200 candidates for each of 89 target-interface residues gave 17,800 pairings containing 9,119 unique fragments. Pairings preserve source-complex identity, native coordinates and explicit source-residue/target-residue assignments.
+
+The first 100 intact source chains by exposure-weighted rank were selected from a 1,026-patch ranking. Some selected chains did not pass the blind directional gates, so the prediction cohort is not a set of 100 blind positives. ESMFold2 generated one prediction per source and context using seed 102, for 300 predictions in total. Target MSAs were supplied for HLA and $\beta_2$-microglobulin; candidate and peptide chains had no MSA. The contexts were G12D pMHC, matched WT pMHC and peptide-free HLA-A*11:01/$\beta_2$-microglobulin.
+
+For each candidate--target chain pair, the larger directional iPTM was used before averaging over target chains. Full-interface scores include all target chains; common-chain scores include only HLA and $\beta_2$-microglobulin. Target--target interactions are excluded. A G12D pose passed when its full-interface iPTM exceeded 0.7 and the WT value, and its common-chain iPTM exceeded the peptide-free value. All positive criteria were required in the same G12D pose. Three candidates passed (\cref{tab:jaxka-kras-candidates}). P6 contacts count candidate residues with any heavy atom within 4.5~\AA{} of any P6 heavy atom; the count is not restricted to contacts with the Asp side chain.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \begin{tabular}{lrrrrrr}
+        \toprule
+        Source chain & Rank & \shortstack{Full iPTM\\G12D} & \shortstack{Full iPTM\\WT} & \shortstack{Common iPTM\\G12D} & \shortstack{Common iPTM\\Peptide-free} & \shortstack{P6 contacts\\G12D} \\
+        \midrule
+        \texttt{ID\_1457932} & 54 & 0.875 & 0.761 & 0.854 & 0.192 & 4 \\
+        \texttt{ID\_1233690} & 24 & 0.753 & 0.739 & 0.787 & 0.169 & 0 \\
+        \texttt{ID\_1230782} & 27 & 0.737 & 0.720 & 0.693 & 0.149 & 1 \\
         \bottomrule
     \end{tabular}
-    \caption[POISK binders-only antigen ranking]{Learned blind readouts for POISK binders-only antigen ranking. Pairwise accuracy is mean $\pm$ standard deviation across five antigen-cluster splits; top-1 retrieval is the split mean. Each comparison holds the antibody fixed, so antibody-only features cancel. Alternative antigens come from different antigen clusters on the same side of the split, with three negatives per binder for training and nine for testing. Embedding products are elementwise products of pooled CDR or framework embeddings with the antigen embedding. The summary-score arm instead uses one stored wrong antigen and approximately 2,621 test binders per split, compared with approximately 5,459 for the other arms; top-1-of-10 retrieval is therefore not reported for that arm. Chance is 0.5 for pairwise accuracy and 0.1 for top-1-of-10 retrieval.}
-    \label{tab:jaxka-poisk-binders-only}
+    \caption[KRAS candidates passing matched interface-confidence criteria]{Candidates passing the matched ESMFold2 interface-confidence criteria among 100 ranked ATLAS source chains. Rank is the blind exposure-weighted rank. Full-interface iPTM averages candidate interactions with all target chains; common-chain iPTM averages only those with HLA and $\beta_2$-microglobulin. P6 contacts count candidate residues within 4.5~\AA{} of the mutant peptide residue. Two P6-contacting residues in \texttt{ID\_1457932} belong to its original screened patch; this candidate has one P6-contacting residue in the WT model. All three candidates retain WT interface iPTM above 0.7. Confidence-gate passage does not establish experimental binding selectivity or enrichment relative to a random library.}
+    \label{tab:jaxka-kras-candidates}
 \end{table}

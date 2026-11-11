@@ -1,0 +1,27 @@
+{
+  "g12d": {
+    "exposure_spearman": 0.7646473992328914,
+    "uniform_spearman": 0.9989837073548213,
+    "min_pairwise_seed_spearman": 0.9991937790189085
+  },
+  "wt": {
+    "exposure_spearman": 0.7642924433079874,
+    "uniform_spearman": 0.9989025385236524,
+    "min_pairwise_seed_spearman": 0.9992741067222931
+  },
+  "empty": {
+    "exposure_spearman": 0.825936966662874,
+    "uniform_spearman": 0.9991195812948004,
+    "min_pairwise_seed_spearman": 0.9993284787802936
+  },
+  "delta_wt": {
+    "max_abs": 0.023693233728408813,
+    "rms": 0.0029802226927131414,
+    "max_paired_seed_sd": 0.00047413556603714824
+  },
+  "delta_empty": {
+    "max_abs": 0.08509450405836105,
+    "rms": 0.009405183605849743,
+    "max_paired_seed_sd": 0.0018006277969107032
+  }
+}
