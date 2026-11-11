@@ -6,14 +6,29 @@
 
 % Define heavy-side BV-contacts, Define SAXS forward model + FFT version, Define metainference, metadynamics and then metadiffusion.
 
-\section{Motivation}
+
+
+\section{Introduction}
+\label{sec:biofeat-intro}
+
+\subsection{Motivation}
 \label{sec:biofeat-motivation}
+
+\Cref{ch:valdx,ch:jaxent} assessed and proposed conformational ensembles by reweighting and optimising fixed candidates after sampling had finished. This offline integration redistributes weight among the structures supplied but cannot add a state they lack, and each change of candidate ensemble costs another round of sampling and fitting. To address sampling efficiently, we need the data to be integrated, and the agreement assessed, online while conformations are being simulated or generated.
+
+For restrained simulation, metainference with metadynamics is a common approach to this problem. Metainference restrains replica averages to the data and infers their uncertainty during sampling, while metadynamics carries the replicas over barriers that the restraint alone does not cross.\supercite{bonomiMetadynamicMetainferenceEnhanced2016} It has been applied to SAXS,\supercite{ahmedRefinementASynucleinEnsembles2021} but no widely used implementation exists for HDX. The BV model counts contacts with hard cutoffs, so its prediction is piecewise constant in the coordinates and gives no force to follow (\cref{eq:bg-bv-feature}), and PLUMED provides no optimised HDX collective variable. Python sampling libraries do not close this gap. PySAGES runs enhanced-sampling methods on GPUs through JAX,\supercite{zubietaricoPySAGESFlexibleAdvanced2024} but it does not provide hooks for parallel-bias metadynamics as implemented in PLUMED,\supercite{pfaendtnerEfficientSamplingHighDimensional2015} which biases several collective variables at once.
+
+Generation with modern protein structure models poses the same problem with a different sampler. Diffusion generators propose candidates without the cost of simulation, but generated samples collapse onto the training distribution and do not approximate the solution ensemble (\cref{sec:bg-diffusion}). Experimental guidance can enter during denoising, although guiding each structure towards an ensemble-average target such as HDX uptake can exclude the conformations whose combination would explain it (\cref{sec:bg-guided-diffusion}). We therefore carry these concepts from metainference with metadynamics into the diffusion generation process. 
+
+
+
 
 \subsection{Abstract}
 \label{sec:biofeat-abstract}
 
-\section{Introduction}
-\label{sec:biofeat-intro}
+\subsection{Summary}
+\label{sec:biofeat-summary}
+
 
 \section{Methods}
 \label{sec:biofeat-methods}
@@ -210,7 +225,6 @@ Stationary populations do not show which way runs move, so drift was measured di
 \subsection{Restrained Sampling from Diverse Starts Retains Both Anton Basins}
 \label{sec:biofeat-bpti-results}
 
-Run from the original starts, $\pm2$ MI and MI+PB stayed concentrated in the main Anton basin. We therefore asked whether MI+PB with $\pm0$ exclusions could generate starts spanning both principal basins. The $\pm0$ source covered both basins of the 1.03\,ms reference (\cref{fig:biofeat-bpti-matched-starts}), with 48.0\,\% of its frames in the second basin (PC1 $<-0.55$) against 14.4\,\% for Anton. These biased frame counts establish coverage, not equilibrium populations. The excess of second-basin frames is nonetheless what makes the source a diverse pool of starts.
 
 \begin{figure}[htbp]
     \centering
@@ -218,9 +232,3 @@ Run from the original starts, $\pm2$ MI and MI+PB stayed concentrated in the mai
     \caption{Coverage of the two Anton basins of BPTI after restarting from diverse starts. Density panels give $-\ln(p/p_\mathrm{max})$ from uniform frame counts on the Anton C$\alpha$ PCA, without refitting, for the $\pm0$ MI+PB source, for $\pm2$ MI+PB, $\pm2$ MI and unbiased MD run from the four selected starts, and for the 1.03\,ms Anton reference. Colour scales are independent for each panel. The dashed line marks the second-basin boundary at PC1 $=-0.55$. The last panel gives the percentage of frames in the second basin in 10\,ns windows after restart, pooled over the four replicas, with the full-run fraction of the $\pm0$ source as the dashed line. Both restrained conditions kept 44--45\,\% of their frames in the second basin and unbiased MD 36\,\%, against 14\,\% for Anton. The densities measure coverage, not populations.}
     \label{fig:biofeat-bpti-matched-starts}
 \end{figure}
-
-Restarting from four structures selected across the source tests whether that diversity survives the change to $\pm2$ exclusions. Pooled over the four replicas, 44.5\,\% of $\pm2$ MI+PB frames and 44.9\,\% of $\pm2$ MI frames lay in the second basin, against 35.6\,\% for unbiased MD from the same starts. Over the final 50\,ns these fell to 37.0, 39.2 and 22.4\,\%. Both restrained conditions stayed above unbiased MD for boundaries from PC1 $=-0.65$ to $-0.45$ (\cref{app:biofeat-bpti}). MI alone matched MI+PB, so retention of the second basin did not require the disulfide bias.
-
-To distinguish retention of starting diversity from subsequent visits, we examined the replica traces (\cref{fig:biofeat-bpti-replica-retention}). Most second-basin coverage was retained from the two starts that began there. Start 1 stayed in the second basin under every condition, spending 90, 98 and 84\,\% of the final 50\,ns there under MI+PB, MI and unbiased MD. Start 2 left at 151.5\,ns without restraint, at 200.4\,ns under MI+PB and at 217.3\,ns under MI, and only under MI+PB did it return, occupying the second basin for 99.9\,\% of the final 10\,ns. Start 3 began in the main basin and crossed into the second late in the run under MI and unbiased MD, so transitions occurred in both directions within 250\,ns.
-
-One route, the $\pm0$ diversity stage followed by one $\pm2$ condition, used 2\,$\mu$s of production and recovered both basin locations of a trajectory 500 times longer. The frame fractions do not carry over to populations. Two of the four starts began in the second basin, and all three conditions kept 36--45\,\% of their frames there against 14\,\% for Anton, so the fractions reflect both the starting allocation and the subsequent dynamics. Restrained sampling from diverse starts therefore establishes coverage and retention. Estimating populations needs unbiased dynamics from the sampled states, which is how the MoPrP case is built.
