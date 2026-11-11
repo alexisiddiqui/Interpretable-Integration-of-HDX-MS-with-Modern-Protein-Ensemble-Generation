@@ -5,21 +5,24 @@
 % (rectangle = attention + FF, pill = light operation), grey detail lines.
 \begin{figure}[tbp]
     \centering
-    \newcommand{\detail}[1]{\\[-1pt]{\scriptsize\color{black!60}#1}}
+    % Fixed sizes so the layout does not depend on the class font size.
+    \newcommand{\figfont}{\fontsize{8}{9.5}\selectfont}
+    \newcommand{\figsmall}{\fontsize{7}{8}\selectfont}
+    \newcommand{\detail}[1]{\\[-1pt]{\figsmall\color{black!60}#1}}
     \colorlet{enc}{blue!60!black}
     \colorlet{dec}{orange!80!black}
     \colorlet{head}{black!55}
     \begin{tikzpicture}[
         box/.style={draw=black!50,rounded corners=2pt,align=center,
-            inner sep=4pt,font=\footnotesize,fill=white},
+            inner sep=4pt,font=\figfont,fill=white},
         attn/.style={box,text width=7.6cm,draw=#1,thick},
         pill/.style={draw=#1,fill=white,rounded corners=2.2mm,inner xsep=6pt,
-            inner ysep=2.5pt,font=\footnotesize},
+            inner ysep=2.5pt,font=\figfont},
         frame/.style={draw=#1,fill=#1!7,rounded corners=3pt},
         header/.style={anchor=north west,align=left,text width=3.3cm,
-            font=\footnotesize},
+            font=\figfont},
         flow/.style={-{Stealth[length=2mm]},thick,draw=black!65},
-        tensor/.style={font=\scriptsize,inner sep=2pt}]
+        tensor/.style={font=\figsmall,inner sep=2pt}]
 
         % Inputs and the two states.
         \node[box,text width=13.5cm] (input) at (0,0)
@@ -27,16 +30,18 @@
              Nodes: identity, backbone dihedrals.\quad
              Edges: C$\alpha$ distance, local-frame directions and orientations};
         \node[box,text width=6.2cm] (bound) at (-3.6,-1.3)
-            {\textbf{Bound complex, $AB$}\\All edges, within and across chains};
+            {\textbf{Bound complex, $AB$}\\Each residue in its complex environment
+             \detail{All edges, within and across chains}};
         \node[box,text width=6.2cm] (free) at (3.6,-1.3)
-            {\textbf{Separated partners, $F$}\\Cross-chain edges masked};
+            {\textbf{Separated partners, $F$}\\Each partner alone, same coordinates
+             \detail{Cross-chain edges masked}};
         \draw[flow] (input.south -| bound.north) -- (bound.north);
         \draw[flow] (input.south -| free.north) -- (free.north);
 
         % Shared-parameter wrapper: one set of weights, run once per state.
         \draw[draw=blue!45!black,dashed,rounded corners=3pt]
             (-6.9,-2.15) rectangle (6.9,-11.2);
-        \node[header,text=blue!45!black,font=\footnotesize\bfseries]
+        \node[header,text=blue!45!black,font=\figfont\bfseries]
             at (-6.8,-2.2) {Shared parameters,\\one pass per state};
 
         % Module frames.
@@ -61,13 +66,13 @@
             {\textbf{Self-attention}\quad residues $\leftrightarrow$ residues
              \detail{One map for all neighbours}};
         \coordinate (bx) at (-1.5,0);
-        \draw[flow] (bound.south -| bx) -- (enc1.north -| bx);
-        \draw[flow] (free.south) -- (free.south |- enc1.north);
+        \draw[flow] (bound.south -| bx) -- node[tensor,right,pos=0.5] {$AB$ pass} (enc1.north -| bx);
+        \draw[flow] (free.south) -- node[tensor,right,pos=0.5] {$F$ pass} (free.south |- enc1.north);
         \draw[flow] (enc1) -- (enc2);
 
         % Query decoder.
         \node[pill=dec] (init) at (1.5,-5.95)
-            {$q_i = h_i + e(a_i)$\quad{\scriptsize\color{black!60}learned amino-acid embedding $e$}};
+            {$q_i = h_i + e(a_i)$\quad{\figsmall\color{black!60}learned amino-acid embedding $e$}};
         \node[attn=dec] (cross) at (1.5,-6.85)
             {\textbf{Cross-attention}\quad queries $\leftarrow$ residues
              \detail{Each query $q_i$ reads neighbouring residue states $h_j$}};
@@ -83,7 +88,7 @@
             node[pos=0.25,right,tensor] {$h_j$};
         % Terminal maps feed only the scalar heads.
         \node[pill=dec] (ends) at (-0.5,-8.75)
-            {$t\in\{z_i,\,T_N(z_i),\,T_C(z_i)\}$\quad{\scriptsize\color{black!60}terminal maps}};
+            {$t\in\{z_i,\,T_N(z_i),\,T_C(z_i)\}$\quad{\figsmall\color{black!60}terminal maps}};
         \draw[flow] (self.south -| ends.north) -- node[tensor,left] {$z_i$} (ends.north);
 
         % Readout heads.
@@ -97,12 +102,27 @@
         \draw[flow] (self.south -| struct.north) -- node[tensor,right,pos=0.3] {$z_i$} (struct.north);
 
         % State pKa and the binding shift.
-        \node[box,draw=blue!55!black,thick,text width=13.5cm] (shift) at (0,-11.95)
-            {$\mathrm{p}K_a^{s}=\mathrm{p}K_a^{\mathrm{ref}}+\text{shift}^{s}$ for $s\in\{AB,F\}$\qquad
-             \textbf{Binding-induced shift}\quad
-             $\Delta\mathrm{p}K_a=\mathrm{p}K_a^{AB}-\mathrm{p}K_a^{F}$};
-        \draw[flow] (scalar.south) -- (scalar.south |- shift.north);
+        % Outputs of the two passes.
+        \node[box,text width=3.6cm,minimum height=1.05cm] (pkab) at (-4.6,-12.3)
+            {$\mathrm{p}K_a^{AB}=\mathrm{p}K_a^{\mathrm{ref}}+\text{shift}^{AB}$
+             \detail{Bound pass}};
+        \node[box,text width=3.6cm,minimum height=1.05cm] (pkaf) at (-0.5,-12.3)
+            {$\mathrm{p}K_a^{F}=\mathrm{p}K_a^{\mathrm{ref}}+\text{shift}^{F}$
+             \detail{Separated pass}};
+        \node[box,text width=4.6cm,minimum height=1.05cm,draw=blue!55!black,thick] (iface) at (4.1,-12.3)
+            {\textbf{Interface contacts}
+             \detail{Separated pass: partners encoded independently}};
+        \draw[flow] (scalar.south) -- (pkaf.north);
+        \draw[flow] (scalar.south) ++(0,-0.75) -| (pkab.north);
+        \draw[flow] (struct.south) -- (struct.south |- iface.north);
+        \node[box,text width=7.7cm,draw=blue!55!black,thick] (delta) at (-2.55,-13.6)
+            {\textbf{Binding-induced shift}\quad
+             $\Delta\mathrm{p}K_a=\mathrm{p}K_a^{AB}-\mathrm{p}K_a^{F}$
+             \detail{Effect of the partner's environment; same coordinates,\\
+             so no conformational relaxation}};
+        \draw[flow] (pkab) -- (pkab |- delta.north);
+        \draw[flow] (pkaf) -- (pkaf |- delta.north);
     \end{tikzpicture}
-    \caption[Shared GQT encoder and query decoder]{The retained all-residue GQT architecture. Bound and separated passes use the same coordinates and parameters; the separated pass masks cross-chain edges, so every attention stage encodes each partner independently. Frames group the model into a residue encoder (blue), a query decoder (orange) and readout heads (grey); the encoder and decoder frames give their neighbourhoods. Rectangles are attention blocks, each with a residual feed-forward update; layers do not share parameters. Pills are lighter operations. The first residue block selects one of four learned relation maps for each neighbour, and the second uses a single map. The decoder places a query at every residue, initialised from its residue state $h_i$ plus an amino-acid embedding $e(a_i)$. Queries read the residue states and then one another to give final tokens $z_i$. Learned affine maps $T_N$ and $T_C$ give N- and C-terminal outputs, which share the shift and titratability heads with the side-chain output. Burial and contact heads read $z_i$, with contacts scored from symmetric features of normalised token pairs, $\tilde z$. A separated-state contact score therefore combines partners encoded without their relative placement. Group-specific references $\mathrm{p}K_a^{\mathrm{ref}}$ convert environmental shifts to state $\mathrm{p}K_a$ values; their bound-minus-separated difference excludes conformational relaxation.}
+    \caption[Shared GQT encoder and query decoder]{The retained all-residue GQT architecture. Bound and separated passes use the same coordinates and parameters; the separated pass masks cross-chain edges, so every attention stage encodes each partner independently. Frames group the model into a residue encoder (blue), a query decoder (orange) and readout heads (grey); the encoder and decoder frames give their neighbourhoods. Rectangles are attention blocks, each with a residual feed-forward update; layers do not share parameters. Pills are lighter operations. The first residue block selects one of four learned relation maps for each neighbour, and the second uses a single map. The decoder places a query at every residue, initialised from its residue state $h_i$ plus an amino-acid embedding $e(a_i)$. Queries read the residue states and then one another to give final tokens $z_i$. Learned affine maps $T_N$ and $T_C$ give N- and C-terminal outputs, which share the shift and titratability heads with the side-chain output. Burial and contact heads read $z_i$, with contacts scored from symmetric features of normalised token pairs, $\tilde z$. A separated-state contact score therefore combines partners encoded without their relative placement. Group-specific references $\mathrm{p}K_a^{\mathrm{ref}}$ convert environmental shifts to state $\mathrm{p}K_a$ values. Because both passes use the same coordinates, their difference isolates the partner's environment and excludes conformational relaxation.}
     \label{fig:jaxka-model-overview}
 \end{figure}
