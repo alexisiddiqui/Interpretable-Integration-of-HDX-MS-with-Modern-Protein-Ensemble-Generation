@@ -106,7 +106,13 @@ Paragraph outline for `thesis/chapters/06-jax-ka.tex`. Each bullet develops one 
 
 - **Top-100 prediction identifies one high-confidence lead.** Across 300 ESMFold2 predictions, three candidates pass relative confidence gates. ID_1457932 reaches G12D interface iPTM 0.875 against WT 0.761, with four residues contacting mutant peptide position P6. All three candidates retain WT iPTM above 0.7, so predicted mutant preference does not establish WT avoidance ([[046-atlas-kras-screen#Top-100 complex prediction]]).
 
-- **Structural comparisons locate the candidate interaction at the peptide groove.** Compare the crystal TCR and screened hit in mutant and WT contexts through electrostatics and hydrophobicity, then show the hit's aligned G12D, WT and peptide-free predictions. The maps describe saved contact surfaces and the renders separate component identity from local confidence. Without a matched random-library prediction cohort, the screen does not quantify enrichment from GQT ranking ([[046-atlas-kras-screen#Mutation-centred radial comparison]]; `jaxka-kras-pmhc-radial`, `jaxka-kras-pmhc-plddt`).
+- **The candidate occupies a different footprint with a similar electrostatic signature.** Its interface shifts towards the peptide's C-terminal half relative to the crystal TCR, while retaining a positive region near P6 and negative regions further from the peptide (own; [[046-atlas-kras-screen#Mutation-centred radial comparison]]; `jaxka-kras-pmhc-radial`).
+
+- **Additional hydrophobic contacts around P6 support the predicted G12D preference.** The candidate places a hydrophobic patch around P6 in the G12D complex that is absent from its WT interface, supporting a structural explanation for its iPTM contrast. The crystal TCR retains similar contact environments across the peptides, and Boltz-2 refolding of that TCR gives little G12D–WT iPTM difference (own; [[046-atlas-kras-screen#Mutation-centred radial comparison]]).
+
+- **A CDR-like loop supplies the peptide contacts.** N289, L290, A291 and R298 contact G12D P6, while only R298 contacts WT P6. L290 and A291 belong to the original screened patch and supply its local hydrophobic component. Peptide removal changes the predicted placement from above the groove to a different target surface, alongside the fall in common-chain iPTM from 0.854 to 0.192 (own; [[046-atlas-kras-screen#Loop contacts and peptide-dependent placement]]; `jaxka-kras-pmhc-plddt`).
+
+- **Experimental testing should resolve whether the additional contacts confer binding selectivity.** Compare the lead against G12D, WT and peptide-free targets. A matched random-library prediction cohort would separately test enrichment attributable to GQT ranking ([[046-atlas-kras-screen#Top-100 complex prediction]]).
 
 ## Appendix — loss functions and training recipes
 

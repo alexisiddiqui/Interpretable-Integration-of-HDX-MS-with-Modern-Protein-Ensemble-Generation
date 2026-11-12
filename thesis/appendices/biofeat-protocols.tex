@@ -47,7 +47,7 @@ Each case changed some of these defaults. BPTI compared $m=0$ with $m=2$ (\cref{
 \end{table}
 
 \paragraph{Synthetic amide hydrogens.}
-The TeaA target and runs reported in \cref{ch:biofeaturisers} were made with BioFeaturisers version \texttt{39b8069}, which corrected the placement of synthetic amide hydrogens. Structures without amide H, which include all Boltz-2 output and the topology on which the TeaA target is scored, receive one $1.01\,\text{\AA}$ from the amide N. It lies in the peptide plane, pointing away from both the C$\alpha$ and the preceding carbonyl C, and therefore trans to the preceding C=O. Up to version \texttt{43cc194} the sign of this placement was reversed, which put the H between the two neighbours.
+The TeaA target and runs reported in \cref{sec:biofeat-teaa-results} were made with BioFeaturisers version \texttt{39b8069}, which corrected the placement of synthetic amide hydrogens. Structures without amide H, which include all Boltz-2 output and the topology on which the TeaA target is scored, receive one $1.01\,\text{\AA}$ from the amide N. It lies in the peptide plane, pointing away from both the C$\alpha$ and the preceding carbonyl C, and therefore trans to the preceding C=O. Up to version \texttt{43cc194} the sign of this placement was reversed, which put the H between the two neighbours.
 
 Two checks measured the error and its correction. On 5PTI the reversed H lay $2.02\,\text{\AA}$ from its DSSP position for all 57 residues tested, against a mean of $0.10\,\text{\AA}$ after correction (maximum $0.22\,\text{\AA}$). On the TeaA open MD frame, which carries explicit H, the reversed placement gave a mean $N_H$ of 0.35 at $b_H=1\,\text{\AA}^{-1}$ and 0.002 at $5\,\text{\AA}^{-1}$, against 0.78 and 0.61 from the explicit H, while the corrected placement reproduced the explicit values (correlation 1.00 and 0.99). The reversed placement therefore counted less than half of the hydrogen bonds at the steepness used for TeaA and almost none at the default. The BPTI and MoPrP simulations carry explicit H and are unaffected.
 
@@ -204,7 +204,7 @@ with $\mathrm{d}V/\mathrm{d}\theta$ in degrees and $\partial\theta/\partial\math
         Final reweighting & MaxEnt with a uniform prior, $\lambda=100$ and 1000 \\
     \bottomrule
     \end{tabularx}
-    \caption{Metadiffusion, refinement and reweighting settings for the TeaA run reported in \cref{ch:biofeaturisers}.}
+    \caption{Metadiffusion, refinement and reweighting settings for the TeaA run reported in \cref{sec:biofeat-teaa-results}.}
     \label{tab:biofeat-metadiffusion}
 \end{table}
 
@@ -375,6 +375,15 @@ For exclusive frame assignments, the first matching condition in \cref{tab:biofe
     \label{fig:biofeat-moprp-puf-rules}
 \end{figure}
 
+\begin{landscape}
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=\linewidth,height=0.78\textheight,keepaspectratio]{biofeat-moprp-paths-ext12/seeded_paths_ext12_dih.png}
+    \caption{Unbiased MoPrP trajectories from all six seed groups on the dihedral plane. Columns identify the source basin and rows the simulation pH, with seed origins defined in \cref{tab:biofeat-moprp-basins}. The axes separate global dihedral RMSD to 2L39 from local dihedral change in $\beta1$. Green paths follow the 120 extended trajectories as 1\,ns running means, with circles marking starts, diamonds 20\,ns and squares the final frames. Yellow points show the 20\,ns runs from the same source basin at the same target pH, and grey density shows unbiased reference MD. The grid complements the selected Cartesian paths in \cref{fig:biofeat-moprp-paths}.}
+    \label{fig:biofeat-moprp-paths-dih}
+\end{figure}
+\end{landscape}
+
 \subsection{MSM Estimation and Diagnostics}
 \label{app:biofeat-moprp-msm}
 
@@ -393,9 +402,23 @@ Drift was the mean displacement over $\tau=1$ ns divided by $\tau$, averaged in 
 
 Generation used no MSA and took Boltz-2's own MSA-conditioned prediction as its only template. The synthetic target combined 15 open and 332 closed MD frames with total state weights of 40\,\% and 60\,\%, respectively. Uptake was calculated at 10, 60, 600, 3600 and 7200 s with intrinsic rates at pH 7.0 and 300 K. The target and generation used the same forward model and corrected amide-H placement (\cref{app:biofeat-bv}).
 
-The unguided control denoised the same refinement seed sets with diffusion seeds 611--615, then used the same filtering and final reweighting as the guided pool (\cref{tab:biofeat-metadiffusion}). Evaluation assigned open, intermediate and closed states by the angle thresholds in \cref{sec:biofeat-cases}. To assess how uptake agreement constrains the open fraction, mixtures of structures close to the MD open and closed references were scored at fractions from 0 to 1 with the same forward model.
+The unguided control denoised the same refinement seed sets with diffusion seeds 611--615, then used the same filtering and final reweighting as the guided pool (\cref{tab:biofeat-metadiffusion}). Evaluation assigned open, intermediate and closed states by the angle thresholds in \cref{sec:biofeat-cases}. To assess how uptake agreement constrains the open fraction, mixtures of structures close to the MD open and closed references were scored at fractions from 0 to 1 with the same forward model (\cref{fig:biofeat-teaa-fit}). The population and uptake-fit comparisons are interpreted in \cref{sec:biofeat-teaa-results}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth, keepaspectratio]{biofeat-composition/out/teaa_fit_support.png}
+    \caption{Uptake agreement weakly distinguishes open fractions within reference-like generated pools. The blue curve gives uptake MSE for mixtures of generated open and closed structures close to the MD references, with uniform weights within each pool. The vertical dotted line marks the target open fraction of 0.40; black points mark this fraction and the minimum at 0.491. Horizontal lines give the fitted errors for the bias union, HDX-refined ensemble and unguided re-denoising control at $\lambda=1000$. Reference-like mixtures fit almost equally well at 0.40 and 0.50 open (MSE 0.00591 and 0.00573), while the refined ensemble reaches 0.0027 despite its displaced structural distribution. The mixture pools contain generated structures, not the MD frames used to construct the synthetic target.}
+    \label{fig:biofeat-teaa-fit}
+\end{figure}
 
 \subsection{Lobe and Reference Checks}
 \label{app:biofeat-teaa-checks}
 
-The Fiedler lobes agreed with a hand division (lobe I residues 1--122, 207--249 and 284--309; lobe II 123--206 and 250--283) on 92.9\,\% of residues, and the 22 differences were hand-lobe-I residues assigned to lobe II. On the Fiedler axis the MD open reference lies at $\theta=-18.4^\circ$ and the closed reference at $+9.7^\circ$, and the 150 unguided structures lay between $-2.2^\circ$ and $+1.8^\circ$ (standard deviation $0.63^\circ$).
+The Fiedler lobes agreed with a hand division (lobe I residues 1--122, 207--249 and 284--309; lobe II 123--206 and 250--283) on 92.9\,\% of residues, and the 22 differences were hand-lobe-I residues assigned to lobe II. On the Fiedler axis the MD open reference lies at $\theta=-18.4^\circ$ and the closed reference at $+9.7^\circ$, and the 150 unguided structures lay between $-2.2^\circ$ and $+1.8^\circ$ (standard deviation $0.63^\circ$). \Cref{fig:biofeat-teaa-geometry} compares the structural and hinge distributions used to assess the fitted weight in \cref{sec:biofeat-teaa-results}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth, keepaspectratio]{biofeat-composition/out/teaa_geometry_main.png}
+    \caption{Fitted TeaA weight extends beyond the reference distributions in structural displacement and hinge angle. Panels A and B compare normalised densities on MD-fitted C$\alpha$ PC1 and on $\theta$, respectively, using logarithmic density axes. The black curve gives the MD target mixture, purple the unguided Boltz-2 pool, pink the bias union, green the refined pool with uniform weights, and dashed gold the refined pool after MaxEnt reweighting. Dotted orange and blue lines mark the projections of the open and closed reference structures. Reweighting favours structures on both sides of the opening motion, but does not confine weight to the MD distributions.}
+    \label{fig:biofeat-teaa-geometry}
+\end{figure}
