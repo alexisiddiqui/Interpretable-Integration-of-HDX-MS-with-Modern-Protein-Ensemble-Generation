@@ -1,0 +1,37 @@
+loaded r2: 50 structures
+loaded r3: 50 structures
+loaded r4: 50 structures
+loaded c1: 50 structures
+loaded c2: 50 structures
+loaded c3: 50 structures
+loaded c4: 50 structures
+loaded c5: 50 structures
+loaded c6: 50 structures
+loaded c7: 50 structures
+loaded c8: 50 structures
+ theta    n | hingeO hingeC lobeII->open lobeII->closed |  MSE unif floor l100   ESS floor l1000   ESS
+    r2   50 |      0      0         4.98           3.51 |   0.01530    0.01448  25.4     0.01393   9.4
+    r3   50 |      0      2         5.29           3.28 |   0.01529    0.01408  14.8     0.01312   2.5
+    r4   50 |      0      3         5.20           3.38 |   0.01516    0.01375  15.1     0.01271   3.2
+    c1   50 |      1      5         5.28           3.82 |   0.01473    0.01369  26.9     0.01374  25.0
+    c2   50 |      4      6         5.27           4.13 |   0.01455    0.01252   5.7     0.01181   2.8
+    c3   50 |      5      1         5.33           4.33 |   0.01456    0.01296  16.2     0.01235   6.2
+    c4   50 |      4      2         5.30           4.54 |   0.01429    0.01231  12.2     0.01147   4.6
+    c5   50 |      1      1         5.42           4.73 |   0.01378    0.01199  19.8     0.01127   9.4
+    c6   50 |      2      0         5.56           4.88 |   0.01390    0.01208  20.3     0.01153  11.9
+    c7   50 |      1      0         5.52           5.04 |   0.01416    0.01334  27.1     0.01249   9.4
+    c8   50 |      1      1         5.60           5.07 |   0.01411    0.01306  24.3     0.01198   5.9
+union of 550 structures: uniform MSE 0.01434
+lambda 100: floor 0.01164, ESS 32.2; weight per theta: r2:0.04, r3:0.05, r4:0.05, c1:0.04, c2:0.13, c3:0.05, c4:0.09, c5:0.18, c6:0.18, c7:0.11, c8:0.08
+   weight on hinge-open 0.12, hinge-closed 0.05, neither 0.84 (target 0.40 open)
+lambda 1000: floor 0.01083, ESS 22.8; weight per theta: r2:0.01, r3:0.06, r4:0.03, c1:0.02, c2:0.07, c3:0.07, c4:0.14, c5:0.27, c6:0.16, c7:0.09, c8:0.09
+   weight on hinge-open 0.09, hinge-closed 0.13, neither 0.78 (target 0.40 open)
+best pool pairs by MaxEnt floor (lambda 1000): floor  theta_a theta_b  w_a  ESS
+  0.01092    c2   c6  0.41  5.8
+  0.01097    c4   c5  0.31  8.1
+  0.01103    c5   c8  0.80  7.6
+  0.01105    c5   c7  0.80  7.6
+  0.01110    c2   c4  0.40  3.7
+  0.01113    c5   c6  0.53  15.7
+  0.01116    c6   c8  0.63  11.6
+  0.01119    c2   c5  0.21  11.4

@@ -134,10 +134,102 @@ To describe the direction of motion separately from stationary populations, drif
 \subsection{Restrained Sampling from Diverse Starts Retains Both Anton Basins}
 \label{sec:biofeat-bpti-results}
 
+Experimental restraints can improve agreement with HDX without producing an ensemble that covers the relevant conformational states. To assess whether using the forward model during sampling supplies useful structural diversity, we compared short restrained simulations of BPTI with the 1.03\,ms Anton trajectory. BPTI provides experimental HDX-NMR protection factors for the restraints and a separate structural reference against which to assess the sampled conformations. We asked whether the short simulations covered both principal Anton basins, and whether that coverage persisted when the sampling bias or the experimental restraint was removed. Anton supplied no restraint targets.
+
+Biasing the disulfide sidechain torsions did not by itself produce the backbone displacement needed to reach the left Anton basin. With $\pm2$ residue exclusions, MI+PB from the original starts remained concentrated in the main basin. We therefore introduced an additional perturbation through the HDX restraint, reducing the exclusions to $\pm0$ so that neighbouring residues contributed to the contact counts. This changed the coordinate-dependent restraint while retaining the same sidechain CVs. Under this condition, the backbone reached the left basin, defined by PC1 $<-0.55$, which contained 48.0\,\% of the source frames (\cref{fig:biofeat-bpti-matched-starts}).
+
+The $\pm0$ stage supplied the additional displacement needed to generate diverse starts, but left unresolved whether the resulting backbone conformations would persist under the production $\pm2$ model. We therefore selected four structures across the source ensemble and restarted them under matched $\pm2$ MI+PB, $\pm2$ MI and unbiased conditions. These comparisons test whether retaining the left basin requires continued torsional bias, the HDX restraint alone, or neither.
+
+Both restrained conditions retained coverage of the two Anton basins after restart, with similar left-basin frame fractions under MI alone and MI+PB. Pooled over the four replicas, 44.5\,\% of MI+PB frames and 44.9\,\% of MI frames lay in the left basin, compared with 35.6\,\% for unbiased MD from identical starts. Over the final 50\,ns, these fractions were 37.0, 39.2 and 22.4\,\%, respectively. Both restrained conditions also retained greater left-basin coverage than unbiased MD when the boundary was moved to PC1 $=-0.65$ or $-0.45$ (\cref{app:biofeat-bpti}). Continued disulfide bias was therefore not required to retain this coverage over the matched 250\,ns restarts.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth, keepaspectratio]{biofeat-bpti-matched-starts/fig.png}
-    \caption{Coverage of the two Anton basins of BPTI after restarting from diverse starts. Density panels give $-\ln(p/p_\mathrm{max})$ from uniform frame counts on the Anton C$\alpha$ PCA, without refitting, for the $\pm0$ MI+PB source, for $\pm2$ MI+PB, $\pm2$ MI and unbiased MD run from the four selected starts, and for the 1.03\,ms Anton reference. Colour scales are independent for each panel. The dashed line marks the second-basin boundary at PC1 $=-0.55$. The last panel gives the percentage of frames in the second basin in 10\,ns windows after restart, pooled over the four replicas, with the full-run fraction of the $\pm0$ source as the dashed line. Both restrained conditions kept 44--45\,\% of their frames in the second basin and unbiased MD 36\,\%, against 14\,\% for Anton. The densities measure coverage, not populations.}
+    \caption{Coverage of the two Anton basins of BPTI after restarting from diverse starts. Density panels give $-\ln(p/p_\mathrm{max})$ from uniform frame counts on the Anton C$\alpha$ PCA, without refitting, for the $\pm0$ MI+PB source, for $\pm2$ MI+PB, $\pm2$ MI and unbiased MD run from the four selected starts, and for the 1.03\,ms Anton reference. Colour scales are independent for each panel. The dashed line marks the left-basin boundary at PC1 $=-0.55$. The last panel gives the percentage of frames in the left basin in 10\,ns windows after restart, pooled over the four replicas, with the full-run fraction of the $\pm0$ source as the dashed line. Both restrained conditions kept 44--45\,\% of their frames in the left basin and unbiased MD 36\,\%, against 14\,\% for Anton. The densities measure coverage, not equilibrium populations.}
     \label{fig:biofeat-bpti-matched-starts}
 \end{figure}
+
+The HDX restraint prolonged retention of the left basin after the initial perturbation (\cref{fig:biofeat-bpti-replica-retention}). Of the two replicas starting there, one remained predominantly in the basin under every condition. The other left after 151.5\,ns in unbiased MD, compared with 200.4\,ns under MI+PB and 217.3\,ns under MI, and subsequently returned under MI+PB. The additional perturbation therefore provided access to the left basin, while the production HDX restraint helped retain it.
+
+The diversity stage followed by one matched production condition covered both Anton basins using 2\,$\mu$s of aggregate production simulation, approximately 500-fold less simulated time than the reference. These frame counts establish coverage and retention; estimating populations requires accounting for the selected starts and the sampling bias. We next used restrained sampling to supply candidate states for MoPrP, then followed their dynamics after removing the restraints.
+
+\subsection{Partial Opening Restricts Return towards the Native MoPrP Fold}
+\label{sec:biofeat-moprp-results}
+
+Moulick et al.'s native-state HDX experiments identified at least two partially unfolded forms of MoPrP under misfolding-promoting conditions at pH 4 (\cref{fig:intro-prion-populations}).\supercite{moulickPartiallyUnfoldedForms2015} The denaturant dependence of exchange grouped residues into subglobal opening events, providing segment-level descriptions and opening free energies for PUF1 and PUF2. These measurements establish which regions become exposed together, but leave their structural arrangements unresolved. We used HDX-restrained enhanced sampling to propose conformations underlying these openings, then examined whether they persisted and how they returned towards the native fold after release.
+
+Mutational studies connect this partial opening to specific interactions stabilising MoPrP. H186F stabilises the protein by 1.75\,kcal/mol at pH 4 but has little effect at pH 7, implicating H186 protonation in acidic destabilisation. Neutralising either partner of the R155--D201 salt bridge also destabilises MoPrP and accelerates misfolding, with the pathogenic D201N substitution mimicking neutralisation of D201. HDX-MS places the increased dynamics around $\alpha1$ and the $\alpha1$--$\beta2$ loop.\supercite{singhUnravelingMolecularMechanism2016} These results motivate examining how protonation changes the packing of these elements against the core, and whether their displacement accompanies $\beta1$ detachment.
+
+Short constant-pH simulations already provide a precedent for protonation-dependent access to alternative PrP conformations. Campos et al. simulated human PrP across pH 2--7 in 30--40\,ns trajectories and associated protonation of His187, corresponding to mouse H186, with loss of interactions between the $\beta1$--$\alpha1$--$\beta2$ and $\alpha2$--$\alpha3$ subdomains. One trajectory at pH 2 formed a stable $\beta$-rich structure.\supercite{camposConstantpHMolecularDynamics2010} This coupling between protonation and structural rearrangement supports pH as a possible gating potential. Later MoPrP experiments showed that folding and unfolding follow the same pathway at pH 7 but distinct routes at pH 4, where the kinetics also depend on initial conditions.\supercite{moulickRuggednessFreeEnergy2019} The landscape interpretation in \cref{fig:intro-frustrated-memory} therefore asks how solution conditions alter access between conformations and how a reached arrangement can retain the history of the perturbation applied.
+
+We examined this structural basis by generating partially opened conformations under HDX restraint at pH 4 and pH 7, then following their persistence, exchange and return without restraints. Both restrained simulations used the same experimental protection-factor target, so the comparison tested how the two fixed-protonation models responded to one restraint. Structures selected across their sampled basins subsequently supplied paired starts for unbiased simulations at both pH values. The representative structures identify which experimental opening units rearranged, while the paired trajectories test whether changing protonation alters their subsequent dynamics.
+
+Restrained sampling at pH 4 and pH 7 produced distinct ways of disrupting native packing (\cref{fig:biofeat-moprp-basins}). At pH 4, the ensemble extended along an arm dominated by $\beta1$ detachment. At pH 7, it also reached a core-distorted lobe and a detached $\beta1$--$\alpha1$ set, where $\beta1$, the intervening loop and the N-terminal part of $\alpha1$ moved away from the core. The representative structures distinguish separation of native elements from deformation within them. In the detached set, $\alpha1$ retained a self-fit RMSD of 0.02--0.04\,nm while moving away from the core. Its displacement therefore represents loss of native packing rather than internal unfolding.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth, keepaspectratio]{biofeat-composition/out/moprp_basins_main.png}
+    \caption{Restrained sampling generates distinct partial rearrangements of MoPrP. The left panels show uniform
+    frame counts from MI+PB at pH 4 and pH 7 on the C$\alpha$ PCA fitted to the 2L39 NMR ensemble. Black points
+    mark the NMR models and the red star marks the AlphaFold3 start. Dashed circles identify the six seed origins
+    used for subsequent unbiased simulations. Representative structures share a core-aligned view, with the
+    minimised reference in grey and sampled structures coloured by per-residue backbone displacement. The arm is
+    dominated by $\beta1$ detachment, the lobe by core distortion, and set 7.3 by combined displacement of $
+    \beta1$, the loop and $\alpha1$. Seed identifiers describe structural origins and do not assign experimental
+    PUF identities.}
+    \label{fig:biofeat-moprp-basins}
+\end{figure}
+
+Removing the restraints revealed different subsequent dynamics for Folded and partially opened starts (\cref{fig:biofeat-moprp-paths}). Folded starts remained confined near the native region, with no frame crossing the $\beta1$-opening threshold. The core-distorted starts explored a branch connected to Folded, while the detached $\beta1$--$\alpha1$ starts predominantly retained $\beta1$ opening and exchanged with arrangements along the arm. Direct return from the detached set to Folded was rare. Partial opening therefore changed the conformations accessible over the sampled durations. This provides a structural basis for the history-dependence, or potential-gated dynamics introduced in \cref{fig:intro-frustrated-memory}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth, keepaspectratio]{biofeat-composition/out/moprp_paths_main.png}
+    \caption{Unbiased dynamics retain dependence on the starting arrangement. Columns compare Folded, core-
+    distorted and detached $\beta1$--$\alpha1$ starts; rows give the pH of the subsequent simulation. Every
+    selected structure was run at both pH values. Open circles mark starts, squares mark endpoints and lines
+    follow 1\,ns mean positions on the same PCA plane as \cref{fig:biofeat-moprp-basins}. Grey points show
+    unbiased reference MD. Folded-start panels contain 24 runs per pH, with 12 run for 20\,ns and 12 for 100\,ns;
+    the other panels each contain 12 runs of 100\,ns. Folded starts remain confined, while partially opened starts
+    explore distinct branches and routes of return.}
+    \label{fig:biofeat-moprp-paths}
+\end{figure}
+
+The experimental opening free energies provide a second test of the sampled arrangements. We estimated stationary populations from the unbiased trajectories and compared the resulting candidate opening free energies with the HDX values (\cref{fig:biofeat-moprp-msm}). At pH 4, the closest PUF1 and PUF2 candidates had opening free energies of 2.60 and 3.35\,kcal/mol, compared with $2.2\pm0.2$ and $3.1\pm0.5$\,kcal/mol experimentally.\supercite{moulickPartiallyUnfoldedForms2015} Both candidates occurred within the detached $\beta1$--$\alpha1$ set. Their structural correspondence was incomplete. No sampled frame combined $\beta1$ detachment with the C-terminal $\alpha3$ disorder described for PUF1, and the PUF2 candidate shifted $\beta2$ without detaching it. The energetic comparison places these candidates near the experimental opening costs, while the segment-level comparison identifies the structural changes still missing.
+
+Protonation changed the estimated distribution among the sampled arrangements. Core distortion was 2.3--2.8 times more populated at pH 4, and displacement of the $\alpha1$--$\beta2$ unit was 7--10 times more populated, across the two MSM lag times. At pH 7, the PCA map instead contained a local minimum along the $\beta1$-detached arm, marked by the star in \cref{fig:biofeat-moprp-msm}. These differences describe relative favourability within the sampled model. Whether protonation also changes the routes of return requires examining motion through these regions.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth, keepaspectratio]{biofeat-composition/out/moprp_msm_main.png}
+    \caption{MSM stationary populations relate the sampled structures to experimental opening energetics. Panels A
+    and C show projected free energies on the Cartesian PCA plane at pH 4 and pH 7; panels B and D show the
+    corresponding distributions on the dihedral plane. Each map is zeroed at its own minimum. Circles retain the
+    seed identifiers from \cref{fig:biofeat-moprp-basins}, and the star marks the arm position at PC (87.5, 17.5).
+    The values below the maps compare pH 4 candidate opening free energies with the experimental PUF values.
+    Candidate opening free energies integrate structural-state populations and are distinct from the projected-bin
+    energies represented by the colours.}
+    \label{fig:biofeat-moprp-msm}
+\end{figure}
+
+Local motion differed around the occupied regions (\cref{fig:biofeat-moprp-flow}). At pH 7, a slow corridor extended from the Folded region towards the arm minimum. At pH 4, the slow region branched towards both the core-distorted lobe and the detached arm. The dihedral projection separated changes in $\beta1$ from displacement elsewhere in the protein. These patterns locate where return or further rearrangement slows within the sampled ensemble, connecting the population maps to the selective exchange seen in the individual trajectories.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth, keepaspectratio]{biofeat-composition/out/moprp_flow_main.png}
+    \caption{Projected drift locates slow regions and differences in local motion between pH conditions. Panels
+    A--D show mean displacement over 1\,ns on the Cartesian and dihedral planes. Cartesian arrows give direction
+    and magnitude, with contours marking speed; dihedral arrows give direction. Panels E and F show pH 7 minus pH
+    4 differences, with blue indicating faster motion at pH 4 and red faster motion at pH 7. Estimates require at
+    least 200 frame pairs from at least three runs per bin and use 144 trajectories totalling 12.48\,$\mu$s. The
+    arrows describe local projected motion; the trajectories in \cref{fig:biofeat-moprp-paths} establish the
+    observed connections between regions.}
+    \label{fig:biofeat-moprp-flow}
+\end{figure}
+
+These simulations provide the potential-gated landscape interpretation of MoPrP dynamics with specific structural content. Detachment of $\beta1$ and displacement of the intact $\alpha1$ helix produce persistent arrangements with restricted routes of return, while Folded starts do not reach those arrangements over the sampled durations. By combining restrained and unbiased simulations under multiple pH conditions, we identified candidate conformations for the partially unfolded forms and characterise a structural basis for the history-dependence of MoPrP dynamics. 
+
+While these simulation experiments sample an equilibrium ensemble landscape larger than previous studies, fixed topologies mean these simulations do not represent the full equilibrium ensemble of MoPrP in solution. These results exemplify how we can incorporate multiple sources of information to generate and refine ensembles, and how we can use the resulting ensembles to extrapolate structural explanations for observations, beyond what could be achieved by any single experiment in isolation.
+
+
+

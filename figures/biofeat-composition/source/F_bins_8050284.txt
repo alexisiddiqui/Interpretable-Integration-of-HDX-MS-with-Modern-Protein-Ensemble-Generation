@@ -1,0 +1,71 @@
+axis json /home/u6xq/hussain.u6xq/_runtime/analysis/fiedler/blind_axis_fiedler.json: lobe I 169, lobe II 140
+loaded k1: 48 structures
+loaded k2: 47 structures
+loaded k3: 47 structures
+loaded k4: 47 structures
+loaded k5: 47 structures
+metad union: 236 structures; theta min -38.35 max +25.45 mean -4.96; outside [-48,+24): 1 (below 0, above 1)
+union uniform MSE (all 236): 0.00732
+(a) per-bin table (6-deg bins, label = centre)
+    bin       range    n  mean th  MSE unif floor l1000    ESS
+    -45   [-48,-42)    0        -         -           -      -
+    -39   [-42,-36)    4   -37.37   0.02183       (n<5)      -
+    -33   [-36,-30)    9   -32.05   0.01239     0.01180    8.3
+    -27   [-30,-24)   24   -26.16   0.01326     0.01053    8.7
+    -21   [-24,-18)   21   -20.56   0.01086     0.00960   14.7
+    -15   [-18,-12)   24   -15.02   0.01143     0.00908    9.0
+     -9    [-12,-6)   22    -8.51   0.01011     0.00766    3.7
+     -3     [-6,+0)   35    -2.99   0.01057     0.00754    7.3
+     +3     [+0,+6)   38    +3.67   0.01140     0.00657    6.9
+     +9    [+6,+12)   20    +8.98   0.01040     0.00672    4.9
+    +15   [+12,+18)   23   +14.66   0.01104     0.00782    5.3
+    +21   [+18,+24)   15   +19.85   0.01294     0.00992    4.6
+(b) best 15 bin pairs (uniform inside bins; f_a = weight on the first bin)
+       MSE  bin_a bin_b  f_a
+   0.00669    -21   +21  0.55
+   0.00685    -33   +21  0.50
+   0.00685    -21   +15  0.50
+   0.00685    -33   +15  0.45
+   0.00702    -15   +21  0.55
+   0.00712    -33    +9  0.45
+   0.00738    -15   +15  0.50
+   0.00740    -21    +9  0.50
+   0.00765    -27    +9  0.40
+   0.00791    -27   +21  0.50
+   0.00810    -27   +15  0.45
+   0.00810     -3   +21  0.60
+   0.00810    -15    +9  0.45
+   0.00821     -9   +21  0.60
+   0.00832    -27    +3  0.45
+  best pair with one bin centre < -12 and one > +3: -21 + +21  f_a 0.55  MSE 0.00669  (rank 1 of 55)
+  top 5 such cross pairs: -21++21 f_a 0.55 0.00669; -33++21 f_a 0.50 0.00685; -21++15 f_a 0.50 0.00685; -33++15 f_a 0.45 0.00685; -15++21 f_a 0.55 0.00702
+  JSD recovery (theta rule: open < -5, closed > +5; strict support open/closed/neither, target 0.40/0.60/0); bin states by centre: -39:open, -33:open, -27:open, -21:open, -15:open, -9:open, -3:neither, +3:neither, +9:closed, +15:closed, +21:closed
+   recovery best pair -21 + +21 f_a 0.55: populations open 0.550 closed 0.450 neither 0.000, JSD 0.0163, recovery 87.2%; 2-state renormalised: populations open 0.550 closed 0.450, JSD 0.0163, recovery 87.2%
+(c) simplex over all theta bins (blind): MSE 0.00645 (best start rand0; exact quadratic from hook evals, SLSQP; model-vs-hook max abs err 2.03e-09; centred-M eig min -1.74e-18; 85 function evals over 16 starts)
+   start spread: min 0.00645 median 0.00645 max 0.00645; converged 16/16; starts within 1e-5 of best: 16
+   f per bin: -39:0.000, -33:0.265, -27:0.025, -21:0.153, -15:0.000, -9:0.000, -3:0.090, +3:0.000, +9:0.116, +15:0.032, +21:0.320
+   f in bins with centre < -12: 0.442, -12..+3: 0.090, > +3: 0.468
+   f-weighted mean theta (bin mean thetas): -4.68
+   recovery blind simplex (bins by centre): populations open 0.442 closed 0.468 neither 0.090, JSD 0.0516, recovery 77.3%; 2-state renormalised: populations open 0.486 closed 0.514, JSD 0.0054, recovery 92.6%
+loaded in_open: 20 structures
+loaded in_closed: 20 structures
+   ref in_open: n 20, mean theta -17.12 sd 0.47, uniform MSE 0.01142
+   ref in_closed: n 20, mean theta +9.85 sd 0.55, uniform MSE 0.01104
+(c) simplex over theta bins + in-state refs: MSE 0.00464 (best start peak-39; exact quadratic from hook evals, SLSQP; model-vs-hook max abs err 1.55e-09; centred-M eig min -1.84e-18; 112 function evals over 18 starts)
+   start spread: min 0.00464 median 0.00464 max 0.00464; converged 18/18; starts within 1e-5 of best: 18
+   f per bin: -39:0.000, -33:0.065, -27:0.186, -21:0.000, -15:0.000, -9:0.000, -3:0.000, +3:0.000, +9:0.000, +15:0.000, +21:0.147, in_open:0.234, in_closed:0.367
+   f in bins with centre < -12: 0.252, -12..+3: 0.000, > +3: 0.147; refs: in_open:0.234, in_closed:0.367
+   f-weighted mean theta (bin mean thetas): -4.44
+   recovery with-ref simplex (bins by centre; refs in_open:open, in_closed:closed): populations open 0.486 closed 0.514 neither 0.000, JSD 0.0054, recovery 92.7%; 2-state renormalised: populations open 0.486 closed 0.514, JSD 0.0054, recovery 92.7%
+(c) two-pool check in_open + in_closed (uniform inside): grid best f_in_open 0.50 MSE 0.00573; at f 0.50: 0.00573
+   grid: 0.00:0.01104, 0.05:0.01001, 0.10:0.00910, 0.15:0.00829, 0.20:0.00759, 0.25:0.00701, 0.30:0.00653, 0.35:0.00616, 0.40:0.00591, 0.45:0.00576, 0.50:0.00573, 0.55:0.00580, 0.60:0.00598, 0.65:0.00628, 0.70:0.00668, 0.75:0.00720, 0.80:0.00782, 0.85:0.00856, 0.90:0.00940, 0.95:0.01036, 1.00:0.01142
+   simplex fit: f in_open 0.491, in_closed 0.509, MSE 0.00572 (exact quadratic from hook evals, SLSQP; model-vs-hook max abs err 1.14e-09; centred-M eig min 0.00e+00)
+   recovery two-pool simplex fit (in_open:open, in_closed:closed; ceiling): populations open 0.491 closed 0.509 neither 0.000, JSD 0.0061, recovery 92.2%; 2-state renormalised: populations open 0.491 closed 0.509, JSD 0.0061, recovery 92.2%
+   recovery two-pool grid best f_in_open 0.50: populations open 0.500 closed 0.500 neither 0.000, JSD 0.0073, recovery 91.5%; 2-state renormalised: populations open 0.500 closed 0.500, JSD 0.0073, recovery 91.5%
+(d) per-structure MaxEnt inside hinge bins (lambda 100 and 1000)
+   bin -21 (contains -20): n 21, uniform MSE 0.01086; l100 floor 0.00874 ESS 7.1; l1000 floor 0.00960 ESS 14.7
+   bin +9 (contains +10): n 20, uniform MSE 0.01040; l100 floor 0.00713 ESS 5.9; l1000 floor 0.00672 ESS 4.9
+   bins -21 + +9 jointly: n 41, uniform MSE 0.00740; l100 floor 0.00450 ESS 15.8 (w on -21: 0.485); l1000 floor 0.00394 ESS 7.5 (w on -21: 0.457)
+   whole metad union (236): l100 floor 0.00350 ESS 32.8
+   whole metad union (236): l1000 floor 0.00268 ESS 15.5
+wrote /home/u6xq/hussain.u6xq/_runtime/analysis/fiedler/sweep_F_a0.25_bins.csv

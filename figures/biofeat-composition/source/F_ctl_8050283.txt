@@ -1,0 +1,25 @@
+loaded k1: 48 structures
+loaded k2: 47 structures
+loaded k3: 47 structures
+loaded k4: 47 structures
+loaded k5: 47 structures
+ theta    n | hingeO hingeC lobeII->open lobeII->closed |  MSE unif floor l100   ESS floor l1000   ESS
+    k1   48 |      2      1         5.82           5.08 |   0.01438    0.01241  10.6     0.01174   4.7
+    k2   47 |      5      1         5.01           5.59 |   0.01373    0.01219  20.0     0.01166  10.4
+    k3   47 |      4      1         5.00           5.31 |   0.01424    0.01277  22.1     0.01195   4.9
+    k4   47 |      3      1         4.81           5.38 |   0.01413    0.01291  21.4     0.01237   8.4
+    k5   47 |      4      1         4.92           4.91 |   0.01428    0.01334  24.5     0.01313  14.6
+union of 236 structures: uniform MSE 0.01406
+lambda 100: floor 0.01193, ESS 27.4; weight per theta: k1:0.26, k2:0.28, k3:0.19, k4:0.17, k5:0.11
+   weight on hinge-open 0.10, hinge-closed 0.01, neither 0.89 (target 0.40 open)
+lambda 1000: floor 0.01098, ESS 5.1; weight per theta: k1:0.45, k2:0.30, k3:0.14, k4:0.09, k5:0.02
+   weight on hinge-open 0.12, hinge-closed 0.00, neither 0.88 (target 0.40 open)
+best pool pairs by MaxEnt floor (lambda 1000): floor  theta_a theta_b  w_a  ESS
+  0.01118    k1   k2  0.51  7.3
+  0.01137    k1   k4  0.74  4.6
+  0.01144    k1   k3  0.64  4.4
+  0.01170    k1   k5  0.88  4.4
+  0.01195    k2   k4  0.64  24.9
+  0.01196    k3   k5  0.67  9.9
+  0.01199    k3   k4  0.64  12.9
+  0.01202    k2   k3  0.60  26.6

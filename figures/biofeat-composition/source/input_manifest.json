@@ -1,0 +1,139 @@
+[
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_seeded/msm/ext12seg2_q0.5_cartpca10_all-kmall_k100_lag5/msm_weights.npz",
+    "sha256": "e2f4a533ec9f072ef204fce1a35d9781125e519db6c23a7b44b840cc56cc4e23",
+    "bytes": 2609266,
+    "staged_input": "msm_weights.npz"
+  },
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_seeded/msm/ext12seg2_q0.5_cartpca10_all-kmall_k100_lag5/msm_report.json",
+    "sha256": "2ba4a457a7afc53034a2a89c616ed56b6564a15918e7fe55545b1fbbca251da5",
+    "bytes": 39388,
+    "staged_input": "msm_report.json"
+  },
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_basins/pca101_scores.npz",
+    "sha256": "52fbbd0c18da2354d2cb0f7c34dab20af93a1a15caf9c219fd36c5336f7dab23",
+    "bytes": 9329285,
+    "staged_input": "basins/pca101_scores.npz"
+  },
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_basins/frames101_trim/basins.json",
+    "sha256": "d39aa01f672bd801ad1fd28940fd30268326bf05c0af1dfd82e84a93581cf9c0",
+    "bytes": 21142,
+    "staged_input": "basins/frames101_trim/basins.json"
+  },
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_basins/frames101_trim/ph7_mmpb_1.pdb",
+    "sha256": "4402126a097c027f33456b51832261534311cb80e76705faf06f0d71d7752b7b",
+    "bytes": 1537077,
+    "staged_input": "basins/frames101_trim/ph7_mmpb_1.pdb"
+  },
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_basins/frames101_trim/ph7_mmpb_2.pdb",
+    "sha256": "da4199a0cc2218d819ee7f5a388e696be6ac43f1fc6ac48e82962fff0f7621f4",
+    "bytes": 1537077,
+    "staged_input": "basins/frames101_trim/ph7_mmpb_2.pdb"
+  },
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_basins/frames101_trim/ph7_mmpb_3.pdb",
+    "sha256": "2ed0ea8b5e35df89767ff9581457c5cc17e3c2ba0b0a2fda1993c09523fb20d7",
+    "bytes": 1537077,
+    "staged_input": "basins/frames101_trim/ph7_mmpb_3.pdb"
+  },
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_basins/frames101_trim/ph4_mmpb_1.pdb",
+    "sha256": "a0bd330dfefeca90873f6750ab368ce4bcb0555aecdfa92a3fbee3608a3438c6",
+    "bytes": 1544853,
+    "staged_input": "basins/frames101_trim/ph4_mmpb_1.pdb"
+  },
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_basins/frames101_trim/ph4_mmpb_3.pdb",
+    "sha256": "f98172c49999df44b2e4016a73f6031254f98eaefa28f058ad4e01beb2a0d6d0",
+    "bytes": 1544853,
+    "staged_input": "basins/frames101_trim/ph4_mmpb_3.pdb"
+  },
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_basins/frames101_trim/ph4_mmpb_2.pdb",
+    "sha256": "f0285d90dc4a2beb0775e68800289be0036f007dc4cd12c33e143404793c773d",
+    "bytes": 1544853,
+    "staged_input": "basins/frames101_trim/ph4_mmpb_2.pdb"
+  },
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_basins/frames101_trim/ph4_minimised_101.pdb",
+    "sha256": "c122bfcd2a02e00b1b4dcf1139b12a0f4299b97e0764a6392ad65c639df20b60",
+    "bytes": 128790,
+    "staged_input": "basins/frames101_trim/ph4_minimised_101.pdb"
+  },
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_basins/frames101_trim/ph7_minimised_101.pdb",
+    "sha256": "8cba3f733c3a20f1c7ef56dbfafbeb156f7b28b0b52d899222b49edfbb252fe8",
+    "bytes": 128142,
+    "staged_input": "basins/frames101_trim/ph7_minimised_101.pdb"
+  },
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_seeded/basins_seed.json",
+    "sha256": "0d1f269cc67c80da382cd42603f8e9ae655cf77bbebde7fb167a3433d83209f0",
+    "bytes": 843,
+    "staged_input": "seeded/basins_seed.json"
+  },
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_seeded/trajectory_paths.py",
+    "sha256": "c715dd28c37155dd2b3648ee354bdee0e3626e70ed7104403ecf39ca31fb3745",
+    "bytes": 9151,
+    "staged_input": "seeded/trajectory_paths.py"
+  },
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_seeded/qc/task_list_half1_20ns.npz",
+    "sha256": "10e6359a747f5ae287fd5500bff53a4016973db090f1c51da72181f3a5e3aeac",
+    "bytes": 28490618,
+    "staged_input": "seeded/qc/task_list_half1_20ns.npz"
+  },
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_seeded/qc/task_list_ext100c_dihedrals.npz",
+    "sha256": "5d94615b3f865b3fc2a6167ba59e6db0bc05fa3f5cc870f1e843477f1e9cec40",
+    "bytes": 4164612,
+    "staged_input": "seeded/qc/task_list_ext100c_dihedrals.npz"
+  },
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_seeded/qc/task_list_ext100_dihedrals.npz",
+    "sha256": "578140fc1fc9527497611e270c15493a91ba21bd68b5bf25d73a86deef4ca6b5",
+    "bytes": 3203827,
+    "staged_input": "seeded/qc/task_list_ext100_dihedrals.npz"
+  },
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_seeded/qc/task_list_half1_dihedrals.npz",
+    "sha256": "e8c4fcc8999edcf7b15a8e4f123c449c17c943d500f03042592ea3e5e42730f3",
+    "bytes": 2722013,
+    "staged_input": "seeded/qc/task_list_half1_dihedrals.npz"
+  },
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_seeded/qc/task_list_ext100_100ns.npz",
+    "sha256": "53cd959e6596b8c4f02ab00ec806f79f7f36782506c6226d7a4b9a5691e54494",
+    "bytes": 34362893,
+    "staged_input": "seeded/qc/task_list_ext100_100ns.npz"
+  },
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_seeded/qc/task_list_ext100c_100ns.npz",
+    "sha256": "f0a8e820c3f62fa73efb61f0df4841388dcbfeb322563259b918721de313b6e8",
+    "bytes": 45796357,
+    "staged_input": "seeded/qc/task_list_ext100c_100ns.npz"
+  },
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_seeded/qc/task_list_ext100b_dihedrals.npz",
+    "sha256": "efdbc342c71d1162f9f605cac202ec0ab003d8bdc72c98326139addd98751593",
+    "bytes": 3200199,
+    "staged_input": "seeded/qc/task_list_ext100b_dihedrals.npz"
+  },
+  {
+    "source": "/Users/alexi/Coulson-Chemistry/moprp_seeded/qc/task_list_ext100b_100ns.npz",
+    "sha256": "1225ae83b15e6aa31af2199c7e0d4a4e61e0e00dff70ef0d0b50d23ae0ad5564",
+    "bytes": 34391349,
+    "staged_input": "seeded/qc/task_list_ext100b_100ns.npz"
+  },
+  {
+    "source": "figures/biofeat-teaa-landscape-F/per_structure.csv",
+    "sha256": "b1ab84eada49e74904bdb69d56f832291d8de32025ec6c5b968e45e8b78a159d",
+    "bytes": 493810
+  }
+]
